@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-26T12:58:56.458Z",
+  "generatedAt": "2026-09-26T13:06:30.323Z",
   "counts": {
     "total": 505,
     "byEcosystem": {
@@ -121,7 +121,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Microsoft.Extensions.AI.OpenAI",
         "version": "10.10.1",
-        "downloads": 23716914
+        "downloads": 23716914,
+        "downloadsPeriod": "total"
       },
       "github": {},
       "confidence": 0.75,
@@ -156,7 +157,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Microsoft.SemanticKernel.Connectors.OpenAI",
         "version": "1.80.1",
-        "downloads": 18960043
+        "downloads": 18960043,
+        "downloadsPeriod": "total"
       },
       "github": {},
       "confidence": 0.75,
@@ -189,7 +191,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Rystem.OpenAi",
         "version": "10.0.10",
-        "downloads": 12841814
+        "downloads": 12841814,
+        "downloadsPeriod": "total"
       },
       "github": {},
       "confidence": 0.75,
@@ -226,6 +229,7 @@
         "url": "https://crates.io/crates/tch",
         "version": "0.26.0",
         "downloads": 7510887,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-08-23"
       },
       "github": {},
@@ -268,7 +272,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Anthropic",
         "version": "12.50.0",
-        "downloads": 4942922
+        "downloads": 4942922,
+        "downloadsPeriod": "total"
       },
       "github": {},
       "confidence": 0.9,
@@ -306,7 +311,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Microsoft.Agents.AI.OpenAI",
         "version": "1.22.0",
-        "downloads": 3647562
+        "downloads": 3647562,
+        "downloadsPeriod": "total"
       },
       "github": {},
       "confidence": 0.75,
@@ -339,7 +345,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/tryAGI.OpenAI",
         "version": "4.2.10",
-        "downloads": 3448965
+        "downloads": 3448965,
+        "downloadsPeriod": "total"
       },
       "github": {},
       "confidence": 0.75,
@@ -375,7 +382,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Betalgo.OpenAI",
         "version": "8.7.2",
-        "downloads": 2213059
+        "downloads": 2213059,
+        "downloadsPeriod": "total"
       },
       "github": {},
       "confidence": 0.75,
@@ -412,7 +420,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Forge.OpenAI",
         "version": "1.6.2",
-        "downloads": 1742325
+        "downloads": 1742325,
+        "downloadsPeriod": "total"
       },
       "github": {},
       "confidence": 0.75,
@@ -452,7 +461,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/LLamaSharp",
         "version": "0.27.0",
-        "downloads": 1446533
+        "downloads": 1446533,
+        "downloadsPeriod": "total"
       },
       "github": {},
       "confidence": 0.9,
@@ -495,6 +505,7 @@
         "url": "https://pypi.org/project/fireworks-ai",
         "version": "1.2.16",
         "downloads": 1140888,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-25"
       },
       "github": {},
@@ -532,6 +543,7 @@
         "url": "https://pypi.org/project/ai21",
         "version": "4.3.0",
         "downloads": 1004840,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-11-06"
       },
       "github": {},
@@ -574,6 +586,7 @@
         "url": "https://pypi.org/project/pinecone-client",
         "version": "6.0.0",
         "downloads": 950621,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-02-21"
       },
       "github": {},
@@ -608,7 +621,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Universe.OpenAI.API",
         "version": "0.9.5",
-        "downloads": 477519
+        "downloads": 477519,
+        "downloadsPeriod": "total"
       },
       "github": {},
       "confidence": 0.75,
@@ -643,6 +657,7 @@
         "url": "https://pypi.org/project/cohere-compass-sdk",
         "version": "2.19.0",
         "downloads": 269728,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-16"
       },
       "github": {},
@@ -681,7 +696,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Anthropic.Bedrock",
         "version": "0.13.3",
-        "downloads": 219660
+        "downloads": 219660,
+        "downloadsPeriod": "total"
       },
       "github": {},
       "confidence": 0.75,
@@ -729,6 +745,7 @@
         "url": "https://pkg.go.dev/github.com/ollama/ollama",
         "version": "v0.34.4",
         "downloads": 366,
+        "downloadsPeriod": "imports",
         "updatedAt": "2026-09-23"
       },
       "github": {
@@ -785,6 +802,7 @@
         "url": "https://pypi.org/project/transformers",
         "version": "5.17.0",
         "downloads": 92718566,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-09"
       },
       "github": {
@@ -848,6 +866,7 @@
         "url": "https://pypi.org/project/langchain",
         "version": "1.4.2",
         "downloads": 169366312,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-18"
       },
       "github": {
@@ -896,6 +915,7 @@
         "url": "https://pypi.org/project/langchain-anthropic",
         "version": "1.7.4",
         "downloads": 17320526,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-23"
       },
       "github": {
@@ -943,6 +963,7 @@
         "url": "https://pypi.org/project/langchain-aws",
         "version": "1.7.9",
         "downloads": 7675474,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-22"
       },
       "github": {
@@ -992,6 +1013,7 @@
         "url": "https://pypi.org/project/langchain-google-genai",
         "version": "4.4.0",
         "downloads": 13083937,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-01"
       },
       "github": {
@@ -1045,6 +1067,7 @@
       "registry": {
         "url": "https://github.com/ggml-org/llama.cpp",
         "downloads": 23749,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-26"
       },
       "github": {
@@ -1091,6 +1114,7 @@
         "url": "https://pypi.org/project/openai-whisper",
         "version": "20250625",
         "downloads": 5190666,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-06-26"
       },
       "github": {
@@ -1137,6 +1161,7 @@
         "url": "https://pypi.org/project/torch",
         "version": "2.14.0",
         "downloads": 59795650,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-02"
       },
       "github": {
@@ -1192,6 +1217,7 @@
         "url": "https://pypi.org/project/vllm",
         "version": "0.30.0",
         "downloads": 1942109,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-22"
       },
       "github": {
@@ -1240,6 +1266,7 @@
         "url": "https://www.npmjs.com/package/mcp",
         "version": "1.4.2",
         "downloads": 5107,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-03-13"
       },
       "github": {
@@ -1295,6 +1322,7 @@
         "url": "https://www.npmjs.com/package/@lobehub/chat",
         "version": "1.143.3",
         "downloads": 103671,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-01-25"
       },
       "github": {
@@ -1347,6 +1375,7 @@
         "url": "https://pypi.org/project/autogen-agentchat",
         "version": "0.7.5",
         "downloads": 381074,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-09-30"
       },
       "github": {
@@ -1401,6 +1430,7 @@
         "url": "https://www.npmjs.com/package/litellm",
         "version": "0.12.0",
         "downloads": 17711,
+        "downloadsPeriod": "month",
         "updatedAt": "2024-01-03"
       },
       "github": {
@@ -1472,6 +1502,7 @@
         "url": "https://pypi.org/project/litellm",
         "version": "1.102.1",
         "downloads": 89385344,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-23"
       },
       "github": {
@@ -1525,6 +1556,7 @@
         "url": "https://pypi.org/project/crewai",
         "version": "1.15.22",
         "downloads": 2431720,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-16"
       },
       "github": {
@@ -1567,7 +1599,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Cohere",
         "version": "1.0.1",
-        "downloads": 57523
+        "downloads": 57523,
+        "downloadsPeriod": "total"
       },
       "github": {},
       "confidence": 0.75,
@@ -1609,6 +1642,7 @@
         "url": "https://www.npmjs.com/package/llamaindex",
         "version": "0.12.1",
         "downloads": 426706,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-12-02"
       },
       "github": {
@@ -1662,6 +1696,7 @@
         "url": "https://pypi.org/project/llama-index",
         "version": "0.14.25",
         "downloads": 3102168,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-21"
       },
       "github": {
@@ -1710,6 +1745,7 @@
         "url": "https://pypi.org/project/llama-index-core",
         "version": "0.14.25",
         "downloads": 6635853,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-21"
       },
       "github": {
@@ -1763,6 +1799,7 @@
         "url": "https://pypi.org/project/phidata",
         "version": "2.7.10",
         "downloads": 131475,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-01-27"
       },
       "github": {
@@ -1815,6 +1852,7 @@
         "url": "https://pypi.org/project/langgraph",
         "version": "1.2.12",
         "downloads": 43651931,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-21"
       },
       "github": {
@@ -1864,6 +1902,7 @@
         "url": "https://pypi.org/project/langextract-azureopenai",
         "version": "0.1.7",
         "downloads": 1281,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-08-19"
       },
       "github": {
@@ -1914,6 +1953,7 @@
         "url": "https://pypi.org/project/dspy",
         "version": "3.4.0",
         "downloads": 5174682,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -1964,6 +2004,7 @@
         "url": "https://www.npmjs.com/package/langfuse",
         "version": "3.39.2",
         "downloads": 6620449,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-15"
       },
       "github": {
@@ -2019,6 +2060,7 @@
         "url": "https://pypi.org/project/langfuse",
         "version": "4.15.6",
         "downloads": 22351086,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-24"
       },
       "github": {
@@ -2082,6 +2124,7 @@
         "url": "https://pypi.org/project/openai",
         "version": "3.19.2",
         "downloads": 284217868,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-24"
       },
       "github": {
@@ -2127,6 +2170,7 @@
         "url": "https://crates.io/crates/anthropic",
         "version": "0.0.8",
         "downloads": 31574,
+        "downloadsPeriod": "total",
         "updatedAt": "2024-09-03"
       },
       "github": {},
@@ -2164,6 +2208,7 @@
         "url": "https://rubygems.org/gems/anthropic-rb",
         "version": "0.6.0",
         "downloads": 30203,
+        "downloadsPeriod": "total",
         "updatedAt": "2024-06-26"
       },
       "github": {},
@@ -2208,6 +2253,7 @@
         "url": "https://pypi.org/project/openai-agents",
         "version": "0.22.3",
         "downloads": 12074423,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-17"
       },
       "github": {
@@ -2260,6 +2306,7 @@
         "url": "https://pypi.org/project/smolagents",
         "version": "1.26.0",
         "downloads": 427830,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-05-29"
       },
       "github": {
@@ -2309,6 +2356,7 @@
         "url": "https://pypi.org/project/chromadb",
         "version": "1.5.9",
         "downloads": 6619378,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-05-05"
       },
       "github": {
@@ -2364,7 +2412,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Microsoft.SemanticKernel",
         "version": "1.80.1",
-        "downloads": 16775454
+        "downloads": 16775454,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 28607,
@@ -2414,6 +2463,7 @@
         "url": "https://pypi.org/project/fastmcp",
         "version": "4.0.10",
         "downloads": 50128296,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -2465,6 +2515,7 @@
         "url": "https://www.npmjs.com/package/@ai-sdk/anthropic",
         "version": "4.0.65",
         "downloads": 44876782,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -2514,6 +2565,7 @@
         "url": "https://www.npmjs.com/package/@ai-sdk/google",
         "version": "4.0.82",
         "downloads": 28852517,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -2568,6 +2620,7 @@
         "url": "https://www.npmjs.com/package/@ai-sdk/openai",
         "version": "4.0.78",
         "downloads": 46124913,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-26"
       },
       "github": {
@@ -2628,6 +2681,7 @@
         "url": "https://www.npmjs.com/package/@ai-sdk/openai-compatible",
         "version": "3.0.57",
         "downloads": 28401419,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -2678,6 +2732,7 @@
         "url": "https://www.npmjs.com/package/@ctilkaz/openai-compatible-ignore-unknown",
         "version": "3.0.16",
         "downloads": 43,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-07-19"
       },
       "github": {
@@ -2742,6 +2797,7 @@
         "url": "https://www.npmjs.com/package/ai",
         "version": "7.0.116",
         "downloads": 88592084,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -2794,6 +2850,7 @@
         "url": "https://pypi.org/project/haystack-ai",
         "version": "3.2.0",
         "downloads": 539609,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-24"
       },
       "github": {
@@ -2850,6 +2907,7 @@
         "url": "https://www.npmjs.com/package/promptfoo",
         "version": "0.123.1",
         "downloads": 2590298,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-18"
       },
       "github": {
@@ -2900,6 +2958,7 @@
         "url": "https://pypi.org/project/letta",
         "version": "0.33.2",
         "downloads": 11666,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -2950,6 +3009,7 @@
         "url": "https://pypi.org/project/mcp",
         "version": "2.2.0",
         "downloads": 219043071,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-07"
       },
       "github": {
@@ -2994,7 +3054,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/DevExpress.AIIntegration.OpenAI",
         "version": "26.1.5",
-        "downloads": 23619
+        "downloads": 23619,
+        "downloadsPeriod": "total"
       },
       "github": {},
       "confidence": 0.75,
@@ -3032,6 +3093,7 @@
       "registry": {
         "url": "https://github.com/steipete/CodexBar",
         "downloads": 2008,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-26"
       },
       "github": {
@@ -3079,6 +3141,7 @@
         "url": "https://pypi.org/project/jina",
         "version": "3.34.0",
         "downloads": 15710,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-03-24"
       },
       "github": {
@@ -3130,6 +3193,7 @@
         "url": "https://pypi.org/project/guidance",
         "version": "0.3.1",
         "downloads": 11757,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-02-03"
       },
       "github": {
@@ -3177,6 +3241,7 @@
         "url": "https://crates.io/crates/candle",
         "version": "0.1.0",
         "downloads": 640,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-03-31"
       },
       "github": {
@@ -3234,6 +3299,7 @@
         "url": "https://pypi.org/project/pydantic-ai",
         "version": "2.51.0",
         "downloads": 5304672,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -3278,6 +3344,7 @@
       "registry": {
         "url": "https://github.com/openai/evals",
         "downloads": 3093,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-04-14"
       },
       "github": {
@@ -3323,6 +3390,7 @@
         "url": "https://pypi.org/project/tiktoken",
         "version": "0.14.0",
         "downloads": 175795904,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-08-17"
       },
       "github": {
@@ -3372,6 +3440,7 @@
         "url": "https://www.npmjs.com/package/@mlc-ai/web-llm",
         "version": "0.2.85",
         "downloads": 361631,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-08"
       },
       "github": {
@@ -3422,6 +3491,7 @@
         "url": "https://pypi.org/project/deepeval",
         "version": "4.2.6",
         "downloads": 2462143,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-24"
       },
       "github": {
@@ -3469,6 +3539,7 @@
         "url": "https://www.npmjs.com/package/@langchain/anthropic",
         "version": "1.5.11",
         "downloads": 4690569,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-21"
       },
       "github": {
@@ -3520,6 +3591,7 @@
         "url": "https://www.npmjs.com/package/@langchain/core",
         "version": "1.2.12",
         "downloads": 19975039,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-20"
       },
       "github": {
@@ -3568,6 +3640,7 @@
         "url": "https://www.npmjs.com/package/@langchain/openai",
         "version": "1.5.13",
         "downloads": 13372188,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-12"
       },
       "github": {
@@ -3622,6 +3695,7 @@
         "url": "https://www.npmjs.com/package/langchain",
         "version": "1.5.12",
         "downloads": 10466130,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-22"
       },
       "github": {
@@ -3667,6 +3741,7 @@
         "url": "https://www.npmjs.com/package/chatgpt",
         "version": "5.2.5",
         "downloads": 39175,
+        "downloadsPeriod": "month",
         "updatedAt": "2023-05-31"
       },
       "github": {
@@ -3719,6 +3794,7 @@
         "url": "https://www.npmjs.com/package/@huggingface/transformers",
         "version": "4.3.0",
         "downloads": 10656276,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-16"
       },
       "github": {
@@ -3768,6 +3844,7 @@
         "url": "https://pypi.org/project/outlines",
         "version": "1.3.3",
         "downloads": 1227737,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-08-06"
       },
       "github": {
@@ -3818,6 +3895,7 @@
         "url": "https://pypi.org/project/ragas",
         "version": "0.4.3",
         "downloads": 998430,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-01-13"
       },
       "github": {
@@ -3867,6 +3945,7 @@
         "url": "https://pypi.org/project/unstructured",
         "version": "0.27.8",
         "downloads": 2474759,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-22"
       },
       "github": {
@@ -3915,6 +3994,7 @@
       "registry": {
         "url": "https://github.com/tisfeng/Easydict",
         "downloads": 757,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -3966,6 +4046,7 @@
         "url": "https://www.npmjs.com/package/@claude-flow/embeddings",
         "version": "3.0.0-alpha.45",
         "downloads": 14658,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-05-18"
       },
       "github": {},
@@ -4011,6 +4092,7 @@
         "url": "https://pypi.org/project/instructor",
         "version": "1.17.0",
         "downloads": 8404999,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-09"
       },
       "github": {
@@ -4061,6 +4143,7 @@
         "url": "https://www.npmjs.com/package/@modelcontextprotocol/sdk",
         "version": "1.30.1",
         "downloads": 195752267,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-23"
       },
       "github": {
@@ -4104,6 +4187,7 @@
         "url": "https://pypi.org/project/mistralai-search-toolkit",
         "version": "0.0.14",
         "downloads": 13296,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-18"
       },
       "github": {},
@@ -4300,6 +4384,7 @@
         "url": "https://www.npmjs.com/package/portkey",
         "version": "1.1.0",
         "downloads": 192,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-06-22"
       },
       "github": {
@@ -4345,6 +4430,7 @@
         "url": "https://rubygems.org/gems/openai-please",
         "version": "0.2.0",
         "downloads": 12607,
+        "downloadsPeriod": "total",
         "updatedAt": "2023-01-13"
       },
       "github": {},
@@ -4428,6 +4514,7 @@
         "url": "https://pypi.org/project/lancedb",
         "version": "0.39.0",
         "downloads": 7888645,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-21"
       },
       "github": {
@@ -4489,6 +4576,7 @@
         "url": "https://www.npmjs.com/package/openai",
         "version": "7.23.0",
         "downloads": 134214224,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-23"
       },
       "github": {
@@ -4537,6 +4625,7 @@
         "url": "https://crates.io/crates/tokenizers",
         "version": "0.23.2",
         "downloads": 34581879,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-21"
       },
       "github": {
@@ -4584,6 +4673,7 @@
         "url": "https://crates.io/crates/oai",
         "version": "0.3.2",
         "downloads": 10778,
+        "downloadsPeriod": "total",
         "updatedAt": "2020-06-02"
       },
       "github": {},
@@ -4634,6 +4724,7 @@
         "url": "https://pkg.go.dev/github.com/sashabaranov/go-openai",
         "version": "v1.42.1",
         "downloads": 3009,
+        "downloadsPeriod": "imports",
         "updatedAt": "2026-09-11"
       },
       "github": {
@@ -4688,6 +4779,7 @@
         "url": "https://pypi.org/project/llama-cpp-python",
         "version": "0.3.35",
         "downloads": 531484,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-08-17"
       },
       "github": {
@@ -4743,6 +4835,7 @@
         "url": "https://pypi.org/project/ollama",
         "version": "0.6.2",
         "downloads": 12219457,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-04-29"
       },
       "github": {
@@ -4789,6 +4882,7 @@
         "url": "https://rubygems.org/gems/openai_101",
         "version": "1.2.8",
         "downloads": 10506,
+        "downloadsPeriod": "total",
         "updatedAt": "2024-06-21"
       },
       "github": {},
@@ -4839,6 +4933,7 @@
         "url": "https://pypi.org/project/boto3",
         "version": "1.43.103",
         "downloads": 2427733999,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -4894,6 +4989,7 @@
         "url": "https://pkg.go.dev/github.com/tmc/langchaingo",
         "version": "v0.1.14",
         "downloads": 329,
+        "downloadsPeriod": "imports",
         "updatedAt": "2025-10-20"
       },
       "github": {
@@ -5119,6 +5215,8 @@
       "registry": {
         "url": "https://hex.pm/packages/bullmq",
         "version": "2.2.3",
+        "downloads": 8447,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-18"
       },
       "github": {
@@ -5166,6 +5264,7 @@
         "url": "https://pypi.org/project/mlx-lm",
         "version": "0.31.3",
         "downloads": 527266,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-04-22"
       },
       "github": {
@@ -5222,6 +5321,7 @@
         "url": "https://crates.io/crates/rig-core",
         "version": "0.42.0",
         "downloads": 3022740,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-08-17"
       },
       "github": {
@@ -5272,6 +5372,7 @@
         "url": "https://www.npmjs.com/package/smart-mcp",
         "version": "1.0.2",
         "downloads": 8219,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-03-22"
       },
       "github": {},
@@ -5309,6 +5410,7 @@
         "url": "https://pypi.org/project/claude-code-sdk",
         "version": "0.0.25",
         "downloads": 496049,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-09-29"
       },
       "github": {
@@ -5353,6 +5455,7 @@
         "url": "https://pypi.org/project/azureopenai",
         "version": "0.0.1",
         "downloads": 7757,
+        "downloadsPeriod": "month",
         "updatedAt": "2023-09-04"
       },
       "github": {},
@@ -5396,6 +5499,7 @@
         "url": "https://pkg.go.dev/github.com/firebase/genkit/go",
         "version": "v1.13.1",
         "downloads": 16,
+        "downloadsPeriod": "imports",
         "updatedAt": "2026-09-03"
       },
       "github": {
@@ -5442,6 +5546,7 @@
       "registry": {
         "url": "https://github.com/Arthur-Ficial/apfel",
         "downloads": 245,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-24"
       },
       "github": {
@@ -5487,6 +5592,7 @@
         "url": "https://www.npmjs.com/package/groq",
         "version": "6.16.0",
         "downloads": 7050242,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-22"
       },
       "github": {
@@ -5535,6 +5641,7 @@
         "url": "https://pypi.org/project/marvin",
         "version": "3.2.7",
         "downloads": 134213,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-03-04"
       },
       "github": {
@@ -5587,6 +5694,7 @@
         "url": "https://pypi.org/project/helicone",
         "version": "1.0.14",
         "downloads": 1171,
+        "downloadsPeriod": "month",
         "updatedAt": "2023-11-03"
       },
       "github": {
@@ -5631,6 +5739,7 @@
         "url": "https://pkg.go.dev/github.com/elastic/go-elasticsearch/v8",
         "version": "v8.19.7",
         "downloads": 2,
+        "downloadsPeriod": "imports",
         "updatedAt": "2026-08-04"
       },
       "github": {
@@ -5676,7 +5785,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Azure.AI.Extensions.OpenAI",
         "version": "2.0.0",
-        "downloads": 1902949
+        "downloads": 1902949,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 6058,
@@ -5731,7 +5841,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Azure.AI.OpenAI",
         "version": "2.1.0",
-        "downloads": 56321407
+        "downloads": 56321407,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 6058,
@@ -5785,7 +5896,8 @@
       "registry": {
         "url": "https://packagist.org/packages/openai-php/client",
         "version": "v0.21.0",
-        "downloads": 34173424,
+        "downloads": 2456980,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-17"
       },
       "github": {
@@ -5837,6 +5949,7 @@
         "url": "https://rubygems.org/gems/net-llm",
         "version": "0.6.1",
         "downloads": 5676,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-01-15"
       },
       "github": {},
@@ -5877,6 +5990,7 @@
         "url": "https://pypi.org/project/azure-ai-agents",
         "version": "1.1.0",
         "downloads": 4925071,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-08-05"
       },
       "github": {
@@ -5929,6 +6043,7 @@
         "url": "https://pypi.org/project/azure-ai-inference",
         "version": "1.0.0b9",
         "downloads": 4087128,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-02-15"
       },
       "github": {
@@ -5976,6 +6091,7 @@
         "url": "https://pypi.org/project/azure-ai-projects",
         "version": "2.7.0",
         "downloads": 7370216,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-18"
       },
       "github": {
@@ -6027,6 +6143,7 @@
       "registry": {
         "url": "https://github.com/nguyenphutrong/quotio",
         "downloads": 324,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-26"
       },
       "github": {
@@ -6230,6 +6347,7 @@
         "url": "https://rubygems.org/gems/ruby_llm",
         "version": "2.0.0",
         "downloads": 12656960,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-18"
       },
       "github": {
@@ -6286,6 +6404,7 @@
         "url": "https://www.npmjs.com/package/ollama",
         "version": "0.6.3",
         "downloads": 2380787,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-11-13"
       },
       "github": {
@@ -6328,7 +6447,8 @@
       "license": "Apache-2.0",
       "registry": {
         "url": "https://luarocks.org/modules/neorocks/chatgpt.nvim",
-        "downloads": 22
+        "downloads": 22,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 3996,
@@ -6386,6 +6506,7 @@
         "url": "https://pypi.org/project/google-genai",
         "version": "2.25.0",
         "downloads": 134063601,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-22"
       },
       "github": {
@@ -6430,6 +6551,7 @@
         "url": "https://pypi.org/project/huggingface-hub",
         "version": "2.0.0",
         "downloads": 225996424,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-24"
       },
       "github": {
@@ -6485,6 +6607,7 @@
         "url": "https://pypi.org/project/anthropic",
         "version": "1.8.0",
         "downloads": 139420518,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-22"
       },
       "github": {
@@ -6535,7 +6658,8 @@
       "registry": {
         "url": "https://packagist.org/packages/openai-php/laravel",
         "version": "v0.21.0",
-        "downloads": 11817523,
+        "downloads": 898849,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-17"
       },
       "github": {
@@ -6639,6 +6763,7 @@
         "url": "https://www.npmjs.com/package/@aws-sdk/client-bedrock-runtime",
         "version": "3.1141.0",
         "downloads": 48801076,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -6737,6 +6862,7 @@
         "url": "https://rubygems.org/gems/aws-sdk-bedrockruntime",
         "version": "1.85.0",
         "downloads": 22498441,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-11"
       },
       "github": {
@@ -6792,6 +6918,7 @@
         "url": "https://pkg.go.dev/github.com/openai/openai-go/v3",
         "version": "v3.66.0",
         "downloads": 343,
+        "downloadsPeriod": "imports",
         "updatedAt": "2026-09-23"
       },
       "github": {
@@ -6843,6 +6970,7 @@
         "url": "https://www.npmjs.com/package/@langchain/langgraph",
         "version": "1.4.18",
         "downloads": 12058963,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -6894,6 +7022,7 @@
         "url": "https://rubygems.org/gems/ruby-openai",
         "version": "8.3.0",
         "downloads": 47302970,
+        "downloadsPeriod": "total",
         "updatedAt": "2025-08-29"
       },
       "github": {
@@ -6943,6 +7072,7 @@
         "url": "https://pypi.org/project/fastembed",
         "version": "0.8.1",
         "downloads": 4805338,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-22"
       },
       "github": {
@@ -6993,7 +7123,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Microsoft.Extensions.AI",
         "version": "10.10.0",
-        "downloads": 31997975
+        "downloads": 31997975,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 3216,
@@ -7036,6 +7167,7 @@
       "registry": {
         "url": "https://github.com/MacPaw/OpenAI",
         "downloads": 520,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-23"
       },
       "github": {
@@ -7078,6 +7210,7 @@
       "registry": {
         "url": "https://github.com/MacPaw/OpenAI",
         "downloads": 520,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-23"
       },
       "github": {
@@ -7132,6 +7265,7 @@
         "url": "https://pypi.org/project/inspect-ai",
         "version": "0.3.269",
         "downloads": 2774340,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -7183,6 +7317,7 @@
         "url": "https://www.npmjs.com/package/@warlock.js/ai-groq",
         "version": "5.23.0",
         "downloads": 2803,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-26"
       },
       "github": {},
@@ -7223,6 +7358,7 @@
         "url": "https://pypi.org/project/openlit",
         "version": "1.45.0",
         "downloads": 281890,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-08-03"
       },
       "github": {
@@ -7241,6 +7377,50 @@
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2795
+    },
+    {
+      "id": "hex:ollama",
+      "name": "ollama",
+      "description": "A nifty little library for working with Ollama in Elixir.",
+      "ecosystem": "hex",
+      "language": "Elixir",
+      "role": "runtime",
+      "kind": "local-runtime",
+      "providers": [],
+      "worksWith": [
+        "ollama",
+        "openai-compatible"
+      ],
+      "openaiCompatibleServer": true,
+      "sdkApi": "n/a",
+      "status": "active",
+      "tier": "C",
+      "features": [
+        "local",
+        "chat",
+        "streaming",
+        "embeddings"
+      ],
+      "envVars": [],
+      "install": "mix deps.get ollama",
+      "repo": "https://github.com/elixir-ollama/ollama",
+      "license": "Apache-2.0",
+      "registry": {
+        "url": "https://hex.pm/packages/ollama",
+        "version": "0.9.0",
+        "downloads": 2794,
+        "downloadsPeriod": "month",
+        "updatedAt": "2025-09-10"
+      },
+      "github": {},
+      "confidence": 0.9,
+      "source": [
+        "registry:hex",
+        "curated:04-infra.json"
+      ],
+      "notes": "Elixir-клиент Ollama.",
+      "discoveredAt": "2026-09-26",
+      "updatedAt": "2026-09-26"
     },
     {
       "id": "nuget:openai",
@@ -7277,7 +7457,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/OpenAI",
         "version": "2.14.0",
-        "downloads": 76038313
+        "downloads": 76038313,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 2696,
@@ -7322,6 +7503,7 @@
         "url": "https://pypi.org/project/mistralai-search-toolkit-plugins-postgres",
         "version": "0.0.14",
         "downloads": 2664,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-18"
       },
       "github": {},
@@ -7503,6 +7685,7 @@
         "url": "https://www.npmjs.com/package/@huggingface/inference",
         "version": "4.13.30",
         "downloads": 1534147,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-17"
       },
       "github": {
@@ -7548,6 +7731,7 @@
         "url": "https://www.npmjs.com/package/@huggingface/ollama-utils",
         "version": "0.0.18",
         "downloads": 2556,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-04-16"
       },
       "github": {
@@ -7602,7 +7786,8 @@
       "registry": {
         "url": "https://packagist.org/packages/prism-php/prism",
         "version": "v0.100.1",
-        "downloads": 6934604,
+        "downloads": 747162,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-03-20"
       },
       "github": {
@@ -7661,6 +7846,7 @@
         "url": "https://www.npmjs.com/package/@azure/openai",
         "version": "2.0.0",
         "downloads": 1147691,
+        "downloadsPeriod": "month",
         "updatedAt": "2024-11-18"
       },
       "github": {
@@ -7712,6 +7898,7 @@
         "url": "https://www.npmjs.com/package/@anthropic-ai/bedrock-sdk",
         "version": "0.33.8",
         "downloads": 3415901,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-22"
       },
       "github": {
@@ -7765,6 +7952,7 @@
         "url": "https://www.npmjs.com/package/@anthropic-ai/sdk",
         "version": "0.128.0",
         "downloads": 141328165,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-22"
       },
       "github": {
@@ -7825,6 +8013,7 @@
         "url": "https://crates.io/crates/async-openai",
         "version": "0.42.0",
         "downloads": 8603504,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-09"
       },
       "github": {
@@ -7876,6 +8065,7 @@
         "url": "https://rubygems.org/gems/langchainrb",
         "version": "0.19.5",
         "downloads": 1616326,
+        "downloadsPeriod": "total",
         "updatedAt": "2025-05-01"
       },
       "github": {
@@ -7923,7 +8113,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Lofcz.Forks.OpenAI",
         "version": "2.1.1",
-        "downloads": 29450
+        "downloads": 29450,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 1894,
@@ -7971,6 +8162,7 @@
         "url": "https://crates.io/crates/huggingface",
         "version": "0.1.0",
         "downloads": 1877,
+        "downloadsPeriod": "total",
         "updatedAt": "2023-07-24"
       },
       "github": {},
@@ -8014,6 +8206,7 @@
       "registry": {
         "url": "https://github.com/aallam/openai-kotlin",
         "downloads": 237,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-02-07"
       },
       "github": {
@@ -8071,7 +8264,8 @@
       "registry": {
         "url": "https://packagist.org/packages/theodo-group/llphant",
         "version": "1.0.3",
-        "downloads": 525181,
+        "downloads": 44546,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -8115,6 +8309,7 @@
       "registry": {
         "url": "https://github.com/adamrushy/OpenAISwift",
         "downloads": 253,
+        "downloadsPeriod": "total",
         "updatedAt": "2025-02-12"
       },
       "github": {
@@ -8170,6 +8365,7 @@
         "url": "https://www.npmjs.com/package/@google/genai",
         "version": "2.24.0",
         "downloads": 84481334,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-22"
       },
       "github": {
@@ -8220,6 +8416,7 @@
         "url": "https://crates.io/crates/mistralai",
         "version": "0.1.0",
         "downloads": 1608,
+        "downloadsPeriod": "total",
         "updatedAt": "2023-12-21"
       },
       "github": {},
@@ -8266,6 +8463,7 @@
         "url": "https://crates.io/crates/llm-chain",
         "version": "0.13.0",
         "downloads": 97264,
+        "downloadsPeriod": "total",
         "updatedAt": "2023-11-15"
       },
       "github": {
@@ -8312,6 +8510,7 @@
         "url": "https://crates.io/crates/llm-chain-openai",
         "version": "0.13.0",
         "downloads": 74050,
+        "downloadsPeriod": "total",
         "updatedAt": "2023-11-15"
       },
       "github": {
@@ -8359,6 +8558,7 @@
         "url": "https://crates.io/crates/llm-chain-openai-compatible",
         "version": "0.0.0",
         "downloads": 1284,
+        "downloadsPeriod": "total",
         "updatedAt": "2024-05-18"
       },
       "github": {
@@ -8485,6 +8685,43 @@
       "stars": 1539
     },
     {
+      "id": "hex:req_anthropic",
+      "name": "req_anthropic",
+      "description": "An Anthropic-focused API client for Elixir, built on Req.",
+      "ecosystem": "hex",
+      "language": "Elixir",
+      "role": "sdk",
+      "kind": "client",
+      "providers": [
+        "anthropic"
+      ],
+      "sdkApi": "anthropic-messages",
+      "status": "active",
+      "tier": "B",
+      "features": [],
+      "envVars": [
+        "ANTHROPIC_API_KEY"
+      ],
+      "install": "mix deps.get req_anthropic",
+      "repo": "https://github.com/mylanconnolly/req_anthropic",
+      "license": "MIT",
+      "registry": {
+        "url": "https://hex.pm/packages/req_anthropic",
+        "version": "0.2.1",
+        "downloads": 1499,
+        "downloadsPeriod": "month",
+        "updatedAt": "2026-08-13"
+      },
+      "github": {},
+      "confidence": 0.75,
+      "source": [
+        "discovery:hex"
+      ],
+      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "discoveredAt": "2026-09-26",
+      "updatedAt": "2026-09-26"
+    },
+    {
       "id": "luarocks:minuet-ai.nvim",
       "name": "minuet-ai.nvim",
       "description": "💃 Dance with Intelligence in Your Code. Minuet offers code completion as-you-type from popular LLMs including OpenAI, Gemini, Claude, Ollama, Codestral, and more.",
@@ -8516,7 +8753,8 @@
       "license": "GPL-3.0",
       "registry": {
         "url": "https://luarocks.org/modules/milanglacier/minuet-ai.nvim",
-        "downloads": 245
+        "downloads": 245,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 1407,
@@ -8558,7 +8796,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/OllamaSharp",
         "version": "5.4.30",
-        "downloads": 3930934
+        "downloads": 3930934,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 1404,
@@ -8606,6 +8845,7 @@
         "url": "https://pypi.org/project/qdrant-client",
         "version": "1.19.1",
         "downloads": 11404759,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-16"
       },
       "github": {
@@ -8650,6 +8890,7 @@
         "url": "https://pkg.go.dev/github.com/anthropics/anthropic-sdk-go",
         "version": "v1.75.0",
         "downloads": 372,
+        "downloadsPeriod": "imports",
         "updatedAt": "2026-09-22"
       },
       "github": {
@@ -8699,6 +8940,8 @@
       "registry": {
         "url": "https://hex.pm/packages/langchain",
         "version": "0.14.3",
+        "downloads": 177246,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-24"
       },
       "github": {
@@ -8792,7 +9035,8 @@
       "license": "Apache-2.0",
       "registry": {
         "url": "https://luarocks.org/modules/neorocks/llm.nvim",
-        "downloads": 46
+        "downloads": 46,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 1191,
@@ -8838,7 +9082,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Olbrasoft.Text.Transformation.Cohere",
         "version": "10.0.5",
-        "downloads": 1184
+        "downloads": 1184,
+        "downloadsPeriod": "total"
       },
       "github": {},
       "confidence": 0.75,
@@ -8884,6 +9129,7 @@
         "url": "https://pypi.org/project/langsmith",
         "version": "0.14.1",
         "downloads": 78031364,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -8939,6 +9185,7 @@
         "url": "https://www.npmjs.com/package/@inngest/ai",
         "version": "0.1.8",
         "downloads": 6348660,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-02"
       },
       "github": {
@@ -9022,6 +9269,7 @@
       "registry": {
         "url": "https://github.com/37MobileTeam/iChatGPT",
         "downloads": 157,
+        "downloadsPeriod": "total",
         "updatedAt": "2024-06-15"
       },
       "github": {
@@ -9070,6 +9318,7 @@
         "url": "https://pypi.org/project/replicate",
         "version": "1.0.7",
         "downloads": 1501686,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-05-27"
       },
       "github": {
@@ -9122,6 +9371,7 @@
         "url": "https://pypi.org/project/google-cloud-aiplatform",
         "version": "2.2.0",
         "downloads": 87134396,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-23"
       },
       "github": {
@@ -9186,6 +9436,7 @@
         "url": "https://crates.io/crates/genai",
         "version": "0.6.5",
         "downloads": 413542,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-23"
       },
       "github": {
@@ -9241,6 +9492,7 @@
         "url": "https://crates.io/crates/genai-custom",
         "version": "0.0.0",
         "downloads": 1146,
+        "downloadsPeriod": "total",
         "updatedAt": "2024-08-13"
       },
       "github": {
@@ -9285,6 +9537,7 @@
       "registry": {
         "url": "https://github.com/gety-ai/apple-on-device-openai",
         "downloads": 66,
+        "downloadsPeriod": "total",
         "updatedAt": "2025-10-02"
       },
       "github": {
@@ -9327,47 +9580,13 @@
         "url": "https://pypi.org/project/ai-parrot-client-openai",
         "version": "0.2.6",
         "downloads": 846,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-23"
       },
       "github": {},
       "confidence": 0.75,
       "source": [
         "discovery:pypi"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26"
-    },
-    {
-      "id": "packagist:assistant-engine/php-openai-client",
-      "name": "assistant-engine/php-openai-client",
-      "description": "Experimental PHP client for OpenAI’s new Responses API",
-      "ecosystem": "packagist",
-      "language": "PHP",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai"
-      ],
-      "sdkApi": "openai",
-      "status": "unknown",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "OPENAI_API_KEY"
-      ],
-      "install": "composer require assistant-engine/php-openai-client",
-      "repo": "https://github.com/AssistantEngine/php-openai-client",
-      "registry": {
-        "url": "https://packagist.org/packages/assistant-engine/php-openai-client",
-        "version": "v0.0.5",
-        "downloads": 845,
-        "updatedAt": "2025-06-12"
-      },
-      "github": {},
-      "confidence": 0.75,
-      "source": [
-        "discovery:packagist"
       ],
       "notes": "Признаки: LLM-признаки в описании (openai)",
       "discoveredAt": "2026-09-26",
@@ -9403,6 +9622,7 @@
         "url": "https://pkg.go.dev/github.com/go-kratos/blades/contrib/openai",
         "version": "v0.3.0",
         "downloads": 44,
+        "downloadsPeriod": "imports",
         "updatedAt": "2025-11-26"
       },
       "github": {
@@ -9449,6 +9669,7 @@
         "url": "https://pkg.go.dev/github.com/cloudwego/eino-ext",
         "version": "v0.0.0-20260924074145-3603a39473c3",
         "downloads": 13,
+        "downloadsPeriod": "imports",
         "updatedAt": "2026-09-24"
       },
       "github": {
@@ -9491,6 +9712,7 @@
         "url": "https://pypi.org/project/ai-parrot-client-anthropic",
         "version": "0.2.6",
         "downloads": 785,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-23"
       },
       "github": {},
@@ -9532,6 +9754,7 @@
       "registry": {
         "url": "https://github.com/SharpAI/SwiftLM",
         "downloads": 54,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-26"
       },
       "github": {
@@ -9580,6 +9803,7 @@
       "registry": {
         "url": "https://github.com/SharpAI/SwiftLM",
         "downloads": 54,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-26"
       },
       "github": {
@@ -9630,6 +9854,7 @@
         "url": "https://pypi.org/project/mistralai",
         "version": "2.10.1",
         "downloads": 17153099,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-15"
       },
       "github": {
@@ -9679,7 +9904,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/OpenAI-DotNet",
         "version": "8.8.8",
-        "downloads": 3392410
+        "downloads": 3392410,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 759,
@@ -9724,6 +9950,7 @@
       "registry": {
         "url": "https://github.com/dylanshine/openai-kit",
         "downloads": 116,
+        "downloadsPeriod": "total",
         "updatedAt": "2024-08-26"
       },
       "github": {
@@ -9767,6 +9994,7 @@
       "registry": {
         "url": "https://github.com/dylanshine/openai-kit",
         "downloads": 116,
+        "downloadsPeriod": "total",
         "updatedAt": "2024-08-26"
       },
       "github": {
@@ -9821,6 +10049,7 @@
         "url": "https://www.npmjs.com/package/@deuz-sdk/core",
         "version": "2.1.0",
         "downloads": 264,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-19"
       },
       "github": {
@@ -9864,6 +10093,7 @@
         "url": "https://crates.io/crates/adk-anthropic",
         "version": "2.2.0",
         "downloads": 14507,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-01"
       },
       "github": {
@@ -9912,6 +10142,7 @@
         "url": "https://crates.io/crates/adk-mistralrs",
         "version": "2.2.0",
         "downloads": 689,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-01"
       },
       "github": {
@@ -9962,6 +10193,7 @@
       "registry": {
         "url": "https://github.com/jamesrochabrun/SwiftOpenAI",
         "downloads": 130,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-09"
       },
       "github": {
@@ -10012,6 +10244,7 @@
       "registry": {
         "url": "https://github.com/jamesrochabrun/SwiftOpenAI",
         "downloads": 130,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-09"
       },
       "github": {
@@ -10056,6 +10289,7 @@
       "registry": {
         "url": "https://github.com/jamesrochabrun/SwiftOpenAI",
         "downloads": 130,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-09"
       },
       "github": {
@@ -10150,6 +10384,7 @@
         "url": "https://pypi.org/project/groq",
         "version": "1.7.0",
         "downloads": 15971990,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-08-26"
       },
       "github": {
@@ -10195,6 +10430,7 @@
         "url": "https://pypi.org/project/groqcloud",
         "version": "0.4.0",
         "downloads": 33,
+        "downloadsPeriod": "month",
         "updatedAt": "2024-02-16"
       },
       "github": {
@@ -10240,6 +10476,7 @@
       "registry": {
         "url": "https://github.com/Gabriella439/grace",
         "downloads": 47,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-08-31"
       },
       "github": {
@@ -10344,6 +10581,7 @@
         "url": "https://www.npmjs.com/package/replicate",
         "version": "1.4.0",
         "downloads": 1881692,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-11-17"
       },
       "github": {
@@ -10384,6 +10622,8 @@
       "registry": {
         "url": "https://hex.pm/packages/req_llm",
         "version": "1.25.0",
+        "downloads": 344677,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -10432,6 +10672,7 @@
         "url": "https://pypi.org/project/xai-sdk",
         "version": "1.20.0",
         "downloads": 4359747,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-24"
       },
       "github": {
@@ -10474,7 +10715,8 @@
       "license": "MIT",
       "registry": {
         "url": "https://luarocks.org/modules/neorocks/neoai.nvim",
-        "downloads": 6119
+        "downloads": 6119,
+        "downloadsPeriod": "none"
       },
       "github": {
         "stars": 568,
@@ -10516,7 +10758,8 @@
       "registry": {
         "url": "https://packagist.org/packages/deepseek-php/deepseek-php-client",
         "version": "2.1.0",
-        "downloads": 111711,
+        "downloads": 9029,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-05-24"
       },
       "github": {
@@ -10570,6 +10813,7 @@
         "url": "https://rubygems.org/gems/openai",
         "version": "0.95.0",
         "downloads": 2196252,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-23"
       },
       "github": {
@@ -10615,6 +10859,7 @@
         "url": "https://pkg.go.dev/github.com/rakyll/openai-go",
         "version": "v1.0.9",
         "downloads": 8,
+        "downloadsPeriod": "imports",
         "updatedAt": "2023-04-05"
       },
       "github": {
@@ -10658,6 +10903,7 @@
       "registry": {
         "url": "https://github.com/m1guelpf/swift-realtime-openai",
         "downloads": 121,
+        "downloadsPeriod": "total",
         "updatedAt": "2025-10-06"
       },
       "github": {
@@ -10701,6 +10947,7 @@
       "registry": {
         "url": "https://github.com/m1guelpf/swift-realtime-openai",
         "downloads": 121,
+        "downloadsPeriod": "total",
         "updatedAt": "2025-10-06"
       },
       "github": {
@@ -10752,6 +10999,7 @@
         "url": "https://pypi.org/project/cohere",
         "version": "7.1.1",
         "downloads": 10352046,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-08-31"
       },
       "github": {
@@ -10805,6 +11053,7 @@
       "registry": {
         "url": "https://github.com/carloslfu/slotstream",
         "downloads": 26,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -10909,6 +11158,7 @@
       "registry": {
         "url": "https://github.com/carloslfu/slotstream",
         "downloads": 26,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -11096,6 +11346,7 @@
         "url": "https://www.npmjs.com/package/@leanroute/vercel-ai-sdk",
         "version": "0.1.1",
         "downloads": 372,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-08-27"
       },
       "github": {},
@@ -11139,6 +11390,7 @@
         "url": "https://rubygems.org/gems/anthropic",
         "version": "1.73.0",
         "downloads": 3513724,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-22"
       },
       "github": {
@@ -11185,6 +11437,7 @@
         "url": "https://rubygems.org/gems/anthropic-sdk-beta",
         "version": "0.1.0.pre.beta.8",
         "downloads": 32440,
+        "downloadsPeriod": "total",
         "updatedAt": "2025-05-19"
       },
       "github": {
@@ -11227,6 +11480,8 @@
       "registry": {
         "url": "https://hex.pm/packages/openai",
         "version": "0.6.2",
+        "downloads": 24195,
+        "downloadsPeriod": "month",
         "updatedAt": "2024-07-18"
       },
       "github": {
@@ -11244,6 +11499,47 @@
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 353
+    },
+    {
+      "id": "hex:llm",
+      "name": "llm",
+      "description": "Lightweight Elixir client for LLM APIs",
+      "ecosystem": "hex",
+      "language": "Elixir",
+      "role": "sdk",
+      "kind": "client",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "ollama"
+      ],
+      "sdkApi": "n/a",
+      "status": "active",
+      "tier": "C",
+      "features": [
+        "chat",
+        "streaming"
+      ],
+      "envVars": [],
+      "repo": "https://github.com/sukacipta/llm-elixir",
+      "license": "MIT",
+      "registry": {
+        "url": "https://hex.pm/packages/llm",
+        "version": "0.2.1",
+        "downloads": 337,
+        "downloadsPeriod": "month",
+        "updatedAt": "2026-09-08"
+      },
+      "github": {},
+      "confidence": 0.9,
+      "source": [
+        "registry:hex",
+        "curated:02-frameworks.json"
+      ],
+      "notes": "Elixir-клиент LLM от Dashbit.",
+      "discoveredAt": "2026-09-26",
+      "updatedAt": "2026-09-26"
     },
     {
       "id": "swift:adamlyttleapps/openai-wrapper-swiftui",
@@ -11268,6 +11564,7 @@
       "registry": {
         "url": "https://github.com/adamlyttleapps/OpenAI-Wrapper-SwiftUI",
         "downloads": 69,
+        "downloadsPeriod": "total",
         "updatedAt": "2024-07-09"
       },
       "github": {
@@ -11394,6 +11691,7 @@
       "registry": {
         "url": "https://github.com/OpenDive/OpenAIKit",
         "downloads": 47,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-02-19"
       },
       "github": {
@@ -11445,6 +11743,7 @@
         "url": "https://www.npmjs.com/package/groq-sdk",
         "version": "1.6.0",
         "downloads": 3253620,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-08-26"
       },
       "github": {
@@ -11490,6 +11789,7 @@
         "url": "https://rubygems.org/gems/ollama-ai",
         "version": "1.3.0",
         "downloads": 82327,
+        "downloadsPeriod": "total",
         "updatedAt": "2024-07-21"
       },
       "github": {
@@ -11539,6 +11839,7 @@
       "registry": {
         "url": "https://github.com/cequence-io/openai-scala-client",
         "downloads": 39,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -11722,6 +12023,7 @@
       "registry": {
         "url": "https://github.com/wkok/openai-clojure",
         "downloads": 32,
+        "downloadsPeriod": "total",
         "updatedAt": "2025-07-31"
       },
       "github": {
@@ -11766,6 +12068,7 @@
       "registry": {
         "url": "https://github.com/SwiftBeta/SwiftOpenAI",
         "downloads": 25,
+        "downloadsPeriod": "total",
         "updatedAt": "2024-05-17"
       },
       "github": {
@@ -11812,6 +12115,7 @@
         "url": "https://rubygems.org/gems/dspy-ruby_llm",
         "version": "0.1.2",
         "downloads": 65526,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-07-18"
       },
       "github": {
@@ -11856,6 +12160,7 @@
         "url": "https://rubygems.org/gems/ruby-anthropic",
         "version": "0.4.2",
         "downloads": 612396,
+        "downloadsPeriod": "total",
         "updatedAt": "2025-04-10"
       },
       "github": {
@@ -11907,6 +12212,7 @@
         "url": "https://pypi.org/project/weaviate-client",
         "version": "4.23.1",
         "downloads": 9952322,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-07"
       },
       "github": {
@@ -12000,7 +12306,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Anthropic.SDK",
         "version": "5.10.0",
-        "downloads": 3537501
+        "downloads": 3537501,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 223,
@@ -12050,7 +12357,8 @@
       "registry": {
         "url": "https://packagist.org/packages/gemini-api-php/client",
         "version": "v1.7.2",
-        "downloads": 330386,
+        "downloads": 20199,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-01-31"
       },
       "github": {
@@ -12103,7 +12411,8 @@
       "registry": {
         "url": "https://packagist.org/packages/openai-php/symfony",
         "version": "v0.19.0",
-        "downloads": 1039497,
+        "downloads": 63710,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-02-11"
       },
       "github": {
@@ -12149,6 +12458,8 @@
       "registry": {
         "url": "https://hex.pm/packages/openai_ex",
         "version": "0.9.22",
+        "downloads": 59366,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-08-12"
       },
       "github": {
@@ -12200,6 +12511,7 @@
       "registry": {
         "url": "https://github.com/Eric-Terminal/ETOS-LLM-Studio",
         "downloads": 23,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-26"
       },
       "github": {
@@ -12245,6 +12557,7 @@
         "url": "https://www.npmjs.com/package/openai-functions",
         "version": "1.5.3",
         "downloads": 213,
+        "downloadsPeriod": "month",
         "updatedAt": "2023-06-14"
       },
       "github": {
@@ -12289,6 +12602,7 @@
         "url": "https://rubygems.org/gems/openai_pipe",
         "version": "0.2.0",
         "downloads": 8640,
+        "downloadsPeriod": "total",
         "updatedAt": "2025-04-18"
       },
       "github": {
@@ -12337,6 +12651,7 @@
         "url": "https://rubygems.org/gems/gemini-ai",
         "version": "4.3.0",
         "downloads": 656310,
+        "downloadsPeriod": "total",
         "updatedAt": "2025-07-09"
       },
       "github": {
@@ -12379,6 +12694,7 @@
       "registry": {
         "url": "https://github.com/mattt/OpenAI",
         "downloads": 15,
+        "downloadsPeriod": "total",
         "updatedAt": "2022-12-03"
       },
       "github": {
@@ -12421,7 +12737,8 @@
       "registry": {
         "url": "https://packagist.org/packages/anthropic-ai/sdk",
         "version": "v0.51.0",
-        "downloads": 1871849,
+        "downloads": 634810,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-22"
       },
       "github": {
@@ -12473,6 +12790,7 @@
         "url": "https://www.npmjs.com/package/@google-cloud/vertexai",
         "version": "1.12.0",
         "downloads": 3686130,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-04-15"
       },
       "github": {
@@ -12520,6 +12838,7 @@
         "url": "https://pypi.org/project/aws_sdk_bedrock_agentcore",
         "version": "0.11.0",
         "downloads": 182,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-08-24"
       },
       "github": {},
@@ -12611,6 +12930,7 @@
         "url": "https://pkg.go.dev/github.com/liushuangls/go-anthropic/v2",
         "version": "v2.25.0",
         "downloads": 63,
+        "downloadsPeriod": "imports",
         "updatedAt": "2026-08-13"
       },
       "github": {
@@ -12663,7 +12983,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Google_GenerativeAI",
         "version": "3.6.7",
-        "downloads": 902800
+        "downloads": 902800,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 174,
@@ -12714,6 +13035,7 @@
         "url": "https://www.npmjs.com/package/cohere-ai",
         "version": "8.1.0",
         "downloads": 1715558,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-08-26"
       },
       "github": {
@@ -12814,6 +13136,7 @@
         "url": "https://pkg.go.dev/github.com/mozilla-ai/any-llm-go",
         "version": "v0.9.0",
         "downloads": 8,
+        "downloadsPeriod": "imports",
         "updatedAt": "2026-03-09"
       },
       "github": {
@@ -12858,6 +13181,7 @@
       "registry": {
         "url": "https://github.com/FuturraGroup/OpenAI",
         "downloads": 21,
+        "downloadsPeriod": "total",
         "updatedAt": "2024-02-01"
       },
       "github": {
@@ -12910,6 +13234,7 @@
         "url": "https://www.npmjs.com/package/@mistralai/mistralai",
         "version": "2.7.0",
         "downloads": 31287538,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-09"
       },
       "github": {
@@ -12955,6 +13280,7 @@
         "url": "https://pkg.go.dev/trpc.group/trpc-go/trpc-agent-go",
         "version": "v1.11.2",
         "downloads": 149,
+        "downloadsPeriod": "imports",
         "updatedAt": "2026-08-20"
       },
       "github": {},
@@ -12994,6 +13320,7 @@
         "url": "https://pypi.org/project/aws_sdk_bedrock_agentcore_control",
         "version": "0.11.0",
         "downloads": 149,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-08-24"
       },
       "github": {},
@@ -13037,7 +13364,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/AWSSDK.BedrockRuntime",
         "version": "4.0.101.7",
-        "downloads": 49624980
+        "downloads": 49624980,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 142,
@@ -13085,6 +13413,7 @@
         "url": "https://pypi.org/project/aws_sdk_bedrock_agent",
         "version": "0.11.0",
         "downloads": 139,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-08-24"
       },
       "github": {},
@@ -13124,6 +13453,7 @@
         "url": "https://rubygems.org/gems/opentelemetry-instrumentation-anthropic",
         "version": "0.5.0",
         "downloads": 3709911,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-04-15"
       },
       "github": {
@@ -13170,6 +13500,7 @@
         "url": "https://pypi.org/project/aws_sdk_bedrock_agent_runtime",
         "version": "0.11.0",
         "downloads": 131,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-08-24"
       },
       "github": {},
@@ -13247,6 +13578,7 @@
         "url": "https://crates.io/crates/openai",
         "version": "1.1.1",
         "downloads": 156569,
+        "downloadsPeriod": "total",
         "updatedAt": "2025-06-02"
       },
       "github": {
@@ -13338,6 +13670,7 @@
         "url": "https://www.npmjs.com/package/@sap-ai-sdk/openai",
         "version": "2.16.0",
         "downloads": 6168,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-18"
       },
       "github": {
@@ -13395,6 +13728,7 @@
         "url": "https://rubygems.org/gems/intelligence",
         "version": "1.0.0",
         "downloads": 35739,
+        "downloadsPeriod": "total",
         "updatedAt": "2025-06-19"
       },
       "github": {
@@ -13446,6 +13780,7 @@
       "registry": {
         "url": "https://github.com/NeelM0906/Mference",
         "downloads": 14,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -13489,6 +13824,7 @@
         "url": "https://crates.io/crates/litellm-rs",
         "version": "0.6.0",
         "downloads": 22993,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-08-12"
       },
       "github": {
@@ -13534,6 +13870,7 @@
         "url": "https://www.npmjs.com/package/ollama-ai-provider-v2",
         "version": "4.0.1",
         "downloads": 3158851,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-07-08"
       },
       "github": {
@@ -13579,7 +13916,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/AI.Dev.OpenAI.GPT",
         "version": "1.0.2",
-        "downloads": 283343
+        "downloads": 283343,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 102,
@@ -13621,6 +13959,8 @@
       "registry": {
         "url": "https://hex.pm/packages/ex_openai",
         "version": "2.0.0-beta4",
+        "downloads": 6312,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-09"
       },
       "github": {
@@ -13667,7 +14007,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/AgentFrameworkToolkit.Cohere",
         "version": "1.22.0",
-        "downloads": 5682
+        "downloads": 5682,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 96,
@@ -13713,6 +14054,7 @@
       "registry": {
         "url": "https://github.com/leafo/lua-openai",
         "downloads": 9,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-06-11"
       },
       "github": {
@@ -13760,7 +14102,8 @@
       "license": "MIT",
       "registry": {
         "url": "https://luarocks.org/modules/leafo/lua-openai",
-        "downloads": 4155
+        "downloads": 4155,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 93,
@@ -13804,6 +14147,7 @@
         "url": "https://pkg.go.dev/github.com/gomlx/go-huggingface",
         "version": "v0.4.12",
         "downloads": 17,
+        "downloadsPeriod": "imports",
         "updatedAt": "2026-09-15"
       },
       "github": {
@@ -13821,6 +14165,48 @@
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 89
+    },
+    {
+      "id": "hex:huggingface_client",
+      "name": "huggingface_client",
+      "description": "Production-grade Elixir client for the full HuggingFace platform: Inference, Hub, Jobs, Buckets, AutoTrain, Endpoints, Datasets, Spaces, Webhooks, Orgs, Papers, Leaderboards, Evaluate, Discussions/PRs, MCP agents, and more.",
+      "ecosystem": "hex",
+      "language": "Elixir",
+      "role": "sdk",
+      "kind": "client",
+      "providers": [
+        "huggingface"
+      ],
+      "sdkApi": "n/a",
+      "status": "active",
+      "tier": "B",
+      "features": [
+        "agents",
+        "evals"
+      ],
+      "envVars": [
+        "HF_TOKEN",
+        "HUGGING_FACE_HUB_TOKEN",
+        "HUGGINGFACEHUB_API_TOKEN"
+      ],
+      "install": "mix deps.get huggingface_client",
+      "repo": "https://github.com/huggingface/huggingface_client",
+      "license": "MIT",
+      "registry": {
+        "url": "https://hex.pm/packages/huggingface_client",
+        "version": "0.1.0",
+        "downloads": 89,
+        "downloadsPeriod": "month",
+        "updatedAt": "2026-05-11"
+      },
+      "github": {},
+      "confidence": 0.75,
+      "source": [
+        "discovery:hex"
+      ],
+      "notes": "Признаки: LLM-признаки в описании (huggingface)",
+      "discoveredAt": "2026-09-26",
+      "updatedAt": "2026-09-26"
     },
     {
       "id": "packagist:gemini-api-php/laravel",
@@ -13847,7 +14233,8 @@
       "registry": {
         "url": "https://packagist.org/packages/gemini-api-php/laravel",
         "version": "v0.3.0",
-        "downloads": 18407,
+        "downloads": 447,
+        "downloadsPeriod": "month",
         "updatedAt": "2023-12-27"
       },
       "github": {
@@ -13951,6 +14338,7 @@
         "url": "https://pypi.org/project/together",
         "version": "2.37.0",
         "downloads": 1491836,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -14001,6 +14389,7 @@
         "url": "https://www.npmjs.com/package/azure-openai",
         "version": "0.9.4",
         "downloads": 59393,
+        "downloadsPeriod": "month",
         "updatedAt": "2023-03-25"
       },
       "github": {
@@ -14047,6 +14436,7 @@
       "registry": {
         "url": "https://github.com/langfuse/langfuse-java",
         "downloads": 14,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-20"
       },
       "github": {
@@ -14135,6 +14525,7 @@
         "url": "https://pkg.go.dev/github.com/cohere-ai/cohere-go/v2",
         "version": "v2.19.0",
         "downloads": 52,
+        "downloadsPeriod": "imports",
         "updatedAt": "2026-08-26"
       },
       "github": {
@@ -14176,6 +14567,7 @@
       "registry": {
         "url": "https://github.com/zio-archive/zio-openai",
         "downloads": 13,
+        "downloadsPeriod": "total",
         "updatedAt": "2024-08-20"
       },
       "github": {
@@ -14341,6 +14733,8 @@
       "registry": {
         "url": "https://hex.pm/packages/llm_db",
         "version": "2026.9.7",
+        "downloads": 368560,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -14389,6 +14783,7 @@
         "url": "https://crates.io/crates/zeph-llm",
         "version": "0.22.5",
         "downloads": 3250,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-18"
       },
       "github": {
@@ -14440,6 +14835,7 @@
         "url": "https://pypi.org/project/anthropic-bedrock",
         "version": "0.8.0",
         "downloads": 35916,
+        "downloadsPeriod": "month",
         "updatedAt": "2024-01-31"
       },
       "github": {
@@ -14487,6 +14883,7 @@
         "url": "https://pkg.go.dev/github.com/hupe1980/go-huggingface",
         "version": "v0.0.15",
         "downloads": 33,
+        "downloadsPeriod": "imports",
         "updatedAt": "2024-01-07"
       },
       "github": {
@@ -14577,6 +14974,7 @@
       "registry": {
         "url": "https://github.com/pepe-agent/pepe",
         "downloads": 2,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -14624,6 +15022,7 @@
         "url": "https://pypi.org/project/llm-bedrock-anthropic",
         "version": "0.4.7",
         "downloads": 78,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-10-16"
       },
       "github": {
@@ -14661,7 +15060,8 @@
       "license": "MIT",
       "registry": {
         "url": "https://luarocks.org/modules/s1m0n38/dante.nvim",
-        "downloads": 203
+        "downloads": 203,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 50,
@@ -14705,6 +15105,7 @@
         "url": "https://pypi.org/project/groq-whisper-cli",
         "version": "0.2.1",
         "downloads": 49,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-05-29"
       },
       "github": {},
@@ -14746,7 +15147,8 @@
       "registry": {
         "url": "https://packagist.org/packages/mozex/anthropic-php",
         "version": "1.8.0",
-        "downloads": 760017,
+        "downloads": 75354,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-08-01"
       },
       "github": {
@@ -14791,6 +15193,7 @@
         "url": "https://crates.io/crates/mistralai-client",
         "version": "0.14.0",
         "downloads": 22963,
+        "downloadsPeriod": "total",
         "updatedAt": "2024-08-27"
       },
       "github": {
@@ -14844,6 +15247,7 @@
         "url": "https://rubygems.org/gems/llm_cost_tracker",
         "version": "0.14.1",
         "downloads": 9341,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -14888,6 +15292,7 @@
         "url": "https://www.npmjs.com/package/n8n-nodes-openai-langfuse",
         "version": "0.1.11",
         "downloads": 3571,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-09-22"
       },
       "github": {
@@ -14927,6 +15332,8 @@
       "registry": {
         "url": "https://hex.pm/packages/llm_composer",
         "version": "0.20.7",
+        "downloads": 6276,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-23"
       },
       "github": {
@@ -14970,6 +15377,7 @@
         "url": "https://pkg.go.dev/github.com/dianlight/gollama.cpp",
         "version": "v0.1.0",
         "downloads": 0,
+        "downloadsPeriod": "imports",
         "updatedAt": "2025-08-06"
       },
       "github": {
@@ -15014,6 +15422,7 @@
         "url": "https://crates.io/crates/anthropic-sdk",
         "version": "0.1.5",
         "downloads": 78258,
+        "downloadsPeriod": "total",
         "updatedAt": "2024-07-23"
       },
       "github": {
@@ -15055,6 +15464,7 @@
         "url": "https://www.npmjs.com/package/ollama-openai-mcp",
         "version": "1.0.0",
         "downloads": 36,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-05-10"
       },
       "github": {},
@@ -15090,6 +15500,7 @@
         "url": "https://pkg.go.dev/github.com/xyproto/ollamaclient/v2",
         "version": "v2.8.1",
         "downloads": 19,
+        "downloadsPeriod": "imports",
         "updatedAt": "2026-05-20"
       },
       "github": {
@@ -15131,7 +15542,8 @@
       "registry": {
         "url": "https://packagist.org/packages/prism-php/bedrock",
         "version": "v1.8.0",
-        "downloads": 245419,
+        "downloads": 20513,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-12-30"
       },
       "github": {
@@ -15176,6 +15588,7 @@
         "url": "https://pypi.org/project/enthusiast-model-azureopenai",
         "version": "1.4.0",
         "downloads": 33,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-06-02"
       },
       "github": {},
@@ -15216,6 +15629,7 @@
         "url": "https://crates.io/crates/siumai-provider-openai-compatible",
         "version": "0.11.0-beta.9",
         "downloads": 2305,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-05-27"
       },
       "github": {
@@ -15302,6 +15716,7 @@
         "url": "https://rubygems.org/gems/mistral-ai",
         "version": "1.2.0",
         "downloads": 96121,
+        "downloadsPeriod": "total",
         "updatedAt": "2024-02-10"
       },
       "github": {
@@ -15395,6 +15810,7 @@
         "url": "https://www.npmjs.com/package/node-openai",
         "version": "0.5.2",
         "downloads": 1054,
+        "downloadsPeriod": "month",
         "updatedAt": "2023-03-21"
       },
       "github": {
@@ -15453,6 +15869,7 @@
         "url": "https://crates.io/crates/open-agent-sdk",
         "version": "0.11.3",
         "downloads": 1216,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-05"
       },
       "github": {
@@ -15496,7 +15913,8 @@
       "license": "MIT",
       "registry": {
         "url": "https://luarocks.org/modules/gptlang/tiktoken_core",
-        "downloads": 9814
+        "downloads": 9814,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 24,
@@ -15540,6 +15958,7 @@
         "url": "https://crates.io/crates/async-openai-wasm",
         "version": "0.31.2",
         "downloads": 25705,
+        "downloadsPeriod": "total",
         "updatedAt": "2025-12-02"
       },
       "github": {
@@ -15627,6 +16046,7 @@
         "url": "https://crates.io/crates/dynamo-tokenizers",
         "version": "1.9.1",
         "downloads": 653069,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-22"
       },
       "github": {
@@ -15676,6 +16096,7 @@
       "registry": {
         "url": "https://github.com/salmanashraf/android-ai-chat-sdk",
         "downloads": 3,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-05-29"
       },
       "github": {
@@ -15721,6 +16142,7 @@
         "url": "https://pypi.org/project/huggingface-togetherai",
         "version": "1.1.2",
         "downloads": 21,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-02-25"
       },
       "github": {},
@@ -15775,6 +16197,7 @@
         "url": "https://rubygems.org/gems/ruby_llm_community",
         "version": "1.3.1",
         "downloads": 11607,
+        "downloadsPeriod": "total",
         "updatedAt": "2025-11-06"
       },
       "github": {
@@ -15817,7 +16240,8 @@
       "registry": {
         "url": "https://packagist.org/packages/erdum/php-open-ai-assistant-sdk",
         "version": "v1.0.0",
-        "downloads": 5389,
+        "downloads": 1860,
+        "downloadsPeriod": "month",
         "updatedAt": "2023-11-20"
       },
       "github": {
@@ -15864,6 +16288,7 @@
       "registry": {
         "url": "https://github.com/cloud-apim/otoroshi-llm-extension",
         "downloads": 7,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -15908,6 +16333,7 @@
         "url": "https://crates.io/crates/anthropic-ai-sdk",
         "version": "0.2.27",
         "downloads": 45472,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-01-11"
       },
       "github": {
@@ -15952,6 +16378,7 @@
         "url": "https://www.npmjs.com/package/@victor-software-house/pi-openai-proxy",
         "version": "4.9.5",
         "downloads": 257,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-05-06"
       },
       "github": {
@@ -16002,6 +16429,7 @@
         "url": "https://rubygems.org/gems/llm_conductor",
         "version": "1.8.4",
         "downloads": 11623,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-08-26"
       },
       "github": {
@@ -16050,6 +16478,7 @@
         "url": "https://pkg.go.dev/github.com/oracle/coherence-go-client/v2",
         "version": "v2.3.1",
         "downloads": 2,
+        "downloadsPeriod": "imports",
         "updatedAt": "2025-06-21"
       },
       "github": {
@@ -16096,6 +16525,8 @@
       "registry": {
         "url": "https://hex.pm/packages/anthropic_community",
         "version": "0.5.1",
+        "downloads": 2255,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-08-02"
       },
       "github": {
@@ -16139,6 +16570,7 @@
         "url": "https://rubygems.org/gems/openai_chatgpt",
         "version": "0.2.0",
         "downloads": 17562,
+        "downloadsPeriod": "total",
         "updatedAt": "2023-04-07"
       },
       "github": {
@@ -16182,7 +16614,8 @@
       "registry": {
         "url": "https://packagist.org/packages/softcreatr/php-openai-sdk",
         "version": "4.1.0",
-        "downloads": 1099,
+        "downloads": 39,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-12"
       },
       "github": {
@@ -16230,6 +16663,7 @@
         "url": "https://pypi.org/project/coherence-client",
         "version": "2.0.4",
         "downloads": 108,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-07-08"
       },
       "github": {
@@ -16275,6 +16709,7 @@
         "url": "https://pkg.go.dev/github.com/meguminnnnnnnnn/go-openai",
         "version": "v0.1.6",
         "downloads": 10,
+        "downloadsPeriod": "imports",
         "updatedAt": "2026-09-24"
       },
       "github": {
@@ -16316,7 +16751,8 @@
       "license": "MIT",
       "registry": {
         "url": "https://luarocks.org/modules/s1m0n38/ai.nvim",
-        "downloads": 415
+        "downloads": 415,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 11,
@@ -16360,6 +16796,7 @@
         "url": "https://www.npmjs.com/package/@thkdog/codex-openai-proxy",
         "version": "1.0.1",
         "downloads": 104,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-03-14"
       },
       "github": {
@@ -16405,7 +16842,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Junaid.GoogleGemini.Net",
         "version": "6.7.0",
-        "downloads": 8379
+        "downloads": 8379,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 11,
@@ -16451,6 +16889,7 @@
         "url": "https://rubygems.org/gems/ruby-openai-swarm",
         "version": "0.5.3",
         "downloads": 181806,
+        "downloadsPeriod": "total",
         "updatedAt": "2025-03-31"
       },
       "github": {
@@ -16536,6 +16975,7 @@
         "url": "https://crates.io/crates/ai-chain-openai-compatible",
         "version": "0.14.2",
         "downloads": 3943,
+        "downloadsPeriod": "total",
         "updatedAt": "2024-05-22"
       },
       "github": {
@@ -16582,6 +17022,7 @@
         "url": "https://crates.io/crates/ai-chain-qwen",
         "version": "0.14.2",
         "downloads": 1617,
+        "downloadsPeriod": "total",
         "updatedAt": "2024-05-22"
       },
       "github": {
@@ -16625,6 +17066,7 @@
         "url": "https://crates.io/crates/groq-api-rust",
         "version": "0.3.1",
         "downloads": 14726,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-01-12"
       },
       "github": {
@@ -16660,7 +17102,8 @@
       "install": "luarocks install gpt-images-25",
       "registry": {
         "url": "https://luarocks.org/modules/ryanellis42675/gpt-images-25",
-        "downloads": 10
+        "downloads": 10,
+        "downloadsPeriod": "none"
       },
       "github": {},
       "confidence": 0.45,
@@ -16699,6 +17142,7 @@
         "url": "https://pypi.org/project/agentforge-reranker-sentence-transformers",
         "version": "0.4.0",
         "downloads": 52,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-06-24"
       },
       "github": {
@@ -16747,6 +17191,7 @@
         "url": "https://crates.io/crates/anthropic-sdk-rust",
         "version": "0.1.1",
         "downloads": 13289,
+        "downloadsPeriod": "total",
         "updatedAt": "2025-06-11"
       },
       "github": {
@@ -16797,6 +17242,7 @@
         "url": "https://crates.io/crates/llm-kit-openai-compatible",
         "version": "0.1.1",
         "downloads": 774,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-01-18"
       },
       "github": {
@@ -17181,7 +17627,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Zonit.Extensions.Ai.Cohere",
         "version": "10.8.1",
-        "downloads": 6945
+        "downloads": 6945,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 9,
@@ -17223,7 +17670,8 @@
       "registry": {
         "url": "https://packagist.org/packages/ahmadrosid/anthropic-php",
         "version": "v1.0.2",
-        "downloads": 41065,
+        "downloads": 1922,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-05-24"
       },
       "github": {
@@ -17312,6 +17760,7 @@
         "url": "https://crates.io/crates/api_huggingface",
         "version": "0.6.1",
         "downloads": 22734,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-06-17"
       },
       "github": {
@@ -17367,6 +17816,7 @@
         "url": "https://crates.io/crates/embacle",
         "version": "0.30.0",
         "downloads": 12458,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-25"
       },
       "github": {
@@ -17407,7 +17857,8 @@
       "registry": {
         "url": "https://packagist.org/packages/itquelle/open-ai-chatgpt-php",
         "version": "1.0.0",
-        "downloads": 24,
+        "downloads": 0,
+        "downloadsPeriod": "month",
         "updatedAt": "2022-12-18"
       },
       "github": {
@@ -17463,6 +17914,7 @@
         "url": "https://rubygems.org/gems/ai_client",
         "version": "0.4.6",
         "downloads": 12100,
+        "downloadsPeriod": "total",
         "updatedAt": "2025-04-11"
       },
       "github": {
@@ -17517,6 +17969,7 @@
         "url": "https://crates.io/crates/langchain-ai-rust",
         "version": "5.0.1",
         "downloads": 237,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-01-28"
       },
       "github": {
@@ -17559,6 +18012,7 @@
       "registry": {
         "url": "https://github.com/imaxmelnyk/openai-scala",
         "downloads": 3,
+        "downloadsPeriod": "total",
         "updatedAt": "2023-03-18"
       },
       "github": {
@@ -17640,6 +18094,7 @@
         "url": "https://crates.io/crates/groq-api-rs",
         "version": "0.2.0",
         "downloads": 4560,
+        "downloadsPeriod": "total",
         "updatedAt": "2024-06-26"
       },
       "github": {
@@ -17679,7 +18134,8 @@
       "install": "luarocks install gpt-image-2-dev",
       "registry": {
         "url": "https://luarocks.org/modules/lisa0802/gpt-image-2-dev",
-        "downloads": 6
+        "downloads": 6,
+        "downloadsPeriod": "total"
       },
       "github": {},
       "confidence": 0.6,
@@ -17712,7 +18168,8 @@
       "repo": "https://github.com/Kamilcuk/kai.nvim",
       "registry": {
         "url": "https://luarocks.org/modules/kamilcuk/kai.nvim",
-        "downloads": 246
+        "downloads": 246,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 6,
@@ -17757,6 +18214,7 @@
         "url": "https://www.npmjs.com/package/claude-code-openai-proxy",
         "version": "0.5.0",
         "downloads": 158,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-07-19"
       },
       "github": {
@@ -17799,6 +18257,8 @@
       "registry": {
         "url": "https://hex.pm/packages/anthropic",
         "version": "0.3.0",
+        "downloads": 1168,
+        "downloadsPeriod": "month",
         "updatedAt": "2024-04-24"
       },
       "github": {
@@ -17834,7 +18294,8 @@
       "install": "luarocks install gpt-image-2-app",
       "registry": {
         "url": "https://luarocks.org/modules/lisa0802/gpt-image-2-app",
-        "downloads": 5
+        "downloads": 5,
+        "downloadsPeriod": "total"
       },
       "github": {},
       "confidence": 0.45,
@@ -17869,7 +18330,8 @@
       "registry": {
         "url": "https://packagist.org/packages/easygithdev/php-openai",
         "version": "v2.3",
-        "downloads": 115,
+        "downloads": 0,
+        "downloadsPeriod": "month",
         "updatedAt": "2024-02-25"
       },
       "github": {
@@ -17912,7 +18374,8 @@
       "registry": {
         "url": "https://packagist.org/packages/easygithdev/phpopenai",
         "version": "v2.3",
-        "downloads": 14,
+        "downloads": 0,
+        "downloadsPeriod": "month",
         "updatedAt": "2024-02-25"
       },
       "github": {
@@ -17954,7 +18417,8 @@
       "registry": {
         "url": "https://packagist.org/packages/nwilging/laravel-chatgpt",
         "version": "1.0.0",
-        "downloads": 2103,
+        "downloads": 5,
+        "downloadsPeriod": "month",
         "updatedAt": "2023-05-11"
       },
       "github": {
@@ -18000,6 +18464,7 @@
         "url": "https://rubygems.org/gems/asimov-anthropic-module",
         "version": "0.1.0",
         "downloads": 13733,
+        "downloadsPeriod": "total",
         "updatedAt": "2025-02-19"
       },
       "github": {
@@ -18051,6 +18516,7 @@
         "url": "https://rubygems.org/gems/discourse_ai-tokenizers",
         "version": "0.4.2",
         "downloads": 459199,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-02-27"
       },
       "github": {
@@ -18095,6 +18561,7 @@
         "url": "https://rubygems.org/gems/openai-client",
         "version": "0.8.1",
         "downloads": 12091,
+        "downloadsPeriod": "total",
         "updatedAt": "2023-02-14"
       },
       "github": {
@@ -18190,6 +18657,7 @@
       "registry": {
         "url": "https://github.com/Anonyfox/chatoyant",
         "downloads": 0,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-24"
       },
       "github": {
@@ -18231,6 +18699,7 @@
       "registry": {
         "url": "https://github.com/gazolla/GroqClientApiKotlin",
         "downloads": 1,
+        "downloadsPeriod": "total",
         "updatedAt": "2025-03-07"
       },
       "github": {
@@ -18269,6 +18738,8 @@
       "registry": {
         "url": "https://hex.pm/packages/langchain_mcp",
         "version": "0.2.0",
+        "downloads": 505,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-12-04"
       },
       "github": {
@@ -18308,7 +18779,8 @@
       "install": "luarocks install gpt-image-2",
       "registry": {
         "url": "https://luarocks.org/modules/lisa0802/gpt-image-2",
-        "downloads": 4
+        "downloads": 4,
+        "downloadsPeriod": "total"
       },
       "github": {},
       "confidence": 0.6,
@@ -18343,7 +18815,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/SemanticKernelPooling.Connectors.OpenAI",
         "version": "1.5.2",
-        "downloads": 71634
+        "downloads": 71634,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 4,
@@ -18385,7 +18858,8 @@
       "registry": {
         "url": "https://packagist.org/packages/nunodonato/anthropic-php",
         "version": "0.1.6",
-        "downloads": 82,
+        "downloads": 0,
+        "downloadsPeriod": "month",
         "updatedAt": "2024-11-07"
       },
       "github": {
@@ -18429,6 +18903,7 @@
         "url": "https://pypi.org/project/rsazure-openai-toolkit",
         "version": "0.7.3",
         "downloads": 47,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-04-12"
       },
       "github": {
@@ -18473,6 +18948,7 @@
         "url": "https://rubygems.org/gems/openai_ruby",
         "version": "0.6.0",
         "downloads": 17524,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-08-20"
       },
       "github": {
@@ -18615,6 +19091,7 @@
         "url": "https://crates.io/crates/threatflux-anthropic-sdk",
         "version": "0.3.0",
         "downloads": 12734,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-08-02"
       },
       "github": {
@@ -18655,6 +19132,8 @@
       "registry": {
         "url": "https://hex.pm/packages/erlangchain",
         "version": "0.4.1",
+        "downloads": 827,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-08-15"
       },
       "github": {
@@ -18695,7 +19174,8 @@
       "repo": "https://github.com/forkfork/lca",
       "registry": {
         "url": "https://luarocks.org/modules/fork/lca",
-        "downloads": 11
+        "downloads": 11,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 3,
@@ -18785,6 +19265,7 @@
         "url": "https://www.npmjs.com/package/@graphorin/reranker-transformersjs",
         "version": "0.15.1",
         "downloads": 208,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-07-22"
       },
       "github": {
@@ -18833,6 +19314,7 @@
         "url": "https://www.npmjs.com/package/@platformatic/mistral-client",
         "version": "0.1.0",
         "downloads": 35,
+        "downloadsPeriod": "month",
         "updatedAt": "2024-04-22"
       },
       "github": {
@@ -18881,7 +19363,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Cohere.Client",
         "version": "0.1.1",
-        "downloads": 640
+        "downloads": 640,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 3,
@@ -18926,6 +19409,7 @@
         "url": "https://rubygems.org/gems/ruby-openai-pinecone",
         "version": "0.1.1",
         "downloads": 6178,
+        "downloadsPeriod": "total",
         "updatedAt": "2023-04-30"
       },
       "github": {
@@ -19027,6 +19511,7 @@
         "url": "https://crates.io/crates/bedrock-gateway-rust",
         "version": "0.16.6",
         "downloads": 799,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-11"
       },
       "github": {
@@ -19078,6 +19563,7 @@
         "url": "https://crates.io/crates/chio-groq-tools-adapter",
         "version": "0.1.2",
         "downloads": 38,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-08-01"
       },
       "github": {
@@ -19132,6 +19618,7 @@
         "url": "https://crates.io/crates/embedrs",
         "version": "0.6.1",
         "downloads": 508,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-08-13"
       },
       "github": {
@@ -19183,6 +19670,7 @@
       "registry": {
         "url": "https://github.com/f3xp/swift-agent-sdk",
         "downloads": 0,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-06-18"
       },
       "github": {
@@ -19232,6 +19720,7 @@
       "registry": {
         "url": "https://github.com/zjywill/aikitswift",
         "downloads": 0,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-26"
       },
       "github": {
@@ -19316,7 +19805,8 @@
       "registry": {
         "url": "https://packagist.org/packages/sgraaf/openai-php",
         "version": "0.1.6",
-        "downloads": 7277,
+        "downloads": 322,
+        "downloadsPeriod": "month",
         "updatedAt": "2023-03-07"
       },
       "github": {
@@ -19363,6 +19853,7 @@
         "url": "https://pypi.org/project/aaep-anthropic-sdk-producer",
         "version": "1.0.0",
         "downloads": 53,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-06-03"
       },
       "github": {
@@ -19407,6 +19898,7 @@
         "url": "https://rubygems.org/gems/foobara-anthropic-api",
         "version": "1.0.8",
         "downloads": 7624,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-22"
       },
       "github": {
@@ -19455,6 +19947,7 @@
         "url": "https://rubygems.org/gems/llm_gateway",
         "version": "0.9.0",
         "downloads": 8386,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-07-13"
       },
       "github": {
@@ -19505,6 +19998,7 @@
         "url": "https://rubygems.org/gems/openai-compatible-errors",
         "version": "0.1.2",
         "downloads": 4125,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-08-08"
       },
       "github": {
@@ -19549,6 +20043,7 @@
         "url": "https://rubygems.org/gems/openai-term",
         "version": "3.0.4",
         "downloads": 16150,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-04-11"
       },
       "github": {
@@ -19604,6 +20099,7 @@
         "url": "https://rubygems.org/gems/ruby-pi",
         "version": "0.1.10",
         "downloads": 3339,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-08-29"
       },
       "github": {
@@ -19657,6 +20153,7 @@
         "url": "https://crates.io/crates/agentix",
         "version": "0.29.0",
         "downloads": 1393,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-08-11"
       },
       "github": {
@@ -19701,6 +20198,7 @@
         "url": "https://crates.io/crates/async-openai-alt",
         "version": "0.26.2",
         "downloads": 14054,
+        "downloadsPeriod": "total",
         "updatedAt": "2025-02-20"
       },
       "github": {
@@ -19755,6 +20253,7 @@
         "url": "https://crates.io/crates/llmrust",
         "version": "0.1.4",
         "downloads": 1586,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-12"
       },
       "github": {
@@ -19809,6 +20308,7 @@
       "registry": {
         "url": "https://github.com/deths74r/llaml",
         "downloads": 0,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-04-23"
       },
       "github": {
@@ -19859,6 +20359,7 @@
       "registry": {
         "url": "https://github.com/kengirie/ocaml-ai-agent",
         "downloads": 0,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-08-23"
       },
       "github": {
@@ -19902,6 +20403,7 @@
         "url": "https://pkg.go.dev/github.com/czc09/langchaingo",
         "version": "v0.1.25",
         "downloads": 25,
+        "downloadsPeriod": "imports",
         "updatedAt": "2024-09-26"
       },
       "github": {
@@ -19945,6 +20447,7 @@
         "url": "https://pkg.go.dev/github.com/eino-contrib/ollama",
         "version": "v0.1.0",
         "downloads": 4,
+        "downloadsPeriod": "imports",
         "updatedAt": "2025-09-29"
       },
       "github": {
@@ -19990,6 +20493,7 @@
         "url": "https://pkg.go.dev/github.com/henomis/cohere-go",
         "version": "v1.2.0",
         "downloads": 12,
+        "downloadsPeriod": "imports",
         "updatedAt": "2024-06-07"
       },
       "github": {
@@ -20029,7 +20533,8 @@
       "install": "luarocks install gpt-image-2-5",
       "registry": {
         "url": "https://luarocks.org/modules/andywang201212/gpt-image-2-5",
-        "downloads": 1
+        "downloads": 1,
+        "downloadsPeriod": "none"
       },
       "github": {},
       "confidence": 0.6,
@@ -20069,7 +20574,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Soenneker.Azure.OpenAI.Client.Chat",
         "version": "4.0.1735",
-        "downloads": 340394
+        "downloads": 340394,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 1,
@@ -20112,7 +20618,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Soenneker.Mistral.OpenApiClientUtil",
         "version": "4.0.178",
-        "downloads": 18265
+        "downloads": 18265,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 1,
@@ -20154,7 +20661,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Soenneker.SemanticKernel.Pool.OpenAi.Azure",
         "version": "4.0.603",
-        "downloads": 95355
+        "downloads": 95355,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 1,
@@ -20195,7 +20703,8 @@
       "registry": {
         "url": "https://packagist.org/packages/ahsanzameer/php-openai-chat-assistant",
         "version": "1.0",
-        "downloads": 9,
+        "downloads": 0,
+        "downloadsPeriod": "month",
         "updatedAt": "2024-03-15"
       },
       "github": {
@@ -20239,7 +20748,8 @@
       "registry": {
         "url": "https://packagist.org/packages/google-gemini-api-php/client",
         "version": "1.0.2",
-        "downloads": 210,
+        "downloads": 1,
+        "downloadsPeriod": "month",
         "updatedAt": "2024-09-12"
       },
       "github": {
@@ -20286,7 +20796,8 @@
       "registry": {
         "url": "https://packagist.org/packages/ikarolaborda/azure-openai-sdk-php",
         "version": "v1.0.0",
-        "downloads": 370,
+        "downloads": 77,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-03-29"
       },
       "github": {
@@ -20329,7 +20840,8 @@
       "registry": {
         "url": "https://packagist.org/packages/pythias/openai-client",
         "version": "v0.3.4",
-        "downloads": 256,
+        "downloads": 0,
+        "downloadsPeriod": "month",
         "updatedAt": "2023-03-07"
       },
       "github": {
@@ -20372,7 +20884,8 @@
       "registry": {
         "url": "https://packagist.org/packages/spryker-community/open-ai-client",
         "version": "0.1.0",
-        "downloads": 11664,
+        "downloads": 0,
+        "downloadsPeriod": "month",
         "updatedAt": "2024-03-27"
       },
       "github": {
@@ -20417,6 +20930,7 @@
         "url": "https://pypi.org/project/anthropic-mock-wrapper",
         "version": "0.2.10",
         "downloads": 33,
+        "downloadsPeriod": "month",
         "updatedAt": "2024-10-11"
       },
       "github": {
@@ -20465,6 +20979,7 @@
         "url": "https://pypi.org/project/bedrock-anthropic",
         "version": "0.0.5",
         "downloads": 41,
+        "downloadsPeriod": "month",
         "updatedAt": "2023-10-25"
       },
       "github": {
@@ -20513,6 +21028,7 @@
         "url": "https://pypi.org/project/deepinfra",
         "version": "0.3.0",
         "downloads": 320,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-08-12"
       },
       "github": {
@@ -20576,6 +21092,7 @@
         "url": "https://rubygems.org/gems/ruby_llm_swarm",
         "version": "1.9.7",
         "downloads": 7301,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-01-14"
       },
       "github": {
@@ -20620,6 +21137,7 @@
         "url": "https://rubygems.org/gems/ruby-openai-cli",
         "version": "1.0.2",
         "downloads": 8684,
+        "downloadsPeriod": "total",
         "updatedAt": "2023-04-01"
       },
       "github": {
@@ -20842,6 +21360,7 @@
         "url": "https://crates.io/crates/async-openai-thinking",
         "version": "0.41.5",
         "downloads": 69,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-08-08"
       },
       "github": {
@@ -20888,6 +21407,7 @@
         "url": "https://crates.io/crates/openllm-rs",
         "version": "0.1.3",
         "downloads": 86,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-06-07"
       },
       "github": {
@@ -20943,6 +21463,7 @@
         "url": "https://crates.io/crates/synapse-gateway",
         "version": "0.5.36",
         "downloads": 751,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-23"
       },
       "github": {
@@ -20992,6 +21513,7 @@
       "registry": {
         "url": "https://github.com/artmsh/clj-tools-agents",
         "downloads": 0,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-09-15"
       },
       "github": {
@@ -21034,6 +21556,7 @@
       "registry": {
         "url": "https://github.com/hugodro/openai-client",
         "downloads": 0,
+        "downloadsPeriod": "total",
         "updatedAt": "2024-05-25"
       },
       "github": {
@@ -21111,6 +21634,7 @@
         "url": "https://pkg.go.dev/github.com/szirtesitidom/langchaingo",
         "version": "v1.6.0",
         "downloads": 23,
+        "downloadsPeriod": "imports",
         "updatedAt": "2024-08-28"
       },
       "github": {
@@ -21156,6 +21680,7 @@
         "url": "https://pkg.go.dev/github.com/yomorun/go-openai",
         "version": "v1.50.6",
         "downloads": 22,
+        "downloadsPeriod": "imports",
         "updatedAt": "2026-06-10"
       },
       "github": {
@@ -21200,6 +21725,8 @@
       "registry": {
         "url": "https://hex.pm/packages/claude_agent_sdk_ts",
         "version": "1.5.1-rc.1",
+        "downloads": 1041,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-12-08"
       },
       "github": {
@@ -21217,46 +21744,6 @@
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0
-    },
-    {
-      "id": "hex:huggingface_client",
-      "name": "huggingface_client",
-      "description": "Production-grade Elixir client for the full HuggingFace platform: Inference, Hub, Jobs, Buckets, AutoTrain, Endpoints, Datasets, Spaces, Webhooks, Orgs, Papers, Leaderboards, Evaluate, Discussions/PRs, MCP agents, and more.",
-      "ecosystem": "hex",
-      "language": "Elixir",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "huggingface"
-      ],
-      "sdkApi": "n/a",
-      "status": "active",
-      "tier": "B",
-      "features": [
-        "agents",
-        "evals"
-      ],
-      "envVars": [
-        "HF_TOKEN",
-        "HUGGING_FACE_HUB_TOKEN",
-        "HUGGINGFACEHUB_API_TOKEN"
-      ],
-      "install": "mix deps.get huggingface_client",
-      "repo": "https://github.com/huggingface/huggingface_client",
-      "license": "MIT",
-      "registry": {
-        "url": "https://hex.pm/packages/huggingface_client",
-        "version": "0.1.0",
-        "updatedAt": "2026-05-11"
-      },
-      "github": {},
-      "confidence": 0.75,
-      "source": [
-        "discovery:hex"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (huggingface)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26"
     },
     {
       "id": "hex:langchain_prompt",
@@ -21279,6 +21766,8 @@
       "registry": {
         "url": "https://hex.pm/packages/langchain_prompt",
         "version": "0.1.2",
+        "downloads": 649,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-06-12"
       },
       "github": {
@@ -21296,122 +21785,6 @@
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0
-    },
-    {
-      "id": "hex:llm",
-      "name": "llm",
-      "description": "Lightweight Elixir client for LLM APIs",
-      "ecosystem": "hex",
-      "language": "Elixir",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai",
-        "anthropic",
-        "google-gemini",
-        "ollama"
-      ],
-      "sdkApi": "n/a",
-      "status": "active",
-      "tier": "C",
-      "features": [
-        "chat",
-        "streaming"
-      ],
-      "envVars": [],
-      "repo": "https://github.com/sukacipta/llm-elixir",
-      "license": "MIT",
-      "registry": {
-        "url": "https://hex.pm/packages/llm",
-        "version": "0.2.1",
-        "updatedAt": "2026-09-08"
-      },
-      "github": {},
-      "confidence": 0.9,
-      "source": [
-        "registry:hex",
-        "curated:02-frameworks.json"
-      ],
-      "notes": "Elixir-клиент LLM от Dashbit.",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26"
-    },
-    {
-      "id": "hex:ollama",
-      "name": "ollama",
-      "description": "A nifty little library for working with Ollama in Elixir.",
-      "ecosystem": "hex",
-      "language": "Elixir",
-      "role": "runtime",
-      "kind": "local-runtime",
-      "providers": [],
-      "worksWith": [
-        "ollama",
-        "openai-compatible"
-      ],
-      "openaiCompatibleServer": true,
-      "sdkApi": "n/a",
-      "status": "active",
-      "tier": "C",
-      "features": [
-        "local",
-        "chat",
-        "streaming",
-        "embeddings"
-      ],
-      "envVars": [],
-      "install": "mix deps.get ollama",
-      "repo": "https://github.com/elixir-ollama/ollama",
-      "license": "Apache-2.0",
-      "registry": {
-        "url": "https://hex.pm/packages/ollama",
-        "version": "0.9.0",
-        "updatedAt": "2025-09-10"
-      },
-      "github": {},
-      "confidence": 0.9,
-      "source": [
-        "registry:hex",
-        "curated:04-infra.json"
-      ],
-      "notes": "Elixir-клиент Ollama.",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26"
-    },
-    {
-      "id": "hex:req_anthropic",
-      "name": "req_anthropic",
-      "description": "An Anthropic-focused API client for Elixir, built on Req.",
-      "ecosystem": "hex",
-      "language": "Elixir",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "anthropic"
-      ],
-      "sdkApi": "anthropic-messages",
-      "status": "active",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "ANTHROPIC_API_KEY"
-      ],
-      "install": "mix deps.get req_anthropic",
-      "repo": "https://github.com/mylanconnolly/req_anthropic",
-      "license": "MIT",
-      "registry": {
-        "url": "https://hex.pm/packages/req_anthropic",
-        "version": "0.2.1",
-        "updatedAt": "2026-08-13"
-      },
-      "github": {},
-      "confidence": 0.75,
-      "source": [
-        "discovery:hex"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26"
     },
     {
       "id": "luarocks:ion7-llm",
@@ -21432,7 +21805,8 @@
       "license": "MIT",
       "registry": {
         "url": "https://luarocks.org/modules/5inq-kiji/ion7-llm",
-        "downloads": 12
+        "downloads": 12,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 0,
@@ -21476,7 +21850,8 @@
       "license": "MIT",
       "registry": {
         "url": "https://luarocks.org/modules/grulka/kong-plugin-ollama-agent-router",
-        "downloads": 10
+        "downloads": 10,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 0,
@@ -21515,7 +21890,8 @@
       "repo": "https://github.com/MrSyabro/lua-openai",
       "registry": {
         "url": "https://luarocks.org/modules/mrsyabro/openai",
-        "downloads": 4
+        "downloads": 4,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 0,
@@ -21562,7 +21938,8 @@
       "license": "MIT",
       "registry": {
         "url": "https://luarocks.org/modules/unabated-games/ug-lua-llm",
-        "downloads": 16
+        "downloads": 16,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 0,
@@ -21814,6 +22191,7 @@
         "url": "https://www.npmjs.com/package/cli-openai-proxy",
         "version": "0.1.0",
         "downloads": 95,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-08-10"
       },
       "github": {
@@ -21869,6 +22247,7 @@
         "url": "https://www.npmjs.com/package/fyren-ai",
         "version": "0.2.0",
         "downloads": 293,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-08-27"
       },
       "github": {
@@ -21915,6 +22294,7 @@
         "url": "https://www.npmjs.com/package/openai-proxy-server",
         "version": "0.5.0",
         "downloads": 496,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-09-14"
       },
       "github": {
@@ -21967,6 +22347,7 @@
         "url": "https://www.npmjs.com/package/polygate",
         "version": "0.3.0",
         "downloads": 1696,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-08-17"
       },
       "github": {
@@ -22012,7 +22393,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Cisharpai.Cohere",
         "version": "0.4.0",
-        "downloads": 5114
+        "downloads": 5114,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 0,
@@ -22059,7 +22441,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Soenneker.Azure.OpenAI.Client",
         "version": "4.0.1046",
-        "downloads": 248986
+        "downloads": 248986,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 0,
@@ -22108,7 +22491,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Soenneker.Azure.OpenAI.Client.Audio",
         "version": "4.0.1040",
-        "downloads": 189583
+        "downloads": 189583,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 0,
@@ -22152,7 +22536,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Soenneker.Cohere.HttpClients",
         "version": "4.0.138",
-        "downloads": 16240
+        "downloads": 16240,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 0,
@@ -22196,7 +22581,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Soenneker.Cohere.OpenApiClient",
         "version": "4.0.44",
-        "downloads": 6872
+        "downloads": 6872,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 0,
@@ -22242,7 +22628,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Soenneker.Cohere.OpenApiClientUtil",
         "version": "4.0.178",
-        "downloads": 17034
+        "downloads": 17034,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 0,
@@ -22291,7 +22678,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Soenneker.Maf.Pool.OpenAI.Azure",
         "version": "4.0.175",
-        "downloads": 18956
+        "downloads": 18956,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 0,
@@ -22334,7 +22722,8 @@
       "registry": {
         "url": "https://www.nuget.org/packages/Soenneker.Mistral.OpenApiClient",
         "version": "4.0.52",
-        "downloads": 8270
+        "downloads": 8270,
+        "downloadsPeriod": "total"
       },
       "github": {
         "stars": 0,
@@ -22351,6 +22740,42 @@
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0
+    },
+    {
+      "id": "packagist:assistant-engine/php-openai-client",
+      "name": "assistant-engine/php-openai-client",
+      "description": "Experimental PHP client for OpenAI’s new Responses API",
+      "ecosystem": "packagist",
+      "language": "PHP",
+      "role": "sdk",
+      "kind": "client",
+      "providers": [
+        "openai"
+      ],
+      "sdkApi": "openai",
+      "status": "unknown",
+      "tier": "B",
+      "features": [],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "install": "composer require assistant-engine/php-openai-client",
+      "repo": "https://github.com/AssistantEngine/php-openai-client",
+      "registry": {
+        "url": "https://packagist.org/packages/assistant-engine/php-openai-client",
+        "version": "v0.0.5",
+        "downloads": 0,
+        "downloadsPeriod": "month",
+        "updatedAt": "2025-06-12"
+      },
+      "github": {},
+      "confidence": 0.75,
+      "source": [
+        "discovery:packagist"
+      ],
+      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "discoveredAt": "2026-09-26",
+      "updatedAt": "2026-09-26"
     },
     {
       "id": "packagist:charescape/openai-sdk-php",
@@ -22375,7 +22800,8 @@
       "license": "MIT",
       "registry": {
         "url": "https://packagist.org/packages/charescape/openai-sdk-php",
-        "downloads": 2340
+        "downloads": 39,
+        "downloadsPeriod": "month"
       },
       "github": {
         "stars": 0,
@@ -22417,7 +22843,8 @@
       "registry": {
         "url": "https://packagist.org/packages/cryptoman3/anthropic-php",
         "version": "1.0.1",
-        "downloads": 8042,
+        "downloads": 1033,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-04-05"
       },
       "github": {
@@ -22460,7 +22887,8 @@
       "registry": {
         "url": "https://packagist.org/packages/cv001/openai-php",
         "version": "v0.0.5",
-        "downloads": 266,
+        "downloads": 9,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-03-31"
       },
       "github": {
@@ -22503,7 +22931,8 @@
       "registry": {
         "url": "https://packagist.org/packages/eseperio/yii2-openai-responses",
         "version": "1.0.0",
-        "downloads": 79,
+        "downloads": 33,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-08-26"
       },
       "github": {
@@ -22545,7 +22974,8 @@
       "license": "MIT",
       "registry": {
         "url": "https://packagist.org/packages/floridaman963/openai",
-        "downloads": 15
+        "downloads": 0,
+        "downloadsPeriod": "month"
       },
       "github": {
         "stars": 0,
@@ -22586,7 +23016,8 @@
       "registry": {
         "url": "https://packagist.org/packages/laswitchtech/php-openai",
         "version": "v1.0.3",
-        "downloads": 13,
+        "downloads": 0,
+        "downloadsPeriod": "month",
         "updatedAt": "2023-03-02"
       },
       "github": {
@@ -22628,7 +23059,8 @@
       "registry": {
         "url": "https://packagist.org/packages/loffel/laravel-chatgpt",
         "version": "1.0.4",
-        "downloads": 17,
+        "downloads": 0,
+        "downloadsPeriod": "month",
         "updatedAt": "2024-05-24"
       },
       "github": {
@@ -22671,7 +23103,8 @@
       "registry": {
         "url": "https://packagist.org/packages/markbeam/openai-php-client",
         "version": "0.10.3",
-        "downloads": 163,
+        "downloads": 9,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-04-02"
       },
       "github": {
@@ -22714,7 +23147,8 @@
       "registry": {
         "url": "https://packagist.org/packages/markbeam/openai-php-laravel",
         "version": "0.10.2",
-        "downloads": 161,
+        "downloads": 9,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-04-02"
       },
       "github": {
@@ -22759,7 +23193,8 @@
       "registry": {
         "url": "https://packagist.org/packages/omarsabbagh/php-openai-structured",
         "version": "0.2",
-        "downloads": 596,
+        "downloads": 52,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-03-13"
       },
       "github": {
@@ -22803,7 +23238,8 @@
       "registry": {
         "url": "https://packagist.org/packages/open-telemetry/opentelemetry-auto-openai-php",
         "version": "0.3.0",
-        "downloads": 12383,
+        "downloads": 232,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-06-08"
       },
       "github": {
@@ -22847,7 +23283,8 @@
       "registry": {
         "url": "https://packagist.org/packages/sdkfabric/openai",
         "version": "v0.2.1",
-        "downloads": 7354,
+        "downloads": 470,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-11-13"
       },
       "github": {
@@ -22889,7 +23326,8 @@
       "license": "MIT",
       "registry": {
         "url": "https://packagist.org/packages/thojou/openai-php-client",
-        "downloads": 2257
+        "downloads": 109,
+        "downloadsPeriod": "month"
       },
       "github": {
         "stars": 0,
@@ -22931,7 +23369,8 @@
       "registry": {
         "url": "https://packagist.org/packages/wdelfuego/anthropic-php",
         "version": "v1.2.0",
-        "downloads": 5,
+        "downloads": 0,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-06-12"
       },
       "github": {
@@ -22974,7 +23413,8 @@
       "registry": {
         "url": "https://packagist.org/packages/wmwgijol28/openai-php",
         "version": "v0.5.2",
-        "downloads": 123,
+        "downloads": 0,
+        "downloadsPeriod": "month",
         "updatedAt": "2023-06-01"
       },
       "github": {
@@ -23018,7 +23458,8 @@
       "registry": {
         "url": "https://packagist.org/packages/ze/openai-php",
         "version": "v1.1",
-        "downloads": 2910,
+        "downloads": 89,
+        "downloadsPeriod": "month",
         "updatedAt": "2023-03-07"
       },
       "github": {
@@ -23064,6 +23505,7 @@
         "url": "https://pypi.org/project/deepseek-ocr-ollama",
         "version": "1.3",
         "downloads": 102,
+        "downloadsPeriod": "month",
         "updatedAt": "2025-12-30"
       },
       "github": {
@@ -23109,6 +23551,7 @@
         "url": "https://pypi.org/project/groq-whisper-transcribe",
         "version": "1.0",
         "downloads": 24,
+        "downloadsPeriod": "month",
         "updatedAt": "2026-03-14"
       },
       "github": {
@@ -23154,6 +23597,7 @@
         "url": "https://rubygems.org/gems/lex-llm-anthropic",
         "version": "0.3.7",
         "downloads": 8571,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-08-26"
       },
       "github": {
@@ -23202,6 +23646,7 @@
         "url": "https://rubygems.org/gems/llm_meta_client",
         "version": "1.8.0",
         "downloads": 4739,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-07-26"
       },
       "github": {
@@ -23248,6 +23693,7 @@
         "url": "https://rubygems.org/gems/openai-chat",
         "version": "0.0.6",
         "downloads": 7499,
+        "downloadsPeriod": "total",
         "updatedAt": "2025-05-05"
       },
       "github": {
@@ -23300,6 +23746,7 @@
         "url": "https://rubygems.org/gems/prompt_builder",
         "version": "0.4.0",
         "downloads": 18420,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-08-13"
       },
       "github": {
@@ -23344,6 +23791,7 @@
         "url": "https://rubygems.org/gems/ruby-openai-transitory-v2",
         "version": "6.5.3",
         "downloads": 7754,
+        "downloadsPeriod": "total",
         "updatedAt": "2024-04-18"
       },
       "github": {
@@ -23389,6 +23837,7 @@
       "registry": {
         "url": "https://github.com/kuarezma/MacLLM",
         "downloads": 0,
+        "downloadsPeriod": "total",
         "updatedAt": "2026-08-20"
       },
       "github": {
@@ -23409,7 +23858,7 @@
     }
   ],
   "stats": {
-    "startedAt": "2026-09-26T12:58:21.644Z",
+    "startedAt": "2026-09-26T13:05:47.208Z",
     "perEcosystem": {
       "pypi": {
         "candidates": 1208,

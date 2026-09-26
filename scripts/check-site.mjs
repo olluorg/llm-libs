@@ -116,11 +116,51 @@ function boot({ view = {}, referrer = '', search = '' } = {}) {
   return { elements, sortHeaders, handlers, error };
 }
 
-const popularity = (library) =>
-  (Number(library.stars) || 0) * 20 + (Number(library.registry?.downloads) || 0) / 1000 + (library.tier === 'A' ? 50 : 0);
+const popularity = (library) => {
+  const period = library.registry?.downloadsPeriod;
+  const weight = { month: 1, total: 0.8, imports: 0.5, none: 0 }[period] ?? 0.8;
+  const stars = Number(library.stars) || 0;
+  const downloads = Number(library.registry?.downloads) || 0;
+  return 2 * Math.log10(stars + 10) + weight * Math.log10(downloads + 10) + (library.tier === 'A' ? 0.5 : 0);
+};
 
 const byPopularity = (list) =>
   [...list].sort((a, b) => popularity(b) - popularity(a) || String(a.name).localeCompare(String(b.name)));
+
+// Метрика должна быть монотонной: кто выигрывает по обеим величинам —
+// обязан стоять выше. Иначе формула «переворачивает» список, как было с
+// `звёзды × 20 + загрузки / 1000`, где boto3 с 2.4 млрд CI-загрузок
+// в месяц вставал первым при 6 раз меньшем числе звёзд, чем у litellm.
+function checkMonotonicity(list) {
+  for (let i = 0; i < list.length; i += 1) {
+    for (let j = i + 1; j < list.length; j += 1) {
+      const better = list[i];
+      const worse = list[j];
+      if (popularity(worse) <= popularity(better)) continue;
+      const starsBetter = (better.stars ?? 0) >= (worse.stars ?? 0);
+      const downloadsBetter = (better.registry?.downloads ?? 0) >= (worse.registry?.downloads ?? 0);
+      if (starsBetter && downloadsBetter) {
+        assert(false, `популярность немонотонна: ${worse.name} (★${worse.stars}, ⬇${worse.registry?.downloads}) ` +
+          `обгоняет ${better.name} (★${better.stars}, ⬇${better.registry?.downloads})`);
+        return;
+      }
+    }
+  }
+}
+
+// Счётчик должен быть помечен по смыслу: у PyPI и npm — за месяц,
+// у crates.io, NuGet, RubyGems — накопительно с публикации.
+const periodOf = (name) => data.libraries.find((l) => l.name === name)?.registry?.downloadsPeriod;
+if (data.libraries.some((l) => l.ecosystem === 'pypi' && l.registry?.downloads)) {
+  assert(periodOf('openai') === 'month', `счётчик PyPI помечен как «${periodOf('openai')}», а не month`);
+}
+const cratesRecord = data.libraries.find((l) => l.ecosystem === 'crates' && l.registry?.downloads);
+if (cratesRecord) {
+  assert(
+    cratesRecord.registry.downloadsPeriod === 'total',
+    `счётчик crates.io помечен как «${cratesRecord.registry.downloadsPeriod}», а не total`,
+  );
+}
 
 // ── 1. Инициализация и первый рендер ───────────────────────────────────────
 const main = boot();
@@ -144,6 +184,7 @@ assert(
 );
 
 // Самое популярное среди клиентов должно быть первым.
+checkMonotonicity(byPopularity(defaultVisible));
 const firstRendered = /data-id="([^"]+)"/.exec(rowsHtml)?.[1];
 const expectedFirst = byPopularity(defaultVisible)[0];
 assert(

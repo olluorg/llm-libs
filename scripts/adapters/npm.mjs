@@ -50,6 +50,7 @@ export async function fetchMeta(name) {
       url: `https://www.npmjs.com/package/${name}`,
       version: latest,
       downloads,
+      downloadsPeriod: downloads === undefined ? undefined : 'month',
       updatedAt: time ? String(time).slice(0, 10) : undefined,
     },
   };

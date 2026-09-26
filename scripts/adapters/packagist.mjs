@@ -37,7 +37,8 @@ function fromPage(pkg) {
     registry: {
       url: `https://packagist.org/packages/${pkg.name}`,
       version: stable?.version,
-      downloads: typeof pkg.downloads === 'object' ? pkg.downloads.total : pkg.downloads,
+      downloads: typeof pkg.downloads === 'object' ? pkg.downloads.monthly ?? pkg.downloads.total : pkg.downloads,
+      downloadsPeriod: 'month',
       updatedAt: stable?.time ? String(stable.time).slice(0, 10) : undefined,
     },
   };

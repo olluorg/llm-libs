@@ -51,6 +51,7 @@ export async function fetchMeta(name) {
       url: `https://luarocks.org/modules/${modulePath}`,
       version: version || undefined,
       downloads: totalDownloads || undefined,
+      downloadsPeriod: totalDownloads ? 'total' : 'none',
     },
   };
 }

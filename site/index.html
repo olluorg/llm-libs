@@ -60,6 +60,12 @@
       <b>Локальный запуск</b> — считает модель сам (Ollama, vLLM, transformers, llama.cpp); Ollama, vLLM и llama.cpp поднимают сервер, совместимый с <code>openai</code>-клиентом через <code>base_url</code>.
       <b>Сопутствующее</b> — векторные БД, наблюдаемость, eval, токенизаторы, UI, MCP.
     </p>
+    <p class="legend">
+      Порядок по умолчанию — <b>популярность</b> = 2·log₁₀(звёзды) + log₁₀(счётчик реестра) + 0.5 за tier A.
+      Счётчики приведены к логарифму, потому что величины несопоставимы: boto3 ставят
+      2.4 млрд загрузок в месяц, у crates.io счётчик накопительный, у Go — число импортов.
+      Поэтому ★ и ⬇ можно сортировать отдельно: клик по заголовку.
+    </p>
   </div>
 
   <section class="seo-text">
@@ -75,8 +81,9 @@
         <th data-sort="name">Библиотека</th>
         <th data-sort="language">Язык</th>
         <th>Провайдеры</th>
-        <th>Тип</th>
-        <th data-sort="popular">Популярность</th>
+        <th>Роль</th>
+        <th class="num" data-sort="stars" title="Звёзды GitHub у репозитория">★</th>
+        <th class="num" data-sort="downloads" title="Счётчик реестра пакетов. У PyPI, npm, Packagist и Hex — за месяц, у crates.io, NuGet, RubyGems — накопительно, у Go — число импортов">⬇</th>
         <th data-sort="updated">Обновлено</th>
       </tr>
     </thead>

@@ -18,6 +18,7 @@ import { createLogger } from './lib/log.mjs';
 import { readConfig, readDataset, DIST_DIR, ROOT } from './lib/store.mjs';
 import { slugify } from './lib/site-helpers.mjs';
 import { ROLES, CALLS_PROVIDER_API } from './lib/record.mjs';
+import { popularity as sharedPopularity } from './lib/popularity.mjs';
 
 const log = createLogger('build');
 
@@ -275,7 +276,7 @@ function rowHtml(library) {
   const role = roleList.find((item) => item.id === library.role);
   const metrics = [
     library.stars ? `<span title="Звёзды GitHub">★ ${compact(library.stars)}</span>` : '',
-    library.registry?.downloads ? `<span title="Загрузки за месяц">⬇ ${compact(library.registry.downloads)}</span>` : '',
+    downloadsLabel(library) ? `<span title="Счётчик реестра пакетов">⬇ ${escapeHtml(downloadsLabel(library))}</span>` : '',
   ].filter(Boolean).join('');
 
   return `<tr data-id="${escapeHtml(library.id)}">
@@ -286,7 +287,8 @@ function rowHtml(library) {
         <td>${escapeHtml(library.language)}</td>
         <td><div class="chips">${providerChips}${library.tier ? `<span class="chip tier-${escapeHtml(library.tier).toLowerCase()}">tier ${escapeHtml(library.tier)}</span>` : ''}</div></td>
         <td><span class="role role-${escapeHtml(library.role)}">${escapeHtml(role?.label ?? library.role)}</span></td>
-        <td class="num">${metrics || '—'}</td>
+        <td class="num">${library.stars ? compact(library.stars) : '—'}</td>
+        <td class="num">${escapeHtml(downloadsLabel(library)) || '—'}</td>
         <td>${escapeHtml(library.registry?.updatedAt ?? '—')}</td>
       </tr>`;
 }
@@ -297,9 +299,18 @@ function sortForSeo(subset) {
   );
 }
 
-/** Популярность — ровно та же формула, что в app.js. */
+/** Популярность — логарифмическая, с учётом периода счётчика. Формула в lib/popularity.mjs. */
 function popularity(library) {
-  return num(library.stars) * 20 + num(library.registry?.downloads) / 1000 + (library.tier === 'A' ? 50 : 0);
+  return sharedPopularity(library);
+}
+
+/** Счётчик загрузок: подпись зависит от того, что он измеряет. */
+function downloadsLabel(library) {
+  const downloads = num(library.registry?.downloads);
+  if (!downloads) return '';
+  const period = library.registry?.downloadsPeriod;
+  const suffix = { month: '/мес', imports: ' импортов', total: ' всего', none: '' }[period] ?? '';
+  return `${compact(downloads)}${suffix}`;
 }
 
 function num(value) {

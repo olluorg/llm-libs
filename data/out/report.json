@@ -1,5 +1,5 @@
 {
-  "startedAt": "2026-09-26T12:58:21.644Z",
+  "startedAt": "2026-09-26T13:05:47.208Z",
   "perEcosystem": {
     "pypi": {
       "candidates": 1208,
@@ -68,7 +68,7 @@
     }
   },
   "errors": [],
-  "enrichedAt": "2026-09-26T12:58:56.472Z",
+  "enrichedAt": "2026-09-26T13:06:30.331Z",
   "github": {
     "queued": 458,
     "fetched": 439,
@@ -77,8 +77,8 @@
     "quotaExhausted": false,
     "rateLimit": {
       "limit": 5000,
-      "used": 73,
-      "remaining": 4927,
+      "used": 92,
+      "remaining": 4908,
       "reset": 1790430189
     },
     "token": true

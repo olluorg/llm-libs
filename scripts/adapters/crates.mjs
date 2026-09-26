@@ -34,6 +34,7 @@ export async function fetchMeta(name) {
       url: `https://crates.io/crates/${name}`,
       version: crate.max_stable_version ?? crate.max_version,
       downloads: crate.downloads,
+      downloadsPeriod: 'total',
       updatedAt: crate.updated_at ? String(crate.updated_at).slice(0, 10) : undefined,
     },
   };

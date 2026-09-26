@@ -84,6 +84,7 @@ export async function fetchMeta(name) {
       url: `https://pypi.org/project/${name}/`,
       version: info.version,
       downloads,
+      downloadsPeriod: downloads === undefined ? undefined : 'month',
       updatedAt: latestUpload ? latestUpload.slice(0, 10) : undefined,
     },
   };

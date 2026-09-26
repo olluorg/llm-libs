@@ -29,7 +29,8 @@ export async function fetchMeta(name) {
     registry: {
       url: `https://hex.pm/packages/${pkg.name}`,
       version: pkg.latest_version,
-      downloads: pkg.downloads?.all_time,
+      downloads: pkg.downloads?.recent ?? pkg.downloads?.all_time,
+      downloadsPeriod: pkg.downloads?.recent ? 'month' : 'total',
       updatedAt: pkg.updated_at ? String(pkg.updated_at).slice(0, 10) : undefined,
     },
   };

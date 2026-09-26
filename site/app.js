@@ -40,7 +40,7 @@
   };
 
   /** Колонки, для которых естественный порядок по умолчанию — по убыванию. */
-  const DESCENDING_BY_DEFAULT = new Set(['popular', 'updated', 'downloads', 'tier']);
+  const DESCENDING_BY_DEFAULT = new Set(['popular', 'stars', 'updated', 'downloads']);
 
   const $ = (sel) => document.querySelector(sel);
   const el = {
@@ -346,16 +346,40 @@
     return needle.split(/\s+/).every((token) => haystack.includes(token));
   }
 
+  /**
+   * Популярность. Копия scripts/lib/popularity.mjs — расхождение ловит check-site.
+   * Логарифмы вместо сложения «сырых» чисел: счётчики реестров несопоставимы
+   * (PyPI — месяц, crates.io — накопительно, Go — импорты), а выбросы вроде
+   * 2.4 млрд загрузок boto3 в месяц не должны переворачивать список.
+   */
+  const PERIOD_WEIGHT = { month: 1, total: 0.8, imports: 0.5, none: 0 };
+
+  function popularity(library) {
+    const stars = Math.max(0, num(library.stars));
+    const downloads = Math.max(0, num(library.registry?.downloads));
+    const weight = PERIOD_WEIGHT[library.registry?.downloadsPeriod] ?? PERIOD_WEIGHT.total;
+    return 2 * Math.log10(stars + 10) + weight * Math.log10(downloads + 10) + (library.tier === 'A' ? 0.5 : 0);
+  }
+
+  function downloadsLabel(library) {
+    const downloads = num(library.registry?.downloads);
+    if (!downloads) return '';
+    const suffix = { month: '/мес', imports: ' импортов', total: ' всего', none: '' }[
+      library.registry?.downloadsPeriod
+    ] ?? '';
+    return `${compact(downloads)}${suffix}`;
+  }
+
   function comparator(a, b) {
     const primary =
       state.sort === 'name' ? cmpString(a.name, b.name)
       : state.sort === 'language' ? cmpString(a.language, b.language) || cmpString(a.name, b.name)
       : state.sort === 'updated' ? cmpString(a.registry?.updatedAt ?? '', b.registry?.updatedAt ?? '')
+      : state.sort === 'stars' ? num(a.stars) - num(b.stars)
       : state.sort === 'downloads' ? num(a.registry?.downloads) - num(b.registry?.downloads)
-      : state.sort === 'tier' ? cmpString(a.tier ?? 'Z', b.tier ?? 'Z')
       : popularity(a) - popularity(b);
 
-    // При равных значениях (у языков без звёзд и загрузок метрики нулевые)
+    // При равных значениях (у языков без звёзд метрики близки к нулю)
     // порядок иначе произвольный и «прыгает» между сборками — разводим ничьи
     // по популярности и имени.
     if (primary) return state.dir * primary;
@@ -364,10 +388,6 @@
 
   function cmpString(a, b) {
     return String(a).localeCompare(String(b), 'ru');
-  }
-
-  function popularity(library) {
-    return num(library.stars) * 20 + num(library.registry?.downloads) / 1000 + (library.tier === 'A' ? 50 : 0);
   }
 
   function rowHtml(library) {
@@ -384,19 +404,10 @@
       <td>${esc(library.language)}</td>
       <td><div class="chips">${providerChips}${library.tier ? `<span class="chip tier-${esc(library.tier).toLowerCase()}">tier ${esc(library.tier)}</span>` : ''}</div></td>
       <td><span class="role role-${esc(library.role)}" title="${esc(role?.description ?? '')}">${esc(role?.label ?? library.role)}</span></td>
-      <td class="num">${metricsHtml(library)}</td>
+      <td class="num">${library.stars ? compact(library.stars) : '—'}</td>
+      <td class="num">${esc(downloadsLabel(library)) || '—'}</td>
       <td>${library.registry?.updatedAt ?? '—'}</td>
     </tr>`;
-  }
-
-  /** У монорепозиториев (langchain-*, @ai-sdk/*) звёзды общие, поэтому показываем и загрузки. */
-  function metricsHtml(library) {
-    const parts = [];
-    if (library.stars) parts.push(`<span title="Звёзды GitHub">★ ${compact(library.stars)}</span>`);
-    if (library.registry?.downloads) {
-      parts.push(`<span title="Загрузки за месяц">⬇ ${compact(library.registry.downloads)}</span>`);
-    }
-    return parts.join('<br>') || '—';
   }
 
   function openDrawer(id) {
@@ -418,8 +429,9 @@
       ['Возможности', (library.features ?? []).join(', ') || '—'],
       ['Переменные', (library.envVars ?? []).map((v) => `<code>${esc(v)}</code>`).join(' ') || '—'],
       ['Версия', library.registry?.version ?? '—'],
-      ['Загрузки', library.registry?.downloads ? compact(library.registry.downloads) : '—'],
+      ['Загрузки', downloadsLabel(library) || '—'],
       ['Звёзды', library.stars ? compact(library.stars) : '—'],
+      ['Популярность', `${popularity(library).toFixed(2)} (2·log₁₀★ + log₁₀⬇${library.tier === 'A' ? ' + 0.5' : ''})`],
       ['Лицензия', library.license ?? '—'],
       ['Обновлено', library.registry?.updatedAt ?? '—'],
     ];

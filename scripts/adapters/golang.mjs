@@ -16,6 +16,9 @@ export async function search(query, { limit = 20 } = {}) {
     repo: module.startsWith('github.com/') ? `https://${module}` : undefined,
     license: licenses[index],
     downloads: toInt(importedBy[index]),
+    // У Go нет счётчика загрузок: pkg.go.dev показывает, сколько модулей
+    // импортирует пакет. Это другая величина — помечаем её отдельно.
+    downloadsPeriod: 'imports',
   }));
 }
 

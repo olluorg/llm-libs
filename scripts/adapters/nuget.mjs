@@ -45,6 +45,7 @@ export async function fetchMeta(name) {
       url: `https://www.nuget.org/packages/${pkg.id}`,
       version: pkg.version,
       downloads: pkg.totalDownloads,
+      downloadsPeriod: 'total',
       updatedAt: publishedDate(pkg) || undefined,
     },
   };

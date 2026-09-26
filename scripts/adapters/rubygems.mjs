@@ -36,6 +36,7 @@ export async function fetchMeta(name) {
       url: data.project_uri ?? `https://rubygems.org/gems/${name}`,
       version: data.version,
       downloads: data.downloads,
+      downloadsPeriod: 'total',
       updatedAt: data.version_created_at ? String(data.version_created_at).slice(0, 10) : undefined,
     },
   };

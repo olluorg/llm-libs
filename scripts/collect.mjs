@@ -272,6 +272,9 @@ function candidateToRecord(candidate, meta, config, ecosystem, adapter) {
       url: meta.registry?.url,
       version: meta.registry?.version ?? candidate.version,
       downloads,
+      // Адаптер сообщает, что измеряет его счётчик: месяц, накопительно
+      // с публикации или число импортов модуля.
+      downloadsPeriod: meta.registry?.downloadsPeriod ?? meta.downloadsPeriod ?? candidate.downloadsPeriod,
       updatedAt,
     },
     github: meta.github,

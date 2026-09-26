@@ -170,6 +170,13 @@ export function normalizeRecord(input) {
       url: cleanUrl(registry.url),
       version: cleanString(registry.version, 60),
       downloads: numberOr(registry.downloads),
+      // Что измеряет счётчик: month (за месяц), total (с публикации),
+      // imports (число импортов модуля), none (счётчика нет).
+      downloadsPeriod: ['month', 'total', 'imports', 'none'].includes(registry.downloadsPeriod)
+        ? registry.downloadsPeriod
+        : registry.downloads === undefined
+          ? undefined
+          : 'total',
       updatedAt: isoDate(registry.updatedAt),
     },
     github: {
@@ -196,6 +203,7 @@ export function normalizeRecord(input) {
   if (!record.registry.url) delete record.registry.url;
   if (!record.registry.version) delete record.registry.version;
   if (record.registry.downloads === undefined) delete record.registry.downloads;
+  if (record.registry.downloadsPeriod === undefined) delete record.registry.downloadsPeriod;
   if (!record.registry.updatedAt) delete record.registry.updatedAt;
   if (record.github.stars === undefined) delete record.github.stars;
   if (record.github.forks === undefined) delete record.github.forks;
@@ -273,6 +281,12 @@ export function mergeRecords(base, patch) {
       url: b.registry.url ?? a.registry.url,
       version: b.registry.version ?? a.registry.version,
       downloads: max(a.registry.downloads, b.registry.downloads),
+      // Период берём у той записи, у которой счётчик больше: максимум
+      // накопительного счётчика нельзя сравнивать с месячным.
+      downloadsPeriod:
+        (a.registry.downloads ?? 0) >= (b.registry.downloads ?? 0)
+          ? a.registry.downloadsPeriod
+          : b.registry.downloadsPeriod,
       updatedAt: newest(a.registry.updatedAt, b.registry.updatedAt),
     },
     github: {

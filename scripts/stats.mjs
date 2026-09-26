@@ -2,6 +2,7 @@
 /** Сводка по датасету: сколько библиотек, как они распределены. */
 import { readDataset } from './lib/store.mjs';
 import { ROLES } from './lib/record.mjs';
+import { popularity } from './lib/popularity.mjs';
 
 const dataset = await readDataset();
 const libraries = dataset.libraries ?? [];
@@ -36,6 +37,27 @@ table('По языкам:', counts.byLanguage);
 table('По типам:', counts.byKind);
 table('По провайдерам (чьё API вызывается):', counts.byProvider);
 table('По статусам:', counts.byStatus);
+table(
+  'Что измеряет счётчик загрузок:',
+  libraries.reduce((acc, l) => {
+    const key = l.registry?.downloadsPeriod ?? 'нет';
+    acc[key] = (acc[key] ?? 0) + 1;
+    return acc;
+  }, {}),
+);
+
+console.log('Топ-10 по популярности (2·log₁₀★ + log₁₀⬇ + 0.5 за tier A):');
+const top = [...libraries].sort((a, b) => popularity(b) - popularity(a) || a.name.localeCompare(b.name));
+for (const library of top.slice(0, 10)) {
+  const downloads = library.registry?.downloads;
+  console.log(
+    `  ${popularity(library).toFixed(2).padStart(6)}  ${(library.role ?? '?').padEnd(9)} ` +
+      `${library.name.padEnd(26)} ★${String(library.stars ?? 0).padStart(7)} ` +
+      `⬇${downloads ? String(Math.round(downloads / 1000)).padStart(8) + 'k' : '       -'} ` +
+      `${library.registry?.downloadsPeriod ?? '-'}`,
+  );
+}
+console.log();
 
 console.log('Роли:');
 for (const [id, label] of Object.entries(ROLES)) {
