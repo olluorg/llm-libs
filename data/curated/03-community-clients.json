@@ -249,8 +249,9 @@
       "envVars": [
         "MISTRAL_API_KEY"
       ],
-      "repo": "https://github.com/ERC-Grant/llm-client",
-      "notes": "Rust-клиент Mistral AI, поддерживает embeddings и Groq/Ollama через совместимый режим."
+      "notes": "Репозиторий пакета заброшен. Для Rust берите rig-core (единый слой над провайдерами) или genai.",
+      "status": "deprecated",
+      "repoDropped": true
     },
     {
       "name": "huggingface",
@@ -268,8 +269,9 @@
       "envVars": [
         "HF_TOKEN"
       ],
-      "repo": "https://github.com/huggingface/rust-bindings",
-      "notes": "Клиент Hugging Face Hub и Inference API на Rust."
+      "notes": "Репозиторий crates.io-пакета huggingface больше не существует. Пакет заброшен (версия 0.1.0); используйте официальный hf-hub или candle.",
+      "status": "deprecated",
+      "repoDropped": true
     },
     {
       "name": "com.theokanning.openai-gpt3-java:service",

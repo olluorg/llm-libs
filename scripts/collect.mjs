@@ -11,6 +11,7 @@
 import path from 'node:path';
 
 import { createLogger, log as rootLog } from './lib/log.mjs';
+import { repoSlug } from './lib/github.mjs';
 import {
   dedupe, loadAdapter, loadCurated, loadEcosystems, loadProviders, writeDataset, writeJson, OUT_DIR,
 } from './lib/store.mjs';
@@ -98,6 +99,19 @@ async function verifyCurated(records) {
         confidence: 0.5,
         source: [`registry:${record.ecosystem}`],
       };
+      // Реестр и курируемые данные могут указывать на один репозиторий по-разному
+      // (`git@github.com:…`, `/blob/main/README.md`, подпапка монорепо). Сравниваем
+      // по владельцу и имени репозитория; если это разные репозитории —
+      // предупреждение (живость ссылки проверяет scripts/audit-links.mjs).
+      const curatedSlug = repoSlug(record.repo);
+      const registrySlug = repoSlug(meta.repo);
+      if (meta.repo && curatedSlug && registrySlug && curatedSlug !== registrySlug) {
+        logV.warn(
+          `ссылка на репозиторий расходится с реестром: ${record.ecosystem}:${record.name} — ` +
+            `курируемые «${curatedSlug}», реестр «${registrySlug}»`,
+        );
+      }
+
       verified.push(mergeRecords(fromRegistry, record));
     } catch (error) {
       logV.debug(`проверка ${record.name} не удалась: ${error.message}`);

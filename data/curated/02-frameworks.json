@@ -546,8 +546,8 @@
         "structured-output",
         "embeddings"
       ],
-      "repo": "https://github.com/FoundryLabs/llama.net",
-      "notes": "C#-обёртки над llama.cpp и ollama, есть встроенный сервер с OpenAI-совместимым API."
+      "repo": "https://github.com/SciSharp/LLamaSharp",
+      "notes": "C#-обёртки над llama.cpp и ollama, есть встроенный сервер с OpenAI-совместимым API. Репозиторий переехал в организацию SciSharp (прежде FoundryLabs/llama.net)."
     },
     {
       "name": "openai-agents",
@@ -906,7 +906,9 @@
         "chat",
         "streaming"
       ],
-      "notes": "Elixir-клиент LLM от Dashbit."
+      "repoDropped": true,
+      "status": "deprecated",
+      "notes": "Репозиторий пакета недоступен, поддержка не ведётся. В Elixir стоит смотреть brainlid/langchain (пакет langchain) или agentjido/req_llm (пакет req_llm)."
     }
   ]
 }

@@ -76,6 +76,24 @@ jobs:
         # поэтому обновлять их можно на каждом прогоне.
         run: node scripts/enrich.mjs --concurrency=6 --releases=all
 
+      - name: Аудит и правка ссылок
+        # Проверяет каждую ссылку на репозиторий и сразу чинит её:
+        # заменяет на найденную в реестре, убирает битую без замены,
+        # усекает ссылку с подпапки до корня репозитория.
+        # Правки попадают и в data/curated/99-link-fixes.json (чтобы пережить
+        # следующий collect), и в data/out/libraries.json (чтобы сайт
+        # в этом же прогоне был уже верным).
+        run: |
+          node scripts/audit-links.mjs --apply
+          {
+            echo '## Аудит ссылок'
+            echo
+            node -e "
+              const r = require('./data/out/link-audit.json');
+              for (const [k, v] of Object.entries(r.tally)) console.log('- ' + (r.descriptions[k] ?? k) + ': ' + v);
+            "
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Валидация датасета
         run: node scripts/validate.mjs
 
@@ -97,13 +115,21 @@ jobs:
           path: data/out/libraries.json
           retention-days: 90
 
+      - name: Отчёт об аудите ссылок
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-audit
+          path: data/out/link-audit.json
+          retention-days: 30
+
       - name: Коммит обновлённого каталога
         id: commit
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.commit }}
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/out
+          git add data/out data/curated/99-link-fixes.json
           if git diff --cached --quiet; then
             echo "Данные не изменились — коммит не нужен"
             echo "changed=false" >> "$GITHUB_OUTPUT"
@@ -134,5 +160,6 @@ jobs:
             echo
             echo "- Данные изменились: ${{ steps.commit.outputs.changed || 'нет данных' }}"
             echo "- Полный датасет: артефакт \`libraries-json\`"
+            echo "- Отчёт о ссылках: артефакт \`link-audit\`"
             echo "- Сайт: https://${{ steps.pages.outputs.base_url }}"
           } >> "$GITHUB_STEP_SUMMARY"

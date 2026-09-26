@@ -63,3 +63,32 @@ jobs:
           name: libraries-json
           path: data/out/libraries.json
           retention-days: 30
+
+  audit:
+    name: Аудит ссылок
+    # Отдельная задача: ей нужен интернет (GitHub API) и токен, чтобы обойти
+    # лимит 60 запросов в час. Проверяет, что ссылка на репозиторий в каждой
+    # записи каталога жива и указывает на корень репозитория.
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Проверка ссылок на репозитории
+        # Битая ссылка в курируемой записи — ошибка данных, провал останавливает
+        # CI. В автонайденной записи ссылка чинится следующим прогоном refresh.
+        run: npm run audit:links
+
+      - name: Отчёт об аудите
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-audit
+          path: data/out/link-audit.json
+          retention-days: 30

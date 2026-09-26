@@ -1,0 +1,586 @@
+{
+  "generatedAt": "2026-09-26T14:03:43.513Z",
+  "checked": 504,
+  "uniqueSlugs": 387,
+  "tally": {
+    "none": 59,
+    "ok": 442,
+    "fixed": 2,
+    "nonGithub": 1
+  },
+  "descriptions": {
+    "ok": "ссылка жива и указывает на корень репозитория",
+    "canonical": "репозиторий переехал, ссылка обновлена на каноническую",
+    "subpath": "ссылка не на корень репозитория (подпапка, файл, .git, ssh-форма) — приведена к корню",
+    "nonGithub": "ссылка не на GitHub, проверяется отдельно (--http)",
+    "dead": "репозиторий не найден (404)",
+    "deadNoSource": "репозиторий не найден и замены нет",
+    "fixed": "ссылка была битой, заменена на найденную в реестре"
+  },
+  "results": [
+    {
+      "id": "nuget:microsoft.extensions.ai.openai",
+      "ecosystem": "nuget",
+      "name": "Microsoft.Extensions.AI.OpenAI",
+      "source": "discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "nuget:microsoft.semantickernel.connectors.openai",
+      "ecosystem": "nuget",
+      "name": "Microsoft.SemanticKernel.Connectors.OpenAI",
+      "source": "discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "nuget:rystem.openai",
+      "ecosystem": "nuget",
+      "name": "Rystem.OpenAi",
+      "source": "discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "nuget:anthropic",
+      "ecosystem": "nuget",
+      "name": "Anthropic",
+      "source": "registry:nuget,curated:01-official-sdks.json,discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "nuget:microsoft.agents.ai.openai",
+      "ecosystem": "nuget",
+      "name": "Microsoft.Agents.AI.OpenAI",
+      "source": "discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "nuget:tryagi.openai",
+      "ecosystem": "nuget",
+      "name": "tryAGI.OpenAI",
+      "source": "discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "nuget:betalgo.openai",
+      "ecosystem": "nuget",
+      "name": "Betalgo.OpenAI",
+      "source": "discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "nuget:forge.openai",
+      "ecosystem": "nuget",
+      "name": "Forge.OpenAI",
+      "source": "discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:pinecone-client",
+      "ecosystem": "pypi",
+      "name": "pinecone-client",
+      "source": "registry:pypi,curated:04-infra.json",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "nuget:universe.openai.api",
+      "ecosystem": "nuget",
+      "name": "Universe.OpenAI.API",
+      "source": "discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:cohere-compass-sdk",
+      "ecosystem": "pypi",
+      "name": "cohere-compass-sdk",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "nuget:anthropic.bedrock",
+      "ecosystem": "nuget",
+      "name": "Anthropic.Bedrock",
+      "source": "discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "nuget:cohere",
+      "ecosystem": "nuget",
+      "name": "Cohere",
+      "source": "discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "crates:anthropic",
+      "ecosystem": "crates",
+      "name": "anthropic",
+      "source": "discovery:crates",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "rubygems:anthropic-rb",
+      "ecosystem": "rubygems",
+      "name": "anthropic-rb",
+      "source": "discovery:rubygems",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "crates:tch",
+      "ecosystem": "crates",
+      "name": "tch",
+      "source": "registry:crates,curated:04-infra.json",
+      "verdict": "fixed",
+      "requested": "pykeio/tch",
+      "replacement": "https://github.com/LaurentMazare/tch-rs",
+      "repo": "https://github.com/pykeio/tch",
+      "note": "404, но реестр указывает на https://github.com/LaurentMazare/tch-rs"
+    },
+    {
+      "id": "nuget:devexpress.aiintegration.openai",
+      "ecosystem": "nuget",
+      "name": "DevExpress.AIIntegration.OpenAI",
+      "source": "discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:fastmcp",
+      "ecosystem": "pypi",
+      "name": "fastmcp",
+      "source": "registry:pypi,curated:05-mcp.json",
+      "verdict": "ok",
+      "requested": "PrefectHQ/fastmcp",
+      "canonical": "https://github.com/PrefectHQ/fastmcp",
+      "stars": {
+        "recorded": 27905,
+        "actual": 27907
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:jina",
+      "ecosystem": "pypi",
+      "name": "jina",
+      "source": "registry:pypi,curated:01-official-sdks.json",
+      "verdict": "ok",
+      "requested": "jina-ai/serve",
+      "canonical": "https://github.com/jina-ai/serve",
+      "stars": {
+        "recorded": 21861,
+        "actual": 21862
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:@claude-flow/embeddings",
+      "ecosystem": "npm",
+      "name": "@claude-flow/embeddings",
+      "source": "discovery:npm",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:mistralai-search-toolkit",
+      "ecosystem": "pypi",
+      "name": "mistralai-search-toolkit",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "rubygems:openai-please",
+      "ecosystem": "rubygems",
+      "name": "openai-please",
+      "source": "discovery:rubygems",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:ragas",
+      "ecosystem": "pypi",
+      "name": "ragas",
+      "source": "registry:pypi,curated:04-infra.json",
+      "verdict": "ok",
+      "requested": "vibrantlabsai/ragas",
+      "canonical": "https://github.com/vibrantlabsai/ragas",
+      "stars": {
+        "recorded": 15851,
+        "actual": 15853
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "crates:oai",
+      "ecosystem": "crates",
+      "name": "oai",
+      "source": "registry:crates,curated:03-community-clients.json",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "rubygems:openai_101",
+      "ecosystem": "rubygems",
+      "name": "openai_101",
+      "source": "discovery:rubygems",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "npm:smart-mcp",
+      "ecosystem": "npm",
+      "name": "smart-mcp",
+      "source": "discovery:npm",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:azureopenai",
+      "ecosystem": "pypi",
+      "name": "azureopenai",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:claude-code-sdk",
+      "ecosystem": "pypi",
+      "name": "claude-code-sdk",
+      "source": "discovery:pypi",
+      "verdict": "ok",
+      "requested": "anthropics/claude-agent-sdk-python",
+      "canonical": "https://github.com/anthropics/claude-agent-sdk-python",
+      "stars": {
+        "recorded": 8166,
+        "actual": 8167
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "rubygems:net-llm",
+      "ecosystem": "rubygems",
+      "name": "net-llm",
+      "source": "discovery:rubygems",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "npm:@warlock.js/ai-groq",
+      "ecosystem": "npm",
+      "name": "@warlock.js/ai-groq",
+      "source": "discovery:npm",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:mistralai-search-toolkit-plugins-postgres",
+      "ecosystem": "pypi",
+      "name": "mistralai-search-toolkit-plugins-postgres",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "crates:huggingface",
+      "ecosystem": "crates",
+      "name": "huggingface",
+      "source": "registry:crates,curated:03-community-clients.json,discovery:crates",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "crates:mistralai",
+      "ecosystem": "crates",
+      "name": "mistralai",
+      "source": "registry:crates,curated:03-community-clients.json,discovery:crates",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "hex:ollama",
+      "ecosystem": "hex",
+      "name": "ollama",
+      "source": "registry:hex,curated:04-infra.json",
+      "verdict": "fixed",
+      "requested": "elixir-ollama/ollama",
+      "replacement": "https://github.com/aaronrussell/ollama-ex",
+      "repo": "https://github.com/elixir-ollama/ollama",
+      "note": "404, но реестр указывает на https://github.com/aaronrussell/ollama-ex"
+    },
+    {
+      "id": "hex:req_anthropic",
+      "ecosystem": "hex",
+      "name": "req_anthropic",
+      "source": "discovery:hex",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "nuget:olbrasoft.text.transformation.cohere",
+      "ecosystem": "nuget",
+      "name": "Olbrasoft.Text.Transformation.Cohere",
+      "source": "discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:ai-parrot-client-openai",
+      "ecosystem": "pypi",
+      "name": "ai-parrot-client-openai",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:ai-parrot-client-anthropic",
+      "ecosystem": "pypi",
+      "name": "ai-parrot-client-anthropic",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "npm:@leanroute/vercel-ai-sdk",
+      "ecosystem": "npm",
+      "name": "@leanroute/vercel-ai-sdk",
+      "source": "discovery:npm",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "hex:llm",
+      "ecosystem": "hex",
+      "name": "llm",
+      "source": "registry:hex,curated:02-frameworks.json",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:aws_sdk_bedrock_agentcore",
+      "ecosystem": "pypi",
+      "name": "aws_sdk_bedrock_agentcore",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "golang:trpc.group/trpc-go/trpc-agent-go",
+      "ecosystem": "golang",
+      "name": "trpc.group/trpc-go/trpc-agent-go",
+      "source": "discovery:golang",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:aws_sdk_bedrock_agentcore_control",
+      "ecosystem": "pypi",
+      "name": "aws_sdk_bedrock_agentcore_control",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:aws_sdk_bedrock_agent",
+      "ecosystem": "pypi",
+      "name": "aws_sdk_bedrock_agent",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:aws_sdk_bedrock_agent_runtime",
+      "ecosystem": "pypi",
+      "name": "aws_sdk_bedrock_agent_runtime",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "hex:huggingface_client",
+      "ecosystem": "hex",
+      "name": "huggingface_client",
+      "source": "discovery:hex",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:groq-whisper-cli",
+      "ecosystem": "pypi",
+      "name": "groq-whisper-cli",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "npm:ollama-openai-mcp",
+      "ecosystem": "npm",
+      "name": "ollama-openai-mcp",
+      "source": "discovery:npm",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:enthusiast-model-azureopenai",
+      "ecosystem": "pypi",
+      "name": "enthusiast-model-azureopenai",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:huggingface-togetherai",
+      "ecosystem": "pypi",
+      "name": "huggingface-togetherai",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "luarocks:gpt-images-25",
+      "ecosystem": "luarocks",
+      "name": "gpt-images-25",
+      "source": "discovery:luarocks",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "luarocks:gpt-image-2-dev",
+      "ecosystem": "luarocks",
+      "name": "gpt-image-2-dev",
+      "source": "discovery:luarocks",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "luarocks:gpt-image-2-app",
+      "ecosystem": "luarocks",
+      "name": "gpt-image-2-app",
+      "source": "discovery:luarocks",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "luarocks:gpt-image-2",
+      "ecosystem": "luarocks",
+      "name": "gpt-image-2",
+      "source": "discovery:luarocks",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "luarocks:gpt-image-2-5",
+      "ecosystem": "luarocks",
+      "name": "gpt-image-2-5",
+      "source": "discovery:luarocks",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "cran:gptr",
+      "ecosystem": "cran",
+      "name": "gptr",
+      "source": "discovery:cran",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "cran:llm",
+      "ecosystem": "cran",
+      "name": "LLM",
+      "source": "discovery:cran",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "cran:mistral",
+      "ecosystem": "cran",
+      "name": "mistral",
+      "source": "discovery:cran",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "cran:theopenair",
+      "ecosystem": "cran",
+      "name": "TheOpenAIR",
+      "source": "discovery:cran",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "maven:com.oracle.bedrock:bedrock-coherence",
+      "ecosystem": "maven",
+      "name": "com.oracle.bedrock:bedrock-coherence",
+      "source": "discovery:maven",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "maven:com.wesuresoft.sdk:openai",
+      "ecosystem": "maven",
+      "name": "com.wesuresoft.sdk:openai",
+      "source": "discovery:maven",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "maven:dev.struchkov.openai:openai-parent-sdk",
+      "ecosystem": "maven",
+      "name": "dev.struchkov.openai:openai-parent-sdk",
+      "source": "discovery:maven",
+      "verdict": "nonGithub",
+      "note": "https://git.struchkov.dev/openai/openai-sdk",
+      "repo": "https://git.struchkov.dev/openai/openai-sdk"
+    },
+    {
+      "id": "maven:dev.struchkov.openai:openai-sdk",
+      "ecosystem": "maven",
+      "name": "dev.struchkov.openai:openai-sdk",
+      "source": "discovery:maven",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "maven:io.github.fern-api:cohere",
+      "ecosystem": "maven",
+      "name": "io.github.fern-api:cohere",
+      "source": "discovery:maven",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "maven:io.github.umutayb:ollama-api",
+      "ecosystem": "maven",
+      "name": "io.github.umutayb:ollama-api",
+      "source": "discovery:maven",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "packagist:assistant-engine/php-openai-client",
+      "ecosystem": "packagist",
+      "name": "assistant-engine/php-openai-client",
+      "source": "discovery:packagist",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    }
+  ],
+  "httpProblems": []
+}

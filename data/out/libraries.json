@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-26T13:22:50.522Z",
+  "generatedAt": "2026-09-26T14:03:43.534Z",
   "counts": {
     "total": 504,
     "byEcosystem": {
@@ -41,8 +41,6 @@
       "openai": 264,
       "openai-compatible": 76,
       "anthropic": 146,
-      "fireworks": 1,
-      "ai21": 1,
       "cohere": 37,
       "aws-bedrock": 48,
       "google-gemini": 84,
@@ -66,6 +64,8 @@
       "qwen": 7,
       "moonshot": 5,
       "sap": 1,
+      "ai21": 1,
+      "fireworks": 1,
       "deepinfra": 1
     },
     "byRole": {
@@ -88,9 +88,9 @@
       "orchestration": 1
     },
     "byStatus": {
-      "active": 336,
-      "unknown": 83,
-      "deprecated": 72,
+      "active": 335,
+      "unknown": 81,
+      "deprecated": 75,
       "archived": 13
     }
   },
@@ -236,7 +236,7 @@
         "finetune"
       ],
       "envVars": [],
-      "repo": "https://github.com/pykeio/tch",
+      "repo": "https://github.com/LaurentMazare/tch-rs",
       "registry": {
         "url": "https://crates.io/crates/tch",
         "version": "0.26.0",
@@ -466,138 +466,6 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "nuget:llamasharp",
-      "name": "LLamaSharp",
-      "description": "LLamaSharp is a cross-platform library to run 🦙LLaMA/Mtmd model (and others) in your local device. Based on [llama.cpp](https://github.com/ggerganov/llama.cpp), inference with LLamaSharp is efficient on both CPU and GPU. With the higher-level APIs and RAG support, it's convenient to deploy LLM (Large Language Model) in your application with LLamaSharp.",
-      "ecosystem": "nuget",
-      "language": "C#",
-      "role": "runtime",
-      "kind": "local-runtime",
-      "providers": [],
-      "worksWith": [
-        "ollama",
-        "llamacpp",
-        "openai-compatible"
-      ],
-      "sdkApi": "n/a",
-      "status": "active",
-      "tier": "B",
-      "features": [
-        "chat",
-        "streaming",
-        "tools",
-        "structured-output",
-        "embeddings"
-      ],
-      "envVars": [],
-      "repo": "https://github.com/FoundryLabs/llama.net",
-      "license": "MIT",
-      "registry": {
-        "url": "https://www.nuget.org/packages/LLamaSharp",
-        "version": "0.27.0",
-        "downloads": 1446533,
-        "downloadsPeriod": "total",
-        "updatedAt": "2026-04-26"
-      },
-      "github": {},
-      "confidence": 0.9,
-      "source": [
-        "registry:nuget",
-        "curated:02-frameworks.json"
-      ],
-      "notes": "C#-обёртки над llama.cpp и ollama, есть встроенный сервер с OpenAI-совместимым API.",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "latestRelease": "2026-04-26",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "pypi:fireworks-ai",
-      "name": "fireworks-ai",
-      "description": "The official Python library for the fireworks API",
-      "ecosystem": "pypi",
-      "language": "Python",
-      "role": "sdk",
-      "kind": "official-sdk",
-      "providers": [
-        "fireworks"
-      ],
-      "sdkApi": "openai-compatible",
-      "status": "active",
-      "tier": "C",
-      "features": [
-        "chat",
-        "streaming",
-        "tools",
-        "structured-output",
-        "vision",
-        "embeddings"
-      ],
-      "envVars": [
-        "FIREWORKS_API_KEY"
-      ],
-      "repo": "https://github.com/fireworks-ai/fireworks-python",
-      "license": "Apache-2.0",
-      "registry": {
-        "url": "https://pypi.org/project/fireworks-ai",
-        "version": "1.2.16",
-        "downloads": 1140888,
-        "downloadsPeriod": "month",
-        "updatedAt": "2026-09-25"
-      },
-      "github": {},
-      "confidence": 0.9,
-      "source": [
-        "registry:pypi",
-        "curated:01-official-sdks.json"
-      ],
-      "notes": "Быстрый инференс открытых моделей, поддержка function calling.",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "latestRelease": "2026-09-25",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "pypi:ai21",
-      "name": "ai21",
-      "ecosystem": "pypi",
-      "language": "Python",
-      "role": "sdk",
-      "kind": "official-sdk",
-      "providers": [
-        "ai21"
-      ],
-      "sdkApi": "ai21",
-      "status": "active",
-      "tier": "C",
-      "features": [
-        "chat",
-        "streaming"
-      ],
-      "envVars": [
-        "AI21_API_KEY"
-      ],
-      "repo": "https://github.com/ai21labs/ai21-python-sdk",
-      "registry": {
-        "url": "https://pypi.org/project/ai21",
-        "version": "4.3.0",
-        "downloads": 1004840,
-        "downloadsPeriod": "month",
-        "updatedAt": "2025-11-06"
-      },
-      "github": {},
-      "confidence": 0.9,
-      "source": [
-        "registry:pypi",
-        "curated:01-official-sdks.json"
-      ],
-      "notes": "Jamba-модели.",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "latestRelease": "2025-11-06",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "pypi:pinecone-client",
       "name": "pinecone-client",
       "description": "Pinecone client (DEPRECATED)",
@@ -805,9 +673,7 @@
         "forks": 18006,
         "openIssues": 4098,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-23",
-        "latestRelease": "v0.34.4"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -866,9 +732,7 @@
         "forks": 34679,
         "openIssues": 2384,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-09",
-        "latestRelease": "v5.17.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -934,9 +798,7 @@
         "forks": 24614,
         "openIssues": 566,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-24",
-        "latestRelease": "langchain-core==1.6.5"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -987,9 +849,7 @@
         "forks": 24614,
         "openIssues": 566,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-24",
-        "latestRelease": "langchain-core==1.6.5"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -1039,9 +899,7 @@
         "forks": 24614,
         "openIssues": 566,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-24",
-        "latestRelease": "langchain-core==1.6.5"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -1093,9 +951,7 @@
         "forks": 24614,
         "openIssues": 566,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-24",
-        "latestRelease": "langchain-core==1.6.5"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -1151,9 +1007,7 @@
         "forks": 23749,
         "openIssues": 2543,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-23",
-        "latestRelease": "v0.5.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -1202,9 +1056,7 @@
         "forks": 13288,
         "openIssues": 153,
         "archived": false,
-        "pushedAt": "2026-08-31",
-        "releasedAt": "2025-06-26",
-        "latestRelease": "v20250625"
+        "pushedAt": "2026-08-31"
       },
       "confidence": 0.75,
       "source": [
@@ -1253,9 +1105,7 @@
         "forks": 30525,
         "openIssues": 17556,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-02",
-        "latestRelease": "v2.14.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -1313,9 +1163,7 @@
         "forks": 22679,
         "openIssues": 8431,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-22",
-        "latestRelease": "v0.30.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -1366,9 +1214,7 @@
         "forks": 11690,
         "openIssues": 555,
         "archived": false,
-        "pushedAt": "2026-09-22",
-        "releasedAt": "2026-08-31",
-        "latestRelease": "2026.8.31"
+        "pushedAt": "2026-09-22"
       },
       "confidence": 0.9,
       "source": [
@@ -1426,9 +1272,7 @@
         "forks": 15923,
         "openIssues": 947,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-20",
-        "latestRelease": "v2.2.18"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -1483,9 +1327,7 @@
         "forks": 9256,
         "openIssues": 1104,
         "archived": false,
-        "pushedAt": "2026-04-15",
-        "releasedAt": "2025-09-30",
-        "latestRelease": "python-v0.7.5"
+        "pushedAt": "2026-04-15"
       },
       "confidence": 0.9,
       "source": [
@@ -1542,9 +1384,7 @@
         "forks": 11796,
         "openIssues": 5306,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-23",
-        "latestRelease": "v1.102.1"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -1618,9 +1458,7 @@
         "forks": 11796,
         "openIssues": 5306,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-23",
-        "latestRelease": "v1.102.1"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -1676,9 +1514,7 @@
         "forks": 8580,
         "openIssues": 491,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-16",
-        "latestRelease": "1.15.22"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -1770,9 +1606,7 @@
         "forks": 8219,
         "openIssues": 871,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-21",
-        "latestRelease": "v0.14.25"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -1828,9 +1662,7 @@
         "forks": 8219,
         "openIssues": 871,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-21",
-        "latestRelease": "v0.14.25"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -1881,9 +1713,7 @@
         "forks": 8219,
         "openIssues": 871,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-21",
-        "latestRelease": "v0.14.25"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -1939,9 +1769,7 @@
         "forks": 6015,
         "openIssues": 1660,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-23",
-        "latestRelease": "v3.0.11"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -1996,9 +1824,7 @@
         "forks": 7161,
         "openIssues": 823,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-23",
-        "latestRelease": "cli==0.4.32.dev0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -2050,9 +1876,7 @@
         "forks": 2719,
         "openIssues": 123,
         "archived": false,
-        "pushedAt": "2026-09-21",
-        "releasedAt": "2026-09-13",
-        "latestRelease": "v1.7.0"
+        "pushedAt": "2026-09-21"
       },
       "confidence": 0.75,
       "source": [
@@ -2105,9 +1929,7 @@
         "forks": 3361,
         "openIssues": 739,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "3.4.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -2160,9 +1982,7 @@
         "forks": 3848,
         "openIssues": 941,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "v4.46.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -2220,9 +2040,7 @@
         "forks": 3848,
         "openIssues": 941,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "v4.46.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -2288,9 +2106,7 @@
         "forks": 6365,
         "openIssues": 150,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-24",
-        "latestRelease": "v3.19.2"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -2423,9 +2239,7 @@
         "forks": 4809,
         "openIssues": 21,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-17",
-        "latestRelease": "v0.22.3"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -2480,9 +2294,7 @@
         "forks": 2996,
         "openIssues": 847,
         "archived": false,
-        "pushedAt": "2026-09-23",
-        "releasedAt": "2026-05-29",
-        "latestRelease": "v1.26.0"
+        "pushedAt": "2026-09-23"
       },
       "confidence": 0.9,
       "source": [
@@ -2534,9 +2346,7 @@
         "forks": 2536,
         "openIssues": 902,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-05-05",
-        "latestRelease": "1.5.9"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -2595,9 +2405,7 @@
         "forks": 4791,
         "openIssues": 332,
         "archived": false,
-        "pushedAt": "2026-09-19",
-        "releasedAt": "2026-09-03",
-        "latestRelease": "dotnet-1.80.1"
+        "pushedAt": "2026-09-19"
       },
       "confidence": 0.9,
       "source": [
@@ -2650,9 +2458,7 @@
         "forks": 2402,
         "openIssues": 363,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "v4.0.10"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -2706,9 +2512,7 @@
         "forks": 5201,
         "openIssues": 1441,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-26",
-        "latestRelease": "@ai-sdk/perplexity@5.0.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -2760,9 +2564,7 @@
         "forks": 5201,
         "openIssues": 1441,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-26",
-        "latestRelease": "@ai-sdk/perplexity@5.0.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -2819,9 +2621,7 @@
         "forks": 5201,
         "openIssues": 1441,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-26",
-        "latestRelease": "@ai-sdk/perplexity@5.0.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -2884,9 +2684,7 @@
         "forks": 5201,
         "openIssues": 1441,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-26",
-        "latestRelease": "@ai-sdk/perplexity@5.0.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -2939,9 +2737,7 @@
         "forks": 5201,
         "openIssues": 1441,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-26",
-        "latestRelease": "@ai-sdk/perplexity@5.0.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.75,
       "source": [
@@ -3008,9 +2804,7 @@
         "forks": 5201,
         "openIssues": 1441,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-26",
-        "latestRelease": "@ai-sdk/perplexity@5.0.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -3065,9 +2859,7 @@
         "forks": 3188,
         "openIssues": 164,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-24",
-        "latestRelease": "v3.2.0"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -3126,9 +2918,7 @@
         "forks": 2377,
         "openIssues": 657,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-18",
-        "latestRelease": "0.123.1"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -3181,9 +2971,7 @@
         "forks": 2630,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-10",
-        "releasedAt": "2026-05-14",
-        "latestRelease": "0.16.8"
+        "pushedAt": "2026-09-10"
       },
       "confidence": 0.9,
       "source": [
@@ -3236,9 +3024,7 @@
         "forks": 3976,
         "openIssues": 452,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-07",
-        "latestRelease": "v2.2.0"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -3327,9 +3113,7 @@
         "forks": 2008,
         "openIssues": 144,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-26",
-        "latestRelease": "v0.67.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.75,
       "source": [
@@ -3379,9 +3163,7 @@
         "forks": 2241,
         "openIssues": 26,
         "archived": false,
-        "pushedAt": "2025-03-24",
-        "releasedAt": "2024-11-12",
-        "latestRelease": "v3.28.0"
+        "pushedAt": "2025-03-24"
       },
       "confidence": 0.9,
       "source": [
@@ -3435,9 +3217,7 @@
         "forks": 1208,
         "openIssues": 336,
         "archived": false,
-        "pushedAt": "2026-05-21",
-        "releasedAt": "2026-03-18",
-        "latestRelease": "0.3.2"
+        "pushedAt": "2026-05-21"
       },
       "confidence": 0.9,
       "source": [
@@ -3547,9 +3327,7 @@
         "forks": 2786,
         "openIssues": 982,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "v2.51.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -3644,9 +3422,7 @@
         "forks": 1622,
         "openIssues": 133,
         "archived": false,
-        "pushedAt": "2026-08-17",
-        "releasedAt": "2026-08-17",
-        "latestRelease": "0.14.0"
+        "pushedAt": "2026-08-17"
       },
       "confidence": 0.9,
       "source": [
@@ -3698,9 +3474,7 @@
         "forks": 1384,
         "openIssues": 152,
         "archived": false,
-        "pushedAt": "2026-09-15",
-        "releasedAt": "2026-09-08",
-        "latestRelease": "v0.2.85"
+        "pushedAt": "2026-09-15"
       },
       "confidence": 0.9,
       "source": [
@@ -3753,9 +3527,7 @@
         "forks": 1982,
         "openIssues": 665,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-22",
-        "latestRelease": "python-v4.2.4"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -3805,9 +3577,7 @@
         "forks": 3392,
         "openIssues": 585,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-21",
-        "latestRelease": "@langchain/google@0.2.7"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -3861,9 +3631,7 @@
         "forks": 3392,
         "openIssues": 585,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-21",
-        "latestRelease": "@langchain/google@0.2.7"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -3914,9 +3682,7 @@
         "forks": 3392,
         "openIssues": 585,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-21",
-        "latestRelease": "@langchain/google@0.2.7"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -3973,9 +3739,7 @@
         "forks": 3392,
         "openIssues": 585,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-21",
-        "latestRelease": "@langchain/google@0.2.7"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -4023,9 +3787,7 @@
         "forks": 2214,
         "openIssues": 15,
         "archived": true,
-        "pushedAt": "2026-02-11",
-        "releasedAt": "2025-07-18",
-        "latestRelease": "v8.4.4"
+        "pushedAt": "2026-02-11"
       },
       "confidence": 0.75,
       "source": [
@@ -4080,9 +3842,7 @@
         "forks": 1194,
         "openIssues": 260,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-16",
-        "latestRelease": "4.3.0"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -4134,9 +3894,7 @@
         "forks": 887,
         "openIssues": 177,
         "archived": false,
-        "pushedAt": "2026-09-21",
-        "releasedAt": "2026-08-06",
-        "latestRelease": "1.3.3"
+        "pushedAt": "2026-09-21"
       },
       "confidence": 0.9,
       "source": [
@@ -4189,9 +3947,7 @@
         "forks": 1727,
         "openIssues": 612,
         "archived": false,
-        "pushedAt": "2026-02-24",
-        "releasedAt": "2026-01-13",
-        "latestRelease": "v0.4.3"
+        "pushedAt": "2026-02-24"
       },
       "confidence": 0.9,
       "source": [
@@ -4243,9 +3999,7 @@
         "forks": 1342,
         "openIssues": 314,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-22",
-        "latestRelease": "0.27.8"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -4296,9 +4050,7 @@
         "forks": 757,
         "openIssues": 183,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-08-23",
-        "latestRelease": "2.22.0"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.75,
       "source": [
@@ -4400,9 +4152,7 @@
         "forks": 1271,
         "openIssues": 103,
         "archived": false,
-        "pushedAt": "2026-09-24",
-        "releasedAt": "2026-09-09",
-        "latestRelease": "v1.17.0"
+        "pushedAt": "2026-09-24"
       },
       "confidence": 0.9,
       "source": [
@@ -4455,9 +4205,7 @@
         "forks": 2226,
         "openIssues": 651,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-23",
-        "latestRelease": "@modelcontextprotocol/server-legacy@2.1.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -4602,9 +4350,7 @@
         "forks": 2570,
         "openIssues": 934,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "1.20.1"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -4714,9 +4460,7 @@
         "forks": 1315,
         "openIssues": 279,
         "archived": false,
-        "pushedAt": "2026-05-25",
-        "releasedAt": "2026-01-12",
-        "latestRelease": "v1.15.2"
+        "pushedAt": "2026-05-25"
       },
       "confidence": 0.9,
       "source": [
@@ -4853,9 +4597,7 @@
         "forks": 1070,
         "openIssues": 688,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-17",
-        "latestRelease": "v0.39.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -4919,9 +4661,7 @@
         "forks": 1607,
         "openIssues": 6,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-23",
-        "latestRelease": "v7.23.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -4972,9 +4712,7 @@
         "forks": 1208,
         "openIssues": 218,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-03",
-        "latestRelease": "v0.23.2"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -5077,9 +4815,7 @@
         "forks": 1715,
         "openIssues": 217,
         "archived": false,
-        "pushedAt": "2026-09-22",
-        "releasedAt": "2026-09-11",
-        "latestRelease": "v1.42.1"
+        "pushedAt": "2026-09-22"
       },
       "confidence": 0.9,
       "source": [
@@ -5136,9 +4872,7 @@
         "forks": 1457,
         "openIssues": 683,
         "archived": false,
-        "pushedAt": "2026-09-22",
-        "releasedAt": "2026-08-17",
-        "latestRelease": "v0.3.35-hip-radeon"
+        "pushedAt": "2026-09-22"
       },
       "confidence": 0.9,
       "source": [
@@ -5196,9 +4930,7 @@
         "forks": 1180,
         "openIssues": 209,
         "archived": false,
-        "pushedAt": "2026-09-16",
-        "releasedAt": "2026-04-29",
-        "latestRelease": "v0.6.2"
+        "pushedAt": "2026-09-16"
       },
       "confidence": 0.9,
       "source": [
@@ -5299,9 +5031,7 @@
         "forks": 1994,
         "openIssues": 200,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2015-04-09",
-        "latestRelease": "0.0.14"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -5359,9 +5089,7 @@
         "forks": 1149,
         "openIssues": 417,
         "archived": false,
-        "pushedAt": "2026-01-11",
-        "releasedAt": "2025-10-20",
-        "latestRelease": "v0.1.14"
+        "pushedAt": "2026-01-11"
       },
       "confidence": 0.9,
       "source": [
@@ -5412,9 +5140,7 @@
         "forks": 2928,
         "openIssues": 1493,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-08-21",
-        "latestRelease": "v2.0.1"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -5461,9 +5187,7 @@
         "forks": 2928,
         "openIssues": 1493,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-08-21",
-        "latestRelease": "v2.0.1"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.6,
       "source": [
@@ -5508,9 +5232,7 @@
         "forks": 2928,
         "openIssues": 1493,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-08-21",
-        "latestRelease": "v2.0.1"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.6,
       "source": [
@@ -5606,9 +5328,7 @@
         "forks": 694,
         "openIssues": 389,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-26",
-        "latestRelease": "vrs1.3.3"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.45,
       "source": [
@@ -5717,9 +5437,7 @@
         "forks": 974,
         "openIssues": 119,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-08-17",
-        "latestRelease": "v0.42.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -5812,9 +5530,7 @@
         "forks": 1301,
         "openIssues": 495,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "v0.2.160"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.75,
       "source": [
@@ -5907,9 +5623,7 @@
         "forks": 852,
         "openIssues": 813,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-24",
-        "latestRelease": "py/v0.12.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.75,
       "source": [
@@ -5958,9 +5672,7 @@
         "forks": 245,
         "openIssues": 15,
         "archived": false,
-        "pushedAt": "2026-09-24",
-        "releasedAt": "2026-09-24",
-        "latestRelease": "v1.12.0"
+        "pushedAt": "2026-09-24"
       },
       "confidence": 0.75,
       "source": [
@@ -6008,9 +5720,7 @@
         "forks": 554,
         "openIssues": 256,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-22",
-        "latestRelease": "v6.16.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.75,
       "source": [
@@ -6061,9 +5771,7 @@
         "forks": 415,
         "openIssues": 117,
         "archived": false,
-        "pushedAt": "2026-09-23",
-        "releasedAt": "2026-03-04",
-        "latestRelease": "v3.2.7"
+        "pushedAt": "2026-09-23"
       },
       "confidence": 0.9,
       "source": [
@@ -6118,9 +5826,7 @@
         "forks": 675,
         "openIssues": 160,
         "archived": false,
-        "pushedAt": "2026-09-16",
-        "releasedAt": "2025-08-21",
-        "latestRelease": "v2025.08.21-1"
+        "pushedAt": "2026-09-16"
       },
       "confidence": 0.9,
       "source": [
@@ -6167,9 +5873,7 @@
         "forks": 644,
         "openIssues": 31,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-01",
-        "latestRelease": "v9.5.2"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.75,
       "source": [
@@ -6219,9 +5923,7 @@
         "forks": 5197,
         "openIssues": 1365,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "Azure.Core_1.63.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.75,
       "source": [
@@ -6281,9 +5983,7 @@
         "forks": 5197,
         "openIssues": 1365,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "Azure.Core_1.63.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -6341,9 +6041,7 @@
         "forks": 681,
         "openIssues": 23,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-17",
-        "latestRelease": "v0.21.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -6440,9 +6138,7 @@
         "forks": 3374,
         "openIssues": 1086,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "azure-ai-evaluation_1.18.7"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -6497,9 +6193,7 @@
         "forks": 3374,
         "openIssues": 1086,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "azure-ai-evaluation_1.18.7"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -6549,9 +6243,7 @@
         "forks": 3374,
         "openIssues": 1086,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "azure-ai-evaluation_1.18.7"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -6605,9 +6297,7 @@
         "forks": 324,
         "openIssues": 136,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-17",
-        "latestRelease": "v0.33.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.75,
       "source": [
@@ -6651,9 +6341,7 @@
         "forks": 1173,
         "openIssues": 129,
         "archived": true,
-        "pushedAt": "2024-06-06",
-        "releasedAt": "2023-11-21",
-        "latestRelease": "0.18.2"
+        "pushedAt": "2024-06-06"
       },
       "confidence": 0.75,
       "source": [
@@ -6697,9 +6385,7 @@
         "forks": 1173,
         "openIssues": 129,
         "archived": true,
-        "pushedAt": "2024-06-06",
-        "releasedAt": "2023-11-21",
-        "latestRelease": "0.18.2"
+        "pushedAt": "2024-06-06"
       },
       "confidence": 0.75,
       "source": [
@@ -6752,9 +6438,7 @@
         "forks": 1173,
         "openIssues": 129,
         "archived": true,
-        "pushedAt": "2024-06-06",
-        "releasedAt": "2023-11-21",
-        "latestRelease": "0.18.2"
+        "pushedAt": "2024-06-06"
       },
       "confidence": 0.9,
       "source": [
@@ -6825,9 +6509,7 @@
         "forks": 506,
         "openIssues": 7,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-18",
-        "latestRelease": "v2.0.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -6886,9 +6568,7 @@
         "forks": 477,
         "openIssues": 92,
         "archived": false,
-        "pushedAt": "2026-02-18",
-        "releasedAt": "2025-11-13",
-        "latestRelease": "v0.6.3"
+        "pushedAt": "2026-02-18"
       },
       "confidence": 0.9,
       "source": [
@@ -6934,9 +6614,7 @@
         "forks": 317,
         "openIssues": 112,
         "archived": false,
-        "pushedAt": "2026-01-13",
-        "releasedAt": "2023-01-08",
-        "latestRelease": "v0.1.1-alpha"
+        "pushedAt": "2026-01-13"
       },
       "confidence": 0.75,
       "source": [
@@ -6997,9 +6675,7 @@
         "forks": 1019,
         "openIssues": 322,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-22",
-        "latestRelease": "v2.25.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -7046,9 +6722,7 @@
         "forks": 1226,
         "openIssues": 165,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-24",
-        "latestRelease": "v2.0.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.75,
       "source": [
@@ -7106,9 +6780,7 @@
         "forks": 862,
         "openIssues": 179,
         "archived": false,
-        "pushedAt": "2026-09-22",
-        "releasedAt": "2026-09-22",
-        "latestRelease": "v1.8.0"
+        "pushedAt": "2026-09-22"
       },
       "confidence": 0.9,
       "source": [
@@ -7121,6 +6793,60 @@
       "updatedAt": "2026-09-26",
       "stars": 3922,
       "latestRelease": "2026-09-22",
+      "latestReleaseSource": "registry"
+    },
+    {
+      "id": "nuget:llamasharp",
+      "name": "LLamaSharp",
+      "description": "LLamaSharp is a cross-platform library to run 🦙LLaMA/Mtmd model (and others) in your local device. Based on [llama.cpp](https://github.com/ggerganov/llama.cpp), inference with LLamaSharp is efficient on both CPU and GPU. With the higher-level APIs and RAG support, it's convenient to deploy LLM (Large Language Model) in your application with LLamaSharp.",
+      "ecosystem": "nuget",
+      "language": "C#",
+      "role": "runtime",
+      "kind": "local-runtime",
+      "providers": [],
+      "worksWith": [
+        "ollama",
+        "llamacpp",
+        "openai-compatible"
+      ],
+      "sdkApi": "n/a",
+      "status": "active",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "embeddings"
+      ],
+      "envVars": [],
+      "repo": "https://github.com/SciSharp/LLamaSharp",
+      "homepage": "https://scisharp.github.io/LLamaSharp",
+      "license": "MIT",
+      "registry": {
+        "url": "https://www.nuget.org/packages/LLamaSharp",
+        "version": "0.27.0",
+        "downloads": 1446533,
+        "downloadsPeriod": "total",
+        "updatedAt": "2026-04-26"
+      },
+      "github": {
+        "stars": 3800,
+        "forks": 510,
+        "openIssues": 24,
+        "archived": false,
+        "pushedAt": "2026-09-26"
+      },
+      "confidence": 0.9,
+      "source": [
+        "registry:nuget",
+        "curated:02-frameworks.json"
+      ],
+      "notes": "C#-обёртки над llama.cpp и ollama, есть встроенный сервер с OpenAI-совместимым API. Репозиторий переехал в организацию SciSharp (прежде FoundryLabs/llama.net).",
+      "discoveredAt": "2026-09-26",
+      "updatedAt": "2026-09-26",
+      "stars": 3800,
+      "latestRelease": "2026-04-26",
       "latestReleaseSource": "registry"
     },
     {
@@ -7162,9 +6888,7 @@
         "forks": 268,
         "openIssues": 14,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-17",
-        "latestRelease": "v0.21.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -7274,9 +6998,7 @@
         "forks": 704,
         "openIssues": 146,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "v3.1141.0"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -7327,9 +7049,7 @@
         "forks": 818,
         "openIssues": 147,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "release-2026-09-25"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -7381,9 +7101,7 @@
         "forks": 1235,
         "openIssues": 28,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2020-11-20",
-        "latestRelease": "v2.11.632"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -7441,9 +7159,7 @@
         "forks": 351,
         "openIssues": 88,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-23",
-        "latestRelease": "v3.66.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -7497,9 +7213,7 @@
         "forks": 589,
         "openIssues": 164,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "@langchain/langgraph-cli@1.5.1"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -7553,9 +7267,7 @@
         "forks": 383,
         "openIssues": 55,
         "archived": false,
-        "pushedAt": "2026-05-01",
-        "releasedAt": "2025-08-29",
-        "latestRelease": "v8.3.0"
+        "pushedAt": "2026-05-01"
       },
       "confidence": 0.9,
       "source": [
@@ -7607,9 +7319,7 @@
         "forks": 253,
         "openIssues": 103,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-22",
-        "latestRelease": "v0.8.1"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -7663,9 +7373,7 @@
         "forks": 901,
         "openIssues": 276,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "v10.10.1"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -7711,9 +7419,7 @@
         "forks": 520,
         "openIssues": 45,
         "archived": false,
-        "pushedAt": "2026-09-23",
-        "releasedAt": "2026-07-21",
-        "latestRelease": "0.5.1"
+        "pushedAt": "2026-09-23"
       },
       "confidence": 0.75,
       "source": [
@@ -7758,9 +7464,7 @@
         "forks": 520,
         "openIssues": 45,
         "archived": false,
-        "pushedAt": "2026-09-23",
-        "releasedAt": "2026-07-21",
-        "latestRelease": "0.5.1"
+        "pushedAt": "2026-09-23"
       },
       "confidence": 0.75,
       "source": [
@@ -7913,9 +7617,7 @@
         "forks": 406,
         "openIssues": 134,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-10",
-        "latestRelease": "openlit-2.1.0"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -7954,7 +7656,7 @@
       ],
       "envVars": [],
       "install": "mix deps.get ollama",
-      "repo": "https://github.com/elixir-ollama/ollama",
+      "repo": "https://github.com/aaronrussell/ollama-ex",
       "license": "Apache-2.0",
       "registry": {
         "url": "https://hex.pm/packages/ollama",
@@ -8020,9 +7722,7 @@
         "forks": 421,
         "openIssues": 59,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-15",
-        "latestRelease": "OpenAI_2.14.0"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -8216,9 +7916,7 @@
         "forks": 2196,
         "openIssues": 495,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "com.azure+azure-messaging-servicebus_7.18.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.6,
       "source": [
@@ -8266,9 +7964,7 @@
         "forks": 911,
         "openIssues": 341,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "lerobot-v0.0.8"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.75,
       "source": [
@@ -8316,9 +8012,7 @@
         "forks": 911,
         "openIssues": 341,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "lerobot-v0.0.8"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.75,
       "source": [
@@ -8376,9 +8070,7 @@
         "forks": 309,
         "openIssues": 112,
         "archived": false,
-        "pushedAt": "2026-03-20",
-        "releasedAt": "2026-03-20",
-        "latestRelease": "v0.100.1"
+        "pushedAt": "2026-03-20"
       },
       "confidence": 0.9,
       "source": [
@@ -8439,9 +8131,7 @@
         "forks": 1398,
         "openIssues": 676,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-24",
-        "latestRelease": "@azure/storage-blob_12.34.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -8495,9 +8185,7 @@
         "forks": 411,
         "openIssues": 81,
         "archived": false,
-        "pushedAt": "2026-09-22",
-        "releasedAt": "2026-09-22",
-        "latestRelease": "google-cloud-sdk-v0.0.14"
+        "pushedAt": "2026-09-22"
       },
       "confidence": 0.75,
       "source": [
@@ -8553,9 +8241,7 @@
         "forks": 411,
         "openIssues": 81,
         "archived": false,
-        "pushedAt": "2026-09-22",
-        "releasedAt": "2026-09-22",
-        "latestRelease": "google-cloud-sdk-v0.0.14"
+        "pushedAt": "2026-09-22"
       },
       "confidence": 0.9,
       "source": [
@@ -8618,9 +8304,7 @@
         "forks": 403,
         "openIssues": 24,
         "archived": false,
-        "pushedAt": "2026-09-09",
-        "releasedAt": "2026-09-09",
-        "latestRelease": "async-openai-v0.42.0"
+        "pushedAt": "2026-09-09"
       },
       "confidence": 0.9,
       "source": [
@@ -8674,9 +8358,7 @@
         "forks": 264,
         "openIssues": 74,
         "archived": false,
-        "pushedAt": "2026-09-09",
-        "releasedAt": "2025-05-01",
-        "latestRelease": "0.19.5"
+        "pushedAt": "2026-09-09"
       },
       "confidence": 0.9,
       "source": [
@@ -8729,9 +8411,7 @@
         "forks": 416,
         "openIssues": 124,
         "archived": false,
-        "pushedAt": "2024-08-07",
-        "releasedAt": "2024-06-12",
-        "latestRelease": "v1.11"
+        "pushedAt": "2024-08-07"
       },
       "confidence": 0.75,
       "source": [
@@ -8756,7 +8436,7 @@
         "huggingface"
       ],
       "sdkApi": "n/a",
-      "status": "unknown",
+      "status": "deprecated",
       "tier": "B",
       "features": [
         "chat",
@@ -8769,7 +8449,7 @@
         "HUGGINGFACEHUB_API_TOKEN"
       ],
       "install": "cargo add huggingface",
-      "repo": "https://github.com/a-rustacean/huggingface-rs",
+      "repoDropped": true,
       "registry": {
         "url": "https://crates.io/crates/huggingface",
         "version": "0.1.0",
@@ -8784,7 +8464,7 @@
         "curated:03-community-clients.json",
         "discovery:crates"
       ],
-      "notes": "Признаки: имя == ключевое слово провайдера «Hugging Face»; LLM-признаки в описании (huggingface)",
+      "notes": "Репозиторий crates.io-пакета huggingface больше не существует. Пакет заброшен (версия 0.1.0); используйте официальный hf-hub или candle.",
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2023-07-24",
@@ -8828,9 +8508,7 @@
         "forks": 237,
         "openIssues": 81,
         "archived": false,
-        "pushedAt": "2026-02-07",
-        "releasedAt": "2026-02-07",
-        "latestRelease": "4.1.0"
+        "pushedAt": "2026-02-07"
       },
       "confidence": 0.9,
       "source": [
@@ -8891,9 +8569,7 @@
         "forks": 172,
         "openIssues": 36,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "1.0.3"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -8939,9 +8615,7 @@
         "forks": 253,
         "openIssues": 45,
         "archived": false,
-        "pushedAt": "2025-02-12",
-        "releasedAt": "2023-07-11",
-        "latestRelease": "1.4.0"
+        "pushedAt": "2025-02-12"
       },
       "confidence": 0.75,
       "source": [
@@ -8999,9 +8673,7 @@
         "forks": 276,
         "openIssues": 174,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-22",
-        "latestRelease": "v2.24.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -9030,7 +8702,7 @@
         "openai-compatible"
       ],
       "sdkApi": "mistral",
-      "status": "unknown",
+      "status": "deprecated",
       "tier": "B",
       "features": [
         "chat",
@@ -9041,7 +8713,7 @@
         "MISTRAL_API_KEY"
       ],
       "install": "cargo add mistralai",
-      "repo": "https://github.com/ERC-Grant/llm-client",
+      "repoDropped": true,
       "registry": {
         "url": "https://crates.io/crates/mistralai",
         "version": "0.1.0",
@@ -9056,7 +8728,7 @@
         "curated:03-community-clients.json",
         "discovery:crates"
       ],
-      "notes": "Признаки: имя == ключевое слово провайдера «Mistral AI»; LLM-признаки в описании (mistral)",
+      "notes": "Репозиторий пакета заброшен. Для Rust берите rig-core (единый слой над провайдерами) или genai.",
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2023-12-21",
@@ -9103,9 +8775,7 @@
         "forks": 140,
         "openIssues": 41,
         "archived": false,
-        "pushedAt": "2024-10-31",
-        "releasedAt": "2023-05-11",
-        "latestRelease": "llm-chain-local-v0.9.1"
+        "pushedAt": "2024-10-31"
       },
       "confidence": 0.9,
       "source": [
@@ -9154,9 +8824,7 @@
         "forks": 140,
         "openIssues": 41,
         "archived": false,
-        "pushedAt": "2024-10-31",
-        "releasedAt": "2023-05-11",
-        "latestRelease": "llm-chain-local-v0.9.1"
+        "pushedAt": "2024-10-31"
       },
       "confidence": 0.75,
       "source": [
@@ -9206,9 +8874,7 @@
         "forks": 140,
         "openIssues": 41,
         "archived": false,
-        "pushedAt": "2024-10-31",
-        "releasedAt": "2023-05-11",
-        "latestRelease": "llm-chain-local-v0.9.1"
+        "pushedAt": "2024-10-31"
       },
       "confidence": 0.75,
       "source": [
@@ -9415,9 +9081,7 @@
         "forks": 64,
         "openIssues": 15,
         "archived": false,
-        "pushedAt": "2026-08-14",
-        "releasedAt": "2026-07-31",
-        "latestRelease": "v0.10.0"
+        "pushedAt": "2026-08-14"
       },
       "confidence": 0.75,
       "source": [
@@ -9464,9 +9128,7 @@
         "forks": 186,
         "openIssues": 3,
         "archived": false,
-        "pushedAt": "2026-07-24",
-        "releasedAt": "2026-07-24",
-        "latestRelease": "5.4.30"
+        "pushedAt": "2026-07-24"
       },
       "confidence": 0.75,
       "source": [
@@ -9517,9 +9179,7 @@
         "forks": 315,
         "openIssues": 218,
         "archived": false,
-        "pushedAt": "2026-09-22",
-        "releasedAt": "2026-09-16",
-        "latestRelease": "v1.19.1"
+        "pushedAt": "2026-09-22"
       },
       "confidence": 0.9,
       "source": [
@@ -9566,9 +9226,7 @@
         "forks": 213,
         "openIssues": 45,
         "archived": false,
-        "pushedAt": "2026-09-22",
-        "releasedAt": "2026-09-22",
-        "latestRelease": "v1.75.0"
+        "pushedAt": "2026-09-22"
       },
       "confidence": 0.75,
       "source": [
@@ -9621,9 +9279,7 @@
         "forks": 218,
         "openIssues": 32,
         "archived": false,
-        "pushedAt": "2026-09-24",
-        "releasedAt": "2026-09-24",
-        "latestRelease": "v0.14.3"
+        "pushedAt": "2026-09-24"
       },
       "confidence": 0.9,
       "source": [
@@ -9680,9 +9336,7 @@
         "forks": 162,
         "openIssues": 56,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-08-31",
-        "latestRelease": "v1.71.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -9824,9 +9478,7 @@
         "forks": 299,
         "openIssues": 225,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "v0.14.1"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -9884,9 +9536,7 @@
         "forks": 155,
         "openIssues": 136,
         "archived": false,
-        "pushedAt": "2026-09-24",
-        "releasedAt": "2026-09-22",
-        "latestRelease": "inngest@4.21.0"
+        "pushedAt": "2026-09-24"
       },
       "confidence": 0.75,
       "source": [
@@ -9932,9 +9582,7 @@
         "forks": 116,
         "openIssues": 10,
         "archived": false,
-        "pushedAt": "2026-01-03",
-        "releasedAt": "2024-05-21",
-        "latestRelease": "v0.4.0"
+        "pushedAt": "2026-01-03"
       },
       "confidence": 0.3,
       "source": [
@@ -9978,9 +9626,7 @@
         "forks": 157,
         "openIssues": 13,
         "archived": true,
-        "pushedAt": "2024-06-15",
-        "releasedAt": "2023-06-24",
-        "latestRelease": "2.7"
+        "pushedAt": "2024-06-15"
       },
       "confidence": 0.75,
       "source": [
@@ -10031,9 +9677,7 @@
         "forks": 276,
         "openIssues": 70,
         "archived": false,
-        "pushedAt": "2025-08-26",
-        "releasedAt": "2025-05-27",
-        "latestRelease": "1.0.7"
+        "pushedAt": "2025-08-26"
       },
       "confidence": 0.9,
       "source": [
@@ -10088,9 +9732,7 @@
         "forks": 468,
         "openIssues": 320,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-23",
-        "latestRelease": "v2.2.0"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -10262,9 +9904,7 @@
         "forks": 66,
         "openIssues": 7,
         "archived": false,
-        "pushedAt": "2025-10-02",
-        "releasedAt": "2025-10-02",
-        "latestRelease": "v1.1.3"
+        "pushedAt": "2025-10-02"
       },
       "confidence": 0.75,
       "source": [
@@ -10353,9 +9993,7 @@
         "forks": 103,
         "openIssues": 30,
         "archived": false,
-        "pushedAt": "2026-08-14",
-        "releasedAt": "2026-04-02",
-        "latestRelease": "v0.5.0"
+        "pushedAt": "2026-08-14"
       },
       "confidence": 0.75,
       "source": [
@@ -10404,9 +10042,7 @@
         "forks": 369,
         "openIssues": 130,
         "archived": false,
-        "pushedAt": "2026-09-24",
-        "releasedAt": "2026-09-24",
-        "latestRelease": "components/model/agenticgemini/v0.2.5"
+        "pushedAt": "2026-09-24"
       },
       "confidence": 0.75,
       "source": [
@@ -10495,9 +10131,7 @@
         "forks": 54,
         "openIssues": 3,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-26",
-        "latestRelease": "b773"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.6,
       "source": [
@@ -10548,9 +10182,7 @@
         "forks": 54,
         "openIssues": 3,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-26",
-        "latestRelease": "b773"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.6,
       "source": [
@@ -10603,9 +10235,7 @@
         "forks": 205,
         "openIssues": 32,
         "archived": false,
-        "pushedAt": "2026-09-22",
-        "releasedAt": "2026-09-15",
-        "latestRelease": "v2.10.1"
+        "pushedAt": "2026-09-22"
       },
       "confidence": 0.9,
       "source": [
@@ -10659,9 +10289,7 @@
         "forks": 159,
         "openIssues": 10,
         "archived": false,
-        "pushedAt": "2026-01-24",
-        "releasedAt": "2025-12-13",
-        "latestRelease": "v8.8.8"
+        "pushedAt": "2026-01-24"
       },
       "confidence": 0.9,
       "source": [
@@ -10709,9 +10337,7 @@
         "forks": 116,
         "openIssues": 11,
         "archived": false,
-        "pushedAt": "2024-08-26",
-        "releasedAt": "2023-06-15",
-        "latestRelease": "1.8.2"
+        "pushedAt": "2024-08-26"
       },
       "confidence": 0.75,
       "source": [
@@ -10757,9 +10383,7 @@
         "forks": 116,
         "openIssues": 11,
         "archived": false,
-        "pushedAt": "2024-08-26",
-        "releasedAt": "2023-06-15",
-        "latestRelease": "1.8.2"
+        "pushedAt": "2024-08-26"
       },
       "confidence": 0.75,
       "source": [
@@ -10816,9 +10440,7 @@
         "forks": 2,
         "openIssues": 1,
         "archived": false,
-        "pushedAt": "2026-09-20",
-        "releasedAt": "2026-09-19",
-        "latestRelease": "v2.1.0"
+        "pushedAt": "2026-09-20"
       },
       "confidence": 0.75,
       "source": [
@@ -10864,9 +10486,7 @@
         "forks": 106,
         "openIssues": 17,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-01",
-        "latestRelease": "v2.2.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.75,
       "source": [
@@ -10917,9 +10537,7 @@
         "forks": 106,
         "openIssues": 17,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-01",
-        "latestRelease": "v2.2.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.75,
       "source": [
@@ -10972,9 +10590,7 @@
         "forks": 130,
         "openIssues": 11,
         "archived": false,
-        "pushedAt": "2026-09-09",
-        "releasedAt": "2026-09-09",
-        "latestRelease": "4.6.2"
+        "pushedAt": "2026-09-09"
       },
       "confidence": 0.9,
       "source": [
@@ -11027,9 +10643,7 @@
         "forks": 130,
         "openIssues": 11,
         "archived": false,
-        "pushedAt": "2026-09-09",
-        "releasedAt": "2026-09-09",
-        "latestRelease": "4.6.2"
+        "pushedAt": "2026-09-09"
       },
       "confidence": 0.9,
       "source": [
@@ -11076,9 +10690,7 @@
         "forks": 130,
         "openIssues": 11,
         "archived": false,
-        "pushedAt": "2026-09-09",
-        "releasedAt": "2026-09-09",
-        "latestRelease": "4.6.2"
+        "pushedAt": "2026-09-09"
       },
       "confidence": 0.75,
       "source": [
@@ -11126,9 +10738,7 @@
         "forks": 58,
         "openIssues": 9,
         "archived": false,
-        "pushedAt": "2026-09-24",
-        "releasedAt": "2026-08-18",
-        "latestRelease": "v2.0.8"
+        "pushedAt": "2026-09-24"
       },
       "confidence": 0.3,
       "source": [
@@ -11181,9 +10791,7 @@
         "forks": 63,
         "openIssues": 3,
         "archived": false,
-        "pushedAt": "2026-09-04",
-        "releasedAt": "2026-08-26",
-        "latestRelease": "v1.7.0"
+        "pushedAt": "2026-09-04"
       },
       "confidence": 0.9,
       "source": [
@@ -11231,9 +10839,7 @@
         "forks": 63,
         "openIssues": 3,
         "archived": false,
-        "pushedAt": "2026-09-04",
-        "releasedAt": "2026-08-26",
-        "latestRelease": "v1.7.0"
+        "pushedAt": "2026-09-04"
       },
       "confidence": 0.75,
       "source": [
@@ -11339,9 +10945,7 @@
         "forks": 140,
         "openIssues": 78,
         "archived": false,
-        "pushedAt": "2026-09-21",
-        "releasedAt": "2026-09-04",
-        "latestRelease": "v0.5.0"
+        "pushedAt": "2026-09-21"
       },
       "confidence": 0.9,
       "source": [
@@ -11394,9 +10998,7 @@
         "forks": 243,
         "openIssues": 18,
         "archived": false,
-        "pushedAt": "2025-11-17",
-        "releasedAt": "2025-11-17",
-        "latestRelease": "v1.4.0"
+        "pushedAt": "2025-11-17"
       },
       "confidence": 0.9,
       "source": [
@@ -11440,9 +11042,7 @@
         "forks": 204,
         "openIssues": 5,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "v1.25.0"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.45,
       "source": [
@@ -11493,9 +11093,7 @@
         "forks": 192,
         "openIssues": 48,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-24",
-        "latestRelease": "v1.20.0"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -11587,9 +11185,7 @@
         "forks": 55,
         "openIssues": 2,
         "archived": false,
-        "pushedAt": "2026-05-24",
-        "releasedAt": "2026-05-24",
-        "latestRelease": "v2.1.0"
+        "pushedAt": "2026-05-24"
       },
       "confidence": 0.75,
       "source": [
@@ -11645,9 +11241,7 @@
         "forks": 61,
         "openIssues": 3,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-23",
-        "latestRelease": "v0.95.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.9,
       "source": [
@@ -11695,9 +11289,7 @@
         "forks": 32,
         "openIssues": 5,
         "archived": false,
-        "pushedAt": "2023-11-29",
-        "releasedAt": "2023-04-06",
-        "latestRelease": "v1.0.9"
+        "pushedAt": "2023-11-29"
       },
       "confidence": 0.75,
       "source": [
@@ -11843,9 +11435,7 @@
         "forks": 97,
         "openIssues": 24,
         "archived": false,
-        "pushedAt": "2026-08-31",
-        "releasedAt": "2026-08-26",
-        "latestRelease": "7.1.0"
+        "pushedAt": "2026-08-31"
       },
       "confidence": 0.9,
       "source": [
@@ -11901,9 +11491,7 @@
         "forks": 26,
         "openIssues": 16,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-24",
-        "latestRelease": "v0.2.25"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.75,
       "source": [
@@ -12014,9 +11602,7 @@
         "forks": 26,
         "openIssues": 16,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-24",
-        "latestRelease": "v0.2.25"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.75,
       "source": [
@@ -12058,9 +11644,7 @@
         "forks": 154,
         "openIssues": 34,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "1.20.1-beta30"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.6,
       "source": [
@@ -12263,9 +11847,7 @@
         "forks": 74,
         "openIssues": 6,
         "archived": false,
-        "pushedAt": "2026-09-22",
-        "releasedAt": "2026-09-22",
-        "latestRelease": "v1.73.0"
+        "pushedAt": "2026-09-22"
       },
       "confidence": 0.9,
       "source": [
@@ -12314,9 +11896,7 @@
         "forks": 74,
         "openIssues": 6,
         "archived": false,
-        "pushedAt": "2026-09-22",
-        "releasedAt": "2026-09-22",
-        "latestRelease": "v1.73.0"
+        "pushedAt": "2026-09-22"
       },
       "confidence": 0.75,
       "source": [
@@ -12362,9 +11942,7 @@
         "forks": 75,
         "openIssues": 11,
         "archived": false,
-        "pushedAt": "2024-08-06",
-        "releasedAt": "2024-07-18",
-        "latestRelease": "v0.6.2"
+        "pushedAt": "2024-08-06"
       },
       "confidence": 0.75,
       "source": [
@@ -12392,14 +11970,14 @@
         "ollama"
       ],
       "sdkApi": "n/a",
-      "status": "active",
+      "status": "deprecated",
       "tier": "C",
       "features": [
         "chat",
         "streaming"
       ],
       "envVars": [],
-      "repo": "https://github.com/sukacipta/llm-elixir",
+      "repoDropped": true,
       "license": "MIT",
       "registry": {
         "url": "https://hex.pm/packages/llm",
@@ -12414,7 +11992,7 @@
         "registry:hex",
         "curated:02-frameworks.json"
       ],
-      "notes": "Elixir-клиент LLM от Dashbit.",
+      "notes": "Репозиторий пакета недоступен, поддержка не ведётся. В Elixir стоит смотреть brainlid/langchain (пакет langchain) или agentjido/req_llm (пакет req_llm).",
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-09-08",
@@ -12496,9 +12074,7 @@
         "forks": 38,
         "openIssues": 4,
         "archived": false,
-        "pushedAt": "2025-01-31",
-        "releasedAt": "2024-12-05",
-        "latestRelease": "v0.2.4"
+        "pushedAt": "2025-01-31"
       },
       "confidence": 0.75,
       "source": [
@@ -12544,9 +12120,7 @@
         "forks": 91,
         "openIssues": 27,
         "archived": false,
-        "pushedAt": "2026-09-10",
-        "releasedAt": "2026-07-14",
-        "latestRelease": "v1.3.0"
+        "pushedAt": "2026-09-10"
       },
       "confidence": 0.9,
       "source": [
@@ -12592,9 +12166,7 @@
         "forks": 47,
         "openIssues": 11,
         "archived": false,
-        "pushedAt": "2026-02-19",
-        "releasedAt": "2026-02-19",
-        "latestRelease": "v3.0.0"
+        "pushedAt": "2026-02-19"
       },
       "confidence": 0.75,
       "source": [
@@ -12648,9 +12220,7 @@
         "forks": 35,
         "openIssues": 4,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-08-26",
-        "latestRelease": "v1.6.0"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -12698,9 +12268,7 @@
         "forks": 11,
         "openIssues": 3,
         "archived": false,
-        "pushedAt": "2024-07-21",
-        "releasedAt": "2024-07-21",
-        "latestRelease": "v1.3.0"
+        "pushedAt": "2024-07-21"
       },
       "confidence": 0.75,
       "source": [
@@ -12752,9 +12320,7 @@
         "forks": 39,
         "openIssues": 8,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-18",
-        "latestRelease": "v1.3.0"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -12803,9 +12369,7 @@
         "forks": 39,
         "openIssues": 8,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-18",
-        "latestRelease": "v1.3.0"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.75,
       "source": [
@@ -12852,9 +12416,7 @@
         "forks": 39,
         "openIssues": 8,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-18",
-        "latestRelease": "v1.3.0"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.75,
       "source": [
@@ -12901,9 +12463,7 @@
         "forks": 39,
         "openIssues": 8,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-18",
-        "latestRelease": "v1.3.0"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.75,
       "source": [
@@ -12952,9 +12512,7 @@
         "forks": 32,
         "openIssues": 5,
         "archived": false,
-        "pushedAt": "2025-07-31",
-        "releasedAt": "2025-07-31",
-        "latestRelease": "0.23.0"
+        "pushedAt": "2025-07-31"
       },
       "confidence": 0.9,
       "source": [
@@ -13001,9 +12559,7 @@
         "forks": 25,
         "openIssues": 9,
         "archived": false,
-        "pushedAt": "2024-05-17",
-        "releasedAt": "2024-05-17",
-        "latestRelease": "1.9.0"
+        "pushedAt": "2024-05-17"
       },
       "confidence": 0.75,
       "source": [
@@ -13052,9 +12608,7 @@
         "forks": 23,
         "openIssues": 4,
         "archived": false,
-        "pushedAt": "2026-08-15",
-        "releasedAt": "2026-07-18",
-        "latestRelease": "v1.0.2"
+        "pushedAt": "2026-08-15"
       },
       "confidence": 0.75,
       "source": [
@@ -13101,9 +12655,7 @@
         "forks": 46,
         "openIssues": 20,
         "archived": false,
-        "pushedAt": "2026-04-16",
-        "releasedAt": "2025-04-10",
-        "latestRelease": "v0.4.2"
+        "pushedAt": "2026-04-16"
       },
       "confidence": 0.75,
       "source": [
@@ -13157,9 +12709,7 @@
         "forks": 152,
         "openIssues": 74,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-07",
-        "latestRelease": "v4.23.1"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -13205,9 +12755,7 @@
         "forks": 21,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2024-07-24",
-        "releasedAt": "2024-07-06",
-        "latestRelease": "v1.0.0"
+        "pushedAt": "2024-07-24"
       },
       "confidence": 0.6,
       "source": [
@@ -13261,9 +12809,7 @@
         "forks": 48,
         "openIssues": 15,
         "archived": false,
-        "pushedAt": "2026-02-21",
-        "releasedAt": "2026-02-20",
-        "latestRelease": "v5.10.0"
+        "pushedAt": "2026-02-21"
       },
       "confidence": 0.9,
       "source": [
@@ -13317,9 +12863,7 @@
         "forks": 49,
         "openIssues": 19,
         "archived": false,
-        "pushedAt": "2025-01-31",
-        "releasedAt": "2025-01-31",
-        "latestRelease": "v1.7.2"
+        "pushedAt": "2025-01-31"
       },
       "confidence": 0.9,
       "source": [
@@ -13375,9 +12919,7 @@
         "forks": 29,
         "openIssues": 3,
         "archived": false,
-        "pushedAt": "2026-08-04",
-        "releasedAt": "2026-02-11",
-        "latestRelease": "v0.19.0"
+        "pushedAt": "2026-08-04"
       },
       "confidence": 0.9,
       "source": [
@@ -13480,9 +13022,7 @@
         "forks": 23,
         "openIssues": 13,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-06-27",
-        "latestRelease": "debug-tools-go-v0.1.6"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.75,
       "source": [
@@ -13530,9 +13070,7 @@
         "forks": 25,
         "openIssues": 3,
         "archived": true,
-        "pushedAt": "2025-01-07",
-        "releasedAt": "2025-01-07",
-        "latestRelease": "v3.4.2"
+        "pushedAt": "2025-01-07"
       },
       "confidence": 0.75,
       "source": [
@@ -13630,9 +13168,7 @@
         "forks": 32,
         "openIssues": 18,
         "archived": false,
-        "pushedAt": "2025-07-09",
-        "releasedAt": "2025-07-09",
-        "latestRelease": "v4.3.0"
+        "pushedAt": "2025-07-09"
       },
       "confidence": 0.75,
       "source": [
@@ -13723,9 +13259,7 @@
         "forks": 55,
         "openIssues": 5,
         "archived": false,
-        "pushedAt": "2026-09-22",
-        "releasedAt": "2026-09-22",
-        "latestRelease": "v0.51.0"
+        "pushedAt": "2026-09-22"
       },
       "confidence": 0.75,
       "source": [
@@ -13779,9 +13313,7 @@
         "forks": 69,
         "openIssues": 91,
         "archived": false,
-        "pushedAt": "2026-09-24",
-        "releasedAt": "2026-09-22",
-        "latestRelease": "v0.12.0"
+        "pushedAt": "2026-09-24"
       },
       "confidence": 0.9,
       "source": [
@@ -13873,9 +13405,7 @@
         "forks": 27,
         "openIssues": 7,
         "archived": false,
-        "pushedAt": "2026-09-21",
-        "releasedAt": "2026-08-13",
-        "latestRelease": "v2.25.0"
+        "pushedAt": "2026-09-21"
       },
       "confidence": 0.9,
       "source": [
@@ -13929,9 +13459,7 @@
         "forks": 27,
         "openIssues": 7,
         "archived": false,
-        "pushedAt": "2026-09-21",
-        "releasedAt": "2026-08-13",
-        "latestRelease": "v2.25.0"
+        "pushedAt": "2026-09-21"
       },
       "confidence": 0.75,
       "source": [
@@ -13988,9 +13516,7 @@
         "forks": 34,
         "openIssues": 4,
         "archived": false,
-        "pushedAt": "2026-07-22",
-        "releasedAt": "2026-07-22",
-        "latestRelease": "v3.6.7"
+        "pushedAt": "2026-07-22"
       },
       "confidence": 0.75,
       "source": [
@@ -14044,9 +13570,7 @@
         "forks": 33,
         "openIssues": 14,
         "archived": false,
-        "pushedAt": "2026-08-26",
-        "releasedAt": "2026-08-26",
-        "latestRelease": "8.1.0"
+        "pushedAt": "2026-08-26"
       },
       "confidence": 0.9,
       "source": [
@@ -14153,9 +13677,7 @@
         "forks": 19,
         "openIssues": 23,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-03-09",
-        "latestRelease": "v0.9.0"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.75,
       "source": [
@@ -14202,9 +13724,7 @@
         "forks": 21,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2024-02-01",
-        "releasedAt": "2024-02-01",
-        "latestRelease": "1.9.3"
+        "pushedAt": "2024-02-01"
       },
       "confidence": 0.75,
       "source": [
@@ -14259,9 +13779,7 @@
         "forks": 44,
         "openIssues": 16,
         "archived": false,
-        "pushedAt": "2026-09-18",
-        "releasedAt": "2026-09-09",
-        "latestRelease": "v2.7.0"
+        "pushedAt": "2026-09-18"
       },
       "confidence": 0.9,
       "source": [
@@ -14399,9 +13917,7 @@
         "forks": 891,
         "openIssues": 24,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "4.0.342.0"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.9,
       "source": [
@@ -14494,9 +14010,7 @@
         "forks": 259,
         "openIssues": 124,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-15",
-        "latestRelease": "opentelemetry-instrumentation-net_http/v0.29.1"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.75,
       "source": [
@@ -14583,9 +14097,7 @@
         "forks": 5,
         "openIssues": 3,
         "archived": false,
-        "pushedAt": "2026-08-24",
-        "releasedAt": "2026-08-24",
-        "latestRelease": "v0.3.1"
+        "pushedAt": "2026-08-24"
       },
       "confidence": 0.6,
       "source": [
@@ -14631,9 +14143,7 @@
         "forks": 45,
         "openIssues": 12,
         "archived": false,
-        "pushedAt": "2026-04-14",
-        "releasedAt": "2025-06-02",
-        "latestRelease": "1.1.1"
+        "pushedAt": "2026-04-14"
       },
       "confidence": 0.75,
       "source": [
@@ -14678,9 +14188,7 @@
         "forks": 15,
         "openIssues": 5,
         "archived": false,
-        "pushedAt": "2025-07-21",
-        "releasedAt": "2025-01-08",
-        "latestRelease": "v1.2.2"
+        "pushedAt": "2025-07-21"
       },
       "confidence": 0.6,
       "source": [
@@ -14733,9 +14241,7 @@
         "forks": 58,
         "openIssues": 39,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-18",
-        "latestRelease": "v2.16.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.75,
       "source": [
@@ -14849,9 +14355,7 @@
         "forks": 14,
         "openIssues": 1,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-21",
-        "latestRelease": "v0.1.0"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.75,
       "source": [
@@ -14897,9 +14401,7 @@
         "forks": 18,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-16",
-        "releasedAt": "2026-08-12",
-        "latestRelease": "v0.6.0"
+        "pushedAt": "2026-09-16"
       },
       "confidence": 0.75,
       "source": [
@@ -14997,9 +14499,7 @@
         "forks": 14,
         "openIssues": 5,
         "archived": false,
-        "pushedAt": "2023-05-04",
-        "releasedAt": "2022-10-20",
-        "latestRelease": "1.0.2"
+        "pushedAt": "2023-05-04"
       },
       "confidence": 0.75,
       "source": [
@@ -15045,9 +14545,7 @@
         "forks": 27,
         "openIssues": 2,
         "archived": false,
-        "pushedAt": "2026-09-09",
-        "releasedAt": "2024-09-01",
-        "latestRelease": "1.7.0"
+        "pushedAt": "2026-09-09"
       },
       "confidence": 0.75,
       "source": [
@@ -15098,9 +14596,7 @@
         "forks": 16,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-23",
-        "releasedAt": "2026-09-18",
-        "latestRelease": "1.22.0"
+        "pushedAt": "2026-09-23"
       },
       "confidence": 0.75,
       "source": [
@@ -15149,9 +14645,7 @@
         "forks": 9,
         "openIssues": 6,
         "archived": false,
-        "pushedAt": "2026-06-11",
-        "releasedAt": "2026-06-11",
-        "latestRelease": "v1.8.0"
+        "pushedAt": "2026-06-11"
       },
       "confidence": 0.9,
       "source": [
@@ -15202,9 +14696,7 @@
         "forks": 9,
         "openIssues": 6,
         "archived": false,
-        "pushedAt": "2026-06-11",
-        "releasedAt": "2026-06-11",
-        "latestRelease": "v1.8.0"
+        "pushedAt": "2026-06-11"
       },
       "confidence": 0.9,
       "source": [
@@ -15251,9 +14743,7 @@
         "forks": 22,
         "openIssues": 1,
         "archived": false,
-        "pushedAt": "2026-09-24",
-        "releasedAt": "2026-09-04",
-        "latestRelease": "v0.4.4"
+        "pushedAt": "2026-09-24"
       },
       "confidence": 0.75,
       "source": [
@@ -15343,9 +14833,7 @@
         "forks": 14,
         "openIssues": 10,
         "archived": false,
-        "pushedAt": "2024-08-20",
-        "releasedAt": "2023-12-27",
-        "latestRelease": "v0.3.0"
+        "pushedAt": "2024-08-20"
       },
       "confidence": 0.75,
       "source": [
@@ -15402,9 +14890,7 @@
         "forks": 5,
         "openIssues": 2,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2025-03-26",
-        "latestRelease": "v0.3.4"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.3,
       "source": [
@@ -15457,9 +14943,7 @@
         "forks": 29,
         "openIssues": 1,
         "archived": false,
-        "pushedAt": "2026-09-21",
-        "releasedAt": "2026-01-21",
-        "latestRelease": "v1.5.35"
+        "pushedAt": "2026-09-21"
       },
       "confidence": 0.9,
       "source": [
@@ -15607,9 +15091,7 @@
         "forks": 12,
         "openIssues": 7,
         "archived": false,
-        "pushedAt": "2024-09-24",
-        "releasedAt": "2024-09-24",
-        "latestRelease": "2.1.1"
+        "pushedAt": "2024-09-24"
       },
       "confidence": 0.6,
       "source": [
@@ -15620,6 +15102,56 @@
       "updatedAt": "2026-09-26",
       "stars": 72,
       "latestRelease": "2024-09-24",
+      "latestReleaseSource": "registry"
+    },
+    {
+      "id": "pypi:ai21",
+      "name": "ai21",
+      "description": "AI21 Python SDK",
+      "ecosystem": "pypi",
+      "language": "Python",
+      "role": "sdk",
+      "kind": "official-sdk",
+      "providers": [
+        "ai21"
+      ],
+      "sdkApi": "ai21",
+      "status": "active",
+      "tier": "C",
+      "features": [
+        "chat",
+        "streaming"
+      ],
+      "envVars": [
+        "AI21_API_KEY"
+      ],
+      "repo": "https://github.com/AI21Labs/ai21-python",
+      "homepage": "https://docs.ai21.com/docs/sdk",
+      "license": "Apache-2.0",
+      "registry": {
+        "url": "https://pypi.org/project/ai21",
+        "version": "4.3.0",
+        "downloads": 1004840,
+        "downloadsPeriod": "month",
+        "updatedAt": "2025-11-06"
+      },
+      "github": {
+        "stars": 70,
+        "forks": 13,
+        "openIssues": 12,
+        "archived": false,
+        "pushedAt": "2026-01-28"
+      },
+      "confidence": 0.9,
+      "source": [
+        "registry:pypi",
+        "curated:01-official-sdks.json"
+      ],
+      "notes": "Официальный Python-клиент AI21 Labs для моделей Jamba.",
+      "discoveredAt": "2026-09-26",
+      "updatedAt": "2026-09-26",
+      "stars": 70,
+      "latestRelease": "2025-11-06",
       "latestReleaseSource": "registry"
     },
     {
@@ -15656,9 +15188,7 @@
         "forks": 13,
         "openIssues": 3,
         "archived": false,
-        "pushedAt": "2026-08-26",
-        "releasedAt": "2026-08-26",
-        "latestRelease": "v2.19.0"
+        "pushedAt": "2026-08-26"
       },
       "confidence": 0.75,
       "source": [
@@ -15702,9 +15232,7 @@
         "forks": 13,
         "openIssues": 22,
         "archived": true,
-        "pushedAt": "2024-08-20",
-        "releasedAt": "2024-02-07",
-        "latestRelease": "v0.4.1"
+        "pushedAt": "2024-08-20"
       },
       "confidence": 0.75,
       "source": [
@@ -15748,9 +15276,7 @@
         "forks": 6,
         "openIssues": 6,
         "archived": false,
-        "pushedAt": "2026-07-14",
-        "releasedAt": "2026-05-23",
-        "latestRelease": "v0.32.5"
+        "pushedAt": "2026-07-14"
       },
       "confidence": 0.75,
       "source": [
@@ -15794,9 +15320,7 @@
         "forks": 6,
         "openIssues": 6,
         "archived": false,
-        "pushedAt": "2026-07-14",
-        "releasedAt": "2026-05-23",
-        "latestRelease": "v0.32.5"
+        "pushedAt": "2026-07-14"
       },
       "confidence": 0.75,
       "source": [
@@ -15840,9 +15364,7 @@
         "forks": 6,
         "openIssues": 6,
         "archived": false,
-        "pushedAt": "2026-07-14",
-        "releasedAt": "2026-05-23",
-        "latestRelease": "v0.32.5"
+        "pushedAt": "2026-07-14"
       },
       "confidence": 0.75,
       "source": [
@@ -15885,9 +15407,7 @@
         "forks": 38,
         "openIssues": 1,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-26",
-        "latestRelease": "history-latest-0001790397687725-00000000000000000001-82a43d…"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.45,
       "source": [
@@ -15938,9 +15458,7 @@
         "forks": 4,
         "openIssues": 104,
         "archived": false,
-        "pushedAt": "2026-09-22",
-        "releasedAt": "2026-09-18",
-        "latestRelease": "v0.22.5"
+        "pushedAt": "2026-09-22"
       },
       "confidence": 0.75,
       "source": [
@@ -15994,9 +15512,7 @@
         "forks": 9,
         "openIssues": 3,
         "archived": true,
-        "pushedAt": "2024-02-13",
-        "releasedAt": "2024-01-31",
-        "latestRelease": "v0.8.0"
+        "pushedAt": "2024-02-13"
       },
       "confidence": 0.9,
       "source": [
@@ -16046,9 +15562,7 @@
         "forks": 6,
         "openIssues": 6,
         "archived": false,
-        "pushedAt": "2024-01-07",
-        "releasedAt": "2024-01-07",
-        "latestRelease": "v0.0.15"
+        "pushedAt": "2024-01-07"
       },
       "confidence": 0.75,
       "source": [
@@ -16094,9 +15608,7 @@
         "forks": 4,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2024-06-04",
-        "releasedAt": "2023-09-09",
-        "latestRelease": "v0.1.3"
+        "pushedAt": "2024-06-04"
       },
       "confidence": 0.3,
       "source": [
@@ -16147,9 +15659,7 @@
         "forks": 2,
         "openIssues": 8,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-18",
-        "latestRelease": "v0.19.1"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.6,
       "source": [
@@ -16240,9 +15750,7 @@
         "forks": 1,
         "openIssues": 1,
         "archived": false,
-        "pushedAt": "2025-04-28",
-        "releasedAt": "2025-01-10",
-        "latestRelease": "v1.3.1"
+        "pushedAt": "2025-04-28"
       },
       "confidence": 0.3,
       "source": [
@@ -16334,9 +15842,7 @@
         "forks": 9,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-13",
-        "releasedAt": "2026-08-01",
-        "latestRelease": "1.8.0"
+        "pushedAt": "2026-09-13"
       },
       "confidence": 0.75,
       "source": [
@@ -16383,9 +15889,7 @@
         "forks": 10,
         "openIssues": 13,
         "archived": false,
-        "pushedAt": "2026-06-30",
-        "releasedAt": "2024-08-27",
-        "latestRelease": "v0.14.0"
+        "pushedAt": "2026-06-30"
       },
       "confidence": 0.75,
       "source": [
@@ -16441,9 +15945,7 @@
         "forks": 4,
         "openIssues": 5,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "v0.14.1"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.75,
       "source": [
@@ -16490,9 +15992,7 @@
         "forks": 6,
         "openIssues": 2,
         "archived": false,
-        "pushedAt": "2025-09-24",
-        "releasedAt": "2025-09-04",
-        "latestRelease": "0.1.9"
+        "pushedAt": "2025-09-24"
       },
       "confidence": 0.75,
       "source": [
@@ -16535,9 +16035,7 @@
         "forks": 2,
         "openIssues": 2,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-23",
-        "latestRelease": "0.20.7"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.45,
       "source": [
@@ -16583,9 +16081,7 @@
         "forks": 11,
         "openIssues": 8,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2025-11-08",
-        "latestRelease": "v0.2.2-llamacpp.b6862"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.75,
       "source": [
@@ -16759,9 +16255,7 @@
         "forks": 24,
         "openIssues": 6,
         "archived": false,
-        "pushedAt": "2025-12-30",
-        "releasedAt": "2025-12-30",
-        "latestRelease": "v1.8.0"
+        "pushedAt": "2025-12-30"
       },
       "confidence": 0.75,
       "source": [
@@ -16851,9 +16345,7 @@
         "forks": 5,
         "openIssues": 3,
         "archived": false,
-        "pushedAt": "2026-09-02",
-        "releasedAt": "2025-10-12",
-        "latestRelease": "v0.10.3"
+        "pushedAt": "2026-09-02"
       },
       "confidence": 0.75,
       "source": [
@@ -16897,9 +16389,7 @@
         "forks": 5,
         "openIssues": 11,
         "archived": false,
-        "pushedAt": "2026-09-23",
-        "releasedAt": "2026-08-24",
-        "latestRelease": "v0.11.0"
+        "pushedAt": "2026-09-23"
       },
       "confidence": 0.6,
       "source": [
@@ -16946,9 +16436,7 @@
         "forks": 1,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2024-03-19",
-        "releasedAt": "2024-02-10",
-        "latestRelease": "v1.2.0"
+        "pushedAt": "2024-03-19"
       },
       "confidence": 0.75,
       "source": [
@@ -17048,9 +16536,7 @@
         "forks": 2,
         "openIssues": 1,
         "archived": false,
-        "pushedAt": "2023-03-21",
-        "releasedAt": "2023-03-21",
-        "latestRelease": "v0.5.2"
+        "pushedAt": "2023-03-21"
       },
       "confidence": 0.75,
       "source": [
@@ -17111,9 +16597,7 @@
         "forks": 2,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-05",
-        "latestRelease": "v0.11.3"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.75,
       "source": [
@@ -17160,9 +16644,7 @@
         "forks": 2,
         "openIssues": 1,
         "archived": false,
-        "pushedAt": "2026-05-31",
-        "releasedAt": "2026-03-29",
-        "latestRelease": "v0.2.6"
+        "pushedAt": "2026-05-31"
       },
       "confidence": 0.6,
       "source": [
@@ -17209,9 +16691,7 @@
         "forks": 4,
         "openIssues": 1,
         "archived": false,
-        "pushedAt": "2025-12-02",
-        "releasedAt": "2024-06-11",
-        "latestRelease": "0.23.1"
+        "pushedAt": "2025-12-02"
       },
       "confidence": 0.75,
       "source": [
@@ -17357,9 +16837,7 @@
         "forks": 3,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-05-29",
-        "releasedAt": "2026-05-29",
-        "latestRelease": "v1.0.3"
+        "pushedAt": "2026-05-29"
       },
       "confidence": 0.75,
       "source": [
@@ -17464,9 +16942,7 @@
         "forks": 3,
         "openIssues": 1,
         "archived": false,
-        "pushedAt": "2026-01-03",
-        "releasedAt": "2025-11-06",
-        "latestRelease": "1.3.1"
+        "pushedAt": "2026-01-03"
       },
       "confidence": 0.75,
       "source": [
@@ -17512,9 +16988,7 @@
         "forks": 4,
         "openIssues": 1,
         "archived": false,
-        "pushedAt": "2023-11-29",
-        "releasedAt": "2023-11-20",
-        "latestRelease": "v1.0.0"
+        "pushedAt": "2023-11-29"
       },
       "confidence": 0.75,
       "source": [
@@ -17563,9 +17037,7 @@
         "forks": 7,
         "openIssues": 4,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-08-21",
-        "latestRelease": "0.0.86"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.75,
       "source": [
@@ -17659,9 +17131,7 @@
         "forks": 4,
         "openIssues": 2,
         "archived": false,
-        "pushedAt": "2026-06-08",
-        "releasedAt": "2026-05-06",
-        "latestRelease": "v4.9.5"
+        "pushedAt": "2026-06-08"
       },
       "confidence": 0.75,
       "source": [
@@ -17765,9 +17235,7 @@
         "forks": 6,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-04-27",
-        "releasedAt": "2025-06-22",
-        "latestRelease": "v2.3.1"
+        "pushedAt": "2026-04-27"
       },
       "confidence": 0.75,
       "source": [
@@ -17817,9 +17285,7 @@
         "forks": 2,
         "openIssues": 1,
         "archived": false,
-        "pushedAt": "2026-08-05",
-        "releasedAt": "2026-08-02",
-        "latestRelease": "v0.5.1"
+        "pushedAt": "2026-08-05"
       },
       "confidence": 0.75,
       "source": [
@@ -17865,9 +17331,7 @@
         "forks": 4,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2023-04-07",
-        "releasedAt": "2023-04-07",
-        "latestRelease": "v0.2.0"
+        "pushedAt": "2023-04-07"
       },
       "confidence": 0.75,
       "source": [
@@ -17914,9 +17378,7 @@
         "forks": 2,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-12",
-        "releasedAt": "2026-09-12",
-        "latestRelease": "v4.1.0"
+        "pushedAt": "2026-09-12"
       },
       "confidence": 0.75,
       "source": [
@@ -17966,9 +17428,7 @@
         "forks": 6,
         "openIssues": 16,
         "archived": false,
-        "pushedAt": "2026-04-27",
-        "releasedAt": "2025-07-08",
-        "latestRelease": "v2.0.4"
+        "pushedAt": "2026-04-27"
       },
       "confidence": 0.75,
       "source": [
@@ -18016,9 +17476,7 @@
         "forks": 25,
         "openIssues": 6,
         "archived": false,
-        "pushedAt": "2026-09-24",
-        "releasedAt": "2026-09-24",
-        "latestRelease": "v0.1.6"
+        "pushedAt": "2026-09-24"
       },
       "confidence": 0.75,
       "source": [
@@ -18063,9 +17521,7 @@
         "forks": 1,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2025-06-20",
-        "releasedAt": "2025-06-20",
-        "latestRelease": "v1.6.0"
+        "pushedAt": "2025-06-20"
       },
       "confidence": 0.6,
       "source": [
@@ -18163,9 +17619,7 @@
         "forks": 1,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-11",
-        "releasedAt": "2026-09-11",
-        "latestRelease": "v6.7.0"
+        "pushedAt": "2026-09-11"
       },
       "confidence": 0.75,
       "source": [
@@ -18258,9 +17712,7 @@
         "forks": 1,
         "openIssues": 1,
         "archived": false,
-        "pushedAt": "2026-05-15",
-        "releasedAt": "2026-04-29",
-        "latestRelease": "v1.3.0"
+        "pushedAt": "2026-05-15"
       },
       "confidence": 0.45,
       "source": [
@@ -18403,9 +17855,7 @@
         "forks": 8,
         "openIssues": 2,
         "archived": false,
-        "pushedAt": "2026-01-12",
-        "releasedAt": "2024-06-26",
-        "latestRelease": "v.0.2.5"
+        "pushedAt": "2026-01-12"
       },
       "confidence": 0.75,
       "source": [
@@ -18486,9 +17936,7 @@
         "forks": 0,
         "openIssues": 18,
         "archived": false,
-        "pushedAt": "2026-09-19",
-        "releasedAt": "2026-06-24",
-        "latestRelease": "v0.4.0"
+        "pushedAt": "2026-09-19"
       },
       "confidence": 0.75,
       "source": [
@@ -18499,6 +17947,60 @@
       "updatedAt": "2026-09-26",
       "stars": 10,
       "latestRelease": "2026-06-24",
+      "latestReleaseSource": "registry"
+    },
+    {
+      "id": "pypi:fireworks-ai",
+      "name": "fireworks-ai",
+      "description": "The official Python library for the fireworks API",
+      "ecosystem": "pypi",
+      "language": "Python",
+      "role": "sdk",
+      "kind": "official-sdk",
+      "providers": [
+        "fireworks"
+      ],
+      "sdkApi": "openai-compatible",
+      "status": "active",
+      "tier": "C",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "vision",
+        "embeddings"
+      ],
+      "envVars": [
+        "FIREWORKS_API_KEY"
+      ],
+      "repo": "https://github.com/fw-ai-external/python-sdk",
+      "homepage": "https://pypi.org/project/fireworks-ai",
+      "license": "Apache-2.0",
+      "registry": {
+        "url": "https://pypi.org/project/fireworks-ai",
+        "version": "1.2.16",
+        "downloads": 1140888,
+        "downloadsPeriod": "month",
+        "updatedAt": "2026-09-25"
+      },
+      "github": {
+        "stars": 10,
+        "forks": 8,
+        "openIssues": 3,
+        "archived": false,
+        "pushedAt": "2026-09-26"
+      },
+      "confidence": 0.9,
+      "source": [
+        "registry:pypi",
+        "curated:01-official-sdks.json"
+      ],
+      "notes": "Быстрый инференс открытых моделей, поддержка function calling.",
+      "discoveredAt": "2026-09-26",
+      "updatedAt": "2026-09-26",
+      "stars": 10,
+      "latestRelease": "2026-09-25",
       "latestReleaseSource": "registry"
     },
     {
@@ -18637,9 +18139,7 @@
         "forks": 2,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-07-25",
-        "releasedAt": "2023-05-11",
-        "latestRelease": "v0.0.1"
+        "pushedAt": "2026-07-25"
       },
       "confidence": 0.75,
       "source": [
@@ -18684,9 +18184,7 @@
         "forks": 2,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-07-25",
-        "releasedAt": "2023-05-11",
-        "latestRelease": "v0.0.1"
+        "pushedAt": "2026-07-25"
       },
       "confidence": 0.75,
       "source": [
@@ -18731,9 +18229,7 @@
         "forks": 2,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-07-25",
-        "releasedAt": "2023-05-11",
-        "latestRelease": "v0.0.1"
+        "pushedAt": "2026-07-25"
       },
       "confidence": 0.75,
       "source": [
@@ -18778,9 +18274,7 @@
         "forks": 2,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-07-25",
-        "releasedAt": "2023-05-11",
-        "latestRelease": "v0.0.1"
+        "pushedAt": "2026-07-25"
       },
       "confidence": 0.75,
       "source": [
@@ -18824,9 +18318,7 @@
         "forks": 2,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-07-25",
-        "releasedAt": "2023-05-11",
-        "latestRelease": "v0.0.1"
+        "pushedAt": "2026-07-25"
       },
       "confidence": 0.75,
       "source": [
@@ -18870,9 +18362,7 @@
         "forks": 2,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-07-25",
-        "releasedAt": "2023-05-11",
-        "latestRelease": "v0.0.1"
+        "pushedAt": "2026-07-25"
       },
       "confidence": 0.75,
       "source": [
@@ -18916,9 +18406,7 @@
         "forks": 2,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-07-25",
-        "releasedAt": "2023-05-11",
-        "latestRelease": "v0.0.1"
+        "pushedAt": "2026-07-25"
       },
       "confidence": 0.75,
       "source": [
@@ -18962,9 +18450,7 @@
         "forks": 2,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-07-25",
-        "releasedAt": "2023-05-11",
-        "latestRelease": "v0.0.1"
+        "pushedAt": "2026-07-25"
       },
       "confidence": 0.75,
       "source": [
@@ -19013,9 +18499,7 @@
         "forks": 0,
         "openIssues": 13,
         "archived": false,
-        "pushedAt": "2026-09-17",
-        "releasedAt": "2026-07-21",
-        "latestRelease": "v10.6.0"
+        "pushedAt": "2026-09-17"
       },
       "confidence": 0.75,
       "source": [
@@ -19061,9 +18545,7 @@
         "forks": 1,
         "openIssues": 2,
         "archived": false,
-        "pushedAt": "2026-05-24",
-        "releasedAt": "2026-05-24",
-        "latestRelease": "v1.0.2"
+        "pushedAt": "2026-05-24"
       },
       "confidence": 0.75,
       "source": [
@@ -19216,9 +18698,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "v0.30.0"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.75,
       "source": [
@@ -19262,9 +18742,7 @@
         "forks": 3,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2023-04-12",
-        "releasedAt": "2022-12-18",
-        "latestRelease": "Stable"
+        "pushedAt": "2023-04-12"
       },
       "confidence": 0.75,
       "source": [
@@ -19424,9 +18902,7 @@
         "forks": 3,
         "openIssues": 2,
         "archived": false,
-        "pushedAt": "2023-03-18",
-        "releasedAt": "2023-03-15",
-        "latestRelease": "v0.3.0"
+        "pushedAt": "2023-03-18"
       },
       "confidence": 0.6,
       "source": [
@@ -19766,9 +19242,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2024-02-25",
-        "releasedAt": "2024-02-25",
-        "latestRelease": "v2.3"
+        "pushedAt": "2024-02-25"
       },
       "confidence": 0.75,
       "source": [
@@ -19814,9 +19288,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2024-02-25",
-        "releasedAt": "2024-02-25",
-        "latestRelease": "v2.3"
+        "pushedAt": "2024-02-25"
       },
       "confidence": 0.75,
       "source": [
@@ -19861,9 +19333,7 @@
         "forks": 2,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2024-03-18",
-        "releasedAt": "2023-05-12",
-        "latestRelease": "1.0.0"
+        "pushedAt": "2024-03-18"
       },
       "confidence": 0.75,
       "source": [
@@ -19911,9 +19381,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2025-11-22",
-        "releasedAt": "2025-11-22",
-        "latestRelease": "0.0.3"
+        "pushedAt": "2025-11-22"
       },
       "confidence": 0.75,
       "source": [
@@ -20014,9 +19482,7 @@
         "forks": 1,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2023-02-14",
-        "releasedAt": "2023-02-13",
-        "latestRelease": "v0.8.0"
+        "pushedAt": "2023-02-14"
       },
       "confidence": 0.75,
       "source": [
@@ -20118,9 +19584,7 @@
         "forks": 0,
         "openIssues": 8,
         "archived": false,
-        "pushedAt": "2026-09-24",
-        "releasedAt": "2026-08-15",
-        "latestRelease": "v0.14.0"
+        "pushedAt": "2026-09-24"
       },
       "confidence": 0.75,
       "source": [
@@ -20206,9 +19670,7 @@
         "forks": 1,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-05-07",
-        "releasedAt": "2025-12-04",
-        "latestRelease": "v0.2.0"
+        "pushedAt": "2026-05-07"
       },
       "confidence": 0.45,
       "source": [
@@ -20291,9 +19753,7 @@
         "forks": 0,
         "openIssues": 20,
         "archived": false,
-        "pushedAt": "2025-11-12",
-        "releasedAt": "2025-11-12",
-        "latestRelease": "1.5.3"
+        "pushedAt": "2025-11-12"
       },
       "confidence": 0.75,
       "source": [
@@ -20339,9 +19799,7 @@
         "forks": 1,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2024-11-07",
-        "releasedAt": "2024-11-07",
-        "latestRelease": "0.1.6"
+        "pushedAt": "2024-11-07"
       },
       "confidence": 0.75,
       "source": [
@@ -20387,9 +19845,7 @@
         "forks": 3,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2025-04-12",
-        "releasedAt": "2025-04-12",
-        "latestRelease": "v0.7.3"
+        "pushedAt": "2025-04-12"
       },
       "confidence": 0.75,
       "source": [
@@ -20436,9 +19892,7 @@
         "forks": 1,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-08-20",
-        "releasedAt": "2026-08-20",
-        "latestRelease": "v0.6.0"
+        "pushedAt": "2026-08-20"
       },
       "confidence": 0.75,
       "source": [
@@ -20542,9 +19996,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-06",
-        "latestRelease": "v1.3.1"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.3,
       "source": [
@@ -20593,9 +20045,7 @@
         "forks": 2,
         "openIssues": 4,
         "archived": false,
-        "pushedAt": "2026-09-21",
-        "releasedAt": "2026-08-02",
-        "latestRelease": "v0.3.0"
+        "pushedAt": "2026-09-21"
       },
       "confidence": 0.75,
       "source": [
@@ -20728,9 +20178,7 @@
         "forks": 1,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-07-03",
-        "releasedAt": "2026-07-03",
-        "latestRelease": "maven-2026.6.0"
+        "pushedAt": "2026-07-03"
       },
       "confidence": 0.6,
       "source": [
@@ -20780,9 +20228,7 @@
         "forks": 1,
         "openIssues": 11,
         "archived": false,
-        "pushedAt": "2026-09-21",
-        "releasedAt": "2026-07-22",
-        "latestRelease": "@graphorin/sessions@0.15.1"
+        "pushedAt": "2026-09-21"
       },
       "confidence": 0.75,
       "source": [
@@ -20833,9 +20279,7 @@
         "forks": 0,
         "openIssues": 6,
         "archived": false,
-        "pushedAt": "2026-09-24",
-        "releasedAt": "2024-04-22",
-        "latestRelease": "v0.1.0"
+        "pushedAt": "2026-09-24"
       },
       "confidence": 0.75,
       "source": [
@@ -20888,9 +20332,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2025-09-28",
-        "releasedAt": "2025-09-21",
-        "latestRelease": "v0.1.1"
+        "pushedAt": "2025-09-28"
       },
       "confidence": 0.75,
       "source": [
@@ -20992,9 +20434,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-24",
-        "latestRelease": "v0.8.7"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.3,
       "source": [
@@ -21048,9 +20488,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-13",
-        "releasedAt": "2026-09-11",
-        "latestRelease": "bedrock-gateway-rust-v0.16.6"
+        "pushedAt": "2026-09-13"
       },
       "confidence": 0.75,
       "source": [
@@ -21104,9 +20542,7 @@
         "forks": 0,
         "openIssues": 22,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-09",
-        "latestRelease": "v0.1.0"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.75,
       "source": [
@@ -21163,9 +20599,7 @@
         "forks": 0,
         "openIssues": 5,
         "archived": false,
-        "pushedAt": "2026-08-13",
-        "releasedAt": "2026-08-13",
-        "latestRelease": "v0.6.1"
+        "pushedAt": "2026-08-13"
       },
       "confidence": 0.75,
       "source": [
@@ -21219,9 +20653,7 @@
         "forks": 0,
         "openIssues": 7,
         "archived": false,
-        "pushedAt": "2026-06-18",
-        "releasedAt": "2026-06-18",
-        "latestRelease": "v0.1.0"
+        "pushedAt": "2026-06-18"
       },
       "confidence": 0.75,
       "source": [
@@ -21317,9 +20749,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2023-09-07",
-        "releasedAt": "2023-08-24",
-        "latestRelease": "0.0.6"
+        "pushedAt": "2023-09-07"
       },
       "confidence": 0.6,
       "source": [
@@ -21512,9 +20942,7 @@
         "forks": 0,
         "openIssues": 12,
         "archived": false,
-        "pushedAt": "2026-09-11",
-        "releasedAt": "2026-07-13",
-        "latestRelease": "v0.9.0"
+        "pushedAt": "2026-09-11"
       },
       "confidence": 0.75,
       "source": [
@@ -21567,9 +20995,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-08-08",
-        "releasedAt": "2026-08-08",
-        "latestRelease": "v0.1.2"
+        "pushedAt": "2026-08-08"
       },
       "confidence": 0.75,
       "source": [
@@ -21616,9 +21042,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-04-11",
-        "releasedAt": "2025-10-24",
-        "latestRelease": "v3.0.2"
+        "pushedAt": "2026-04-11"
       },
       "confidence": 0.75,
       "source": [
@@ -21676,9 +21100,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-08-29",
-        "releasedAt": "2026-06-09",
-        "latestRelease": "v0.1.8"
+        "pushedAt": "2026-08-29"
       },
       "confidence": 0.75,
       "source": [
@@ -21734,9 +21156,7 @@
         "forks": 2,
         "openIssues": 2,
         "archived": false,
-        "pushedAt": "2026-08-11",
-        "releasedAt": "2026-04-23",
-        "latestRelease": "v0.18.2"
+        "pushedAt": "2026-08-11"
       },
       "confidence": 0.75,
       "source": [
@@ -21840,9 +21260,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-12",
-        "releasedAt": "2026-09-12",
-        "latestRelease": "v0.1.4"
+        "pushedAt": "2026-09-12"
       },
       "confidence": 0.75,
       "source": [
@@ -21899,9 +21317,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-04-23",
-        "releasedAt": "2026-04-16",
-        "latestRelease": "v0.1.5"
+        "pushedAt": "2026-04-23"
       },
       "confidence": 0.75,
       "source": [
@@ -22094,9 +21510,7 @@
         "forks": 2,
         "openIssues": 2,
         "archived": false,
-        "pushedAt": "2024-08-17",
-        "releasedAt": "2024-06-07",
-        "latestRelease": "v1.2.0"
+        "pushedAt": "2024-08-17"
       },
       "confidence": 0.75,
       "source": [
@@ -22184,9 +21598,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "v4.0.1735"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.75,
       "source": [
@@ -22234,9 +21646,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-26",
-        "latestRelease": "v4.0.178"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.75,
       "source": [
@@ -22283,9 +21693,7 @@
         "forks": 1,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "v4.0.603"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.75,
       "source": [
@@ -22377,9 +21785,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2024-09-12",
-        "releasedAt": "2024-09-12",
-        "latestRelease": "1.0.2"
+        "pushedAt": "2024-09-12"
       },
       "confidence": 0.75,
       "source": [
@@ -22429,9 +21835,7 @@
         "forks": 0,
         "openIssues": 2,
         "archived": false,
-        "pushedAt": "2026-06-24",
-        "releasedAt": "2026-03-29",
-        "latestRelease": "v1.0.0"
+        "pushedAt": "2026-06-24"
       },
       "confidence": 0.75,
       "source": [
@@ -22672,9 +22076,7 @@
         "forks": 1,
         "openIssues": 9,
         "archived": false,
-        "pushedAt": "2026-08-12",
-        "releasedAt": "2026-08-05",
-        "latestRelease": "v0.2.1"
+        "pushedAt": "2026-08-12"
       },
       "confidence": 0.9,
       "source": [
@@ -23281,9 +22683,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2024-08-28",
-        "releasedAt": "2024-08-28",
-        "latestRelease": "v1.6.0"
+        "pushedAt": "2024-08-28"
       },
       "confidence": 0.75,
       "source": [
@@ -23331,9 +22731,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-06-10",
-        "releasedAt": "2026-06-10",
-        "latestRelease": "v1.50.6"
+        "pushedAt": "2026-06-10"
       },
       "confidence": 0.75,
       "source": [
@@ -23607,9 +23005,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-08-19",
-        "releasedAt": "2026-08-19",
-        "latestRelease": "v0.4.0"
+        "pushedAt": "2026-08-19"
       },
       "confidence": 0.75,
       "source": [
@@ -23875,9 +23271,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-22",
-        "releasedAt": "2026-08-10",
-        "latestRelease": "v0.1.0"
+        "pushedAt": "2026-09-22"
       },
       "confidence": 0.75,
       "source": [
@@ -23935,9 +23329,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-08-27",
-        "releasedAt": "2026-08-27",
-        "latestRelease": "v0.2.0"
+        "pushedAt": "2026-08-27"
       },
       "confidence": 0.75,
       "source": [
@@ -23986,9 +23378,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-14",
-        "releasedAt": "2026-09-14",
-        "latestRelease": "v0.5.0"
+        "pushedAt": "2026-09-14"
       },
       "confidence": 0.75,
       "source": [
@@ -24094,9 +23484,7 @@
         "forks": 0,
         "openIssues": 11,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-20",
-        "latestRelease": "0.4.0"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.75,
       "source": [
@@ -24148,9 +23536,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "v4.0.1046"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.75,
       "source": [
@@ -24204,9 +23590,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "v4.0.1040"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.75,
       "source": [
@@ -24255,9 +23639,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-26",
-        "latestRelease": "v4.0.138"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.75,
       "source": [
@@ -24306,9 +23688,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "v4.0.44"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.75,
       "source": [
@@ -24359,9 +23739,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-26",
-        "latestRelease": "v4.0.178"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.75,
       "source": [
@@ -24415,9 +23793,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-25",
-        "latestRelease": "v4.0.175"
+        "pushedAt": "2026-09-25"
       },
       "confidence": 0.75,
       "source": [
@@ -24465,9 +23841,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-24",
-        "latestRelease": "v4.0.52"
+        "pushedAt": "2026-09-26"
       },
       "confidence": 0.75,
       "source": [
@@ -24594,9 +23968,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-04-05",
-        "releasedAt": "2026-04-05",
-        "latestRelease": "1.0.1"
+        "pushedAt": "2026-04-05"
       },
       "confidence": 0.75,
       "source": [
@@ -24642,9 +24014,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2025-03-31",
-        "releasedAt": "2025-03-31",
-        "latestRelease": "v0.0.5"
+        "pushedAt": "2025-03-31"
       },
       "confidence": 0.75,
       "source": [
@@ -24690,9 +24060,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2025-11-12",
-        "releasedAt": "2025-08-28",
-        "latestRelease": "1.0.0"
+        "pushedAt": "2025-11-12"
       },
       "confidence": 0.75,
       "source": [
@@ -24781,9 +24149,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2023-03-02",
-        "releasedAt": "2023-03-02",
-        "latestRelease": "v1.0.3"
+        "pushedAt": "2023-03-02"
       },
       "confidence": 0.75,
       "source": [
@@ -24828,9 +24194,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2024-05-24",
-        "releasedAt": "2023-06-20",
-        "latestRelease": "1.0.2"
+        "pushedAt": "2024-05-24"
       },
       "confidence": 0.75,
       "source": [
@@ -24970,9 +24334,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2025-03-13",
-        "releasedAt": "2025-03-13",
-        "latestRelease": "0.2"
+        "pushedAt": "2025-03-13"
       },
       "confidence": 0.75,
       "source": [
@@ -25019,9 +24381,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-09-02",
-        "releasedAt": "2026-07-15",
-        "latestRelease": "0.3.0"
+        "pushedAt": "2026-09-02"
       },
       "confidence": 0.75,
       "source": [
@@ -25204,9 +24564,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2023-06-01",
-        "releasedAt": "2023-06-01",
-        "latestRelease": "v0.5.2"
+        "pushedAt": "2023-06-01"
       },
       "confidence": 0.75,
       "source": [
@@ -25253,9 +24611,7 @@
         "forks": 1,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2024-05-15",
-        "releasedAt": "2023-03-07",
-        "latestRelease": "v1.1"
+        "pushedAt": "2024-05-15"
       },
       "confidence": 0.75,
       "source": [
@@ -25399,9 +24755,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-08-26",
-        "releasedAt": "2026-08-26",
-        "latestRelease": "v0.3.7"
+        "pushedAt": "2026-08-26"
       },
       "confidence": 0.75,
       "source": [
@@ -25556,9 +24910,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-08-13",
-        "releasedAt": "2026-08-13",
-        "latestRelease": "v0.4.0"
+        "pushedAt": "2026-08-13"
       },
       "confidence": 0.75,
       "source": [
@@ -25653,9 +25005,7 @@
         "forks": 0,
         "openIssues": 0,
         "archived": false,
-        "pushedAt": "2026-08-20",
-        "releasedAt": "2026-08-20",
-        "latestRelease": "v1.15.0"
+        "pushedAt": "2026-08-20"
       },
       "confidence": 0.75,
       "source": [
@@ -25668,76 +25018,5 @@
       "latestRelease": "2026-08-20",
       "latestReleaseSource": "registry"
     }
-  ],
-  "stats": {
-    "startedAt": "2026-09-26T13:21:58.900Z",
-    "perEcosystem": {
-      "pypi": {
-        "candidates": 1208,
-        "accepted": 40,
-        "collected": 37
-      },
-      "npm": {
-        "candidates": 869,
-        "accepted": 40,
-        "collected": 40
-      },
-      "crates": {
-        "candidates": 370,
-        "accepted": 40,
-        "collected": 40
-      },
-      "golang": {
-        "candidates": 258,
-        "accepted": 40,
-        "collected": 32
-      },
-      "maven": {
-        "candidates": 357,
-        "accepted": 40,
-        "collected": 40
-      },
-      "nuget": {
-        "candidates": 224,
-        "accepted": 40,
-        "collected": 40
-      },
-      "rubygems": {
-        "candidates": 116,
-        "accepted": 40,
-        "collected": 40
-      },
-      "packagist": {
-        "candidates": 81,
-        "accepted": 40,
-        "collected": 40
-      },
-      "hex": {
-        "candidates": 42,
-        "accepted": 16,
-        "collected": 16
-      },
-      "luarocks": {
-        "candidates": 28,
-        "accepted": 19,
-        "collected": 19
-      },
-      "cran": {
-        "candidates": 63,
-        "accepted": 22,
-        "collected": 22
-      },
-      "swift": {
-        "candidates": 101,
-        "accepted": 40,
-        "collected": 14
-      },
-      "github": {
-        "candidates": 224,
-        "accepted": 40,
-        "collected": 27
-      }
-    },
-    "errors": []
-  }
+  ]
 }

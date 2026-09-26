@@ -162,7 +162,10 @@ export function normalizeRecord(input) {
     features: uniq(input.features ?? []).slice(0, 20),
     envVars: uniq(input.envVars ?? []).slice(0, 10),
     install: cleanString(input.install, 300),
-    repo: cleanUrl(input.repo),
+    // repoDropped ставит только аудит ссылок: репозиторий проверен и не найден,
+    // поэтому ссылку нужно убрать, а не «не знать».
+    repo: input.repoDropped === true ? undefined : cleanUrl(input.repo),
+    repoDropped: input.repoDropped === true ? true : undefined,
     docs: cleanUrl(input.docs),
     homepage: cleanUrl(input.homepage),
     license: cleanString(input.license, 80),
@@ -235,6 +238,7 @@ export function normalizeRecord(input) {
   if (record.homepage === undefined && !record.repo) delete record.homepage;
   if (record.license === undefined) delete record.license;
   if (record.install === undefined) delete record.install;
+  if (record.repoDropped === undefined) delete record.repoDropped;
   if (record.docs === undefined) delete record.docs;
 
   return record;
@@ -292,7 +296,10 @@ export function mergeRecords(base, patch) {
     openaiCompatibleServer: a.openaiCompatibleServer === true || b.openaiCompatibleServer === true,
     status: (RANK[b.status] ?? 0) > (RANK[a.status] ?? 0) ? b.status : a.status,
     tier: bestTier(a.tier, b.tier),
-    repo: b.repo ?? a.repo,
+    // Аудит ссылок может явно пометить ссылку как нерабочую — тогда она
+    // не восстанавливается из реестра, а удаляется.
+    repo: b.repoDropped === true ? undefined : b.repo ?? a.repo,
+    repoDropped: b.repoDropped === true ? true : a.repoDropped,
     docs: b.docs ?? a.docs,
     homepage: b.homepage ?? a.homepage,
     license: b.license ?? a.license,

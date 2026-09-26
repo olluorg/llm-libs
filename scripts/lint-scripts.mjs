@@ -59,10 +59,11 @@ for (const dir of SCRIPT_DIRS) {
         // Опасно только реальное обращение выше объявления: без него порядок
         // не важен (например, `const pages` после await используется дальше).
         // Строковые литералы, комментарии и обращения через точку
-        // (dataset.libraries) в счёт не идут.
+        // (dataset.libraries) в счёт не идут. Ключ объекта (`fixed:`) —
+        // тоже не обращение к переменной, поэтому `:` после имени исключён.
         const mentions = (line) =>
           !/^\s*(\/\/|\*|\/\*)/.test(line) &&
-          new RegExp(`(?<![.\\w$])${name}(?![\\w$])`).test(stripLiterals(line));
+          new RegExp(`(?<![.\\w$])${name}(?![\\w$]|\\s*:)`).test(stripLiterals(line));
         const usedEarlier = lines.slice(0, lineNumber - 1).some(mentions);
         if (usedEarlier) {
           problems.push(

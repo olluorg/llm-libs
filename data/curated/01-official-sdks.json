@@ -1017,7 +1017,7 @@
         "FIREWORKS_API_KEY"
       ],
       "sdkApi": "openai-compatible",
-      "repo": "https://github.com/fireworks-ai/fireworks-python",
+      "repo": "https://github.com/fw-ai-external/python-sdk",
       "notes": "Быстрый инференс открытых моделей, поддержка function calling."
     },
     {
@@ -1076,8 +1076,8 @@
         "AI21_API_KEY"
       ],
       "sdkApi": "ai21",
-      "repo": "https://github.com/ai21labs/ai21-python-sdk",
-      "notes": "Jamba-модели."
+      "repo": "https://github.com/AI21Labs/ai21-python",
+      "notes": "Официальный Python-клиент AI21 Labs для моделей Jamba."
     },
     {
       "name": "anthropic-bedrock",

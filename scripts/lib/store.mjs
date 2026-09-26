@@ -55,33 +55,43 @@ export async function loadAdapter(adapterName) {
   return module;
 }
 
-/** Загружает все курируемые записи из data/curated/*.json. */
+/**
+ * Загружает все курируемые записи из data/curated/*.json.
+ * Записи с одинаковым id сливаются, а не заменяют друг друга: так отдельный
+ * файл правок (99-link-fixes.json) может нести только исправленное поле,
+ * не выписывая запись целиком.
+ */
 export async function loadCurated() {
-  const records = [];
+  const byId = new Map();
   let files = [];
   try {
     files = await fs.readdir(CURATED_DIR);
   } catch (error) {
     if (error.code !== 'ENOENT') throw error;
   }
-  for (const file of files.filter((f) => f.endsWith('.json'))) {
+  files = files.filter((f) => f.endsWith('.json')).sort();
+  let total = 0;
+
+  for (const file of files) {
     const payload = await readJson(path.join(CURATED_DIR, file));
     const list = Array.isArray(payload) ? payload : payload.libraries ?? [];
     for (const item of list) {
       try {
-        records.push(
-          normalizeRecord({
-            confidence: 0.9,
-            ...item,
-            source: [...(item.source ?? []), `curated:${file}`],
-          }),
-        );
+        const record = normalizeRecord({
+          confidence: 0.9,
+          ...item,
+          source: [...(item.source ?? []), `curated:${file}`],
+        });
+        const existing = byId.get(record.id);
+        byId.set(record.id, existing ? mergeRecords(existing, record) : record);
+        total += 1;
       } catch (error) {
         log.warn(`пропущена запись в ${file}: ${error.message}`);
       }
     }
   }
-  log.info(`курируемых записей: ${records.length}`);
+  const records = [...byId.values()];
+  log.info(`курируемых записей: ${records.length} (из ${total} строк в ${files.length} файлах)`);
   return records;
 }
 

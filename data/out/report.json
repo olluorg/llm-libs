@@ -1,5 +1,5 @@
 {
-  "startedAt": "2026-09-26T13:21:58.900Z",
+  "startedAt": "2026-09-26T14:02:51.121Z",
   "perEcosystem": {
     "pypi": {
       "candidates": 1208,
@@ -68,23 +68,23 @@
     }
   },
   "errors": [],
-  "enrichedAt": "2026-09-26T13:22:50.530Z",
+  "enrichedAt": "2026-09-26T14:03:43.303Z",
   "github": {
-    "queued": 457,
-    "fetched": 439,
-    "notFound": 18,
+    "queued": 454,
+    "fetched": 442,
+    "notFound": 12,
     "releases": {
-      "mode": "all",
-      "requested": 439,
-      "withDate": 351
+      "mode": "missing",
+      "requested": 16,
+      "withDate": 13
     },
     "skipped": 0,
     "quotaExhausted": false,
     "rateLimit": {
       "limit": 5000,
-      "used": 111,
-      "remaining": 4889,
-      "reset": 1790430189
+      "used": 0,
+      "remaining": 5000,
+      "reset": 1790435020
     },
     "token": true
   },
@@ -129,8 +129,6 @@
       "openai": 264,
       "openai-compatible": 76,
       "anthropic": 146,
-      "fireworks": 1,
-      "ai21": 1,
       "cohere": 37,
       "aws-bedrock": 48,
       "google-gemini": 84,
@@ -154,6 +152,8 @@
       "qwen": 7,
       "moonshot": 5,
       "sap": 1,
+      "ai21": 1,
+      "fireworks": 1,
       "deepinfra": 1
     },
     "byRole": {
@@ -176,9 +176,9 @@
       "orchestration": 1
     },
     "byStatus": {
-      "active": 336,
-      "unknown": 83,
-      "deprecated": 72,
+      "active": 335,
+      "unknown": 81,
+      "deprecated": 75,
       "archived": 13
     }
   }
