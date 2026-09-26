@@ -1,0 +1,1125 @@
+{
+  "$comment": "Официальные SDK, которые выпускают сами провайдеры. Это ядро каталога (tier A).",
+  "libraries": [
+    {
+      "name": "openai-php/symfony",
+      "ecosystem": "packagist",
+      "providers": [
+        "openai",
+        "azure-openai"
+      ],
+      "kind": "official-sdk",
+      "tier": "C",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "vision",
+        "embeddings"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "sdkApi": "openai",
+      "repo": "https://github.com/openai-php/symfony",
+      "notes": "Symfony-интеграция официального PHP-клиента OpenAI (DI-конфигурация и сервисы)."
+    },
+    {
+      "name": "openai",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "azure-openai"
+      ],
+      "kind": "official-sdk",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "vision",
+        "embeddings",
+        "audio",
+        "image",
+        "video",
+        "batch",
+        "finetune",
+        "moderation",
+        "caching",
+        "prompt-engineering",
+        "tokenizers"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "sdkApi": "openai",
+      "repo": "https://github.com/openai/openai-python",
+      "docs": "https://github.com/openai/openai-python",
+      "notes": "Референсный SDK: sync + async клиенты, Responses API, Realtime, Assistants, батареи eval-инструментов. Для Azure OpenAI используется тот же пакет, но класс AzureOpenAI (свой endpoint и api-version)."
+    },
+    {
+      "name": "openai",
+      "ecosystem": "npm",
+      "providers": [
+        "openai",
+        "azure-openai"
+      ],
+      "kind": "official-sdk",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "vision",
+        "embeddings",
+        "audio",
+        "image",
+        "batch",
+        "finetune",
+        "moderation",
+        "caching",
+        "tokenizers"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "sdkApi": "openai",
+      "repo": "https://github.com/openai/openai-node",
+      "docs": "https://github.com/openai/openai-node",
+      "notes": "TypeScript-клиент: официальные типы, zod-интеграция, поддержка edge-runtime."
+    },
+    {
+      "name": "github.com/openai/openai-go/v3",
+      "ecosystem": "golang",
+      "providers": [
+        "openai",
+        "azure-openai"
+      ],
+      "kind": "official-sdk",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "vision",
+        "embeddings",
+        "audio",
+        "image",
+        "batch"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "sdkApi": "openai",
+      "repo": "https://github.com/openai/openai-go",
+      "notes": "Официальный Go-клиент OpenAI (модуль v3). Есть полиморфные client/option-паттерны, streaming, responses."
+    },
+    {
+      "name": "openai",
+      "ecosystem": "rubygems",
+      "providers": [
+        "openai",
+        "azure-openai"
+      ],
+      "kind": "official-sdk",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "vision",
+        "embeddings",
+        "audio",
+        "image"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "sdkApi": "openai",
+      "repo": "https://github.com/openai/openai-ruby",
+      "notes": "Официальный Ruby-клиент OpenAI. Гемы ruby-openai и openai_chatgpt — устаревшие альтернативы."
+    },
+    {
+      "name": "OpenAI",
+      "ecosystem": "nuget",
+      "providers": [
+        "openai"
+      ],
+      "kind": "official-sdk",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "vision",
+        "embeddings",
+        "audio",
+        "image"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "sdkApi": "openai",
+      "repo": "https://github.com/openai/openai-dotnet",
+      "notes": "Официальный .NET-клиент, поддерживает Azure OpenAI через endpoint."
+    },
+    {
+      "name": "anthropic",
+      "ecosystem": "pypi",
+      "providers": [
+        "anthropic",
+        "aws-bedrock",
+        "vertex-ai"
+      ],
+      "kind": "official-sdk",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "vision",
+        "caching",
+        "prompt-engineering",
+        "batch"
+      ],
+      "envVars": [
+        "ANTHROPIC_API_KEY",
+        "ANTHROPIC_BEDROCK_BASE_URL",
+        "AWS_REGION"
+      ],
+      "sdkApi": "anthropic-messages",
+      "repo": "https://github.com/anthropics/anthropic-sdk-python",
+      "notes": "Messages API, prompt caching, tool use, computer use, beta-заголовки. Один и тот же пакет умеет ходить и в api.anthropic.com, и в Bedrock/Vertex — через AnthropicBedrock и AnthropicVertex."
+    },
+    {
+      "name": "@anthropic-ai/sdk",
+      "ecosystem": "npm",
+      "providers": [
+        "anthropic"
+      ],
+      "kind": "official-sdk",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "vision",
+        "caching",
+        "prompt-engineering",
+        "batch"
+      ],
+      "envVars": [
+        "ANTHROPIC_API_KEY"
+      ],
+      "sdkApi": "anthropic-messages",
+      "repo": "https://github.com/anthropics/anthropic-sdk-typescript",
+      "notes": "Официальный TS/JS-клиент, поддерживает edge-окружения."
+    },
+    {
+      "name": "Anthropic",
+      "ecosystem": "nuget",
+      "providers": [
+        "anthropic"
+      ],
+      "kind": "official-sdk",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "vision",
+        "caching"
+      ],
+      "envVars": [
+        "ANTHROPIC_API_KEY"
+      ],
+      "sdkApi": "anthropic-messages",
+      "notes": "Официальный .NET-клиент Anthropic (NuGet id Anthropic, издатель — организация Anthropic). Репозиторий у SDK не публичный, поэтому ссылка ведёт на документацию. Популярная альтернатива от сообщества — Anthropic.SDK.",
+      "docs": "https://docs.anthropic.com/claude/reference/"
+    },
+    {
+      "name": "com.openai:openai-java",
+      "ecosystem": "maven",
+      "providers": [
+        "openai",
+        "azure-openai",
+        "openai-compatible"
+      ],
+      "kind": "official-sdk",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "vision",
+        "embeddings",
+        "audio",
+        "image",
+        "batch",
+        "finetune"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "sdkApi": "openai",
+      "repo": "https://github.com/openai/openai-java",
+      "notes": "Официальный Java-клиент OpenAI (Apache-2.0), генерируется из OpenAPI-спецификации. Модули: openai-java-core, openai-java-client-okhttp, openai-java-bedrock, openai-java-spring-boot-starter."
+    },
+    {
+      "name": "com.openai:openai-java-bedrock",
+      "ecosystem": "maven",
+      "providers": [
+        "openai",
+        "aws-bedrock"
+      ],
+      "kind": "official-sdk",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "tools"
+      ],
+      "envVars": [
+        "AWS_ACCESS_KEY_ID",
+        "AWS_REGION"
+      ],
+      "sdkApi": "bedrock",
+      "repo": "https://github.com/openai/openai-java",
+      "notes": "Транспорт для AWS Bedrock в официальном Java-клиенте OpenAI."
+    },
+    {
+      "name": "com.anthropic:anthropic-java",
+      "ecosystem": "maven",
+      "providers": [
+        "anthropic"
+      ],
+      "kind": "official-sdk",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "vision",
+        "caching"
+      ],
+      "envVars": [
+        "ANTHROPIC_API_KEY"
+      ],
+      "sdkApi": "anthropic-messages",
+      "repo": "https://github.com/anthropics/anthropic-sdk-java",
+      "notes": "Официальный Java-клиент."
+    },
+    {
+      "name": "anthropic",
+      "ecosystem": "rubygems",
+      "providers": [
+        "anthropic"
+      ],
+      "kind": "official-sdk",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "vision",
+        "caching"
+      ],
+      "envVars": [
+        "ANTHROPIC_API_KEY"
+      ],
+      "sdkApi": "anthropic-messages",
+      "repo": "https://github.com/anthropics/anthropic-sdk-ruby",
+      "notes": "Официальный Ruby-клиент."
+    },
+    {
+      "name": "google-genai",
+      "ecosystem": "pypi",
+      "providers": [
+        "google-gemini",
+        "vertex-ai"
+      ],
+      "kind": "official-sdk",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "vision",
+        "audio",
+        "video",
+        "image",
+        "embeddings",
+        "caching",
+        "batch"
+      ],
+      "envVars": [
+        "GEMINI_API_KEY",
+        "GOOGLE_API_KEY",
+        "GOOGLE_CLOUD_PROJECT"
+      ],
+      "sdkApi": "gemini",
+      "repo": "https://github.com/googleapis/python-genai",
+      "notes": "Актуальное поколение SDK (Google Gen AI SDK). Работает и с Gemini API, и с Vertex AI."
+    },
+    {
+      "name": "@google/genai",
+      "ecosystem": "npm",
+      "providers": [
+        "google-gemini",
+        "vertex-ai"
+      ],
+      "kind": "official-sdk",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "vision",
+        "audio",
+        "video",
+        "embeddings"
+      ],
+      "envVars": [
+        "GEMINI_API_KEY",
+        "GOOGLE_API_KEY"
+      ],
+      "sdkApi": "gemini",
+      "repo": "https://github.com/googleapis/js-genai",
+      "notes": "Новое поколение TS-клиента Google."
+    },
+    {
+      "name": "com.google.genai:google-genai",
+      "ecosystem": "maven",
+      "providers": [
+        "google-gemini",
+        "vertex-ai"
+      ],
+      "kind": "official-sdk",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "vision",
+        "audio",
+        "video",
+        "embeddings"
+      ],
+      "envVars": [
+        "GEMINI_API_KEY",
+        "GOOGLE_APPLICATION_CREDENTIALS"
+      ],
+      "sdkApi": "gemini",
+      "repo": "https://github.com/googleapis/java-genai",
+      "notes": "Официальный Java-клиент нового поколения."
+    },
+    {
+      "name": "google-cloud-aiplatform",
+      "ecosystem": "pypi",
+      "providers": [
+        "vertex-ai",
+        "google-gemini"
+      ],
+      "kind": "official-sdk",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "embeddings",
+        "finetune"
+      ],
+      "envVars": [
+        "GOOGLE_CLOUD_PROJECT",
+        "GOOGLE_APPLICATION_CREDENTIALS"
+      ],
+      "sdkApi": "vertex",
+      "repo": "https://github.com/googleapis/python-aiplatform",
+      "notes": "Vertex AI SDK: Gemini, PaLM-подобные модели, fine-tuning, evaluation."
+    },
+    {
+      "name": "@google-cloud/vertexai",
+      "ecosystem": "npm",
+      "providers": [
+        "vertex-ai",
+        "google-gemini"
+      ],
+      "kind": "official-sdk",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "embeddings"
+      ],
+      "envVars": [
+        "GOOGLE_APPLICATION_CREDENTIALS",
+        "GOOGLE_CLOUD_PROJECT"
+      ],
+      "sdkApi": "vertex",
+      "repo": "https://github.com/googleapis/nodejs-vertexai",
+      "notes": "Node-клиент Vertex AI."
+    },
+    {
+      "name": "azure-ai-inference",
+      "ecosystem": "pypi",
+      "providers": [
+        "azure-openai",
+        "google-gemini"
+      ],
+      "kind": "official-sdk",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "vision",
+        "embeddings"
+      ],
+      "envVars": [
+        "AZURE_INFERENCE_CREDENTIAL",
+        "AZURE_INFERENCE_ENDPOINT"
+      ],
+      "sdkApi": "azure-openai",
+      "repo": "https://github.com/Azure/azure-sdk-for-python",
+      "notes": "Azure AI Inference: единая точка доступа к serverless- и managed-эндпоинтам моделей в Azure AI Foundry. Отдельного пакета azure-ai-openai для Python нет: класс AzureOpenAI входит в официальный пакет openai."
+    },
+    {
+      "name": "azure-ai-agents",
+      "ecosystem": "pypi",
+      "providers": [
+        "azure-openai"
+      ],
+      "kind": "official-sdk",
+      "tier": "C",
+      "features": [
+        "agents",
+        "tools",
+        "streaming"
+      ],
+      "envVars": [
+        "AZURE_AI_AGENTS_ENDPOINT"
+      ],
+      "sdkApi": "azure-openai",
+      "repo": "https://github.com/Azure/azure-sdk-for-python",
+      "notes": "Клиент Azure AI Agents Service (Foundry)."
+    },
+    {
+      "name": "azure-ai-projects",
+      "ecosystem": "pypi",
+      "providers": [
+        "azure-openai"
+      ],
+      "kind": "official-sdk",
+      "tier": "C",
+      "features": [
+        "agents",
+        "tools",
+        "evals"
+      ],
+      "envVars": [
+        "AZURE_AI_PROJECT_ENDPOINT"
+      ],
+      "sdkApi": "azure-openai",
+      "repo": "https://github.com/Azure/azure-sdk-for-python",
+      "notes": "Клиент проектов Azure AI Foundry: агенты, оценки, развёртывания."
+    },
+    {
+      "name": "@azure/openai",
+      "ecosystem": "npm",
+      "providers": [
+        "azure-openai"
+      ],
+      "kind": "official-sdk",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "vision",
+        "embeddings",
+        "audio"
+      ],
+      "envVars": [
+        "AZURE_OPENAI_API_KEY",
+        "AZURE_OPENAI_ENDPOINT",
+        "AZURE_OPENAI_API_VERSION"
+      ],
+      "sdkApi": "azure-openai",
+      "repo": "https://github.com/Azure/azure-sdk-for-js",
+      "notes": "Node-клиент Azure OpenAI с поддержкой on-behalf-of и Entra ID."
+    },
+    {
+      "name": "Azure.AI.OpenAI",
+      "ecosystem": "nuget",
+      "providers": [
+        "azure-openai"
+      ],
+      "kind": "official-sdk",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "vision",
+        "embeddings",
+        "audio"
+      ],
+      "envVars": [
+        "AZURE_OPENAI_API_KEY",
+        "AZURE_OPENAI_ENDPOINT"
+      ],
+      "sdkApi": "azure-openai",
+      "repo": "https://github.com/Azure/azure-sdk-for-net",
+      "notes": ".NET-клиент Azure OpenAI, поддерживает AAD."
+    },
+    {
+      "name": "com.azure:azure-ai-openai",
+      "ecosystem": "maven",
+      "providers": [
+        "azure-openai"
+      ],
+      "kind": "official-sdk",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "vision",
+        "embeddings",
+        "audio"
+      ],
+      "envVars": [
+        "AZURE_OPENAI_API_KEY",
+        "AZURE_OPENAI_ENDPOINT"
+      ],
+      "sdkApi": "azure-openai",
+      "repo": "https://github.com/Azure/azure-sdk-for-java",
+      "notes": "Java-клиент Azure OpenAI."
+    },
+    {
+      "name": "boto3",
+      "ecosystem": "pypi",
+      "providers": [
+        "aws-bedrock",
+        "anthropic",
+        "mistral",
+        "cohere"
+      ],
+      "kind": "official-sdk",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "vision",
+        "embeddings",
+        "batch"
+      ],
+      "envVars": [
+        "AWS_ACCESS_KEY_ID",
+        "AWS_SECRET_ACCESS_KEY",
+        "AWS_REGION",
+        "AWS_BEARER_TOKEN_BEDROCK"
+      ],
+      "sdkApi": "bedrock",
+      "repo": "https://github.com/boto/boto3",
+      "notes": "Официальный AWS SDK для Python; доступ к Bedrock Runtime/AgentRuntime и остальным сервисам AWS. Основной вход для Bedrock."
+    },
+    {
+      "name": "@aws-sdk/client-bedrock-runtime",
+      "ecosystem": "npm",
+      "providers": [
+        "aws-bedrock",
+        "anthropic",
+        "mistral",
+        "cohere"
+      ],
+      "kind": "official-sdk",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "vision",
+        "embeddings"
+      ],
+      "envVars": [
+        "AWS_ACCESS_KEY_ID",
+        "AWS_SECRET_ACCESS_KEY",
+        "AWS_REGION",
+        "AWS_BEARER_TOKEN_BEDROCK"
+      ],
+      "sdkApi": "bedrock",
+      "repo": "https://github.com/aws/aws-sdk-js-v3",
+      "notes": "Converse API Bedrock для JS/TS."
+    },
+    {
+      "name": "AWSSDK.BedrockRuntime",
+      "ecosystem": "nuget",
+      "providers": [
+        "aws-bedrock"
+      ],
+      "kind": "official-sdk",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "embeddings"
+      ],
+      "envVars": [
+        "AWS_ACCESS_KEY_ID",
+        "AWS_REGION"
+      ],
+      "sdkApi": "bedrock",
+      "repo": "https://github.com/aws/aws-sdk-for-net",
+      "notes": ".NET-клиент Bedrock Runtime (Converse API)."
+    },
+    {
+      "name": "software.amazon.awssdk:bedrockruntime",
+      "ecosystem": "maven",
+      "providers": [
+        "aws-bedrock"
+      ],
+      "kind": "official-sdk",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "embeddings"
+      ],
+      "envVars": [
+        "AWS_ACCESS_KEY_ID",
+        "AWS_REGION"
+      ],
+      "sdkApi": "bedrock",
+      "repo": "https://github.com/aws/aws-sdk-java-v2",
+      "notes": "Java-клиент Bedrock Runtime."
+    },
+    {
+      "name": "github.com/aws/aws-sdk-go-v2/service/bedrockruntime",
+      "ecosystem": "golang",
+      "providers": [
+        "aws-bedrock"
+      ],
+      "kind": "official-sdk",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "embeddings"
+      ],
+      "envVars": [
+        "AWS_ACCESS_KEY_ID",
+        "AWS_REGION"
+      ],
+      "sdkApi": "bedrock",
+      "repo": "https://github.com/aws/aws-sdk-go-v2",
+      "notes": "Официальный Go-модуль Bedrock Runtime."
+    },
+    {
+      "name": "mistralai",
+      "ecosystem": "pypi",
+      "providers": [
+        "mistral"
+      ],
+      "kind": "official-sdk",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "vision",
+        "embeddings"
+      ],
+      "envVars": [
+        "MISTRAL_API_KEY"
+      ],
+      "sdkApi": "mistral",
+      "repo": "https://github.com/mistralai/client-python",
+      "notes": "Есть и OpenAI-совместимый режим (MistralClient.chat.complete)."
+    },
+    {
+      "name": "@mistralai/mistralai",
+      "ecosystem": "npm",
+      "providers": [
+        "mistral"
+      ],
+      "kind": "official-sdk",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "vision",
+        "embeddings"
+      ],
+      "envVars": [
+        "MISTRAL_API_KEY"
+      ],
+      "sdkApi": "mistral",
+      "repo": "https://github.com/mistralai/client-ts",
+      "notes": "Официальный TS-клиент Mistral."
+    },
+    {
+      "name": "groq",
+      "ecosystem": "pypi",
+      "providers": [
+        "groq"
+      ],
+      "kind": "official-sdk",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "vision",
+        "audio"
+      ],
+      "envVars": [
+        "GROQ_API_KEY"
+      ],
+      "sdkApi": "openai-compatible",
+      "repo": "https://github.com/groq/groq-python",
+      "notes": "Очень низкая задержка, есть Whisper-распознавание речи."
+    },
+    {
+      "name": "groq-sdk",
+      "ecosystem": "npm",
+      "providers": [
+        "groq"
+      ],
+      "kind": "official-sdk",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "audio"
+      ],
+      "envVars": [
+        "GROQ_API_KEY"
+      ],
+      "sdkApi": "openai-compatible",
+      "repo": "https://github.com/groq/groq-typescript",
+      "notes": "Node-клиент Groq."
+    },
+    {
+      "name": "cohere",
+      "ecosystem": "pypi",
+      "providers": [
+        "cohere"
+      ],
+      "kind": "official-sdk",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "embeddings",
+        "rag"
+      ],
+      "envVars": [
+        "CO_API_KEY"
+      ],
+      "sdkApi": "cohere-v2",
+      "repo": "https://github.com/cohere-ai/cohere-python",
+      "notes": "Chat (v2), Embed, Rerank, Classify. Cohere Embed — одна из лучших моделей эмбеддингов."
+    },
+    {
+      "name": "cohere-ai",
+      "ecosystem": "npm",
+      "providers": [
+        "cohere"
+      ],
+      "kind": "official-sdk",
+      "tier": "C",
+      "features": [
+        "chat",
+        "streaming",
+        "embeddings",
+        "rag"
+      ],
+      "envVars": [
+        "CO_API_KEY"
+      ],
+      "sdkApi": "cohere-v2",
+      "repo": "https://github.com/cohere-ai/cohere-node",
+      "notes": "Node-клиент Cohere."
+    },
+    {
+      "name": "com.cohere:cohere-java",
+      "ecosystem": "maven",
+      "providers": [
+        "cohere"
+      ],
+      "kind": "official-sdk",
+      "tier": "C",
+      "status": "unknown",
+      "features": [
+        "chat",
+        "embeddings",
+        "rag"
+      ],
+      "envVars": [
+        "COHERE_API_KEY"
+      ],
+      "sdkApi": "cohere-v2",
+      "notes": "Java-клиент Cohere. Проверяется автоматически: если координаты в Maven Central не найдутся, запись будет помечена как непроверенная."
+    },
+    {
+      "name": "google.golang.org/genai",
+      "ecosystem": "golang",
+      "providers": [
+        "google-gemini",
+        "vertex-ai"
+      ],
+      "kind": "official-sdk",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "vision",
+        "audio",
+        "video",
+        "embeddings"
+      ],
+      "envVars": [
+        "GEMINI_API_KEY",
+        "GOOGLE_CLOUD_PROJECT"
+      ],
+      "sdkApi": "gemini",
+      "repo": "https://github.com/googleapis/go-genai",
+      "notes": "Официальный Go-модуль Google Gen AI SDK."
+    },
+    {
+      "name": "xai-sdk",
+      "ecosystem": "pypi",
+      "providers": [
+        "xai"
+      ],
+      "kind": "official-sdk",
+      "tier": "C",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "vision"
+      ],
+      "envVars": [
+        "XAI_API_KEY"
+      ],
+      "sdkApi": "openai-compatible",
+      "notes": "Официальный клиент xAI (Grok)."
+    },
+    {
+      "name": "replicate",
+      "ecosystem": "pypi",
+      "providers": [
+        "replicate"
+      ],
+      "kind": "official-sdk",
+      "tier": "C",
+      "features": [
+        "image",
+        "video",
+        "audio",
+        "chat"
+      ],
+      "envVars": [
+        "REPLICATE_API_TOKEN"
+      ],
+      "sdkApi": "replicate",
+      "repo": "https://github.com/replicate/replicate-python",
+      "notes": "Запуск любых community-моделей (изображения, видео, аудио)."
+    },
+    {
+      "name": "replicate",
+      "ecosystem": "npm",
+      "providers": [
+        "replicate"
+      ],
+      "kind": "official-sdk",
+      "tier": "C",
+      "features": [
+        "image",
+        "video",
+        "audio"
+      ],
+      "envVars": [
+        "REPLICATE_API_TOKEN"
+      ],
+      "sdkApi": "replicate",
+      "repo": "https://github.com/replicate/replicate-javascript",
+      "notes": "Node-клиент Replicate."
+    },
+    {
+      "name": "together",
+      "ecosystem": "pypi",
+      "providers": [
+        "together"
+      ],
+      "kind": "official-sdk",
+      "tier": "C",
+      "features": [
+        "chat",
+        "streaming",
+        "embeddings",
+        "image",
+        "finetune"
+      ],
+      "envVars": [
+        "TOGETHER_API_KEY"
+      ],
+      "sdkApi": "openai-compatible",
+      "repo": "https://github.com/togethercomputer/together-python",
+      "notes": "Инференс открытых моделей + fine-tuning."
+    },
+    {
+      "name": "fireworks-ai",
+      "ecosystem": "pypi",
+      "providers": [
+        "fireworks"
+      ],
+      "kind": "official-sdk",
+      "tier": "C",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "vision",
+        "embeddings"
+      ],
+      "envVars": [
+        "FIREWORKS_API_KEY"
+      ],
+      "sdkApi": "openai-compatible",
+      "repo": "https://github.com/fireworks-ai/fireworks-python",
+      "notes": "Быстрый инференс открытых моделей, поддержка function calling."
+    },
+    {
+      "name": "deepinfra",
+      "ecosystem": "pypi",
+      "providers": [
+        "deepinfra"
+      ],
+      "kind": "official-sdk",
+      "tier": "C",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "embeddings"
+      ],
+      "envVars": [
+        "DEEPINFRA_API_KEY"
+      ],
+      "sdkApi": "openai-compatible",
+      "notes": "Инференс и fine-tuning открытых моделей."
+    },
+    {
+      "name": "jina",
+      "ecosystem": "pypi",
+      "providers": [
+        "jina"
+      ],
+      "kind": "official-sdk",
+      "tier": "C",
+      "features": [
+        "embeddings",
+        "vision",
+        "rag"
+      ],
+      "envVars": [
+        "JINA_API_KEY"
+      ],
+      "sdkApi": "jina",
+      "repo": "https://github.com/jina-ai/jina",
+      "notes": "Embeddings, reranker, multimodal search API."
+    },
+    {
+      "name": "ai21",
+      "ecosystem": "pypi",
+      "providers": [
+        "ai21"
+      ],
+      "kind": "official-sdk",
+      "tier": "C",
+      "features": [
+        "chat",
+        "streaming"
+      ],
+      "envVars": [
+        "AI21_API_KEY"
+      ],
+      "sdkApi": "ai21",
+      "repo": "https://github.com/ai21labs/ai21-python-sdk",
+      "notes": "Jamba-модели."
+    },
+    {
+      "name": "anthropic-bedrock",
+      "ecosystem": "pypi",
+      "providers": [
+        "aws-bedrock",
+        "anthropic"
+      ],
+      "kind": "client",
+      "tier": "C",
+      "features": [
+        "chat",
+        "streaming",
+        "tools"
+      ],
+      "envVars": [
+        "ANTHROPIC_BEDROCK_BASE_URL",
+        "AWS_REGION"
+      ],
+      "sdkApi": "anthropic-messages",
+      "notes": "Совместимость SDK Anthropic с Bedrock для старых версий."
+    },
+    {
+      "name": "aws-sdk-bedrockruntime",
+      "ecosystem": "rubygems",
+      "providers": [
+        "aws-bedrock"
+      ],
+      "kind": "official-sdk",
+      "tier": "C",
+      "features": [
+        "chat",
+        "streaming",
+        "embeddings"
+      ],
+      "envVars": [
+        "AWS_ACCESS_KEY_ID",
+        "AWS_REGION"
+      ],
+      "sdkApi": "bedrock",
+      "repo": "https://github.com/aws/aws-sdk-ruby",
+      "notes": "Ruby-клиент AWS Bedrock Runtime."
+    }
+  ]
+}

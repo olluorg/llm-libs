@@ -1,0 +1,185 @@
+{
+  "startedAt": "2026-09-26T11:36:43.293Z",
+  "perEcosystem": {
+    "pypi": {
+      "candidates": 1208,
+      "accepted": 40,
+      "collected": 39
+    },
+    "npm": {
+      "candidates": 869,
+      "accepted": 40,
+      "collected": 40
+    },
+    "crates": {
+      "candidates": 370,
+      "accepted": 40,
+      "collected": 40
+    },
+    "golang": {
+      "candidates": 258,
+      "accepted": 40,
+      "collected": 33
+    },
+    "maven": {
+      "candidates": 357,
+      "accepted": 40,
+      "collected": 40
+    },
+    "nuget": {
+      "candidates": 224,
+      "accepted": 40,
+      "collected": 40
+    },
+    "rubygems": {
+      "candidates": 116,
+      "accepted": 40,
+      "collected": 40
+    },
+    "packagist": {
+      "candidates": 81,
+      "accepted": 40,
+      "collected": 40
+    },
+    "hex": {
+      "candidates": 42,
+      "accepted": 17,
+      "collected": 17
+    },
+    "luarocks": {
+      "candidates": 28,
+      "accepted": 19,
+      "collected": 19
+    },
+    "cran": {
+      "candidates": 63,
+      "accepted": 22,
+      "collected": 22
+    },
+    "swift": {
+      "candidates": 101,
+      "accepted": 40,
+      "collected": 14
+    },
+    "github": {
+      "candidates": 224,
+      "accepted": 40,
+      "collected": 28
+    }
+  },
+  "errors": [
+    {
+      "ecosystem": "github",
+      "package": "langchain4s/langchain4s",
+      "error": "HTTP 403 для https://api.github.com/repos/langchain4s/langchain4s"
+    }
+  ],
+  "enrichedAt": "2026-09-26T11:37:25.866Z",
+  "github": {
+    "queued": 433,
+    "fetched": 412,
+    "notFound": 21,
+    "skipped": 0,
+    "quotaExhausted": false,
+    "rateLimit": {
+      "limit": 5000,
+      "used": 350,
+      "remaining": 4650,
+      "reset": 1790425331
+    },
+    "token": true
+  },
+  "counts": {
+    "total": 505,
+    "byEcosystem": {
+      "nuget": 43,
+      "crates": 45,
+      "pypi": 92,
+      "golang": 22,
+      "github": 37,
+      "npm": 60,
+      "rubygems": 41,
+      "maven": 48,
+      "hex": 19,
+      "packagist": 42,
+      "luarocks": 19,
+      "swift": 14,
+      "cran": 23
+    },
+    "byLanguage": {
+      "C#": 43,
+      "Rust": 45,
+      "Python": 93,
+      "Go": 22,
+      "C++": 1,
+      "TypeScript": 60,
+      "Ruby": 41,
+      "Swift": 30,
+      "Java": 49,
+      "Elixir": 21,
+      "PHP": 42,
+      "Lua": 20,
+      "Kotlin": 3,
+      "R": 23,
+      "Haskell": 2,
+      "Scala": 5,
+      "Clojure": 2,
+      "OCaml": 3
+    },
+    "byProvider": {
+      "openai": 284,
+      "openai-compatible": 98,
+      "microsoft": 14,
+      "huggingface": 32,
+      "anthropic": 158,
+      "ollama": 70,
+      "llamacpp": 14,
+      "fireworks": 1,
+      "ai21": 1,
+      "langchain": 56,
+      "llamaindex": 20,
+      "anyscale": 1,
+      "google-gemini": 95,
+      "aws-bedrock": 49,
+      "deepseek": 16,
+      "mistral": 52,
+      "cohere": 34,
+      "groq": 30,
+      "azure-openai": 44,
+      "vertex-ai": 12,
+      "vllm": 7,
+      "openrouter": 13,
+      "together": 5,
+      "perplexity": 4,
+      "xai": 10,
+      "jina": 2,
+      "replicate": 6,
+      "lmstudio": 3,
+      "nvidia": 11,
+      "qwen": 9,
+      "octoml": 1,
+      "moonshot": 4,
+      "sap": 1,
+      "baseten": 1,
+      "siliconflow": 1,
+      "deepinfra": 1
+    },
+    "byKind": {
+      "client": 233,
+      "framework": 121,
+      "local-runtime": 44,
+      "official-sdk": 70,
+      "retrieval": 7,
+      "ui": 9,
+      "gateway": 14,
+      "eval": 6,
+      "orchestration": 1
+    },
+    "byStatus": {
+      "unknown": 85,
+      "active": 354,
+      "deprecated": 54,
+      "archived": 12
+    }
+  }
+}

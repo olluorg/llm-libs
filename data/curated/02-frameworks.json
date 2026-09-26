@@ -1,0 +1,933 @@
+{
+  "$comment": "Фреймворки и оркестраторы: то, что стоит поверх SDK для агентов, RAG, structured output и промптов.",
+  "libraries": [
+    {
+      "name": "langchain",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "aws-bedrock",
+        "mistral",
+        "cohere",
+        "groq",
+        "openai-compatible"
+      ],
+      "kind": "framework",
+      "tier": "A",
+      "features": [
+        "agents",
+        "rag",
+        "tools",
+        "structured-output",
+        "streaming",
+        "observability",
+        "caching",
+        "prompt-engineering"
+      ],
+      "repo": "https://github.com/langchain-ai/langchain",
+      "notes": "Базовый пакет LangChain (Python). Интеграции вынесены в отдельные пакеты: langchain-openai, langchain-anthropic, ... Цена — лишние абстракции и быстрая смена API."
+    },
+    {
+      "name": "langchain",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "azure-openai"
+      ],
+      "kind": "framework",
+      "tier": "A",
+      "features": [
+        "chat",
+        "tools",
+        "structured-output",
+        "embeddings",
+        "rag"
+      ],
+      "repo": "https://github.com/langchain-ai/langchain",
+      "notes": "Интеграция OpenAI с LangChain: ChatOpenAI, OpenAIEmbeddings. Работает и с Azure OpenAI."
+    },
+    {
+      "name": "langchain-anthropic",
+      "ecosystem": "pypi",
+      "providers": [
+        "anthropic"
+      ],
+      "kind": "framework",
+      "tier": "A",
+      "features": [
+        "chat",
+        "tools",
+        "vision",
+        "caching"
+      ],
+      "repo": "https://github.com/langchain-ai/langchain",
+      "notes": "ChatAnthropic с поддержкой prompt caching и computer use."
+    },
+    {
+      "name": "langchain-aws",
+      "ecosystem": "pypi",
+      "providers": [
+        "aws-bedrock",
+        "anthropic"
+      ],
+      "kind": "framework",
+      "tier": "B",
+      "features": [
+        "chat",
+        "embeddings",
+        "rag"
+      ],
+      "repo": "https://github.com/langchain-ai/langchain",
+      "notes": "ChatBedrock, ChatBedrockConverse, S3-векторы."
+    },
+    {
+      "name": "langchain-google-genai",
+      "ecosystem": "pypi",
+      "providers": [
+        "google-gemini",
+        "vertex-ai"
+      ],
+      "kind": "framework",
+      "tier": "B",
+      "features": [
+        "chat",
+        "tools",
+        "vision",
+        "embeddings"
+      ],
+      "repo": "https://github.com/langchain-ai/langchain",
+      "notes": "Интеграция Gemini/Vertex с LangChain."
+    },
+    {
+      "name": "langgraph",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "openai-compatible"
+      ],
+      "kind": "framework",
+      "tier": "A",
+      "features": [
+        "agents",
+        "orchestration",
+        "streaming",
+        "caching",
+        "observability"
+      ],
+      "repo": "https://github.com/langchain-ai/langgraph",
+      "notes": "Графы состояний для агентов с циклами, памятью и human-in-the-loop. Стабильнее, чем ранние паттерны LangChain."
+    },
+    {
+      "name": "langchain",
+      "ecosystem": "npm",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "mistral",
+        "cohere",
+        "openai-compatible"
+      ],
+      "kind": "framework",
+      "tier": "A",
+      "features": [
+        "agents",
+        "rag",
+        "tools",
+        "structured-output",
+        "streaming"
+      ],
+      "repo": "https://github.com/langchain-ai/langchainjs",
+      "notes": "JS/TS-версия LangChain. Интеграции: @langchain/openai, @langchain/anthropic, @langchain/google-genai."
+    },
+    {
+      "name": "@langchain/core",
+      "ecosystem": "npm",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "openai-compatible"
+      ],
+      "kind": "framework",
+      "tier": "A",
+      "features": [
+        "agents",
+        "tools",
+        "streaming",
+        "structured-output"
+      ],
+      "repo": "https://github.com/langchain-ai/langchainjs",
+      "notes": "Базовые абстракции LangChain.js: Runnable, MessageHistory, tools."
+    },
+    {
+      "name": "@langchain/openai",
+      "ecosystem": "npm",
+      "providers": [
+        "openai"
+      ],
+      "kind": "framework",
+      "tier": "A",
+      "features": [
+        "chat",
+        "tools",
+        "embeddings",
+        "structured-output"
+      ],
+      "repo": "https://github.com/langchain-ai/langchainjs",
+      "notes": "Интеграция OpenAI для LangChain.js."
+    },
+    {
+      "name": "@langchain/anthropic",
+      "ecosystem": "npm",
+      "providers": [
+        "anthropic"
+      ],
+      "kind": "framework",
+      "tier": "A",
+      "features": [
+        "chat",
+        "tools",
+        "vision"
+      ],
+      "repo": "https://github.com/langchain-ai/langchainjs",
+      "notes": "Интеграция Anthropic для LangChain.js."
+    },
+    {
+      "name": "@langchain/langgraph",
+      "ecosystem": "npm",
+      "providers": [
+        "openai",
+        "anthropic",
+        "openai-compatible"
+      ],
+      "kind": "framework",
+      "tier": "A",
+      "features": [
+        "agents",
+        "orchestration",
+        "streaming",
+        "caching"
+      ],
+      "repo": "https://github.com/langchain-ai/langgraphjs",
+      "notes": "LangGraph для JS/TS."
+    },
+    {
+      "name": "ai",
+      "ecosystem": "npm",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "aws-bedrock",
+        "groq",
+        "mistral",
+        "cohere",
+        "xai",
+        "openai-compatible"
+      ],
+      "kind": "framework",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "vision",
+        "agents",
+        "image"
+      ],
+      "repo": "https://github.com/vercel/ai",
+      "notes": "Vercel AI SDK (v4/v5): единый интерфейс провайдеров через @ai-sdk/*, React-хуки useChat/useCompletion, поддержка edge. Самая популярная альтернатива LangChain в JS."
+    },
+    {
+      "name": "@ai-sdk/openai",
+      "ecosystem": "npm",
+      "providers": [
+        "openai"
+      ],
+      "kind": "client",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "vision",
+        "image",
+        "embeddings"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "repo": "https://github.com/vercel/ai",
+      "notes": "Провайдер OpenAI для Vercel AI SDK."
+    },
+    {
+      "name": "@ai-sdk/anthropic",
+      "ecosystem": "npm",
+      "providers": [
+        "anthropic"
+      ],
+      "kind": "client",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "vision"
+      ],
+      "envVars": [
+        "ANTHROPIC_API_KEY"
+      ],
+      "repo": "https://github.com/vercel/ai",
+      "notes": "Провайдер Anthropic для Vercel AI SDK."
+    },
+    {
+      "name": "@ai-sdk/openai-compatible",
+      "ecosystem": "npm",
+      "providers": [
+        "openai-compatible",
+        "ollama",
+        "vllm",
+        "llamacpp",
+        "lmstudio",
+        "openrouter"
+      ],
+      "kind": "client",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "embeddings"
+      ],
+      "repo": "https://github.com/vercel/ai",
+      "notes": "Ключевая библиотека для любых OpenAI-совместимых серверов: Ollama, vLLM, llama.cpp, LM Studio, OpenRouter."
+    },
+    {
+      "name": "@ai-sdk/google",
+      "ecosystem": "npm",
+      "providers": [
+        "google-gemini"
+      ],
+      "kind": "client",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "vision"
+      ],
+      "repo": "https://github.com/vercel/ai",
+      "notes": "Провайдер Gemini для Vercel AI SDK."
+    },
+    {
+      "name": "llama-index",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "huggingface",
+        "aws-bedrock"
+      ],
+      "kind": "framework",
+      "tier": "A",
+      "features": [
+        "rag",
+        "agents",
+        "tools",
+        "streaming",
+        "observability"
+      ],
+      "repo": "https://github.com/run-llama/llama_index",
+      "notes": "Фреймворк для данных вокруг LLM: Document/Node, индексы, query-движки, агенты. Сильная сторона — RAG по документам."
+    },
+    {
+      "name": "llama-index-core",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic"
+      ],
+      "kind": "framework",
+      "tier": "B",
+      "features": [
+        "rag",
+        "agents",
+        "tools"
+      ],
+      "repo": "https://github.com/run-llama/llama_index",
+      "notes": "Ядро LlamaIndex, интеграции вынесены в llama-index-llms-* и llama-index-embeddings-*."
+    },
+    {
+      "name": "llamaindex",
+      "ecosystem": "npm",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini"
+      ],
+      "kind": "framework",
+      "tier": "B",
+      "features": [
+        "rag",
+        "agents",
+        "tools",
+        "streaming"
+      ],
+      "repo": "https://github.com/run-llama/llama_index",
+      "notes": "LlamaIndex для TypeScript."
+    },
+    {
+      "name": "dev.langchain4j:langchain4j",
+      "ecosystem": "maven",
+      "providers": [
+        "openai",
+        "anthropic",
+        "aws-bedrock",
+        "google-gemini",
+        "mistral",
+        "cohere",
+        "ollama",
+        "azure-openai",
+        "openai-compatible"
+      ],
+      "kind": "framework",
+      "tier": "A",
+      "features": [
+        "agents",
+        "rag",
+        "tools",
+        "structured-output",
+        "streaming",
+        "caching"
+      ],
+      "repo": "https://github.com/langchain4j/langchain4j",
+      "notes": "Java-фреймворк, аналог LangChain для JVM. Интеграции: langchain4j-open-ai, langchain4j-anthropic, langchain4j-amazon-bedrock, langchain4j-ollama."
+    },
+    {
+      "name": "dev.langchain4j:langchain4j-open-ai",
+      "ecosystem": "maven",
+      "providers": [
+        "openai",
+        "azure-openai",
+        "openai-compatible"
+      ],
+      "kind": "framework",
+      "tier": "A",
+      "features": [
+        "chat",
+        "tools",
+        "embeddings",
+        "rag",
+        "structured-output"
+      ],
+      "repo": "https://github.com/langchain4j/langchain4j",
+      "notes": "Модели OpenAI для LangChain4j, в том числе все OpenAI-совместимые серверы через OpenAiChatModel.builder().baseUrl(...)."
+    },
+    {
+      "name": "dev.langchain4j:langchain4j-anthropic",
+      "ecosystem": "maven",
+      "providers": [
+        "anthropic"
+      ],
+      "kind": "framework",
+      "tier": "A",
+      "features": [
+        "chat",
+        "tools",
+        "vision"
+      ],
+      "repo": "https://github.com/langchain4j/langchain4j",
+      "notes": "Модели Anthropic для LangChain4j."
+    },
+    {
+      "name": "org.springframework.ai:spring-ai-openai",
+      "ecosystem": "maven",
+      "providers": [
+        "openai",
+        "azure-openai",
+        "openai-compatible"
+      ],
+      "kind": "framework",
+      "tier": "A",
+      "features": [
+        "chat",
+        "tools",
+        "structured-output",
+        "rag",
+        "streaming",
+        "advisors"
+      ],
+      "repo": "https://github.com/spring-projects/spring-ai",
+      "notes": "Spring AI: LLM-абстракции внутри Spring, Vector Store, Advisors (RAG, память), MCP-клиент."
+    },
+    {
+      "name": "org.springframework.ai:spring-ai-anthropic",
+      "ecosystem": "maven",
+      "providers": [
+        "anthropic"
+      ],
+      "kind": "framework",
+      "tier": "B",
+      "features": [
+        "chat",
+        "tools",
+        "vision"
+      ],
+      "repo": "https://github.com/spring-projects/spring-ai",
+      "notes": "Поддержка Anthropic в Spring AI."
+    },
+    {
+      "name": "Microsoft.SemanticKernel",
+      "ecosystem": "nuget",
+      "providers": [
+        "openai",
+        "azure-openai",
+        "anthropic",
+        "google-gemini",
+        "aws-bedrock",
+        "mistral"
+      ],
+      "kind": "framework",
+      "tier": "A",
+      "features": [
+        "agents",
+        "rag",
+        "tools",
+        "structured-output",
+        "plugins",
+        "streaming"
+      ],
+      "repo": "https://github.com/microsoft/semantic-kernel",
+      "notes": "Семантическое ядро Microsoft: плагины, планировщики, оркестрация, коннекторы к Azure OpenAI и Anthropic."
+    },
+    {
+      "name": "Microsoft.Extensions.AI",
+      "ecosystem": "nuget",
+      "providers": [
+        "openai",
+        "azure-openai",
+        "anthropic",
+        "google-gemini",
+        "ollama"
+      ],
+      "kind": "framework",
+      "tier": "B",
+      "features": [
+        "chat",
+        "embedding",
+        "tools",
+        "caching"
+      ],
+      "repo": "https://github.com/dotnet/extensions",
+      "notes": "Абстракции Microsoft.Extensions.AI (IChatClient, IEmbeddingGenerator) — тонкий слой над провайдерами."
+    },
+    {
+      "name": "LLamaSharp",
+      "ecosystem": "nuget",
+      "providers": [
+        "ollama",
+        "llamacpp",
+        "openai-compatible"
+      ],
+      "kind": "local-runtime",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "embeddings"
+      ],
+      "repo": "https://github.com/FoundryLabs/llama.net",
+      "notes": "C#-обёртки над llama.cpp и ollama, есть встроенный сервер с OpenAI-совместимым API."
+    },
+    {
+      "name": "openai-agents",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai"
+      ],
+      "kind": "framework",
+      "tier": "A",
+      "features": [
+        "agents",
+        "tools",
+        "streaming",
+        "structured-output",
+        "tracing",
+        "mcp"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "repo": "https://github.com/openai/openai-agents-python",
+      "notes": "Официальный Agents SDK OpenAI на Python: агенты, handoffs, guardrails, встроенный tracing. Наследует API openai-пакета."
+    },
+    {
+      "name": "pydantic-ai",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "groq",
+        "mistral",
+        "cohere",
+        "ollama",
+        "openai-compatible",
+        "aws-bedrock"
+      ],
+      "kind": "framework",
+      "tier": "A",
+      "features": [
+        "agents",
+        "tools",
+        "structured-output",
+        "streaming",
+        "rag",
+        "mcp"
+      ],
+      "repo": "https://github.com/pydantic/pydantic-ai",
+      "notes": "Агенты на типизованных моделях Pydantic. Лёгкая альтернатива LangChain с упором на типы и предсказуемость."
+    },
+    {
+      "name": "dspy",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "ollama",
+        "openai-compatible"
+      ],
+      "kind": "framework",
+      "tier": "A",
+      "features": [
+        "prompt-engineering",
+        "structured-output",
+        "finetune",
+        "evals"
+      ],
+      "repo": "https://github.com/stanfordnlp/dspy",
+      "notes": "Декларативный фреймворк: описываете вход/выход, DSPy сам подбирает промпты и компилирует программу (оптимизаторы + метрики)."
+    },
+    {
+      "name": "instructor",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "groq",
+        "mistral",
+        "cohere",
+        "ollama",
+        "openai-compatible"
+      ],
+      "kind": "framework",
+      "tier": "A",
+      "features": [
+        "structured-output",
+        "validation",
+        "tools"
+      ],
+      "repo": "https://github.com/instructor-ai/instructor",
+      "notes": "Гарантированный структурированный вывод: Pydantic-модель + ретраи + валидация. Работает поверх большинства SDK."
+    },
+    {
+      "name": "outlines",
+      "ecosystem": "pypi",
+      "providers": [
+        "huggingface",
+        "llamacpp",
+        "vllm"
+      ],
+      "kind": "framework",
+      "tier": "B",
+      "features": [
+        "structured-output",
+        "tokenizers"
+      ],
+      "repo": "https://github.com/dottxt-ai/outlines",
+      "notes": "Гарантированный формат вывода через логрегcию/словари на уровне токенизатора (для локальных моделей)."
+    },
+    {
+      "name": "smolagents",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "ollama",
+        "huggingface",
+        "openai-compatible"
+      ],
+      "kind": "framework",
+      "tier": "B",
+      "features": [
+        "agents",
+        "tools",
+        "rag"
+      ],
+      "repo": "https://github.com/huggingface/smolagents",
+      "notes": "Минималистичные агенты от Hugging Face: code-агенты, доступ к любой модели через единый интерфейс."
+    },
+    {
+      "name": "autogen-agentchat",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic",
+        "azure-openai",
+        "google-gemini",
+        "ollama",
+        "openai-compatible"
+      ],
+      "kind": "framework",
+      "tier": "B",
+      "features": [
+        "agents",
+        "orchestration",
+        "tools",
+        "mcp"
+      ],
+      "repo": "https://github.com/microsoft/autogen",
+      "notes": "Microsoft AutoGen: multi-agent разговоры, новый стек AgentChat/Core. Активно развивается, API меняется."
+    },
+    {
+      "name": "crewai",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "groq",
+        "ollama",
+        "openai-compatible"
+      ],
+      "kind": "framework",
+      "tier": "B",
+      "features": [
+        "agents",
+        "orchestration",
+        "tools",
+        "rag"
+      ],
+      "repo": "https://github.com/crewAIInc/crewAI",
+      "notes": "«Экипажи» агентов с ролями и задачами. Популярен в быстрых прототипах."
+    },
+    {
+      "name": "haystack-ai",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "aws-bedrock",
+        "huggingface"
+      ],
+      "kind": "framework",
+      "tier": "B",
+      "features": [
+        "rag",
+        "agents",
+        "tools",
+        "structured-output"
+      ],
+      "repo": "https://github.com/deepset-ai/haystack",
+      "notes": "Пайплайны RAG с продвинутым поиском, агентами и оценщиками. Сильная интеграция с Elasticsearch/OpenSearch."
+    },
+    {
+      "name": "guidance",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic",
+        "llamacpp",
+        "huggingface",
+        "vllm"
+      ],
+      "kind": "framework",
+      "tier": "C",
+      "features": [
+        "prompt-engineering",
+        "structured-output",
+        "tokenizers",
+        "caching"
+      ],
+      "repo": "https://github.com/guidance-ai/guidance",
+      "notes": "Программируемый синтаксис для промптов с перехватом генерации на уровне токенов (constrained decoding)."
+    },
+    {
+      "name": "marvin",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "openai-compatible"
+      ],
+      "kind": "framework",
+      "tier": "C",
+      "features": [
+        "structured-output",
+        "tools",
+        "agents"
+      ],
+      "repo": "https://github.com/prefecthq/marvin",
+      "notes": "Идея: преобразования данных через LLM с типами (вместо ручного парсинга)."
+    },
+    {
+      "name": "phidata",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "ollama",
+        "groq",
+        "openai-compatible"
+      ],
+      "kind": "framework",
+      "tier": "C",
+      "features": [
+        "agents",
+        "tools",
+        "rag",
+        "ui"
+      ],
+      "repo": "https://github.com/agno-agi/agno",
+      "notes": "Фреймворк агентов с упором на продукт (веб-панель, тесты). Ранее назывался phidata, сейчас agno."
+    },
+    {
+      "name": "letta",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "openai-compatible"
+      ],
+      "kind": "framework",
+      "tier": "C",
+      "features": [
+        "agents",
+        "rag",
+        "caching"
+      ],
+      "repo": "https://github.com/letta-ai/letta",
+      "notes": "MemGPT-подход: агент с собственной памятью и файловой системой. Форк MemGPT."
+    },
+    {
+      "name": "langchain4s/langchain4s",
+      "ecosystem": "github",
+      "language": "Scala",
+      "providers": [
+        "openai",
+        "anthropic",
+        "aws-bedrock",
+        "google-gemini",
+        "ollama",
+        "openai-compatible"
+      ],
+      "kind": "framework",
+      "tier": "C",
+      "features": [
+        "agents",
+        "rag",
+        "tools"
+      ],
+      "repo": "https://github.com/t-langchain4s/langchain4s",
+      "notes": "Порты LangChain/LangGraph под Scala. Артефактов в Maven Central нет — сборка через sbt из исходников."
+    },
+    {
+      "name": "langchainrb",
+      "ecosystem": "rubygems",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "ollama",
+        "openai-compatible"
+      ],
+      "kind": "framework",
+      "tier": "C",
+      "features": [
+        "agents",
+        "rag",
+        "tools"
+      ],
+      "repo": "https://github.com/patterns-ai-core/langchainrb",
+      "notes": "LangChain для Ruby."
+    },
+    {
+      "name": "ellmer",
+      "ecosystem": "cran",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "aws-bedrock",
+        "ollama",
+        "openai-compatible"
+      ],
+      "kind": "framework",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "agents",
+        "rag",
+        "evals"
+      ],
+      "repo": "https://github.com/posit-dev/ellmer",
+      "notes": "Единый интерфейс к десяткам провайдеров в R (Posit/Hadley). Стабильный, с тестами и типизацией."
+    },
+    {
+      "name": "langchain",
+      "ecosystem": "hex",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "ollama",
+        "openai-compatible"
+      ],
+      "kind": "framework",
+      "tier": "C",
+      "features": [
+        "agents",
+        "tools",
+        "rag"
+      ],
+      "notes": "Порты LangChain под Elixir."
+    },
+    {
+      "name": "llm",
+      "ecosystem": "hex",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "ollama"
+      ],
+      "kind": "client",
+      "tier": "C",
+      "features": [
+        "chat",
+        "streaming"
+      ],
+      "notes": "Elixir-клиент LLM от Dashbit."
+    }
+  ]
+}

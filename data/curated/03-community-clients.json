@@ -1,0 +1,763 @@
+{
+  "$comment": "Комьюнити-клиенты и SDK, которых нет у самих провайдеров: де-факто стандарты для языков без официальных SDK.",
+  "libraries": [
+    {
+      "name": "github.com/sashabaranov/go-openai",
+      "ecosystem": "golang",
+      "providers": [
+        "openai",
+        "azure-openai",
+        "openai-compatible"
+      ],
+      "kind": "client",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "vision",
+        "embeddings",
+        "audio",
+        "image"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "repo": "https://github.com/sashabaranov/go-openai",
+      "notes": "Самый популярный Go-клиент OpenAI. Поддерживает Chat Completions, Responses API, кастомный BaseURL (Azure, Ollama, vLLM, OpenRouter)."
+    },
+    {
+      "name": "github.com/liushuangls/go-anthropic",
+      "ecosystem": "golang",
+      "providers": [
+        "anthropic"
+      ],
+      "kind": "client",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "vision",
+        "caching"
+      ],
+      "envVars": [
+        "ANTHROPIC_API_KEY"
+      ],
+      "repo": "https://github.com/liushuangls/go-anthropic",
+      "notes": "Наиболее полный Go-клиент Anthropic: Messages, streaming, tool use, prompt caching, beta-фичи."
+    },
+    {
+      "name": "github.com/tmc/langchaingo",
+      "ecosystem": "golang",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "aws-bedrock",
+        "ollama",
+        "openai-compatible"
+      ],
+      "kind": "framework",
+      "tier": "A",
+      "features": [
+        "agents",
+        "rag",
+        "tools",
+        "chain",
+        "streaming"
+      ],
+      "repo": "https://github.com/tmc/langchaingo",
+      "notes": "LangChain для Go: цепочки, агенты, промпты, RAG, интеграции с Ollama и OpenAI."
+    },
+    {
+      "name": "github.com/ollama/ollama",
+      "ecosystem": "golang",
+      "providers": [
+        "ollama",
+        "openai-compatible"
+      ],
+      "kind": "local-runtime",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "embeddings",
+        "vision",
+        "local"
+      ],
+      "envVars": [
+        "OLLAMA_HOST"
+      ],
+      "repo": "https://github.com/ollama/ollama",
+      "notes": "Сам сервер Ollama на Go; содержит типы нативного API, которые переиспользуют Go-клиенты. Готовый локальный рантайм для OpenAI-совместимых SDK."
+    },
+    {
+      "name": "github.com/bentoml/OpenLLM",
+      "ecosystem": "golang",
+      "providers": [
+        "openai",
+        "openai-compatible",
+        "vllm",
+        "llamacpp"
+      ],
+      "kind": "gateway",
+      "tier": "C",
+      "features": [
+        "gateway",
+        "streaming",
+        "tools"
+      ],
+      "repo": "https://github.com/bentoml/OpenLLM",
+      "notes": "Сервер-шлюз с единым API к разным рантаймам. Полезен для локальной разработки."
+    },
+    {
+      "name": "async-openai",
+      "ecosystem": "crates",
+      "providers": [
+        "openai",
+        "azure-openai",
+        "openai-compatible",
+        "deepseek",
+        "groq",
+        "openrouter"
+      ],
+      "kind": "client",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "vision",
+        "embeddings",
+        "audio",
+        "image"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "repo": "https://github.com/64bit/async-openai",
+      "notes": "Де-факто стандарт OpenAI-клиента в Rust (Tokio, типизованные структуры, Responses API, кастомный base_url)."
+    },
+    {
+      "name": "rig-core",
+      "ecosystem": "crates",
+      "providers": [
+        "openai",
+        "anthropic",
+        "aws-bedrock",
+        "google-gemini",
+        "ollama",
+        "openai-compatible",
+        "mistral"
+      ],
+      "kind": "framework",
+      "tier": "A",
+      "features": [
+        "agents",
+        "tools",
+        "rag",
+        "streaming",
+        "structured-output",
+        "extraction",
+        "embeddings"
+      ],
+      "repo": "https://github.com/0xPlaygrounds/rig",
+      "notes": "Единый слой над десятками LLM-провайдеров в Rust: агенты, tool calling, RAG, извлечение данных. Активно развивается."
+    },
+    {
+      "name": "genai",
+      "ecosystem": "crates",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "ollama",
+        "mistral",
+        "groq",
+        "aws-bedrock",
+        "openai-compatible"
+      ],
+      "kind": "client",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "embeddings",
+        "structured-output"
+      ],
+      "notes": "Провайдер-агностичный клиент для Rust: один тип ChatRequest на всех."
+    },
+    {
+      "name": "oai",
+      "ecosystem": "crates",
+      "providers": [
+        "openai",
+        "azure-openai",
+        "openai-compatible"
+      ],
+      "kind": "client",
+      "tier": "C",
+      "features": [
+        "chat",
+        "streaming",
+        "tools"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "notes": "Лёгкий OpenAI-клиент для Rust без async-рантайма."
+    },
+    {
+      "name": "llm-chain",
+      "ecosystem": "crates",
+      "providers": [
+        "openai",
+        "anthropic",
+        "huggingface",
+        "ollama"
+      ],
+      "kind": "framework",
+      "tier": "C",
+      "features": [
+        "chain",
+        "tools",
+        "agents"
+      ],
+      "repo": "https://github.com/JacobLincool/llm-chain",
+      "notes": "Цепочки и агентные паттерны для Rust (по образцу chain-of-thought из ReAct)."
+    },
+    {
+      "name": "mistralai",
+      "ecosystem": "crates",
+      "providers": [
+        "mistral",
+        "groq",
+        "ollama",
+        "openai-compatible"
+      ],
+      "kind": "client",
+      "tier": "C",
+      "features": [
+        "chat",
+        "streaming",
+        "embeddings"
+      ],
+      "envVars": [
+        "MISTRAL_API_KEY"
+      ],
+      "repo": "https://github.com/ERC-Grant/llm-client",
+      "notes": "Rust-клиент Mistral AI, поддерживает embeddings и Groq/Ollama через совместимый режим."
+    },
+    {
+      "name": "huggingface",
+      "ecosystem": "crates",
+      "providers": [
+        "huggingface"
+      ],
+      "kind": "client",
+      "tier": "C",
+      "features": [
+        "chat",
+        "inference",
+        "embeddings"
+      ],
+      "envVars": [
+        "HF_TOKEN"
+      ],
+      "repo": "https://github.com/huggingface/rust-bindings",
+      "notes": "Клиент Hugging Face Hub и Inference API на Rust."
+    },
+    {
+      "name": "com.theokanning.openai-gpt3-java:service",
+      "ecosystem": "maven",
+      "providers": [
+        "openai",
+        "azure-openai",
+        "openai-compatible"
+      ],
+      "kind": "client",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "vision",
+        "embeddings",
+        "image"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "repo": "https://github.com/sashabaranov/openai-java",
+      "notes": "Самый популярный Java-клиент OpenAI (retracted upstream, живёт своей жизнью). BaseURL + Proxy для Azure/Ollama."
+    },
+    {
+      "name": "aallam/openai-kotlin",
+      "ecosystem": "github",
+      "language": "Kotlin",
+      "providers": [
+        "openai",
+        "openai-compatible"
+      ],
+      "kind": "client",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "vision",
+        "embeddings"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "repo": "https://github.com/aallam/openai-kotlin",
+      "notes": "Идиоматичный Kotlin-клиент (Ktor, корутины, DSL) — альтернатива openai-java."
+    },
+    {
+      "name": "OpenAI",
+      "ecosystem": "nuget",
+      "providers": [
+        "openai",
+        "azure-openai"
+      ],
+      "kind": "client",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "vision",
+        "embeddings",
+        "image"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "repo": "https://github.com/betalgo/openai",
+      "notes": "Исторически самый популярный .NET-клиент (Betalgo). Сейчас уступает официальному OpenAI (openai-dotnet)."
+    },
+    {
+      "name": "OpenAI-DotNet",
+      "ecosystem": "nuget",
+      "providers": [
+        "openai"
+      ],
+      "kind": "client",
+      "tier": "C",
+      "features": [
+        "chat",
+        "streaming",
+        "tools"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "repo": "https://github.com/Roger-Chen/OpenAI-DotNet",
+      "notes": "Лёгкий .NET-клиент без зависимостей."
+    },
+    {
+      "name": "cequence-io/openai-scala-client",
+      "ecosystem": "github",
+      "language": "Scala",
+      "providers": [
+        "openai",
+        "openai-compatible"
+      ],
+      "kind": "client",
+      "tier": "C",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "embeddings"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "repo": "https://github.com/cequence-io/openai-scala-client",
+      "notes": "Scala-клиент OpenAI от Scala Center."
+    },
+    {
+      "name": "ruby_llm",
+      "ecosystem": "rubygems",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "groq",
+        "ollama",
+        "openai-compatible"
+      ],
+      "kind": "client",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "vision",
+        "embeddings",
+        "structured-output"
+      ],
+      "repo": "https://github.com/crmne/ruby_llm",
+      "notes": "Современный Ruby-клиент: единый API для всех провайдеров, Rails-интеграция, встроенный тестовый дабл (VCR)."
+    },
+    {
+      "name": "ruby-openai",
+      "ecosystem": "rubygems",
+      "providers": [
+        "openai"
+      ],
+      "kind": "client",
+      "tier": "C",
+      "status": "deprecated",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "vision",
+        "embeddings"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "repo": "https://github.com/alexrudall/ruby-openai",
+      "notes": "Исторически популярный гем. Сейчас официальный клиент — гем openai (openai/openai-ruby), а ruby-openai практически не обновляется."
+    },
+    {
+      "name": "openai-php/client",
+      "ecosystem": "packagist",
+      "providers": [
+        "openai",
+        "azure-openai"
+      ],
+      "kind": "client",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "vision",
+        "embeddings",
+        "audio",
+        "image"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "repo": "https://github.com/openai-php/client",
+      "notes": "Официальный PHP-клиент OpenAI: PSR-18 HTTP-клиент, полное покрытие Responses/Assistants/Batch."
+    },
+    {
+      "name": "openai-php/laravel",
+      "ecosystem": "packagist",
+      "providers": [
+        "openai",
+        "azure-openai"
+      ],
+      "kind": "client",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "repo": "https://github.com/openai-php/laravel",
+      "notes": "Фасад и DI-интеграция клиента OpenAI для Laravel."
+    },
+    {
+      "name": "theodo-group/llphant",
+      "ecosystem": "packagist",
+      "providers": [
+        "openai",
+        "anthropic",
+        "aws-bedrock",
+        "google-gemini",
+        "mistral",
+        "ollama"
+      ],
+      "kind": "client",
+      "tier": "A",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "embeddings",
+        "structured-output",
+        "agents",
+        "rag",
+        "evals"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY",
+        "ANTHROPIC_API_KEY"
+      ],
+      "repo": "https://github.com/LLPhant/LLPhant",
+      "notes": "PHP-фреймворк для GenAI от Theodo Group: агенты, RAG, structured output, evals, память. На Packagist — theodo-group/llphant."
+    },
+    {
+      "name": "prism-php/prism",
+      "ecosystem": "packagist",
+      "providers": [
+        "openai",
+        "anthropic",
+        "aws-bedrock",
+        "google-gemini",
+        "mistral",
+        "ollama",
+        "xai",
+        "groq"
+      ],
+      "kind": "client",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "embeddings",
+        "evals"
+      ],
+      "repo": "https://github.com/prism-php/prism",
+      "notes": "Единый PHP-интерфейс к провайдерам с тестами и поддержкой Laravel."
+    },
+    {
+      "name": "jamesrochabrun/OpenAI",
+      "ecosystem": "github",
+      "language": "Swift",
+      "providers": [
+        "openai",
+        "openai-compatible"
+      ],
+      "kind": "client",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "vision",
+        "embeddings",
+        "audio",
+        "image"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "repo": "https://github.com/jamesrochabrun/OpenAI",
+      "notes": "Swift-пакет для OpenAI (SwiftPM). Поддерживает произвольный baseURL, поэтому удобен для Ollama/vLLM."
+    },
+    {
+      "name": "jamesrochabrun/SwiftOpenAI",
+      "ecosystem": "github",
+      "language": "Swift",
+      "providers": [
+        "openai",
+        "azure-openai",
+        "openai-compatible"
+      ],
+      "kind": "client",
+      "tier": "C",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "vision"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "notes": "Ещё один Swift-клиент OpenAI, ориентированный на macOS/iOS-приложения."
+    },
+    {
+      "name": "lua-openai",
+      "ecosystem": "luarocks",
+      "providers": [
+        "openai",
+        "openai-compatible"
+      ],
+      "kind": "client",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "tools"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "repo": "https://github.com/leafo/lua-openai",
+      "notes": "Биндинги к HTTP API OpenAI для Lua (автор — создатель OpenResty)."
+    },
+    {
+      "name": "leafo/lua-openai",
+      "ecosystem": "github",
+      "language": "Lua",
+      "providers": [
+        "openai",
+        "openai-compatible"
+      ],
+      "kind": "client",
+      "tier": "C",
+      "features": [
+        "chat",
+        "streaming",
+        "tools"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "repo": "https://github.com/leafo/lua-openai",
+      "notes": "Lua-клиент OpenAI с Neovim-плагинами (openai.nvim, CodeCompanion)."
+    },
+    {
+      "name": "ggml-org/llama.cpp",
+      "ecosystem": "github",
+      "language": "C++",
+      "providers": [
+        "ollama",
+        "llamacpp",
+        "vllm",
+        "openai-compatible"
+      ],
+      "kind": "local-runtime",
+      "tier": "A",
+      "features": [
+        "local",
+        "streaming",
+        "tools",
+        "embeddings",
+        "image",
+        "audio"
+      ],
+      "repo": "https://github.com/ggml-org/llama.cpp",
+      "notes": "C/C++-референс локального инференса: GGUF-квантизация, собственный HTTP-сервер с OpenAI-совместимым API, биндинги C/C++/Swift/Go/WebAssembly."
+    },
+    {
+      "name": "Gabriella439/grace",
+      "ecosystem": "github",
+      "language": "Haskell",
+      "providers": [
+        "openai"
+      ],
+      "kind": "client",
+      "tier": "C",
+      "features": [
+        "chat",
+        "streaming"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "repo": "https://github.com/Gabriella439/grace",
+      "notes": "Haskell-клиент OpenAI."
+    },
+    {
+      "name": "wkok/openai-clojure",
+      "ecosystem": "github",
+      "language": "Clojure",
+      "providers": [
+        "openai"
+      ],
+      "kind": "client",
+      "tier": "C",
+      "features": [
+        "chat",
+        "streaming",
+        "embeddings"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "notes": "Clojure-клиент OpenAI (обёртка над HTTP)."
+    },
+    {
+      "name": "openai",
+      "ecosystem": "cran",
+      "providers": [
+        "openai",
+        "azure-openai",
+        "openai-compatible"
+      ],
+      "kind": "client",
+      "tier": "B",
+      "features": [
+        "chat",
+        "streaming",
+        "embeddings",
+        "vision",
+        "image",
+        "audio"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "repo": "https://github.com/paranoidmaus/openai",
+      "notes": "R-обёртка над REST API OpenAI (httr/curl). Официальной поддержки со стороны OpenAI для R нет."
+    },
+    {
+      "name": "httr2",
+      "ecosystem": "cran",
+      "providers": [
+        "openai-compatible"
+      ],
+      "kind": "client",
+      "tier": "C",
+      "features": [
+        "http",
+        "streaming"
+      ],
+      "repo": "https://github.com/r-lib/httr2",
+      "notes": "Не LLM-специфичен, но это стандарт HTTP-клиента в R: на нём построены все R-клиенты LLM (ellmer, openai и др.)."
+    },
+    {
+      "name": "gemini-api-php/client",
+      "ecosystem": "packagist",
+      "providers": [
+        "google-gemini"
+      ],
+      "kind": "client",
+      "tier": "C",
+      "features": [
+        "chat",
+        "streaming",
+        "vision",
+        "embeddings"
+      ],
+      "envVars": [
+        "GEMINI_API_KEY"
+      ],
+      "sdkApi": "gemini",
+      "repo": "https://github.com/gemini-api-php/client",
+      "notes": "PHP-клиент Gemini API от сообщества (официального PHP-SDK у Google нет)."
+    },
+    {
+      "name": "Anthropic.SDK",
+      "ecosystem": "nuget",
+      "providers": [
+        "anthropic"
+      ],
+      "kind": "client",
+      "tier": "C",
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "vision"
+      ],
+      "envVars": [
+        "ANTHROPIC_API_KEY"
+      ],
+      "sdkApi": "anthropic-messages",
+      "repo": "https://github.com/tghamm/Anthropic.SDK",
+      "notes": "Клиент Anthropic от сообщества (tghamm), долгое время основной для .NET. Официальный пакет — Anthropic."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "openllmdocs",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Каталог библиотек для работы с LLM API по всем языкам программирования: сбор данных из реестров пакетов + GitHub, генерация статического сайта.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "collect": "node scripts/collect.mjs",
+    "enrich": "node scripts/enrich.mjs",
+    "build": "node scripts/build.mjs",
+    "check:site": "node scripts/check-site.mjs",
+    "refresh": "npm run collect && npm run enrich && npm run validate && npm run build && npm run check:site",
+    "validate": "node scripts/validate.mjs",
+    "serve": "node scripts/serve.mjs",
+    "stats": "node scripts/stats.mjs",
+    "ci": "npm run validate && npm run build && npm run check:site"
+  }
+}

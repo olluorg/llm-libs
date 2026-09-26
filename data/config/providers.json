@@ -1,0 +1,422 @@
+{
+  "$comment": "Реестр LLM-провайдеров. category: lab (первопроходец API) | cloud (гиперскейлер) | aggregator (шлюз ко многим API) | local (локальный рантайм) | self-hosted (свой хостинг)",
+  "providers": [
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "category": "lab",
+      "sdkApi": "openai",
+      "baseUrl": "https://api.openai.com/v1",
+      "docs": "https://platform.openai.com/docs",
+      "envVars": ["OPENAI_API_KEY"],
+      "models": ["gpt-5", "gpt-5-mini", "gpt-4.1", "gpt-4o", "o4-mini", "text-embedding-3-large", "whisper-1", "dall-e-3", "gpt-image-1", "tts-1"],
+      "keywords": ["openai", "gpt-4", "gpt-5", "gpt-4o", "chatgpt", "responses api", "o1", "o3", "o4-mini", "realtime api", "assistants api", "text-embedding-3", "dall-e", "whisper", "tts-1", "sora"],
+      "notes": "Основной приоритет каталога. Учитывать и классический Chat Completions, и новый Responses API."
+    },
+    {
+      "id": "azure-openai",
+      "name": "Azure OpenAI",
+      "category": "cloud",
+      "sdkApi": "azure-openai",
+      "baseUrl": "https://<resource>.openai.azure.com/openai/v1",
+      "docs": "https://learn.microsoft.com/azure/ai-services/openai/",
+      "envVars": ["AZURE_OPENAI_API_KEY", "AZURE_OPENAI_ENDPOINT", "AZURE_OPENAI_API_VERSION"],
+      "models": ["gpt-5", "gpt-4.1", "gpt-4o", "text-embedding-3-large"],
+      "keywords": ["azure openai", "azureopenai", "azure ai", "openai azure", "azure_ai_foundry", "azure ai foundry"],
+      "notes": "OpenAI-совместимый эндпоинт, но со своим ключом, endpoint и api-version. Есть отдельные пакеты в каждом экосистеме."
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic Claude",
+      "category": "lab",
+      "sdkApi": "anthropic-messages",
+      "baseUrl": "https://api.anthropic.com/v1",
+      "docs": "https://docs.anthropic.com/en/api",
+      "envVars": ["ANTHROPIC_API_KEY"],
+      "models": ["claude-opus-4-1", "claude-sonnet-4-5", "claude-haiku-4-5", "claude-3-7-sonnet", "claude-3-5-sonnet"],
+      "keywords": ["anthropic", "claude", "claude-3", "claude-sonnet", "claude-opus", "claude-code", "messages api", "computer use", "prompt caching"],
+      "notes": "Второй приоритет. Messages API, prompt caching, tool use, computer use, prompt engineering API."
+    },
+    {
+      "id": "google-gemini",
+      "name": "Google Gemini",
+      "category": "lab",
+      "sdkApi": "gemini",
+      "baseUrl": "https://generativelanguage.googleapis.com",
+      "docs": "https://ai.google.dev/gemini-api/docs",
+      "envVars": ["GEMINI_API_KEY", "GOOGLE_API_KEY"],
+      "models": ["gemini-2.5-pro", "gemini-2.5-flash", "gemini-2.0-flash", "gemini-embedding-001", "imagen", "veo"],
+      "keywords": ["gemini", "google genai", "generativeai", "google.generativeai", "palm", "vertex ai", "gemma", "veo", "imagen"],
+      "notes": "Есть два поколения SDK: устаревший google-generativeai и новый google-genai. Плюс Vertex AI."
+    },
+    {
+      "id": "aws-bedrock",
+      "name": "Amazon Bedrock",
+      "category": "cloud",
+      "sdkApi": "bedrock",
+      "baseUrl": "https://bedrock-runtime.<region>.amazonaws.com",
+      "docs": "https://docs.aws.amazon.com/bedrock/",
+      "envVars": ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY", "AWS_REGION"],
+      "models": ["anthropic.claude-*", "amazon.nova-*", "meta.llama*", "mistral.*", "cohere.*"],
+      "keywords": ["bedrock", "aws bedrock", "amazon bedrock", "bedrockruntime", "bedrock-agent"],
+      "notes": "Единый шлюз к моделям Anthropic, Meta, Mistral, Cohere, Amazon Nova. Converse API."
+    },
+    {
+      "id": "vertex-ai",
+      "name": "Google Vertex AI",
+      "category": "cloud",
+      "sdkApi": "vertex",
+      "docs": "https://cloud.google.com/vertex-ai/docs",
+      "envVars": ["GOOGLE_CLOUD_PROJECT", "GOOGLE_APPLICATION_CREDENTIALS"],
+      "keywords": ["vertex ai", "vertexai", "vertex-ai", "google cloud ai"],
+      "notes": "Gemini через GCP, включая Anthropic-партнёров на Vertex."
+    },
+    {
+      "id": "openai-compatible",
+      "name": "OpenAI-совместимые API",
+      "category": "self-hosted",
+      "sdkApi": "openai-compatible",
+      "baseUrl": "http://localhost:11434/v1",
+      "docs": "https://github.com/ollama/ollama/blob/main/docs/openai.md",
+      "envVars": ["OPENAI_BASE_URL", "OPENAI_API_BASE", "OPENAI_API_KEY"],
+      "keywords": ["openai compatible", "openai-compatible", "openai compatible api", "base_url", "openai_compatible"],
+      "notes": "Любой сервер, говорящий на /v1/chat/completions: vLLM, llama.cpp server, LM Studio, LocalAI, TGI, SGLang, Xinference."
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama",
+      "category": "local",
+      "sdkApi": "openai-compatible",
+      "baseUrl": "http://localhost:11434",
+      "docs": "https://github.com/ollama/ollama/blob/main/docs/api.md",
+      "envVars": ["OLLAMA_HOST"],
+      "keywords": ["ollama"],
+      "notes": "Локальный рантайм моделей, есть собственный нативный API плюс OpenAI-совместимый."
+    },
+    {
+      "id": "vllm",
+      "name": "vLLM",
+      "category": "local",
+      "sdkApi": "openai-compatible",
+      "docs": "https://docs.vllm.ai/en/latest/serving/openai_compatible_server.html",
+      "envVars": ["VLLM_BASE_URL", "VLLM_API_KEY"],
+      "keywords": ["vllm"],
+      "notes": "PagedAttention-сервер, OpenAI-совместимый эндпоинт."
+    },
+    {
+      "id": "llamacpp",
+      "name": "llama.cpp",
+      "category": "local",
+      "sdkApi": "openai-compatible",
+      "docs": "https://github.com/ggml-org/llama.cpp/tree/master/tools/server",
+      "keywords": ["llama.cpp", "llamacpp", "llama-cpp", "ggml", "gguf", "whisper.cpp"],
+      "notes": "GGUF-квантизация и локальный сервер с OpenAI-совместимым API."
+    },
+    {
+      "id": "lmstudio",
+      "name": "LM Studio",
+      "category": "local",
+      "sdkApi": "openai-compatible",
+      "docs": "https://lmstudio.ai/docs/developer/openai-compat",
+      "keywords": ["lm studio", "lmstudio", "lm-studio"],
+      "notes": "GUI + локальный сервер."
+    },
+    {
+      "id": "groq",
+      "name": "Groq",
+      "category": "aggregator",
+      "sdkApi": "openai-compatible",
+      "baseUrl": "https://api.groq.com/openai/v1",
+      "docs": "https://console.groq.com/docs/openai",
+      "envVars": ["GROQ_API_KEY"],
+      "models": ["llama-3.3-70b-versatile", "llama-3.1-8b-instant", "mixtral-8x7b"],
+      "keywords": ["groq", "groqcloud"],
+      "notes": "Быстрый инференс на GroqCloud, OpenAI-совместимый."
+    },
+    {
+      "id": "openrouter",
+      "name": "OpenRouter",
+      "category": "aggregator",
+      "sdkApi": "openai-compatible",
+      "baseUrl": "https://openrouter.ai/api/v1",
+      "docs": "https://openrouter.ai/docs",
+      "envVars": ["OPENROUTER_API_KEY"],
+      "keywords": ["openrouter"],
+      "notes": "Единый доступ к сотням моделей разных провайдеров."
+    },
+    {
+      "id": "together",
+      "name": "Together AI",
+      "category": "aggregator",
+      "sdkApi": "openai-compatible",
+      "baseUrl": "https://api.together.xyz/v1",
+      "docs": "https://docs.together.ai",
+      "envVars": ["TOGETHER_API_KEY"],
+      "keywords": ["together ai", "togetherai", "together-ai", "together.ai"],
+      "notes": "Инференс + fine-tuning открытых моделей."
+    },
+    {
+      "id": "fireworks",
+      "name": "Fireworks AI",
+      "category": "aggregator",
+      "sdkApi": "openai-compatible",
+      "baseUrl": "https://api.fireworks.ai/inference/v1",
+      "docs": "https://docs.fireworks.ai",
+      "envVars": ["FIREWORKS_API_KEY"],
+      "keywords": ["fireworks ai", "fireworks-ai", "fireworksai"],
+      "notes": "Function calling, OpenAI-совместимый."
+    },
+    {
+      "id": "deepinfra",
+      "name": "DeepInfra",
+      "category": "aggregator",
+      "sdkApi": "openai-compatible",
+      "baseUrl": "https://api.deepinfra.com/v1/openai",
+      "docs": "https://deepinfra.com/docs",
+      "envVars": ["DEEPINFRA_API_KEY"],
+      "keywords": ["deepinfra"],
+      "notes": ""
+    },
+    {
+      "id": "mistral",
+      "name": "Mistral AI",
+      "category": "lab",
+      "sdkApi": "openai-compatible",
+      "baseUrl": "https://api.mistral.ai/v1",
+      "docs": "https://docs.mistral.ai",
+      "envVars": ["MISTRAL_API_KEY"],
+      "models": ["mistral-large-latest", "magistral-medium-latest", "codestral-latest", "pixtral-large-latest"],
+      "keywords": ["mistral", "mistralai", "mixtral", "codestral", "magistral", "pixtral", "le chat"],
+      "notes": "Есть собственный SDK (mistralai) и OpenAI-совместимый режим."
+    },
+    {
+      "id": "cohere",
+      "name": "Cohere",
+      "category": "lab",
+      "sdkApi": "cohere-v2",
+      "baseUrl": "https://api.cohere.com/v2",
+      "docs": "https://docs.cohere.com",
+      "envVars": ["CO_API_KEY", "COHERE_API_KEY"],
+      "models": ["command-a", "command-r-plus", "embed-english-v3.0", "rerank-v3.5"],
+      "keywords": ["cohere", "cohere v2", "command-r", "command-a", "rerank", "embed-multilingual"],
+      "notes": "RAG-специализация: Rerank, Embed, Classify."
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "category": "lab",
+      "sdkApi": "openai-compatible",
+      "baseUrl": "https://api.perplexity.ai",
+      "docs": "https://docs.perplexity.ai",
+      "envVars": ["PERPLEXITY_API_KEY", "PPLX_API_KEY"],
+      "keywords": ["perplexity", "sonar"],
+      "notes": "Поисковая модель с цитированием."
+    },
+    {
+      "id": "xai",
+      "name": "xAI Grok",
+      "category": "lab",
+      "sdkApi": "openai-compatible",
+      "baseUrl": "https://api.x.ai/v1",
+      "docs": "https://docs.x.ai",
+      "envVars": ["XAI_API_KEY"],
+      "keywords": ["xai", "grok"],
+      "notes": "Есть собственный SDK и OpenAI-совместимый режим."
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "category": "lab",
+      "sdkApi": "openai-compatible",
+      "baseUrl": "https://api.deepseek.com",
+      "docs": "https://api-docs.deepseek.com",
+      "envVars": ["DEEPSEEK_API_KEY"],
+      "models": ["deepseek-chat", "deepseek-reasoner"],
+      "keywords": ["deepseek"],
+      "notes": "OpenAI-совместимый, включая reasoning-модели."
+    },
+    {
+      "id": "moonshot",
+      "name": "Moonshot AI (Kimi)",
+      "category": "lab",
+      "sdkApi": "openai-compatible",
+      "docs": "https://platform.moonshot.cn/docs",
+      "envVars": ["MOONSHOT_API_KEY"],
+      "keywords": ["moonshot", "kimi", "moonshotai"],
+      "notes": "Длинный контекст (Kimi)."
+    },
+    {
+      "id": "zhipu",
+      "name": "Zhipu AI (GLM)",
+      "category": "lab",
+      "sdkApi": "openai-compatible",
+      "docs": "https://docs.bigmodel.cn",
+      "envVars": ["ZHIPUAI_API_KEY", "ZHIPU_API_KEY"],
+      "keywords": ["zhipu", "glm-4", "bigmodel", "chatglm", "z.ai"],
+      "notes": "GLM-4, собственный SDK с OpenAI-совместимым режимом."
+    },
+    {
+      "id": "qwen",
+      "name": "Alibaba Qwen (DashScope)",
+      "category": "lab",
+      "sdkApi": "dashscope",
+      "docs": "https://www.alibabacloud.com/help/en/model-studio/",
+      "envVars": ["DASHSCOPE_API_KEY"],
+      "keywords": ["dashscope", "qwen", "tongyi", "bailian", "qwen-api"],
+      "notes": "Есть OpenAI-совместимый режим (compatible-mode/v1)."
+    },
+    {
+      "id": "ai21",
+      "name": "AI21 Labs",
+      "category": "lab",
+      "sdkApi": "ai21",
+      "docs": "https://docs.ai21.com",
+      "envVars": ["AI21_API_KEY"],
+      "keywords": ["ai21", "jamba"],
+      "notes": "Jamba."
+    },
+    {
+      "id": "jina",
+      "name": "Jina AI",
+      "category": "aggregator",
+      "sdkApi": "jina",
+      "docs": "https://jina.ai/api-dashboard/",
+      "envVars": ["JINA_API_KEY"],
+      "keywords": ["jina ai", "jina-ai", "jina embeddings"],
+      "notes": "Embeddings, reranker, multimodal search."
+    },
+    {
+      "id": "huggingface",
+      "name": "Hugging Face",
+      "category": "local",
+      "sdkApi": "hf-inference",
+      "docs": "https://huggingface.co/docs/inference-providers",
+      "envVars": ["HF_TOKEN", "HUGGING_FACE_HUB_TOKEN", "HUGGINGFACEHUB_API_TOKEN"],
+      "keywords": ["huggingface", "hugging face", "transformers", "huggingface hub", "hf hub", "sentence-transformers"],
+      "notes": "Inference Providers API + локальные transformers. Самый большой класс библиотек в каталоге."
+    },
+    {
+      "id": "upstage",
+      "name": "Upstage",
+      "category": "lab",
+      "sdkApi": "openai-compatible",
+      "docs": "https://console.upstage.ai/docs",
+      "envVars": ["UPSTAGE_API_KEY"],
+      "keywords": ["upstage", "solar"],
+      "notes": "Solar, Document AI."
+    },
+    {
+      "id": "baseten",
+      "name": "Baseten",
+      "category": "aggregator",
+      "sdkApi": "openai-compatible",
+      "docs": "https://docs.baseten.co",
+      "envVars": ["BASETEN_API_KEY"],
+      "keywords": ["baseten", "truss"],
+      "notes": "Инференс открытых моделей."
+    },
+    {
+      "id": "anyscale",
+      "name": "Anyscale",
+      "category": "aggregator",
+      "sdkApi": "openai-compatible",
+      "docs": "https://docs.anyscale.com",
+      "envVars": ["ANYSCALE_API_KEY"],
+      "keywords": ["anyscale"],
+      "notes": "Endpoints на базе vLLM."
+    },
+    {
+      "id": "siliconflow",
+      "name": "SiliconFlow",
+      "category": "aggregator",
+      "sdkApi": "openai-compatible",
+      "docs": "https://docs.siliconflow.cn",
+      "envVars": ["SILICONFLOW_API_KEY"],
+      "keywords": ["siliconflow"],
+      "notes": ""
+    },
+    {
+      "id": "nvidia",
+      "name": "NVIDIA NIM / API Catalog",
+      "category": "cloud",
+      "sdkApi": "openai-compatible",
+      "docs": "https://docs.api.nvidia.com/nim",
+      "envVars": ["NVIDIA_API_KEY"],
+      "keywords": ["nvidia nim", "nim", "nvidia api catalog", "integrate.api.nvidia.com"],
+      "notes": "Модели Nemotron/Llama на инференс-кластерах NVIDIA."
+    },
+    {
+      "id": "oracle",
+      "name": "Oracle Database 23ai",
+      "category": "cloud",
+      "sdkApi": "openai-compatible",
+      "docs": "https://docs.oracle.com/en/database/oracle/oracle-database/23/ai.html",
+      "keywords": ["oracle ai", "23ai", "db23ai"],
+      "notes": "Работает с БД, векторный поиск + LLM в Oracle."
+    },
+    {
+      "id": "sap",
+      "name": "SAP AI Core / BTP",
+      "category": "cloud",
+      "sdkApi": "openai-compatible",
+      "docs": "https://help.sap.com/docs/btp/sap-ai-core",
+      "keywords": ["sap ai core", "sap-ai", "aicore"],
+      "notes": ""
+    },
+    {
+      "id": "ibm",
+      "name": "IBM watsonx",
+      "category": "cloud",
+      "sdkApi": "watsonx",
+      "docs": "https://www.ibm.com/products/watsonx-assistant",
+      "keywords": ["watsonx", "watson"],
+      "notes": ""
+    },
+    {
+      "id": "octoml",
+      "name": "OctoAI / Inference Endpoints",
+      "category": "aggregator",
+      "sdkApi": "openai-compatible",
+      "docs": "https://octo.ai/docs",
+      "keywords": ["octoai", "octoml", "inference endpoints"],
+      "notes": "Покрывает партнёрский каталог Together, Replicate и др."
+    },
+    {
+      "id": "replicate",
+      "name": "Replicate",
+      "category": "aggregator",
+      "sdkApi": "replicate",
+      "docs": "https://replicate.com/docs",
+      "envVars": ["REPLICATE_API_TOKEN"],
+      "keywords": ["replicate"],
+      "notes": "Запуск community-моделей."
+    },
+    {
+      "id": "langchain",
+      "name": "LangChain",
+      "category": "framework",
+      "sdkApi": "n/a",
+      "docs": "https://python.langchain.com/docs/integrations/chat/openai",
+      "keywords": ["langchain", "langgraph", "langsmith", "langserve"],
+      "notes": "Фреймворк. Отдельные интеграционные пакеты под каждый провайдер (langchain-openai, langchain-anthropic, ...)."
+    },
+    {
+      "id": "llamaindex",
+      "name": "LlamaIndex",
+      "category": "framework",
+      "sdkApi": "n/a",
+      "docs": "https://docs.llamaindex.ai/en/stable/",
+      "keywords": ["llamaindex", "llama-index", "llama_index"],
+      "notes": "Фреймворк для данных/RAG поверх LLM."
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft (Semantic Kernel, AutoGen)",
+      "category": "framework",
+      "sdkApi": "n/a",
+      "docs": "https://learn.microsoft.com/semantic-kernel/overview/",
+      "keywords": ["semantic kernel", "semantickernel", "autogen", "kernel memory", "microsoft agents"],
+      "notes": "Собственный SDK Azure OpenAI + фреймворки Semantic Kernel и AutoGen."
+    }
+  ]
+}

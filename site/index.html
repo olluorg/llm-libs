@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESCRIPTION}}">
+<link rel="canonical" href="{{CANONICAL}}">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{DESCRIPTION}}">
+<meta property="og:url" content="{{CANONICAL}}">
+<meta property="og:site_name" content="Каталог библиотек LLM">
+<meta name="twitter:card" content="summary">
+<meta name="keywords" content="{{KEYWORDS}}">
+<link rel="alternate" type="text/plain" href="{{ROOT}}llms.txt" title="Указатель каталога для ИИ-агентов">
+<script type="application/ld+json">{{JSONLD}}</script>
+<link rel="stylesheet" href="{{ROOT}}assets/style.css">
+<script>window.__LLMDOCS_VIEW__ = {{VIEW}};</script>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>{{HEADING}}</h1>
+    <p>{{SUBHEADING}}</p>
+    <p class="hint" id="hint" hidden></p>
+    <div class="stats">
+      <span class="stat"><b>{{TOTAL}}</b> библиотек</span>
+      <span class="stat"><b>{{LANGUAGES}}</b> языков / экосистем</span>
+      <span class="stat"><b>{{PROVIDERS}}</b> провайдеров LLM</span>
+      <span class="stat">обновлено <b id="generated">—</b></span>
+    </div>
+  </header>
+
+  <nav class="crumbs" aria-label="Разделы каталога">
+    <a href="{{ROOT}}index.html">Все библиотеки</a>
+    <span>·</span>
+    <a href="{{ROOT}}providers.html">по провайдерам</a>
+    <span>·</span>
+    <a href="{{ROOT}}languages.html">по языкам</a>
+  </nav>
+
+  <div class="controls">
+    <div class="controls-row">
+      <input type="search" id="search" placeholder="Поиск: openai, anthropic, rag, streaming…  ( / )" autocomplete="off">
+      <select id="f-language"></select>
+      <select id="f-provider"></select>
+      <select id="f-kind"></select>
+      <select id="f-status"></select>
+      <select id="f-tier"></select>
+      <button id="reset">Сбросить</button>
+      <span class="count" id="count">{{TOTAL}} из {{TOTAL}}</span>
+    </div>
+  </div>
+
+  <section class="seo-text">
+    <h2>{{SEO_HEADING}}</h2>
+    <p>{{SEO_TEXT}}</p>
+    <ul class="seo-list">{{SEO_LINKS}}</ul>
+  </section>
+
+  <table>
+    <caption class="visually-hidden">{{CAPTION}}</caption>
+    <thead>
+      <tr>
+        <th data-sort="name">Библиотека</th>
+        <th data-sort="language">Язык</th>
+        <th>Провайдеры</th>
+        <th>Тип</th>
+        <th data-sort="popular">Популярность</th>
+        <th data-sort="updated">Обновлено</th>
+      </tr>
+    </thead>
+    <tbody id="rows">{{ROWS}}</tbody>
+  </table>
+
+  <noscript>
+    <p class="empty">Поиск и фильтры требуют JavaScript. Полный датасет — в
+      <a href="{{ROOT}}data/libraries.json">data/libraries.json</a>, краткий указатель —
+      в <a href="{{ROOT}}llms.txt">llms.txt</a>.</p>
+  </noscript>
+
+  <footer>
+    <p>Сборка каталога: <code>node scripts/collect.mjs &amp;&amp; node scripts/enrich.mjs &amp;&amp; node scripts/build.mjs</code>.
+    Машиночитаемая версия: <a href="{{ROOT}}data/libraries.json">libraries.json</a>,
+    краткий указатель для ИИ-агентов: <a href="{{ROOT}}llms.txt">llms.txt</a>.</p>
+    <p><span class="kbd">/</span> — фокус на поиск, <span class="kbd">Esc</span> — закрыть карточку.</p>
+  </footer>
+</div>
+
+<div class="drawer-backdrop" id="backdrop"></div>
+<aside class="drawer" id="drawer"></aside>
+
+<script src="{{ROOT}}assets/data.js"></script>
+<script src="{{ROOT}}assets/app.js"></script>
+</body>
+</html>

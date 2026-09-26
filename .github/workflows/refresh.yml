@@ -1,0 +1,133 @@
+name: Refresh
+
+# Периодическое обновление каталога: сбор из реестров пакетов, обогащение
+# данными GitHub, валидация, сборка сайта, публикация на GitHub Pages
+# и коммит обновлённого датасета обратно в репозиторий.
+#
+# Токен GITHUB_TOKEN даёт enrich.mjs лимит 5000 запросов/час вместо 60,
+# поэтому в CI обогащается весь каталог, а не первые 50 записей.
+on:
+  schedule:
+    # 04:17 UTC — не на круглый час, чтобы не попасть в пик запланированных заданий
+    - cron: '17 4 * * *'
+  workflow_dispatch:
+    inputs:
+      min-score:
+        description: Порог отбора кандидатов (по умолчанию 3.8)
+        required: false
+        default: '3.8'
+      commit:
+        description: Коммитить обновлённый каталог в ветку
+        type: boolean
+        required: false
+        default: true
+
+permissions:
+  contents: write # коммит датасета
+  pages: write # публикация сайта
+  id-token: write # токен для Pages
+
+concurrency:
+  group: refresh
+  cancel-in-progress: false # начатое обновление не прерываем
+
+env:
+  NODE_ENV: production
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  # Домен для canonical-тегов, sitemap.xml и robots.txt. Если переменная не задана,
+  # соберётся https://<owner>.github.io/<repo> (для проекта, опубликованного на Pages).
+  SITE_URL: ${{ vars.SITE_URL }}
+
+jobs:
+  refresh:
+    name: Обновить каталог и опубликовать
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Настройка Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      # Кэш ответов реестров переживает прогоны: меньше нагрузки на npm/PyPI,
+      # меньше 429, быстрее повторные запуски.
+      - name: Кэш HTTP-ответов
+        uses: actions/cache@v4
+        with:
+          path: .cache/http
+          key: http-${{ github.run_id }}
+          restore-keys: |
+            http-
+
+      - name: Сбор из реестров пакетов
+        run: node scripts/collect.mjs --min-score=${{ inputs.min-score || '3.8' }}
+
+      - name: Обогащение данными GitHub
+        # enrich сам ограничится доступной квотой и не сломает прогон.
+        run: node scripts/enrich.mjs --concurrency=6
+
+      - name: Валидация датасета
+        run: node scripts/validate.mjs
+
+      - name: Сборка сайта
+        run: node scripts/build.mjs
+        env:
+          SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}', github.repository_owner, github.event.repository.name) }}
+
+      - name: Дымовой тест сайта
+        run: node scripts/check-site.mjs
+
+      - name: Сводка по каталогу
+        run: npm run stats
+
+      - name: Каталог в виде вложения
+        uses: actions/upload-artifact@v4
+        with:
+          name: libraries-json
+          path: data/out/libraries.json
+          retention-days: 90
+
+      - name: Коммит обновлённого каталога
+        id: commit
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.commit }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/out
+          if git diff --cached --quiet; then
+            echo "Данные не изменились — коммит не нужен"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git commit -m 'chore(catalog): автообновление каталога [skip ci]'
+          for attempt in 1 2 3; do
+            if git push; then
+              echo "changed=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "push не удался (попытка $attempt), перебазаемся и повторим"
+            sleep 5
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+          done
+          echo "Не удалось отправить изменения после 3 попыток"
+          exit 1
+
+      - name: Публикация сайта на GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Итог
+        run: |
+          {
+            echo '## Обновление каталога завершено'
+            echo
+            echo "- Данные изменились: ${{ steps.commit.outputs.changed || 'нет данных' }}"
+            echo "- Полный датасет: артефакт \`libraries-json\`"
+            echo "- Сайт: https://${{ steps.pages.outputs.base_url }}"
+          } >> "$GITHUB_STEP_SUMMARY"

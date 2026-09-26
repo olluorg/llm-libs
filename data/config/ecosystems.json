@@ -1,0 +1,81 @@
+{
+  "$comment": "Экосистемы (реестры пакетов) и поисковые запросы для автоматического обнаружения библиотек. limit — сколько кандидатов брать на запрос.",
+  "ecosystems": {
+    "pypi": { "language": "Python", "adapter": "pypi", "install": "pip install {name}", "limit": 30 },
+    "npm": { "language": "TypeScript", "adapter": "npm", "install": "npm i {name}", "limit": 30 },
+    "crates": { "language": "Rust", "adapter": "crates", "install": "cargo add {name}", "limit": 20 },
+    "golang": { "language": "Go", "adapter": "golang", "install": "go get {name}", "limit": 20 },
+    "maven": { "language": "Java", "adapter": "maven", "install": "mvn:{group}:{artifact}", "limit": 20 },
+    "nuget": { "language": "C#", "adapter": "nuget", "install": "dotnet add package {name}", "limit": 20 },
+    "rubygems": { "language": "Ruby", "adapter": "rubygems", "install": "gem install {name}", "limit": 15 },
+    "packagist": { "language": "PHP", "adapter": "packagist", "install": "composer require {name}", "limit": 15 },
+    "hex": { "language": "Elixir", "adapter": "hex", "install": "mix deps.get {name}", "limit": 10 },
+    "luarocks": { "language": "Lua", "adapter": "luarocks", "install": "luarocks install {name}", "limit": 10 },
+    "cran": { "language": "R", "adapter": "cran", "install": "install.packages('{name}')", "limit": 10 },
+    "swift": { "language": "Swift", "adapter": "github", "install": ".package(url: ...)", "limit": 15, "languageFilter": "Swift" },
+    "github": { "language": "Other", "adapter": "github", "install": "git clone", "limit": 25, "excludeLanguages": ["JavaScript", "TypeScript", "Python", "Go", "Rust", "Java", "C#", "C++"] }
+  },
+  "queries": {
+    "pypi": [
+      "openai", "anthropic", "azure-openai", "google-genai", "google-generativeai", "bedrock",
+      "cohere", "mistralai", "groq", "together", "ollama", "vllm", "llama-cpp", "huggingface-hub",
+      "litellm", "langchain", "llama-index", "semantic-kernel", "dspy", "instructor",
+      "openai-agents", "pydantic-ai", "crewai", "autogen", "guidance", "outlines", "marvin",
+      "haystack-ai", "txtai", "phidata", "smolagents", "transformers", "tokenizers", "tiktoken",
+      "openai-whisper", "elevenlabs", "replicate", "langfuse", "helicone", "openlit", "braintrust",
+      "anthropic-bedrock", "claude-code-sdk", "fastembed", "embedchain", "chromadb", "qdrant-client",
+      "weaviate-client", "pinecone-client", "milvus", "lancedb", "unstructured", "instructor-py"
+    ],
+    "npm": [
+      "openai", "@anthropic-ai/sdk", "@azure/openai", "@google/generative-ai", "@google/genai",
+      "@aws-sdk/client-bedrock-runtime", "@mistralai/mistralai", "groq-sdk", "cohere-ai",
+      "ollama", "@huggingface/inference", "@huggingface/transformers", "ai-sdk", "ai",
+      "@ai-sdk/openai", "@ai-sdk/anthropic", "@ai-sdk/google", "llamaindex", "@langchain/core",
+      "openai-edge", "openai-proxy", "chatgpt", "gpt-3-encoder", "node-openai", "openai-functions",
+      "@upstash/ai", "tavily", "langfuse", "helicone", "@opentelemetry/exporter-trace-otlp",
+      "llm", "embeddings", "ai-sdk-provider", "@llamaindex/openai", "ai-utils", "@vitalets/azure-openai-proxy"
+    ],
+    "crates": [
+      "openai", "async-openai", "anthropic", "rig-core", "genai", "genai-core", "oai", "llm",
+      "llm-chain", "llm-rs", "mistralai", "groq", "bedrock", "google-generativeai", "huggingface",
+      "candle", "tch", "tokenizers", "hf-hub", "text-embeddings", "lancedb", "sqlite-vec"
+    ],
+    "golang": [
+      "openai", "anthropic", "google.golang.org/genai", "aws-sdk-go-v2", "cohere", "mistralai",
+      "groq", "ollama", "tmc/langchaingo", "langchain-ai", "sashabaranov/go-openai", "openai-go",
+      "go-llm", "gollama", "llm", "huggingface", "tiktoken-go", "tei-client"
+    ],
+    "maven": [
+      "g:com.openai", "g:com.anthropic", "g:com.azure", "g:dev.langchain4j", "g:org.springframework.ai",
+      "g:com.google.genai", "g:com.google.cloud", "g:com.cohere", "g:software.amazon.awssdk",
+      "g:com.theokanning.openai-gpt3-java", "g:io.github.mgmeyer1", "g:me.friwi", "g:org.bsc.mlc4j",
+      "com.openai:openai-java", "com.anthropic:anthropic-java", "com.azure:azure-ai-openai",
+      "com.google.genai:google-genai", "com.cohere:cohere-java",
+      "openai", "anthropic", "claude", "gpt", "ollama", "bedrock", "mistral", "cohere", "azure-ai",
+      "langchain4j", "spring-ai", "llm", "ai-sdk", "semantic-kernel", "ai21", "replicate", "jina"
+    ],
+    "nuget": [
+      "OpenAI", "OpenAI.GPT", "Anthropic.SDK", "Azure.AI.OpenAI", "Google_GenerativeAI",
+      "AWSSDK.BedrockRuntime", "Cohere", "MistralAI", "LangChain", "LLamaSharp", "Microsoft.Extensions.AI",
+      "Microsoft.SemanticKernel", "ONNXRuntime", "GuzzleHttp", "Microsoft.Extensions.AI.Abstractions"
+    ],
+    "rubygems": [
+      "ruby-openai", "anthropic", "openai", "langchainrb", "ruby_llm", "ai", "anthropic-ruby",
+      "ruby-openai-responses", "openai-rails", "llm"
+    ],
+    "packagist": [
+      "openai-php/client", "openai-php", "anthropic-php/client", "anthropic-php", "llphant",
+      "openai-php/laravel", "prism-php", "php-openai", "gemini-api-php", "aws/aws-sdk-php"
+    ],
+    "hex": ["ex_ollama", "anthropic", "openai", "langchain", "llm", "huggingface"],
+    "luarocks": ["openai", "llm", "anthropic", "lua-openai", "gpt"],
+    "cran": ["ellmer", "httr2", "openai", "anthropic", "llm", "gpt", "langchainr", "mistral", "ollama", "chatgpt", "openrouter"],
+    "swift": ["openai", "anthropic", "llm", "openai-swift", "swift-openai", "genai", "macllm", "Ollama", "MLX"],
+    "github": [
+      "llm sdk language:c++", "llm client language:c++", "openai client language:cpp",
+      "llm language:elixir", "llm sdk language:kotlin", "openai language:scala",
+      "llm sdk language:zig", "openai client language:haskell", "llm language:ocaml",
+      "openai client language:clojure", "llm sdk language:swift", "openai language:swift"
+    ]
+  }
+}

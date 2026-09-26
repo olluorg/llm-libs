@@ -1,0 +1,740 @@
+{
+  "$comment": "Локальные рантаймы, шлюзы, наблюдаемость, эвал и RAG-инфраструктура.",
+  "libraries": [
+    {
+      "name": "ollama",
+      "ecosystem": "pypi",
+      "providers": [
+        "ollama",
+        "openai-compatible"
+      ],
+      "kind": "local-runtime",
+      "tier": "A",
+      "features": [
+        "local",
+        "chat",
+        "streaming",
+        "tools",
+        "embeddings",
+        "vision"
+      ],
+      "envVars": [
+        "OLLAMA_HOST"
+      ],
+      "repo": "https://github.com/ollama/ollama-python",
+      "notes": "Клиент Ollama на Python: chat, generate, embeddings, список/загрузка моделей. Модели: Llama, Qwen, Gemma, Mistral, Phi и др."
+    },
+    {
+      "name": "ollama",
+      "ecosystem": "npm",
+      "providers": [
+        "ollama",
+        "openai-compatible"
+      ],
+      "kind": "local-runtime",
+      "tier": "A",
+      "features": [
+        "local",
+        "chat",
+        "streaming",
+        "tools",
+        "embeddings"
+      ],
+      "envVars": [
+        "OLLAMA_HOST"
+      ],
+      "repo": "https://github.com/ollama/ollama-js",
+      "notes": "Официальный JS-клиент Ollama, работает и в браузере через WebSocket."
+    },
+    {
+      "name": "ollama",
+      "ecosystem": "hex",
+      "providers": [
+        "ollama",
+        "openai-compatible"
+      ],
+      "kind": "local-runtime",
+      "tier": "C",
+      "features": [
+        "local",
+        "chat",
+        "streaming",
+        "embeddings"
+      ],
+      "repo": "https://github.com/elixir-ollama/ollama",
+      "notes": "Elixir-клиент Ollama.",
+      "install": "mix deps.get ollama"
+    },
+    {
+      "name": "transformers",
+      "ecosystem": "pypi",
+      "providers": [
+        "huggingface"
+      ],
+      "kind": "local-runtime",
+      "tier": "A",
+      "features": [
+        "local",
+        "chat",
+        "tools",
+        "vision",
+        "audio",
+        "embeddings",
+        "finetune",
+        "tokenizers"
+      ],
+      "envVars": [
+        "HF_TOKEN"
+      ],
+      "repo": "https://github.com/huggingface/transformers",
+      "notes": "Де-факто стандарт локального ML: загрузка моделей с Hub, pipeline, квантизация, LoRA-дообучение, ONNX-экспорт. Модели в формате safetensors/GGUF."
+    },
+    {
+      "name": "torch",
+      "ecosystem": "pypi",
+      "providers": [
+        "huggingface"
+      ],
+      "kind": "local-runtime",
+      "tier": "B",
+      "features": [
+        "local",
+        "finetune",
+        "inference"
+      ],
+      "repo": "https://github.com/pytorch/pytorch",
+      "notes": "Базовый рантайм для локального инференса и обучения (в т.ч. моделей из Hugging Face)."
+    },
+    {
+      "name": "candle",
+      "ecosystem": "crates",
+      "providers": [
+        "huggingface"
+      ],
+      "kind": "local-runtime",
+      "tier": "B",
+      "features": [
+        "local",
+        "chat",
+        "embeddings",
+        "inference"
+      ],
+      "repo": "https://github.com/huggingface/candle",
+      "notes": "Минималистичный ML-фреймворк на Rust от Hugging Face: локальный инференс без Python."
+    },
+    {
+      "name": "tch",
+      "ecosystem": "crates",
+      "providers": [
+        "huggingface"
+      ],
+      "kind": "local-runtime",
+      "tier": "C",
+      "features": [
+        "local",
+        "inference",
+        "finetune"
+      ],
+      "repo": "https://github.com/pykeio/tch",
+      "notes": "Rust-биндинги к LibTorch."
+    },
+    {
+      "name": "tokenizers",
+      "ecosystem": "crates",
+      "providers": [
+        "huggingface",
+        "openai"
+      ],
+      "kind": "local-runtime",
+      "tier": "B",
+      "features": [
+        "tokenizers",
+        "local"
+      ],
+      "repo": "https://github.com/huggingface/tokenizers",
+      "notes": "Быстрые токенизаторы (BPE/SentencePiece/WordPiece) на Rust с готовыми словарями моделей."
+    },
+    {
+      "name": "tiktoken",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "openai-compatible"
+      ],
+      "kind": "client",
+      "tier": "B",
+      "features": [
+        "tokenizers"
+      ],
+      "envVars": [],
+      "repo": "https://github.com/openai/tiktoken",
+      "notes": "Эталонный токенизатор OpenAI: подсчёт токенов, кодирование/декодирование. Нужен для учёта стоимости и лимитов контекста."
+    },
+    {
+      "name": "vllm",
+      "ecosystem": "pypi",
+      "providers": [
+        "vllm",
+        "openai-compatible"
+      ],
+      "kind": "local-runtime",
+      "tier": "A",
+      "features": [
+        "local",
+        "chat",
+        "streaming",
+        "tools",
+        "embeddings",
+        "vision",
+        "batch"
+      ],
+      "repo": "https://github.com/vllm-project/vllm",
+      "notes": "Промышленный сервер инференса: PagedAttention, непрерывный батчинг, OpenAI-совместимый /v1, поддержка LoRA, спекулятивный декодинг."
+    },
+    {
+      "name": "llama-cpp-python",
+      "ecosystem": "pypi",
+      "providers": [
+        "llamacpp",
+        "openai-compatible"
+      ],
+      "kind": "local-runtime",
+      "tier": "B",
+      "features": [
+        "local",
+        "chat",
+        "streaming",
+        "embeddings",
+        "vision",
+        "tools"
+      ],
+      "repo": "https://github.com/abetlen/llama-cpp-python",
+      "notes": "GGUF-модели в Python: быстрый локальный инференс, OpenAI-совместимый сервер, function calling по грамматикам."
+    },
+    {
+      "name": "mlx-lm",
+      "ecosystem": "pypi",
+      "providers": [
+        "huggingface"
+      ],
+      "kind": "local-runtime",
+      "tier": "C",
+      "features": [
+        "local",
+        "chat",
+        "streaming",
+        "finetune"
+      ],
+      "repo": "https://github.com/ml-explore/mlx-examples",
+      "notes": "Локальный инференс LLM на Apple Silicon (MLX), есть Swift-пакет mlx-lm."
+    },
+    {
+      "name": "litellm",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic",
+        "aws-bedrock",
+        "azure-openai",
+        "google-gemini",
+        "mistral",
+        "cohere",
+        "groq",
+        "openrouter",
+        "together",
+        "openai-compatible",
+        "perplexity",
+        "xai",
+        "deepseek",
+        "jina",
+        "replicate"
+      ],
+      "kind": "gateway",
+      "tier": "A",
+      "features": [
+        "gateway",
+        "chat",
+        "streaming",
+        "tools",
+        "structured-output",
+        "embeddings",
+        "batch",
+        "observability",
+        "finetune"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY",
+        "ANTHROPIC_API_KEY"
+      ],
+      "repo": "https://github.com/BerriAI/litellm",
+      "notes": "Прокси-шлюз и SDK: единый OpenAI-формат для 100+ провайдеров, фолбэки, бюджеты, кэш, observability, OpenAI-совместимый /proxy-эндпоинт."
+    },
+    {
+      "name": "litellm",
+      "ecosystem": "npm",
+      "providers": [
+        "openai",
+        "anthropic",
+        "aws-bedrock",
+        "google-gemini",
+        "mistral",
+        "groq",
+        "openrouter"
+      ],
+      "kind": "gateway",
+      "tier": "B",
+      "features": [
+        "gateway",
+        "chat",
+        "streaming",
+        "tools"
+      ],
+      "repo": "https://github.com/BerriAI/litellm",
+      "notes": "JS-версия LiteLLM (прокси и клиент)."
+    },
+    {
+      "name": "portkey",
+      "ecosystem": "npm",
+      "providers": [
+        "openai",
+        "anthropic",
+        "aws-bedrock",
+        "google-gemini",
+        "cohere",
+        "mistral",
+        "groq"
+      ],
+      "kind": "gateway",
+      "tier": "C",
+      "features": [
+        "gateway",
+        "observability",
+        "caching",
+        "tools"
+      ],
+      "repo": "https://github.com/Portkey-AI/gateway",
+      "notes": "AI-шлюз с наблюдаемостью, кэшем и A/B-тестированием моделей."
+    },
+    {
+      "name": "langfuse",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "aws-bedrock",
+        "openai-compatible"
+      ],
+      "kind": "gateway",
+      "tier": "A",
+      "features": [
+        "observability",
+        "evals",
+        "tracing",
+        "prompt-engineering",
+        "gateway"
+      ],
+      "envVars": [
+        "LANGFUSE_PUBLIC_KEY",
+        "LANGFUSE_SECRET_KEY"
+      ],
+      "repo": "https://github.com/langfuse/langfuse",
+      "notes": "LLM-observability и платформа промптов: трейсинг, оценки, датасеты, A/B-тесты, self-hosted. Есть SDK для всех major языков."
+    },
+    {
+      "name": "langfuse",
+      "ecosystem": "npm",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini"
+      ],
+      "kind": "gateway",
+      "tier": "A",
+      "features": [
+        "observability",
+        "evals",
+        "tracing",
+        "prompt-engineering"
+      ],
+      "repo": "https://github.com/langfuse/langfuse",
+      "notes": "JS/TS-клиент Langfuse (собственный или через OpenTelemetry)."
+    },
+    {
+      "name": "langfuse/langfuse-java",
+      "ecosystem": "github",
+      "language": "Java",
+      "providers": [
+        "openai",
+        "anthropic"
+      ],
+      "kind": "gateway",
+      "tier": "B",
+      "features": [
+        "observability",
+        "tracing"
+      ],
+      "envVars": [
+        "LANGFUSE_PUBLIC_KEY",
+        "LANGFUSE_SECRET_KEY"
+      ],
+      "repo": "https://github.com/langfuse/langfuse-java",
+      "notes": "Java-клиент Langfuse. В Maven Central пакета нет — ставится через JitPack/GitHub Packages."
+    },
+    {
+      "name": "langsmith",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "openai-compatible"
+      ],
+      "kind": "eval",
+      "tier": "A",
+      "features": [
+        "observability",
+        "evals",
+        "tracing",
+        "prompt-engineering"
+      ],
+      "envVars": [
+        "LANGSMITH_API_KEY"
+      ],
+      "repo": "https://github.com/langchain-ai/langsmith-sdk",
+      "notes": "Observability и evals от LangChain. Часто используется вместе с LangChain/LangGraph."
+    },
+    {
+      "name": "helicone",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "openai-compatible"
+      ],
+      "kind": "gateway",
+      "tier": "B",
+      "features": [
+        "observability",
+        "caching",
+        "gateway",
+        "tracing"
+      ],
+      "envVars": [
+        "HELICONE_API_KEY"
+      ],
+      "repo": "https://github.com/Helicone/helicone",
+      "notes": "Прокси-аналитика LLM-запросов: латентности, стоимость, кэш, rate limits."
+    },
+    {
+      "name": "openlit",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic",
+        "aws-bedrock",
+        "google-gemini"
+      ],
+      "kind": "gateway",
+      "tier": "C",
+      "features": [
+        "observability",
+        "tracing"
+      ],
+      "repo": "https://github.com/openlit/openlit",
+      "notes": "OpenTelemetry GenAI-семантические конвенции «из коробки»."
+    },
+    {
+      "name": "promptfoo",
+      "ecosystem": "npm",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "aws-bedrock",
+        "openai-compatible"
+      ],
+      "kind": "eval",
+      "tier": "A",
+      "features": [
+        "evals",
+        "red-teaming",
+        "prompt-engineering",
+        "tracing"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY",
+        "ANTHROPIC_API_KEY"
+      ],
+      "repo": "https://github.com/promptfoo/promptfoo",
+      "notes": "Red-teaming и evals: сравнение промптов/моделей, атаки, отчёты. Де-факто стандарт LLM-тестирования."
+    },
+    {
+      "name": "deepeval",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "openai-compatible"
+      ],
+      "kind": "eval",
+      "tier": "B",
+      "features": [
+        "evals",
+        "metrics",
+        "tracing"
+      ],
+      "repo": "https://github.com/confident-ai/deepeval",
+      "notes": "Pytest-подобные evals с LLM-as-a-judge метриками (answer relevancy, faithfulness, hallucination)."
+    },
+    {
+      "name": "ragas",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic",
+        "openai-compatible"
+      ],
+      "kind": "eval",
+      "tier": "B",
+      "features": [
+        "evals",
+        "metrics",
+        "rag"
+      ],
+      "repo": "https://github.com/explodinggradients/ragas",
+      "notes": "Метрики качества RAG: faithfulness, answer relevancy, context precision/recall."
+    },
+    {
+      "name": "inspect-ai",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "aws-bedrock",
+        "ollama",
+        "openai-compatible"
+      ],
+      "kind": "eval",
+      "tier": "B",
+      "features": [
+        "evals",
+        "agents",
+        "tracing"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY",
+        "ANTHROPIC_API_KEY"
+      ],
+      "repo": "https://github.com/UKGovernmentBEIS/inspect_ai",
+      "notes": "Фреймворк evals/агентов от UK AISI: безопасность, возможности, бенчмарки. Поддерживает десятки моделей."
+    },
+    {
+      "name": "chromadb",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic",
+        "openai-compatible"
+      ],
+      "kind": "retrieval",
+      "tier": "A",
+      "features": [
+        "rag",
+        "embeddings",
+        "vector-search"
+      ],
+      "repo": "https://github.com/chroma-core/chroma",
+      "notes": "Векторная БД для RAG: встраиваемая и клиент-серверная, встроенная коллекция embeddings."
+    },
+    {
+      "name": "qdrant-client",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "openai-compatible",
+        "huggingface"
+      ],
+      "kind": "retrieval",
+      "tier": "A",
+      "features": [
+        "rag",
+        "embeddings",
+        "vector-search"
+      ],
+      "repo": "https://github.com/qdrant/qdrant-client",
+      "notes": "Qdrant: фильтрованный векторный поиск, гибридный поиск, квантизация."
+    },
+    {
+      "name": "lancedb",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "openai-compatible"
+      ],
+      "kind": "retrieval",
+      "tier": "B",
+      "features": [
+        "rag",
+        "embeddings",
+        "vector-search"
+      ],
+      "repo": "https://github.com/lancedb/lancedb",
+      "notes": "Векторная БД на Lance/Arrow: embedded, без сервера."
+    },
+    {
+      "name": "pinecone-client",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "openai-compatible"
+      ],
+      "kind": "retrieval",
+      "tier": "B",
+      "features": [
+        "rag",
+        "embeddings",
+        "vector-search"
+      ],
+      "envVars": [
+        "PINECONE_API_KEY"
+      ],
+      "notes": "Облачный векторный поиск."
+    },
+    {
+      "name": "weaviate-client",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "openai-compatible",
+        "huggingface"
+      ],
+      "kind": "retrieval",
+      "tier": "B",
+      "features": [
+        "rag",
+        "embeddings",
+        "vector-search"
+      ],
+      "envVars": [
+        "WEAVIATE_CLUSTER_URL"
+      ],
+      "notes": "Векторная БД с модулями и GraphQL-интерфейсом."
+    },
+    {
+      "name": "fastembed",
+      "ecosystem": "pypi",
+      "providers": [
+        "huggingface",
+        "openai-compatible"
+      ],
+      "kind": "retrieval",
+      "tier": "C",
+      "features": [
+        "embeddings",
+        "rag",
+        "local"
+      ],
+      "repo": "https://github.com/qdrant/fastembed",
+      "notes": "Быстрые локальные эмбеддинги (ONNX), без PyTorch."
+    },
+    {
+      "name": "unstructured",
+      "ecosystem": "pypi",
+      "providers": [
+        "openai",
+        "anthropic",
+        "openai-compatible"
+      ],
+      "kind": "retrieval",
+      "tier": "B",
+      "features": [
+        "rag",
+        "ingestion",
+        "document-parsing"
+      ],
+      "repo": "https://github.com/Unstructured-IO/unstructured",
+      "notes": "Парсинг документов (PDF, DOCX, HTML) в структурированные элементы для RAG."
+    },
+    {
+      "name": "openai/evals",
+      "ecosystem": "github",
+      "language": "Python",
+      "providers": [
+        "openai"
+      ],
+      "kind": "eval",
+      "tier": "C",
+      "features": [
+        "evals",
+        "red-teaming"
+      ],
+      "repo": "https://github.com/openai/evals",
+      "notes": "Официальный репозиторий бенчмарков OpenAI (пакета на PyPI нет — ставится из репозитория). Скорее исследовательский инструмент."
+    },
+    {
+      "name": "@lobehub/chat",
+      "ecosystem": "npm",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "aws-bedrock",
+        "ollama",
+        "openai-compatible"
+      ],
+      "kind": "ui",
+      "tier": "C",
+      "features": [
+        "ui",
+        "chat",
+        "agents",
+        "tools",
+        "plugins"
+      ],
+      "repo": "https://github.com/lobehub/lobe-chat",
+      "notes": "Self-hosted чат-интерфейс с множеством провайдеров. Полезен как референс и как локальный чат."
+    },
+    {
+      "name": "@mlc-ai/web-llm",
+      "ecosystem": "npm",
+      "providers": [
+        "openai-compatible"
+      ],
+      "kind": "local-runtime",
+      "tier": "C",
+      "features": [
+        "local",
+        "chat",
+        "streaming",
+        "browser"
+      ],
+      "repo": "https://github.com/mlc-ai/web-llm",
+      "notes": "LLM прямо в браузере через WebGPU (MLC), OpenAI-совместимый интерфейс."
+    },
+    {
+      "name": "@huggingface/transformers",
+      "ecosystem": "npm",
+      "providers": [
+        "huggingface"
+      ],
+      "kind": "local-runtime",
+      "tier": "B",
+      "features": [
+        "local",
+        "chat",
+        "embeddings",
+        "browser",
+        "tokenizers"
+      ],
+      "envVars": [
+        "HF_TOKEN"
+      ],
+      "repo": "https://github.com/huggingface/transformers.js",
+      "notes": "Запуск моделей Hugging Face в браузере/Node через ONNX Runtime Web: chat templates, WebGPU. Название пакета раньше было transformers.js."
+    }
+  ]
+}

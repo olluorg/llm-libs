@@ -1,0 +1,59 @@
+name: CI
+
+# Быстрая проверка на каждом пуше и PR: сеть не нужна, всё работает на
+# закоммиченном датасете. Полное обновление каталога — в refresh.yml.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Данные и сайт
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Проверка данных
+        # validate проверяет в том числе, что ни одна курируемая запись
+        # не потерялась и каталог не «схлопнулся».
+        run: npm run validate
+
+      - name: Сборка сайта
+        run: npm run build
+        env:
+          SITE_URL: https://example.com
+
+      - name: Дымовой тест сайта
+        run: npm run check:site
+
+      - name: Сводка по каталогу
+        run: npm run stats
+
+      - name: Артефакт собранного сайта
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-preview
+          path: dist/
+          retention-days: 7
+
+      - name: Каталог в виде вложения
+        if: github.event_name == 'workflow_dispatch'
+        uses: actions/upload-artifact@v4
+        with:
+          name: libraries-json
+          path: data/out/libraries.json
+          retention-days: 30
