@@ -169,6 +169,7 @@ const en = {
 
   'footer.build': 'Build:',
   'footer.machine': 'Machine-readable version:',
+  'footer.schema': 'what the fields mean',
   'footer.agents': 'Short index for AI agents:',
   'footer.keys': '<span class="kbd">/</span> focuses search, <span class="kbd">Esc</span> closes the card.',
   'footer.noscript': 'Search and filters need JavaScript. The full dataset is in <a href="{{ROOT}}data/libraries.json">data/libraries.json</a>, the short index is in <a href="{{ROOT}}llms.txt">llms.txt</a>.',
@@ -395,6 +396,7 @@ const ru = {
 
   'footer.build': 'Сборка каталога:',
   'footer.machine': 'Машиночитаемая версия:',
+  'footer.schema': 'что означают поля',
   'footer.agents': 'Краткий указатель для ИИ-агентов:',
   'footer.keys': '<span class="kbd">/</span> — фокус на поиск, <span class="kbd">Esc</span> — закрыть карточку.',
   'footer.noscript': 'Поиск и фильтры требуют JavaScript. Полный датасет — в <a href="{{ROOT}}data/libraries.json">data/libraries.json</a>, краткий указатель — в <a href="{{ROOT}}llms.txt">llms.txt</a>.',

@@ -16,6 +16,7 @@ import path from 'node:path';
 
 import { createLogger } from './lib/log.mjs';
 import { readConfig, readDataset, DIST_DIR, ROOT } from './lib/store.mjs';
+import { toCsv, toDictionary } from './lib/dataset.mjs';
 import { slugify } from './lib/site-helpers.mjs';
 import { ROLES, ROLE_SLUGS, CALLS_PROVIDER_API } from './lib/record.mjs';
 import { LOCALES, DEFAULT_LOCALE, LOCALE_DIR, localeStrings, t } from './lib/i18n.mjs';
@@ -125,7 +126,16 @@ for (const locale of LOCALES) {
     path.join(tree, 'assets', 'data.js'),
     `window.__LLMDOCS__ = ${JSON.stringify({ generatedAt: dataset.generatedAt, providers: providerList, roles: roleList, libraries })};\n`,
   );
+  // Публичный датасет: три файла. Один JSON без словаря полей бесполезен
+  // постороннему — что означает tier и откуда взялся licenseId, не написано
+  // нигде. CSV нужен тем, кто хочет открыть каталог в таблице, а словарь
+  // собирается из самих записей, поэтому новое поле попадает в него само.
   await write(path.join(tree, 'data', 'libraries.json'), `${JSON.stringify(dataset, null, 2)}\n`);
+  await write(path.join(tree, 'data', 'libraries.csv'), toCsv(libraries));
+  await write(
+    path.join(tree, 'data', 'README.md'),
+    toDictionary(libraries, { generatedAt: dataset.generatedAt, siteUrl, locale }),
+  );
   await copy(path.join(ROOT, 'site', 'app.js'), path.join(tree, 'assets', 'app.js'));
   await copy(path.join(ROOT, 'site', 'style.css'), path.join(tree, 'assets', 'style.css'));
 }
@@ -355,6 +365,8 @@ await write(
     '- `languages/<lang>/<role>.html` — срезы «язык × роль», например `python/api-clients.html`',
     '- `assets/data.js` — данные, встроенные в страницу (для работы с `file://`)',
     '- `data/libraries.json` — полный датасет в JSON',
+    '- `data/libraries.csv` — тот же датасет плоскими колонками, для таблицы',
+    '- `data/README.md` — словарь полей: что означает каждое и у скольких записей заполнено',
     '- `llms.txt` — краткий указатель для ИИ-агентов',
     '- `sitemap.xml`, `robots.txt` — для поисковых систем',
     '',
@@ -447,6 +459,7 @@ function render(tpl, { locale, root, urlPath, view, title, description, heading,
     .replaceAll('{{FOOTER_NOSCRIPT}}', t(locale, 'footer.noscript').replaceAll('{{ROOT}}', prefix))
     .replaceAll('{{FOOTER_BUILD}}', escapeHtml(t(locale, 'footer.build')))
     .replaceAll('{{FOOTER_MACHINE}}', escapeHtml(t(locale, 'footer.machine')))
+    .replaceAll('{{FOOTER_SCHEMA}}', escapeHtml(t(locale, 'footer.schema')))
     .replaceAll('{{FOOTER_AGENTS}}', escapeHtml(t(locale, 'footer.agents')))
     .replaceAll('{{FOOTER_KEYS}}', t(locale, 'footer.keys'))
     .replaceAll('{{TH_LIBRARY}}', escapeHtml(t(locale, 'th.library')))

@@ -17,6 +17,7 @@ import vm from 'node:vm';
 
 import { createLogger } from './lib/log.mjs';
 import { DIST_DIR } from './lib/store.mjs';
+import { CSV_COLUMNS } from './lib/dataset.mjs';
 import { slugify as slugifyLanguage } from './lib/site-helpers.mjs';
 
 const log = createLogger('check-site');
@@ -735,6 +736,67 @@ for (const [file, pattern] of [
 ]) {
   const content = await fs.readFile(path.join(DIST_DIR, file), 'utf8').catch(() => null);
   assert(content !== null && pattern.test(content), `файл ${file} отсутствует или неверен`);
+}
+
+// Публичный датасет: три файла в каждом дереве, и все три обязаны совпадать
+// с тем, что показал сайт. Иначе получается расхождение, которое замечают
+// только те, кто скачал файл.
+for (const tree of ['', 'ru/']) {
+  const json = JSON.parse(await fs.readFile(path.join(DIST_DIR, tree, 'data/libraries.json'), 'utf8'));
+  assert(
+    json.libraries.length === data.libraries.length,
+    `в ${tree}data/libraries.json ${json.libraries.length} записей, а на сайте ${data.libraries.length}`,
+  );
+  const ids = new Set(json.libraries.map((library) => library.id));
+  assert(
+    data.libraries.every((library) => ids.has(library.id)),
+    `в ${tree}data/libraries.json есть не все записи сайта`,
+  );
+
+  const csv = await fs.readFile(path.join(DIST_DIR, tree, 'data/libraries.csv'), 'utf8');
+  const csvRows = csv.trimEnd().split('\n');
+  assert(
+    csvRows.length === json.libraries.length + 1,
+    `в ${tree}data/libraries.csv ${csvRows.length - 1} строк, а записей ${json.libraries.length}`,
+  );
+  assert(
+    csvRows[0] === CSV_COLUMNS.join(','),
+    `в ${tree}data/libraries.csv не те колонки, что ожидает словарь`,
+  );
+  // Проверки на «одна запись — одна строка» не нужно: выше уже сравнено число
+  // строк с числом записей, а переводы строк внутри ячеек заменены пробелом при
+  // сборке CSV. Отдельная проверка на перевод строки после кавычки срабатывала
+  // бы на каждой границе строк и ничего не проверяла.
+
+  const dictionary = await fs.readFile(path.join(DIST_DIR, tree, 'data/README.md'), 'utf8');
+  // Объединение по всем записям, а не по первой: иначе поле, которое встречается
+  // только в пятой тысячной записи, осталось бы незамеченным.
+  const fields = new Set(json.libraries.flatMap((library) => Object.keys(library)));
+  for (const field of fields) {
+    assert(
+      dictionary.includes(`\`${field}\``),
+      `в ${tree}data/README.md не описано поле ${field}, которое есть в данных`,
+    );
+  }
+  assert(
+    !dictionary.includes('не описано'),
+    `в ${tree}data/README.md осталось поле без описания: словарь собирается из данных, значит описание забыли`,
+  );
+  assert(
+    dictionary.includes(String(json.libraries.length)),
+    `в ${tree}data/README.md не совпадает число записей с данными`,
+  );
+}
+
+// Футер ведёт на все три файла, иначе датасет не найти.
+for (const relative of ['index.html', 'ru/index.html']) {
+  const html = await fs.readFile(path.join(DIST_DIR, relative), 'utf8');
+  for (const file of ['data/libraries.json', 'data/libraries.csv', 'data/README.md']) {
+    assert(
+      html.includes(`href="${file}"`),
+      `в ${relative} нет ссылки на ${file} — датасет нельзя найти со страницы`,
+    );
+  }
 }
 
 // Дата релиза: у всех записей с репозиторием она должна находиться,

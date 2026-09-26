@@ -21,6 +21,15 @@ on:
         type: boolean
         required: false
         default: true
+      publish-only:
+        description: >
+          Опубликовать без сбора из реестров: собрать сайт из каталога,
+          который уже лежит в репозитории. Сеть не трогается, прогон занимает
+          минуту вместо сорока, и публикуется ровно тот набор записей, который
+          прошёл проверки на месте.
+        type: boolean
+        required: false
+        default: false
 
 permissions:
   contents: write # коммит датасета
@@ -62,6 +71,7 @@ jobs:
       # прогон оставлял бы следующий снова холодным — а холодный сбор бьёт по
       # лимитам и упирается в таймаут.
       - name: Восстановить кэш HTTP-ответов
+        if: ${{ !inputs.publish-only }}
         uses: actions/cache/restore@v4
         with:
           path: .cache/http
@@ -73,6 +83,7 @@ jobs:
         run: npm run lint
 
       - name: Сбор из реестров пакетов
+        if: ${{ !inputs.publish-only }}
         run: node scripts/collect.mjs --min-score=${{ inputs.min-score || '3.8' }}
 
       - name: Пересчёт производных полей
@@ -80,6 +91,7 @@ jobs:
         run: node scripts/derive.mjs
 
       - name: Обогащение данными GitHub
+        if: ${{ !inputs.publish-only }}
         # enrich сам ограничится доступной квотой и не сломает прогон.
         # --releases=all пополняет даты релизов: 304 не тратят квоту,
         # поэтому обновлять их можно на каждом прогоне.
@@ -88,6 +100,7 @@ jobs:
         run: node scripts/enrich.mjs --concurrency=4 --releases=all
 
       - name: Аудит и правка ссылок
+        if: ${{ !inputs.publish-only }}
         # Проверяет каждую ссылку на репозиторий и сразу чинит её:
         # заменяет на найденную в реестре, убирает битую без замены,
         # усекает ссылку с подпапки до корня репозитория.
@@ -106,6 +119,7 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Сохранить кэш HTTP-ответов
+        if: ${{ !inputs.publish-only }}
         # always(): даже если сборка упала, ответы реестров пригодятся в
         # следующем прогоне — это разница между 40 минутами и пятью.
         if: always()
@@ -136,7 +150,9 @@ jobs:
           retention-days: 90
 
       - name: Отчёт об аудите ссылок
-        if: always()
+        # always() и без сбора: в режиме publish-only отчёта не будет, и загружать
+        # нечего.
+        if: ${{ always() && !inputs.publish-only }}
         uses: actions/upload-artifact@v4
         with:
           name: link-audit
