@@ -141,6 +141,7 @@ const en = {
 
   'theme.toggle': 'Light theme',
   'theme.toggleToDark': 'Dark theme',
+  'skip.link': 'Skip to the table',
   'legend.title': 'Roles',
   'legend.more': 'What the roles mean and how the order is calculated',
   'legend.sdk': 'calls OpenAI, Anthropic, Gemini and similar APIs directly',
@@ -359,6 +360,7 @@ const ru = {
 
   'theme.toggle': 'Светлая тема',
   'theme.toggleToDark': 'Тёмная тема',
+  'skip.link': 'Перейти к таблице',
   'legend.title': 'Роли',
   'legend.more': 'Что значат роли и как считается порядок',
   'legend.sdk': 'звонит напрямую в OpenAI, Anthropic, Gemini и т. д.',

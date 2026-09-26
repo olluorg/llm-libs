@@ -401,6 +401,7 @@ function render(tpl, { locale, root, urlPath, view, title, description, heading,
     .replaceAll('{{FILTER_LICENSE}}', escapeHtml(t(locale, 'filters.license')))
     .replaceAll('{{FILTER_RESET}}', escapeHtml(t(locale, 'filters.reset')))
     .replaceAll('{{FILTER_COUNT}}', escapeHtml(t(locale, 'filters.count')))
+    .replaceAll('{{SKIP_LINK}}', escapeHtml(t(locale, 'skip.link')))
     .replaceAll('{{THEME_TOGGLE}}', escapeHtml(t(locale, 'theme.toggle')))
     .replaceAll('{{LEGEND_TITLE}}', escapeHtml(t(locale, 'legend.more')))
     .replaceAll('{{LEGEND_SDK_TEXT}}', escapeHtml(t(locale, 'legend.sdk')))

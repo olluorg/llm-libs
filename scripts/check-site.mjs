@@ -46,6 +46,12 @@ function createElement(tag = 'div') {
       add(name) { this.set.add(name); },
       remove(name) { this.set.delete(name); },
       contains(name) { return this.set.has(name); },
+      toggle(name, force) {
+        const on = force === undefined ? !this.set.has(name) : Boolean(force);
+        if (on) this.set.add(name);
+        else this.set.delete(name);
+        return on;
+      },
     },
     addEventListener(type, handler) {
       if (!listeners.has(type)) listeners.set(type, []);
@@ -263,6 +269,19 @@ assert(main.elements.get('rows').innerHTML.length > 0, 'после сортир�
 main.sortHeaders[3].dispatch('click');
 assert(main.elements.get('rows').innerHTML.length > 0, 'после сортировки по дате список пуст');
 
+// Сортировка объявлена и скринридеру, и глазу: без этого отсортированный
+// столбец не отличался от остальных.
+const sortedTh = main.sortHeaders.find((th) => th.classList.contains('sorted'));
+assert(Boolean(sortedTh), 'после сортировки ни один заголовок не помечен как отсортированный');
+assert(
+  ['ascending', 'descending'].includes(sortedTh?.getAttribute('aria-sort')),
+  `у отсортированного заголовка неверный aria-sort: ${sortedTh?.getAttribute('aria-sort')}`,
+);
+assert(
+  main.sortHeaders.filter((th) => th !== sortedTh).every((th) => th.getAttribute('aria-sort') === 'none'),
+  'у неотсортированных заголовков должен быть aria-sort="none"',
+);
+
 main.elements.get('f-provider').value = data.providers[0].id;
 main.elements.get('f-provider').dispatch('input');
 const filteredCount = main.elements.get('count').textContent;
@@ -375,11 +394,25 @@ assert(
   /thead th \{ position: sticky; top: 0;/.test(sticky),
   'шапка таблицы должна липнуть к верху экрана (top: 0), а не к измеренному отступу',
 );
-const stickySelectors = [...sticky.matchAll(/([.\w-]+)\s*\{[^}]*position: sticky/g)].map((m) => m[1]);
-for (const selector of stickySelectors) {
+// Липкой может быть только сама таблица — её заголовок и первый столбец.
+// Липкая панель фильтров сдвинет заголовок вниз: так и вышло, когда отступ
+// брался из высоты всей панели вместе со свёрнутой легендой.
+// Комментарии и открывающие@media убираем: иначе в правило попадёт текст
+// над ним.
+const stickyRules = [
+  ...sticky
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .replace(/@(?:media|supports)[^{]*\{/g, '')
+    .matchAll(/([^{}]*)\{[^}]*position: sticky/g),
+].map((m) => m[1].trim());
+for (const rule of stickyRules) {
+  const outside = rule
+    .split(',')
+    .map((part) => part.trim())
+    .filter((part) => part.length > 0 && !/^(thead th|th|tbody td:first-child|td:first-child)(:first-child)?$/.test(part));
   assert(
-    selector === 'thead th' || selector === 'th',
-    `липкий элемент «${selector}» сдвинет шапку таблицы: липкой может быть только она`,
+    outside.length === 0,
+    `липкое правило «${rule}» захватывает что-то вне таблицы — липкой может быть только она`,
   );
 }
 assert(!sticky.includes('sticky-h'), 'осталась переменная --sticky-h: её отступ без измерения уводит шапку вниз');
@@ -394,6 +427,19 @@ assert(
   'у шапки не должно быть собственного фона: он и рисовал полосу во всю ширину',
 );
 assert(/\.wrap \{ max-width: 1400px/.test(sticky), 'колонка содержимого не ограничена по ширине');
+// Сквозная ссылка к таблице: иначе с клавиатуры до первого списка нужно
+// пройти все фильтры.
+assert(/class="skip-link" href="#catalog"/.test(drawerMarkup), 'нет сквозной ссылки к таблице');
+assert(/\.skip-link:focus/.test(sticky), 'сквозная ссылка не видна при фокусе — она и не работает');
+// Анимации уважают системную настройку: переходы карточки при
+// motion sensitivity лишни.
+assert(/@media \(prefers-reduced-motion: reduce\)/.test(sticky), 'нет правила для prefers-reduced-motion');
+// Первый столбец липкий там, где таблица прокручивается вбок, и не липкий
+// там, где она уже карточки.
+assert(
+  /@media \(min-width: 561px\)[\s\S]*?td:first-child \{ position: sticky; left: 0;/.test(sticky),
+  'первый столбец не липкий: при прокрутке вбок имя библиотеки уезжает за край',
+);
 // Правила после сброса: переменные объявлены в :root, дальше только используются.
 const body = sticky.slice(sticky.indexOf('* {'));
 

@@ -130,9 +130,11 @@
           state.sort = key;
           state.dir = DESCENDING_BY_DEFAULT.has(key) ? -1 : 1;
         }
+        syncSortState();
         render();
       });
     });
+    syncSortState();
 
     // Кнопка закрытия появляется только после открытия карточки, поэтому
     // слушатель один на весь контейнер (делегирование), а не на сам элемент.
@@ -333,6 +335,20 @@
       })
       .join('');
     el.role.value = state.roleGroup;
+  }
+
+  /**
+   * Показывает, по какому столбцу и в какую сторону отсортировано: заголовки
+   * с data-sort выглядели как обычный текст, и было не видно, что таблица
+   * вообще отсортирована. aria-sort нужен скринридеру, стрелка — глазу.
+   */
+  function syncSortState() {
+    document.querySelectorAll('thead th[data-sort]').forEach((th) => {
+      const active = th.dataset.sort === state.sort;
+      th.setAttribute('aria-sort', active ? (state.dir === -1 ? 'descending' : 'ascending') : 'none');
+      th.classList.toggle('sorted', active);
+      th.classList.toggle('asc', active && state.dir === 1);
+    });
   }
 
   function activeRoles() {
