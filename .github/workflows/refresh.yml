@@ -119,10 +119,10 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Сохранить кэш HTTP-ответов
-        if: ${{ !inputs.publish-only }}
         # always(): даже если сборка упала, ответы реестров пригодятся в
         # следующем прогоне — это разница между 40 минутами и пятью.
-        if: always()
+        # В режиме publish-only кэша нет: сети не касались, сохранять нечего.
+        if: ${{ always() && !inputs.publish-only }}
         uses: actions/cache/save@v4
         with:
           path: .cache/http
