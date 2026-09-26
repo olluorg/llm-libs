@@ -111,9 +111,13 @@ function boot({ view = {}, referrer = '', search = '', strings = STRINGS } = {})
   });
 
   const handlers = new Map();
+  const windowHandlers = new Map();
   const documentStub = {
     activeElement: null,
     referrer,
+    // Реальный document умеет отдавать корневой элемент: app.js кладёт туда
+    // CSS-переменную с высотой липкой панели.
+    documentElement: { style: { setProperty() {} } },
     querySelector: (selector) => elements.get(selector.replace('#', '')) ?? null,
     querySelectorAll: (selector) => (selector.includes('data-sort') ? sortHeaders : []),
     getElementById: (id) => elements.get(id) ?? null,
@@ -121,7 +125,12 @@ function boot({ view = {}, referrer = '', search = '', strings = STRINGS } = {})
   };
 
   const context = vm.createContext({
-    window: { __LLMDOCS__: data, __LLMDOCS_VIEW__: view, __LLMDOCS_I18N__: strings },
+    window: {
+      __LLMDOCS__: data,
+      __LLMDOCS_VIEW__: view,
+      __LLMDOCS_I18N__: strings,
+      addEventListener(type, handler) { windowHandlers.set(type, handler); },
+    },
     document: documentStub,
     history: { replaceState() {} },
     location: { pathname: '/', search },
@@ -138,7 +147,7 @@ function boot({ view = {}, referrer = '', search = '', strings = STRINGS } = {})
   } catch (thrown) {
     error = thrown;
   }
-  return { elements, sortHeaders, handlers, error };
+  return { elements, sortHeaders, handlers, windowHandlers, error };
 }
 
 const popularity = (library) => {
@@ -345,6 +354,21 @@ assert(/id="drawer"/.test(drawerMarkup) && /aria-labelledby="drawer-title"/.test
 assert(/id="count"[^>]*role="status"/.test(drawerMarkup) || /id="count"[^>]*aria-live/.test(drawerMarkup), 'счётчик не объявлен как статус для скринридера');
 // Имя библиотеки — кнопка: с клавиатуры карточка иначе не открывается.
 assert(/<button type="button" class="pkg-open"/.test(drawerMarkup), 'имя библиотеки не сделано кнопкой');
+// Мобильный вид: без подписей data-label в карточках вместо таблицы
+// получится набор чисел без названий.
+const firstRow = /<tr data-id="[^"]+" id="[^"]+">[\s\S]*?<\/tr>/.exec(drawerMarkup)?.[0] ?? '';
+const labelledCells = [...firstRow.matchAll(/<td[^>]*data-label="([^"]*)"/g)].map(([, label]) => label);
+assert(labelledCells.length >= 5, `в строке только ${labelledCells.length} подписанных ячеек — на узком экране данные останутся без названий`);
+assert(
+  labelledCells.every((label) => label.trim().length > 0),
+  'в строке есть ячейка с пустой подписью data-label',
+);
+assert(/class="cell-name"/.test(firstRow), 'в строке нет класса cell-name для мобильной карточки');
+// Панель фильтров и шапка таблицы не должны наезжать друг на друга: отступ
+// липкой шапки задаётся измеряемой высотой панели.
+const sticky = await fs.readFile(path.join(DIST_DIR, 'assets', 'style.css'), 'utf8');
+assert(/--sticky-h/.test(sticky), 'в стилях нет переменной --sticky-h для липкой шапки таблицы');
+assert(/@media \(max-width: 560px\)/.test(sticky), 'нет брейкпоинта для телефонов: восемь колонок туда не влезают');
 
 openFirstRow();
 assert(drawer.classList.contains('open'), 'карточка библиотеки не открылась');

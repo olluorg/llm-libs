@@ -401,8 +401,9 @@ function render(tpl, { locale, root, urlPath, view, title, description, heading,
     .replaceAll('{{FILTER_LICENSE}}', escapeHtml(t(locale, 'filters.license')))
     .replaceAll('{{FILTER_RESET}}', escapeHtml(t(locale, 'filters.reset')))
     .replaceAll('{{FILTER_COUNT}}', escapeHtml(t(locale, 'filters.count')))
-    .replaceAll('{{LEGEND_SDK}}', escapeHtml(t(locale, 'role.api')))
+    .replaceAll('{{LEGEND_TITLE}}', escapeHtml(t(locale, 'legend.more')))
     .replaceAll('{{LEGEND_SDK_TEXT}}', escapeHtml(t(locale, 'legend.sdk')))
+    .replaceAll('{{LEGEND_SDK}}', escapeHtml(t(locale, 'role.api')))
     .replaceAll('{{LEGEND_GATEWAY}}', escapeHtml(t(locale, 'role.gateway')))
     .replaceAll('{{LEGEND_GATEWAY_TEXT}}', escapeHtml(t(locale, 'legend.gateway')))
     .replaceAll('{{LEGEND_FRAMEWORK}}', escapeHtml(t(locale, 'role.framework')))
@@ -475,18 +476,19 @@ function rowHtml(library, locale = DEFAULT_LOCALE) {
     .map((id) => `<span class="chip p">${escapeHtml(providerMap.get(id)?.name ?? id)}</span>`)
     .join('');
 
+  const l = (key) => escapeHtml(t(locale, key));
   return `<tr data-id="${escapeHtml(library.id)}" id="${escapeHtml(library.id)}">
-        <td>
+        <td class="cell-name">
           <button type="button" class="pkg-open" aria-expanded="false" aria-haspopup="dialog"><span class="pkg">${escapeHtml(library.name)} <span class="eco">· ${escapeHtml(library.ecosystem)}</span></span></button>
           ${library.description ? `<div class="desc">${escapeHtml(library.description)}</div>` : ''}
         </td>
-        <td>${escapeHtml(library.language)}</td>
+        <td data-label="${l('th.language')}">${escapeHtml(library.language)}</td>
         <td><div class="chips">${providerChips}${library.tier ? `<span class="chip tier-${escapeHtml(library.tier).toLowerCase()}">tier ${escapeHtml(library.tier)}</span>` : ''}</div></td>
-        <td><span class="role role-${escapeHtml(library.role)}" title="${escapeHtml(t(locale, `roleDesc.${library.role}`))}">${escapeHtml(t(locale, `role.${library.role}`))}</span></td>
-        <td class="lic">${licenseCell(locale, library)}</td>
-        <td class="num">${library.stars ? compact(library.stars) : '—'}</td>
-        <td class="num">${escapeHtml(downloadsLabel(locale, library)) || '—'}</td>
-        <td class="num">${releaseCell(locale, library)}</td>
+        <td class="cell-meta" data-label="${l('th.role')}"><span class="role role-${escapeHtml(library.role)}" title="${escapeHtml(t(locale, `roleDesc.${library.role}`))}">${escapeHtml(t(locale, `role.${library.role}`))}</span></td>
+        <td class="lic cell-meta" data-label="${l('th.license')}">${licenseCell(locale, library)}</td>
+        <td class="num cell-meta" data-label="${l('th.stars')}">${library.stars ? compact(library.stars) : '—'}</td>
+        <td class="num cell-meta" data-label="${l('th.downloads')}">${escapeHtml(downloadsLabel(locale, library)) || '—'}</td>
+        <td class="num cell-meta" data-label="${l('th.release')}">${releaseCell(locale, library)}</td>
       </tr>`;
 }
 

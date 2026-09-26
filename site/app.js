@@ -354,6 +354,18 @@
     el.license.value = state.licenseFamily;
   }
 
+  /**
+   * Липкая шапка таблицы должна остановиться под липкой панелью фильтров.
+   * Панель переносится на несколько строк, поэтому её высоту измеряем и
+   * кладём в CSS-переменную, а не задаём константой: при переносе на
+   * телефоне шапка иначе наезжает на фильтры.
+   */
+  function syncStickyOffset() {
+    const controls = document.querySelector('.controls');
+    const height = controls?.getBoundingClientRect?.().height ?? 0;
+    document.documentElement.style.setProperty('--sticky-h', `${Math.round(height)}px`);
+  }
+
   function render() {
     const rows = libraries.filter(matches).sort(comparator);
     el.count.textContent = tr('count.format').replace('%{shown}', rows.length).replace('%{total}', libraries.length);
@@ -454,26 +466,31 @@
    * Строка таблицы. У неё есть id — по нему работают якоря из подборки на
    * странице языка, — и кнопка в первом столбце: клик по строке удобен мышью,
    * но с клавиатуры карточку раньше было открыть нечем.
+   *
+   * У ячеек есть data-label с названием столбца: на узком экране таблица
+   * превращается в карточки, и без подписи «Релиз 2026-09-24» не понять,
+   * что это за число.
    */
   function rowHtml(library) {
     const providerChips = (library.providers ?? [])
       .slice(0, 3)
       .map((p) => `<span class="chip p" title="${esc(providerMap.get(p)?.name ?? p)}">${esc(providerMap.get(p)?.name ?? p)}</span>`)
       .join('');
+    const label = (key) => esc(tr(key));
     return `<tr data-id="${esc(library.id)}" id="${esc(library.id)}">
-      <td>
+      <td class="cell-name">
         <button type="button" class="pkg-open" aria-expanded="false" aria-haspopup="dialog">
           <span class="pkg">${esc(library.name)} <span class="eco">· ${esc(library.ecosystem)}</span></span>
         </button>
         ${library.description ? `<div class="desc">${esc(library.description)}</div>` : ''}
       </td>
-      <td>${esc(library.language)}</td>
+      <td data-label="${label('th.language')}">${esc(library.language)}</td>
       <td><div class="chips">${providerChips}${library.tier ? `<span class="chip tier-${esc(library.tier).toLowerCase()}">tier ${esc(library.tier)}</span>` : ''}</div></td>
-      <td><span class="role role-${esc(library.role)}" title="${esc(tr(`roleDesc.${library.role}`))}">${esc(tr(`role.${library.role}`))}</span></td>
-      <td class="lic">${licenseCell(library)}</td>
-      <td class="num">${library.stars ? compact(library.stars) : '—'}</td>
-      <td class="num">${esc(downloadsLabel(library)) || '—'}</td>
-      <td class="num">${releaseCell(library)}</td>
+      <td class="cell-meta" data-label="${label('th.role')}"><span class="role role-${esc(library.role)}" title="${esc(tr(`roleDesc.${library.role}`))}">${esc(tr(`role.${library.role}`))}</span></td>
+      <td class="lic cell-meta" data-label="${label('th.license')}">${licenseCell(library)}</td>
+      <td class="num cell-meta" data-label="${label('th.stars')}">${library.stars ? compact(library.stars) : '—'}</td>
+      <td class="num cell-meta" data-label="${label('th.downloads')}">${esc(downloadsLabel(library)) || '—'}</td>
+      <td class="num cell-meta" data-label="${label('th.release')}">${releaseCell(library)}</td>
     </tr>`;
   }
 
@@ -627,6 +644,14 @@
   }
 
   document.getElementById('generated').textContent = new Date(generatedAt).toISOString().slice(0, 10);
+
+  // Отступ липкой шапки таблицы зависит от высоты панели фильтров, а та
+  // меняется при переносе строк и смене ширины окна.
+  syncStickyOffset();
+  window.addEventListener('resize', syncStickyOffset);
+  // Ширина колонок меняется при переключении размера шрифта в браузере —
+  // без этого подписи в мобильных карточках поедут.
+  if (document.fonts?.ready) document.fonts.ready.then(syncStickyOffset);
 
   init();
 })();

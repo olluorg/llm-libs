@@ -250,3 +250,75 @@ footer code { font-family: var(--mono); font-size: 12px; }
   background: #10243a; border: 1px solid #23486e; border-radius: 8px; color: #bcd7f5;
 }
 .hint button { margin-left: 8px; padding: 2px 10px; font-size: 12px; }
+
+/* ── Адаптив ────────────────────────────────────────────────────────────────
+   Без медиазапросов таблица из восьми колонок и панель из восьми селектов
+   на телефоне просто не помещались. Ниже три точки: 1100px — прячем
+   второстепенные столбцы, 820px — фильтры в сетку и карточка на всю
+   ширину, 560px — таблица превращается в карточки. */
+
+/* Шапка таблицы липкая: на 91 строке под ней сортировать приходилось,
+   возвращаясь наверх. Отступ сверху — высота панели фильтров, её
+   измеряет app.js и кладёт в --sticky-h. */
+.table-scroll { overflow-x: auto; }
+thead th { position: sticky; top: var(--sticky-h, 0px); background: var(--bg); z-index: 5; }
+thead th::after { content: ''; position: absolute; inset: auto 0 -1px 0; height: 1px; background: var(--border); }
+
+@media (max-width: 1100px) {
+  /* Провайдеры и загрузки — второстепенны, когда выбираешь библиотеку. */
+  table th:nth-child(3), table td:nth-child(3) { display: none; }
+  table th:nth-child(7), table td:nth-child(7) { display: none; }
+  .wrap { padding: 0 14px 60px; }
+}
+
+@media (max-width: 820px) {
+  .controls-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .controls-row #search, .controls-row #reset, .controls-row .count { grid-column: 1 / -1; }
+  .controls-row select { width: 100%; }
+  .drawer { width: 100%; max-width: none; }
+  .related { flex-direction: column; gap: 14px; }
+  .crumbs { font-size: 13px; }
+  .stats { gap: 10px; }
+}
+
+@media (max-width: 560px) {
+  /* Таблица становится списком карточек: на 360px восемь колонок не читаются
+     в принципе, а прокрутка вбок мешает. Данные подписи берём из data-подписей,
+     которые проставляет app.js. */
+  .table-scroll { overflow-x: visible; }
+  table, table tbody, table tr, table td { display: block; width: 100%; }
+  table thead { position: absolute; left: -9999px; }
+  table tr { border: 1px solid var(--border); border-radius: 10px; margin: 10px 0; padding: 10px 12px; }
+  table td { border: 0; padding: 2px 0; }
+  table td[data-label]::before {
+    content: attr(data-label) ': ';
+    color: var(--text-dim); font-size: 12px;
+  }
+  table td.num { text-align: left; }
+  table td.cell-name { font-size: 15px; }
+  /* Язык, роль, лицензия и метрики — одной строкой, чтобы карточка была
+     компактной: четыре коротких поля в ряд. */
+  table td.cell-meta { display: inline-block; width: auto; margin-right: 12px; }
+  table td.cell-meta::before { content: attr(data-label) ': '; }
+  .empty { padding: 30px 0; }
+  footer { font-size: 12px; }
+}
+
+/* Легенда свёрнута: 120 слов о ролях и формуле популярности стояли перед
+   таблицей на всех 166 страницах, хотя нужны один раз и по запросу. */
+.legend-box { margin: 10px 0 0; }
+.legend-box > summary {
+  cursor: pointer;
+  color: var(--text-dim);
+  font-size: 13px;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 0;
+}
+.legend-box > summary::-webkit-details-marker { display: none; }
+.legend-box > summary::before { content: '▸'; font-size: 11px; }
+.legend-box[open] > summary::before { content: '▾'; }
+.legend-box > summary:hover { color: var(--text); }
+.legend-box .legend { margin: 6px 0 0; }

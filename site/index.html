@@ -88,12 +88,15 @@
       <button id="reset">{{FILTER_RESET}}</button>
       <span class="count" id="count" role="status" aria-live="polite">{{TOTAL}} / {{TOTAL}} {{FILTER_COUNT}}</span>
     </div>
-    <p class="legend"><b>{{LEGEND_SDK}}</b> — {{LEGEND_SDK_TEXT}}<br>
-      <b>{{LEGEND_GATEWAY}}</b> — {{LEGEND_GATEWAY_TEXT}}<br>
-      <b>{{LEGEND_FRAMEWORK}}</b> — {{LEGEND_FRAMEWORK_TEXT}}<br>
-      <b>{{LEGEND_RUNTIME}}</b> — {{LEGEND_RUNTIME_TEXT}}<br>
-      <b>{{LEGEND_SUPPORT}}</b> — {{LEGEND_SUPPORT_TEXT}}</p>
-    <p class="legend">{{LEGEND_POPULARITY}}</p>
+    <details class="legend-box">
+      <summary>{{LEGEND_TITLE}}</summary>
+      <p class="legend"><b>{{LEGEND_SDK}}</b> — {{LEGEND_SDK_TEXT}}<br>
+        <b>{{LEGEND_GATEWAY}}</b> — {{LEGEND_GATEWAY_TEXT}}<br>
+        <b>{{LEGEND_FRAMEWORK}}</b> — {{LEGEND_FRAMEWORK_TEXT}}<br>
+        <b>{{LEGEND_RUNTIME}}</b> — {{LEGEND_RUNTIME_TEXT}}<br>
+        <b>{{LEGEND_SUPPORT}}</b> — {{LEGEND_SUPPORT_TEXT}}</p>
+      <p class="legend">{{LEGEND_POPULARITY}}</p>
+    </details>
   </div>
 
   <section class="seo-text">
@@ -106,6 +109,7 @@
 
 {{RELATED}}
 
+  <div class="table-scroll">
   <table id="catalog">
     <caption class="visually-hidden">{{CAPTION}}</caption>
     <thead>
@@ -122,6 +126,7 @@
     </thead>
     <tbody id="rows">{{ROWS}}</tbody>
   </table>
+  </div>
 
   <noscript>
     <p class="empty">{{FOOTER_NOSCRIPT}}</p>

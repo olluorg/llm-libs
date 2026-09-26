@@ -140,6 +140,7 @@ const en = {
   'count.format': '%{shown} of %{total}',
 
   'legend.title': 'Roles',
+  'legend.more': 'What the roles mean and how the order is calculated',
   'legend.sdk': 'calls OpenAI, Anthropic, Gemini and similar APIs directly',
   'legend.gateway': 'proxies requests to providers (LiteLLM)',
   'legend.framework': 'an abstraction on top of SDKs (LangChain, Pydantic AI)',
@@ -355,6 +356,7 @@ const ru = {
   'count.format': '%{shown} из %{total}',
 
   'legend.title': 'Роли',
+  'legend.more': 'Что значат роли и как считается порядок',
   'legend.sdk': 'звонит напрямую в OpenAI, Anthropic, Gemini и т. д.',
   'legend.gateway': 'прокси к провайдерам (LiteLLM)',
   'legend.framework': 'абстракция поверх SDK (LangChain, Pydantic AI)',
