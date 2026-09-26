@@ -1,8 +1,13 @@
 {
-  "name": "openllmdocs",
+  "name": "llm-libs",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/olluorg/llm-libs.git"
+  },
   "description": "Каталог библиотек для работы с LLM API по всем языкам программирования: сбор данных из реестров пакетов + GitHub, генерация статического сайта.",
   "engines": {
     "node": ">=20"
