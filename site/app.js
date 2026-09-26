@@ -24,6 +24,7 @@
   const ROLE_GROUPS = [
     { value: 'api', roles: ['sdk', 'gateway'] },
     { value: 'sdk', roles: ['sdk'] },
+    { value: 'gateway', roles: ['gateway'] },
     { value: 'framework', roles: ['framework'] },
     { value: 'runtime', roles: ['runtime'] },
     { value: 'support', roles: ['support'] },

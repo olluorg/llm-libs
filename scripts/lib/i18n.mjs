@@ -57,6 +57,7 @@ const en = {
 
   'roleGroup.api': 'API clients and gateways',
   'roleGroup.sdk': 'API clients only',
+  'roleGroup.gateway': 'Gateways',
   'roleGroup.framework': 'Frameworks',
   'roleGroup.runtime': 'Local model runtimes',
   'roleGroup.support': 'Supporting tools',
@@ -201,6 +202,15 @@ const en = {
   'page.language.subheading': '%{count} entries in the catalog. Click a library to see installation and links.',
   'page.language.keywords': 'llm %{language}, %{language} openai sdk, %{language} anthropic, llm libraries %{language}',
 
+  'page.role.title': '%{role} for %{language} — %{count} | LLM catalog',
+  'page.role.description': '%{count} %{roleLower} for LLM work in %{language}: %{top}. With versions, downloads and GitHub stars.',
+  'page.role.heading': '%{role} for %{language}',
+  'page.role.subheading': '%{count} entries. %{description}',
+  'page.role.keywords': '%{language} %{roleSlug}, llm %{language} %{roleLower}, %{language} ai library',
+  'page.role.seoText': '%{role} for %{language}: %{count} entries, sorted by popularity. %{description} The complete %{language} catalog, including other roles, is on the %{language} page.',
+  'related.sameRole': 'The same in other languages',
+  'related.otherRoles': 'Other roles in %{language}',
+
   'seoText.index': 'Only provider API clients (%{count}) are shown by default: what actually sends requests to OpenAI, Anthropic, Gemini, Bedrock and similar APIs. Everything else is available through the role filter: local model runtimes (Ollama, vLLM, transformers, llama.cpp), frameworks on top of SDKs (LangChain, Pydantic AI, DSPy), gateways (LiteLLM) and supporting tools — vector databases, observability, evaluation, tokenizers, UI kits, MCP servers. The catalog is built automatically from package registries and enriched with GitHub data; if you arrived from a search, your language is applied automatically.',
   'seoText.provider': 'API clients for %{name} and the frameworks that work through them: %{count} entries. The list is sorted by popularity (GitHub stars and monthly downloads). Need one gateway for all providers — LiteLLM; need an agent framework — LangChain or the Vercel AI SDK.',
   'seoText.language': 'LLM API clients and frameworks in %{language}: %{count} entries%{hidden}. The order is by popularity; click a header to sort, and search works by name, description, provider or features.',
@@ -262,6 +272,7 @@ const ru = {
 
   'roleGroup.api': 'Клиенты и шлюзы',
   'roleGroup.sdk': 'Только клиенты API',
+  'roleGroup.gateway': 'Шлюзы',
   'roleGroup.framework': 'Фреймворки',
   'roleGroup.runtime': 'Локальный запуск моделей',
   'roleGroup.support': 'Сопутствующие инструменты',
@@ -405,6 +416,15 @@ const ru = {
   'page.language.heading': 'Библиотеки для LLM на %{language}',
   'page.language.subheading': '%{count} записей в каталоге. Нажмите на библиотеку, чтобы увидеть установку и ссылки.',
   'page.language.keywords': 'llm %{language}, %{language} openai sdk, %{language} anthropic, llm библиотеки %{language}',
+
+  'page.role.title': '%{role} для %{language} — %{count} шт. | LLM-каталог',
+  'page.role.description': '%{count} %{roleLower} для работы с LLM на языке %{language}: %{top}. С версиями, загрузками и звёздами GitHub.',
+  'page.role.heading': '%{role} для %{language}',
+  'page.role.subheading': '%{count} записей. %{description}',
+  'page.role.keywords': '%{language} %{roleSlug}, llm %{language} %{roleLower}, библиотеки ai %{language}',
+  'page.role.seoText': '%{role} для %{language}: %{count} записей, по убыванию популярности. %{description} Полный каталог для %{language}, включая другие роли, — на странице языка %{language}.',
+  'related.sameRole': 'То же в других языках',
+  'related.otherRoles': 'Другие роли в %{language}',
 
   'seoText.index': 'По умолчанию показаны только клиенты API провайдеров (%{count}) — кто действительно отправляет запросы в OpenAI, Anthropic, Gemini, Bedrock и другие API. Остальное доступно через фильтр ролей: локальный запуск моделей (Ollama, vLLM, transformers, llama.cpp), фреймворки поверх SDK (LangChain, Pydantic AI, DSPy), шлюзы (LiteLLM) и сопутствующие инструменты — векторные базы, наблюдаемость, eval, токенизаторы, интерфейсы, серверы MCP. Каталог собран автоматически из реестров пакетов и обогащён данными GitHub; если вы пришли из поиска, язык из запроса подставляется автоматически.',
   'seoText.provider': 'Клиенты API %{name} и фреймворки, которые через них работают: %{count} записей. Список по убыванию популярности (звёзды GitHub и загрузки за месяц). Нужен единый шлюз ко всем провайдерам — LiteLLM; нужен агентный фреймворк — LangChain или Vercel AI SDK.',

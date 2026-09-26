@@ -1,3 +1,11 @@
+/**
+ * Слаг для адреса и имени файла: латиница, цифры, дефис.
+ *
+ * Знаки, безопасные в имени файла, но ломающие URL, заменяются словами:
+ * из `C#` получался `c#.html`, и `#` в адресе обрывал путь — страница
+ * языка C# была недостижима, а ссылки на неё бились. Поэтому `#` → `sharp`,
+ * `+` → `plus`.
+ */
 export function slugify(value) {
   const map = {
     а: 'a', б: 'b', в: 'v', г: 'g', д: 'd', е: 'e', ё: 'yo', ж: 'zh', з: 'z', и: 'i', й: 'y',
@@ -9,8 +17,11 @@ export function slugify(value) {
     .split('')
     .map((char) => (map[char] !== undefined ? map[char] : char))
     .join('')
-    .replace(/[^a-z0-9+#.-]+/g, '-')
-    .replace(/^-+|-+$/g, '');
+    .replace(/#/g, '-sharp')
+    .replace(/\+/g, '-plus')
+    .replace(/[^a-z0-9.-]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^[-.]+|[-.]+$/g, '');
 }
 
 export function compact(value) {

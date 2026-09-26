@@ -17,13 +17,16 @@ import path from 'node:path';
 import { createLogger } from './lib/log.mjs';
 import { readConfig, readDataset, DIST_DIR, ROOT } from './lib/store.mjs';
 import { slugify } from './lib/site-helpers.mjs';
-import { ROLES, CALLS_PROVIDER_API } from './lib/record.mjs';
+import { ROLES, ROLE_SLUGS, CALLS_PROVIDER_API } from './lib/record.mjs';
 import { LOCALES, DEFAULT_LOCALE, LOCALE_DIR, localeStrings, t } from './lib/i18n.mjs';
 import { popularity as sharedPopularity } from './lib/popularity.mjs';
 
 const log = createLogger('build');
 
 const PRE_RENDER_LIMIT = 150; // строк в статической разметке (дальше — только JSON)
+
+// Порог для страницы «язык × роль»: меньше трёх записей — тонкий контент.
+const ROLE_SLICE_MIN = 3;
 
 // Сколько записей перечислять в секции подборки на странице языка.
 const COLLECTION_SECTION_LIMIT = 8;
@@ -214,6 +217,66 @@ for (const locale of LOCALES) {
         subject: { name: language, kind: 'language' },
       };
     }),
+    // Страницы «язык × роль». Это то, ради чего затевалась подборка: срез
+    // «официальные клиенты API на Go» или «шлюзы на TypeScript» отвечает на
+    // конкретный запрос, но раньше был доступен только кликом по фильтру,
+    // то есть для поисковика не существовал. Срез с 1-2 записями страницей
+    // не становится: это тонкий контент без пользы.
+    ...roleSlices(libraries).map(({ language, role, subset }) => {
+      const roleSlug = ROLE_SLUGS[role];
+      const slug = `languages/${slugify(language)}/${roleSlug}.html`;
+      const roleLabel = t(locale, `role.${role}`);
+      return {
+        locale,
+        file: inTree(path.join('languages', slugify(language), `${roleSlug}.html`)),
+        root: up(2),
+        urlPath: urlPath(slug),
+        view: { language, role },
+        roles: [role],
+        title: t(locale, 'page.role.title', { role: roleLabel, language, count: subset.length }),
+        description: t(locale, 'page.role.description', {
+          role: roleLabel,
+          roleLower: roleLabel.toLowerCase(),
+          language,
+          count: subset.length,
+          top: topPackages(subset).join(', '),
+        }),
+        heading: t(locale, 'page.role.heading', { role: roleLabel, language }),
+        subheading: t(locale, 'page.role.subheading', {
+          count: subset.length,
+          description: t(locale, `roleDesc.${role}`),
+        }),
+        keywords: t(locale, 'page.role.keywords', {
+          language,
+          roleSlug: roleSlug.replace(/-/g, ' '),
+          roleLower: roleLabel.toLowerCase(),
+        }),
+        filter: () => subset,
+        subject: { name: language, kind: 'language', role },
+      };
+    }),
+  );
+}
+
+function roleSlices(allLibraries) {
+  const byLanguage = new Map();
+  for (const library of allLibraries) {
+    if (!library.language) continue;
+    if (!byLanguage.has(library.language)) byLanguage.set(library.language, new Map());
+    const roles = byLanguage.get(library.language);
+    if (!roles.has(library.role)) roles.set(library.role, []);
+    roles.get(library.role).push(library);
+  }
+  const slices = [];
+  for (const [language, roles] of byLanguage) {
+    for (const [role, subset] of roles) {
+      if (subset.length >= ROLE_SLICE_MIN && ROLE_SLUGS[role]) slices.push({ language, role, subset });
+    }
+  }
+  // Порядок стабильный: язык, затем порядок ролей в ROLES.
+  const order = Object.keys(ROLES);
+  return slices.sort(
+    (a, b) => a.language.localeCompare(b.language) || order.indexOf(a.role) - order.indexOf(b.role),
   );
 }
 
@@ -309,6 +372,8 @@ function render(tpl, { locale, root, urlPath, view, title, description, heading,
     .replaceAll('{{SEO_TEXT}}', escapeHtml(seoText(locale, view, visible, hidden, roles)))
     .replaceAll('{{SEO_LINKS}}', seoLinks(sorted, prefix, view))
     .replaceAll('{{COLLECTION}}', collectionHtml(locale, view, visible))
+    .replaceAll('{{CRUMBS}}', crumbsHtml(locale, view, prefix))
+    .replaceAll('{{RELATED}}', relatedHtml(locale, view, prefix))
     .replaceAll('{{ROWS}}', shown.map((library) => rowHtml(library, locale)).join('\n'))
     // Служебные подстановки: часть строк содержит свою разметку (<b>, <code>),
     // поэтому подставляется как есть — все они из словаря, не из данных.
@@ -374,6 +439,15 @@ function alternatesHtml(locale, urlPath) {
     `<link rel="alternate" hreflang="x-default" href="${escapeHtml(`${siteUrl}/${alternatePath(DEFAULT_LOCALE, urlPath)}`)}">`,
   );
   return links.join('\n');
+}
+
+/**
+/**
+ * Роль среза, если страница посвящена одной роли. У страницы языка в view.role
+ * стоит группа 'all' — это «все роли», а не роль, поэтому их надо различать.
+ */
+function singleRole(view) {
+  return view.language && view.role && view.role !== 'all' ? view.role : null;
 }
 
 /**
@@ -531,6 +605,8 @@ function starterPicks(locale, subset, limit = 5) {
  */
 function collectionHtml(locale, view, subset) {
   if (!view.language) return '';
+  // На срезе «язык × роль» секция одна: роль уже выбрана, разбивать не на что.
+  const roleOrder = singleRole(view) ? [singleRole(view)] : roleList.map((role) => role.id);
 
   const language = view.language;
   const roleCounts = countBy(subset, (library) => library.role);
@@ -548,17 +624,17 @@ function collectionHtml(locale, view, subset) {
     (library) => `        <li><a href="#${escapeHtml(library.id)}"><b>${escapeHtml(library.name)}</b></a> — ${pickFacts(locale, library)}</li>`,
   );
 
-  const sections = roleList
-    .filter((role) => roleCounts.get(role.id))
+  const sections = roleOrder
+    .filter((role) => roleCounts.get(role))
     .map((role) => {
-      const inRole = sortForSeo(subset.filter((library) => library.role === role.id));
+      const inRole = sortForSeo(subset.filter((library) => library.role === role));
       const shown = inRole.slice(0, COLLECTION_SECTION_LIMIT);
       const items = shown
         .map((library) => `          <li><a href="#${escapeHtml(library.id)}">${escapeHtml(library.name)}</a> — ${pickFacts(locale, library)}</li>`)
         .join('\n');
-      return `      <section class="collection-section" data-role="${escapeHtml(role.id)}">
-        <h3>${escapeHtml(t(locale, 'collection.section', { label: t(locale, `role.${role.id}`), count: inRole.length }))}</h3>
-        <p class="section-hint">${escapeHtml(t(locale, 'collection.sectionHint', { description: t(locale, `roleDesc.${role.id}`) }))}</p>
+      return `      <section class="collection-section" data-role="${escapeHtml(role)}">
+        <h3>${escapeHtml(t(locale, 'collection.section', { label: t(locale, `role.${role}`), count: inRole.length }))}</h3>
+        <p class="section-hint">${escapeHtml(t(locale, 'collection.sectionHint', { description: t(locale, `roleDesc.${role}`) }))}</p>
         <ul>
 ${items}
         </ul>
@@ -566,7 +642,7 @@ ${items}
     })
     .join('\n');
 
-  return `  <section class="collection" data-collection="${escapeHtml(language)}">
+  return `  <section class="collection" data-collection="${escapeHtml(language)}"${view.role ? ` data-collection-role="${escapeHtml(singleRole(view))}"` : ''}>
     <p class="collection-intro">${escapeHtml(t(locale, 'collection.intro', { count: subset.length, language, roles, providers }))}</p>
 
     <h2>${escapeHtml(t(locale, 'collection.startHere'))}</h2>
@@ -581,11 +657,104 @@ ${sections}
   </section>`;
 }
 
+/**
+ * Хлебные крошки и перекрёстные ссылки.
+ *
+ * Страница «язык × роль» существует только если на неё можно прийти из
+ * содержимого сайта: из оглавления языков, со страницы языка и с такой же
+ * страницы другого языка. Поэтому у среза есть крошка до языка и до каталога,
+ * а у страницы языка — список её ролевых срезов.
+ */
+/** Элементы крошек — общий источник и для разметки, и для JSON-LD. */
+function crumbItems(locale, view, prefix) {
+  const items = [
+    { href: `${prefix}index.html`, label: t(locale, 'nav.all'), url: `${siteUrl}/${alternatePath(locale, 'index.html')}` },
+    {
+      href: `${prefix}languages.html`,
+      label: t(locale, 'nav.languages'),
+      url: `${siteUrl}/${alternatePath(locale, 'languages.html')}`,
+    },
+  ];
+  if (view.language) {
+    const languageSlug = `${prefix}languages/${slugify(view.language)}.html`;
+    const languageUrl = `${siteUrl}/${alternatePath(locale, `languages/${slugify(view.language)}.html`)}`;
+    if (singleRole(view)) {
+      items.push({ href: languageSlug, label: view.language, url: languageUrl });
+      items.push({ href: null, label: t(locale, `role.${singleRole(view)}`), url: canonicalOf(locale, view) });
+    } else {
+      items.push({ href: null, label: view.language, url: canonicalOf(locale, view) });
+    }
+  }
+  return items;
+}
+
+/** Адрес текущей страницы: сайт + путь в дереве локали. */
+function canonicalOf(locale, view) {
+  const viewPath = singleRole(view)
+    ? `languages/${slugify(view.language)}/${ROLE_SLUGS[singleRole(view)]}.html`
+    : view.language
+      ? `languages/${slugify(view.language)}.html`
+      : 'index.html';
+  return `${siteUrl}/${alternatePath(locale, viewPath)}`;
+}
+
+function crumbsHtml(locale, view, prefix) {
+  const items = crumbItems(locale, view, prefix);
+  return items
+    .map((item, index) =>
+      index === items.length - 1
+        ? `<span aria-current="page">${escapeHtml(item.label)}</span>`
+        : `<a href="${escapeHtml(item.href)}">${escapeHtml(item.label)}</a><span class="sep">/</span>`,
+    )
+    .join(' ');
+}
+
+function relatedHtml(locale, view, prefix) {
+  if (!view.language) return '';
+  const blocks = [];
+
+  // Та же роль в других языках: показываем самые населённые, иначе блок
+  // разрастается на весь каталог.
+  const sameRole = roleSlices(libraries)
+    .filter((slice) => slice.role === singleRole(view) && slice.language !== view.language)
+    .sort((a, b) => b.subset.length - a.subset.length)
+    .slice(0, 8);
+  if (sameRole.length) {
+    const links = sameRole
+      .map(
+        (slice) =>
+          `<li><a href="${escapeHtml(`${prefix}languages/${slugify(slice.language)}/${ROLE_SLUGS[slice.role]}.html`)}">${escapeHtml(slice.language)}</a> <span class="muted">${slice.subset.length}</span></li>`,
+      )
+      .join('');
+    blocks.push(
+      `      <div><h3>${escapeHtml(t(locale, 'related.sameRole'))}</h3><ul class="chips-list">${links}</ul></div>`,
+    );
+  }
+
+  // Другие роли этого же языка.
+  const otherRoles = roleSlices(libraries).filter((slice) => slice.language === view.language && slice.role !== singleRole(view));
+  if (otherRoles.length) {
+    const links = otherRoles
+      .map(
+        (slice) =>
+          `<li><a href="${escapeHtml(`${prefix}languages/${slugify(slice.language)}/${ROLE_SLUGS[slice.role]}.html`)}">${escapeHtml(t(locale, `role.${slice.role}`))}</a> <span class="muted">${slice.subset.length}</span></li>`,
+      )
+      .join('');
+    blocks.push(
+      `      <div><h3>${escapeHtml(t(locale, 'related.otherRoles', { language: view.language }))}</h3><ul class="chips-list">${links}</ul></div>`,
+    );
+  }
+
+  if (!blocks.length) return '';
+  return `  <nav class="related" aria-label="${escapeHtml(t(locale, 'nav.sections'))}">\n${blocks.join('\n')}\n  </nav>`;
+}
+
 function seoHeading(locale, view) {
   if (view.provider) {
     const name = providerMap.get(view.provider)?.name ?? view.provider;
     return t(locale, 'seo.topProvider', { provider: name });
   }
+  if (singleRole(view)) return t(locale, `role.${singleRole(view)}`);
   if (view.language) return t(locale, 'seo.topLanguage', { language: view.language });
   return t(locale, 'seo.startHere');
 }
@@ -608,6 +777,14 @@ function seoText(locale, view, subset, hidden, roles) {
       (official ? t(locale, 'seoText.officialSuffix', { official }) : '') +
       tail
     );
+  }
+  if (singleRole(view)) {
+    return t(locale, 'page.role.seoText', {
+      role: t(locale, `role.${singleRole(view)}`),
+      language: view.language,
+      count,
+      description: t(locale, `roleDesc.${singleRole(view)}`),
+    });
   }
   if (view.language) {
     return (
@@ -654,6 +831,28 @@ function providerSummary(locale, provider, subset) {
 
 // ── Разметка для поисковиков ──────────────────────────────────────────────
 
+/**
+ * Хлебные крошки для JSON-LD. У среза «язык × роль» три уровня: каталог,
+ * язык, роль. Последний элемент — сама страница, у неё свой адрес.
+ */
+function breadcrumbItems(locale, view, canonical) {
+  if (view.provider) {
+    return [
+      { '@type': 'ListItem', position: 1, name: t(locale, 'nav.all'), item: `${siteUrl}/${alternatePath(locale, 'index.html')}` },
+      { '@type': 'ListItem', position: 2, name: providerMap.get(view.provider)?.name ?? view.provider, item: canonical },
+    ];
+  }
+  if (!view.language) {
+    return [{ '@type': 'ListItem', position: 1, name: t(locale, 'nav.all'), item: `${siteUrl}/${alternatePath(locale, 'index.html')}` }];
+  }
+  return crumbItems(locale, view, '').map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    item: item.url,
+  }));
+}
+
 function jsonLd({ locale, view, title, description, canonical, urlPath, subset, heading }) {
   const items = sortForSeo(subset).slice(0, 100).map((library) => ({
     '@type': 'SoftwareSourceCode',
@@ -685,14 +884,7 @@ function jsonLd({ locale, view, title, description, canonical, urlPath, subset, 
       },
       {
         '@type': 'BreadcrumbList',
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: t(locale, 'nav.all'), item: `${siteUrl}/${alternatePath(locale, 'index.html')}` },
-          ...(view.provider
-            ? [{ '@type': 'ListItem', position: 2, name: providerMap.get(view.provider)?.name ?? view.provider, item: canonical }]
-            : view.language
-              ? [{ '@type': 'ListItem', position: 2, name: view.language, item: canonical }]
-              : []),
-        ],
+        itemListElement: breadcrumbItems(locale, view, canonical),
       },
     ],
   };

@@ -679,7 +679,10 @@ assert(
 // таблицу: вступление, «с чего начать» и секции по ролям. Проверяем, что
 // счётчики в тексте совпадают с данными, а якоря ведут в существующие записи —
 // иначе поисковик получит подборку с выдуманными числами и битыми ссылками.
-const languagePages = htmlFiles.filter((name) => name.includes('languages/') && name.endsWith('.html'));
+// Страница языка лежит прямо в languages/, ролевой срез — во вложенной папке.
+const languagePages = htmlFiles.filter(
+  (name) => name.includes('languages/') && !name.slice(name.indexOf('languages/') + 10).includes('/'),
+);
 assert(languagePages.length > 0, 'нет ни одной страницы языка');
 
 for (const relative of languagePages) {
@@ -743,6 +746,117 @@ for (const relative of ['index.html', 'providers.html', 'languages.html', 'provi
   assert(!html.includes('class="collection"'), `в ${relative} подборка не нужна, но присутствует`);
 }
 
+// ── 8. Страницы «язык × роль» ─────────────────────────────────────────────
+//
+// Это длинный хвост запросов: «официальные клиенты API на Go», «шлюзы на
+// TypeScript». Проверяем, что страница появляется ровно там, где есть что
+// показать, содержит ровно свой срез и что на неё ведут ссылки с сайта.
+const ROLE_SLUGS = {
+  sdk: 'api-clients',
+  framework: 'frameworks',
+  runtime: 'local-runtimes',
+  gateway: 'gateways',
+  support: 'supporting-tools',
+};
+const roleSliceCount = new Map();
+for (const library of data.libraries) {
+  const key = `${library.language}|${library.role}`;
+  roleSliceCount.set(key, (roleSliceCount.get(key) ?? 0) + 1);
+}
+const expectedSlices = new Set(
+  [...roleSliceCount]
+    .filter(([, count]) => count >= 3)
+    .map(([key]) => key),
+);
+const actualSlices = new Set();
+let linkedFromLanguagePage = 0;
+let linkedFromRelated = 0;
+
+for (const relative of htmlFiles.filter((name) => /languages\/[^/]+\/[^/]+\.html$/.test(name))) {
+  // Отбрасываем префикс локали: ru/languages/go/api-clients.html → languages/go/…
+  const withoutLocale = relative.replace(/^ru\//, '');
+  const [, languageSlug, file] = withoutLocale.split('/');
+  const language = data.libraries.find((l) => l.language && slugifyLanguage(l.language) === languageSlug)?.language;
+  const role = Object.entries(ROLE_SLUGS).find(([, slug]) => slug === path.basename(file, '.html'))?.[0];
+  assert(Boolean(language && role), `не определены язык или роль для ${relative}`);
+  if (!language || !role) continue;
+  actualSlices.add(`${language}|${role}`);
+
+  const html = await fs.readFile(path.join(DIST_DIR, relative), 'utf8');
+  const expected = data.libraries.filter((library) => library.language === language && library.role === role);
+  const rows = [...html.matchAll(/<tr data-id="([^"]+)"/g)].map(([, id]) => id);
+  assert(
+    rows.length === Math.min(expected.length, 150),
+    `в ${relative} ${rows.length} строк, а в срезе ${expected.length} записей`,
+  );
+  // Срез не смешан с другими ролями: каждая строка принадлежит роли.
+  const foreign = expected.filter((library) => !rows.includes(library.id)).map((library) => library.id);
+  assert(foreign.length === 0, `в ${relative} нет части среза: ${foreign.slice(0, 3).join(', ')}`);
+  // Своя роль в заголовке, в тексте и в разметке подборки.
+  const heading = /<h1[^>]*>([^<]*)/.exec(html)?.[1] ?? '';
+  assert(
+    heading.includes(language) && heading.length > language.length,
+    `в ${relative} заголовок «${heading}» не называет ни язык, ни роль`,
+  );
+  assert(
+    /class="collection"[^>]*data-collection-role="/.test(html),
+    `в ${relative} подборка не помечена своей ролью`,
+  );
+  // Крошки и в разметке, и в JSON-LD: у среза четыре уровня, последний — роль.
+  const strings = relative.startsWith('ru/') ? RU_STRINGS : STRINGS;
+  const roleLabel = strings[`role.${role}`];
+  const crumbText = /<nav class="crumbs"[^>]*>([\s\S]*?)<\/nav>/.exec(html)?.[1]?.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim() ?? '';
+  assert(
+    crumbText.includes(language) && crumbText.trim().endsWith(roleLabel),
+    `в ${relative} крошки «${crumbText}» не заканчиваются ролью «${roleLabel}»`,
+  );
+  const jsonLd = JSON.parse(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/.exec(html)[1]);
+  const breadcrumb = jsonLd['@graph']?.find((node) => node['@type'] === 'BreadcrumbList');
+  const trail = (breadcrumb?.itemListElement ?? []).map((item) => item.name);
+  assert(
+    trail.length === 4 && trail[2] === language && trail[3] === roleLabel,
+    `в ${relative} крошки в JSON-LD [${trail.join(' → ')}] не совпадают с ролью среза`,
+  );
+  // Перекрёстные ссылки: та же роль в других языках и другие роли этого языка.
+  const related = /<nav class="related"[\s\S]*?<\/nav>/.exec(html)?.[0] ?? '';
+  const relatedLinks = [...related.matchAll(/href="([^"]+)"/g)].map(([, href]) => href);
+  assert(relatedLinks.length > 0, `в ${relative} нет перекрёстных ссылок`);
+  const depth = relative.split('/').length - 1;
+  for (const href of relatedLinks) {
+    const resolved = path.posix.normalize(path.posix.join(path.posix.dirname(relative), href));
+    assert(htmlFiles.includes(resolved), `в ${relative} ссылка ведёт на несуществующую страницу ${resolved}`);
+    if (resolved.includes(`/${ROLE_SLUGS[role]}.html`)) linkedFromRelated += 1;
+  }
+}
+
+// Страница роли должна существовать для каждого среза с 3+ записями.
+for (const key of expectedSlices) {
+  assert(actualSlices.has(key), `нет страницы для среза ${key} (${roleSliceCount.get(key)} записей)`);
+}
+// И наоборот: лишних страниц быть не должно.
+for (const key of actualSlices) {
+  assert(expectedSlices.has(key), `страница создана для среза ${key} с ${roleSliceCount.get(key)} записями — тонкий контент`);
+}
+
+// Со страницы языка должны вести ссылки на все её ролевые срезы.
+for (const relative of languagePages) {
+  const html = await fs.readFile(path.join(DIST_DIR, relative), 'utf8');
+  const languageSlug = path.basename(relative, '.html');
+  const language = data.libraries.find((library) => library.language && slugifyLanguage(library.language) === languageSlug)?.language;
+  if (!language) continue;
+  const slices = [...expectedSlices].filter((key) => key.startsWith(`${language}|`));
+  for (const key of slices) {
+    const role = key.split('|')[1];
+    const target = `languages/${languageSlug}/${ROLE_SLUGS[role]}.html`;
+    if (html.includes(target)) linkedFromLanguagePage += 1;
+  }
+}
+assert(
+  linkedFromLanguagePage > 0,
+  'со страниц языка не ведёт ни одной ссылки на ролевые срезы — они недостижимы для поисковика',
+);
+assert(linkedFromRelated > 0, 'между срезами одной роли нет перекрёстных ссылок');
+
 // Словарь: обе локали должны знать одни и те же ключи.
 const missingInRu = Object.keys(STRINGS).filter((key) => !(key in RU_STRINGS));
 const missingInEn = Object.keys(RU_STRINGS).filter((key) => !(key in STRINGS));
@@ -753,7 +867,8 @@ assert(missingInEn.length === 0, `в английском словаре нет 
 if (failures.length === 0) {
   log.info(
     `сайт в порядке: ${data.libraries.length} библиотек, ${preRendered} строк в статической разметке, ` +
-      `локалей ${LOCALES.length} (${htmlFiles.length} страниц), сортировка/карточка/поиск из поисковика/SEO-разметка проверены`,
+      `локалей ${LOCALES.length}, страниц ${htmlFiles.length} (из них срезов «язык × роль» ${actualSlices.size}), ` +
+      'сортировка/карточка/поиск из поисковика/SEO-разметка/локализация/подборка проверены',
   );
   process.exit(0);
 }

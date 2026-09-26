@@ -40,6 +40,19 @@ export const ECOSYSTEMS = new Set([
   'rubygems', 'packagist', 'hex', 'luarocks', 'cran', 'swift', 'github',
 ]);
 
+/**
+ * Адрес страницы «язык × роль». Слаги английские и не локализуются: адрес
+ * страницы не должен зависеть от языка интерфейса, иначе одна и та же подборка
+ * получила бы два адреса в двух деревьях.
+ */
+export const ROLE_SLUGS = {
+  sdk: 'api-clients',
+  framework: 'frameworks',
+  runtime: 'local-runtimes',
+  gateway: 'gateways',
+  support: 'supporting-tools',
+};
+
 /** Что библиотека делает с LLM. */
 export const ROLES = {
   // Прямой HTTP-клиент API провайдера, включая OpenAI-совместимые.

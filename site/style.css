@@ -105,6 +105,33 @@ td.num span:first-child { font-size: 13px; color: var(--text); }
 .chip.status-beta { border-color: #2b4a6f; color: #9dc4f5; }
 
 /* Роль: главное отличие «клиента API» от локального рантайма и инфраструктуры. */
+/* Крошки и перекрёстные ссылки. */
+.crumbs { display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; font-size: 14px; }
+.crumbs .sep { color: var(--text-dim); }
+.crumbs [aria-current] { color: var(--text-dim); }
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 20px 0;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.related h3 { font-size: 13px; margin: 0 0 6px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.04em; }
+.related .chips-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.related .chips-list li { margin: 0; }
+.related .chips-list a {
+  display: inline-block;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 2px 9px;
+  font-size: 13px;
+  text-decoration: none;
+}
+.related .chips-list a:hover { border-color: var(--accent); }
+.related .muted { color: var(--text-dim); font-size: 12px; }
+
 /* Подборка на странице языка: вступление, «с чего начать» и секции по ролям. */
 .collection { margin: 18px 0; }
 .collection-intro { color: var(--text-dim); margin: 0 0 14px; }
