@@ -168,10 +168,15 @@ jobs:
           echo "Не удалось отправить изменения после 3 попыток"
           exit 1
 
-      - name: Публикация сайта на GitHub Pages
+      - name: Загрузка артефакта сайта
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+
+      # Без этого шага артефайт лежит, но не публикуется: сайт отдаёт 404
+      # «Site not found», хотя предыдущий шаг отмечен успешным.
+      - name: Публикация сайта на GitHub Pages
+        uses: actions/deploy-pages@v4
 
       - name: Итог
         run: |
