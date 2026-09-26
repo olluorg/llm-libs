@@ -384,13 +384,28 @@ for (const selector of stickySelectors) {
 }
 assert(!sticky.includes('sticky-h'), 'осталась переменная --sticky-h: её отступ без измерения уводит шапку вниз');
 assert(!/syncStickyOffset|getBoundingClientRect/.test(appSource), 'в app.js остался код измерения высоты панели');
-// Полосы во всю ширину: фон шапки и рамка подвала не должны обрываться по
-// краям ограничивающего блока на широком экране.
-assert(/\.strip\s*\{\s*width: 100%/.test(sticky), 'нет полосы на всю ширину для шапки и подвала');
+// Сайт — одна центрированная колонка. Полос на всю ширину окна быть не
+// должно: на 2560px лента с узким содержимым внутри выглядит нелепо, и
+// «починить» это растягиванием фона шапки тоже нельзя.
+assert(!/class="strip"/.test(drawerMarkup), 'в разметке появился блок на всю ширину: сайт должен быть одной колонкой');
+assert(!/\.strip\s*\{/.test(sticky), 'в стилях остался блок на всю ширину окна');
 assert(
-  /wrap-head, \.wrap-foot \{[^}]*max-width: 1400px/.test(sticky),
-  'внутри полосы нет ограничения ширины — содержимое разъедется на широком экране',
+  /header\.top \{[^}]*border-bottom/.test(sticky) && !/header\.top \{[^}]*background/.test(sticky),
+  'у шапки не должно быть собственного фона: он и рисовал полосу во всю ширину',
 );
+assert(/\.wrap \{ max-width: 1400px/.test(sticky), 'колонка содержимого не ограничена по ширине');
+// Правила после сброса: переменные объявлены в :root, дальше только используются.
+const body = sticky.slice(sticky.indexOf('* {'));
+
+// Объявленные, но не используемые переменные — признак того, что оформление
+// меняли, а следы не убрали: так в проекте остался мёртвый --bg-header.
+const declaredVars = new Set([...sticky.matchAll(/^\s*(--[a-z0-9-]+):/gm)].map((m) => m[1].slice(2)));
+const usedVars = new Set([...body.matchAll(/var\(--([a-z0-9-]+)/g)].map((m) => m[1]));
+const deadVars = [...declaredVars].filter((name) => !usedVars.has(name));
+assert(deadVars.length === 0, `в стилях остались неиспользуемые переменные: ${deadVars.join(', ')}`);
+// И наоборот: необъявленная переменная молча даёт пустое значение.
+const undeclared = [...usedVars].filter((name) => !declaredVars.has(name));
+assert(undeclared.length === 0, `используются необъявленные переменные: ${undeclared.join(', ')}`);
 // Светлая тема: переключатель есть, тема применяется до первой отрисовки.
 assert(/id="theme-toggle"/.test(drawerMarkup), 'нет переключателя темы');
 assert(/llmcat\.theme/.test(drawerMarkup), 'тема не восстанавливается до первой отрисовки');
@@ -398,18 +413,13 @@ assert(/:root\[data-theme='light'\]/.test(sticky), 'в стилях нет св�
 assert(/color-scheme: light/.test(sticky), 'в светлой теме не объявлен color-scheme');
 // Все цвета в правилах — через переменные, иначе светлая тема оставит часть
 // вкладок тёмной: сегодня это ровно тот случай, который не видно на глаз.
-const rules = sticky.slice(sticky.indexOf('* {'));
 const literalColors = new Set(
-  [...rules.matchAll(/(?:^|[\s;{])(?:color|background|border-color|background-color):\s*(#[0-9a-fA-F]{3,8}|rgba?\([^)]*\))/g)].map((m) => m[2]),
+  [...body.matchAll(/(?:^|[\s;{])(?:color|background|border-color|background-color):\s*(#[0-9a-fA-F]{3,8}|rgba?\([^)]*\))/g)].map((m) => m[2]),
 );
 assert(
   literalColors.size === 0,
   `в правилах есть прямые цвета (${[...literalColors].slice(0, 3).join(', ')}) — светлая тема их не перекроет`,
 );
-const declaredVars = new Set([...sticky.matchAll(/^\s*(--[a-z0-9-]+):/gm)].map((m) => m[1].slice(2)));
-const usedVars = new Set([...rules.matchAll(/var\(--([a-z0-9-]+)/g)].map((m) => m[1]));
-const undeclared = [...usedVars].filter((name) => !declaredVars.has(name));
-assert(undeclared.length === 0, `используются необъявленные переменные: ${undeclared.join(', ')}`);
 
 openFirstRow();
 assert(drawer.classList.contains('open'), 'карточка библиотеки не открылась');

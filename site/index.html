@@ -66,9 +66,8 @@
 </script>
 </head>
 <body>
-<div class="strip">
+<div class="wrap">
   <header class="top">
-    <div class="wrap-head">
     <div class="top-row">
       <h1>{{HEADING}}</h1>
       <div class="top-actions">
@@ -86,7 +85,6 @@
       <span class="stat"><b>{{PROVIDERS}}</b> {{STATS_PROVIDERS}}</span>
       <span class="stat">{{STATS_UPDATED}} <b id="generated">—</b></span>
     </div>
-    </div><!-- /.wrap-head -->
   </header>
 
   <nav class="crumbs" aria-label="{{NAV_SECTIONS}}">{{CRUMBS}}</nav>
@@ -147,18 +145,14 @@
   <noscript>
     <p class="empty">{{FOOTER_NOSCRIPT}}</p>
   </noscript>
-</div><!-- /.wrap -->
 
-<div class="strip">
   <footer>
-    <div class="wrap-foot">
-      <p>{{FOOTER_BUILD}} <code>node scripts/collect.mjs &amp;&amp; node scripts/enrich.mjs &amp;&amp; node scripts/build.mjs</code>.
-      {{FOOTER_MACHINE}}: <a href="{{ROOT}}data/libraries.json">libraries.json</a>,
-      {{FOOTER_AGENTS}}: <a href="{{ROOT}}llms.txt">llms.txt</a>.</p>
-      <p>{{FOOTER_KEYS}}</p>
-    </div>
+    <p>{{FOOTER_BUILD}} <code>node scripts/collect.mjs &amp;&amp; node scripts/enrich.mjs &amp;&amp; node scripts/build.mjs</code>.
+    {{FOOTER_MACHINE}}: <a href="{{ROOT}}data/libraries.json">libraries.json</a>,
+    {{FOOTER_AGENTS}}: <a href="{{ROOT}}llms.txt">llms.txt</a>.</p>
+    <p>{{FOOTER_KEYS}}</p>
   </footer>
-</div><!-- /.strip -->
+</div><!-- /.wrap -->
 
 <div class="drawer-backdrop" id="backdrop"></div>
 <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title"></aside>

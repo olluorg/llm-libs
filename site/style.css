@@ -13,8 +13,6 @@
   --radius: 10px;
   --mono: ui-monospace, "SF Mono", "JetBrains Mono", "Fira Code", Menlo, monospace;
   /* Ниже — цвета, у которых тёмный и светлый варианты разные. */
-  --bg-blur: rgba(13, 17, 23, 0.92);
-  --bg-header: linear-gradient(180deg, #131a26, var(--bg));
   --row-border: #1b2130;
   --chip-bg: #12161f;
   --chip-border: #2b4a6f;
@@ -46,18 +44,17 @@ body {
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* Полоса с отступами: сам блок занимает всю ширину окна, а содержимое внутри
-   него центрировано и ограничено 1400px.
-   Раньше .wrap сам был ограничен 1400px, и фон шапки и рамка подвала
-   обрывались по краям на широком экране — ровно та нелепость, на которую
-   указали при проверке. */
-.strip { width: 100%; }
-.wrap-head, .wrap-foot { max-width: 1400px; margin: 0 auto; padding-inline: 20px; }
+/* Сайт — одна центрированная колонка. Никаких полос на всю ширину окна:
+   на 2560px лента с узким содержимым внутри выглядит нелепо, и ровно эту
+   ошибку я сначала «починил», растянув фон шапки на весь экран. Разделители
+   живут внутри колонки, поэтому их концы совпадают с краями содержимого и
+   выглядят задуманно. */
 .wrap { max-width: 1400px; margin: 0 auto; padding: 0 20px 40px; }
 
+/* У шапки нет собственного фона: он и рисовал ту самую полосу во всю
+   ширину. Разделение делает тонкая линия по ширине колонки. */
 header.top {
   border-bottom: 1px solid var(--border);
-  background: var(--bg-header);
   padding: 26px 0 18px;
   margin-bottom: 18px;
 }
@@ -297,7 +294,6 @@ thead th::after { content: ''; position: absolute; inset: auto 0 -1px 0; height:
   table th:nth-child(3), table td:nth-child(3) { display: none; }
   table th:nth-child(7), table td:nth-child(7) { display: none; }
   .wrap { padding: 0 14px 40px; }
-  .wrap-head, .wrap-foot { padding-inline: 14px; }
 }
 
 @media (max-width: 820px) {
@@ -370,8 +366,6 @@ thead th::after { content: ''; position: absolute; inset: auto 0 -1px 0; height:
   --warn: #9a6700;
   --danger: #cf222e;
 
-  --bg-blur: rgba(255, 255, 255, 0.92);
-  --bg-header: linear-gradient(180deg, #f6f8fa, var(--bg));
   --row-border: #eaeef2;
   --chip-bg: #f2f4f7;
   --chip-border: #b6d4f7;
