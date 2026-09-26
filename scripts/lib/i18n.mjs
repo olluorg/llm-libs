@@ -165,7 +165,7 @@ const en = {
   'legend.runtime': 'runs the model itself (Ollama, vLLM, transformers, llama.cpp); Ollama, vLLM and llama.cpp start a server compatible with the <code>openai</code> client through <code>base_url</code>',
   'legend.support': 'vector databases, observability, evaluation, tokenizers, UI, MCP',
 
-  'legend.popularity': 'The default order is <b>popularity</b> = 2·log₁₀(stars) + log₁₀(registry counter) + 0.5 for tier A. Counters are log-scaled because their magnitudes are not comparable: boto3 gets 2.4 billion downloads a month, the crates.io counter is cumulative, and Go reports import counts. That is why ★ and ⬇ can be sorted separately: click a header.',
+  'legend.popularity': 'The default order is <b>popularity</b> = 2·log₁₀(stars) + log₁₀(registry counter) + 0.5 for tier A. Counters are log-scaled because their magnitudes are not comparable: one package gets hundreds of millions of downloads a month, another single digits, the crates.io counter is cumulative, and Go reports import counts. That is why ★ and ⬇ can be sorted separately: click a header.',
 
   'footer.build': 'Build:',
   'footer.machine': 'Machine-readable version:',
@@ -392,7 +392,7 @@ const ru = {
   'legend.runtime': 'считает модель сам (Ollama, vLLM, transformers, llama.cpp); Ollama, vLLM и llama.cpp поднимают сервер, совместимый с <code>openai</code>-клиентом через <code>base_url</code>',
   'legend.support': 'векторные БД, наблюдаемость, eval, токенизаторы, UI, MCP',
 
-  'legend.popularity': 'Порядок по умолчанию — <b>популярность</b> = 2·log₁₀(звёзды) + log₁₀(счётчик реестра) + 0.5 за tier A. Счётчики приведены к логарифму, потому что величины несопоставимы: boto3 ставят 2.4 млрд загрузок в месяц, у crates.io счётчик накопительный, у Go — число импортов. Поэтому ★ и ⬇ можно сортировать отдельно: клик по заголовку.',
+  'legend.popularity': 'Порядок по умолчанию — <b>популярность</b> = 2·log₁₀(звёзды) + log₁₀(счётчик реестра) + 0.5 за tier A. Счётчики приведены к логарифму, потому что величины несопоставимы: один пакет ставят сотни миллионов раз в месяц, другой — единицы, у crates.io счётчик накопительный, у Go — число импортов. Поэтому ★ и ⬇ можно сортировать отдельно: клик по заголовку.',
 
   'footer.build': 'Сборка каталога:',
   'footer.machine': 'Машиночитаемая версия:',
