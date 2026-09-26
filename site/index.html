@@ -86,7 +86,7 @@
       <select id="f-tier" title="{{FILTER_TIER}}"></select>
       <select id="f-license" title="{{FILTER_LICENSE}}"></select>
       <button id="reset">{{FILTER_RESET}}</button>
-      <span class="count" id="count">{{TOTAL}} / {{TOTAL}} {{FILTER_COUNT}}</span>
+      <span class="count" id="count" role="status" aria-live="polite">{{TOTAL}} / {{TOTAL}} {{FILTER_COUNT}}</span>
     </div>
     <p class="legend"><b>{{LEGEND_SDK}}</b> — {{LEGEND_SDK_TEXT}}<br>
       <b>{{LEGEND_GATEWAY}}</b> — {{LEGEND_GATEWAY_TEXT}}<br>
@@ -136,7 +136,7 @@
 </div>
 
 <div class="drawer-backdrop" id="backdrop"></div>
-<aside class="drawer" id="drawer"></aside>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title"></aside>
 
 <script src="{{ROOT}}assets/data.js"></script>
 <script src="{{ROOT}}assets/app.js"></script>

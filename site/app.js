@@ -148,6 +148,7 @@
         el.search.focus();
       }
       if (event.key === 'Escape') closeDrawer();
+      trapFocus(event);
     });
 
     render();
@@ -362,7 +363,16 @@
     }
     el.tbody.innerHTML = rows.map(rowHtml).join('');
     el.tbody.querySelectorAll('tr[data-id]').forEach((tr) => {
-      tr.addEventListener('click', () => openDrawer(tr.dataset.id));
+      tr.addEventListener('click', () => openDrawer(tr.dataset.id, tr));
+    });
+    el.tbody.querySelectorAll('.pkg-open').forEach((button) => {
+      button.addEventListener('click', (event) => {
+        event.stopPropagation();
+        // Идентификатор берём у строки, а не дублируем в кнопке: иначе он
+        // считается дважды при разборе разметки.
+        const row = event.target.closest('tr[data-id]');
+        if (row) openDrawer(row.dataset.id, button);
+      });
     });
   }
 
@@ -440,20 +450,26 @@
     return String(a).localeCompare(String(b), 'ru');
   }
 
+  /**
+   * Строка таблицы. У неё есть id — по нему работают якоря из подборки на
+   * странице языка, — и кнопка в первом столбце: клик по строке удобен мышью,
+   * но с клавиатуры карточку раньше было открыть нечем.
+   */
   function rowHtml(library) {
     const providerChips = (library.providers ?? [])
       .slice(0, 3)
       .map((p) => `<span class="chip p" title="${esc(providerMap.get(p)?.name ?? p)}">${esc(providerMap.get(p)?.name ?? p)}</span>`)
       .join('');
-    const role = roleInfo.get(library.role);
-    return `<tr data-id="${esc(library.id)}">
+    return `<tr data-id="${esc(library.id)}" id="${esc(library.id)}">
       <td>
-        <div class="pkg">${esc(library.name)} <span class="eco">· ${esc(library.ecosystem)}</span></div>
+        <button type="button" class="pkg-open" aria-expanded="false" aria-haspopup="dialog">
+          <span class="pkg">${esc(library.name)} <span class="eco">· ${esc(library.ecosystem)}</span></span>
+        </button>
         ${library.description ? `<div class="desc">${esc(library.description)}</div>` : ''}
       </td>
       <td>${esc(library.language)}</td>
       <td><div class="chips">${providerChips}${library.tier ? `<span class="chip tier-${esc(library.tier).toLowerCase()}">tier ${esc(library.tier)}</span>` : ''}</div></td>
-      <td><span class="role role-${esc(library.role)}" title="${esc(role?.description ?? '')}">${esc(role?.label ?? library.role)}</span></td>
+      <td><span class="role role-${esc(library.role)}" title="${esc(tr(`roleDesc.${library.role}`))}">${esc(tr(`role.${library.role}`))}</span></td>
       <td class="lic">${licenseCell(library)}</td>
       <td class="num">${library.stars ? compact(library.stars) : '—'}</td>
       <td class="num">${esc(downloadsLabel(library)) || '—'}</td>
@@ -473,7 +489,7 @@
     return `<span class="lic lic-${esc(family)}" title="${esc(title)}">${esc(library.licenseId ?? '—')}</span>`;
   }
 
-  function openDrawer(id) {
+  function openDrawer(id, source) {
     const library = libraries.find((l) => l.id === id);
     if (!library) return;
     const role = roleInfo.get(library.role);
@@ -505,7 +521,7 @@
 
     el.drawer.innerHTML = `
       <button class="close" id="drawer-close" title="${esc(tr('drawer.close'))}">✕</button>
-      <h2>${esc(library.name)}</h2>
+      <h2 id="drawer-title">${esc(library.name)}</h2>
       <div class="chips">
         <span class="role role-${esc(library.role)}">${esc(tr(`role.${library.role}`))}</span>
         ${providerNames.map((p) => `<span class="chip p">${esc(p)}</span>`).join('')}
@@ -532,11 +548,54 @@
     el.drawer.classList.add('open');
     el.backdrop.classList.add('open');
     el.drawer.scrollTop = 0;
+
+    // Доступность: карточка — это диалог. Помечаем источник, переносим фокус
+    // внутрь и удерживаем Tab внутри, пока карточка открыта. Раньше фокус
+    // оставался на строке таблицы, а скринридер не знал, что открылось.
+    const title = el.drawer.querySelector('#drawer-title');
+    if (title) {
+      title.id = 'drawer-title';
+      el.drawer.setAttribute('aria-labelledby', 'drawer-title');
+    }
+    if (source) {
+      source.setAttribute('aria-expanded', 'true');
+      lastFocused = source;
+    }
+    el.drawer.querySelector('#drawer-close')?.focus();
   }
 
+  /** Элемент, открывший карточку: возвращаем в него фокус при закрытии. */
+  let lastFocused = null;
+
   function closeDrawer() {
+    if (!el.drawer.classList.contains('open')) return;
     el.drawer.classList.remove('open');
     el.backdrop.classList.remove('open');
+    el.tbody.querySelectorAll('.pkg-open[aria-expanded="true"]').forEach((button) => {
+      button.setAttribute('aria-expanded', 'false');
+    });
+    // Возвращаем фокус туда, откуда карточку открыли, — иначе после Esc
+    // фокус падает на body и следующий Tab начинает с начала страницы.
+    if (lastFocused && document.contains?.(lastFocused)) lastFocused.focus();
+    lastFocused = null;
+  }
+
+  /** Tab не должен уводить фокус из открытой карточки на страницу под ней. */
+  function trapFocus(event) {
+    if (event.key !== 'Tab' || !el.drawer.classList.contains('open')) return;
+    const focusable = el.drawer.querySelectorAll(
+      'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])',
+    );
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && el.drawer.contains(document.activeElement) && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
   }
 
   function syncUrl() {

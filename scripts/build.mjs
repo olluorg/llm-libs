@@ -475,9 +475,9 @@ function rowHtml(library, locale = DEFAULT_LOCALE) {
     .map((id) => `<span class="chip p">${escapeHtml(providerMap.get(id)?.name ?? id)}</span>`)
     .join('');
 
-  return `<tr data-id="${escapeHtml(library.id)}">
+  return `<tr data-id="${escapeHtml(library.id)}" id="${escapeHtml(library.id)}">
         <td>
-          <div class="pkg">${escapeHtml(library.name)} <span class="eco">· ${escapeHtml(library.ecosystem)}</span></div>
+          <button type="button" class="pkg-open" aria-expanded="false" aria-haspopup="dialog"><span class="pkg">${escapeHtml(library.name)} <span class="eco">· ${escapeHtml(library.ecosystem)}</span></span></button>
           ${library.description ? `<div class="desc">${escapeHtml(library.description)}</div>` : ''}
         </td>
         <td>${escapeHtml(library.language)}</td>

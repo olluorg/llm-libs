@@ -160,6 +160,32 @@ td.lic { white-space: nowrap; }
 .lic-source { color: #9dc4f5; }
 .lic-other, .lic-unknown { color: var(--text-dim); border-style: dashed; }
 
+/* Строка таблицы: имя библиотеки — кнопка, чтобы карточку можно было открыть
+   с клавиатуры, а не только мышью. Вид остаётся прежним, без рамки. */
+.pkg-open {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.pkg-open:hover .pkg { color: var(--accent); }
+.pkg-open:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.pkg-open[aria-expanded='true'] .pkg { color: var(--accent); }
+
+/* Переход по якорю из подборки: строка, к которой перешли, подсвечивается,
+   иначе клик по «openai» в блоке «с чего начать» выглядит как ничего. */
+tr:target { background: var(--bg-elev-2); }
+tr:target .pkg { color: var(--accent); }
+tbody tr:hover { background: var(--bg-elev); }
+tbody tr { scroll-margin-top: var(--sticky-h, 120px); }
+
 .role {
   font-size: 12px; white-space: nowrap; color: var(--text-dim);
 }

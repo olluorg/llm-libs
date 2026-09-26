@@ -56,6 +56,14 @@ function createElement(tag = 'div') {
       for (const handler of listeners.get(type) ?? []) handler(event);
     },
     focus() {},
+    // Атрибуты нужны карточке: она помечает источник как раскрытый и вешает
+    // aria-labelledby. Стаб обязан это уметь, иначе тест проверял бы
+    // обрезанный код, а не настоящий.
+    attributes: new Map(),
+    setAttribute(name, value) { this.attributes.set(name, String(value)); },
+    getAttribute(name) { return this.attributes.get(name) ?? null; },
+    removeAttribute(name) { this.attributes.delete(name); },
+    contains(node) { return node === this; },
     querySelector(selector) {
       // Карточка рисуется в innerHTML, поэтому «находим» только нужные элементы.
       return selector === '#hint-reset' && this.innerHTML.includes('id="hint-reset"')
@@ -326,6 +334,17 @@ main.elements.get('reset').dispatch('click');
 assert(rowHandlers.length === 1, 'не удалось навесить обработчик клика по строке');
 const openFirstRow = rowHandlers[0][1];
 const openedLibrary = data.libraries.find((l) => l.id === firstRendered);
+
+// Карточка объявлена диалогом, и её заголовок связан с ней через aria-labelledby.
+const drawerMarkup = await fs.readFile(path.join(DIST_DIR, 'index.html'), 'utf8');
+assert(/<aside class="drawer"[^>]*role="dialog"/.test(drawerMarkup), 'карточка не объявлена как dialog');
+assert(/<aside class="drawer"[^>]*aria-modal="true"/.test(drawerMarkup), 'у карточки нет aria-modal');
+assert(/id="drawer"/.test(drawerMarkup) && /aria-labelledby="drawer-title"/.test(drawerMarkup), 'нет связи карточки с её заголовком');
+// Счётчик объявлен статусом: иначе скринридер не слышит, сколько записей
+// осталось после фильтрации.
+assert(/id="count"[^>]*role="status"/.test(drawerMarkup) || /id="count"[^>]*aria-live/.test(drawerMarkup), 'счётчик не объявлен как статус для скринридера');
+// Имя библиотеки — кнопка: с клавиатуры карточка иначе не открывается.
+assert(/<button type="button" class="pkg-open"/.test(drawerMarkup), 'имя библиотеки не сделано кнопкой');
 
 openFirstRow();
 assert(drawer.classList.contains('open'), 'карточка библиотеки не открылась');
@@ -735,6 +754,16 @@ for (const relative of languagePages) {
   assert(anchors.length > 0, `в ${relative} в подборке нет ссылок-якорей`);
   for (const id of anchors) {
     assert(ids.has(id), `в ${relative} якорь #${id} не соответствует ни одной записи языка ${language}`);
+  }
+  // Якорь должен вести в строку, которая реально есть в таблице: у строк
+  // обязан быть id, иначе переход по ссылке из подборки ничего не делает.
+  const rowIds = new Set();
+  for (const [, dataId, htmlId] of html.matchAll(/<tr data-id="([^"]+)" id="([^"]+)"/g)) {
+    assert(dataId === htmlId, `в ${relative} у строки data-id="${dataId}" и id="${htmlId}" расходятся`);
+    rowIds.add(htmlId);
+  }
+  for (const id of anchors) {
+    assert(rowIds.has(id), `в ${relative} якорь #${id} ведёт в строку без id — переход ничего не сделает`);
   }
   // «С чего начать»: не больше 5 записей, все — из этого языка.
   const picks = /<ul class="picks">[\s\S]*?<\/ul>/.exec(collection)?.[0] ?? '';
