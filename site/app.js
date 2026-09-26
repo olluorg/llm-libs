@@ -11,6 +11,18 @@
   const roleInfo = new Map((roles ?? []).map((r) => [r.id, r]));
 
   /**
+   * Имя провайдера под язык страницы. У провайдера может быть nameEn: без него
+   * в английскую версию попадало «OpenAI-совместимые API» — и в чипы строк,
+   * и в подсказку поиска.
+   */
+  const englishPage = (document.documentElement.lang ?? 'en') === 'en';
+  function providerName(id) {
+    const provider = providerMap.get(id);
+    if (!provider) return id;
+    return !englishPage && provider.nameEn ? provider.nameEn : provider.name;
+  }
+
+  /**
    * Группы фильтра «роль». По умолчанию показываем только то, что действительно
    * обращается к API провайдера: клиенты и шлюзы. Локальные рантаймы, фреймворки
    * и сопутствующие инструменты — отдельные группы, иначе они неотличимы от SDK.
@@ -83,11 +95,11 @@
 
   function init() {
     fillRoleChips();
-    fillSelect(el.language, uniq(libraries.map((l) => l.language)));
-    fillSelect(el.provider, providers.map((p) => [p.id, p.name]));
-    fillSelect(el.kind, uniq(libraries.map((l) => l.kind)));
-    fillSelect(el.status, uniq(libraries.map((l) => l.status)));
-    fillSelect(el.tier, ['A', 'B', 'C']);
+    fillSelect(el.language, uniq(libraries.map((l) => l.language)), 'filters.short.language');
+    fillSelect(el.provider, providers.map((p) => [p.id, providerName(p.id)]), 'filters.short.provider');
+    fillSelect(el.kind, uniq(libraries.map((l) => l.kind)), 'filters.short.kind');
+    fillSelect(el.status, uniq(libraries.map((l) => l.status)), 'filters.short.status');
+    fillSelect(el.tier, ['A', 'B', 'C'], 'filters.short.tier');
     fillLicenseSelect();
 
     applyIntent();
@@ -321,10 +333,19 @@
     });
   }
 
-  function fillSelect(node, options) {
+  /**
+   * Наполняет список. Подпись пустого пункта — название самого фильтра:
+   * у свёрнутого селекта было видно только «все», и шесть таких списков подряд
+   * ничем не отличались друг от друга. Короткое имя («Язык», «Провайдер»)
+   * короче и понятнее, чем длинное пояснение из подсказки.
+   */
+  function fillSelect(node, options, placeholderKey) {
     const values = options.map((o) => (Array.isArray(o) ? o : [o, o])).sort((a, b) => a[1].localeCompare(b[1]));
-    node.innerHTML = `<option value="">${esc(tr('filters.all'))}</option>` + values
-      .map(([value, label]) => `<option value="${esc(value)}">${esc(label)}</option>`)
+    // Каждый список передаёт своё имя; значение по умолчанию нужно только
+    // для вызова без подписи, и тогда показываем хоть что-то осмысленное.
+    const label = tr(placeholderKey ?? 'filters.short.language');
+    node.innerHTML = `<option value="">${esc(label)}</option>` + values
+      .map(([value, text]) => `<option value="${esc(value)}">${esc(text)}</option>`)
       .join('');
   }
 
@@ -388,7 +409,7 @@
       family,
       `${LICENSE_FAMILY_LABEL[family]} — ${counts.get(family)}`,
     ]);
-    fillSelect(el.license, options);
+    fillSelect(el.license, options, 'filters.short.license');
     el.license.value = state.licenseFamily;
   }
 
@@ -466,8 +487,8 @@
       library.name, library.displayName ?? '', library.description ?? '',
       library.language, library.role, library.kind, library.sdkApi, (library.features ?? []).join(' '),
       library.licenseId ?? '', library.licenseFamily ?? '',
-      (library.providers ?? []).map((p) => providerMap.get(p)?.name ?? p).join(' '),
-      (library.worksWith ?? []).map((p) => providerMap.get(p)?.name ?? p).join(' '),
+      (library.providers ?? []).map((p) => providerName(p)).join(' '),
+      (library.worksWith ?? []).map((p) => providerName(p)).join(' '),
       library.repo ?? '',
     ].join(' ').toLowerCase();
     return needle.split(/\s+/).every((token) => haystack.includes(token));
@@ -538,7 +559,7 @@
   function rowHtml(library) {
     const providerChips = (library.providers ?? [])
       .slice(0, 3)
-      .map((p) => `<span class="chip p" title="${esc(providerMap.get(p)?.name ?? p)}">${esc(providerMap.get(p)?.name ?? p)}</span>`)
+      .map((p) => `<span class="chip p" title="${esc(providerName(p))}">${esc(providerName(p))}</span>`)
       .join('');
     const label = (key) => esc(tr(key));
     return `<tr data-id="${esc(library.id)}" id="${esc(library.id)}">
@@ -574,8 +595,8 @@
     const library = libraries.find((l) => l.id === id);
     if (!library) return;
     const role = roleInfo.get(library.role);
-    const providerNames = (library.providers ?? []).map((p) => providerMap.get(p)?.name ?? p);
-    const worksWith = (library.worksWith ?? []).map((p) => providerMap.get(p)?.name ?? p);
+    const providerNames = (library.providers ?? []).map((p) => providerName(p));
+    const worksWith = (library.worksWith ?? []).map((p) => providerName(p));
     const rows = [
       [tr('drawer.role'), `${tr(`role.${library.role}`)} — ${tr(`roleDesc.${library.role}`)}`],
       [tr('drawer.kind'), library.kind],

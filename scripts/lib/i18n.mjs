@@ -43,9 +43,17 @@ const en = {
   'filters.status': 'Maintenance status',
   'filters.tier': 'Catalog tier',
   'filters.license': 'License',
-  'filters.all': 'all',
   'filters.reset': 'Reset',
   'filters.count': 'shown',
+
+  // Подпись пустого пункта в списке. Короткая: у свёрнутого селекта видно
+  // только её, и шесть одинаковых «All» подряд ни о чём не говорили.
+  'filters.short.language': 'Language',
+  'filters.short.provider': 'Provider',
+  'filters.short.kind': 'Type',
+  'filters.short.status': 'Status',
+  'filters.short.tier': 'Tier',
+  'filters.short.license': 'License',
 
   'role.api': 'Provider API clients only',
   'role.sdk': 'API clients',
@@ -261,9 +269,15 @@ const ru = {
   'filters.status': 'Состояние поддержки',
   'filters.tier': 'Уровень каталога',
   'filters.license': 'Лицензия',
-  'filters.all': 'все',
   'filters.reset': 'Сбросить',
   'filters.count': 'показано',
+
+  'filters.short.language': 'Язык',
+  'filters.short.provider': 'Провайдер',
+  'filters.short.kind': 'Тип',
+  'filters.short.status': 'Статус',
+  'filters.short.tier': 'Уровень',
+  'filters.short.license': 'Лицензия',
 
   'role.api': 'Только клиенты API',
   'role.sdk': 'Клиенты API',

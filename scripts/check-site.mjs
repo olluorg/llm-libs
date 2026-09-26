@@ -274,6 +274,43 @@ assert(
 );
 
 // ── 2. Сортировка кликом и фильтры ─────────────────────────────────────────
+//
+// У каждого списка пустой пункт подписан именем самого фильтра. Раньше там
+// было «все» у всех шести, и у свёрнутого селекта не было видно, что он
+// фильтрует.
+const firstOptionText = (id) => {
+  const html = main.elements.get(id).innerHTML;
+  return /<option value="">([^<]*)</.exec(html)?.[1] ?? '';
+};
+const filterIds = ['f-language', 'f-provider', 'f-kind', 'f-status', 'f-tier', 'f-license'];
+const placeholderLabels = filterIds.map(firstOptionText);
+for (const [index, id] of filterIds.entries()) {
+  const label = placeholderLabels[index];
+  assert(label.length > 0, `у ${id} пустой пункт без подписи`);
+  assert(
+    label !== STRINGS['filters.all'] && label !== RU_STRINGS['filters.all'],
+    `у ${id} пустой пункт по-прежнему «${label}» — по подписи фильтр не узнать`,
+  );
+}
+assert(
+  new Set(placeholderLabels).size === filterIds.length,
+  `подписи фильтров повторяются: [${placeholderLabels.join(', ')}] — их нельзя различить`,
+);
+// Русская страница должна называть те же фильтры по-русски.
+const ruMainBoot = boot({ strings: RU_STRINGS });
+const ruLabels = filterIds.map((id) => /<option value="">([^<]*)</.exec(ruMainBoot.elements.get(id).innerHTML)?.[1] ?? '');
+for (const [index, id] of filterIds.entries()) {
+  assert(ruLabels[index].length > 0, `у ${id} на русской странице пустой пункт без подписи`);
+  assert(
+    ruLabels[index] !== RU_STRINGS['filters.all'],
+    `у ${id} на русской странице пустой пункт по-прежнему «${ruLabels[index]}»`,
+  );
+}
+assert(
+  new Set(ruLabels).size === filterIds.length,
+  `русские подписи фильтров повторяются: [${ruLabels.join(', ')}]`,
+);
+
 main.sortHeaders[0].dispatch('click');
 assert(main.elements.get('rows').innerHTML.length > 0, 'после сортировки список стал пустым');
 main.sortHeaders[3].dispatch('click');
