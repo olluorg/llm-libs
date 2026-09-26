@@ -21,7 +21,7 @@ function ensureCacheDir() {
 }
 
 export class HttpError extends Error {
-  constructor(message, { status, url, body, rateLimitRemaining, retryAfter } = {}) {
+  constructor(message, { status, url, body, rateLimitRemaining, retryAfter, quotaExhausted } = {}) {
     super(message);
     this.name = 'HttpError';
     this.status = status;
@@ -31,6 +31,7 @@ export class HttpError extends Error {
     // прогон) от вторичного лимита (достаточно подождать и повторить).
     this.rateLimitRemaining = rateLimitRemaining;
     this.retryAfter = retryAfter;
+    this.quotaExhausted = quotaExhausted === true;
   }
 }
 
@@ -154,6 +155,20 @@ export async function getText(url, options = {}) {
 
       if (isRateLimited || response.status >= 500) {
         const reset = Number(response.headers.get('x-ratelimit-reset') ?? 0) * 1000;
+        // Исчерпанная часовая квота: ждать бесполезно, до сброса до часа.
+        // Такой запрос сразу помечаем в ошибке и отдаём вызывающему — он
+        // остановит фазу. Иначе collect ждал по 180 секунд на каждый
+        // репозиторий и прогон упирался в таймаут.
+        const hourlyExhausted = remainingHeader === '0';
+        if (hourlyExhausted) {
+          throw new HttpError(`HTTP ${response.status} для ${url}: часовая квота исчерпана`, {
+            status: response.status,
+            url,
+            rateLimitRemaining: 0,
+            retryAfter: retryAfterHeader || undefined,
+            quotaExhausted: true,
+          });
+        }
         const wait = Math.min(
           Math.max(retryAfterHeader * 1000, reset - Date.now(), 2 ** attempt * 1000),
           180_000,

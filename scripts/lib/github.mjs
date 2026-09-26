@@ -13,6 +13,18 @@ export function authHeaders() {
   return token ? { ...HEADERS, authorization: `Bearer ${token}` } : HEADERS;
 }
 
+/**
+ * Интервал между запросами к api.github.com.
+ *
+ * Часовая квота с токеном — 5000 запросов, то есть около 83 в минуту.
+ * Прежний общий интервал в 120 мс давал 480 в минуту, шестикратный перерасход:
+ * квота заканчивалась в середине сбора, и дальше каждый запрос упирался в 403.
+ * 800 мс — это 75 запросов в минуту, 4500 в час: запас есть.
+ */
+export function githubGapMs() {
+  return hasToken ? Number(process.env.GITHUB_GAP_MS ?? 800) : Number(process.env.GITHUB_GAP_MS ?? 61_000);
+}
+
 /** Из URL вида https://github.com/openai/openai-node → "openai/openai-node". */
 export function repoSlug(url) {
   if (!url || typeof url !== 'string') return null;

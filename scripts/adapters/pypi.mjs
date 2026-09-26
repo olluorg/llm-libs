@@ -62,11 +62,15 @@ export async function fetchMeta(name) {
 
   let downloads;
   try {
-    // pypistats — бесплатный сервис, поэтому аккуратный интервал и мягкая обработка ошибок.
+    // pypistats — бесплатный сервис с IP-лимитом и обновлением данных раз
+    // в сутки. Кэшируем на сутки: их же рекомендация — не дёргать один
+    // эндпоинт чаще раза в день. Без этого каждый прогон получал десятки
+    // 429 и упирался в ожидания.
     const { data: stats } = await getJson(`https://pypistats.org/api/packages/${encodeURIComponent(name)}/recent`, {
-      gapMs: 2000,
-      retries: 1,
+      gapMs: 1500,
+      retries: 2,
       timeoutMs: 15_000,
+      ttlMs: 24 * 60 * 60 * 1000,
     });
     downloads = stats?.data?.last_month;
   } catch (error) {

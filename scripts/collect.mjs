@@ -186,6 +186,9 @@ if (!options.curatedOnly) {
     logAd.info(`${candidates.size} кандидатов → ${accepted.length} прошли порог (score ≥ ${options.minScore})`);
 
     const collected = [];
+    // Флаг «квота GitHub кончилась»: он ставится, когда запрос упал с таким
+    // признаком, и тогда экосистема заканчивается досрочно, а не зависает.
+    let quotaHit = false;
     for (const candidate of accepted) {
       if (options.noFetch) {
         collected.push(candidateToRecord(candidate, { registry: {} }, config, id, adapter));
@@ -204,6 +207,14 @@ if (!options.curatedOnly) {
         }
         collected.push(candidateToRecord(candidate, meta, config, id, adapter));
       } catch (error) {
+        // Исчерпана часовая квота GitHub: ждать до сброса бессмысленно,
+        // запись без звёзд соберётся в следующем прогоне. Останавливаем
+        // только текущую экосистему — остальные реестры не от GitHub.
+        if (error.quotaExhausted) {
+          quotaHit = true;
+          logAd.warn(`${id}: часовая квота GitHub исчерпана, часть записей останется без звёзд до следующего прогона`);
+          break;
+        }
         logAd.debug(`fetchMeta ${candidate.name}: ${error.message}`);
         stats.errors.push({ ecosystem: id, package: candidate.name, error: error.message });
       }
