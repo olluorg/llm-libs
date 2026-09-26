@@ -25,6 +25,9 @@ const log = createLogger('build');
 
 const PRE_RENDER_LIMIT = 150; // строк в статической разметке (дальше — только JSON)
 
+// Сколько записей перечислять в секции подборки на странице языка.
+const COLLECTION_SECTION_LIMIT = 8;
+
 /**
  * Роли по умолчанию зависят от типа страницы:
  *  - главная и страница провайдера — только клиенты API и шлюзы (то, что
@@ -305,6 +308,7 @@ function render(tpl, { locale, root, urlPath, view, title, description, heading,
     .replaceAll('{{SEO_HEADING}}', escapeHtml(seoHeading(locale, view)))
     .replaceAll('{{SEO_TEXT}}', escapeHtml(seoText(locale, view, visible, hidden, roles)))
     .replaceAll('{{SEO_LINKS}}', seoLinks(sorted, prefix, view))
+    .replaceAll('{{COLLECTION}}', collectionHtml(locale, view, visible))
     .replaceAll('{{ROWS}}', shown.map((library) => rowHtml(library, locale)).join('\n'))
     // Служебные подстановки: часть строк содержит свою разметку (<b>, <code>),
     // поэтому подставляется как есть — все они из словаря, не из данных.
@@ -462,6 +466,119 @@ function compact(value) {
   if (parsed >= 1e6) return `${(parsed / 1e6).toFixed(1)}M`;
   if (parsed >= 1e3) return `${(parsed / 1e3).toFixed(1)}k`;
   return String(parsed);
+}
+
+// ── Подборка для страницы языка ────────────────────────────────────────────
+//
+// Смысл в том, чтобы страница отвечала на вопрос «что взять под мою задачу»,
+// а не просто выдавала таблицу. Текст собирается только из полей записи:
+// роль, вид, звёзды, дата релиза, возможности, наличие OpenAI-совместимого
+
+/** Одна строка «почему эта запись» — только факты из записи. */
+function pickFacts(locale, library) {
+  const parts = [];
+  // Роль в факты не берём: в русском «официальный клиенты API» читается
+  // неграмотно, а роль и так видна в секции и в колонке таблицы.
+  const kind = library.kind === 'official-sdk' ? t(locale, 'collection.official') : t(locale, 'collection.community');
+  parts.push(escapeHtml(kind));
+  if (library.providers?.length) {
+    parts.push(
+      escapeHtml(
+        library.providers.slice(0, 3).map((id) => providerMap.get(id)?.name ?? id).join(', '),
+      ),
+    );
+  }
+  const date = library.latestRelease ? t(locale, 'collection.facts')
+    .replace('%{stars}', library.stars ? compact(library.stars) : '—')
+    .replace('%{date}', library.latestRelease)
+    : (library.stars ? `★ ${compact(library.stars)}` : '');
+  if (date) parts.push(escapeHtml(date));
+  if (library.openaiCompatibleServer) parts.push(escapeHtml(t(locale, 'collection.compatibleServer')));
+  const features = (library.features ?? []).slice(0, 3).join(', ');
+  if (features) parts.push(escapeHtml(t(locale, 'collection.features').replace('%{features}', features)));
+  return parts.filter(Boolean).join(' · ');
+}
+
+function pickLink(library) {
+  return library.repo ?? library.registry?.url ?? library.homepage ?? '#';
+}
+
+/** «С чего начать»: официальные SDK и по одному самому популярному на провайдера. */
+function starterPicks(locale, subset, limit = 5) {
+  const sorted = sortForSeo(subset);
+  const picked = [];
+  const seenProviders = new Set();
+  for (const library of sorted) {
+    if (picked.length >= limit) break;
+    if (library.kind !== 'official-sdk' && (library.providers ?? []).some((p) => seenProviders.has(p))) continue;
+    picked.push(library);
+    for (const provider of library.providers ?? []) seenProviders.add(provider);
+  }
+  // Если официальных SDK мало, добираем популярными фреймворками и рантаймами.
+  if (picked.length < limit) {
+    for (const library of sorted) {
+      if (picked.length >= limit) break;
+      if (!picked.includes(library)) picked.push(library);
+    }
+  }
+  return picked;
+}
+
+/**
+ * Подборка для страницы языка: вводный абзац, «с чего начать» и секции по
+ * ролям. Полный список остаётся в таблице с фильтрами — здесь только навигация
+ * и пояснения, чтобы страница не дублировала саму себя.
+ */
+function collectionHtml(locale, view, subset) {
+  if (!view.language) return '';
+
+  const language = view.language;
+  const roleCounts = countBy(subset, (library) => library.role);
+  const roles = roleList
+    .filter((role) => roleCounts.get(role.id))
+    .map((role) => `${t(locale, `role.${role.id}`).toLowerCase()} — ${roleCounts.get(role.id)}`)
+    .join(', ');
+  const providers = [...countBy(subset.flatMap((library) => library.providers), (id) => id).entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5)
+    .map(([id, count]) => `${providerMap.get(id)?.name ?? id} (${count})`)
+    .join(', ');
+
+  const picks = starterPicks(locale, subset).map(
+    (library) => `        <li><a href="#${escapeHtml(library.id)}"><b>${escapeHtml(library.name)}</b></a> — ${pickFacts(locale, library)}</li>`,
+  );
+
+  const sections = roleList
+    .filter((role) => roleCounts.get(role.id))
+    .map((role) => {
+      const inRole = sortForSeo(subset.filter((library) => library.role === role.id));
+      const shown = inRole.slice(0, COLLECTION_SECTION_LIMIT);
+      const items = shown
+        .map((library) => `          <li><a href="#${escapeHtml(library.id)}">${escapeHtml(library.name)}</a> — ${pickFacts(locale, library)}</li>`)
+        .join('\n');
+      return `      <section class="collection-section" data-role="${escapeHtml(role.id)}">
+        <h3>${escapeHtml(t(locale, 'collection.section', { label: t(locale, `role.${role.id}`), count: inRole.length }))}</h3>
+        <p class="section-hint">${escapeHtml(t(locale, 'collection.sectionHint', { description: t(locale, `roleDesc.${role.id}`) }))}</p>
+        <ul>
+${items}
+        </ul>
+      </section>`;
+    })
+    .join('\n');
+
+  return `  <section class="collection" data-collection="${escapeHtml(language)}">
+    <p class="collection-intro">${escapeHtml(t(locale, 'collection.intro', { count: subset.length, language, roles, providers }))}</p>
+
+    <h2>${escapeHtml(t(locale, 'collection.startHere'))}</h2>
+    <p>${escapeHtml(t(locale, 'collection.startHereHint', { language }))}</p>
+    <ul class="picks">
+${picks.join('\n')}
+    </ul>
+
+${sections}
+
+    <p class="collection-more"><a href="#catalog">${escapeHtml(t(locale, 'collection.tableHint'))} ↓</a></p>
+  </section>`;
 }
 
 function seoHeading(locale, view) {

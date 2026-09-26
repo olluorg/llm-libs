@@ -105,6 +105,17 @@ td.num span:first-child { font-size: 13px; color: var(--text); }
 .chip.status-beta { border-color: #2b4a6f; color: #9dc4f5; }
 
 /* Роль: главное отличие «клиента API» от локального рантайма и инфраструктуры. */
+/* Подборка на странице языка: вступление, «с чего начать» и секции по ролям. */
+.collection { margin: 18px 0; }
+.collection-intro { color: var(--text-dim); margin: 0 0 14px; }
+.collection h2 { font-size: 20px; margin: 18px 0 4px; }
+.collection h3 { font-size: 15px; margin: 16px 0 2px; }
+.collection .section-hint { color: var(--text-dim); font-size: 13px; margin: 0 0 6px; }
+.collection ul { margin: 0; padding-left: 18px; }
+.collection li { margin: 2px 0; font-size: 14px; }
+.collection .picks li b { font-weight: 600; }
+.collection-more { margin-top: 16px; font-size: 14px; }
+
 /* Лицензия: SPDX-идентификатор, цвет — по семейству. Copyleft заметнее:
    его ищут реже, но именно его легче всего пропустить при выборе. */
 td.lic { white-space: nowrap; }

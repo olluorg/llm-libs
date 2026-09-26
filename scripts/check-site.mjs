@@ -17,6 +17,7 @@ import vm from 'node:vm';
 
 import { createLogger } from './lib/log.mjs';
 import { DIST_DIR } from './lib/store.mjs';
+import { slugify as slugifyLanguage } from './lib/site-helpers.mjs';
 
 const log = createLogger('check-site');
 const failures = [];
@@ -76,10 +77,14 @@ const appSource = await fs.readFile(path.join(DIST_DIR, 'assets', 'app.js'), 'ut
 
 // Словарь интерфейса лежит в собранной странице: читаем его оттуда, чтобы
 // тесты проверяли настоящие строки, а не жёстко зашитый русский текст.
+// Признак конца — `;</script>`: внутри самих строк встречаются `};`
+// (например, «…задач на %{language}; остальное…»), поэтому искать `};` нельзя.
+const STRINGS_REGEX = /window\.__LLMDOCS_I18N__ = ([\s\S]*?);\s*<\/script>/;
 const indexMarkup = await fs.readFile(path.join(DIST_DIR, 'index.html'), 'utf8');
 const ruMarkup = await fs.readFile(path.join(DIST_DIR, 'ru', 'index.html'), 'utf8');
-const STRINGS = JSON.parse(/window\.__LLMDOCS_I18N__ = (\{[\s\S]*?\});/.exec(indexMarkup)[1]);
-const RU_STRINGS = JSON.parse(/window\.__LLMDOCS_I18N__ = (\{[\s\S]*?\});/.exec(ruMarkup)[1]);
+assert(STRINGS_REGEX.test(indexMarkup) && STRINGS_REGEX.test(ruMarkup), 'в собранной странице нет словаря интерфейса');
+const STRINGS = JSON.parse(STRINGS_REGEX.exec(indexMarkup)[1]);
+const RU_STRINGS = JSON.parse(STRINGS_REGEX.exec(ruMarkup)[1]);
 
 /** Текст счётчика в нужной локали: «306 of 504» / «306 из 504». */
 function countText(shown, total, strings = STRINGS) {
@@ -667,6 +672,76 @@ assert(
   ruMain.elements.get('drawer') !== null,
   'на русской странице не инициализировалась карточка',
 );
+
+// ── 7. Подборка на странице языка ─────────────────────────────────────────
+//
+// Страница языка должна отвечать на вопрос «что взять», а не только выдавать
+// таблицу: вступление, «с чего начать» и секции по ролям. Проверяем, что
+// счётчики в тексте совпадают с данными, а якоря ведут в существующие записи —
+// иначе поисковик получит подборку с выдуманными числами и битыми ссылками.
+const languagePages = htmlFiles.filter((name) => name.includes('languages/') && name.endsWith('.html'));
+assert(languagePages.length > 0, 'нет ни одной страницы языка');
+
+for (const relative of languagePages) {
+  const html = await fs.readFile(path.join(DIST_DIR, relative), 'utf8');
+  const slug = path.basename(relative, '.html');
+  const language = data.libraries.find((library) => library.language && slugifyLanguage(library.language) === slug)?.language;
+  if (!language) {
+    assert(false, `не нашёлся язык для страницы ${relative}`);
+    continue;
+  }
+  const subset = data.libraries.filter((library) => library.language === language);
+  const collection = /<section class="collection"[\s\S]*?(?=<table id="catalog")/.exec(html)?.[0] ?? '';
+  assert(collection.length > 0, `в ${relative} нет блока подборки`);
+
+  // Вступление называет настоящее число записей.
+  const intro = /class="collection-intro">([^<]*)</.exec(collection)?.[1] ?? '';
+  assert(
+    intro.includes(String(subset.length)),
+    `в ${relative} во вступлении нет числа ${subset.length}: «${intro.slice(0, 60)}»`,
+  );
+
+  // Секция должна быть на каждую роль, которая реально есть на этом языке.
+  const roleCounts = new Map();
+  for (const library of subset) roleCounts.set(library.role, (roleCounts.get(library.role) ?? 0) + 1);
+  const sections = [...collection.matchAll(/data-role="(\w+)"[\s\S]*?<h3>[^<]*— (\d+)<\/h3>/g)].map(([, role, count]) => [role, Number(count)]);
+  const expectedRoles = [...roleCounts.keys()].sort();
+  assert(
+    sections.map(([role]) => role).sort().join(',') === expectedRoles.join(','),
+    `в ${relative} секции [${sections.map(([role]) => role).join(', ')}] вместо ролей [${expectedRoles.join(', ')}]`,
+  );
+  // Сумма счётчиков по секциям равна числу записей языка: ничего не потеряно
+  // и ничего не посчитано дважды.
+  const total = sections.reduce((sum, [, count]) => sum + count, 0);
+  assert(total === subset.length, `в ${relative} сумма по секциям ${total}, а записей ${subset.length}`);
+  for (const [role, count] of sections) {
+    assert(
+      count === roleCounts.get(role),
+      `в ${relative} секция «${role}» показывает ${count}, а в данных ${roleCounts.get(role)}`,
+    );
+  }
+
+  // Каждый якорь в списках ведёт в запись этого языка. Ссылку «полный список»
+  // ссылку «полный список» внизу не проверяем: это не запись, а переход к таблице.
+  const ids = new Set(subset.map((library) => library.id));
+  const lists = [...collection.matchAll(/<ul[\s\S]*?<\/ul>/g)].map(([block]) => block).join('\n');
+  const anchors = [...lists.matchAll(/href="#([^"]+)"/g)].map(([, id]) => id);
+  assert(anchors.length > 0, `в ${relative} в подборке нет ссылок-якорей`);
+  for (const id of anchors) {
+    assert(ids.has(id), `в ${relative} якорь #${id} не соответствует ни одной записи языка ${language}`);
+  }
+  // «С чего начать»: не больше 5 записей, все — из этого языка.
+  const picks = /<ul class="picks">[\s\S]*?<\/ul>/.exec(collection)?.[0] ?? '';
+  const pickIds = [...picks.matchAll(/href="#([^"]+)"/g)].map(([, id]) => id);
+  assert(pickIds.length > 0 && pickIds.length <= 5, `в ${relative} «с чего начать» содержит ${pickIds.length} записей`);
+}
+
+// На главной и на срезе провайдера подборки нет: она осмысленна только там,
+// где человек пришёл за языком.
+for (const relative of ['index.html', 'providers.html', 'languages.html', 'providers/openai.html', 'ru/index.html']) {
+  const html = await fs.readFile(path.join(DIST_DIR, relative), 'utf8');
+  assert(!html.includes('class="collection"'), `в ${relative} подборка не нужна, но присутствует`);
+}
 
 // Словарь: обе локали должны знать одни и те же ключи.
 const missingInRu = Object.keys(STRINGS).filter((key) => !(key in RU_STRINGS));
