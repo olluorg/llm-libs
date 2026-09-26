@@ -76,7 +76,7 @@ const appSource = await fs.readFile(path.join(DIST_DIR, 'assets', 'app.js'), 'ut
 
 /** Поднимает app.js в чистом окружении и возвращает доступ к DOM-заглушкам. */
 function boot({ view = {}, referrer = '', search = '' } = {}) {
-  const ids = ['search', 'f-role', 'f-language', 'f-provider', 'f-kind', 'f-status', 'f-tier', 'count', 'rows', 'drawer', 'backdrop', 'reset', 'generated', 'hint'];
+  const ids = ['search', 'f-role', 'f-language', 'f-provider', 'f-kind', 'f-status', 'f-tier', 'f-license', 'count', 'rows', 'drawer', 'backdrop', 'reset', 'generated', 'hint'];
   const elements = new Map(ids.map((id) => [id, createElement()]));
 
   const sortHeaders = ['name', 'language', 'popular', 'updated'].map((sort) => {
@@ -235,6 +235,58 @@ assert(
 );
 main.elements.get('reset').dispatch('click');
 assert(main.elements.get('rows').innerHTML.length > 0, 'после сброса фильтров список пуст');
+
+// Фильтр по лицензии: семейства в списке должны совпадать с датасетом,
+// а выбор «разрешающая» — отдавать ровно те записи, у которых такая лицензия.
+const licenseSelect = main.elements.get('f-license');
+const offeredFamilies = [...licenseSelect.innerHTML.matchAll(/<option value="([^"]+)"/g)]
+  .map((match) => match[1])
+  .filter(Boolean)
+  .sort();
+const datasetFamilies = [...new Set(data.libraries.map((l) => l.licenseFamily ?? 'unknown'))].sort();
+assert(
+  offeredFamilies.join(',') === datasetFamilies.join(','),
+  `фильтр по лицензии предлагает [${offeredFamilies}] вместо семейств из датасета [${datasetFamilies}]`,
+);
+
+// Переключаем роли на «все», иначе считаем пересечение с фильтром по ролям,
+// который на главной по умолчанию ограничен клиентами API.
+main.elements.get('f-role').value = 'all';
+main.elements.get('f-role').dispatch('input');
+assert(
+  main.elements.get('count').textContent.startsWith(`${data.libraries.length} из`),
+  `фильтр ролей «все» показал не все записи: ${main.elements.get('count').textContent}`,
+);
+
+for (const family of offeredFamilies) {
+  const expected = data.libraries.filter((l) => (l.licenseFamily ?? 'unknown') === family);
+  licenseSelect.value = family;
+  licenseSelect.dispatch('input');
+  const shown = main.elements.get('count').textContent;
+  assert(
+    shown.startsWith(`${expected.length} из`),
+    `фильтр «${family}» показал ${shown} вместо ${expected.length}`,
+  );
+  const licenseIds = [...main.elements.get('rows').innerHTML.matchAll(/class="lic lic-[a-z]+"[^>]*>([^<]*)</g)].map((m) => m[1]);
+  assert(
+    new Set(licenseIds).size <= new Set(expected.map((l) => l.licenseId ?? '—')).size,
+    `в строках «${family}» встретились идентификаторы лицензий, которых нет в датасете`,
+  );
+}
+
+// Поиск должен находить по лицензии: «apache-2.0» — осмысленный запрос.
+main.elements.get('reset').dispatch('click');
+const apache = data.libraries.filter((l) => l.licenseId === 'Apache-2.0');
+if (apache.length) {
+  main.elements.get('search').value = 'apache-2.0';
+  main.elements.get('search').dispatch('input');
+  const byLicense = main.elements.get('count').textContent;
+  assert(
+    !byLicense.startsWith('0 из'),
+    `поиск по лицензии «apache-2.0» ничего не нашёл, хотя таких записей ${apache.length}`,
+  );
+  main.elements.get('reset').dispatch('click');
+}
 
 // ── 3. Карточка библиотеки ────────────────────────────────────────────────
 const drawer = main.elements.get('drawer');

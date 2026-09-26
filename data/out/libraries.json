@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-26T14:03:43.534Z",
+  "generatedAt": "2026-09-26T14:33:42.767Z",
   "counts": {
     "total": 504,
     "byEcosystem": {
@@ -119,6 +119,8 @@
       "install": "dotnet add package Microsoft.Extensions.AI.OpenAI",
       "homepage": "https://dot.net",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Microsoft.Extensions.AI.OpenAI",
         "version": "10.10.1",
@@ -159,6 +161,8 @@
       "install": "dotnet add package Microsoft.SemanticKernel.Connectors.OpenAI",
       "homepage": "https://aka.ms/semantic-kernel",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Microsoft.SemanticKernel.Connectors.OpenAI",
         "version": "1.80.1",
@@ -197,6 +201,8 @@
       ],
       "install": "dotnet add package Rystem.OpenAi",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Rystem.OpenAi",
         "version": "10.0.10",
@@ -237,6 +243,7 @@
       ],
       "envVars": [],
       "repo": "https://github.com/LaurentMazare/tch-rs",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://crates.io/crates/tch",
         "version": "0.26.0",
@@ -284,6 +291,8 @@
       "docs": "https://docs.anthropic.com/claude/reference",
       "homepage": "https://docs.anthropic.com/claude/reference",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Anthropic",
         "version": "12.50.0",
@@ -327,6 +336,8 @@
       "install": "dotnet add package Microsoft.Agents.AI.OpenAI",
       "homepage": "https://learn.microsoft.com/agent-framework",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Microsoft.Agents.AI.OpenAI",
         "version": "1.22.0",
@@ -365,6 +376,8 @@
       ],
       "install": "dotnet add package tryAGI.OpenAI",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/tryAGI.OpenAI",
         "version": "4.2.11-dev.25",
@@ -406,6 +419,8 @@
       "install": "dotnet add package Betalgo.OpenAI",
       "homepage": "https://openai.com",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Betalgo.OpenAI",
         "version": "8.7.2",
@@ -447,6 +462,7 @@
       ],
       "install": "dotnet add package Forge.OpenAI",
       "homepage": "https://openai.com",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://www.nuget.org/packages/Forge.OpenAI",
         "version": "1.6.2",
@@ -491,6 +507,8 @@
       ],
       "homepage": "https://www.pinecone.io",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/pinecone-client",
         "version": "6.0.0",
@@ -529,6 +547,7 @@
         "OPENAI_API_KEY"
       ],
       "install": "dotnet add package Universe.OpenAI.API",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://www.nuget.org/packages/Universe.OpenAI.API",
         "version": "0.9.5",
@@ -567,6 +586,7 @@
         "COHERE_API_KEY"
       ],
       "install": "pip install cohere-compass-sdk",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://pypi.org/project/cohere-compass-sdk",
         "version": "2.19.0",
@@ -610,6 +630,8 @@
       "install": "dotnet add package Anthropic.Bedrock",
       "homepage": "https://docs.anthropic.com/claude/reference",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Anthropic.Bedrock",
         "version": "0.13.3",
@@ -661,6 +683,8 @@
       "repo": "https://github.com/ollama/ollama",
       "homepage": "https://ollama.com",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/ollama/ollama",
         "version": "v0.34.4",
@@ -720,6 +744,8 @@
       "repo": "https://github.com/huggingface/transformers",
       "homepage": "https://github.com/huggingface/transformers",
       "license": "Apache 2.0 License",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/transformers",
         "version": "5.17.0",
@@ -786,6 +812,8 @@
       "docs": "https://docs.langchain.com",
       "homepage": "https://docs.langchain.com/langchain",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/langchain",
         "version": "1.4.2",
@@ -837,6 +865,8 @@
       "docs": "https://docs.langchain.com/oss/python/integrations/providers/anthropic",
       "homepage": "https://docs.langchain.com/langchain",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/langchain-anthropic",
         "version": "1.7.4",
@@ -887,6 +917,8 @@
       "repo": "https://github.com/langchain-ai/langchain",
       "homepage": "https://docs.langchain.com/langchain",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/langchain-aws",
         "version": "1.7.9",
@@ -939,6 +971,8 @@
       "docs": "https://docs.langchain.com/oss/python/integrations/providers/google",
       "homepage": "https://docs.langchain.com/langchain",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/langchain-google-genai",
         "version": "4.4.0",
@@ -996,6 +1030,8 @@
       "repo": "https://github.com/ggml-org/llama.cpp",
       "homepage": "https://llama.app",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/ggml-org/llama.cpp",
         "downloads": 23749,
@@ -1044,6 +1080,8 @@
       "install": "pip install openai-whisper",
       "repo": "https://github.com/openai/whisper",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/openai-whisper",
         "version": "20250625",
@@ -1093,6 +1131,8 @@
       "repo": "https://github.com/pytorch/pytorch",
       "homepage": "https://pytorch.org",
       "license": "Apache-2.0 AND Apache-2.0 WITH LLVM-exception AND BSD-2-Clause AND BSD-3-Clause…",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/torch",
         "version": "2.14.0",
@@ -1151,6 +1191,8 @@
       "docs": "https://docs.vllm.ai/en/latest",
       "homepage": "https://vllm.ai",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/vllm",
         "version": "0.30.0",
@@ -1202,6 +1244,8 @@
       "repo": "https://github.com/modelcontextprotocol/servers",
       "homepage": "https://modelcontextprotocol.io",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/mcp",
         "version": "1.4.2",
@@ -1260,6 +1304,8 @@
       "docs": "https://github.com/lobehub/lobe-chat",
       "homepage": "https://github.com/lobehub/lobe-chat",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@lobehub/chat",
         "version": "1.143.3",
@@ -1315,6 +1361,8 @@
       "repo": "https://github.com/microsoft/autogen",
       "homepage": "https://microsoft.github.io/autogen",
       "license": "MIT License Copyright (c) Microsoft Corporation. Permission is hereby granted, …",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/autogen-agentchat",
         "version": "0.7.5",
@@ -1372,6 +1420,8 @@
       "docs": "https://github.com/zya/litellmjs",
       "homepage": "https://github.com/zya/litellmjs",
       "license": "ISC",
+      "licenseId": "ISC",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/litellm",
         "version": "0.12.0",
@@ -1446,6 +1496,8 @@
       "docs": "https://docs.litellm.ai",
       "homepage": "https://docs.litellm.ai/docs",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/litellm",
         "version": "1.102.1",
@@ -1502,6 +1554,8 @@
       "docs": "https://docs.crewai.com",
       "homepage": "https://crewai.com",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/crewai",
         "version": "1.15.22",
@@ -1549,6 +1603,8 @@
       ],
       "install": "dotnet add package Cohere",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Cohere",
         "version": "1.0.2-dev.39",
@@ -1594,6 +1650,8 @@
       "docs": "https://github.com/run-llama/LlamaIndexTS",
       "homepage": "https://github.com/run-llama/LlamaIndexTS",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/llamaindex",
         "version": "0.12.1",
@@ -1650,6 +1708,8 @@
       "docs": "https://docs.llamaindex.ai/en/stable",
       "homepage": "https://developers.llamaindex.ai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/llama-index",
         "version": "0.14.25",
@@ -1701,6 +1761,8 @@
       "docs": "https://docs.llamaindex.ai/en/stable",
       "homepage": "https://developers.llamaindex.ai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/llama-index-core",
         "version": "0.14.25",
@@ -1757,6 +1819,8 @@
       "docs": "https://docs.phidata.com",
       "homepage": "https://docs.agno.com",
       "license": "Copyright (c) Phidata, Inc. Mozilla Public License Version 2.0 ================…",
+      "licenseId": "MPL-2.0",
+      "licenseFamily": "source",
       "registry": {
         "url": "https://pypi.org/project/phidata",
         "version": "2.7.10",
@@ -1812,6 +1876,8 @@
       "docs": "https://docs.langchain.com/oss/python/langgraph/overview",
       "homepage": "https://docs.langchain.com/oss/python/langgraph",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/langgraph",
         "version": "1.2.12",
@@ -1864,6 +1930,8 @@
       "repo": "https://github.com/google/langextract",
       "homepage": "https://pypi.org/project/langextract",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/langextract-azureopenai",
         "version": "0.1.7",
@@ -1917,6 +1985,8 @@
       "repo": "https://github.com/stanfordnlp/dspy",
       "homepage": "https://dspy.ai",
       "license": "MIT License Copyright (c) 2023 Stanford Future Data Systems Permission is hereb…",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/dspy",
         "version": "3.4.0",
@@ -1970,6 +2040,8 @@
       "docs": "https://langfuse.com/docs/observability/sdk/overview",
       "homepage": "https://langfuse.com/docs/observability/sdk/overview",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/langfuse",
         "version": "3.39.2",
@@ -2028,6 +2100,8 @@
       "repo": "https://github.com/langfuse/langfuse",
       "homepage": "https://langfuse.com",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/langfuse",
         "version": "4.15.6",
@@ -2094,6 +2168,8 @@
       "docs": "https://github.com/openai/openai-python",
       "homepage": "https://pypi.org/project/openai",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/openai",
         "version": "3.19.2",
@@ -2141,6 +2217,7 @@
       ],
       "install": "cargo add anthropic",
       "homepage": "https://github.com/abdelhamidbakhta/anthropic-rs",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://crates.io/crates/anthropic",
         "version": "0.0.8",
@@ -2180,6 +2257,8 @@
       "install": "gem install anthropic-rb",
       "homepage": "https://github.com/dickdavis/anthropic-rb",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/anthropic-rb",
         "version": "0.6.0",
@@ -2227,6 +2306,8 @@
       "repo": "https://github.com/openai/openai-agents-python",
       "homepage": "https://openai.github.io/openai-agents-python",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/openai-agents",
         "version": "0.22.3",
@@ -2282,6 +2363,8 @@
       "repo": "https://github.com/huggingface/smolagents",
       "homepage": "https://huggingface.co/docs/smolagents",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/smolagents",
         "version": "1.26.0",
@@ -2334,6 +2417,8 @@
       "repo": "https://github.com/chroma-core/chroma",
       "homepage": "https://www.trychroma.com",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/chromadb",
         "version": "1.5.9",
@@ -2393,6 +2478,8 @@
       "repo": "https://github.com/microsoft/semantic-kernel",
       "homepage": "https://aka.ms/semantic-kernel",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Microsoft.SemanticKernel",
         "version": "1.80.1",
@@ -2446,6 +2533,8 @@
       "repo": "https://github.com/PrefectHQ/fastmcp",
       "homepage": "https://gofastmcp.com",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/fastmcp",
         "version": "4.0.10",
@@ -2500,6 +2589,8 @@
       "docs": "https://ai-sdk.dev/docs",
       "homepage": "https://ai-sdk.dev/docs",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@ai-sdk/anthropic",
         "version": "4.0.65",
@@ -2552,6 +2643,8 @@
       "docs": "https://ai-sdk.dev/docs",
       "homepage": "https://ai-sdk.dev/docs",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@ai-sdk/google",
         "version": "4.0.82",
@@ -2609,6 +2702,8 @@
       "docs": "https://ai-sdk.dev/docs",
       "homepage": "https://ai-sdk.dev/docs",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@ai-sdk/openai",
         "version": "4.0.78",
@@ -2672,6 +2767,8 @@
       "docs": "https://ai-sdk.dev/docs",
       "homepage": "https://ai-sdk.dev/docs",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@ai-sdk/openai-compatible",
         "version": "3.0.57",
@@ -2725,6 +2822,8 @@
       "docs": "https://ai-sdk.dev/docs",
       "homepage": "https://ai-sdk.dev/docs",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@ctilkaz/openai-compatible-ignore-unknown",
         "version": "3.0.16",
@@ -2792,6 +2891,8 @@
       "docs": "https://ai-sdk.dev/docs",
       "homepage": "https://ai-sdk.dev/docs",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/ai",
         "version": "7.0.116",
@@ -2847,6 +2948,8 @@
       "repo": "https://github.com/deepset-ai/haystack",
       "homepage": "https://haystack.deepset.ai",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/haystack-ai",
         "version": "3.2.0",
@@ -2906,6 +3009,8 @@
       "docs": "https://promptfoo.dev",
       "homepage": "https://promptfoo.dev",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/promptfoo",
         "version": "0.123.1",
@@ -2959,6 +3064,8 @@
       "docs": "https://docs.letta.com/letta-code",
       "homepage": "https://docs.letta.com",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/letta",
         "version": "0.33.2",
@@ -3012,6 +3119,8 @@
       "repo": "https://github.com/modelcontextprotocol/python-sdk",
       "homepage": "https://py.sdk.modelcontextprotocol.io",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/mcp",
         "version": "2.2.0",
@@ -3060,6 +3169,7 @@
       ],
       "install": "dotnet add package DevExpress.AIIntegration.OpenAI",
       "homepage": "https://www.devexpress.com/ai",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://www.nuget.org/packages/DevExpress.AIIntegration.OpenAI",
         "version": "26.1.5",
@@ -3102,6 +3212,8 @@
       "repo": "https://github.com/steipete/CodexBar",
       "homepage": "https://codex.bar",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/steipete/CodexBar",
         "downloads": 2008,
@@ -3151,6 +3263,8 @@
       "repo": "https://github.com/jina-ai/serve",
       "homepage": "https://github.com/jina-ai/jina",
       "license": "Apache 2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/jina",
         "version": "3.34.0",
@@ -3205,6 +3319,8 @@
       "repo": "https://github.com/guidance-ai/guidance",
       "homepage": "https://github.com/guidance-ai/guidance",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/guidance",
         "version": "0.3.1",
@@ -3255,6 +3371,8 @@
       "envVars": [],
       "repo": "https://github.com/huggingface/candle",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/candle",
         "version": "0.1.0",
@@ -3315,6 +3433,8 @@
       "repo": "https://github.com/pydantic/pydantic-ai",
       "homepage": "https://pydantic.dev/pydantic-ai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/pydantic-ai",
         "version": "2.51.0",
@@ -3363,6 +3483,7 @@
       "envVars": [],
       "repo": "https://github.com/openai/evals",
       "license": "NOASSERTION",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://github.com/openai/evals",
         "downloads": 3093,
@@ -3410,6 +3531,8 @@
       "envVars": [],
       "repo": "https://github.com/openai/tiktoken",
       "license": "MIT License Copyright (c) 2022 OpenAI, Shantanu Jain Permission is hereby grant…",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/tiktoken",
         "version": "0.14.0",
@@ -3462,6 +3585,8 @@
       "docs": "https://github.com/mlc-ai/web-llm",
       "homepage": "https://github.com/mlc-ai/web-llm",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@mlc-ai/web-llm",
         "version": "0.2.85",
@@ -3515,6 +3640,8 @@
       "repo": "https://github.com/confident-ai/deepeval",
       "homepage": "https://deepeval.com",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/deepeval",
         "version": "4.2.6",
@@ -3565,6 +3692,8 @@
       "docs": "https://github.com/langchain-ai/langchainjs/tree/main/libs/providers/langchain-anthropic",
       "homepage": "https://github.com/langchain-ai/langchainjs/tree/main/libs/providers/langchain-anthropic",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@langchain/anthropic",
         "version": "1.5.11",
@@ -3619,6 +3748,8 @@
       "docs": "https://github.com/langchain-ai/langchainjs/tree/main/langchain-core",
       "homepage": "https://github.com/langchain-ai/langchainjs/tree/main/langchain-core",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@langchain/core",
         "version": "1.2.12",
@@ -3670,6 +3801,8 @@
       "docs": "https://github.com/langchain-ai/langchainjs/tree/main/libs/providers/langchain-openai",
       "homepage": "https://github.com/langchain-ai/langchainjs/tree/main/libs/providers/langchain-openai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@langchain/openai",
         "version": "1.5.13",
@@ -3727,6 +3860,8 @@
       "docs": "https://github.com/langchain-ai/langchainjs/tree/main/libs/langchain",
       "homepage": "https://github.com/langchain-ai/langchainjs/tree/main/libs/langchain",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/langchain",
         "version": "1.5.12",
@@ -3775,6 +3910,8 @@
       "docs": "https://github.com/transitive-bullshit/chatgpt-api",
       "homepage": "https://github.com/transitive-bullshit/chatgpt-api",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/chatgpt",
         "version": "5.2.5",
@@ -3830,6 +3967,8 @@
       "docs": "https://github.com/huggingface/transformers.js",
       "homepage": "https://github.com/huggingface/transformers.js",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@huggingface/transformers",
         "version": "4.3.0",
@@ -3882,6 +4021,8 @@
       "repo": "https://github.com/dottxt-ai/outlines",
       "homepage": "https://dottxt-ai.github.io/outlines",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/outlines",
         "version": "1.3.3",
@@ -3935,6 +4076,8 @@
       "docs": "https://docs.ragas.io",
       "homepage": "https://docs.ragas.io",
       "license": "Apache License Version 2.0, January 2004 http://www.apache.org/licenses/ TERMS …",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/ragas",
         "version": "0.4.3",
@@ -3987,6 +4130,8 @@
       "repo": "https://github.com/Unstructured-IO/unstructured",
       "homepage": "https://www.unstructured.io",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/unstructured",
         "version": "0.27.8",
@@ -4039,6 +4184,8 @@
       "install": "git clone",
       "repo": "https://github.com/tisfeng/Easydict",
       "license": "GPL-3.0",
+      "licenseId": "GPL-3.0",
+      "licenseFamily": "copyleft",
       "registry": {
         "url": "https://github.com/tisfeng/Easydict",
         "downloads": 757,
@@ -4092,6 +4239,8 @@
       ],
       "install": "npm i @claude-flow/embeddings",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@claude-flow/embeddings",
         "version": "3.0.0-alpha.45",
@@ -4140,6 +4289,8 @@
       "repo": "https://github.com/567-labs/instructor",
       "homepage": "https://python.useinstructor.com",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/instructor",
         "version": "1.17.0",
@@ -4193,6 +4344,8 @@
       "docs": "https://modelcontextprotocol.io",
       "homepage": "https://modelcontextprotocol.io",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@modelcontextprotocol/sdk",
         "version": "1.30.1",
@@ -4239,6 +4392,8 @@
       ],
       "install": "pip install mistralai-search-toolkit",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/mistralai-search-toolkit",
         "version": "0.0.14",
@@ -4291,6 +4446,8 @@
       "repo": "https://github.com/langchain4j/langchain4j",
       "homepage": "https://docs.langchain4j.dev",
       "license": "The Apache Software License, Version 2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/dev.langchain4j/langchain4j",
         "version": "1.20.1"
@@ -4340,6 +4497,8 @@
       "repo": "https://github.com/langchain4j/langchain4j",
       "homepage": "https://docs.langchain4j.dev",
       "license": "The Apache Software License, Version 2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-anthropic",
         "version": "1.20.1",
@@ -4392,6 +4551,8 @@
       "repo": "https://github.com/langchain4j/langchain4j",
       "homepage": "https://docs.langchain4j.dev",
       "license": "The Apache Software License, Version 2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-open-ai",
         "version": "1.20.1"
@@ -4448,6 +4609,8 @@
       "docs": "https://portkey.ai/docs",
       "homepage": "https://portkey.ai/docs",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/portkey",
         "version": "1.1.0",
@@ -4495,6 +4658,8 @@
       "install": "gem install openai-please",
       "homepage": "https://github.com/12joan/please",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/openai-please",
         "version": "0.2.0",
@@ -4539,6 +4704,8 @@
       "repo": "https://github.com/bentoml/OpenLLM",
       "homepage": "https://bentoml.com",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {},
       "github": {
         "stars": 12549,
@@ -4585,6 +4752,8 @@
       "repo": "https://github.com/lancedb/lancedb",
       "homepage": "https://lancedb.com/docs",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/lancedb",
         "version": "0.39.0",
@@ -4649,6 +4818,8 @@
       "docs": "https://github.com/openai/openai-node",
       "homepage": "https://github.com/openai/openai-node",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/openai",
         "version": "7.23.0",
@@ -4700,6 +4871,8 @@
       "repo": "https://github.com/huggingface/tokenizers",
       "homepage": "https://github.com/huggingface/tokenizers",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/tokenizers",
         "version": "0.23.2",
@@ -4750,6 +4923,7 @@
       "envVars": [
         "OPENAI_API_KEY"
       ],
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://crates.io/crates/oai",
         "version": "0.3.2",
@@ -4803,6 +4977,8 @@
       "install": "go get github.com/sashabaranov/go-openai",
       "repo": "https://github.com/sashabaranov/go-openai",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/sashabaranov/go-openai",
         "version": "v1.42.1",
@@ -4860,6 +5036,8 @@
       "docs": "https://llama-cpp-python.readthedocs.io/en/latest/changelog",
       "homepage": "https://llama-cpp-python.readthedocs.io",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/llama-cpp-python",
         "version": "0.3.35",
@@ -4918,6 +5096,8 @@
       "repo": "https://github.com/ollama/ollama-python",
       "homepage": "https://ollama.com",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/ollama",
         "version": "0.6.2",
@@ -4966,6 +5146,8 @@
       "install": "gem install openai_101",
       "homepage": "http://appydave.com/gems/openai_101",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/openai_101",
         "version": "1.2.8",
@@ -5019,6 +5201,8 @@
       "docs": "https://docs.aws.amazon.com/boto3/latest",
       "homepage": "https://github.com/boto/boto3",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/boto3",
         "version": "1.43.103",
@@ -5077,6 +5261,8 @@
       "repo": "https://github.com/tmc/langchaingo",
       "homepage": "https://tmc.github.io/langchaingo",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/tmc/langchaingo",
         "version": "v0.1.14",
@@ -5130,6 +5316,8 @@
       "repo": "https://github.com/spring-projects/spring-ai",
       "homepage": "https://spring.io/projects/spring-ai",
       "license": "Apache 2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/org.springframework.ai/spring-ai-anthropic",
         "version": "2.1.0-M1",
@@ -5177,6 +5365,8 @@
       "repo": "https://github.com/spring-projects/spring-ai",
       "homepage": "https://spring.io/projects/spring-ai",
       "license": "Apache 2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/org.springframework.ai/spring-ai-anthropic-spring-boot-starter",
         "version": "1.0.0-M6",
@@ -5222,6 +5412,8 @@
       "repo": "https://github.com/spring-projects/spring-ai",
       "homepage": "https://spring.io/projects/spring-ai",
       "license": "Apache 2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/org.springframework.ai/spring-ai-autoconfigure-model-anthropic",
         "version": "2.1.0-M1",
@@ -5273,6 +5465,8 @@
       "repo": "https://github.com/spring-projects/spring-ai",
       "homepage": "https://spring.io/projects/spring-ai",
       "license": "Apache 2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/org.springframework.ai/spring-ai-openai",
         "version": "2.1.0-M1"
@@ -5316,6 +5510,8 @@
       "repo": "https://github.com/taskforcesh/bullmq",
       "homepage": "https://bullmq.io",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://hex.pm/packages/bullmq",
         "version": "2.2.3",
@@ -5366,6 +5562,8 @@
       "repo": "https://github.com/ml-explore/mlx-examples",
       "homepage": "https://github.com/ml-explore/mlx-lm",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/mlx-lm",
         "version": "0.31.3",
@@ -5425,6 +5623,8 @@
       "repo": "https://github.com/0xPlaygrounds/rig",
       "homepage": "https://rig.rs",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/rig-core",
         "version": "0.42.0",
@@ -5478,6 +5678,7 @@
         "GEMINI_API_KEY"
       ],
       "install": "npm i smart-mcp",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://www.npmjs.com/package/smart-mcp",
         "version": "1.0.2",
@@ -5518,6 +5719,8 @@
       "repo": "https://github.com/anthropics/claude-agent-sdk-python",
       "docs": "https://docs.anthropic.com/en/docs/claude-code/sdk",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/claude-code-sdk",
         "version": "0.0.25",
@@ -5565,6 +5768,7 @@
         "AZURE_OPENAI_API_VERSION"
       ],
       "install": "pip install azureopenai",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://pypi.org/project/azureopenai",
         "version": "0.0.1",
@@ -5611,6 +5815,8 @@
       "repo": "https://github.com/genkit-ai/genkit",
       "homepage": "https://genkit.dev",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/firebase/genkit/go",
         "version": "v1.13.1",
@@ -5661,6 +5867,8 @@
       "repo": "https://github.com/Arthur-Ficial/apfel",
       "homepage": "https://apfel.franzai.com",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/Arthur-Ficial/apfel",
         "downloads": 245,
@@ -5708,6 +5916,8 @@
       "docs": "https://www.sanity.io",
       "homepage": "https://www.sanity.io",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/groq",
         "version": "6.16.0",
@@ -5759,6 +5969,8 @@
       "repo": "https://github.com/PrefectHQ/marvin",
       "homepage": "https://marvin.mintlify.app",
       "license": "Apache License Version 2.0, January 2004 http://www.apache.org/licenses/ TERMS …",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/marvin",
         "version": "3.2.7",
@@ -5814,6 +6026,8 @@
       "repo": "https://github.com/Helicone/helicone",
       "homepage": "https://www.helicone.ai",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/helicone",
         "version": "1.0.14",
@@ -5861,6 +6075,8 @@
       "repo": "https://github.com/elastic/go-elasticsearch",
       "homepage": "https://github.com/elastic/go-elasticsearch",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/elastic/go-elasticsearch/v8",
         "version": "v8.19.7",
@@ -5911,6 +6127,8 @@
       "docs": "https://github.com/Azure/azure-sdk-for-net",
       "homepage": "https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Extensions.OpenAI_2.0.0/sdk/ai/Azure.AI.Extensions.OpenAI/README.md",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Azure.AI.Extensions.OpenAI",
         "version": "3.0.0-beta.3",
@@ -5971,6 +6189,8 @@
       "docs": "https://github.com/Azure/azure-sdk-for-net",
       "homepage": "https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.OpenAI_2.1.0/sdk/openai/Azure.AI.OpenAI/README.md",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Azure.AI.OpenAI",
         "version": "2.9.0-beta.1",
@@ -6029,6 +6249,8 @@
       "install": "composer require openai-php/client",
       "repo": "https://github.com/openai-php/client",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/openai-php/client",
         "version": "v0.21.0",
@@ -6083,6 +6305,8 @@
       "install": "gem install net-llm",
       "homepage": "https://src.mokhan.ca/xlgmokha/net-llm",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/net-llm",
         "version": "0.6.1",
@@ -6126,6 +6350,8 @@
       "repo": "https://github.com/Azure/azure-sdk-for-python",
       "homepage": "https://github.com/Azure/azure-sdk-for-python/tree/main/sdk",
       "license": "MIT License",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/azure-ai-agents",
         "version": "1.1.0",
@@ -6181,6 +6407,8 @@
       "repo": "https://github.com/Azure/azure-sdk-for-python",
       "homepage": "https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai/azure-ai-inference",
       "license": "MIT License",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/azure-ai-inference",
         "version": "1.0.0b9",
@@ -6231,6 +6459,8 @@
       ],
       "repo": "https://github.com/Azure/azure-sdk-for-python",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/azure-ai-projects",
         "version": "2.7.0",
@@ -6286,6 +6516,8 @@
       "repo": "https://github.com/nguyenphutrong/quotio",
       "homepage": "https://www.quotio.dev",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/nguyenphutrong/quotio",
         "downloads": 324,
@@ -6331,6 +6563,8 @@
       "install": "mvn::",
       "repo": "https://github.com/TheoKanning/openai-java",
       "license": "The MIT License",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/com.theokanning.openai-gpt3-java/api",
         "version": "0.18.2",
@@ -6375,6 +6609,8 @@
       "install": "mvn::",
       "repo": "https://github.com/TheoKanning/openai-java",
       "license": "The MIT License",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/com.theokanning.openai-gpt3-java/client",
         "version": "0.18.2",
@@ -6428,6 +6664,8 @@
       "install": "mvn::",
       "repo": "https://github.com/TheoKanning/openai-java",
       "license": "The MIT License",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/com.theokanning.openai-gpt3-java/service",
         "version": "0.18.2",
@@ -6497,6 +6735,8 @@
       "repo": "https://github.com/crmne/ruby_llm",
       "homepage": "https://rubyllm.com",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/ruby_llm",
         "version": "2.0.0",
@@ -6556,6 +6796,8 @@
       "docs": "https://github.com/ollama/ollama-js",
       "homepage": "https://github.com/ollama/ollama-js",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/ollama",
         "version": "0.6.3",
@@ -6603,6 +6845,8 @@
       "install": "luarocks install chatgpt.nvim",
       "repo": "https://github.com/jackMort/ChatGPT.nvim",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://luarocks.org/modules/neorocks/chatgpt.nvim",
         "downloads": 22,
@@ -6663,6 +6907,8 @@
       "repo": "https://github.com/googleapis/python-genai",
       "homepage": "https://googleapis.github.io/python-genai",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/google-genai",
         "version": "2.25.0",
@@ -6710,6 +6956,8 @@
       "repo": "https://github.com/huggingface/huggingface_hub",
       "homepage": "https://github.com/huggingface/huggingface_hub",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/huggingface-hub",
         "version": "2.0.0",
@@ -6768,6 +7016,8 @@
       "install": "pip install anthropic",
       "repo": "https://github.com/anthropics/anthropic-sdk-python",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/anthropic",
         "version": "1.8.0",
@@ -6823,6 +7073,8 @@
       "repo": "https://github.com/SciSharp/LLamaSharp",
       "homepage": "https://scisharp.github.io/LLamaSharp",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/LLamaSharp",
         "version": "0.27.0",
@@ -6876,6 +7128,8 @@
       "install": "composer require openai-php/laravel",
       "repo": "https://github.com/openai-php/laravel",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/openai-php/laravel",
         "version": "v0.21.0",
@@ -6927,6 +7181,8 @@
       "repo": "https://github.com/modelcontextprotocol/java-sdk",
       "homepage": "https://java.sdk.modelcontextprotocol.io/latest",
       "license": "MIT License",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/io.modelcontextprotocol.sdk/mcp",
         "version": "2.0.1"
@@ -6986,6 +7242,8 @@
       "docs": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-bedrock-runtime",
       "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-bedrock-runtime",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@aws-sdk/client-bedrock-runtime",
         "version": "3.1141.0",
@@ -7039,6 +7297,8 @@
       "repo": "https://github.com/aws/aws-sdk-go-v2",
       "homepage": "https://docs.aws.amazon.com/sdk-for-go",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/bedrockruntime",
         "version": "v1.63.1",
@@ -7089,6 +7349,8 @@
       "repo": "https://github.com/aws/aws-sdk-ruby",
       "homepage": "https://github.com/aws/aws-sdk-ruby",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/aws-sdk-bedrockruntime",
         "version": "1.85.0",
@@ -7147,6 +7409,8 @@
       "install": "go get github.com/openai/openai-go/v3",
       "repo": "https://github.com/openai/openai-go",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/openai/openai-go/v3",
         "version": "v3.66.0",
@@ -7201,6 +7465,8 @@
       "docs": "https://github.com/langchain-ai/langgraphjs",
       "homepage": "https://github.com/langchain-ai/langgraphjs",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@langchain/langgraph",
         "version": "1.4.18",
@@ -7255,6 +7521,8 @@
       "repo": "https://github.com/alexrudall/ruby-openai",
       "homepage": "https://github.com/alexrudall/ruby-openai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/ruby-openai",
         "version": "8.3.0",
@@ -7307,6 +7575,8 @@
       "repo": "https://github.com/qdrant/fastembed",
       "homepage": "https://qdrant.github.io/fastembed",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/fastembed",
         "version": "0.8.1",
@@ -7361,6 +7631,8 @@
       "repo": "https://github.com/dotnet/extensions",
       "homepage": "https://dot.net",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Microsoft.Extensions.AI",
         "version": "10.10.0",
@@ -7408,6 +7680,8 @@
       "install": "git clone",
       "repo": "https://github.com/MacPaw/OpenAI",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/MacPaw/OpenAI",
         "downloads": 520,
@@ -7453,6 +7727,8 @@
       "install": ".package(url: ...)",
       "repo": "https://github.com/MacPaw/OpenAI",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/MacPaw/OpenAI",
         "downloads": 520,
@@ -7509,6 +7785,8 @@
       "repo": "https://github.com/UKGovernmentBEIS/inspect_ai",
       "homepage": "https://inspect.aisi.org.uk",
       "license": "MIT License",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/inspect-ai",
         "version": "0.3.269",
@@ -7562,6 +7840,8 @@
       "docs": "https://github.com/warlockjs/ai-groq",
       "homepage": "https://github.com/warlockjs/ai-groq",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@warlock.js/ai-groq",
         "version": "5.23.0",
@@ -7605,6 +7885,8 @@
       "repo": "https://github.com/openlit/openlit",
       "homepage": "https://docs.openlit.io",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/openlit",
         "version": "1.45.0",
@@ -7658,6 +7940,8 @@
       "install": "mix deps.get ollama",
       "repo": "https://github.com/aaronrussell/ollama-ex",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://hex.pm/packages/ollama",
         "version": "0.9.0",
@@ -7710,6 +7994,8 @@
       "docs": "https://github.com/openai/openai-dotnet",
       "homepage": "https://github.com/openai/openai-dotnet/tree/OpenAI_2.14.0",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/OpenAI",
         "version": "2.14.0",
@@ -7758,6 +8044,8 @@
       ],
       "install": "pip install mistralai-search-toolkit-plugins-postgres",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/mistralai-search-toolkit-plugins-postgres",
         "version": "0.0.14",
@@ -7802,6 +8090,8 @@
       ],
       "repo": "https://github.com/aws/aws-sdk-java-v2",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/software.amazon.awssdk/bedrockruntime",
         "version": "2.55.6"
@@ -7859,6 +8149,8 @@
       "install": "mvn::",
       "repo": "https://github.com/Azure/azure-sdk-for-java",
       "license": "The MIT License (MIT)",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/com.azure/azure-ai-openai",
         "version": "1.0.0-beta.16"
@@ -7906,6 +8198,8 @@
       "install": "mvn::",
       "repo": "https://github.com/Azure/azure-sdk-for-java",
       "license": "The MIT License (MIT)",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/com.azure/azure-ai-openai-assistants",
         "version": "1.0.0-beta.5",
@@ -7952,6 +8246,8 @@
       "docs": "https://github.com/huggingface/huggingface.js",
       "homepage": "https://github.com/huggingface/huggingface.js",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@huggingface/inference",
         "version": "4.13.30",
@@ -8000,6 +8296,8 @@
       "docs": "https://github.com/huggingface/huggingface.js",
       "homepage": "https://github.com/huggingface/huggingface.js",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@huggingface/ollama-utils",
         "version": "0.0.18",
@@ -8058,6 +8356,8 @@
       "repo": "https://github.com/prism-php/prism",
       "homepage": "https://prismphp.com",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/prism-php/prism",
         "version": "v0.100.1",
@@ -8119,6 +8419,8 @@
       "docs": "https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/README.md",
       "homepage": "https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/README.md",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@azure/openai",
         "version": "2.0.0",
@@ -8173,6 +8475,8 @@
       "docs": "https://github.com/anthropics/anthropic-sdk-typescript",
       "homepage": "https://github.com/anthropics/anthropic-sdk-typescript",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@anthropic-ai/bedrock-sdk",
         "version": "0.33.8",
@@ -8229,6 +8533,8 @@
       "docs": "https://github.com/anthropics/anthropic-sdk-typescript",
       "homepage": "https://github.com/anthropics/anthropic-sdk-typescript",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@anthropic-ai/sdk",
         "version": "0.128.0",
@@ -8292,6 +8598,8 @@
       "repo": "https://github.com/64bit/async-openai",
       "homepage": "https://github.com/64bit/async-openai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/async-openai",
         "version": "0.42.0",
@@ -8346,6 +8654,8 @@
       "repo": "https://github.com/patterns-ai-core/langchainrb",
       "homepage": "https://rubygems.org/gems/langchainrb",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/langchainrb",
         "version": "0.19.5",
@@ -8399,6 +8709,8 @@
       "docs": "https://github.com/OkGoDoIt/OpenAI-API-dotnet",
       "homepage": "https://github.com/OkGoDoIt/OpenAI-API-dotnet",
       "license": "CC0-1.0",
+      "licenseId": "CC0-1.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Lofcz.Forks.OpenAI",
         "version": "2.1.1",
@@ -8450,6 +8762,7 @@
       ],
       "install": "cargo add huggingface",
       "repoDropped": true,
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://crates.io/crates/huggingface",
         "version": "0.1.0",
@@ -8497,6 +8810,8 @@
       ],
       "repo": "https://github.com/aallam/openai-kotlin",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/aallam/openai-kotlin",
         "downloads": 237,
@@ -8557,6 +8872,8 @@
       ],
       "repo": "https://github.com/LLPhant/LLPhant",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/theodo-group/llphant",
         "version": "1.0.3",
@@ -8604,6 +8921,8 @@
       "install": "git clone",
       "repo": "https://github.com/adamrushy/OpenAISwift",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/adamrushy/OpenAISwift",
         "downloads": 253,
@@ -8661,6 +8980,8 @@
       "docs": "https://github.com/googleapis/js-genai",
       "homepage": "https://github.com/googleapis/js-genai",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@google/genai",
         "version": "2.24.0",
@@ -8714,6 +9035,7 @@
       ],
       "install": "cargo add mistralai",
       "repoDropped": true,
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://crates.io/crates/mistralai",
         "version": "0.1.0",
@@ -8763,6 +9085,8 @@
       "repo": "https://github.com/sobelio/llm-chain",
       "homepage": "https://llm-chain.xyz",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/llm-chain",
         "version": "0.13.0",
@@ -8812,6 +9136,8 @@
       "repo": "https://github.com/sobelio/llm-chain",
       "homepage": "https://llm-chain.xyz",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/llm-chain-openai",
         "version": "0.13.0",
@@ -8862,6 +9188,8 @@
       "repo": "https://github.com/sobelio/llm-chain",
       "homepage": "https://llm-chain.xyz",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/llm-chain-openai-compatible",
         "version": "0.0.0",
@@ -8921,6 +9249,8 @@
       "install": "mvn::",
       "repo": "https://github.com/openai/openai-java",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/com.openai/openai-java",
         "version": "4.69.3"
@@ -8976,6 +9306,8 @@
       "install": "mvn::",
       "repo": "https://github.com/openai/openai-java",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/com.openai/openai-java-bedrock",
         "version": "4.69.3"
@@ -9022,6 +9354,8 @@
       ],
       "install": "mix deps.get req_anthropic",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://hex.pm/packages/req_anthropic",
         "version": "0.2.1",
@@ -9070,6 +9404,8 @@
       "install": "luarocks install minuet-ai.nvim",
       "repo": "https://github.com/milanglacier/minuet-ai.nvim",
       "license": "GPL-3.0",
+      "licenseId": "GPL-3.0",
+      "licenseFamily": "copyleft",
       "registry": {
         "url": "https://luarocks.org/modules/milanglacier/minuet-ai.nvim",
         "downloads": 245,
@@ -9116,6 +9452,8 @@
       "docs": "https://github.com/awaescher/OllamaSharp",
       "homepage": "https://github.com/awaescher/OllamaSharp",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/OllamaSharp",
         "version": "5.4.30",
@@ -9167,6 +9505,8 @@
       "repo": "https://github.com/qdrant/qdrant-client",
       "homepage": "https://qdrant.tech",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/qdrant-client",
         "version": "1.19.1",
@@ -9214,6 +9554,8 @@
       "install": "go get github.com/anthropics/anthropic-sdk-go",
       "repo": "https://github.com/anthropics/anthropic-sdk-go",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/anthropics/anthropic-sdk-go",
         "version": "v1.75.0",
@@ -9267,6 +9609,8 @@
       "repo": "https://github.com/brainlid/langchain",
       "homepage": "https://hexdocs.pm/langchain",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://hex.pm/packages/langchain",
         "version": "0.14.3",
@@ -9326,6 +9670,8 @@
       "repo": "https://github.com/googleapis/go-genai",
       "homepage": "https://pkg.go.dev/google.golang.org/genai",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/google.golang.org/genai",
         "version": "v1.71.0",
@@ -9367,6 +9713,8 @@
       "install": "luarocks install llm.nvim",
       "repo": "https://github.com/huggingface/llm.nvim",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://luarocks.org/modules/neorocks/llm.nvim",
         "downloads": 46,
@@ -9417,6 +9765,8 @@
       ],
       "install": "dotnet add package Olbrasoft.Text.Transformation.Cohere",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Olbrasoft.Text.Transformation.Cohere",
         "version": "10.0.5",
@@ -9466,6 +9816,8 @@
       "docs": "https://docs.smith.langchain.com",
       "homepage": "https://docs.smith.langchain.com",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/langsmith",
         "version": "0.14.1",
@@ -9524,6 +9876,8 @@
       "docs": "https://github.com/inngest/inngest-js/tree/main/packages/ai",
       "homepage": "https://github.com/inngest/inngest-js/tree/main/packages/ai",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@inngest/ai",
         "version": "0.1.8",
@@ -9571,6 +9925,8 @@
       "repo": "https://github.com/MichelNivard/gptstudio",
       "homepage": "https://github.com/MichelNivard/gptstudio",
       "license": "MIT + file LICENSE",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://cran.r-project.org/package=gptstudio",
         "version": "0.4.0",
@@ -9615,6 +9971,8 @@
       "install": "git clone",
       "repo": "https://github.com/37MobileTeam/iChatGPT",
       "license": "GPL-3.0",
+      "licenseId": "GPL-3.0",
+      "licenseFamily": "copyleft",
       "registry": {
         "url": "https://github.com/37MobileTeam/iChatGPT",
         "downloads": 157,
@@ -9665,6 +10023,8 @@
       "repo": "https://github.com/replicate/replicate-python",
       "homepage": "https://replicate.com",
       "license": "Apache License Version 2.0, January 2004 http://www.apache.org/licenses/ TERMS …",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/replicate",
         "version": "1.0.7",
@@ -9720,6 +10080,8 @@
       "repo": "https://github.com/googleapis/python-aiplatform",
       "homepage": "https://github.com/googleapis/python-aiplatform",
       "license": "Apache 2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/google-cloud-aiplatform",
         "version": "2.2.0",
@@ -9787,6 +10149,8 @@
       "repo": "https://github.com/jeremychone/rust-genai",
       "homepage": "https://github.com/jeremychone/rust-genai",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/genai",
         "version": "0.6.5",
@@ -9845,6 +10209,8 @@
       "repo": "https://github.com/jeremychone/rust-genai",
       "homepage": "https://github.com/jeremychone/rust-genai",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/genai-custom",
         "version": "0.0.0",
@@ -9893,6 +10259,7 @@
       ],
       "install": "git clone",
       "repo": "https://github.com/gety-ai/apple-on-device-openai",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://github.com/gety-ai/apple-on-device-openai",
         "downloads": 66,
@@ -9937,6 +10304,8 @@
       ],
       "install": "pip install ai-parrot-client-openai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/ai-parrot-client-openai",
         "version": "0.2.6",
@@ -9981,6 +10350,8 @@
       "repo": "https://github.com/go-kratos/blades",
       "homepage": "https://go-kratos.dev/blades",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/go-kratos/blades/contrib/openai",
         "version": "v0.3.0",
@@ -10030,6 +10401,8 @@
       "repo": "https://github.com/cloudwego/eino-ext",
       "homepage": "https://www.cloudwego.io/zh/docs/eino/core_modules/components",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/cloudwego/eino-ext",
         "version": "v0.0.0-20260924074145-3603a39473c3",
@@ -10075,6 +10448,8 @@
       ],
       "install": "pip install ai-parrot-client-anthropic",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/ai-parrot-client-anthropic",
         "version": "0.2.6",
@@ -10120,6 +10495,8 @@
       "install": "git clone",
       "repo": "https://github.com/SharpAI/SwiftLM",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/SharpAI/SwiftLM",
         "downloads": 54,
@@ -10171,6 +10548,8 @@
       "install": ".package(url: ...)",
       "repo": "https://github.com/SharpAI/SwiftLM",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/SharpAI/SwiftLM",
         "downloads": 54,
@@ -10223,6 +10602,8 @@
       "install": "pip install mistralai",
       "repo": "https://github.com/mistralai/client-python",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/mistralai",
         "version": "2.10.1",
@@ -10277,6 +10658,8 @@
       "docs": "https://github.com/RageAgainstThePixel/OpenAI-DotNet",
       "homepage": "https://github.com/RageAgainstThePixel/OpenAI-DotNet",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/OpenAI-DotNet",
         "version": "8.8.8",
@@ -10326,6 +10709,8 @@
       "repo": "https://github.com/dylanshine/openai-kit",
       "homepage": "https://platform.openai.com/docs/api-reference",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/dylanshine/openai-kit",
         "downloads": 116,
@@ -10372,6 +10757,8 @@
       "repo": "https://github.com/dylanshine/openai-kit",
       "homepage": "https://platform.openai.com/docs/api-reference",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/dylanshine/openai-kit",
         "downloads": 116,
@@ -10428,6 +10815,8 @@
       "docs": "https://github.com/Deuz-AI/Deuz-SDK",
       "homepage": "https://github.com/Deuz-AI/Deuz-SDK",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@deuz-sdk/core",
         "version": "2.1.0",
@@ -10474,6 +10863,7 @@
       "install": "cargo add adk-anthropic",
       "repo": "https://github.com/zavora-ai/adk-rust",
       "homepage": "https://www.zavora.ai",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://crates.io/crates/adk-anthropic",
         "version": "2.2.0",
@@ -10525,6 +10915,7 @@
       "install": "cargo add adk-mistralrs",
       "repo": "https://github.com/zavora-ai/adk-rust",
       "homepage": "https://adk-rust.com",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://crates.io/crates/adk-mistralrs",
         "version": "2.2.0",
@@ -10579,6 +10970,8 @@
       ],
       "repo": "https://github.com/jamesrochabrun/SwiftOpenAI",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/jamesrochabrun/SwiftOpenAI",
         "downloads": 130,
@@ -10632,6 +11025,8 @@
       "install": "git clone",
       "repo": "https://github.com/jamesrochabrun/SwiftOpenAI",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/jamesrochabrun/SwiftOpenAI",
         "downloads": 130,
@@ -10679,6 +11074,8 @@
       "install": ".package(url: ...)",
       "repo": "https://github.com/jamesrochabrun/SwiftOpenAI",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/jamesrochabrun/SwiftOpenAI",
         "downloads": 130,
@@ -10727,6 +11124,8 @@
       "repo": "https://github.com/cafferychen777/mLLMCelltype",
       "homepage": "https://cafferyang.com/mLLMCelltype",
       "license": "MIT + file LICENSE",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://cran.r-project.org/package=mLLMCelltype",
         "version": "2.0.8",
@@ -10779,6 +11178,8 @@
       "install": "pip install groq",
       "repo": "https://github.com/groq/groq-python",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/groq",
         "version": "1.7.0",
@@ -10827,6 +11228,8 @@
       "install": "pip install groqcloud",
       "repo": "https://github.com/groq/groq-python",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/groqcloud",
         "version": "0.4.0",
@@ -10876,6 +11279,8 @@
       "repo": "https://github.com/Gabriella439/grace",
       "homepage": "https://trygrace.dev",
       "license": "BSD-3-Clause",
+      "licenseId": "BSD-3-Clause",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/Gabriella439/grace",
         "downloads": 47,
@@ -10934,6 +11339,8 @@
       "repo": "https://github.com/tidyverse/ellmer",
       "homepage": "https://ellmer.tidyverse.org",
       "license": "MIT + file LICENSE",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://cran.r-project.org/package=ellmer",
         "version": "0.5.0",
@@ -10986,6 +11393,8 @@
       "docs": "https://github.com/replicate/replicate-javascript",
       "homepage": "https://github.com/replicate/replicate-javascript",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/replicate",
         "version": "1.4.0",
@@ -11030,6 +11439,8 @@
       "repo": "https://github.com/agentjido/req_llm",
       "homepage": "https://jido.run/ecosystem/req_llm",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://hex.pm/packages/req_llm",
         "version": "1.25.0",
@@ -11081,6 +11492,8 @@
       "repo": "https://github.com/xai-org/xai-sdk-python",
       "docs": "https://docs.x.ai",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/xai-sdk",
         "version": "1.20.0",
@@ -11128,6 +11541,8 @@
       "install": "luarocks install neoai.nvim",
       "repo": "https://github.com/Bryley/neoai.nvim",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://luarocks.org/modules/neorocks/neoai.nvim",
         "downloads": 6119,
@@ -11173,6 +11588,8 @@
       "install": "composer require deepseek-php/deepseek-php-client",
       "repo": "https://github.com/deepseek-php/deepseek-php-client",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/deepseek-php/deepseek-php-client",
         "version": "2.1.0",
@@ -11229,6 +11646,8 @@
       "repo": "https://github.com/openai/openai-ruby",
       "homepage": "https://gemdocs.org/gems/openai",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/openai",
         "version": "0.95.0",
@@ -11277,6 +11696,8 @@
       "install": "go get github.com/rakyll/openai-go",
       "repo": "https://github.com/rakyll/openai-go",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/rakyll/openai-go",
         "version": "v1.0.9",
@@ -11324,6 +11745,8 @@
       "repo": "https://github.com/m1guelpf/swift-realtime-openai",
       "homepage": "https://swiftpackageindex.com/m1guelpf/swift-realtime-openai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/m1guelpf/swift-realtime-openai",
         "downloads": 121,
@@ -11370,6 +11793,8 @@
       "repo": "https://github.com/m1guelpf/swift-realtime-openai",
       "homepage": "https://swiftpackageindex.com/m1guelpf/swift-realtime-openai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/m1guelpf/swift-realtime-openai",
         "downloads": 121,
@@ -11423,6 +11848,8 @@
       "repo": "https://github.com/cohere-ai/cohere-python",
       "homepage": "https://docs.cohere.ai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/cohere",
         "version": "7.1.1",
@@ -11480,6 +11907,8 @@
       "repo": "https://github.com/carloslfu/slotstream",
       "homepage": "https://sevrahq.com",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/carloslfu/slotstream",
         "downloads": 26,
@@ -11536,6 +11965,8 @@
       "repo": "https://github.com/googleapis/java-genai",
       "homepage": "https://googleapis.github.io/java-genai/javadoc",
       "license": "The Apache License, Version 2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/com.google.genai/google-genai",
         "version": "1.73.0"
@@ -11591,6 +12022,8 @@
       "repo": "https://github.com/carloslfu/slotstream",
       "homepage": "https://sevrahq.com",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/carloslfu/slotstream",
         "downloads": 26,
@@ -11634,6 +12067,8 @@
       "install": "mvn::",
       "repo": "https://github.com/langchain4j/langchain4j-spring",
       "license": "The Apache Software License, Version 2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-anthropic-spring-boot-starter",
         "version": "1.20.1-beta30",
@@ -11684,6 +12119,8 @@
       "install": "mvn::",
       "repo": "https://github.com/anthropics/anthropic-sdk-java",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/com.anthropic/anthropic-java",
         "version": "2.65.0"
@@ -11735,6 +12172,8 @@
       "install": "mvn::",
       "repo": "https://github.com/anthropics/anthropic-sdk-java",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/com.anthropic/anthropic-java-bedrock",
         "version": "2.65.0"
@@ -11789,6 +12228,8 @@
       "docs": "https://leanroute.dev",
       "homepage": "https://leanroute.dev",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@leanroute/vercel-ai-sdk",
         "version": "0.1.1",
@@ -11835,6 +12276,8 @@
       "repo": "https://github.com/anthropics/anthropic-sdk-ruby",
       "homepage": "https://gemdocs.org/gems/anthropic",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/anthropic",
         "version": "1.73.0",
@@ -11884,6 +12327,8 @@
       "repo": "https://github.com/anthropics/anthropic-sdk-ruby",
       "homepage": "https://gemdocs.org/gems/anthropic-sdk-beta",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/anthropic-sdk-beta",
         "version": "0.1.0.pre.beta.8",
@@ -11930,6 +12375,8 @@
       "install": "mix deps.get openai",
       "repo": "https://github.com/mgallo/openai.ex",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://hex.pm/packages/openai",
         "version": "0.6.2",
@@ -11979,6 +12426,8 @@
       "envVars": [],
       "repoDropped": true,
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://hex.pm/packages/llm",
         "version": "0.2.1",
@@ -12018,6 +12467,8 @@
       "install": ".package(url: ...)",
       "repo": "https://github.com/adamlyttleapps/OpenAI-Wrapper-SwiftUI",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/adamlyttleapps/OpenAI-Wrapper-SwiftUI",
         "downloads": 69,
@@ -12063,6 +12514,8 @@
       "repo": "https://github.com/jcrodriguez1989/chatgpt",
       "homepage": "https://github.com/jcrodriguez1989/chatgpt",
       "license": "GPL (>= 3)",
+      "licenseId": "GPL-3.0",
+      "licenseFamily": "copyleft",
       "registry": {
         "url": "https://cran.r-project.org/package=chatgpt",
         "version": "0.2.3",
@@ -12109,6 +12562,8 @@
       "repo": "https://github.com/r-lib/httr2",
       "homepage": "https://httr2.r-lib.org",
       "license": "MIT + file LICENSE",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://cran.r-project.org/package=httr2",
         "version": "1.3.0",
@@ -12155,6 +12610,8 @@
       "install": ".package(url: ...)",
       "repo": "https://github.com/OpenDive/OpenAIKit",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/OpenDive/OpenAIKit",
         "downloads": 47,
@@ -12208,6 +12665,8 @@
       "docs": "https://github.com/groq/groq-typescript",
       "homepage": "https://github.com/groq/groq-typescript",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/groq-sdk",
         "version": "1.6.0",
@@ -12256,6 +12715,8 @@
       "repo": "https://github.com/gbaptista/ollama-ai",
       "homepage": "https://github.com/gbaptista/ollama-ai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/ollama-ai",
         "version": "1.3.0",
@@ -12309,6 +12770,8 @@
       "repo": "https://github.com/cequence-io/openai-scala-client",
       "homepage": "https://cequence.io",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/cequence-io/openai-scala-client",
         "downloads": 39,
@@ -12359,6 +12822,8 @@
       "repo": "https://github.com/cequence-io/openai-scala-client",
       "homepage": "https://cequence.io",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/io.cequence/openai-scala-anthropic-client_2.12",
         "version": "1.3.0",
@@ -12406,6 +12871,8 @@
       "repo": "https://github.com/cequence-io/openai-scala-client",
       "homepage": "https://cequence.io",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/io.cequence/openai-scala-anthropic-client_2.13",
         "version": "1.3.0",
@@ -12453,6 +12920,8 @@
       "repo": "https://github.com/cequence-io/openai-scala-client",
       "homepage": "https://cequence.io",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/io.cequence/openai-scala-anthropic-client_3",
         "version": "1.3.0",
@@ -12501,6 +12970,8 @@
       "repo": "https://github.com/wkok/openai-clojure",
       "homepage": "https://cljdoc.org/d/net.clojars.wkok/openai-clojure",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/wkok/openai-clojure",
         "downloads": 32,
@@ -12548,6 +13019,8 @@
       "repo": "https://github.com/SwiftBeta/SwiftOpenAI",
       "homepage": "https://www.swiftbeta.com",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/SwiftBeta/SwiftOpenAI",
         "downloads": 25,
@@ -12596,6 +13069,8 @@
       "repo": "https://github.com/vicentereig/dspy.rb",
       "homepage": "https://github.com/vicentereig/dspy.rb",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/dspy-ruby_llm",
         "version": "0.1.2",
@@ -12643,6 +13118,8 @@
       "repo": "https://github.com/alexrudall/ruby-anthropic",
       "homepage": "https://github.com/alexrudall/ruby-anthropic",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/ruby-anthropic",
         "version": "0.4.2",
@@ -12697,6 +13174,8 @@
       "docs": "https://weaviate-python-client.readthedocs.io",
       "homepage": "https://github.com/weaviate/weaviate-python-client",
       "license": "BSD 3-clause",
+      "licenseId": "BSD-3-Clause",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/weaviate-client",
         "version": "4.23.1",
@@ -12745,6 +13224,8 @@
       "repo": "https://github.com/unit-mesh/choco-builder",
       "homepage": "https://framework.unitmesh.cc",
       "license": "MPL-2.0",
+      "licenseId": "MPL-2.0",
+      "licenseFamily": "source",
       "registry": {
         "url": "https://central.sonatype.com/artifact/cc.unitmesh/openai",
         "version": "1.0.0",
@@ -12797,6 +13278,8 @@
       "docs": "https://github.com/tghamm/Anthropic.SDK",
       "homepage": "https://github.com/tghamm/Anthropic.SDK",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Anthropic.SDK",
         "version": "5.10.0",
@@ -12851,6 +13334,8 @@
       "install": "composer require gemini-api-php/client",
       "repo": "https://github.com/gemini-api-php/client",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/gemini-api-php/client",
         "version": "v1.7.2",
@@ -12907,6 +13392,8 @@
       "install": "composer require openai-php/symfony",
       "repo": "https://github.com/openai-php/symfony",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/openai-php/symfony",
         "version": "v0.19.0",
@@ -12956,6 +13443,8 @@
       "repo": "https://github.com/cyberchitta/openai_ex",
       "homepage": "https://hexdocs.pm/openai_ex",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://hex.pm/packages/openai_ex",
         "version": "0.9.22",
@@ -13011,6 +13500,8 @@
       "install": ".package(url: ...)",
       "repo": "https://github.com/Eric-Terminal/ETOS-LLM-Studio",
       "license": "GPL-3.0",
+      "licenseId": "GPL-3.0",
+      "licenseFamily": "copyleft",
       "registry": {
         "url": "https://github.com/Eric-Terminal/ETOS-LLM-Studio",
         "downloads": 23,
@@ -13058,6 +13549,8 @@
       "docs": "https://github.com/rileytomasek/openai-fetch",
       "homepage": "https://github.com/rileytomasek/openai-fetch",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/openai-functions",
         "version": "1.5.3",
@@ -13105,6 +13598,8 @@
       "repo": "https://github.com/Aesthetikx/openai_pipe",
       "homepage": "https://www.github.com/Aesthetikx/openai_pipe",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/openai_pipe",
         "version": "0.2.0",
@@ -13156,6 +13651,8 @@
       "repo": "https://github.com/gbaptista/gemini-ai",
       "homepage": "https://github.com/gbaptista/gemini-ai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/gemini-ai",
         "version": "4.3.0",
@@ -13202,6 +13699,8 @@
       "install": ".package(url: ...)",
       "repo": "https://github.com/mattt/OpenAI",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/mattt/OpenAI",
         "downloads": 15,
@@ -13247,6 +13746,8 @@
       "install": "composer require anthropic-ai/sdk",
       "repo": "https://github.com/anthropics/anthropic-sdk-php",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/anthropic-ai/sdk",
         "version": "v0.51.0",
@@ -13301,6 +13802,8 @@
       "docs": "https://github.com/googleapis/nodejs-vertexai",
       "homepage": "https://github.com/googleapis/nodejs-vertexai",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@google-cloud/vertexai",
         "version": "1.12.0",
@@ -13351,6 +13854,8 @@
       ],
       "install": "pip install aws_sdk_bedrock_agentcore",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/aws_sdk_bedrock_agentcore",
         "version": "0.11.0",
@@ -13395,6 +13900,8 @@
       ],
       "repo": "https://github.com/liushuangls/go-anthropic",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/liushuangls/go-anthropic",
         "version": "v1.6.0",
@@ -13447,6 +13954,8 @@
       "install": "go get github.com/liushuangls/go-anthropic/v2",
       "repo": "https://github.com/liushuangls/go-anthropic",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/liushuangls/go-anthropic/v2",
         "version": "v2.25.0",
@@ -13504,6 +14013,8 @@
       "docs": "https://github.com/gunpal5/Google_GenerativeAI",
       "homepage": "https://github.com/gunpal5/Google_GenerativeAI",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Google_GenerativeAI",
         "version": "3.6.7",
@@ -13558,6 +14069,8 @@
       "docs": "https://github.com/cohere-ai/cohere-typescript",
       "homepage": "https://github.com/cohere-ai/cohere-typescript",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/cohere-ai",
         "version": "8.1.0",
@@ -13618,6 +14131,8 @@
       "repo": "https://github.com/irudnyts/openai",
       "homepage": "https://github.com/irudnyts/openai",
       "license": "MIT + file LICENSE",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://cran.r-project.org/package=openai",
         "version": "0.4.1",
@@ -13665,6 +14180,8 @@
       "install": "go get github.com/mozilla-ai/any-llm-go",
       "repo": "https://github.com/mozilla-ai/any-llm-go",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/mozilla-ai/any-llm-go",
         "version": "v0.9.0",
@@ -13713,6 +14230,8 @@
       "install": ".package(url: ...)",
       "repo": "https://github.com/FuturraGroup/OpenAI",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/FuturraGroup/OpenAI",
         "downloads": 21,
@@ -13767,6 +14286,8 @@
       "docs": "https://github.com/mistralai/client-ts",
       "homepage": "https://github.com/mistralai/client-ts",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@mistralai/mistralai",
         "version": "2.7.0",
@@ -13815,6 +14336,7 @@
         "OPENAI_API_KEY"
       ],
       "install": "go get trpc.group/trpc-go/trpc-agent-go",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://pkg.go.dev/trpc.group/trpc-go/trpc-agent-go",
         "version": "v1.11.2",
@@ -13857,6 +14379,8 @@
       ],
       "install": "pip install aws_sdk_bedrock_agentcore_control",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/aws_sdk_bedrock_agentcore_control",
         "version": "0.11.0",
@@ -13905,6 +14429,8 @@
       "docs": "https://github.com/aws/aws-sdk-net",
       "homepage": "https://github.com/aws/aws-sdk-net",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/AWSSDK.BedrockRuntime",
         "version": "4.0.101.7",
@@ -13956,6 +14482,8 @@
       ],
       "install": "pip install aws_sdk_bedrock_agent",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/aws_sdk_bedrock_agent",
         "version": "0.11.0",
@@ -13998,6 +14526,8 @@
       "repo": "https://github.com/open-telemetry/opentelemetry-ruby-contrib",
       "homepage": "https://github.com/open-telemetry/opentelemetry-ruby-contrib",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/opentelemetry-instrumentation-anthropic",
         "version": "0.5.0",
@@ -14047,6 +14577,8 @@
       ],
       "install": "pip install aws_sdk_bedrock_agent_runtime",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/aws_sdk_bedrock_agent_runtime",
         "version": "0.11.0",
@@ -14086,6 +14618,8 @@
       "repo": "https://github.com/JBGruber/rollama",
       "homepage": "https://jbgruber.github.io/rollama",
       "license": "GPL (>= 3)",
+      "licenseId": "GPL-3.0",
+      "licenseFamily": "copyleft",
       "registry": {
         "url": "https://cran.r-project.org/package=rollama",
         "version": "0.3.1",
@@ -14131,6 +14665,8 @@
       "install": "cargo add openai",
       "repo": "https://github.com/rellfy/openai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/openai",
         "version": "1.1.1",
@@ -14177,6 +14713,8 @@
       "repo": "https://github.com/hauselin/ollama-r",
       "homepage": "https://hauselin.github.io/ollama-r",
       "license": "MIT + file LICENSE",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://cran.r-project.org/package=ollamar",
         "version": "1.2.2",
@@ -14229,6 +14767,8 @@
       "docs": "https://github.com/SAP/ai-sdk-js",
       "homepage": "https://github.com/SAP/ai-sdk-js",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@sap-ai-sdk/openai",
         "version": "2.16.0",
@@ -14289,6 +14829,8 @@
       "repo": "https://github.com/EndlessInternational/intelligence",
       "homepage": "https://github.com/EndlessInternational/intelligence",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/intelligence",
         "version": "1.0.0",
@@ -14344,6 +14886,7 @@
       "install": ".package(url: ...)",
       "repo": "https://github.com/NeelM0906/Mference",
       "license": "NOASSERTION",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://github.com/NeelM0906/Mference",
         "downloads": 14,
@@ -14389,6 +14932,8 @@
       "repo": "https://github.com/majiayu000/litellm-rs",
       "homepage": "https://github.com/majiayu000/litellm-rs",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/litellm-rs",
         "version": "0.6.0",
@@ -14437,6 +14982,8 @@
       "docs": "https://github.com/nordwestt/ollama-ai-provider-v2",
       "homepage": "https://github.com/nordwestt/ollama-ai-provider-v2",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/ollama-ai-provider-v2",
         "version": "4.0.1",
@@ -14487,6 +15034,8 @@
       "docs": "https://github.com/dluc/openai-tools",
       "homepage": "https://github.com/dluc/openai-tools",
       "license": "CC0-1.0",
+      "licenseId": "CC0-1.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/AI.Dev.OpenAI.GPT",
         "version": "1.0.2",
@@ -14533,6 +15082,8 @@
       "install": "mix deps.get ex_openai",
       "repo": "https://github.com/dvcrn/ex_openai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://hex.pm/packages/ex_openai",
         "version": "2.0.0-beta4",
@@ -14584,6 +15135,8 @@
       "docs": "https://github.com/rwjdk/agent-framework-toolkit",
       "homepage": "https://github.com/rwjdk/agent-framework-toolkit/wiki",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/AgentFrameworkToolkit.Cohere",
         "version": "1.22.0",
@@ -14634,6 +15187,8 @@
       ],
       "repo": "https://github.com/leafo/lua-openai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/leafo/lua-openai",
         "downloads": 9,
@@ -14685,6 +15240,8 @@
       "install": "luarocks install lua-openai",
       "repo": "https://github.com/leafo/lua-openai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://luarocks.org/modules/leafo/lua-openai",
         "downloads": 4155,
@@ -14731,6 +15288,8 @@
       "install": "go get github.com/gomlx/go-huggingface",
       "repo": "https://github.com/gomlx/go-huggingface",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/gomlx/go-huggingface",
         "version": "v0.4.12",
@@ -14781,6 +15340,8 @@
       ],
       "install": "mix deps.get huggingface_client",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://hex.pm/packages/huggingface_client",
         "version": "0.1.0",
@@ -14821,6 +15382,8 @@
       "install": "composer require gemini-api-php/laravel",
       "repo": "https://github.com/gemini-api-php/laravel",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/gemini-api-php/laravel",
         "version": "v0.3.0",
@@ -14879,6 +15442,8 @@
       "repo": "https://github.com/edubruell/tidyllm",
       "homepage": "https://edubruell.github.io/tidyllm",
       "license": "MIT + file LICENSE",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://cran.r-project.org/package=tidyllm",
         "version": "0.6.0",
@@ -14931,6 +15496,8 @@
       "docs": "https://docs.together.ai",
       "homepage": "https://pypi.org/project/together",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/together",
         "version": "2.37.0",
@@ -14984,6 +15551,8 @@
       "docs": "https://github.com/1openwindow/azure-openai-node",
       "homepage": "https://github.com/1openwindow/azure-openai-node",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/azure-openai",
         "version": "0.9.4",
@@ -15034,6 +15603,8 @@
       ],
       "repo": "https://github.com/langfuse/langfuse-java",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/langfuse/langfuse-java",
         "downloads": 14,
@@ -15081,6 +15652,8 @@
       "repo": "https://github.com/CJCrafter/ChatGPT-Java-API",
       "homepage": "https://openai.cjcrafter.com",
       "license": "The MIT License",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/com.cjcrafter/openai",
         "version": "2.1.1",
@@ -15128,6 +15701,8 @@
       "repo": "https://github.com/AI21Labs/ai21-python",
       "homepage": "https://docs.ai21.com/docs/sdk",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/ai21",
         "version": "4.3.0",
@@ -15176,6 +15751,8 @@
       "install": "go get github.com/cohere-ai/cohere-go/v2",
       "repo": "https://github.com/cohere-ai/cohere-go",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/cohere-ai/cohere-go/v2",
         "version": "v2.19.0",
@@ -15221,6 +15798,8 @@
       "install": "git clone",
       "repo": "https://github.com/zio-archive/zio-openai",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/zio-archive/zio-openai",
         "downloads": 13,
@@ -15266,6 +15845,8 @@
       "install": "mvn::",
       "repo": "https://github.com/xemantic/anthropic-sdk-kotlin",
       "license": "The MIT License",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/com.xemantic.anthropic/anthropic-sdk-kotlin-linuxarm64",
         "version": "0.11",
@@ -15310,6 +15891,8 @@
       "install": "mvn::",
       "repo": "https://github.com/xemantic/anthropic-sdk-kotlin",
       "license": "The MIT License",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/com.xemantic.anthropic/anthropic-sdk-kotlin-linuxx64",
         "version": "0.11",
@@ -15354,6 +15937,8 @@
       "install": "mvn::",
       "repo": "https://github.com/xemantic/anthropic-sdk-kotlin",
       "license": "The MIT License",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/com.xemantic.anthropic/anthropic-sdk-kotlin-mingwx64",
         "version": "0.11",
@@ -15395,6 +15980,8 @@
       "repo": "https://github.com/agentjido/llmdb",
       "homepage": "https://llmcatalog.dev",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://hex.pm/packages/llm_db",
         "version": "2026.9.7",
@@ -15446,6 +16033,8 @@
       "repo": "https://github.com/bug-ops/zeph",
       "homepage": "https://github.com/bug-ops/zeph",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/zeph-llm",
         "version": "0.22.5",
@@ -15500,6 +16089,7 @@
       ],
       "install": "pip install anthropic-bedrock",
       "repo": "https://github.com/anthropics/anthropic-bedrock-python",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://pypi.org/project/anthropic-bedrock",
         "version": "0.8.0",
@@ -15550,6 +16140,8 @@
       "install": "go get github.com/hupe1980/go-huggingface",
       "repo": "https://github.com/hupe1980/go-huggingface",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/hupe1980/go-huggingface",
         "version": "v0.0.15",
@@ -15597,6 +16189,8 @@
       "repo": "https://github.com/JBGruber/askgpt",
       "homepage": "https://github.com/JBGruber/askgpt",
       "license": "GPL (>= 3)",
+      "licenseId": "GPL-3.0",
+      "licenseFamily": "copyleft",
       "registry": {
         "url": "https://cran.r-project.org/package=askgpt",
         "version": "0.1.3",
@@ -15648,6 +16242,8 @@
       "repo": "https://github.com/pepe-agent/pepe",
       "homepage": "https://pepe-agent.com",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/pepe-agent/pepe",
         "downloads": 2,
@@ -15697,6 +16293,8 @@
       "install": "pip install llm-bedrock-anthropic",
       "repo": "https://github.com/sblakey/llm-bedrock-anthropic",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/llm-bedrock-anthropic",
         "version": "0.4.7",
@@ -15739,6 +16337,8 @@
       "install": "luarocks install dante.nvim",
       "repo": "https://github.com/S1M0N38/dante.nvim",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://luarocks.org/modules/s1m0n38/dante.nvim",
         "downloads": 203,
@@ -15785,6 +16385,8 @@
       "envVars": [],
       "install": "pip install groq-whisper-cli",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/groq-whisper-cli",
         "version": "0.2.1",
@@ -15830,6 +16432,8 @@
       "repo": "https://github.com/mozex/anthropic-php",
       "homepage": "https://mozex.dev/docs/anthropic-php",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/mozex/anthropic-php",
         "version": "1.8.0",
@@ -15877,6 +16481,8 @@
       "repo": "https://github.com/ivangabriele/mistralai-client-rs",
       "homepage": "https://github.com/ivangabriele/mistralai-client-rs",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/mistralai-client",
         "version": "0.14.0",
@@ -15933,6 +16539,8 @@
       "docs": "https://github.com/sergey-homenko/llm_cost_tracker",
       "homepage": "https://github.com/sergey-homenko/llm_cost_tracker",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/llm_cost_tracker",
         "version": "0.14.1",
@@ -15980,6 +16588,8 @@
       "docs": "https://github.com/rorubyy/n8n-nodes-openai-langfuse",
       "homepage": "https://github.com/rorubyy/n8n-nodes-openai-langfuse",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/n8n-nodes-openai-langfuse",
         "version": "0.1.11",
@@ -16023,6 +16633,8 @@
       "repo": "https://github.com/doofinder/llm_composer",
       "homepage": "https://hex.pm/packages/llm_composer",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://hex.pm/packages/llm_composer",
         "version": "0.20.7",
@@ -16069,6 +16681,8 @@
       "install": "go get github.com/dianlight/gollama.cpp",
       "repo": "https://github.com/dianlight/gollama.cpp",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/dianlight/gollama.cpp",
         "version": "v0.1.0",
@@ -16116,6 +16730,8 @@
       "repo": "https://github.com/Mixpeal/anthropic-sdk",
       "homepage": "https://github.com/mixpeal/anthropic-sdk",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/anthropic-sdk",
         "version": "0.1.5",
@@ -16160,6 +16776,7 @@
       "features": [],
       "envVars": [],
       "install": "npm i ollama-openai-mcp",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://www.npmjs.com/package/ollama-openai-mcp",
         "version": "1.0.0",
@@ -16198,6 +16815,8 @@
       "install": "go get github.com/xyproto/ollamaclient/v2",
       "repo": "https://github.com/xyproto/ollamaclient",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/xyproto/ollamaclient/v2",
         "version": "v2.8.1",
@@ -16243,6 +16862,8 @@
       "repo": "https://github.com/prism-php/bedrock",
       "homepage": "https://prismphp.com",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/prism-php/bedrock",
         "version": "v1.8.0",
@@ -16290,6 +16911,7 @@
         "AZURE_OPENAI_API_VERSION"
       ],
       "install": "pip install enthusiast-model-azureopenai",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://pypi.org/project/enthusiast-model-azureopenai",
         "version": "1.4.0",
@@ -16333,6 +16955,8 @@
       "repo": "https://github.com/YumchaLabs/siumai",
       "homepage": "https://github.com/YumchaLabs/siumai",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/siumai-provider-openai-compatible",
         "version": "0.11.0-beta.9",
@@ -16379,6 +17003,8 @@
       "install": "mvn::",
       "repo": "https://github.com/flock-community/aigentic",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/community.flock.aigentic/openai",
         "version": "0.11.0",
@@ -16424,6 +17050,8 @@
       "repo": "https://github.com/gbaptista/mistral-ai",
       "homepage": "https://github.com/gbaptista/mistral-ai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/mistral-ai",
         "version": "1.2.0",
@@ -16475,6 +17103,8 @@
       "install": "mvn::",
       "repo": "https://github.com/cohere-ai/cohere-java",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/com.cohere/cohere-java",
         "version": "1.11.0"
@@ -16524,6 +17154,8 @@
       "docs": "https://github.com/joyqi/node-openai",
       "homepage": "https://github.com/joyqi/node-openai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/node-openai",
         "version": "0.5.2",
@@ -16585,6 +17217,8 @@
       "repo": "https://github.com/slb350/open-agent-sdk-rust",
       "homepage": "https://github.com/slb350/open-agent-sdk-rust",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/open-agent-sdk",
         "version": "0.11.3",
@@ -16633,6 +17267,8 @@
       "repo": "https://github.com/gptlang/lua-tiktoken",
       "homepage": "https://luarocks.org/modules/gptlang/tiktoken_core",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://luarocks.org/modules/gptlang/tiktoken_core",
         "downloads": 9814,
@@ -16679,6 +17315,8 @@
       "repo": "https://github.com/ifsheldon/async-openai-wasm",
       "homepage": "https://github.com/ifsheldon/async-openai-wasm",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/async-openai-wasm",
         "version": "0.31.2",
@@ -16725,6 +17363,8 @@
       "repo": "https://github.com/ineelhere/shiny.ollama",
       "homepage": "https://www.indraneelchakraborty.com/shiny.ollama",
       "license": "Apache License (>= 2)",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://cran.r-project.org/package=shiny.ollama",
         "version": "0.1.1",
@@ -16773,6 +17413,8 @@
       "repo": "https://github.com/ai-dynamo/frontend-crates",
       "homepage": "https://github.com/ai-dynamo/frontend-crates",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/dynamo-tokenizers",
         "version": "1.9.1",
@@ -16826,6 +17468,8 @@
       "install": "git clone",
       "repo": "https://github.com/salmanashraf/android-ai-chat-sdk",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/salmanashraf/android-ai-chat-sdk",
         "downloads": 3,
@@ -16873,6 +17517,7 @@
         "HUGGINGFACEHUB_API_TOKEN"
       ],
       "install": "pip install huggingface-togetherai",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://pypi.org/project/huggingface-togetherai",
         "version": "1.1.2",
@@ -16930,6 +17575,8 @@
       "repo": "https://github.com/tpaulshippy/ruby_llm_community",
       "homepage": "https://rubyllm.com",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/ruby_llm_community",
         "version": "1.3.1",
@@ -16976,6 +17623,7 @@
       "install": "composer require erdum/php-open-ai-assistant-sdk",
       "repo": "https://github.com/erdum/php-open-ai-assistant-sdk",
       "homepage": "https://platform.openai.com/docs/assistants/how-it-works",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://packagist.org/packages/erdum/php-open-ai-assistant-sdk",
         "version": "v1.0.0",
@@ -17026,6 +17674,8 @@
       "repo": "https://github.com/cloud-apim/otoroshi-llm-extension",
       "homepage": "https://cloud-apim.github.io/otoroshi-llm-extension",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/cloud-apim/otoroshi-llm-extension",
         "downloads": 7,
@@ -17072,6 +17722,8 @@
       "repo": "https://github.com/katsuhirohonda/anthropic-sdk-rs",
       "homepage": "https://crates.io/crates/anthropic-ai-sdk",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/anthropic-ai-sdk",
         "version": "0.2.27",
@@ -17119,6 +17771,8 @@
       "docs": "https://github.com/victor-software-house/pi-openai-proxy",
       "homepage": "https://github.com/victor-software-house/pi-openai-proxy",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@victor-software-house/pi-openai-proxy",
         "version": "4.9.5",
@@ -17172,6 +17826,8 @@
       "repo": "https://github.com/ekohe/llm_conductor",
       "homepage": "https://github.com/ekohe/llm_conductor",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/llm_conductor",
         "version": "1.8.4",
@@ -17223,6 +17879,8 @@
       "repo": "https://github.com/oracle/coherence-go-client",
       "homepage": "https://pkg.go.dev/github.com/oracle/coherence-go-client/v2/coherence",
       "license": "UPL-1.0",
+      "licenseId": "UPL-1.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/oracle/coherence-go-client/v2",
         "version": "v2.3.1",
@@ -17273,6 +17931,8 @@
       "install": "mix deps.get anthropic_community",
       "repo": "https://github.com/tubedude/anthropic-community",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://hex.pm/packages/anthropic_community",
         "version": "0.5.1",
@@ -17319,6 +17979,8 @@
       "repo": "https://github.com/sulmanweb/openai_chatgpt",
       "homepage": "https://github.com/sulmanweb/openai_chatgpt",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/openai_chatgpt",
         "version": "0.2.0",
@@ -17366,6 +18028,8 @@
       "repo": "https://github.com/SoftCreatR/php-openai-sdk",
       "homepage": "https://platform.openai.com/docs",
       "license": "ISC",
+      "licenseId": "ISC",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/softcreatr/php-openai-sdk",
         "version": "4.1.0",
@@ -17416,6 +18080,8 @@
       "repo": "https://github.com/oracle/coherence-py-client",
       "homepage": "https://oracle.github.io/coherence-py-client",
       "license": "UPL-1.0",
+      "licenseId": "UPL-1.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/coherence-client",
         "version": "2.0.4",
@@ -17464,6 +18130,8 @@
       "install": "go get github.com/meguminnnnnnnnn/go-openai",
       "repo": "https://github.com/meguminnnnnnnnn/go-openai",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/meguminnnnnnnnn/go-openai",
         "version": "v0.1.6",
@@ -17510,6 +18178,8 @@
       "install": "luarocks install ai.nvim",
       "repo": "https://github.com/S1M0N38/ai.nvim",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://luarocks.org/modules/s1m0n38/ai.nvim",
         "downloads": 415,
@@ -17556,6 +18226,8 @@
       "docs": "https://github.com/thkdog/codex-openai-proxy",
       "homepage": "https://github.com/thkdog/codex-openai-proxy",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@thkdog/codex-openai-proxy",
         "version": "1.0.1",
@@ -17607,6 +18279,8 @@
       "docs": "https://github.com/jaslam94/Junaid.GoogleGemini.Net",
       "homepage": "https://github.com/jaslam94/Junaid.GoogleGemini.Net",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Junaid.GoogleGemini.Net",
         "version": "6.7.0",
@@ -17656,6 +18330,8 @@
       "repo": "https://github.com/graysonchen/ruby-openai-swarm",
       "homepage": "https://github.com/graysonchen/ruby-openai-swarm",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/ruby-openai-swarm",
         "version": "0.5.3",
@@ -17701,6 +18377,8 @@
       "repo": "https://github.com/EddieYang211/localLLM",
       "homepage": "https://github.com/EddieYang211/localLLM",
       "license": "MIT + file LICENSE",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://cran.r-project.org/package=localLLM",
         "version": "1.3.0",
@@ -17748,6 +18426,7 @@
       ],
       "install": "cargo add ai-chain-openai-compatible",
       "repo": "https://github.com/louloulin/ai-chain",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://crates.io/crates/ai-chain-openai-compatible",
         "version": "0.14.2",
@@ -17797,6 +18476,7 @@
       ],
       "install": "cargo add ai-chain-qwen",
       "repo": "https://github.com/louloulin/ai-chain",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://crates.io/crates/ai-chain-qwen",
         "version": "0.14.2",
@@ -17843,6 +18523,8 @@
       "install": "cargo add groq-api-rust",
       "repo": "https://github.com/oblivisheee/groq-rs",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/groq-api-rust",
         "version": "0.3.1",
@@ -17883,6 +18565,7 @@
       "features": [],
       "envVars": [],
       "install": "luarocks install gpt-images-25",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://luarocks.org/modules/ryanellis42675/gpt-images-25",
         "downloads": 10,
@@ -17924,6 +18607,8 @@
       "repo": "https://github.com/Scaffoldic/agentforge-py",
       "homepage": "https://pypi.org/project/agentforge-py",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/agentforge-reranker-sentence-transformers",
         "version": "0.4.0",
@@ -17977,6 +18662,8 @@
       "repo": "https://github.com/fw-ai-external/python-sdk",
       "homepage": "https://pypi.org/project/fireworks-ai",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/fireworks-ai",
         "version": "1.2.16",
@@ -18029,6 +18716,8 @@
       "repo": "https://github.com/dimichgh/anthropic-sdk-rust",
       "homepage": "https://github.com/dimichgh/anthropic-sdk-rust",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/anthropic-sdk-rust",
         "version": "0.1.1",
@@ -18082,6 +18771,8 @@
       "install": "cargo add llm-kit-openai-compatible",
       "repo": "https://github.com/saribmah/llm-kit",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/llm-kit-openai-compatible",
         "version": "0.1.1",
@@ -18129,6 +18820,8 @@
       "install": "mvn::",
       "repo": "https://github.com/cequence-io/babyagi-s",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/io.cequence/cohere-client_2.12",
         "version": "0.1.20",
@@ -18174,6 +18867,8 @@
       "install": "mvn::",
       "repo": "https://github.com/cequence-io/babyagi-s",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/io.cequence/cohere-client_2.13",
         "version": "0.1.20",
@@ -18219,6 +18914,8 @@
       "install": "mvn::",
       "repo": "https://github.com/cequence-io/babyagi-s",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/io.cequence/cohere-client-domain_2.12",
         "version": "0.1.20",
@@ -18264,6 +18961,8 @@
       "install": "mvn::",
       "repo": "https://github.com/cequence-io/babyagi-s",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/io.cequence/cohere-client-domain_2.13",
         "version": "0.1.20",
@@ -18308,6 +19007,8 @@
       "install": "mvn::",
       "repo": "https://github.com/cequence-io/babyagi-s",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/io.cequence/mistral-client_2.12",
         "version": "0.1.20",
@@ -18352,6 +19053,8 @@
       "install": "mvn::",
       "repo": "https://github.com/cequence-io/babyagi-s",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/io.cequence/mistral-client_2.13",
         "version": "0.1.20",
@@ -18396,6 +19099,8 @@
       "install": "mvn::",
       "repo": "https://github.com/cequence-io/babyagi-s",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/io.cequence/mistral-client-domain_2.12",
         "version": "0.1.20",
@@ -18440,6 +19145,8 @@
       "install": "mvn::",
       "repo": "https://github.com/cequence-io/babyagi-s",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/io.cequence/mistral-client-domain_2.13",
         "version": "0.1.20",
@@ -18487,6 +19194,8 @@
       "docs": "https://github.com/Zonit/Zonit.Extensions.Ai",
       "homepage": "https://github.com/Zonit/Zonit.Extensions.Ai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Zonit.Extensions.Ai.Cohere",
         "version": "10.8.1",
@@ -18533,6 +19242,8 @@
       "install": "composer require ahmadrosid/anthropic-php",
       "repo": "https://github.com/ahmadrosid/anthropic-php",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/ahmadrosid/anthropic-php",
         "version": "v1.0.2",
@@ -18578,6 +19289,8 @@
       "repo": "https://github.com/asanaei/LLMR",
       "homepage": "https://github.com/asanaei/LLMR",
       "license": "MIT + file LICENSE",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://cran.r-project.org/package=LLMR",
         "version": "0.8.11",
@@ -18628,6 +19341,8 @@
       "repo": "https://github.com/iron-cage/api_llm",
       "homepage": "https://github.com/Wandalen/api_llm/tree/master/api/huggingface",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/api_huggingface",
         "version": "0.6.1",
@@ -18686,6 +19401,7 @@
       "install": "cargo add embacle",
       "repo": "https://github.com/dravr-ai/dravr-embacle",
       "homepage": "https://github.com/dravr-ai/dravr-embacle",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://crates.io/crates/embacle",
         "version": "0.30.0",
@@ -18730,6 +19446,7 @@
       "envVars": [],
       "install": "composer require itquelle/open-ai-chatgpt-php",
       "repo": "https://github.com/itquelle/open-ai-chatgpt-php",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://packagist.org/packages/itquelle/open-ai-chatgpt-php",
         "version": "1.0.0",
@@ -18788,6 +19505,8 @@
       "repo": "https://github.com/MadBomber/ai_client",
       "homepage": "https://github.com/MadBomber/ai_client",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/ai_client",
         "version": "0.4.6",
@@ -18845,6 +19564,8 @@
       "repo": "https://github.com/Colin4k1024/langchain-rust",
       "homepage": "https://github.com/fanjia1024/langchain-rust",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/langchain-ai-rust",
         "version": "5.0.1",
@@ -18891,6 +19612,8 @@
       "install": "git clone",
       "repo": "https://github.com/imaxmelnyk/openai-scala",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/imaxmelnyk/openai-scala",
         "downloads": 3,
@@ -18933,6 +19656,8 @@
       "repo": "https://github.com/oobianom/symbol.equation.gpt",
       "homepage": "https://symbols-ui.obi.obianom.com",
       "license": "MIT + file LICENSE",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://cran.r-project.org/package=symbol.equation.gpt",
         "version": "1.1.4",
@@ -18978,6 +19703,7 @@
       "install": "cargo add groq-api-rs",
       "repo": "https://github.com/ededddy/groq-api-rs",
       "homepage": "https://github.com/ededddy/groq-api-rs",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://crates.io/crates/groq-api-rs",
         "version": "0.2.0",
@@ -19022,6 +19748,7 @@
         "NVIDIA_API_KEY"
       ],
       "install": "luarocks install gpt-image-2-dev",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://luarocks.org/modules/lisa0802/gpt-image-2-dev",
         "downloads": 6,
@@ -19059,6 +19786,7 @@
       ],
       "install": "luarocks install kai.nvim",
       "repo": "https://github.com/Kamilcuk/kai.nvim",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://luarocks.org/modules/kamilcuk/kai.nvim",
         "downloads": 246,
@@ -19106,6 +19834,8 @@
       "docs": "https://github.com/wph989/claude-code-openai-proxy",
       "homepage": "https://github.com/wph989/claude-code-openai-proxy",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/claude-code-openai-proxy",
         "version": "0.5.0",
@@ -19152,6 +19882,8 @@
       "install": "mix deps.get anthropic",
       "repo": "https://github.com/connorjacobsen/anthropic",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://hex.pm/packages/anthropic",
         "version": "0.3.0",
@@ -19192,6 +19924,7 @@
       "features": [],
       "envVars": [],
       "install": "luarocks install gpt-image-2-app",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://luarocks.org/modules/lisa0802/gpt-image-2-app",
         "downloads": 5,
@@ -19230,6 +19963,8 @@
       "install": "composer require easygithdev/php-openai",
       "repo": "https://github.com/EasyGithDev/PHPOpenAI",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/easygithdev/php-openai",
         "version": "v2.3",
@@ -19276,6 +20011,8 @@
       "install": "composer require easygithdev/phpopenai",
       "repo": "https://github.com/EasyGithDev/PHPOpenAI",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/easygithdev/phpopenai",
         "version": "v2.3",
@@ -19321,6 +20058,8 @@
       "install": "composer require nwilging/laravel-chatgpt",
       "repo": "https://github.com/nwilging/laravel-chatgpt",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/nwilging/laravel-chatgpt",
         "version": "1.0.0",
@@ -19369,6 +20108,8 @@
       "docs": "https://github.com/asimov-modules/asimov-anthropic-module",
       "homepage": "https://github.com/asimov-modules/asimov-anthropic-module",
       "license": "Unlicense",
+      "licenseId": "Unlicense",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/asimov-anthropic-module",
         "version": "0.1.0",
@@ -19423,6 +20164,8 @@
       "repo": "https://github.com/discourse/discourse_ai-tokenizers",
       "homepage": "https://github.com/discourse/discourse_ai-tokenizers",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/discourse_ai-tokenizers",
         "version": "0.4.2",
@@ -19470,6 +20213,8 @@
       "repo": "https://github.com/itikhonenko/openai-client",
       "homepage": "https://github.com/itikhonenko/openai-client",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/openai-client",
         "version": "0.8.1",
@@ -19520,6 +20265,8 @@
       "repo": "https://github.com/cornball-ai/llm.api",
       "homepage": "https://github.com/cornball-ai/llm.api",
       "license": "MIT + file LICENSE",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://cran.r-project.org/package=llm.api",
         "version": "0.1.9",
@@ -19573,6 +20320,8 @@
       "repo": "https://github.com/Anonyfox/chatoyant",
       "homepage": "https://anonyfox.github.io/chatoyant",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/Anonyfox/chatoyant",
         "downloads": 0,
@@ -19617,6 +20366,7 @@
       ],
       "install": "git clone",
       "repo": "https://github.com/gazolla/GroqClientApiKotlin",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://github.com/gazolla/GroqClientApiKotlin",
         "downloads": 1,
@@ -19658,6 +20408,8 @@
       "install": "mix deps.get langchain_mcp",
       "repo": "https://github.com/montebrown/langchain_mcp",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://hex.pm/packages/langchain_mcp",
         "version": "0.2.0",
@@ -19702,6 +20454,7 @@
         "NVIDIA_API_KEY"
       ],
       "install": "luarocks install gpt-image-2",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://luarocks.org/modules/lisa0802/gpt-image-2",
         "downloads": 4,
@@ -19741,6 +20494,8 @@
       "docs": "https://github.com/alonf/SemanticKernelPooling",
       "homepage": "https://github.com/alonf/SemanticKernelPooling",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/SemanticKernelPooling.Connectors.OpenAI",
         "version": "1.5.3-rc5",
@@ -19787,6 +20542,8 @@
       "install": "composer require nunodonato/anthropic-php",
       "repo": "https://github.com/nunodonato/anthropic-php",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/nunodonato/anthropic-php",
         "version": "0.1.6",
@@ -19833,6 +20590,8 @@
       "install": "pip install rsazure-openai-toolkit",
       "repo": "https://github.com/renan-siqueira/rsazure-openai-toolkit",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/rsazure-openai-toolkit",
         "version": "0.7.3",
@@ -19880,6 +20639,8 @@
       "repo": "https://github.com/renny-ren/openai_ruby",
       "homepage": "https://github.com/renny-ren/openai_ruby",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/openai_ruby",
         "version": "0.6.0",
@@ -19927,6 +20688,8 @@
       "repo": "https://github.com/urbs-dev/codestral",
       "homepage": "https://urbs-dev.github.io/codestral",
       "license": "MIT + file LICENSE",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://cran.r-project.org/package=codestral",
         "version": "0.0.2",
@@ -19985,6 +20748,8 @@
       "repo": "https://github.com/shmercer/pairwiseLLM",
       "homepage": "https://github.com/shmercer/pairwiseLLM",
       "license": "MIT + file LICENSE",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://cran.r-project.org/package=pairwiseLLM",
         "version": "1.3.1",
@@ -20033,6 +20798,8 @@
       "repo": "https://github.com/ThreatFlux/anthropic_rust_sdk",
       "homepage": "https://github.com/ThreatFlux/anthropic_rust_sdk",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/threatflux-anthropic-sdk",
         "version": "0.3.0",
@@ -20077,6 +20844,8 @@
       "install": "mix deps.get erlangchain",
       "repo": "https://github.com/abhavk/erlangchain",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://hex.pm/packages/erlangchain",
         "version": "0.4.1",
@@ -20122,6 +20891,7 @@
       ],
       "install": "luarocks install lca",
       "repo": "https://github.com/forkfork/lca",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://luarocks.org/modules/fork/lca",
         "downloads": 11,
@@ -20168,6 +20938,8 @@
       "repo": "https://github.com/Nasdanika/ai",
       "homepage": "https://docs.nasdanika.org/ai/index.html",
       "license": "EPL-2.0",
+      "licenseId": "EPL-2.0",
+      "licenseFamily": "source",
       "registry": {
         "url": "https://central.sonatype.com/artifact/org.nasdanika.ai/openai",
         "version": "2026.6.0",
@@ -20216,6 +20988,8 @@
       "docs": "https://github.com/o-stepper/graphorin/tree/main/packages/reranker-transformersjs",
       "homepage": "https://github.com/o-stepper/graphorin/tree/main/packages/reranker-transformersjs",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@graphorin/reranker-transformersjs",
         "version": "0.15.1",
@@ -20267,6 +21041,8 @@
       "docs": "https://github.com/platformatic/mistral-client",
       "homepage": "https://github.com/platformatic/mistral-client",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/@platformatic/mistral-client",
         "version": "0.1.0",
@@ -20320,6 +21096,8 @@
       "docs": "https://github.com/makushevski/Cohere.Extensions.AI",
       "homepage": "https://github.com/makushevski/Cohere.Extensions.AI",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Cohere.Client",
         "version": "0.1.1",
@@ -20368,6 +21146,8 @@
       "repo": "https://github.com/mcheemaa/ruby-openai-pinecone",
       "homepage": "https://github.com/mcheemaa/ruby-openai-pinecone",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/ruby-openai-pinecone",
         "version": "0.1.1",
@@ -20423,6 +21203,8 @@
       "repo": "https://github.com/rtemis-org/llm",
       "homepage": "https://www.rtemis.org",
       "license": "GPL (>= 3)",
+      "licenseId": "GPL-3.0",
+      "licenseFamily": "copyleft",
       "registry": {
         "url": "https://cran.r-project.org/package=rtemis.llm",
         "version": "0.8.7",
@@ -20476,6 +21258,8 @@
       "repo": "https://github.com/sunerpy/bedrock-gateway-rust",
       "homepage": "https://github.com/sunerpy/bedrock-gateway-rust",
       "license": "MIT-0",
+      "licenseId": "MIT-0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/bedrock-gateway-rust",
         "version": "0.16.6",
@@ -20530,6 +21314,8 @@
       "repo": "https://github.com/backbay-labs/chio",
       "homepage": "https://chio.computer",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/chio-groq-tools-adapter",
         "version": "0.1.2",
@@ -20587,6 +21373,8 @@
       "repo": "https://github.com/goliajp/rust-embeddings",
       "homepage": "https://github.com/goliajp/rust-embeddings",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/embedrs",
         "version": "0.6.1",
@@ -20642,6 +21430,8 @@
       "install": "git clone",
       "repo": "https://github.com/f3xp/swift-agent-sdk",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/f3xp/swift-agent-sdk",
         "downloads": 0,
@@ -20694,6 +21484,8 @@
       "install": "git clone",
       "repo": "https://github.com/zjywill/aikitswift",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/zjywill/aikitswift",
         "downloads": 0,
@@ -20739,6 +21531,8 @@
       "install": "mvn::",
       "repo": "https://github.com/yilengyao/openai-java",
       "license": "MIT License",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/io.github.yilengyao/openai",
         "version": "1.0.0",
@@ -20783,6 +21577,8 @@
       "install": "composer require sgraaf/openai-php",
       "repo": "https://github.com/sgraaf/openai-php",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/sgraaf/openai-php",
         "version": "0.1.6",
@@ -20832,6 +21628,8 @@
       "repo": "https://github.com/Ramseyxlil/aaep",
       "docs": "https://docs.anthropic.com/claude/reference/getting-started-with-the-api",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/aaep-anthropic-sdk-producer",
         "version": "1.0.0",
@@ -20879,6 +21677,7 @@
       "repo": "https://github.com/foobara/anthropic-api",
       "homepage": "https://github.com/foobara/anthropic-api",
       "license": "None specified yet",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://rubygems.org/gems/foobara-anthropic-api",
         "version": "1.0.8",
@@ -20930,6 +21729,8 @@
       "repo": "https://github.com/Hyper-Unearthing/llm_gateway",
       "homepage": "https://github.com/Hyper-Unearthing/llm_gateway",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/llm_gateway",
         "version": "0.9.0",
@@ -20983,6 +21784,8 @@
       "docs": "https://github.com/airouter-dev/openai-compatible-errors-ruby",
       "homepage": "https://ai-router.dev",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/openai-compatible-errors",
         "version": "0.1.2",
@@ -21030,6 +21833,8 @@
       "repo": "https://github.com/isene/openai",
       "homepage": "https://isene.com",
       "license": "Unlicense",
+      "licenseId": "Unlicense",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/openai-term",
         "version": "3.0.4",
@@ -21088,6 +21893,8 @@
       "repo": "https://github.com/ejwhite7/ruby-pi",
       "homepage": "https://github.com/ejwhite7/ruby-pi",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/ruby-pi",
         "version": "0.1.10",
@@ -21144,6 +21951,8 @@
       "install": "cargo add agentix",
       "repo": "https://github.com/ozongzi/agentix",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/agentix",
         "version": "0.29.0",
@@ -21191,6 +22000,8 @@
       "repo": "https://github.com/TabbyML/async-openai",
       "homepage": "https://github.com/TabbyML/async-openai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/async-openai-alt",
         "version": "0.26.2",
@@ -21248,6 +22059,7 @@
       "install": "cargo add llmrust",
       "repo": "https://github.com/llmrust/llmrust",
       "homepage": "https://github.com/llmrust/llmrust",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://crates.io/crates/llmrust",
         "version": "0.1.4",
@@ -21306,6 +22118,8 @@
       "install": "git clone",
       "repo": "https://github.com/deths74r/llaml",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/deths74r/llaml",
         "downloads": 0,
@@ -21359,6 +22173,8 @@
       "install": "git clone",
       "repo": "https://github.com/kengirie/ocaml-ai-agent",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/kengirie/ocaml-ai-agent",
         "downloads": 0,
@@ -21404,6 +22220,8 @@
       "repo": "https://github.com/czc09/langchaingo",
       "homepage": "https://tmc.github.io/langchaingo",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/czc09/langchaingo",
         "version": "v0.1.25",
@@ -21450,6 +22268,8 @@
       "repo": "https://github.com/eino-contrib/ollama",
       "homepage": "https://ollama.com",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/eino-contrib/ollama",
         "version": "v0.1.0",
@@ -21498,6 +22318,8 @@
       "repo": "https://github.com/henomis/cohere-go",
       "homepage": "https://simonevellei.com",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/henomis/cohere-go",
         "version": "v1.2.0",
@@ -21542,6 +22364,7 @@
         "NVIDIA_API_KEY"
       ],
       "install": "luarocks install gpt-image-2-5",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://luarocks.org/modules/andywang201212/gpt-image-2-5",
         "downloads": 1,
@@ -21586,6 +22409,8 @@
       "docs": "https://github.com/soenneker/soenneker.azure.openai.client.chat",
       "homepage": "https://github.com/soenneker/soenneker.azure.openai.client.chat",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Soenneker.Azure.OpenAI.Client.Chat",
         "version": "4.0.1735",
@@ -21634,6 +22459,8 @@
       "docs": "https://github.com/soenneker/soenneker.mistral.openapiclientutil",
       "homepage": "https://github.com/soenneker/soenneker.mistral.openapiclientutil",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Soenneker.Mistral.OpenApiClientUtil",
         "version": "4.0.178",
@@ -21681,6 +22508,8 @@
       "docs": "https://github.com/soenneker/soenneker.semantickernel.pool.openai.azure",
       "homepage": "https://github.com/soenneker/soenneker.semantickernel.pool.openai.azure",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Soenneker.SemanticKernel.Pool.OpenAi.Azure",
         "version": "4.0.603",
@@ -21726,6 +22555,7 @@
       ],
       "install": "composer require ahsanzameer/php-openai-chat-assistant",
       "repo": "https://github.com/ahsanzameer/php-openai-chat-assistant",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://packagist.org/packages/ahsanzameer/php-openai-chat-assistant",
         "version": "1.0",
@@ -21773,6 +22603,8 @@
       "install": "composer require google-gemini-api-php/client",
       "repo": "https://github.com/UsmanIlamdin/google-gemini-api-php",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/google-gemini-api-php/client",
         "version": "1.0.2",
@@ -21823,6 +22655,8 @@
       "install": "composer require ikarolaborda/azure-openai-sdk-php",
       "repo": "https://github.com/ikarolaborda/azure-openai-sdk-php",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/ikarolaborda/azure-openai-sdk-php",
         "version": "v1.0.0",
@@ -21869,6 +22703,8 @@
       "install": "composer require pythias/openai-client",
       "repo": "https://github.com/pythias/openai-php",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/pythias/openai-client",
         "version": "v0.3.4",
@@ -21915,6 +22751,8 @@
       "install": "composer require spryker-community/open-ai-client",
       "repo": "https://github.com/spryker-community/open-ai-client",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/spryker-community/open-ai-client",
         "version": "0.1.0",
@@ -21962,6 +22800,8 @@
       "repo": "https://github.com/ps2-controller/anthropic_mock_wrapper",
       "homepage": "https://github.com/ps2-controller/anthropic_mock_wrapper",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/anthropic-mock-wrapper",
         "version": "0.2.10",
@@ -22013,6 +22853,7 @@
       "repo": "https://github.com/mustafaaljadery/anthropic-bedrock",
       "homepage": "https://anthropic-bedrock.com",
       "license": "Copyright 2023 Mustafa Aljadery, Siddharth Sharma. Permission is hereby granted…",
+      "licenseFamily": "other",
       "registry": {
         "url": "https://pypi.org/project/bedrock-anthropic",
         "version": "0.0.5",
@@ -22064,6 +22905,8 @@
       "repo": "https://github.com/deepinfra/deepinfra-python",
       "homepage": "https://deepinfra.com",
       "license": "COPYRIGHT 2024 ovuruska Permission is hereby granted, free of charge, to any pe…",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pypi.org/project/deepinfra",
         "version": "0.3.0",
@@ -22130,6 +22973,8 @@
       "docs": "https://github.com/parruda/ruby_llm",
       "homepage": "https://github.com/parruda/ruby_llm",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/ruby_llm_swarm",
         "version": "1.9.7",
@@ -22177,6 +23022,8 @@
       "repo": "https://github.com/digitaltom/ruby-openai-cli",
       "homepage": "https://github.com/digitaltom/ruby-openai-cli",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/ruby-openai-cli",
         "version": "1.0.2",
@@ -22222,6 +23069,8 @@
       ],
       "install": "install.packages('gptr')",
       "license": "MIT + file LICENSE",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://cran.r-project.org/package=gptr",
         "version": "0.7.0",
@@ -22255,6 +23104,8 @@
       "envVars": [],
       "install": "install.packages('LLM')",
       "license": "GPL (>= 3)",
+      "licenseId": "GPL-3.0",
+      "licenseFamily": "copyleft",
       "registry": {
         "url": "https://cran.r-project.org/package=LLM",
         "version": "1.1.0",
@@ -22292,6 +23143,8 @@
       ],
       "install": "install.packages('mistral')",
       "license": "GPL-2",
+      "licenseId": "GPL-3.0",
+      "licenseFamily": "copyleft",
       "registry": {
         "url": "https://cran.r-project.org/package=mistral",
         "version": "2.2.4",
@@ -22334,6 +23187,8 @@
       "repo": "https://github.com/xiaoluolorn/openaiRtools",
       "homepage": "https://github.com/xiaoluolorn/openaiRtools",
       "license": "MIT + file LICENSE",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://cran.r-project.org/package=openaiRtools",
         "version": "0.2.2",
@@ -22379,6 +23234,8 @@
       "install": "install.packages('TheOpenAIR')",
       "homepage": "http://openair-lib.org",
       "license": "MIT + file LICENSE",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://cran.r-project.org/package=TheOpenAIR",
         "version": "0.1.0",
@@ -22422,6 +23279,8 @@
       "repo": "https://github.com/crow-cli/async-openai",
       "homepage": "https://github.com/crow-cli/async-openai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://crates.io/crates/async-openai-thinking",
         "version": "0.41.5",
@@ -22471,6 +23330,7 @@
       ],
       "install": "cargo add openllm-rs",
       "repo": "https://github.com/liuzhi19121999/openllm-rs",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://crates.io/crates/openllm-rs",
         "version": "0.1.3",
@@ -22529,6 +23389,8 @@
       "install": "cargo add synapse-gateway",
       "repo": "https://github.com/sustentabilitas/synapse-gateway",
       "license": "AGPL-3.0",
+      "licenseId": "AGPL-3.0",
+      "licenseFamily": "copyleft",
       "registry": {
         "url": "https://crates.io/crates/synapse-gateway",
         "version": "0.5.36",
@@ -22582,6 +23444,8 @@
       "install": "git clone",
       "repo": "https://github.com/artmsh/clj-tools-agents",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/artmsh/clj-tools-agents",
         "downloads": 0,
@@ -22627,6 +23491,7 @@
       "install": "git clone",
       "repo": "https://github.com/hugodro/openai-client",
       "license": "NOASSERTION",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://github.com/hugodro/openai-client",
         "downloads": 0,
@@ -22671,6 +23536,8 @@
       "repo": "https://github.com/szirtesitidom/langchaingo",
       "homepage": "https://tmc.github.io/langchaingo",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/szirtesitidom/langchaingo",
         "version": "v1.6.0",
@@ -22719,6 +23586,8 @@
       "install": "go get github.com/yomorun/go-openai",
       "repo": "https://github.com/yomorun/go-openai",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://pkg.go.dev/github.com/yomorun/go-openai",
         "version": "v1.50.6",
@@ -22767,6 +23636,8 @@
       "install": "mix deps.get claude_agent_sdk_ts",
       "repo": "https://github.com/xorvo/claude_agent_sdk_ts",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://hex.pm/packages/claude_agent_sdk_ts",
         "version": "1.5.1-rc.1",
@@ -22810,6 +23681,8 @@
       "repo": "https://github.com/saschabrink/langchain_prompt",
       "homepage": "https://hex.pm/packages/langchain_prompt",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://hex.pm/packages/langchain_prompt",
         "version": "0.1.2",
@@ -22852,6 +23725,8 @@
       "install": "luarocks install ion7-llm",
       "repo": "https://github.com/Ion7-Labs/ion7-llm",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://luarocks.org/modules/5inq-kiji/ion7-llm",
         "downloads": 12,
@@ -22900,6 +23775,8 @@
       "install": "luarocks install kong-plugin-ollama-agent-router",
       "repo": "https://github.com/ExeconOne/kong-ollama-agent-router",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://luarocks.org/modules/grulka/kong-plugin-ollama-agent-router",
         "downloads": 10,
@@ -22943,6 +23820,7 @@
       ],
       "install": "luarocks install openai",
       "repo": "https://github.com/MrSyabro/lua-openai",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://luarocks.org/modules/mrsyabro/openai",
         "downloads": 4,
@@ -22994,6 +23872,8 @@
       "repo": "https://github.com/unabated-games/ug-lua-llm",
       "homepage": "https://unabated-games.github.io/ug-lua-llm",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://luarocks.org/modules/unabated-games/ug-lua-llm",
         "downloads": 16,
@@ -23042,6 +23922,7 @@
         "COHERE_API_KEY"
       ],
       "install": "mvn::",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://central.sonatype.com/artifact/com.oracle.bedrock/bedrock-coherence",
         "version": "7.0.9",
@@ -23077,6 +23958,7 @@
         "OPENAI_API_KEY"
       ],
       "install": "mvn::",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://central.sonatype.com/artifact/com.wesuresoft.sdk/openai",
         "version": "2.0.7",
@@ -23114,6 +23996,8 @@
       "install": "mvn::",
       "repo": "https://git.struchkov.dev/openai/openai-sdk",
       "license": "Apache License, Version 2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/dev.struchkov.openai/openai-parent-sdk",
         "version": "1.0.0",
@@ -23148,6 +24032,7 @@
         "OPENAI_API_KEY"
       ],
       "install": "mvn::",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://central.sonatype.com/artifact/dev.struchkov.openai/openai-sdk",
         "version": "1.0.0",
@@ -23183,6 +24068,7 @@
         "COHERE_API_KEY"
       ],
       "install": "mvn::",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://central.sonatype.com/artifact/io.github.fern-api/cohere",
         "version": "0.0.25",
@@ -23218,6 +24104,8 @@
       "envVars": [],
       "install": "mvn::",
       "license": "MIT License",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://central.sonatype.com/artifact/io.github.umutayb/ollama-api",
         "version": "0.0.6",
@@ -23259,6 +24147,8 @@
       "docs": "https://github.com/sh1nj1/cli-openai-proxy",
       "homepage": "https://github.com/sh1nj1/cli-openai-proxy",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/cli-openai-proxy",
         "version": "0.1.0",
@@ -23317,6 +24207,8 @@
       "docs": "https://github.com/mohammadhasan-jp/Fyren",
       "homepage": "https://github.com/mohammadhasan-jp/Fyren",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/fyren-ai",
         "version": "0.2.0",
@@ -23366,6 +24258,8 @@
       "docs": "https://github.com/g-o-o-d-b-o-y/openai-proxy-server",
       "homepage": "https://github.com/g-o-o-d-b-o-y/openai-proxy-server",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/openai-proxy-server",
         "version": "0.5.0",
@@ -23421,6 +24315,8 @@
       "docs": "https://polygate.getfluiq.com",
       "homepage": "https://polygate.getfluiq.com",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.npmjs.com/package/polygate",
         "version": "0.3.0",
@@ -23472,6 +24368,8 @@
       "docs": "https://github.com/alkampfergit/cisharpai",
       "homepage": "https://github.com/alkampfergit/cisharpai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Cisharpai.Cohere",
         "version": "0.5.0-alpha.12.396",
@@ -23524,6 +24422,8 @@
       "docs": "https://github.com/soenneker/soenneker.azure.openai.client",
       "homepage": "https://github.com/soenneker/soenneker.azure.openai.client",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Soenneker.Azure.OpenAI.Client",
         "version": "4.0.1046",
@@ -23578,6 +24478,8 @@
       "docs": "https://github.com/soenneker/soenneker.azure.openai.client.audio",
       "homepage": "https://github.com/soenneker/soenneker.azure.openai.client.audio",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Soenneker.Azure.OpenAI.Client.Audio",
         "version": "4.0.1040",
@@ -23627,6 +24529,8 @@
       "docs": "https://github.com/soenneker/soenneker.cohere.httpclients",
       "homepage": "https://github.com/soenneker/soenneker.cohere.httpclients",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Soenneker.Cohere.HttpClients",
         "version": "4.0.138",
@@ -23676,6 +24580,8 @@
       "docs": "https://github.com/soenneker/soenneker.cohere.openapiclient",
       "homepage": "https://github.com/soenneker/soenneker.cohere.openapiclient",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Soenneker.Cohere.OpenApiClient",
         "version": "4.0.44",
@@ -23727,6 +24633,8 @@
       "docs": "https://github.com/soenneker/soenneker.cohere.openapiclientutil",
       "homepage": "https://github.com/soenneker/soenneker.cohere.openapiclientutil",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Soenneker.Cohere.OpenApiClientUtil",
         "version": "4.0.178",
@@ -23781,6 +24689,8 @@
       "docs": "https://github.com/soenneker/soenneker.maf.pool.openai.azure",
       "homepage": "https://github.com/soenneker/soenneker.maf.pool.openai.azure",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Soenneker.Maf.Pool.OpenAI.Azure",
         "version": "4.0.175",
@@ -23829,6 +24739,8 @@
       "docs": "https://github.com/soenneker/soenneker.mistral.openapiclient",
       "homepage": "https://github.com/soenneker/soenneker.mistral.openapiclient",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://www.nuget.org/packages/Soenneker.Mistral.OpenApiClient",
         "version": "4.0.52",
@@ -23873,6 +24785,7 @@
         "OPENAI_API_KEY"
       ],
       "install": "composer require assistant-engine/php-openai-client",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://packagist.org/packages/assistant-engine/php-openai-client",
         "version": "v0.0.5",
@@ -23912,6 +24825,8 @@
       "install": "composer require charescape/openai-sdk-php",
       "repo": "https://github.com/charescape/openai-sdk-php",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/charescape/openai-sdk-php",
         "downloads": 39,
@@ -23956,6 +24871,8 @@
       "install": "composer require cryptoman3/anthropic-php",
       "repo": "https://github.com/cryptoman3/anthropic-php",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/cryptoman3/anthropic-php",
         "version": "1.0.1",
@@ -24002,6 +24919,8 @@
       "install": "composer require cv001/openai-php",
       "repo": "https://github.com/cv001/openai-php",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/cv001/openai-php",
         "version": "v0.0.5",
@@ -24048,6 +24967,8 @@
       "install": "composer require eseperio/yii2-openai-responses",
       "repo": "https://github.com/Eseperio/yii2-openai-responses",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/eseperio/yii2-openai-responses",
         "version": "1.0.0",
@@ -24094,6 +25015,8 @@
       "install": "composer require floridaman963/openai",
       "repo": "https://github.com/floridaman963/openai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/floridaman963/openai",
         "downloads": 0,
@@ -24137,6 +25060,8 @@
       "install": "composer require laswitchtech/php-openai",
       "repo": "https://github.com/LouisOuellet/php-openai",
       "license": "GPL-3.0",
+      "licenseId": "GPL-3.0",
+      "licenseFamily": "copyleft",
       "registry": {
         "url": "https://packagist.org/packages/laswitchtech/php-openai",
         "version": "v1.0.3",
@@ -24182,6 +25107,8 @@
       "install": "composer require loffel/laravel-chatgpt",
       "repo": "https://github.com/Loffel/laravel-chatgpt",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/loffel/laravel-chatgpt",
         "version": "1.0.4",
@@ -24228,6 +25155,8 @@
       "install": "composer require markbeam/openai-php-client",
       "repo": "https://github.com/markbeam/openai-php-client",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/markbeam/openai-php-client",
         "version": "0.10.3",
@@ -24274,6 +25203,8 @@
       "install": "composer require markbeam/openai-php-laravel",
       "repo": "https://github.com/markbeam/openai-php-laravel",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/markbeam/openai-php-laravel",
         "version": "0.10.2",
@@ -24322,6 +25253,8 @@
       "install": "composer require omarsabbagh/php-openai-structured",
       "repo": "https://github.com/alsabagh-innos-1/php-openai-structured",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/omarsabbagh/php-openai-structured",
         "version": "0.2",
@@ -24369,6 +25302,7 @@
       ],
       "install": "composer require open-telemetry/opentelemetry-auto-openai-php",
       "repo": "https://github.com/opentelemetry-php/contrib-auto-openai",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://packagist.org/packages/open-telemetry/opentelemetry-auto-openai-php",
         "version": "0.3.0",
@@ -24416,6 +25350,8 @@
       "repo": "https://github.com/sdk-fabric/openai-php",
       "homepage": "https://sdk-fabric.org/sdk/openai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/sdkfabric/openai",
         "version": "v0.2.1",
@@ -24462,6 +25398,8 @@
       "install": "composer require thojou/openai-php-client",
       "repo": "https://github.com/thojou/openai-php-client",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/thojou/openai-php-client",
         "downloads": 109,
@@ -24506,6 +25444,8 @@
       "install": "composer require wdelfuego/anthropic-php",
       "repo": "https://github.com/wdelfuego/anthropic-php",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/wdelfuego/anthropic-php",
         "version": "v1.2.0",
@@ -24552,6 +25492,8 @@
       "install": "composer require wmwgijol28/openai-php",
       "repo": "https://github.com/wmwgijol28/openai-php",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/wmwgijol28/openai-php",
         "version": "v0.5.2",
@@ -24599,6 +25541,8 @@
       "repo": "https://github.com/zyz954489346/opanai-php",
       "homepage": "https://packagist.org/packages/orhanerday/open-ai",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://packagist.org/packages/ze/openai-php",
         "version": "v1.1",
@@ -24647,6 +25591,7 @@
       "install": "pip install deepseek-ocr-ollama",
       "repo": "https://github.com/jfhack/deepseek-ocr-ollama",
       "homepage": "https://github.com/jfhack/deepseek-ocr-ollama",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://pypi.org/project/deepseek-ocr-ollama",
         "version": "1.3",
@@ -24695,6 +25640,7 @@
       "install": "pip install groq-whisper-transcribe",
       "repo": "https://github.com/jfhack/groq-whisper-transcribe",
       "homepage": "https://github.com/jfhack/groq-whisper-transcribe",
+      "licenseFamily": "unknown",
       "registry": {
         "url": "https://pypi.org/project/groq-whisper-transcribe",
         "version": "1.0",
@@ -24743,6 +25689,8 @@
       "docs": "https://github.com/LegionIO/lex-llm-anthropic",
       "homepage": "https://github.com/LegionIO/lex-llm-anthropic",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/lex-llm-anthropic",
         "version": "0.3.7",
@@ -24794,6 +25742,8 @@
       "repo": "https://github.com/dhq-boiler/llm_meta_client",
       "homepage": "https://github.com/dhq-boiler/llm_meta_client",
       "license": "Apache-2.0",
+      "licenseId": "Apache-2.0",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/llm_meta_client",
         "version": "1.8.0",
@@ -24843,6 +25793,8 @@
       "repo": "https://github.com/firstdraft/openai-chat",
       "homepage": "https://github.com/firstdraft/openai-chat",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/openai-chat",
         "version": "0.0.6",
@@ -24898,6 +25850,8 @@
       "repo": "https://github.com/bdurand/prompt_builder",
       "homepage": "https://github.com/bdurand/prompt_builder",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/prompt_builder",
         "version": "0.4.0",
@@ -24945,6 +25899,8 @@
       "repo": "https://github.com/gedean/ruby-openai-transitory-v2",
       "homepage": "https://github.com/gedean/ruby-openai-transitory-v2",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://rubygems.org/gems/ruby-openai-transitory-v2",
         "version": "6.5.3",
@@ -24994,6 +25950,8 @@
       "install": ".package(url: ...)",
       "repo": "https://github.com/kuarezma/MacLLM",
       "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
       "registry": {
         "url": "https://github.com/kuarezma/MacLLM",
         "downloads": 0,

@@ -105,6 +105,23 @@ td.num span:first-child { font-size: 13px; color: var(--text); }
 .chip.status-beta { border-color: #2b4a6f; color: #9dc4f5; }
 
 /* Роль: главное отличие «клиента API» от локального рантайма и инфраструктуры. */
+/* Лицензия: SPDX-идентификатор, цвет — по семейству. Copyleft заметнее:
+   его ищут реже, но именно его легче всего пропустить при выборе. */
+td.lic { white-space: nowrap; }
+.lic {
+  font-family: var(--mono, ui-monospace, monospace);
+  font-size: 12px;
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 5px;
+  cursor: help;
+}
+.lic-permissive { color: #7fd6a2; }
+.lic-copyleft { color: var(--warn); }
+.lic-source { color: #9dc4f5; }
+.lic-other, .lic-unknown { color: var(--text-dim); border-style: dashed; }
+
 .role {
   font-size: 12px; white-space: nowrap; color: var(--text-dim);
 }

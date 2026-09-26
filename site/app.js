@@ -24,6 +24,21 @@
     { value: 'all', label: 'Все роли', roles: ['sdk', 'framework', 'runtime', 'gateway', 'support'] },
   ];
 
+  /**
+   * Семейства лицензий. Реестры отдают «MIT», «MIT License», «MIT + file LICENSE»
+   * и ещё десяток написаний одной лицензии, поэтому в записи лежит приведённый
+   * идентификатор (licenseId) и семейство (licenseFamily) — см. scripts/lib/license.mjs.
+   * Фильтруем по семейству: по сырому значению получилось бы 274 пункта.
+   */
+  const LICENSE_FAMILIES = ['permissive', 'copyleft', 'source', 'other', 'unknown'];
+  const LICENSE_FAMILY_LABEL = {
+    permissive: 'Разрешающая — MIT, Apache-2.0, BSD',
+    copyleft: 'С обязательным открытием кода — GPL, AGPL',
+    source: 'Открывает исходники, без вирусности — MPL, EPL',
+    other: 'Указана, но не приведена к SPDX',
+    unknown: 'Не указана',
+  };
+
   const state = {
     q: '',
     // По умолчанию — только клиенты API провайдеров и шлюзы. На срезе языка
@@ -34,6 +49,7 @@
     kind: '',
     status: '',
     tier: '',
+    licenseFamily: '',
     sort: 'popular',
     // 1 — по возрастанию, -1 — по убыванию. По умолчанию самое популярное сверху.
     dir: -1,
@@ -51,6 +67,7 @@
     kind: $('#f-kind'),
     status: $('#f-status'),
     tier: $('#f-tier'),
+    license: $('#f-license'),
     count: $('#count'),
     tbody: $('#rows'),
     drawer: $('#drawer'),
@@ -68,14 +85,16 @@
     fillSelect(el.kind, uniq(libraries.map((l) => l.kind)));
     fillSelect(el.status, uniq(libraries.map((l) => l.status)));
     fillSelect(el.tier, ['A', 'B', 'C']);
+    fillLicenseSelect();
 
     applyIntent();
 
     if (state.language) el.language.value = state.language;
     if (state.provider) el.provider.value = state.provider;
+    if (state.licenseFamily) el.license.value = state.licenseFamily;
     el.search.value = state.q;
 
-    const filterNodes = [el.search, el.role, el.language, el.provider, el.kind, el.status, el.tier];
+    const filterNodes = [el.search, el.role, el.language, el.provider, el.kind, el.status, el.tier, el.license];
     for (const node of filterNodes) {
       node.addEventListener('input', () => {
         state.q = el.search.value.trim();
@@ -85,6 +104,7 @@
         state.kind = el.kind.value;
         state.status = el.status.value;
         state.tier = el.tier.value;
+        state.licenseFamily = el.license.value;
         syncUrl();
         render();
       });
@@ -93,7 +113,7 @@
     el.reset.addEventListener('click', () => {
       el.search.value = '';
       for (const node of filterNodes) node.value = '';
-      Object.assign(state, { q: '', roleGroup: 'api', language: '', provider: '', kind: '', status: '', tier: '' });
+      Object.assign(state, { q: '', roleGroup: 'api', language: '', provider: '', kind: '', status: '', tier: '', licenseFamily: '' });
       syncUrl();
       render();
     });
@@ -155,6 +175,9 @@
     if (!view.provider && params.get('provider')) state.provider = params.get('provider');
     if (params.get('role') && ROLE_GROUPS.some((g) => g.value === params.get('role'))) {
       state.roleGroup = params.get('role');
+    }
+    if (params.get('license') && LICENSE_FAMILIES.includes(params.get('license'))) {
+      state.licenseFamily = params.get('license');
     }
 
     if (state.q || state.language) return;
@@ -314,11 +337,26 @@
     return ROLE_GROUPS.find((group) => group.value === state.roleGroup)?.roles ?? ['sdk'];
   }
 
+  /** Фильтр по лицензии: сначала то, что встречается чаще всего. */
+  function fillLicenseSelect() {
+    const counts = new Map();
+    for (const library of libraries) {
+      const family = library.licenseFamily ?? 'unknown';
+      counts.set(family, (counts.get(family) ?? 0) + 1);
+    }
+    const options = LICENSE_FAMILIES.filter((family) => counts.has(family)).map((family) => [
+      family,
+      `${LICENSE_FAMILY_LABEL[family]} — ${counts.get(family)}`,
+    ]);
+    fillSelect(el.license, options);
+    el.license.value = state.licenseFamily;
+  }
+
   function render() {
     const rows = libraries.filter(matches).sort(comparator);
     el.count.textContent = `${rows.length} из ${libraries.length}`;
     if (!rows.length) {
-      el.tbody.innerHTML = `<tr><td colspan="6" class="empty">Ничего не найдено — ослабьте фильтры.</td></tr>`;
+      el.tbody.innerHTML = `<tr><td colspan="7" class="empty">Ничего не найдено — ослабьте фильтры.</td></tr>`;
       return;
     }
     el.tbody.innerHTML = rows.map(rowHtml).join('');
@@ -334,11 +372,13 @@
     if (state.kind && library.kind !== state.kind) return false;
     if (state.status && library.status !== state.status) return false;
     if (state.tier && library.tier !== state.tier) return false;
+    if (state.licenseFamily && (library.licenseFamily ?? 'unknown') !== state.licenseFamily) return false;
     if (!state.q) return true;
     const needle = state.q.toLowerCase();
     const haystack = [
       library.name, library.displayName ?? '', library.description ?? '',
       library.language, library.role, library.kind, library.sdkApi, (library.features ?? []).join(' '),
+      library.licenseId ?? '', library.licenseFamily ?? '',
       (library.providers ?? []).map((p) => providerMap.get(p)?.name ?? p).join(' '),
       (library.worksWith ?? []).map((p) => providerMap.get(p)?.name ?? p).join(' '),
       library.repo ?? '',
@@ -417,10 +457,23 @@
       <td>${esc(library.language)}</td>
       <td><div class="chips">${providerChips}${library.tier ? `<span class="chip tier-${esc(library.tier).toLowerCase()}">tier ${esc(library.tier)}</span>` : ''}</div></td>
       <td><span class="role role-${esc(library.role)}" title="${esc(role?.description ?? '')}">${esc(role?.label ?? library.role)}</span></td>
+      <td class="lic">${licenseCell(library)}</td>
       <td class="num">${library.stars ? compact(library.stars) : '—'}</td>
       <td class="num">${esc(downloadsLabel(library)) || '—'}</td>
       <td class="num">${releaseCell(library)}</td>
     </tr>`;
+  }
+
+  /**
+   * Лицензия в строке: SPDX-идентификатор короткий, поэтому показываем его,
+   * а семейство и исходное значение реестра — в подсказке.
+   */
+  function licenseCell(library) {
+    const family = library.licenseFamily ?? 'unknown';
+    const title = library.license && library.license !== library.licenseId
+      ? `${LICENSE_FAMILY_LABEL[family] ?? family} · в реестре: ${library.license}`
+      : (LICENSE_FAMILY_LABEL[family] ?? family);
+    return `<span class="lic lic-${esc(family)}" title="${esc(title)}">${esc(library.licenseId ?? '—')}</span>`;
   }
 
   function openDrawer(id) {
@@ -445,7 +498,10 @@
       ['Загрузки', downloadsLabel(library) || '—'],
       ['Звёзды', library.stars ? compact(library.stars) : '—'],
       ['Популярность', `${popularity(library).toFixed(2)} (2·log₁₀★ + log₁₀⬇${library.tier === 'A' ? ' + 0.5' : ''})`],
-      ['Лицензия', library.license ?? '—'],
+      ['Лицензия', library.licenseId
+        ? `<span class="lic lic-${esc(library.licenseFamily ?? 'unknown')}">${esc(library.licenseId)}</span> <span style="color:var(--text-dim)">${esc(LICENSE_FAMILY_LABEL[library.licenseFamily] ?? '')}</span>`
+        : `<span style="color:var(--text-dim)">${esc(LICENSE_FAMILY_LABEL.unknown)}</span>`],
+      ['В реестре указано', library.license ?? '—'],
       ['Релиз', library.latestRelease ? `${library.latestRelease} (${RELEASE_SOURCE_LABEL[library.latestReleaseSource] ?? '—'})` : '—'],
       ['Релиз в реестре', library.registry?.updatedAt ?? '—'],
       ['Релиз на GitHub', library.github?.latestRelease ? `${library.github.latestRelease} · ${library.github.releasedAt ?? '—'}` : '—'],
@@ -493,6 +549,8 @@
     for (const key of ['q', 'language', 'provider', 'kind', 'status', 'tier']) {
       if (state[key]) params.set(key, state[key]);
     }
+    // Лицензию в адрес пишем как `license`, а не именем поля состояния.
+    if (state.licenseFamily) params.set('license', state.licenseFamily);
     if (state.roleGroup !== 'api') params.set('role', state.roleGroup);
     const query = params.toString();
     history.replaceState(null, '', query ? `?${query}` : location.pathname);

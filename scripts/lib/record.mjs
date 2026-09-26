@@ -33,6 +33,7 @@
  *   discoveredAt, updatedAt
  * }
  */
+import { normalizeLicense } from './license.mjs';
 
 export const ECOSYSTEMS = new Set([
   'pypi', 'npm', 'crates', 'golang', 'maven', 'nuget',
@@ -169,6 +170,11 @@ export function normalizeRecord(input) {
     docs: cleanUrl(input.docs),
     homepage: cleanUrl(input.homepage),
     license: cleanString(input.license, 80),
+    // Приведённая лицензия: SPDX-идентификатор и семейство. Реестры пишут
+    // «MIT», «MIT License» и «MIT + file LICENSE» — по сырому значению
+    // фильтр бесполезен, поэтому фильтруем по семейству, а показываем SPDX.
+    licenseId: cleanString(normalizeLicense(input.license).id, 40),
+    licenseFamily: normalizeLicense(input.license).family,
     registry: {
       url: cleanUrl(registry.url),
       version: cleanString(registry.version, 60),
@@ -237,6 +243,7 @@ export function normalizeRecord(input) {
   if (record.description === undefined) delete record.description;
   if (record.homepage === undefined && !record.repo) delete record.homepage;
   if (record.license === undefined) delete record.license;
+  if (record.licenseId === undefined) delete record.licenseId;
   if (record.install === undefined) delete record.install;
   if (record.repoDropped === undefined) delete record.repoDropped;
   if (record.docs === undefined) delete record.docs;

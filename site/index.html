@@ -50,6 +50,7 @@
       <select id="f-kind"></select>
       <select id="f-status"></select>
       <select id="f-tier"></select>
+      <select id="f-license" title="Лицензия: разрешающая, с обязательным открытием кода, открывает исходники, не указана"></select>
       <button id="reset">Сбросить</button>
       <span class="count" id="count">{{TOTAL}} из {{TOTAL}}</span>
     </div>
@@ -82,6 +83,7 @@
         <th data-sort="language">Язык</th>
         <th>Провайдеры</th>
         <th>Роль</th>
+        <th data-sort="license" title="Лицензия пакета, приведённая к SPDX. Реестры пишут «MIT», «MIT License» и «MIT + file LICENSE» — в каталоге это один идентификатор">Лицензия</th>
         <th class="num" data-sort="stars" title="Звёзды GitHub у репозитория">★</th>
         <th class="num" data-sort="downloads" title="Счётчик реестра пакетов. У PyPI, npm, Packagist и Hex — за месяц, у crates.io, NuGet, RubyGems — накопительно, у Go — число импортов">⬇</th>
         <th data-sort="updated" title="Дата последнего релиза: сначала релиз в реестре пакета, затем релиз на GitHub, затем последний коммит">Релиз</th>

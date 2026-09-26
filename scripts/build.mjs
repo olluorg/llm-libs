@@ -18,6 +18,7 @@ import { createLogger } from './lib/log.mjs';
 import { readConfig, readDataset, DIST_DIR, ROOT } from './lib/store.mjs';
 import { slugify } from './lib/site-helpers.mjs';
 import { ROLES, CALLS_PROVIDER_API } from './lib/record.mjs';
+import { LICENSE_FAMILY_LABEL } from './lib/license.mjs';
 import { popularity as sharedPopularity } from './lib/popularity.mjs';
 
 const log = createLogger('build');
@@ -294,14 +295,28 @@ function rowHtml(library) {
         <td>${escapeHtml(library.language)}</td>
         <td><div class="chips">${providerChips}${library.tier ? `<span class="chip tier-${escapeHtml(library.tier).toLowerCase()}">tier ${escapeHtml(library.tier)}</span>` : ''}</div></td>
         <td><span class="role role-${escapeHtml(library.role)}">${escapeHtml(role?.label ?? library.role)}</span></td>
+        <td class="lic">${licenseCell(library)}</td>
         <td class="num">${library.stars ? compact(library.stars) : '—'}</td>
         <td class="num">${escapeHtml(downloadsLabel(library)) || '—'}</td>
         <td class="num">${releaseCell(library)}</td>
       </tr>`;
 }
 
-function sortForSeo(subset) {
-  return [...subset].sort(
+/**
+ * Лицензия в строке: SPDX-идентификатор короткий, поэтому показываем его,
+ * а семейство и исходное значение реестра — в подсказке. Нормализация —
+ * в scripts/lib/license.mjs, без неё «MIT», «MIT License» и «MIT + file LICENSE»
+ * были бы тремя разными значениями.
+ */
+function licenseCell(library) {
+  const family = library.licenseFamily ?? 'unknown';
+  const title = library.license && library.license !== library.licenseId
+    ? `${LICENSE_FAMILY_LABEL[family] ?? family} · в реестре: ${library.license}`
+    : (LICENSE_FAMILY_LABEL[family] ?? family);
+  return `<span class="lic lic-${escapeHtml(family)}" title="${escapeHtml(title)}">${escapeHtml(library.licenseId ?? '—')}</span>`;
+}
+
+function sortForSeo(subset) {  return [...subset].sort(
     (a, b) => popularity(b) - popularity(a) || String(a.name).localeCompare(String(b.name)),
   );
 }
