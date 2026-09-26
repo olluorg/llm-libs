@@ -11,7 +11,7 @@ import { createLogger } from './lib/log.mjs';
 import { getText } from './lib/http.mjs';
 import { mapLimit, repoSlug } from './lib/github.mjs';
 import { curationKey, loadCuration, loadProviders, readDataset, CURATED_DIR } from './lib/store.mjs';
-import { findCopies, findDeclaredForks, findRewrittenCandidates } from './lib/fork.mjs';
+import { findForks } from './lib/fork.mjs';
 import { makeId, CALLS_PROVIDER_API, ROLES } from './lib/record.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -184,8 +184,10 @@ log.info(
     ...curation.keep.map((item) => curationKey(item.ecosystem, item.name)),
   ]);
   const libraries = dataset.libraries ?? [];
+  // Один проход по всем парам записей на все три сигнала сразу.
+  const forks = findForks(libraries);
 
-  for (const family of findCopies(libraries)) {
+  for (const family of forks.copies) {
     // Решение требуется только по копиям: оригинал остаётся по умолчанию,
     // иначе каждое семейство требовало бы лишней записи о себе.
     for (const copy of family.copies) {
@@ -196,14 +198,14 @@ log.info(
     }
   }
 
-  for (const { id, source } of findDeclaredForks(libraries)) {
+  for (const { id, source } of forks.declared) {
     if (decided.has(id.toLowerCase())) continue;
     problems.errors.push(
       `описание сообщает о форке (${source}), но решения нет: ${id}. Добавьте её в exclude или keep с причиной.`,
     );
   }
 
-  const unreviewed = findRewrittenCandidates(libraries).filter(
+  const unreviewed = forks.rewritten.filter(
     (pair) => !decided.has(pair.original.id.toLowerCase()) && !decided.has(pair.other.id.toLowerCase()),
   );
   for (const pair of unreviewed) {
@@ -212,9 +214,9 @@ log.info(
     );
   }
 
-  const copies = findCopies(libraries).reduce((sum, family) => sum + family.copies.length, 0);
-  if (copies || findDeclaredForks(libraries).length || unreviewed.length) {
-    log.info(`копии и форки: дословных копий ${copies}, заявленных форков ${findDeclaredForks(libraries).length}, на проверку ${unreviewed.length}`);
+  const copies = forks.copies.reduce((sum, family) => sum + family.copies.length, 0);
+  if (copies || forks.declared.length || unreviewed.length) {
+    log.info(`копии и форки: дословных копий ${copies}, заявленных форков ${forks.declared.length}, на проверку ${unreviewed.length}`);
   }
 }
 

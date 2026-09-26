@@ -116,6 +116,22 @@ function pairsBySimilarity(records) {
 }
 
 /**
+ * Все три сигнала разом, а пары сравниваются один раз.
+ *
+ * Раньше findRewrittenCandidates внутри себя вызывал findCopies, а validate
+ * звал и то и другое, — сравнение всех пар записей проходило дважды. Для
+ * 456 записей это около ста тысяч пар, и на втором прогоне смысла не было.
+ */
+export function findForks(records) {
+  const pairs = pairsBySimilarity(records);
+  return {
+    copies: groupsFromPairs(records, pairs.filter((pair) => pair.jaccard >= JACCARD)),
+    rewritten: rewrittenFromPairs(records, pairs.filter((pair) => pair.containment >= CONTAINMENT)),
+    declared: declaredForks(records),
+  };
+}
+
+/**
  * Дословные копии: описание совпадает с чужим почти слово в слово.
  *
  * Возвращает [{ original, copies }]: оригинал — запись с наибольшим числом
@@ -133,8 +149,7 @@ function pairsBySimilarity(records) {
  * первую копию, остальные копии образовывали пары между собой, и копия с
  * девятью загрузками становилась «оригиналом» для другой копии.
  */
-export function findCopies(records) {
-  const pairs = pairsBySimilarity(records).filter((pair) => pair.jaccard >= JACCARD);
+function groupsFromPairs(records, pairs) {
   const byId = new Map(records.map((record) => [record.id, record]));
 
   const related = new Map(records.map((record) => [record.id, new Set()]));
@@ -175,12 +190,12 @@ export function findCopies(records) {
  * шаблонным описанием «A library implementing llm-chains for …», и описания
  * отличаются одним словом. Сливать их нельзя.
  */
-export function findRewrittenCandidates(records) {
+function rewrittenFromPairs(records, pairs) {
   const known = new Set(
-    findCopies(records).flatMap((family) => [family.original.id, ...family.copies.map((copy) => copy.id)]),
+    groupsFromPairs(records, pairs.filter((pair) => pair.jaccard >= JACCARD))
+      .flatMap((family) => [family.original.id, ...family.copies.map((copy) => copy.id)]),
   );
-  return pairsBySimilarity(records)
-    .filter((pair) => pair.containment >= CONTAINMENT)
+  return pairs
     .filter((pair) => ownerKey(pair.left.repo) !== ownerKey(pair.right.repo))
     .filter((pair) => !known.has(pair.left.id) && !known.has(pair.right.id))
     .map((pair) => {
@@ -204,7 +219,7 @@ export function findRewrittenCandidates(records) {
  * спецификации SDK («based on the official OpenAI OpenAPI specification»), и
  * она встречается в описаниях вовсе не о форках.
  */
-export function findDeclaredForks(records) {
+function declaredForks(records) {
   const pattern = /\b(?:fork(?:ed)?\s+(?:of|from)|cop(?:y|ied)\s+(?:of|from))\s+([^,;.(]{2,60})/i;
   const declared = [];
   for (const record of records) {

@@ -69,6 +69,17 @@ function hasValue(value) {
   return true;
 }
 
+/**
+ * Датасет для публикации: компактный JSON с переводом строки в конце.
+ *
+ * Без отступов намеренно. Файл машинный, его читает парсер, а отступы стоили
+ * 250 КБ на каждое дерево — четверть файла. Читаемому виду служит словарь
+ * рядом, а не форматирование JSON.
+ */
+export function toJson(dataset) {
+  return `${JSON.stringify(dataset)}\n`;
+}
+
 export const CSV_COLUMNS = [
   'id', 'name', 'ecosystem', 'language', 'role', 'kind', 'status', 'tier',
   'providers', 'sdkApi', 'licenseId', 'licenseFamily', 'stars', 'downloads',

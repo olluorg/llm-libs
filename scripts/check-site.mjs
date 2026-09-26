@@ -90,16 +90,38 @@ assert(Boolean(data), 'assets/data.js не задаёт window.__LLMDOCS__');
 if (!data) process.exit(1);
 const appSource = await fs.readFile(path.join(DIST_DIR, 'assets', 'app.js'), 'utf8');
 
-// Словарь интерфейса лежит в собранной странице: читаем его оттуда, чтобы
-// тесты проверяли настоящие строки, а не жёстко зашитый русский текст.
-// Признак конца — `;</script>`: внутри самих строк встречаются `};`
-// (например, «…задач на %{language}; остальное…»), поэтому искать `};` нельзя.
-const STRINGS_REGEX = /window\.__LLMDOCS_I18N__ = ([\s\S]*?);\s*<\/script>/;
+// Словарь интерфейса лежит в assets/i18n.js рядом со страницей: он одинаков
+// для всех страниц дерева, и встроенный в каждую страницу повторялся 84 раза
+// в одном дереве. Читаем его оттуда, чтобы тесты проверяли настоящие строки,
+// а не жёстко зашитый русский текст.
+const STRINGS_REGEX = /window\.__LLMDOCS_I18N__ = ([\s\S]*?);\s*$/;
 const indexMarkup = await fs.readFile(path.join(DIST_DIR, 'index.html'), 'utf8');
 const ruMarkup = await fs.readFile(path.join(DIST_DIR, 'ru', 'index.html'), 'utf8');
-assert(STRINGS_REGEX.test(indexMarkup) && STRINGS_REGEX.test(ruMarkup), 'в собранной странице нет словаря интерфейса');
-const STRINGS = JSON.parse(STRINGS_REGEX.exec(indexMarkup)[1]);
-const RU_STRINGS = JSON.parse(STRINGS_REGEX.exec(ruMarkup)[1]);
+const enStrings = await fs.readFile(path.join(DIST_DIR, 'assets', 'i18n.js'), 'utf8');
+const ruStrings = await fs.readFile(path.join(DIST_DIR, 'ru', 'assets', 'i18n.js'), 'utf8');
+assert(
+  STRINGS_REGEX.test(enStrings) && STRINGS_REGEX.test(ruStrings),
+  'в assets/i18n.js нет словаря интерфейса',
+);
+assert(
+  indexMarkup.includes('assets/i18n.js') && ruMarkup.includes('assets/i18n.js'),
+  'страница не подключает общий словарь интерфейса',
+);
+const STRINGS = JSON.parse(STRINGS_REGEX.exec(enStrings)[1]);
+const RU_STRINGS = JSON.parse(STRINGS_REGEX.exec(ruStrings)[1]);
+
+// Раз словарь вынесен из страницы, его локализация проверяется отдельно: раньше
+// это делала проверка кириллицы по самой странице. Исключение — подписи
+// переключателя языка: там язык назван по-русски и по-английски намеренно,
+// «Русский» на английской странице, иначе переключатель был бы непонятен.
+const switcherLabels = new Set(['nav.switchToRu', 'nav.switchToEn']);
+const foreignInEnglish = Object.entries(STRINGS)
+  .filter(([key, value]) => !switcherLabels.has(key) && /[Ѐ-ӿ]/.test(value))
+  .map(([key, value]) => `${key}: ${value.slice(0, 40)}`);
+assert(
+  foreignInEnglish.length === 0,
+  `в английском словаре интерфейса есть русский текст: ${foreignInEnglish.slice(0, 3).join(' | ')}`,
+);
 
 /** Текст счётчика в нужной локали: «306 of 504» / «306 из 504». */
 function countText(shown, total, strings = STRINGS) {

@@ -16,7 +16,7 @@ import path from 'node:path';
 
 import { createLogger } from './lib/log.mjs';
 import { readConfig, readDataset, DIST_DIR, ROOT } from './lib/store.mjs';
-import { toCsv, toDictionary } from './lib/dataset.mjs';
+import { toCsv, toDictionary, toJson } from './lib/dataset.mjs';
 import { slugify } from './lib/site-helpers.mjs';
 import { ROLES, ROLE_SLUGS, CALLS_PROVIDER_API } from './lib/record.mjs';
 import { LOCALES, DEFAULT_LOCALE, LOCALE_DIR, localeStrings, t } from './lib/i18n.mjs';
@@ -119,19 +119,30 @@ await fs.mkdir(path.join(DIST_DIR, 'assets'), { recursive: true });
 // Ассеты и данные копируются в каждое дерево локали: и dist/, и dist/ru/.
 // Благодаря этому префиксы в разметке относительны «внутри дерева» (../),
 // а не от корня сайта, и каждую папку можно скачать и открыть отдельно.
+//
+// Содержимое этих файлов от локали не зависит, поэтому оно готовится один раз:
+// датасет весит меньше мегабайта, и сериализовать его дважды — значило бы
+// потратить строку в 700 КБ впустую и держать в памяти две копии.
+const dataScript = `window.__LLMDOCS__ = ${JSON.stringify({ generatedAt: dataset.generatedAt, providers: providerList, roles: roleList, libraries })};\n`;
+// JSON публикуется без отступов: файл машинный, его читает парсер, а отступы
+// стоили 250 КБ на дерево. Словарь рядом нужен human-readable, но не JSON.
+const datasetJson = toJson(dataset);
+const csv = toCsv(libraries);
+
 for (const locale of LOCALES) {
   const tree = LOCALE_DIR[locale] ? path.join(DIST_DIR, LOCALE_DIR[locale].replace(/^\//, '')) : DIST_DIR;
   await fs.mkdir(path.join(tree, 'assets'), { recursive: true });
-  await write(
-    path.join(tree, 'assets', 'data.js'),
-    `window.__LLMDOCS__ = ${JSON.stringify({ generatedAt: dataset.generatedAt, providers: providerList, roles: roleList, libraries })};\n`,
-  );
+  await write(path.join(tree, 'assets', 'data.js'), dataScript);
+  // Словарь одинаков для всех страниц дерева, поэтому лежит один файл, а не
+  // повторяется в каждой странице: 12 КБ × 84 страницы были чистым повтором.
+  await write(path.join(tree, 'assets', 'i18n.js'), `window.__LLMDOCS_I18N__ = ${JSON.stringify(localeStrings(locale))};
+`);
   // Публичный датасет: три файла. Один JSON без словаря полей бесполезен
   // постороннему — что означает tier и откуда взялся licenseId, не написано
   // нигде. CSV нужен тем, кто хочет открыть каталог в таблице, а словарь
   // собирается из самих записей, поэтому новое поле попадает в него само.
-  await write(path.join(tree, 'data', 'libraries.json'), `${JSON.stringify(dataset, null, 2)}\n`);
-  await write(path.join(tree, 'data', 'libraries.csv'), toCsv(libraries));
+  await write(path.join(tree, 'data', 'libraries.json'), datasetJson);
+  await write(path.join(tree, 'data', 'libraries.csv'), csv);
   await write(
     path.join(tree, 'data', 'README.md'),
     toDictionary(libraries, { generatedAt: dataset.generatedAt, siteUrl, locale }),
@@ -399,7 +410,6 @@ function render(tpl, { locale, root, urlPath, view, title, description, heading,
     .replaceAll('{{LANG}}', locale)
     .replaceAll('{{ALTERNATES}}', alternatesHtml(locale, urlPath))
     .replaceAll('{{SWITCHER}}', switcherHtml(locale, urlPath, prefix))
-    .replaceAll('{{I18N}}', JSON.stringify(localeStrings(locale)))
     .replaceAll(/\{\{ROOT\}\}/g, prefix)
     .replaceAll('{{TITLE}}', escapeHtml(title))
     .replaceAll('{{DESCRIPTION}}', escapeHtml(description))
