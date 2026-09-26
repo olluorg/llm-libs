@@ -73,16 +73,44 @@ let quotaExhausted = false;
 let releasesFetched = 0;
 let releasesWithDate = 0;
 
+/**
+ * Исчерпана ли часовая квота GitHub — и тогда прогон пора останавливать.
+ *
+ * Раньше любой 403 считался исчерпанием квоты, и прогон обрывался на 70-й
+ * записи из 430: GitHub отдаёт 403 ещё и за вторичный лимит запросов (слишком
+ * много параллельных обращений), который через минуту проходит сам. Теперь
+ * останавливаемся только когда `x-ratelimit-remaining: 0` — это настоящее
+ * ограничение часовой квоты, ждать его бессмысленно.
+ */
+function isHourlyQuotaExhausted(error) {
+  if (error?.status === 429) return true;
+  return error?.status === 403 && (error.rateLimitRemaining === 0 || error.retryAfter);
+}
+
 await mapLimit(queue, concurrency, async ({ record, slug }) => {
   if (quotaExhausted) return;
-  const meta = await fetchRepo(slug).catch((error) => {
-    if (error.status === 403 || error.status === 429) {
+  // Сетевая ошибка и «репозитория нет» — разные вещи: при ошибке запись
+  // оставляем как есть (вернёмся к ней в следующем прогоне), иначе транзиентный
+  // 403 молча удалил бы сотни ссылок на репозитории.
+  let meta = null;
+  let failed = false;
+  try {
+    meta = await fetchRepo(slug);
+  } catch (error) {
+    failed = true;
+    if (isHourlyQuotaExhausted(error)) {
       quotaExhausted = true;
-      log.warn('Квота GitHub исчерпана — останавливаю обогащение');
+      log.warn('Часовая квота GitHub исчерпана — останавливаю обогащение');
+    } else if (error?.status === 403) {
+      log.debug(`${slug}: 403 без признаков лимита, пропускаю до следующего прогона`);
+    } else {
+      log.debug(`GitHub ${slug}: ${error.message}`);
     }
-    log.debug(`GitHub ${slug}: ${error.message}`);
-    return null;
-  });
+  }
+  if (failed) {
+    byId.set(record.id, record);
+    return;
+  }
   if (!meta) {
     notFound += 1;
     // Репозиторий 404: у курируемой записи это ошибка данных (показываем явно),
@@ -103,7 +131,7 @@ await mapLimit(queue, concurrency, async ({ record, slug }) => {
   if (needsRelease) {
     releasesFetched += 1;
     release = await fetchLatestRelease(slug).catch((error) => {
-      if (error.status === 403 || error.status === 429) quotaExhausted = true;
+      if (isHourlyQuotaExhausted(error)) quotaExhausted = true;
       log.debug(`release ${slug}: ${error.message}`);
       return null;
     });

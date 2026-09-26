@@ -167,9 +167,12 @@ function checkMonotonicity(list) {
 
 // Счётчик должен быть помечен по смыслу: у PyPI и npm — за месяц,
 // у crates.io, NuGet, RubyGems — накопительно с публикации.
-const periodOf = (name) => data.libraries.find((l) => l.name === name)?.registry?.downloadsPeriod;
+// Ищем именно в нужной экосистеме: одноимённый пакет в другом реестре
+// (npm:openai, nuget:openai) счётчика с другим смыслом не объясняет.
+const periodOf = (ecosystem, name) =>
+  data.libraries.find((l) => l.ecosystem === ecosystem && l.name === name)?.registry?.downloadsPeriod;
 if (data.libraries.some((l) => l.ecosystem === 'pypi' && l.registry?.downloads)) {
-  assert(periodOf('openai') === 'month', `счётчик PyPI помечен как «${periodOf('openai')}», а не month`);
+  assert(periodOf('pypi', 'openai') === 'month', `счётчик PyPI помечен как «${periodOf('pypi', 'openai')}», а не month`);
 }
 const cratesRecord = data.libraries.find((l) => l.ecosystem === 'crates' && l.registry?.downloads);
 if (cratesRecord) {

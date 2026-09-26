@@ -21,12 +21,16 @@ function ensureCacheDir() {
 }
 
 export class HttpError extends Error {
-  constructor(message, { status, url, body } = {}) {
+  constructor(message, { status, url, body, rateLimitRemaining, retryAfter } = {}) {
     super(message);
     this.name = 'HttpError';
     this.status = status;
     this.url = url;
     this.body = body;
+    // Заголовки нужны, чтобы отличать исчерпание часовой квоты (останавливаем
+    // прогон) от вторичного лимита (достаточно подождать и повторить).
+    this.rateLimitRemaining = rateLimitRemaining;
+    this.retryAfter = retryAfter;
   }
 }
 
@@ -140,15 +144,27 @@ export async function getText(url, options = {}) {
         return { text: '', status: 404, fromCache: false, notFound: true };
       }
 
-      if (response.status === 429 || response.status >= 500) {
+      // 403 от GitHub бывает двух видов: запрет доступа (повтор не поможет)
+      // и вторичный лимит запросов (нужно подождать). Различаем по заголовкам.
+      const remainingHeader = response.headers.get('x-ratelimit-remaining');
+      const retryAfterHeader = Number(response.headers.get('retry-after') ?? 0);
+      const isRateLimited =
+        response.status === 429 ||
+        (response.status === 403 && (remainingHeader === '0' || retryAfterHeader > 0));
+
+      if (isRateLimited || response.status >= 500) {
         const reset = Number(response.headers.get('x-ratelimit-reset') ?? 0) * 1000;
-        const retryAfter = Number(response.headers.get('retry-after') ?? 0) * 1000;
         const wait = Math.min(
-          Math.max(retryAfter, reset - Date.now(), 2 ** attempt * 1000),
+          Math.max(retryAfterHeader * 1000, reset - Date.now(), 2 ** attempt * 1000),
           180_000,
         );
         if (attempt === retries) {
-          throw new HttpError(`HTTP ${response.status} для ${url}`, { status: response.status, url });
+          throw new HttpError(`HTTP ${response.status} для ${url}`, {
+            status: response.status,
+            url,
+            rateLimitRemaining: remainingHeader === null ? undefined : Number(remainingHeader),
+            retryAfter: retryAfterHeader || undefined,
+          });
         }
         log.warn(`${url} → ${response.status}, ждём ${Math.round(wait / 1000)}s`);
         await new Promise((resolve) => setTimeout(resolve, wait));
@@ -167,8 +183,7 @@ export async function getText(url, options = {}) {
       const status = error instanceof HttpError ? error.status : undefined;
       if (status && status < 500 && status !== 429) throw error;
       if (attempt === retries) break;
-      await new Promise((resolve) => setTimeout(resolve, 2 ** attempt * 750));
-    } finally {
+      await new Promise((resolve) => setTimeout(resolve, 2 ** attempt * 750));    } finally {
       clearTimeout(timer);
     }
   }
