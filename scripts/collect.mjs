@@ -15,10 +15,25 @@ import {
   dedupe, loadAdapter, loadCurated, loadEcosystems, loadProviders, writeDataset, writeJson, OUT_DIR,
 } from './lib/store.mjs';
 import { mergeRecords } from './lib/record.mjs';
-import { inferEnvVars, inferFeatures, inferKind, inferSdkApi, inferStatus } from './lib/infer.mjs';
+import { inferEnvVars, inferFeatures, inferKind, inferSdkApi, inferStatus, roleForKind } from './lib/infer.mjs';
 import { confidenceFromScore, scoreCandidate, tierFromScore } from './lib/score.mjs';
 
 const log = createLogger('collect');
+
+/**
+ * Отсев шаблонных заготовок: пакеты, оставленные автором «на будущее»
+ * с плейсхолдерными ссылками и описаниями-заглушками. В каталоге им не место.
+ */
+const PLACEHOLDER = /(your[-_ ]?(repo|url|username|name|project)|example\.(com|org)|github\.com\/(user|username|your|test|example)\b|<your|todo|change me|lorem ipsum|coming soon|добавьте|заполните)/i;
+
+function isJunk(candidate, meta) {
+  const links = [meta.repo, meta.homepage, meta.docs].filter(Boolean).join(' ');
+  const description = meta.description || candidate.description || '';
+  if (links && PLACEHOLDER.test(links)) return true;
+  if (PLACEHOLDER.test(description)) return true;
+  // Ни описания, ни репозитория, ни версии — запись не о чем.
+  return !description && !meta.repo && !meta.registry?.version;
+}
 
 const args = parseArgs(process.argv.slice(2));
 const options = {
@@ -169,6 +184,10 @@ if (!options.curatedOnly) {
           continue;
         }
         if (!languageAllowed(config, meta, candidate, logAd)) continue;
+        if (isJunk(candidate, meta)) {
+          logAd.debug(`${candidate.name}: похоже на шаблонную заготовку, пропускаем`);
+          continue;
+        }
         collected.push(candidateToRecord(candidate, meta, config, id, adapter));
       } catch (error) {
         logAd.debug(`fetchMeta ${candidate.name}: ${error.message}`);
@@ -222,6 +241,8 @@ function candidateToRecord(candidate, meta, config, ecosystem, adapter) {
   const downloads = meta.registry?.downloads ?? meta.downloads ?? candidate.downloads;
   const updatedAt = meta.registry?.updatedAt ?? candidate.updatedAt;
   const confidence = confidenceFromScore(candidate.score);
+  const kind = inferKind(name, description, providersForRecord);
+  const role = roleForKind(kind);
 
   return {
     name,
@@ -229,13 +250,19 @@ function candidateToRecord(candidate, meta, config, ecosystem, adapter) {
     description,
     ecosystem,
     language: meta.language ?? candidate.language ?? adapter.language ?? config.language,
+    // Рантаймы и сопутствующие инструменты не вызывают API провайдера:
+    // normalizeRecord перенесёт их провайдеров в worksWith.
+    role,
+    kind,
     providers: providersForRecord,
+    worksWith: meta.worksWith,
+    openaiCompatibleServer: meta.openaiCompatibleServer,
     sdkApi: inferSdkApi(providersForRecord),
-    kind: inferKind(name, description, providersForRecord),
     status: inferStatus({ description, updatedAt }),
     tier: capTier(tierFromScore(candidate.score, downloads), confidence),
     features: inferFeatures(name, description),
-    envVars: inferEnvVars(providersForRecord, providers),
+    // Ключи окружения нужны только клиентам API: у рантаймов их нет.
+    envVars: role === 'sdk' ? inferEnvVars(providersForRecord, providers) : [],
     install: (config.install ?? '{name}').replace('{name}', name).replace('{group}', meta.group ?? '').replace('{artifact}', meta.artifact ?? ''),
     repo: meta.repo ?? candidate.repo,
     docs: meta.docs,

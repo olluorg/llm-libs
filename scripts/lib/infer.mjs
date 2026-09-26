@@ -1,15 +1,30 @@
 /**
  * Эвристический разбор: по названию/описанию пакета восстанавливаем
- * тип (kind), поддерживаемые сценарии (features), тип API и статус.
+ * тип (kind), роль по отношению к провайдерам (role), поддерживаемые
+ * сценарии (features), тип API и статус.
  */
 
+import { ROLE_BY_KIND } from './record.mjs';
+
 const KIND_RULES = [
+  // Сопутствующее: хранилища, наблюдаемость, eval, UI, утилиты.
   ['retrieval', ['chroma', 'chromadb', 'qdrant', 'pinecone', 'weaviate', 'milvus', 'lancedb', 'pgvector', 'faiss', 'embedchain', 'txtai', 'vespa', 'marqo', 'revect', 'unstructured', 'docling', 'elasticsearch', 'opensearch', 'redis', 'tair', 'photon', 'vald', 'langchain-community']],
-  ['local-runtime', ['ollama', 'vllm', 'llama-cpp', 'llama.cpp', 'llamacpp', 'transformers', 'candle', 'tch', 'gguf', 'ggml', 'mlx', 'whisper.cpp', 'localai', 'lmstudio', 'sglang', 'text-generation-webui', 'fastembed', 'onnxruntime', 'tokenizers', 'koboldcpp', 'text-gen-webui']],
-  ['gateway', ['litellm', 'portkey', 'helicone', 'openrouter', 'langfuse', 'openlit', 'braintrust', 'langsmith', 'aigate', 'oneapi', 'new-api', 'uni-api', 'anyrouter', 'openai-proxy', 'ai-gateway', 'truefoundry', 'openllmetry', 'arize', 'phoenix', 'traceloop', 'weave', 'literalai', 'prompt-layer', 'vcr', 'mock-llm']],
+  ['util', ['tiktoken', 'tokenizer', 'tokenizers', 'tokenize', 'count-token', 'bpe', 'guidance', 'huggingface_hub', 'huggingface-hub', 'hf-hub', 'modelscope']],
   ['eval', ['promptfoo', 'deepeval', 'ragas', 'langsmith', 'braintrust', 'phoenix', 'inspect-ai', 'promptlab', 'geval', 'openai-evals', 'evals', 'eval', 'patronus', 'ragbench', 'agenta']],
-  ['ui', ['chatgpt', 'chat-ui', 'nextchat', 'chatbot', 'lobe-chat', 'librechat', 'open-webui', 'dify', 'flowise', 'botpress', 'langflow', 'gradio', 'streamlit', 'chainlit', 'openui', 'chatbox']],
-  ['framework', ['langchain', 'langgraph', 'llama-index', 'llamaindex', 'semantic-kernel', 'semantickernel', 'autogen', 'crewai', 'dspy', 'guidance', 'pydantic-ai', 'smolagents', 'haystack', 'txtai', 'marvin', 'outlines', 'instructor', 'agno', 'atomic-agents', 'letta', 'rasa', 'n8n', 'camel', 'microsoft-agent-framework', 'swarms', 'openai-agents', 'langchain4j', 'langchain4s', 'ruby_llm', 'llphant', 'prism', 'ellmer', 'langchainrb', 'langchain_dart', 'kotlin-openai', 'openai-swift']],
+  ['ui', ['chatgpt', 'chat-ui', 'nextchat', 'chatbot', 'lobe-chat', 'lobehub', 'librechat', 'open-webui', 'dify', 'flowise', 'botpress', 'langflow', 'gradio', 'streamlit', 'chainlit', 'openui', 'chatbox']],
+  // Локальный запуск моделей. Сюда же — библиотеки локальных моделей
+  // (whisper, diffusers, sentence-transformers): провайдеру они не звонят.
+  ['local-runtime', [
+    'ollama', 'vllm', 'llama-cpp', 'llama.cpp', 'llamacpp', 'transformers', 'candle', 'tch', 'gguf', 'ggml',
+    'mlx', 'mlx-lm', 'whisper.cpp', 'whisper', 'localai', 'lmstudio', 'sglang', 'text-generation-webui',
+    'fastembed', 'onnxruntime', 'koboldcpp', 'text-gen-webui', 'torch', 'diffusers', 'accelerate', 'peft',
+    'sentence-transformers', 'sentencepiece', 'safetensors', 'optimum', 'bitsandbytes', 'deepspeed',
+    'xformers', 'ctransformers', 'tabby', 'text-generation', 'openvino', 'gguf-python', 'outlines',
+  ]],
+  // Прокси к провайдерам.
+  ['gateway', ['litellm', 'portkey', 'helicone', 'openrouter', 'langfuse', 'openlit', 'braintrust', 'aigate', 'oneapi', 'new-api', 'uni-api', 'anyrouter', 'openai-proxy', 'ai-gateway', 'truefoundry', 'openllmetry', 'arize', 'phoenix', 'traceloop', 'weave', 'literalai', 'prompt-layer', 'vcr', 'mock-llm']],
+  // Абстракции поверх SDK.
+  ['framework', ['langchain', 'langgraph', 'llama-index', 'llamaindex', 'semantic-kernel', 'semantickernel', 'autogen', 'crewai', 'dspy', 'pydantic-ai', 'smolagents', 'haystack', 'marvin', 'instructor', 'agno', 'atomic-agents', 'letta', 'rasa', 'n8n', 'camel', 'microsoft-agent-framework', 'swarms', 'openai-agents', 'langchain4j', 'langchain4s', 'ruby_llm', 'llphant', 'prism', 'ellmer', 'langchainrb', 'kotlin-openai', 'openai-swift', 'instructor_ex', 'req_llm']],
   ['orchestration', ['langserve', 'temporal', 'conductor', 'prefect', 'dagster', 'airflow']],
 ];
 
@@ -65,7 +80,12 @@ export function inferKind(name, description = '', providers = []) {
   for (const [kind, needles] of KIND_RULES) {
     if (needles.some((needle) => lower(name).includes(needle))) return kind;
   }
-  if (providers.includes('huggingface') && /model|transform|tokenizer|inference/.test(text)) {
+  // Клиент Hugging Face, который тянет модели и пайплайны инференса, — локальный
+  // рантайм; сам клиент Hub (скачивание моделей) — сопутствующий инструмент.
+  if (
+    providers.includes('huggingface') &&
+    /transformers|inference|diffusers|pipeline|torch|numpy/.test(lower(name))
+  ) {
     return 'local-runtime';
   }
   if (providers.includes('aws-bedrock') || providers.includes('azure-openai')) return 'official-sdk';
@@ -111,4 +131,9 @@ export function inferEnvVars(providers = [], providerMap = {}) {
     for (const key of providerMap[id]?.envVars ?? []) envVars.add(key);
   }
   return [...envVars].slice(0, 6);
+}
+
+/** Роль по отношению к провайдерам: выводится из kind, но может быть задана явно. */
+export function roleForKind(kind) {
+  return ROLE_BY_KIND[kind] ?? 'sdk';
 }

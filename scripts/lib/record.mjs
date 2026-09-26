@@ -1,13 +1,22 @@
 /**
  * Единая схема записи каталога и утилиты слияния/нормализации.
  *
+ * Ключевое различие — между `role` и `providers`:
+ *   `role`      — что библиотека делает с LLM;
+ *   `providers` — ЧЬЕ API она вызывает. У рантаймов и сопутствующих инструментов
+ *                 это поле обязано быть пустым, иначе «библиотека для OpenAI»
+ *                 начинает означать что угодно (векторную БД, eval-инструмент, UI).
+ *
  * library = {
  *   id, name, displayName, description,
  *   ecosystem,          // pypi | npm | crates | golang | maven | nuget | rubygems | packagist | hex | luarocks | cran | swift | github
  *   language,           // Python | TypeScript | Go | Rust | Java | C# | ...
- *   providers: [id],    // провайдеры, с которыми работает библиотека
- *   sdkApi,             // openai | openai-responses | anthropic-messages | gemini | bedrock | azure-openai | openai-compatible | n/a
- *   kind,               // official-sdk | client | framework | gateway | local-runtime | eval | orchestration | ui
+ *   role,               // sdk | framework | runtime | gateway | support
+ *   providers: [id],    // только для sdk/framework/gateway: чей API вызывается
+ *   worksWith: [id],    // мягкая связь: рантаймы, инфраструктура, UI, MCP
+ *   openaiCompatibleServer, // true, если поднимает /v1-совместимый сервер (ollama, vLLM, llama.cpp)
+ *   sdkApi,             // openai | anthropic-messages | gemini | bedrock | azure-openai | openai-compatible | n/a
+ *   kind,               // official-sdk | client | framework | gateway | local-runtime | retrieval | eval | orchestration | ui | util
  *   status,             // active | beta | deprecated | archived | unknown
  *   tier,               // A (must know) | B (полезно) | C (остальное)
  *   features: [],       // chat | streaming | tools | structured-output | vision | embeddings | audio | video | batch | rag | agents | evals | finetune
@@ -30,8 +39,40 @@ export const ECOSYSTEMS = new Set([
   'rubygems', 'packagist', 'hex', 'luarocks', 'cran', 'swift', 'github',
 ]);
 
+/** Что библиотека делает с LLM. */
+export const ROLES = {
+  // Прямой HTTP-клиент API провайдера, включая OpenAI-совместимые.
+  sdk: 'Клиент API провайдера',
+  // Абстракция поверх клиентских SDK: агенты, цепочки, RAG-пайплайны, structured output.
+  framework: 'Фреймворк поверх SDK',
+  // Локальный или серверный запуск моделей: Ollama, vLLM, transformers, llama.cpp.
+  runtime: 'Локальный запуск моделей',
+  // Прокси к провайдерам: LiteLLM, Portkey.
+  gateway: 'Шлюз к провайдерам',
+  // Сопутствующее: векторные БД, наблюдаемость, eval, токенизаторы, UI, MCP-серверы.
+  support: 'Сопутствующие инструменты',
+};
+
+/** Как `kind` соотносится с ролью; роль можно переопределить в курируемых данных. */
+export const ROLE_BY_KIND = {
+  'official-sdk': 'sdk',
+  client: 'sdk',
+  framework: 'framework',
+  gateway: 'gateway',
+  'local-runtime': 'runtime',
+  retrieval: 'support',
+  eval: 'support',
+  orchestration: 'support',
+  ui: 'support',
+  util: 'support',
+};
+
+/** Роли, которые по определению обращаются к API провайдера. */
+export const CALLS_PROVIDER_API = new Set(['sdk', 'framework', 'gateway']);
+
 export const KINDS = new Set([
-  'official-sdk', 'client', 'framework', 'gateway', 'local-runtime', 'eval', 'orchestration', 'retrieval', 'ui',
+  'official-sdk', 'client', 'framework', 'gateway', 'local-runtime',
+  'retrieval', 'eval', 'orchestration', 'ui', 'util',
 ]);
 
 export const STATUSES = new Set(['active', 'beta', 'deprecated', 'archived', 'unknown']);
@@ -91,6 +132,17 @@ export function normalizeRecord(input) {
   const github = input.github ?? {};
   const registry = input.registry ?? {};
 
+  const kind = KINDS.has(input.kind) ? input.kind : 'client';
+  const role = ROLES[input.role] ? input.role : ROLE_BY_KIND[kind];
+  // Рантаймы и сопутствующие инструменты не вызывают API провайдера:
+  // переносим список провайдеров в worksWith, чтобы не выдавать их за клиентов.
+  const rawProviders = uniq(input.providers ?? (input.provider ? [input.provider] : []));
+  const rawWorksWith = uniq(input.worksWith ?? []);
+  const providers = CALLS_PROVIDER_API.has(role) ? rawProviders : [];
+  const worksWith = CALLS_PROVIDER_API.has(role)
+    ? rawWorksWith
+    : uniq([...rawWorksWith, ...rawProviders]);
+
   const record = {
     id: cleanString(input.id) ?? makeId(ecosystem, name),
     name,
@@ -98,9 +150,13 @@ export function normalizeRecord(input) {
     description: cleanString(input.description, 600),
     ecosystem,
     language: cleanString(input.language, 60) ?? languageFor(ecosystem),
-    providers: uniq(input.providers ?? (input.provider ? [input.provider] : [])),
+    role,
+    kind,
+    providers,
+    worksWith,
+    openaiCompatibleServer:
+      input.openaiCompatibleServer === true && role === 'runtime' ? true : undefined,
     sdkApi: cleanString(input.sdkApi, 60) ?? 'n/a',
-    kind: KINDS.has(input.kind) ? input.kind : 'client',
     status: STATUSES.has(input.status) ? input.status : 'unknown',
     tier: TIERS.has(input.tier) ? input.tier : undefined,
     features: uniq(input.features ?? []).slice(0, 20),
@@ -134,6 +190,8 @@ export function normalizeRecord(input) {
   if (record.status === 'active' && record.github.archived === true) record.status = 'archived';
   if (record.notes === undefined) delete record.notes;
   if (record.tier === undefined) delete record.tier;
+  if (!record.worksWith.length) delete record.worksWith;
+  if (record.openaiCompatibleServer === undefined) delete record.openaiCompatibleServer;
   if (record.displayName === record.name) delete record.displayName;
   if (!record.registry.url) delete record.registry.url;
   if (!record.registry.version) delete record.registry.version;
@@ -179,7 +237,10 @@ const RANK = { archived: 0, deprecated: 1, unknown: 2, beta: 3, active: 4 };
 
 /**
  * Сливает две записи об одном пакете: берём лучшее из каждого поля,
- * объединяем списки providers/features/source.
+ * объединяем списки providers/worksWith/features/source.
+ *
+ * Роль выбирает более «осмысленный» вариант: явную роль из курируемых данных
+ * не должен перебивать автоматический kind.
  */
 export function mergeRecords(base, patch) {
   const a = normalizeRecord(base);
@@ -192,12 +253,15 @@ export function mergeRecords(base, patch) {
     displayName: preferB.displayName ?? a.displayName,
     description: longer(a.description, b.description),
     language: b.language !== 'GitHub' ? b.language : a.language,
-    providers: uniq([...a.providers, ...b.providers]),
-    features: uniq([...a.features, ...b.features]),
-    envVars: uniq([...a.envVars, ...b.envVars]),
-    source: uniq([...a.source, ...b.source]),
+    providers: uniq([...(a.providers ?? []), ...(b.providers ?? [])]),
+    worksWith: uniq([...(a.worksWith ?? []), ...(b.worksWith ?? [])]),
+    features: uniq([...(a.features ?? []), ...(b.features ?? [])]),
+    envVars: uniq([...(a.envVars ?? []), ...(b.envVars ?? [])]),
+    source: uniq([...(a.source ?? []), ...(b.source ?? [])]),
     sdkApi: b.sdkApi !== 'n/a' ? b.sdkApi : a.sdkApi,
     kind: moreSpecificKind(a.kind, b.kind),
+    role: preferRole(a, b),
+    openaiCompatibleServer: a.openaiCompatibleServer === true || b.openaiCompatibleServer === true,
     status: (RANK[b.status] ?? 0) > (RANK[a.status] ?? 0) ? b.status : a.status,
     tier: bestTier(a.tier, b.tier),
     repo: b.repo ?? a.repo,
@@ -227,18 +291,30 @@ export function mergeRecords(base, patch) {
 
 const KIND_SPECIFICITY = {
   client: 1,
-  ui: 2,
-  retrieval: 3,
-  gateway: 4,
-  eval: 4,
-  orchestration: 5,
-  framework: 6,
-  'local-runtime': 7,
-  'official-sdk': 8,
+  util: 2,
+  ui: 3,
+  retrieval: 4,
+  gateway: 5,
+  eval: 5,
+  orchestration: 6,
+  framework: 7,
+  'local-runtime': 8,
+  'official-sdk': 9,
 };
 
 function moreSpecificKind(a, b) {
   return (KIND_SPECIFICITY[b] ?? 0) > (KIND_SPECIFICITY[a] ?? 0) ? b : a;
+}
+
+/**
+ * Роль: явно заданная в курируемых данных побеждает автоматически выведенную
+ * из kind, а при равной уверенности решает более специфичный kind.
+ */
+function preferRole(a, b) {
+  if (a.role === b.role) return a.role;
+  if (b.confidence > a.confidence) return b.role;
+  if (a.confidence > b.confidence) return a.role;
+  return moreSpecificKind(a.kind, b.kind) === a.kind ? a.role : b.role;
 }
 
 function pickPreferred(a, b) {

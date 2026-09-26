@@ -64,6 +64,9 @@ jobs:
           restore-keys: |
             http-
 
+      - name: Статическая проверка скриптов
+        run: npm run lint
+
       - name: Сбор из реестров пакетов
         run: node scripts/collect.mjs --min-score=${{ inputs.min-score || '3.8' }}
 

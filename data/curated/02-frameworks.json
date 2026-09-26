@@ -650,14 +650,15 @@
         "llamacpp",
         "vllm"
       ],
-      "kind": "framework",
+      "kind": "util",
       "tier": "B",
       "features": [
         "structured-output",
         "tokenizers"
       ],
       "repo": "https://github.com/dottxt-ai/outlines",
-      "notes": "Гарантированный формат вывода через логрегcию/словари на уровне токенизатора (для локальных моделей)."
+      "notes": "Ограничение декодирования по грамматике/схеме для локальных моделей (llama.cpp, transformers, vLLM). К облачным провайдерам не ходит.",
+      "role": "support"
     },
     {
       "name": "smolagents",

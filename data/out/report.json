@@ -1,10 +1,10 @@
 {
-  "startedAt": "2026-09-26T11:36:43.293Z",
+  "startedAt": "2026-09-26T12:58:21.644Z",
   "perEcosystem": {
     "pypi": {
       "candidates": 1208,
       "accepted": 40,
-      "collected": 39
+      "collected": 37
     },
     "npm": {
       "candidates": 869,
@@ -19,7 +19,7 @@
     "golang": {
       "candidates": 258,
       "accepted": 40,
-      "collected": 33
+      "collected": 32
     },
     "maven": {
       "candidates": 357,
@@ -43,8 +43,8 @@
     },
     "hex": {
       "candidates": 42,
-      "accepted": 17,
-      "collected": 17
+      "accepted": 16,
+      "collected": 16
     },
     "luarocks": {
       "candidates": 28,
@@ -64,59 +64,53 @@
     "github": {
       "candidates": 224,
       "accepted": 40,
-      "collected": 28
+      "collected": 27
     }
   },
-  "errors": [
-    {
-      "ecosystem": "github",
-      "package": "langchain4s/langchain4s",
-      "error": "HTTP 403 для https://api.github.com/repos/langchain4s/langchain4s"
-    }
-  ],
-  "enrichedAt": "2026-09-26T11:37:25.866Z",
+  "errors": [],
+  "enrichedAt": "2026-09-26T12:58:56.472Z",
   "github": {
-    "queued": 433,
-    "fetched": 412,
-    "notFound": 21,
+    "queued": 458,
+    "fetched": 439,
+    "notFound": 19,
     "skipped": 0,
     "quotaExhausted": false,
     "rateLimit": {
       "limit": 5000,
-      "used": 350,
-      "remaining": 4650,
-      "reset": 1790425331
+      "used": 73,
+      "remaining": 4927,
+      "reset": 1790430189
     },
     "token": true
   },
   "counts": {
     "total": 505,
     "byEcosystem": {
-      "nuget": 43,
+      "nuget": 42,
       "crates": 45,
-      "pypi": 92,
-      "golang": 22,
-      "github": 37,
-      "npm": 60,
-      "rubygems": 41,
-      "maven": 48,
-      "hex": 19,
+      "pypi": 90,
+      "golang": 29,
+      "github": 36,
+      "npm": 59,
+      "rubygems": 42,
+      "maven": 46,
+      "hex": 18,
       "packagist": 42,
       "luarocks": 19,
       "swift": 14,
       "cran": 23
     },
     "byLanguage": {
-      "C#": 43,
+      "C#": 42,
       "Rust": 45,
-      "Python": 93,
-      "Go": 22,
+      "Python": 91,
+      "Go": 29,
       "C++": 1,
-      "TypeScript": 60,
-      "Ruby": 41,
+      "TypeScript": 59,
+      "Ruby": 42,
       "Swift": 30,
-      "Java": 49,
-      "Elixir": 21,
+      "Java": 47,
+      "Elixir": 19,
       "PHP": 42,
       "Lua": 20,
       "Kotlin": 3,
@@ -127,59 +121,60 @@
       "OCaml": 3
     },
     "byProvider": {
-      "openai": 284,
-      "openai-compatible": 98,
-      "microsoft": 14,
-      "huggingface": 32,
-      "anthropic": 158,
-      "ollama": 70,
-      "llamacpp": 14,
+      "openai": 265,
+      "openai-compatible": 77,
+      "anthropic": 147,
       "fireworks": 1,
       "ai21": 1,
-      "langchain": 56,
-      "llamaindex": 20,
-      "anyscale": 1,
-      "google-gemini": 95,
+      "cohere": 37,
       "aws-bedrock": 49,
-      "deepseek": 16,
-      "mistral": 52,
-      "cohere": 34,
-      "groq": 30,
-      "azure-openai": 44,
+      "google-gemini": 85,
+      "mistral": 42,
+      "groq": 28,
+      "azure-openai": 45,
       "vertex-ai": 12,
-      "vllm": 7,
-      "openrouter": 13,
+      "ollama": 46,
+      "openrouter": 11,
       "together": 5,
       "perplexity": 4,
       "xai": 10,
+      "deepseek": 13,
       "jina": 2,
-      "replicate": 6,
+      "replicate": 3,
+      "huggingface": 13,
+      "vllm": 4,
+      "llamacpp": 8,
       "lmstudio": 3,
       "nvidia": 11,
-      "qwen": 9,
-      "octoml": 1,
-      "moonshot": 4,
+      "qwen": 7,
+      "moonshot": 5,
       "sap": 1,
-      "baseten": 1,
-      "siliconflow": 1,
       "deepinfra": 1
     },
+    "byRole": {
+      "sdk": 360,
+      "framework": 55,
+      "runtime": 37,
+      "support": 37,
+      "gateway": 16
+    },
     "byKind": {
-      "client": 233,
-      "framework": 121,
-      "local-runtime": 44,
-      "official-sdk": 70,
-      "retrieval": 7,
+      "client": 283,
+      "framework": 59,
+      "local-runtime": 37,
+      "official-sdk": 76,
+      "retrieval": 9,
+      "util": 9,
       "ui": 9,
-      "gateway": 14,
+      "gateway": 16,
       "eval": 6,
       "orchestration": 1
     },
     "byStatus": {
-      "unknown": 85,
-      "active": 354,
-      "deprecated": 54,
-      "archived": 12
+      "unknown": 69,
+      "active": 363,
+      "deprecated": 60,
+      "archived": 13
     }
   }
 }

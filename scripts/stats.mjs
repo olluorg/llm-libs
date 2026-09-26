@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /** Сводка по датасету: сколько библиотек, как они распределены. */
 import { readDataset } from './lib/store.mjs';
+import { ROLES } from './lib/record.mjs';
 
 const dataset = await readDataset();
 const libraries = dataset.libraries ?? [];
@@ -29,8 +30,14 @@ const table = (title, object) => {
   console.log();
 };
 
+table('По ролям (что библиотека делает с LLM):', counts.byRole);
 table('По экосистемам:', counts.byEcosystem);
 table('По языкам:', counts.byLanguage);
 table('По типам:', counts.byKind);
-table('По провайдерам:', counts.byProvider);
+table('По провайдерам (чьё API вызывается):', counts.byProvider);
 table('По статусам:', counts.byStatus);
+
+console.log('Роли:');
+for (const [id, label] of Object.entries(ROLES)) {
+  console.log(`  ${id.padEnd(10)} ${label}`);
+}

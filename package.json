@@ -12,10 +12,11 @@
     "enrich": "node scripts/enrich.mjs",
     "build": "node scripts/build.mjs",
     "check:site": "node scripts/check-site.mjs",
+    "lint": "node scripts/lint-scripts.mjs",
     "refresh": "npm run collect && npm run enrich && npm run validate && npm run build && npm run check:site",
     "validate": "node scripts/validate.mjs",
     "serve": "node scripts/serve.mjs",
     "stats": "node scripts/stats.mjs",
-    "ci": "npm run validate && npm run build && npm run check:site"
+    "ci": "npm run lint && npm run validate && npm run build && npm run check:site"
   }
 }

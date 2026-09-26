@@ -91,7 +91,8 @@
         "OLLAMA_HOST"
       ],
       "repo": "https://github.com/ollama/ollama",
-      "notes": "Сам сервер Ollama на Go; содержит типы нативного API, которые переиспользуют Go-клиенты. Готовый локальный рантайм для OpenAI-совместимых SDK."
+      "notes": "Сам сервер Ollama на Go; содержит типы нативного API, которые переиспользуют Go-клиенты. Готовый локальный рантайм для OpenAI-совместимых SDK.",
+      "openaiCompatibleServer": true
     },
     {
       "name": "github.com/bentoml/OpenLLM",
@@ -638,7 +639,8 @@
         "audio"
       ],
       "repo": "https://github.com/ggml-org/llama.cpp",
-      "notes": "C/C++-референс локального инференса: GGUF-квантизация, собственный HTTP-сервер с OpenAI-совместимым API, биндинги C/C++/Swift/Go/WebAssembly."
+      "notes": "C/C++-референс локального инференса: GGUF-квантизация, собственный HTTP-сервер с OpenAI-совместимым API, биндинги C/C++/Swift/Go/WebAssembly.",
+      "openaiCompatibleServer": true
     },
     {
       "name": "Gabriella439/grace",

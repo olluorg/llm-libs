@@ -22,7 +22,8 @@
         "OLLAMA_HOST"
       ],
       "repo": "https://github.com/ollama/ollama-python",
-      "notes": "Клиент Ollama на Python: chat, generate, embeddings, список/загрузка моделей. Модели: Llama, Qwen, Gemma, Mistral, Phi и др."
+      "notes": "Клиент Ollama на Python: chat, generate, embeddings, список/загрузка моделей. Модели: Llama, Qwen, Gemma, Mistral, Phi и др.",
+      "openaiCompatibleServer": true
     },
     {
       "name": "ollama",
@@ -44,7 +45,8 @@
         "OLLAMA_HOST"
       ],
       "repo": "https://github.com/ollama/ollama-js",
-      "notes": "Официальный JS-клиент Ollama, работает и в браузере через WebSocket."
+      "notes": "Официальный JS-клиент Ollama, работает и в браузере через WebSocket.",
+      "openaiCompatibleServer": true
     },
     {
       "name": "ollama",
@@ -63,7 +65,8 @@
       ],
       "repo": "https://github.com/elixir-ollama/ollama",
       "notes": "Elixir-клиент Ollama.",
-      "install": "mix deps.get ollama"
+      "install": "mix deps.get ollama",
+      "openaiCompatibleServer": true
     },
     {
       "name": "transformers",
@@ -145,14 +148,15 @@
         "huggingface",
         "openai"
       ],
-      "kind": "local-runtime",
+      "kind": "util",
       "tier": "B",
       "features": [
         "tokenizers",
         "local"
       ],
       "repo": "https://github.com/huggingface/tokenizers",
-      "notes": "Быстрые токенизаторы (BPE/SentencePiece/WordPiece) на Rust с готовыми словарями моделей."
+      "notes": "Быстрые токенизаторы (BPE/SentencePiece/WordPiece) на Rust с готовыми словарями моделей.",
+      "role": "support"
     },
     {
       "name": "tiktoken",
@@ -161,14 +165,15 @@
         "openai",
         "openai-compatible"
       ],
-      "kind": "client",
+      "kind": "util",
       "tier": "B",
       "features": [
         "tokenizers"
       ],
       "envVars": [],
       "repo": "https://github.com/openai/tiktoken",
-      "notes": "Эталонный токенизатор OpenAI: подсчёт токенов, кодирование/декодирование. Нужен для учёта стоимости и лимитов контекста."
+      "notes": "Эталонный токенизатор OpenAI: подсчёт токенов, кодирование/декодирование. Нужен для учёта стоимости и лимитов контекста.",
+      "role": "support"
     },
     {
       "name": "vllm",
@@ -189,7 +194,8 @@
         "batch"
       ],
       "repo": "https://github.com/vllm-project/vllm",
-      "notes": "Промышленный сервер инференса: PagedAttention, непрерывный батчинг, OpenAI-совместимый /v1, поддержка LoRA, спекулятивный декодинг."
+      "notes": "Промышленный сервер инференса: PagedAttention, непрерывный батчинг, OpenAI-совместимый /v1, поддержка LoRA, спекулятивный декодинг.",
+      "openaiCompatibleServer": true
     },
     {
       "name": "llama-cpp-python",
@@ -209,7 +215,8 @@
         "tools"
       ],
       "repo": "https://github.com/abetlen/llama-cpp-python",
-      "notes": "GGUF-модели в Python: быстрый локальный инференс, OpenAI-совместимый сервер, function calling по грамматикам."
+      "notes": "GGUF-модели в Python: быстрый локальный инференс, OpenAI-совместимый сервер, function calling по грамматикам.",
+      "openaiCompatibleServer": true
     },
     {
       "name": "mlx-lm",

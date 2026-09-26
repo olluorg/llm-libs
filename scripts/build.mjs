@@ -17,10 +17,39 @@ import path from 'node:path';
 import { createLogger } from './lib/log.mjs';
 import { readConfig, readDataset, DIST_DIR, ROOT } from './lib/store.mjs';
 import { slugify } from './lib/site-helpers.mjs';
+import { ROLES, CALLS_PROVIDER_API } from './lib/record.mjs';
 
 const log = createLogger('build');
 
 const PRE_RENDER_LIMIT = 150; // строк в статической разметке (дальше — только JSON)
+
+/**
+ * Роли по умолчанию зависят от типа страницы:
+ *  - главная и страница провайдера — только клиенты API и шлюзы (то, что
+ *    действительно отправляет запросы провайдеру);
+ *  - срез языка и оглавления — все роли: человек пришёл за списком именно
+ *    для этого языка, и про рантаймы с фреймворками он знает.
+ */
+const DEFAULT_ROLES = {
+  catalog: ['sdk', 'gateway'],
+  provider: ['sdk', 'gateway'],
+  language: ['sdk', 'framework', 'runtime', 'gateway', 'support'],
+  hub: ['sdk', 'framework', 'runtime', 'gateway', 'support'],
+};
+
+const ALL_ROLES = DEFAULT_ROLES.language;
+
+/** Пояснения к ролям: попадают в данные для сайта и в тексты для поисковиков. */
+const ROLE_DESCRIPTIONS = {
+  sdk: 'Прямой HTTP-клиент API провайдера. Создаёт подключение к OpenAI, Anthropic, Gemini, Bedrock и другим API.',
+  framework:
+    'Абстракция поверх клиентских SDK: агенты, цепочки, RAG-пайплайны, структурированный вывод. Сама к провайдеру не ходит.',
+  runtime:
+    'Считает модель локально или поднимает сервер инференса. К API облачного провайдера не обращается; Ollama, vLLM и llama.cpp дают OpenAI-совместимый сервер.',
+  gateway: 'Прокси к провайдерам с единым форматом запросов, ретраями и учётом стоимости.',
+  support:
+    'Сопутствующий слой: векторные базы, наблюдаемость, оценки, токенизаторы, интерфейсы, серверы MCP.',
+};
 
 const siteUrl =
   process.env.SITE_URL ??
@@ -50,6 +79,10 @@ const languageCounts = countBy(libraries, (l) => l.language);
 const providerCounts = countBy(libraries, (l) => l.providers[0] ?? '—');
 const languages = [...languageCounts.entries()].sort((a, b) => b[1] - a[1]);
 const usedProviders = providerList.filter((p) => libraries.some((l) => l.providers.includes(p.id)));
+const roleCounts = countBy(libraries, (l) => l.role);
+const roleList = Object.entries(ROLES)
+  .map(([id, label]) => ({ id, label, count: roleCounts.get(id) ?? 0, description: ROLE_DESCRIPTIONS[id] }))
+  .filter((role) => role.count > 0);
 
 await fs.rm(DIST_DIR, { recursive: true, force: true });
 await fs.mkdir(path.join(DIST_DIR, 'assets'), { recursive: true });
@@ -57,7 +90,7 @@ await fs.mkdir(path.join(DIST_DIR, 'assets'), { recursive: true });
 // ── Данные и ассеты ───────────────────────────────────────────────────────
 await write(
   path.join(DIST_DIR, 'assets', 'data.js'),
-  `window.__LLMDOCS__ = ${JSON.stringify({ generatedAt: dataset.generatedAt, providers: providerList, libraries })};\n`,
+  `window.__LLMDOCS__ = ${JSON.stringify({ generatedAt: dataset.generatedAt, providers: providerList, roles: roleList, libraries })};\n`,
 );
 await write(path.join(DIST_DIR, 'data', 'libraries.json'), `${JSON.stringify(dataset, null, 2)}\n`);
 await copy(path.join(ROOT, 'site', 'app.js'), path.join(DIST_DIR, 'assets', 'app.js'));
@@ -70,7 +103,8 @@ const pages = [
   {
     file: 'index.html',
     root: '',
-    view: {},
+    view: { role: 'api' },
+    roles: DEFAULT_ROLES.catalog,
     title: 'Каталог библиотек для LLM — OpenAI, Anthropic, Gemini, Bedrock на всех языках',
     description:
       `${libraries.length} библиотек для работы с LLM: OpenAI, Anthropic Claude, Google Gemini, AWS Bedrock, Azure OpenAI, ` +
@@ -86,13 +120,14 @@ const pages = [
   {
     file: 'providers.html',
     root: '',
-    view: {},
+    view: { role: 'all' },
+    roles: DEFAULT_ROLES.hub,
     title: 'Библиотеки для LLM по провайдерам — OpenAI, Anthropic, Gemini, Bedrock',
     description:
-      'Срез каталога по API-провайдерам: сколько библиотек поддерживает каждый провайдер, ссылки на документацию ' +
+      'Срез каталога по API-провайдерам: сколько библиотек вызывают API каждого провайдера, ссылки на документацию ' +
       'и base URL. OpenAI, Anthropic, Google Gemini, AWS Bedrock, Azure OpenAI, Ollama, vLLM, Groq, OpenRouter, Mistral, Cohere.',
     heading: 'Библиотеки по провайдерам',
-    subheading: 'Выберите провайдера, чтобы увидеть все библиотеки, которые с ним работают.',
+    subheading: 'Здесь только то, что обращается к API провайдера: клиентские SDK и фреймворки поверх них.',
     keywords: 'llm провайдеры, openai, anthropic, gemini, bedrock, azure openai, ollama, groq, openrouter, mistral, cohere',
     filter: () => libraries,
     hub: 'providers',
@@ -100,13 +135,14 @@ const pages = [
   {
     file: 'languages.html',
     root: '',
-    view: {},
+    view: { role: 'all' },
+    roles: DEFAULT_ROLES.hub,
     title: 'Библиотеки для LLM по языкам программирования',
     description:
       'Срез каталога по языкам: Python, TypeScript, JavaScript, Go, Rust, Java, Kotlin, C#/.NET, PHP, Ruby, R, ' +
       'Elixir, Lua, Swift, Scala, Haskell, Clojure, C++, Dart, Zig, OCaml. С версиями, загрузками и звёздами GitHub.',
     heading: 'Библиотеки по языкам',
-    subheading: 'Сколько библиотек для работы с LLM доступно в каждом языке и экосистеме пакетов.',
+    subheading: 'Сколько клиентов API и фреймворков для работы с LLM доступно в каждом языке и экосистеме пакетов.',
     keywords: 'llm sdk по языкам, python openai, typescript anthropic, golang llm, rust llm, java openai, c# llm, php llm',
     filter: () => libraries,
     hub: 'languages',
@@ -116,7 +152,8 @@ const pages = [
     return {
       file: path.join('providers', `${slugify(provider.id)}.html`),
       root: '../',
-      view: { provider: provider.id },
+      view: { provider: provider.id, role: 'api' },
+      roles: DEFAULT_ROLES.provider,
       title: `Библиотеки для ${provider.name} — ${subset.length} шт. | LLM-каталог`,
       description:
         `Готовые библиотеки и SDK для провайдера ${provider.name}: ${subset.length} пакетов для ` +
@@ -134,7 +171,8 @@ const pages = [
     return {
       file: path.join('languages', `${slugify(language)}.html`),
       root: '../',
-      view: { language },
+      view: { language, role: 'all' },
+      roles: DEFAULT_ROLES.language,
       title: `Библиотеки для LLM на ${language} — ${count} шт. | LLM-каталог`,
       description:
         `${count} библиотек для работы с LLM на языке ${language}: ` +
@@ -156,6 +194,7 @@ for (const page of pages) {
     subset,
     file: page.file,
     root: page.root,
+    roles: page.roles ?? DEFAULT_ROLES.catalog,
     total: subset.length,
     languages: new Set(subset.map((l) => l.language)).size,
     providers: new Set(subset.flatMap((l) => l.providers)).size,
@@ -197,11 +236,14 @@ for (const [language, count] of languages) log.info(`  ${language.padEnd(14)} ${
 
 // ── Рендер страницы ───────────────────────────────────────────────────────
 
-function render(tpl, { root, view, title, description, heading, subheading, keywords, subset, file, total }) {
+/** Роли, которые попадают в статическую разметку и в JSON-LD по умолчанию. */
+function render(tpl, { root, view, title, description, heading, subheading, keywords, subset, file, roles, total }) {
   const prefix = root ? `${root.replace(/\/+$/, '')}/` : '';
   // Канонический адрес — от корня сайта, без ../ от текущей страницы.
   const canonical = `${siteUrl}/${file.split(path.sep).join('/')}`;
-  const sorted = sortForSeo(subset);
+  const visible = subset.filter((library) => roles.includes(library.role));
+  const hidden = subset.length - visible.length;
+  const sorted = sortForSeo(visible.length ? visible : subset);
   const shown = sorted.slice(0, PRE_RENDER_LIMIT);
 
   return tpl
@@ -210,26 +252,27 @@ function render(tpl, { root, view, title, description, heading, subheading, keyw
     .replaceAll('{{DESCRIPTION}}', escapeHtml(description))
     .replaceAll('{{KEYWORDS}}', escapeHtml(keywords))
     .replaceAll('{{CANONICAL}}', escapeHtml(canonical))
-    .replaceAll('{{JSONLD}}', jsonLd({ view, title, description, canonical, subset, heading }))
+    .replaceAll('{{JSONLD}}', jsonLd({ view, title, description, canonical, subset: visible, heading }))
     .replaceAll('{{HEADING}}', escapeHtml(heading))
     .replaceAll('{{SUBHEADING}}', escapeHtml(subheading))
     .replaceAll('{{VIEW}}', JSON.stringify(view))
-    .replaceAll('{{TOTAL}}', String(total))
-    .replaceAll('{{LANGUAGES}}', String(new Set(subset.map((l) => l.language)).size))
-    .replaceAll('{{PROVIDERS}}', String(new Set(subset.flatMap((l) => l.providers)).size))
+    .replaceAll('{{TOTAL}}', String(visible.length || total))
+    .replaceAll('{{LANGUAGES}}', String(new Set(visible.map((l) => l.language)).size))
+    .replaceAll('{{PROVIDERS}}', String(new Set(visible.flatMap((l) => l.providers)).size))
     .replaceAll('{{CAPTION}}', escapeHtml(heading))
     .replaceAll('{{SEO_HEADING}}', escapeHtml(seoHeading(view)))
-    .replaceAll('{{SEO_TEXT}}', escapeHtml(seoText(view, subset)))
+    .replaceAll('{{SEO_TEXT}}', escapeHtml(seoText(view, visible, hidden, roles)))
     .replaceAll('{{SEO_LINKS}}', seoLinks(sorted, prefix, view))
     .replaceAll('{{ROWS}}', shown.map((library) => rowHtml(library)).join('\n'));
 }
 
 /** Статическая разметка строки таблицы: тот же вид, что рисует app.js. */
 function rowHtml(library) {
-  const providerChips = library.providers
+  const providerChips = (library.providers ?? [])
     .slice(0, 3)
     .map((id) => `<span class="chip p">${escapeHtml(providerMap.get(id)?.name ?? id)}</span>`)
     .join('');
+  const role = roleList.find((item) => item.id === library.role);
   const metrics = [
     library.stars ? `<span title="Звёзды GitHub">★ ${compact(library.stars)}</span>` : '',
     library.registry?.downloads ? `<span title="Загрузки за месяц">⬇ ${compact(library.registry.downloads)}</span>` : '',
@@ -242,7 +285,7 @@ function rowHtml(library) {
         </td>
         <td>${escapeHtml(library.language)}</td>
         <td><div class="chips">${providerChips}${library.tier ? `<span class="chip tier-${escapeHtml(library.tier).toLowerCase()}">tier ${escapeHtml(library.tier)}</span>` : ''}</div></td>
-        <td>${escapeHtml(library.kind)}</td>
+        <td><span class="role role-${escapeHtml(library.role)}">${escapeHtml(role?.label ?? library.role)}</span></td>
         <td class="num">${metrics || '—'}</td>
         <td>${escapeHtml(library.registry?.updatedAt ?? '—')}</td>
       </tr>`;
@@ -278,31 +321,40 @@ function seoHeading(view) {
   return 'С чего начать';
 }
 
-function seoText(view, subset) {
+function seoText(view, subset, hidden, roles) {
   const count = subset.length;
+  const hiddenRoles = roleList.filter((role) => !roles.includes(role.id) && role.count);
+  const tail = hidden
+    ? ` Ещё ${hidden} записей типов «${hiddenRoles.map((r) => `${r.label.toLowerCase()} — ${r.count}`).join(', ')}» — ` +
+      'переключите фильтр ролей, чтобы их увидеть.'
+    : '';
+
   if (view.provider) {
     const provider = providerMap.get(view.provider);
     const official = subset.filter((l) => l.kind === 'official-sdk').length;
     return (
-      `Всего ${count} библиотек работают с ${provider.name}` +
+      `Клиенты API ${provider.name} и фреймворки, которые через них работают: ${count} записей` +
       (official ? `, из них ${official} официальных SDK` : '') +
-      `. Ниже — список по убыванию популярности (звёзды GitHub и загрузки за месяц). ` +
-      `Если нужен единый шлюз ко всем провайдерам — посмотрите LiteLLM, если нужен агентный фреймворк — LangChain или Vercel AI SDK. ` +
-      `Все записи доступны в ${'JSON'}-файле каталога.`
+      `. Список по убыванию популярности (звёзды GitHub и загрузки за месяц).` +
+      ` Нужен единый шлюз ко всем провайдерам — LiteLLM; нужен агентный фреймворк — LangChain или Vercel AI SDK.${tail}`
     );
   }
   if (view.language) {
     return (
-      `${count} библиотек для работы с LLM на ${view.language}. Среди них официальные SDK провайдеров, ` +
-      'фреймворки для агентов и RAG, локальный инференс, шлюзы (LiteLLM) и инструменты наблюдаемости. ' +
-      'Сортировка — по популярности; клик по заголовку меняет порядок, поиск работает по названию, описанию, ' +
-      'провайдерам и возможностям.'
+      `Клиенты API LLM и фреймворки на языке ${view.language}: ${count} записей` +
+      (hidden ? `, плюс локальные рантаймы и сопутствующие инструменты для этого языка` : '') +
+      `. Сортировка — по популярности; клик по заголовку меняет порядок, поиск работает по названию, ` +
+      `описанию, провайдерам и возможностям.${tail}`
     );
   }
   return (
-    `Каталог собран автоматически из ${new Set(subset.map((l) => l.ecosystem)).size} реестров пакетов и обогащён данными GitHub. ` +
-    'Официальные SDK вынесены наверх (tier A), ниже — фреймворки, комьюнити-клиенты, локальный инференс, ' +
-    'векторные базы, шлюзы и наблюдаемость. Если вы пришли из поиска, каталог сам подставит язык из вашего запроса.'
+    `По умолчанию показаны только клиенты API провайдеров (${count}${hidden ? ` из ${count + hidden}` : ''}) — те, ` +
+    'кто действительно отправляет запросы в OpenAI, Anthropic, Gemini, Bedrock и другие API. ' +
+    'Остальное доступно через фильтр ролей: локальный запуск моделей (Ollama, vLLM, transformers, llama.cpp), ' +
+    'фреймворки поверх SDK (LangChain, Pydantic AI, DSPy), шлюзы (LiteLLM) и сопутствующие инструменты — ' +
+    'векторные базы, наблюдаемость, eval, токенизаторы, интерфейсы, серверы MCP. ' +
+    'Каталог собран автоматически из реестров пакетов и обогащён данными GitHub; если вы пришли из поиска, ' +
+    'язык из запроса подставляется автоматически.'
   );
 }
 
@@ -392,17 +444,21 @@ function buildLlmsTxt(libs, providers) {
     `> Сгенерировано ${date}. ${libs.length} библиотек для ${new Set(libs.map((l) => l.language)).size} языков.`,
     '> Полные данные: data/libraries.json',
     '',
+    '## Роли',
+    '',
+    ...roleList.map((role) => `- **${role.label}** (${role.count}): ${role.description}`),
+    '',
     '## Провайдеры',
     '',
   ];
   for (const provider of providers) {
     const count = libs.filter((l) => l.providers.includes(provider.id)).length;
     if (!count) continue;
-    lines.push(`- [${provider.name}](${provider.docs ?? 'https://platform.openai.com/docs'}) — ${count} библиотек${provider.baseUrl ? `, base URL: ${provider.baseUrl}` : ''}`);
+    lines.push(`- [${provider.name}](${provider.docs ?? 'https://platform.openai.com/docs'}) — ${count} библиотек вызывают этот API${provider.baseUrl ? `, base URL: ${provider.baseUrl}` : ''}`);
   }
 
-  lines.push('', '## Библиотеки (tier A/B)', '');
-  const top = sortForSeo(libs).filter((l) => l.tier === 'A' || l.tier === 'B').slice(0, 200);
+  lines.push('', '## Клиенты API (tier A/B)', '');
+  const top = sortForSeo(libs.filter((l) => (DEFAULT_ROLES.catalog.includes(l.role)) && (l.tier === 'A' || l.tier === 'B'))).slice(0, 200);
   let currentLanguage = null;
   for (const library of top) {
     if (library.language !== currentLanguage) {
@@ -412,6 +468,13 @@ function buildLlmsTxt(libs, providers) {
     const link = library.repo ?? library.registry?.url ?? '';
     const install = library.install ? ` — \`${library.install}\`` : '';
     lines.push(`- [${library.name}](${link}) (${library.ecosystem}, ${library.kind})${install}`);
+  }
+
+  lines.push('', '## Локальный запуск моделей', '');
+  for (const library of sortForSeo(libs.filter((l) => l.role === 'runtime')).slice(0, 40)) {
+    const link = library.repo ?? library.registry?.url ?? '';
+    const server = library.openaiCompatibleServer ? ', OpenAI-совместимый сервер' : '';
+    lines.push(`- [${library.name}](${link}) (${library.ecosystem})${server}`);
   }
   return `${lines.join('\n')}\n`;
 }

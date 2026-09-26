@@ -115,11 +115,12 @@ export function dedupe(libraries) {
 }
 
 export function countBy(records) {
-  const counts = { total: records.length, byEcosystem: {}, byLanguage: {}, byProvider: {}, byKind: {}, byStatus: {} };
+  const counts = { total: records.length, byEcosystem: {}, byLanguage: {}, byProvider: {}, byRole: {}, byKind: {}, byStatus: {} };
   for (const record of records) {
     bump(counts.byEcosystem, record.ecosystem);
     bump(counts.byLanguage, record.language);
     bump(counts.byKind, record.kind);
+    bump(counts.byRole, record.role);
     bump(counts.byStatus, record.status);
     for (const provider of record.providers) bump(counts.byProvider, provider);
   }

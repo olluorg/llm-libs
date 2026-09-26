@@ -11,7 +11,7 @@ import { createLogger } from './lib/log.mjs';
 import { getText } from './lib/http.mjs';
 import { mapLimit, repoSlug } from './lib/github.mjs';
 import { loadProviders, readDataset, CURATED_DIR } from './lib/store.mjs';
-import { makeId } from './lib/record.mjs';
+import { makeId, CALLS_PROVIDER_API, ROLES } from './lib/record.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
@@ -39,6 +39,22 @@ for (const library of dataset.libraries ?? []) {
   }
   for (const provider of library.providers ?? []) {
     if (!providers[provider]) problems.warnings.push(`неизвестный провайдер «${provider}» у ${label}`);
+  }
+  // Главный инвариант каталога: «библиотека для провайдера» = вызывает его API.
+  if (!CALLS_PROVIDER_API.has(library.role)) {
+    if ((library.providers ?? []).length) {
+      problems.errors.push(
+        `роль «${library.role}» не должна иметь провайдеров: ${label} → ${library.providers.join(', ')}`,
+      );
+    }
+    if (library.role === 'runtime' && (library.envVars ?? []).some((key) => /API_KEY|BEARER|TOKEN/.test(key))) {
+      problems.warnings.push(`у рантайма подозрительные ключи API: ${label}`);
+    }
+  } else if (!(library.providers ?? []).length) {
+    problems.warnings.push(`роль «${library.role}», но провайдеры не указаны: ${label}`);
+  }
+  for (const related of library.worksWith ?? []) {
+    if (!providers[related]) problems.warnings.push(`неизвестная связь «${related}» у ${label}`);
   }
   if (library.status === 'unknown') problems.info.push(`статус неизвестен: ${label}`);
   if (library.registry?.updatedAt && library.registry.updatedAt > new Date().toISOString().slice(0, 10)) {
@@ -96,9 +112,19 @@ for (const [label, list] of Object.entries(problems)) {
 const total = dataset.libraries?.length ?? 0;
 const withStars = (dataset.libraries ?? []).filter((l) => l.stars).length;
 const withRepo = (dataset.libraries ?? []).filter((l) => l.repo).length;
+const byRole = Object.fromEntries(
+  Object.keys(ROLES)
+    .map((role) => [role, (dataset.libraries ?? []).filter((l) => l.role === role).length])
+    .filter(([, count]) => count > 0),
+);
 log.info(
   `итог: ${total} записей · курируемых ${curatedCount} из ${curatedIds.size} · автоматически ${total - curatedCount}` +
     ` · со звёздами ${withStars} · с репозиторием ${withRepo}`,
+);
+log.info(
+  `роли: ${Object.entries(byRole)
+    .map(([role, count]) => `${ROLES[role].toLowerCase()} ${count}`)
+    .join(' · ')}`,
 );
 
 if (problems.errors.length) {

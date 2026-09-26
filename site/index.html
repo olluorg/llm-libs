@@ -44,14 +44,22 @@
   <div class="controls">
     <div class="controls-row">
       <input type="search" id="search" placeholder="Поиск: openai, anthropic, rag, streaming…  ( / )" autocomplete="off">
+      <select id="f-role" title="Что библиотека делает с LLM"></select>
       <select id="f-language"></select>
-      <select id="f-provider"></select>
+      <select id="f-provider" title="Чей API вызывается"></select>
       <select id="f-kind"></select>
       <select id="f-status"></select>
       <select id="f-tier"></select>
       <button id="reset">Сбросить</button>
       <span class="count" id="count">{{TOTAL}} из {{TOTAL}}</span>
     </div>
+    <p class="legend">
+      <b>Клиент API провайдера</b> — звонит напрямую в OpenAI, Anthropic, Gemini и т. д.
+      <b>Шлюз</b> — прокси к провайдерам (LiteLLM).
+      <b>Фреймворк</b> — абстракция поверх SDK (LangChain, Pydantic AI).
+      <b>Локальный запуск</b> — считает модель сам (Ollama, vLLM, transformers, llama.cpp); Ollama, vLLM и llama.cpp поднимают сервер, совместимый с <code>openai</code>-клиентом через <code>base_url</code>.
+      <b>Сопутствующее</b> — векторные БД, наблюдаемость, eval, токенизаторы, UI, MCP.
+    </p>
   </div>
 
   <section class="seo-text">

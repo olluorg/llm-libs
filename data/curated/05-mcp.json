@@ -4,52 +4,94 @@
     {
       "name": "mcp",
       "ecosystem": "pypi",
-      "providers": ["openai", "anthropic", "google-gemini", "aws-bedrock"],
-      "kind": "framework",
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini",
+        "aws-bedrock"
+      ],
+      "kind": "util",
       "tier": "A",
-      "features": ["tools", "agents", "mcp"],
+      "features": [
+        "tools",
+        "agents",
+        "mcp"
+      ],
       "repo": "https://github.com/modelcontextprotocol/python-sdk",
-      "notes": "Официальный Python-SDK Model Context Protocol: серверы и клиенты, stdio/SSE/HTTP транспорты. Нужен, чтобы подключать к агенту внешние инструменты и данные."
+      "notes": "Официальный Python-SDK Model Context Protocol: серверы и клиенты, stdio/SSE/HTTP транспорты. Нужен, чтобы подключать к агенту внешние инструменты и данные.",
+      "role": "support"
     },
     {
       "name": "@modelcontextprotocol/sdk",
       "ecosystem": "npm",
-      "providers": ["openai", "anthropic", "google-gemini"],
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini"
+      ],
       "kind": "framework",
       "tier": "A",
-      "features": ["tools", "agents", "mcp"],
+      "features": [
+        "tools",
+        "agents",
+        "mcp"
+      ],
       "repo": "https://github.com/modelcontextprotocol/typescript-sdk",
-      "notes": "Официальный TypeScript-SDK MCP. Интеграция с Vercel AI SDK (@ai-sdk/mcp) и Anthropic SDK."
+      "notes": "Официальный TypeScript-SDK MCP. Интеграция с Vercel AI SDK (@ai-sdk/mcp) и Anthropic SDK.",
+      "role": "support"
     },
     {
       "name": "fastmcp",
       "ecosystem": "pypi",
-      "providers": ["openai", "anthropic", "google-gemini"],
+      "providers": [
+        "openai",
+        "anthropic",
+        "google-gemini"
+      ],
       "kind": "framework",
       "tier": "B",
-      "features": ["tools", "agents", "mcp"],
+      "features": [
+        "tools",
+        "agents",
+        "mcp"
+      ],
       "repo": "https://github.com/jlowin/fastmcp",
-      "notes": "Более простой сервер MCP на Python (декораторы, автогенерация схем). Часто выбирают вместо официального SDK."
+      "notes": "Более простой сервер MCP на Python (декораторы, автогенерация схем). Часто выбирают вместо официального SDK.",
+      "role": "support"
     },
     {
       "name": "mcp",
       "ecosystem": "npm",
-      "providers": ["openai", "anthropic"],
-      "kind": "framework",
+      "providers": [
+        "openai",
+        "anthropic"
+      ],
+      "kind": "util",
       "tier": "C",
-      "features": ["tools", "mcp"],
+      "features": [
+        "tools",
+        "mcp"
+      ],
       "repo": "https://github.com/modelcontextprotocol/servers",
-      "notes": "Справочные серверы MCP от сообщества (GitHub, Filesystem, Slack и др.) как образец для своих серверов."
+      "notes": "Справочные серверы MCP от сообщества (GitHub, Filesystem, Slack и др.) как образец для своих серверов.",
+      "role": "support"
     },
     {
       "name": "io.modelcontextprotocol.sdk:mcp",
       "ecosystem": "maven",
-      "providers": ["openai", "anthropic"],
+      "providers": [
+        "openai",
+        "anthropic"
+      ],
       "kind": "framework",
       "tier": "B",
-      "features": ["tools", "mcp"],
+      "features": [
+        "tools",
+        "mcp"
+      ],
       "repo": "https://github.com/modelcontextprotocol/java-sdk",
-      "notes": "Официальный Java-SDK Model Context Protocol. Модули: mcp, mcp-core, mcp-spring-webmvc, mcp-spring-webflux."
+      "notes": "Официальный Java-SDK Model Context Protocol. Модули: mcp, mcp-core, mcp-spring-webmvc, mcp-spring-webflux.",
+      "role": "support"
     }
   ]
 }

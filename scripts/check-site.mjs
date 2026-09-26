@@ -76,7 +76,7 @@ const appSource = await fs.readFile(path.join(DIST_DIR, 'assets', 'app.js'), 'ut
 
 /** Поднимает app.js в чистом окружении и возвращает доступ к DOM-заглушкам. */
 function boot({ view = {}, referrer = '', search = '' } = {}) {
-  const ids = ['search', 'f-language', 'f-provider', 'f-kind', 'f-status', 'f-tier', 'count', 'rows', 'drawer', 'backdrop', 'reset', 'generated', 'hint'];
+  const ids = ['search', 'f-role', 'f-language', 'f-provider', 'f-kind', 'f-status', 'f-tier', 'count', 'rows', 'drawer', 'backdrop', 'reset', 'generated', 'hint'];
   const elements = new Map(ids.map((id) => [id, createElement()]));
 
   const sortHeaders = ['name', 'language', 'popular', 'updated'].map((sort) => {
@@ -119,6 +119,9 @@ function boot({ view = {}, referrer = '', search = '' } = {}) {
 const popularity = (library) =>
   (Number(library.stars) || 0) * 20 + (Number(library.registry?.downloads) || 0) / 1000 + (library.tier === 'A' ? 50 : 0);
 
+const byPopularity = (list) =>
+  [...list].sort((a, b) => popularity(b) - popularity(a) || String(a.name).localeCompare(String(b.name)));
+
 // ── 1. Инициализация и первый рендер ───────────────────────────────────────
 const main = boot();
 assert(!main.error, `app.js падает при инициализации: ${main.error?.message}`);
@@ -126,35 +129,39 @@ if (main.error) process.exit(1);
 
 const rowsHtml = main.elements.get('rows').innerHTML;
 assert(rowsHtml.length > 0, 'при первом открытии список библиотек пуст');
+
+// По умолчанию видны только клиенты API провайдеров и шлюзы: рантаймы,
+// фреймворки и инфраструктура — отдельная роль, иначе они неотличимы от SDK.
+const defaultVisible = data.libraries.filter((l) => l.role === 'sdk' || l.role === 'gateway');
 assert(
-  main.elements.get('count').textContent.startsWith(String(data.libraries.length)),
-  `счётчик результатов некорректен: ${main.elements.get('count').textContent}`,
+  main.elements.get('count').textContent === `${defaultVisible.length} из ${data.libraries.length}`,
+  `в режиме по умолчанию показано ${main.elements.get('count').textContent}, ` +
+    `ожидалось ${defaultVisible.length} из ${data.libraries.length} (роль sdk+gateway)`,
+);
+assert(
+  !rowsHtml.includes('data-id="pypi:transformers"') && !rowsHtml.includes('data-id="pypi:ollama"'),
+  'в списке клиентов API по умолчанию есть локальные рантаймы',
 );
 
-// Самое популярное должно быть первым — именно на этом спотывался сайт.
+// Самое популярное среди клиентов должно быть первым.
 const firstRendered = /data-id="([^"]+)"/.exec(rowsHtml)?.[1];
-const expectedFirst = [...data.libraries].sort(
-  (a, b) => popularity(b) - popularity(a) || String(a.name).localeCompare(String(b.name)),
-)[0];
+const expectedFirst = byPopularity(defaultVisible)[0];
 assert(
   firstRendered === expectedFirst.id,
   `сортировка по популярности неверна: первой выводится ${firstRendered}, а должна ${expectedFirst.id}`,
 );
 
 // Порядок детерминирован: у языков без звёзд метрики нулевые, нужна вторичная сортировка.
-const clojure = boot({ view: { language: 'Clojure' } });
+const clojure = boot({ view: { language: 'Clojure', role: 'all' } });
 const clojureIds = [...clojure.elements.get('rows').innerHTML.matchAll(/data-id="([^"]+)"/g)].map((m) => m[1]);
-const clojureSet = new Set(data.libraries.filter((l) => l.language === 'Clojure').map((l) => l.id));
 const clojureLibraries = clojureIds.map((id) => data.libraries.find((l) => l.id === id));
-const expectedOrder = [...clojureLibraries].sort(
-  (a, b) => popularity(b) - popularity(a) || String(a.name).localeCompare(String(b.name)),
+const clojureExpected = byPopularity(data.libraries.filter((l) => l.language === 'Clojure'));
+assert(
+  clojureIds.length === clojureExpected.length,
+  `страница языка Clojure показывает ${clojureIds.length} записей вместо ${clojureExpected.length}`,
 );
 assert(
-  clojureIds.length === clojureSet.size && clojureIds.every((id) => clojureSet.has(id)),
-  `страница языка Clojure показывает ${clojureIds.length} записей вместо ${clojureSet.size}`,
-);
-assert(
-  clojureLibraries.every((library, index) => library.id === expectedOrder[index].id),
+  clojureLibraries.every((library, index) => library.id === clojureExpected[index].id),
   'порядок записей на странице языка не детерминирован (нужна вторичная сортировка)',
 );
 
@@ -224,14 +231,21 @@ assert(
   `служебные слова попали в поиск: «${fromYandex.elements.get('search').value}»`,
 );
 assert(fromYandex.elements.get('hint').hidden === false, 'не показана подсказка о запросе из поисковика');
-const rustCount = Number(/^(\d+)/.exec(fromYandex.elements.get('count').textContent)?.[1] ?? 0);
+const rustClients = data.libraries.filter(
+  (l) => l.language === 'Rust' && (l.role === 'sdk' || l.role === 'gateway'),
+).length;
 assert(
-  rustCount > 20,
-  `фильтр по Rust дал ${rustCount} записей вместо ожидаемых ~45`,
+  Number(/^(\d+)/.exec(fromYandex.elements.get('count').textContent)?.[1] ?? 0) === rustClients,
+  `фильтр «Rust из поисковика» дал не то число клиентов (ожидалось ${rustClients})`,
 );
 assert(
   fromYandex.elements.get('rows').innerHTML.includes('async-openai'),
-  'по запросу про Rust не показаны Rust-библиотеки',
+  'по запросу про Rust не показаны Rust-клиенты',
+);
+// Локальные рантаймы по этому же запросу — отдельная роль, в списке клиентов их нет.
+assert(
+  !fromYandex.elements.get('rows').innerHTML.includes('data-id="crates:candle"'),
+  'рантайм попал в список клиентов API по запросу «библиотеки llm для rust»',
 );
 
 const fromGoogle = boot({ referrer: 'https://www.google.com/search?q=openai+sdk+php' });
@@ -290,6 +304,31 @@ assert(
   'referrer с непоискового сайта не должен влиять на фильтры',
 );
 assert(fromOther.elements.get('rows').innerHTML.length > 0, 'после не-search referrer список пуст');
+
+// ── 4b. Фильтр ролей ──────────────────────────────────────────────────────
+const allRoles = boot({ view: { role: 'all' } });
+assert(
+  allRoles.elements.get('count').textContent === `${data.libraries.length} из ${data.libraries.length}`,
+  `режим «все роли» показывает не всё: ${allRoles.elements.get('count').textContent}`,
+);
+const runtimes = boot({ view: { role: 'runtime' } });
+const runtimeCount = Number(/^(\d+)/.exec(runtimes.elements.get('count').textContent)?.[1] ?? 0);
+assert(runtimeCount > 0, 'фильтр «локальный запуск моделей» пуст');
+assert(
+  runtimes.elements.get('rows').innerHTML.includes('data-id="pypi:transformers"'),
+  'в рантаймах нет transformers',
+);
+
+// Семантика данных: рантайм и инфраструктура не должны числиться клиентами провайдера.
+for (const [id, role] of [['pypi:transformers', 'runtime'], ['pypi:chromadb', 'support'], ['pypi:promptfoo', 'support']]) {
+  const library = data.libraries.find((l) => l.id === id);
+  if (!library) continue;
+  assert(library.role === role, `${id}: ожидалась роль ${role}, получено ${library.role}`);
+  assert(
+    !(library.providers ?? []).length,
+    `${id} (${role}) не должен быть приписан к API провайдера, а у него providers: ${(library.providers ?? []).join(', ')}`,
+  );
+}
 
 // ── 5. SEO: статическая разметка ──────────────────────────────────────────
 const indexHtml = await fs.readFile(path.join(DIST_DIR, 'index.html'), 'utf8');

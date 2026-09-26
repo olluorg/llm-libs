@@ -104,6 +104,20 @@ td.num span:first-child { font-size: 13px; color: var(--text); }
 .chip.status-deprecated, .chip.status-archived { border-color: #6b2626; color: var(--danger); }
 .chip.status-beta { border-color: #2b4a6f; color: #9dc4f5; }
 
+/* Роль: главное отличие «клиента API» от локального рантайма и инфраструктуры. */
+.role {
+  font-size: 12px; white-space: nowrap; color: var(--text-dim);
+}
+.role-sdk { color: var(--accent-2); }
+.role-gateway { color: #b6a1e8; }
+.role-framework { color: #9dc4f5; }
+.role-runtime { color: var(--warn); }
+.role-support { color: var(--text-dim); }
+
+.legend { font-size: 12px; color: var(--text-dim); margin: 10px 0 0; line-height: 1.6; }
+.legend b { color: var(--text); font-weight: 600; }
+.legend code { font-family: var(--mono); font-size: 11px; }
+
 .drawer-backdrop {
   position: fixed; inset: 0; background: rgba(0, 0, 0, 0.55);
   opacity: 0; pointer-events: none; transition: opacity 0.15s; z-index: 40;

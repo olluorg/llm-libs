@@ -16,12 +16,13 @@ OpenAI-совместимые провайдеры (Ollama, vLLM, Groq, OpenRout
 | | |
 | --- | --- |
 | Библиотек всего | 505 (165 курируемых + 340 найденных автоматически) |
+| По ролям | клиенты API 360 · фреймворки 55 · шлюзы 16 · локальный запуск 37 · сопутствующие 37 |
+| Показывается по умолчанию | 376 — только клиенты API и шлюзы |
 | Языков / экосистем | 18 языков, 13 реестров |
-| Провайдеров в конфиге | 40 (OpenAI, Anthropic, Gemini, Bedrock, Azure, Vertex, Ollama, vLLM, Groq, OpenRouter, Mistral, Cohere, …) |
-| Со ссылкой на репозиторий | 435 |
-| Со звёздами GitHub | 368 |
-| Статус `active` | 354 |
-| Страниц на сайте | 55 (главная + срез на каждый провайдер и язык) |
+| Провайдеров в конфиге | 37 (OpenAI, Anthropic, Gemini, Bedrock, Azure, Vertex, Ollama, vLLM, Groq, OpenRouter, Mistral, Cohere, …) |
+| Со ссылкой на репозиторий | 459 |
+| Со звёздами GitHub | 389 |
+| Страниц на сайте | 50 (главная, 2 оглавления, срез на каждый провайдер и язык) |
 
 Топ языков: Python 93, TypeScript 60, Java 49, Rust 45, C# 43, PHP 42, Ruby 41, Swift 30, R 23, Go 22, Elixir 21, Lua 20, плюс Scala, Kotlin, OCaml, Haskell, Clojure, C++, Dart, Zig.
 
@@ -53,6 +54,7 @@ node scripts/enrich.mjs      # добавить звёзды/статус GitHub
 node scripts/validate.mjs    # проверить данные
 node scripts/build.mjs       # собрать сайт в dist/
 node scripts/check-site.mjs  # дымовой тест собранного сайта
+node scripts/lint-scripts.mjs# статическая проверка скриптов
 node scripts/stats.mjs       # сводка по датасету
 node scripts/serve.mjs 8080  # локальный просмотр сайта
 ```
@@ -69,8 +71,8 @@ export GITHUB_TOKEN=ghp_...   # 5000 запросов/час вместо 60
 
 | Workflow | Когда | Что делает |
 | --- | --- | --- |
-| `.github/workflows/ci.yml` | каждый пуш и PR | `validate` → `build` → `check-site` → `stats`, артефакт `site-preview` |
-| `.github/workflows/refresh.yml` | ежедневно в 04:17 UTC, вручную или по кнопке | полный `collect` → `enrich` → `validate` → `build` → `check-site`, коммит `data/out` в ветку, публикация `dist/` на GitHub Pages |
+| `.github/workflows/ci.yml` | каждый пуш и PR | `lint` → `validate` → `build` → `check-site` → `stats`, артефакт `site-preview` |
+| `.github/workflows/refresh.yml` | ежедневно в 04:17 UTC, вручную или по кнопке | `lint` → полный `collect` → `enrich` → `validate` → `build` → `check-site`, коммит `data/out` в ветку, публикация `dist/` на GitHub Pages |
 
 Что важно знать про `refresh`:
 
@@ -122,9 +124,12 @@ export GITHUB_TOKEN=ghp_...   # 5000 запросов/час вместо 60
   "description": "The official Python library for the openai API",
   "ecosystem": "pypi",
   "language": "Python",
-  "providers": ["openai", "azure-openai"],   // каких провайдеров касается
+  "providers": ["openai", "azure-openai"],   // чей API вызывается
+  "worksWith": ["openai-compatible"],        // мягкая связь (роли runtime/support)
+  "openaiCompatibleServer": undefined,       // true у Ollama, vLLM, llama.cpp
+  "role": "sdk",                             // sdk | framework | runtime | gateway | support
   "sdkApi": "openai",                        // openai | anthropic-messages | gemini | bedrock | azure-openai | openai-compatible | n/a
-  "kind": "official-sdk",                    // official-sdk | client | framework | gateway | local-runtime | eval | orchestration | retrieval | ui
+  "kind": "official-sdk",                    // official-sdk | client | framework | gateway | local-runtime | retrieval | eval | orchestration | ui | util
   "status": "active",                        // active | beta | deprecated | archived | unknown
   "tier": "A",                               // A — must know, B — полезно, C — остальное
   "features": ["chat", "streaming", "tools", "vision", "embeddings"],
@@ -137,6 +142,41 @@ export GITHUB_TOKEN=ghp_...   # 5000 запросов/час вместо 60
   "source": ["curated:01-official-sdks.json", "registry:pypi"]
 }
 ```
+
+## Как устроен каталог: роль и провайдер — разные вещи
+
+`transformers`, `ollama` и `langchain` — не клиенты API провайдера, но в каталоге они
+стояли рядом с `openai` SDK, и страница «Библиотеки для OpenAI» выглядела как список
+всего подряд. Поэтому в модели данных два независимых поля:
+
+| Поле | Смысл | Пример |
+| --- | --- | --- |
+| `role` | что библиотека **делает** с LLM | `sdk`, `framework`, `runtime`, `gateway`, `support` |
+| `providers` | чей API она **вызывает** | `["openai", "azure-openai"]` |
+| `worksWith` | мягкая связь, API не вызывается | `["huggingface"]` |
+
+| Роль | Что это | Звонит ли в API провайдера | Примеры |
+| --- | --- | --- | --- |
+| **Клиент API провайдера** (`sdk`) | Прямой HTTP-клиент одного или нескольких API | да | `openai` (Python/TS/.NET/Go/Ruby/Java), `@anthropic-ai/sdk`, `com.anthropic:anthropic-java`, `google-genai`, `boto3`, `azure-ai-inference`, `groq`, `mistralai`, `async-openai`, `go-openai`, `anthropic-ai/sdk` |
+| **Шлюз** (`gateway`) | Прокси к провайдерам: ретраи, бюджеты, учёт стоимости | да | `litellm`, `portkey` |
+| **Фреймворк поверх SDK** (`framework`) | Абстракция: агенты, цепочки, RAG, структурированный вывод | да, но через клиентские SDK | `langchain`, `langgraph`, `llama-index`, `pydantic-ai`, `dspy`, `instructor`, `ai` (Vercel AI SDK), `semantic-kernel`, `langchain4j` |
+| **Локальный запуск моделей** (`runtime`) | Считает модель сам или поднимает сервер инференса | **нет** | `ollama`, `vllm`, `transformers`, `torch`, `llama.cpp`, `candle`, `mlx-lm`, `openai-whisper`, `diffusers` |
+| **Сопутствующие инструменты** (`support`) | Векторные БД, наблюдаемость, eval, токенизаторы, UI, серверы MCP | **нет** | `chromadb`, `qdrant-client`, `langfuse`, `promptfoo`, `tiktoken`, `mcp`, `@lobehub/chat` |
+
+**Инвариант** (проверяется в `validate`): у ролей `runtime` и `support` поле `providers`
+обязано быть пустым. Нарушение — ошибка сборки, а не предупреждение. Так `transformers`
+знает про Hugging Face, но не считается клиентом его API: у Hugging Face нет одного
+инференс-API, который вызывал бы `transformers` — он грузит веса и считает локально.
+
+Тонкость про локальные рантаймы: `ollama`, `vLLM`, `llama.cpp` и LM Studio поднимают
+**OpenAI-совместимый сервер**, поэтому ими можно пользоваться *тем же* официальным
+`openai`-клиентом, просто с другим `base_url`. Такие записи помечены флагом
+`openaiCompatibleServer`, чтобы эта связь не потерялась.
+
+**Что показывается по умолчанию.** На главной и на странице провайдера — только клиенты API
+и шлюзы (376 из 505 записей): фреймворки, рантаймы и инфраструктура доступны через фильтр
+ролей. На срезе языка и в оглавлениях показываются все роли — туда приходят за полным
+списком по языку.
 
 ## Как это работает
 
@@ -157,7 +197,10 @@ export GITHUB_TOKEN=ghp_...   # 5000 запросов/час вместо 60
    каждому провайдеру и языку, `data/libraries.json`, `llms.txt`, `sitemap.xml`, `robots.txt`.
 6. **`check-site.mjs`** запускает `site/app.js` на настоящем датасете в имитации DOM и
    проверяет сценарии: список непуст до первого клика, сортировка по популярности,
-   открытие/закрытие карточки, разбор поискового запроса, наличие статической разметки.
+   фильтр ролей, открытие/закрытие карточки, разбор поискового запроса, наличие статической
+   разметки. **`lint-scripts.mjs`** ловит ошибки, которые видны только в рантайме: `const`,
+   объявленный после верхнеуровневого `await` (временная мёртвая зона), — на этом мы
+   споткнулись трижды, теперь это ошибка в CI.
 
 ## Сортировка и SEO
 
@@ -198,7 +241,7 @@ DuckDuckGo, каталог разбирает `document.referrer`: опреде�
 {
   "name": "my-llm-client",
   "ecosystem": "pypi",
-  "providers": ["openai"],
+  "role": "sdk",                 // sdk | framework | runtime | gateway | support
   "kind": "client",
   "tier": "B",
   "features": ["chat", "streaming"],

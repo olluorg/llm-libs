@@ -4,11 +4,31 @@
   if (!data) return;
 
   const view = window.__LLMDOCS_VIEW__ ?? {};
-  const { libraries, providers, generatedAt } = data;
+  const { libraries, providers, roles, generatedAt } = data;
   const providerMap = new Map(providers.map((p) => [p.id, p]));
+
+  /** Что библиотека делает с LLM: тексты берём из данных, чтобы не расходились. */
+  const roleInfo = new Map((roles ?? []).map((r) => [r.id, r]));
+
+  /**
+   * Группы фильтра «роль». По умолчанию показываем только то, что действительно
+   * обращается к API провайдера: клиенты и шлюзы. Локальные рантаймы, фреймворки
+   * и сопутствующие инструменты — отдельные группы, иначе они неотличимы от SDK.
+   */
+  const ROLE_GROUPS = [
+    { value: 'api', label: 'Клиенты и шлюзы', roles: ['sdk', 'gateway'] },
+    { value: 'sdk', label: 'Только клиенты API', roles: ['sdk'] },
+    { value: 'framework', label: 'Фреймворки', roles: ['framework'] },
+    { value: 'runtime', label: 'Локальный запуск моделей', roles: ['runtime'] },
+    { value: 'support', label: 'Сопутствующие инструменты', roles: ['support'] },
+    { value: 'all', label: 'Все роли', roles: ['sdk', 'framework', 'runtime', 'gateway', 'support'] },
+  ];
 
   const state = {
     q: '',
+    // По умолчанию — только клиенты API провайдеров и шлюзы. На срезе языка
+    // или в оглавлении показываем все роли: там человек пришёл за полным списком.
+    roleGroup: view.role ?? 'api',
     language: view.language ?? '',
     provider: view.provider ?? '',
     kind: '',
@@ -25,6 +45,7 @@
   const $ = (sel) => document.querySelector(sel);
   const el = {
     search: $('#search'),
+    role: $('#f-role'),
     language: $('#f-language'),
     provider: $('#f-provider'),
     kind: $('#f-kind'),
@@ -41,6 +62,7 @@
   // (LANGUAGE_HINTS, SEARCH_ENGINES), до которых нельзя дотянуться раньше времени.
 
   function init() {
+    fillRoleSelect();
     fillSelect(el.language, uniq(libraries.map((l) => l.language)));
     fillSelect(el.provider, providers.map((p) => [p.id, p.name]));
     fillSelect(el.kind, uniq(libraries.map((l) => l.kind)));
@@ -53,9 +75,11 @@
     if (state.provider) el.provider.value = state.provider;
     el.search.value = state.q;
 
-    for (const node of [el.search, el.language, el.provider, el.kind, el.status, el.tier]) {
+    const filterNodes = [el.search, el.role, el.language, el.provider, el.kind, el.status, el.tier];
+    for (const node of filterNodes) {
       node.addEventListener('input', () => {
         state.q = el.search.value.trim();
+        state.roleGroup = el.role.value;
         state.language = el.language.value;
         state.provider = el.provider.value;
         state.kind = el.kind.value;
@@ -68,8 +92,8 @@
 
     el.reset.addEventListener('click', () => {
       el.search.value = '';
-      for (const node of [el.language, el.provider, el.kind, el.status, el.tier]) node.value = '';
-      Object.assign(state, { q: '', language: '', provider: '', kind: '', status: '', tier: '' });
+      for (const node of filterNodes) node.value = '';
+      Object.assign(state, { q: '', roleGroup: 'api', language: '', provider: '', kind: '', status: '', tier: '' });
       syncUrl();
       render();
     });
@@ -129,6 +153,9 @@
     if (fromUrl) state.q = fromUrl;
     if (languageFromUrl && !state.language) state.language = languageFromUrl;
     if (!view.provider && params.get('provider')) state.provider = params.get('provider');
+    if (params.get('role') && ROLE_GROUPS.some((g) => g.value === params.get('role'))) {
+      state.roleGroup = params.get('role');
+    }
 
     if (state.q || state.language) return;
 
@@ -245,9 +272,10 @@
     return null;
   }
 
+  /** Откуда пришёл пользователь — запоминаем, но на срезе языка подсказка лишняя. */
   function showIntentHint(detected) {
     const hint = $('#hint');
-    if (!hint) return;
+    if (!hint || view.language || view.provider) return;
     const parts = [`пришли с запросом «${esc(detected.query)}»`];
     if (detected.language) parts.push(`язык: ${detected.language}`);
     hint.innerHTML =
@@ -272,6 +300,20 @@
       .join('');
   }
 
+  function fillRoleSelect() {
+    el.role.innerHTML = ROLE_GROUPS
+      .map(({ value, label, roles }) => {
+        const count = libraries.filter((l) => roles.includes(l.role)).length;
+        return `<option value="${value}">${esc(label)} — ${count}</option>`;
+      })
+      .join('');
+    el.role.value = state.roleGroup;
+  }
+
+  function activeRoles() {
+    return ROLE_GROUPS.find((group) => group.value === state.roleGroup)?.roles ?? ['sdk'];
+  }
+
   function render() {
     const rows = libraries.filter(matches).sort(comparator);
     el.count.textContent = `${rows.length} из ${libraries.length}`;
@@ -286,8 +328,9 @@
   }
 
   function matches(library) {
+    if (!activeRoles().includes(library.role)) return false;
     if (state.language && library.language !== state.language) return false;
-    if (state.provider && !library.providers.includes(state.provider)) return false;
+    if (state.provider && !(library.providers ?? []).includes(state.provider)) return false;
     if (state.kind && library.kind !== state.kind) return false;
     if (state.status && library.status !== state.status) return false;
     if (state.tier && library.tier !== state.tier) return false;
@@ -295,8 +338,9 @@
     const needle = state.q.toLowerCase();
     const haystack = [
       library.name, library.displayName ?? '', library.description ?? '',
-      library.language, library.kind, library.sdkApi, (library.features ?? []).join(' '),
-      library.providers.map((p) => providerMap.get(p)?.name ?? p).join(' '),
+      library.language, library.role, library.kind, library.sdkApi, (library.features ?? []).join(' '),
+      (library.providers ?? []).map((p) => providerMap.get(p)?.name ?? p).join(' '),
+      (library.worksWith ?? []).map((p) => providerMap.get(p)?.name ?? p).join(' '),
       library.repo ?? '',
     ].join(' ').toLowerCase();
     return needle.split(/\s+/).every((token) => haystack.includes(token));
@@ -327,10 +371,11 @@
   }
 
   function rowHtml(library) {
-    const providerChips = library.providers
+    const providerChips = (library.providers ?? [])
       .slice(0, 3)
       .map((p) => `<span class="chip p" title="${esc(providerMap.get(p)?.name ?? p)}">${esc(providerMap.get(p)?.name ?? p)}</span>`)
       .join('');
+    const role = roleInfo.get(library.role);
     return `<tr data-id="${esc(library.id)}">
       <td>
         <div class="pkg">${esc(library.name)} <span class="eco">· ${esc(library.ecosystem)}</span></div>
@@ -338,7 +383,7 @@
       </td>
       <td>${esc(library.language)}</td>
       <td><div class="chips">${providerChips}${library.tier ? `<span class="chip tier-${esc(library.tier).toLowerCase()}">tier ${esc(library.tier)}</span>` : ''}</div></td>
-      <td>${esc(library.kind)}</td>
+      <td><span class="role role-${esc(library.role)}" title="${esc(role?.description ?? '')}">${esc(role?.label ?? library.role)}</span></td>
       <td class="num">${metricsHtml(library)}</td>
       <td>${library.registry?.updatedAt ?? '—'}</td>
     </tr>`;
@@ -357,13 +402,19 @@
   function openDrawer(id) {
     const library = libraries.find((l) => l.id === id);
     if (!library) return;
-    const providerNames = library.providers.map((p) => providerMap.get(p)?.name ?? p);
+    const role = roleInfo.get(library.role);
+    const providerNames = (library.providers ?? []).map((p) => providerMap.get(p)?.name ?? p);
+    const worksWith = (library.worksWith ?? []).map((p) => providerMap.get(p)?.name ?? p);
     const rows = [
-      ['Язык', `${library.language} (${library.ecosystem})`],
+      ['Роль', `${role?.label ?? library.role} — ${role?.description ?? ''}`],
       ['Тип', library.kind],
       ['Статус', library.status],
       ['API', library.sdkApi],
-      ['Провайдеры', providerNames.join(', ') || '—'],
+      ['Чей API вызывается', providerNames.join(', ') || (library.role === 'runtime' ? 'никого — считает модель сам' : '—')],
+      ...(worksWith.length ? [['Связана с', worksWith.join(', ')]] : []),
+      ...(library.openaiCompatibleServer
+        ? [['Совместимость', 'поднимает сервер /v1, доступен из openai-клиента через base_url']]
+        : []),
       ['Возможности', (library.features ?? []).join(', ') || '—'],
       ['Переменные', (library.envVars ?? []).map((v) => `<code>${esc(v)}</code>`).join(' ') || '—'],
       ['Версия', library.registry?.version ?? '—'],
@@ -377,11 +428,13 @@
       <button class="close" id="drawer-close">✕</button>
       <h2>${esc(library.name)}</h2>
       <div class="chips">
+        <span class="role role-${esc(library.role)}">${esc(role?.label ?? library.role)}</span>
         ${providerNames.map((p) => `<span class="chip p">${esc(p)}</span>`).join('')}
         <span class="chip status-${esc(library.status)}">${esc(library.status)}</span>
         ${library.tier ? `<span class="chip tier-${esc(library.tier).toLowerCase()}">tier ${esc(library.tier)}</span>` : ''}
       </div>
       ${library.description ? `<p style="color:var(--text-dim)">${esc(library.description)}</p>` : ''}
+      ${role?.description ? `<p style="color:var(--text-dim);font-size:13px">${esc(role.description)}</p>` : ''}
       <h3>Установка</h3>
       <pre class="cmd" id="cmd">${esc(library.install ?? `—`)}</pre>
       <h3>Детали</h3>
@@ -412,6 +465,7 @@
     for (const key of ['q', 'language', 'provider', 'kind', 'status', 'tier']) {
       if (state[key]) params.set(key, state[key]);
     }
+    if (state.roleGroup !== 'api') params.set('role', state.roleGroup);
     const query = params.toString();
     history.replaceState(null, '', query ? `?${query}` : location.pathname);
   }
