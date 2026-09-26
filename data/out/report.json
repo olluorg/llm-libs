@@ -1,5 +1,5 @@
 {
-  "startedAt": "2026-09-26T13:05:47.208Z",
+  "startedAt": "2026-09-26T13:21:58.900Z",
   "perEcosystem": {
     "pypi": {
       "candidates": 1208,
@@ -68,29 +68,34 @@
     }
   },
   "errors": [],
-  "enrichedAt": "2026-09-26T13:06:30.331Z",
+  "enrichedAt": "2026-09-26T13:22:50.530Z",
   "github": {
-    "queued": 458,
+    "queued": 457,
     "fetched": 439,
-    "notFound": 19,
+    "notFound": 18,
+    "releases": {
+      "mode": "all",
+      "requested": 439,
+      "withDate": 351
+    },
     "skipped": 0,
     "quotaExhausted": false,
     "rateLimit": {
       "limit": 5000,
-      "used": 92,
-      "remaining": 4908,
+      "used": 111,
+      "remaining": 4889,
       "reset": 1790430189
     },
     "token": true
   },
   "counts": {
-    "total": 505,
+    "total": 504,
     "byEcosystem": {
       "nuget": 42,
       "crates": 45,
       "pypi": 90,
       "golang": 29,
-      "github": 36,
+      "github": 35,
       "npm": 59,
       "rubygems": 42,
       "maven": 46,
@@ -116,24 +121,24 @@
       "Kotlin": 3,
       "R": 23,
       "Haskell": 2,
-      "Scala": 5,
+      "Scala": 4,
       "Clojure": 2,
       "OCaml": 3
     },
     "byProvider": {
-      "openai": 265,
-      "openai-compatible": 77,
-      "anthropic": 147,
+      "openai": 264,
+      "openai-compatible": 76,
+      "anthropic": 146,
       "fireworks": 1,
       "ai21": 1,
       "cohere": 37,
-      "aws-bedrock": 49,
-      "google-gemini": 85,
+      "aws-bedrock": 48,
+      "google-gemini": 84,
       "mistral": 42,
       "groq": 28,
       "azure-openai": 45,
       "vertex-ai": 12,
-      "ollama": 46,
+      "ollama": 45,
       "openrouter": 11,
       "together": 5,
       "perplexity": 4,
@@ -153,14 +158,14 @@
     },
     "byRole": {
       "sdk": 360,
-      "framework": 55,
+      "framework": 54,
       "runtime": 37,
       "support": 37,
       "gateway": 16
     },
     "byKind": {
       "client": 283,
-      "framework": 59,
+      "framework": 58,
       "local-runtime": 37,
       "official-sdk": 76,
       "retrieval": 9,
@@ -171,9 +176,9 @@
       "orchestration": 1
     },
     "byStatus": {
-      "unknown": 69,
-      "active": 363,
-      "deprecated": 60,
+      "active": 336,
+      "unknown": 83,
+      "deprecated": 72,
       "archived": 13
     }
   }

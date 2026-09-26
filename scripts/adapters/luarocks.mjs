@@ -35,10 +35,11 @@ export async function fetchMeta(name) {
   const version = stripTags(
     text.match(/<span class="version_label">([\s\S]*?)<\/span>/)?.[1] ?? text.match(/Current version[\s\S]*?<strong>([^<]+)<\/strong>/)?.[1] ?? '',
   );
-  const rockers = toInt(stripTags(text.match(/Rocks?[\s\S]{0,40}?(\d[\d,]*)\s*depend/i)?.[1] ?? ''));
   const totalDownloads = [...text.matchAll(/<span class="sub">([\d,]+) downloads<\/span>/g)]
     .map((m) => toInt(m[1]) ?? 0)
     .reduce((sum, value) => sum + value, 0);
+  // Дата загрузки последней версии: в таблице версий она идёт первой.
+  const uploaded = text.match(/(\d{4}-\d{2}-\d{2}) \d{2}:\d{2}:\d{2} UTC/)?.[1];
 
   return {
     name: modulePath.split('/').pop(),
@@ -52,6 +53,7 @@ export async function fetchMeta(name) {
       version: version || undefined,
       downloads: totalDownloads || undefined,
       downloadsPeriod: totalDownloads ? 'total' : 'none',
+      updatedAt: uploaded,
     },
   };
 }

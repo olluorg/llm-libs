@@ -192,18 +192,32 @@ assert(
   `сортировка по популярности неверна: первой выводится ${firstRendered}, а должна ${expectedFirst.id}`,
 );
 
-// Порядок детерминирован: у языков без звёзд метрики нулевые, нужна вторичная сортировка.
-const clojure = boot({ view: { language: 'Clojure', role: 'all' } });
-const clojureIds = [...clojure.elements.get('rows').innerHTML.matchAll(/data-id="([^"]+)"/g)].map((m) => m[1]);
-const clojureLibraries = clojureIds.map((id) => data.libraries.find((l) => l.id === id));
-const clojureExpected = byPopularity(data.libraries.filter((l) => l.language === 'Clojure'));
+// Порядок детерминирован: у языков без звёзд метрики близки к нулю, нужна
+// вторичная сортировка. Язык выбираем динамически: в каталоге есть записи
+// без звёзд, иначе проверка выродилась бы в сравнение 0 с 0.
+const languageWithTies = (() => {
+  const byLanguage = new Map();
+  for (const library of data.libraries) {
+    if (!byLanguage.has(library.language)) byLanguage.set(library.language, []);
+    byLanguage.get(library.language).push(library);
+  }
+  return [...byLanguage.entries()]
+    .filter(([, list]) => list.length >= 3 && list.some((l) => !l.stars))
+    .sort((a, b) => a[1].length - b[1].length)[0]?.[0];
+})();
+assert(Boolean(languageWithTies), 'в каталоге нет языка с записями без звёзд — проверять нечего');
+
+const tieLanguage = boot({ view: { language: languageWithTies, role: 'all' } });
+const tieIds = [...tieLanguage.elements.get('rows').innerHTML.matchAll(/data-id="([^"]+)"/g)].map((m) => m[1]);
+const tieLibraries = tieIds.map((id) => data.libraries.find((l) => l.id === id));
+const tieExpected = byPopularity(data.libraries.filter((l) => l.language === languageWithTies));
 assert(
-  clojureIds.length === clojureExpected.length,
-  `страница языка Clojure показывает ${clojureIds.length} записей вместо ${clojureExpected.length}`,
+  tieIds.length === tieExpected.length,
+  `страница языка ${languageWithTies} показывает ${tieIds.length} записей вместо ${tieExpected.length}`,
 );
 assert(
-  clojureLibraries.every((library, index) => library.id === clojureExpected[index].id),
-  'порядок записей на странице языка не детерминирован (нужна вторичная сортировка)',
+  tieLibraries.every((library, index) => library.id === tieExpected[index].id),
+  `порядок записей на странице языка ${languageWithTies} не детерминирован (нужна вторичная сортировка)`,
 );
 
 // ── 2. Сортировка кликом и фильтры ─────────────────────────────────────────
@@ -431,6 +445,35 @@ for (const [file, pattern] of [
 ]) {
   const content = await fs.readFile(path.join(DIST_DIR, file), 'utf8').catch(() => null);
   assert(content !== null && pattern.test(content), `файл ${file} отсутствует или неверен`);
+}
+
+// Дата релиза: у всех записей с репозиторием она должна находиться,
+// причём источник выбирается по приоритету: реестр → релиз GitHub → коммит.
+const RANK = { registry: 3, 'github-release': 2, 'github-commit': 1 };
+const noRelease = data.libraries.filter((l) => !l.latestRelease);
+const withRepoButNoDate = data.libraries.filter((l) => l.repo && !l.latestRelease);
+assert(
+  noRelease.length === 0,
+  `у ${noRelease.length} записей нет даты релиза: ${noRelease.slice(0, 6).map((l) => l.name).join(', ')}`,
+);
+assert(
+  withRepoButNoDate.length === 0,
+  `у ${withRepoButNoDate.length} записей с репозиторием нет даты: ${withRepoButNoDate.slice(0, 6).map((l) => l.name).join(', ')}`,
+);
+for (const library of data.libraries) {
+  if (!library.latestRelease) continue;
+  assert(
+    RANK[library.latestReleaseSource] >= RANK['github-commit'],
+    `${library.name}: неизвестный источник даты «${library.latestReleaseSource}»`,
+  );
+  // Дата из реестра должна побеждать GitHub, когда обе есть.
+  if (library.registry?.updatedAt && library.registry.updatedAt !== library.latestRelease) {
+    assert(
+      library.latestRelease === library.github?.releasedAt || library.latestRelease === library.github?.pushedAt,
+      `${library.name}: latestRelease (${library.latestRelease}) не совпадает ни с реестром ` +
+        `(${library.registry.updatedAt}), ни с GitHub (${library.github?.releasedAt ?? library.github?.pushedAt})`,
+    );
+  }
 }
 
 // ── Итог ──────────────────────────────────────────────────────────────────

@@ -49,6 +49,23 @@ export async function fetchRepo(slug) {
   };
 }
 
+/**
+ * Последний релиз на GitHub. Нужен там, где реестр пакета не отдаёт дату
+ * (Maven Central, часть записей NuGet и CRAN) или не отдаёт её вовсе.
+ * Репозиторий без релизов отвечает 404 — это не ошибка, а отсутствие данных.
+ */
+export async function fetchLatestRelease(slug) {
+  const { data, status } = await getJson(`${API}/repos/${slug}/releases/latest`, {
+    headers: authHeaders(),
+  });
+  if (status === 404 || !data || data.message || data.tag_name === undefined) return null;
+  return {
+    tag: data.tag_name,
+    publishedAt: data.published_at ? String(data.published_at).slice(0, 10) : undefined,
+    url: data.html_url,
+  };
+}
+
 /** Пул с ограничением параллелизма. */
 export async function mapLimit(items, limit, worker) {
   const results = new Array(items.length);

@@ -72,7 +72,9 @@ jobs:
 
       - name: Обогащение данными GitHub
         # enrich сам ограничится доступной квотой и не сломает прогон.
-        run: node scripts/enrich.mjs --concurrency=6
+        # --releases=all пополняет даты релизов: 304 не тратят квоту,
+        # поэтому обновлять их можно на каждом прогоне.
+        run: node scripts/enrich.mjs --concurrency=6 --releases=all
 
       - name: Валидация датасета
         run: node scripts/validate.mjs

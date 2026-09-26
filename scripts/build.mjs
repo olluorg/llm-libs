@@ -40,6 +40,13 @@ const DEFAULT_ROLES = {
 
 const ALL_ROLES = DEFAULT_ROLES.language;
 
+/** Откуда взялась дата релиза — для подсказки в таблице. */
+const RELEASE_SOURCE_LABEL = {
+  registry: 'релиз в реестре пакетов',
+  'github-release': 'релиз на GitHub',
+  'github-commit': 'последний коммит',
+};
+
 /** Пояснения к ролям: попадают в данные для сайта и в тексты для поисковиков. */
 const ROLE_DESCRIPTIONS = {
   sdk: 'Прямой HTTP-клиент API провайдера. Создаёт подключение к OpenAI, Anthropic, Gemini, Bedrock и другим API.',
@@ -289,7 +296,7 @@ function rowHtml(library) {
         <td><span class="role role-${escapeHtml(library.role)}">${escapeHtml(role?.label ?? library.role)}</span></td>
         <td class="num">${library.stars ? compact(library.stars) : '—'}</td>
         <td class="num">${escapeHtml(downloadsLabel(library)) || '—'}</td>
-        <td>${escapeHtml(library.registry?.updatedAt ?? '—')}</td>
+        <td class="num">${releaseCell(library)}</td>
       </tr>`;
 }
 
@@ -297,6 +304,13 @@ function sortForSeo(subset) {
   return [...subset].sort(
     (a, b) => popularity(b) - popularity(a) || String(a.name).localeCompare(String(b.name)),
   );
+}
+
+/** Дата последнего релиза: реестр → релиз на GitHub → последний коммит. */
+function releaseCell(library) {
+  if (!library.latestRelease) return '—';
+  const source = RELEASE_SOURCE_LABEL[library.latestReleaseSource] ?? library.latestReleaseSource ?? '';
+  return `<span title="${escapeHtml(source)}">${escapeHtml(library.latestRelease)}</span>`;
 }
 
 /** Популярность — логарифмическая, с учётом периода счётчика. Формула в lib/popularity.mjs. */

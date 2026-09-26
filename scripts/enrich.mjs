@@ -11,7 +11,7 @@
 import path from 'node:path';
 
 import { createLogger } from './lib/log.mjs';
-import { fetchRepo, hasToken, mapLimit, rateLimit, repoSlug } from './lib/github.mjs';
+import { fetchLatestRelease, fetchRepo, hasToken, mapLimit, rateLimit, repoSlug } from './lib/github.mjs';
 import { mergeRecords } from './lib/record.mjs';
 import { readDataset, writeDataset, writeJson, OUT_DIR } from './lib/store.mjs';
 
@@ -19,6 +19,13 @@ const log = createLogger('enrich');
 const args = parseArgs(process.argv.slice(2));
 const limit = Number(args.limit ?? Infinity);
 const concurrency = Number(args.concurrency ?? 4);
+// all — обновлять дату релиза у всех записей, missing — только там, где реестр
+// её не дал (экономит квоту: в daily-запуске разница невелика).
+const releaseMode = args.releases ?? 'missing';
+if (!['all', 'missing', 'none'].includes(releaseMode)) {
+  log.error(`--releases принимает all | missing | none, а не «${releaseMode}»`);
+  process.exit(1);
+}
 
 const dataset = await readDataset();
 if (!dataset.libraries?.length) {
@@ -63,6 +70,8 @@ const byId = new Map();
 let fetched = 0;
 let notFound = 0;
 let quotaExhausted = false;
+let releasesFetched = 0;
+let releasesWithDate = 0;
 
 await mapLimit(queue, concurrency, async ({ record, slug }) => {
   if (quotaExhausted) return;
@@ -76,9 +85,31 @@ await mapLimit(queue, concurrency, async ({ record, slug }) => {
   });
   if (!meta) {
     notFound += 1;
+    // Репозиторий 404: у курируемой записи это ошибка данных (показываем явно),
+    // у автонайденной — убираем битую ссылку, чтобы сайт не вёл в никуда.
+    if (isCurated(record)) {
+      log.warn(`репозиторий не найден у курируемой записи: ${record.ecosystem}:${record.name} → ${slug}`);
+      byId.set(record.id, record);
+    } else {
+      byId.set(record.id, { ...record, repo: undefined, repoMissing: true });
+    }
     return;
   }
   fetched += 1;
+
+  // Дата релиза на GitHub — запасной источник там, где реестр её не отдал.
+  const needsRelease = releaseMode === 'all' || (releaseMode === 'missing' && !record.registry?.updatedAt);
+  let release = null;
+  if (needsRelease) {
+    releasesFetched += 1;
+    release = await fetchLatestRelease(slug).catch((error) => {
+      if (error.status === 403 || error.status === 429) quotaExhausted = true;
+      log.debug(`release ${slug}: ${error.message}`);
+      return null;
+    });
+    if (release?.publishedAt) releasesWithDate += 1;
+  }
+
   byId.set(record.id, {
     ...record,
     repo: meta.repo ?? record.repo,
@@ -86,7 +117,11 @@ await mapLimit(queue, concurrency, async ({ record, slug }) => {
     description: record.description ?? meta.description,
     license: record.license ?? meta.license,
     stars: meta.github.stars,
-    github: meta.github,
+    github: {
+      ...meta.github,
+      releasedAt: release?.publishedAt ?? record.github?.releasedAt,
+      latestRelease: release?.tag ?? record.github?.latestRelease,
+    },
     status: meta.github.archived ? 'archived' : record.status,
   });
   if (fetched % 25 === 0) log.info(`обработано ${fetched}/${queue.length}`);
@@ -94,14 +129,15 @@ await mapLimit(queue, concurrency, async ({ record, slug }) => {
 
 const enriched = dataset.libraries.map((record) => byId.get(record.id) ?? record);
 
-// Пересчёт: статус «unknown» + свежие коммиты → active; давно без коммитов → deprecated.
+// Пересчёт статуса по свежести: ориентируемся на релиз, если он есть,
+// иначе — на последний коммит.
 const today = Date.now();
 const final = enriched.map((record) => {
   if (record.status === 'archived') return record;
   if (record.status === 'active' || record.status === 'deprecated') return record;
-  const pushed = record.github?.pushedAt;
-  if (!pushed) return record;
-  const ageDays = (today - new Date(`${pushed}T00:00:00Z`).getTime()) / 86_400_000;
+  const fresh = record.latestRelease ?? record.github?.pushedAt;
+  if (!fresh) return record;
+  const ageDays = (today - new Date(`${fresh}T00:00:00Z`).getTime()) / 86_400_000;
   const status = ageDays > 730 ? 'deprecated' : ageDays < 400 ? 'active' : 'unknown';
   return status === record.status ? record : mergeRecords(record, { ...record, status });
 });
@@ -114,6 +150,7 @@ await writeJson(path.join(OUT_DIR, 'report.json'), {
     queued: queue.length,
     fetched,
     notFound,
+    releases: { mode: releaseMode, requested: releasesFetched, withDate: releasesWithDate },
     skipped: targets.length - queue.length,
     quotaExhausted,
     rateLimit: limitInfo,
@@ -126,6 +163,21 @@ log.info(
   `обогащено записей: ${fetched}, репозиториев не найдено: ${notFound}` +
     (targets.length > queue.length ? `, пропущено из-за квоты: ${targets.length - queue.length}` : ''),
 );
+if (releasesFetched) {
+  log.info(`релизы на GitHub (${releaseMode}): запросов ${releasesFetched}, с датой ${releasesWithDate}`);
+}
+
+// Отчёт по источникам даты: видно, что осталось без даты и почему.
+const withoutDate = final.filter((r) => !r.latestRelease);
+if (withoutDate.length) {
+  const byEcosystem = withoutDate.reduce((acc, r) => ({ ...acc, [r.ecosystem]: (acc[r.ecosystem] ?? 0) + 1 }), {});
+  log.warn(
+    `без даты релиза: ${withoutDate.length} записей (${Object.entries(byEcosystem)
+      .sort((a, b) => b[1] - a[1])
+      .map(([eco, count]) => `${eco} ${count}`)
+      .join(', ')})`,
+  );
+}
 
 function isCurated(record) {
   return (record.source ?? []).some((s) => s.startsWith('curated:'));

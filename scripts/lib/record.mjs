@@ -172,7 +172,7 @@ export function normalizeRecord(input) {
       downloads: numberOr(registry.downloads),
       // Что измеряет счётчик: month (за месяц), total (с публикации),
       // imports (число импортов модуля), none (счётчика нет).
-      downloadsPeriod: ['month', 'total', 'imports', 'none'].includes(registry.downloadsPeriod)
+      downloadsPeriod: ['month', 'week', 'total', 'imports', 'none'].includes(registry.downloadsPeriod)
         ? registry.downloadsPeriod
         : registry.downloads === undefined
           ? undefined
@@ -185,6 +185,10 @@ export function normalizeRecord(input) {
       openIssues: numberOr(github.openIssues),
       archived: github.archived === true ? true : github.archived === false ? false : undefined,
       pushedAt: isoDate(github.pushedAt),
+      // Дата последнего релиза на GitHub — запасной источник даты, когда
+      // реестр пакетов её не отдаёт (Maven, часть записей CRAN и NuGet).
+      releasedAt: isoDate(github.releasedAt),
+      latestRelease: cleanString(github.latestRelease, 60),
     },
     confidence: clamp(numberOr(input.confidence) ?? 0.5, 0, 1),
     source: uniq(input.source ?? []),
@@ -195,6 +199,19 @@ export function normalizeRecord(input) {
 
   record.stars = record.github.stars;
   if (record.status === 'active' && record.github.archived === true) record.status = 'archived';
+
+  // Дата последнего релиза: сначала реестр паке��ов (это то, что ставит
+  // пользователь), затем релиз на GitHub, затем последний коммит.
+  const release = [
+    [record.registry.updatedAt, 'registry'],
+    [record.github.releasedAt, 'github-release'],
+    [record.github.pushedAt, 'github-commit'],
+  ].find(([date]) => date);
+  if (release) {
+    record.latestRelease = release[0];
+    record.latestReleaseSource = release[1];
+  }
+
   if (record.notes === undefined) delete record.notes;
   if (record.tier === undefined) delete record.tier;
   if (!record.worksWith.length) delete record.worksWith;
@@ -210,6 +227,9 @@ export function normalizeRecord(input) {
   if (record.github.openIssues === undefined) delete record.github.openIssues;
   if (record.github.archived === undefined) delete record.github.archived;
   if (!record.github.pushedAt) delete record.github.pushedAt;
+  if (!record.github.releasedAt) delete record.github.releasedAt;
+  if (!record.github.latestRelease) delete record.github.latestRelease;
+  if (record.latestReleaseSource === undefined) delete record.latestReleaseSource;
   if (record.stars === undefined) delete record.stars;
   if (record.description === undefined) delete record.description;
   if (record.homepage === undefined && !record.repo) delete record.homepage;
@@ -295,6 +315,8 @@ export function mergeRecords(base, patch) {
       openIssues: max(a.github.openIssues, b.github.openIssues),
       archived: a.github.archived ?? b.github.archived,
       pushedAt: newest(a.github.pushedAt, b.github.pushedAt),
+      releasedAt: newest(a.github.releasedAt, b.github.releasedAt),
+      latestRelease: b.github.latestRelease ?? a.github.latestRelease,
     },
     confidence: Math.max(a.confidence, b.confidence),
     notes: longer(a.notes, b.notes),

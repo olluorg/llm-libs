@@ -361,6 +361,19 @@
     return 2 * Math.log10(stars + 10) + weight * Math.log10(downloads + 10) + (library.tier === 'A' ? 0.5 : 0);
   }
 
+  const RELEASE_SOURCE_LABEL = {
+    registry: 'релиз в реестре пакетов',
+    'github-release': 'релиз на GitHub',
+    'github-commit': 'последний коммит',
+  };
+
+  /** Дата последнего релиза и её источник: реестр → релиз на GitHub → коммит. */
+  function releaseCell(library) {
+    if (!library.latestRelease) return '—';
+    const source = RELEASE_SOURCE_LABEL[library.latestReleaseSource] ?? library.latestReleaseSource;
+    return `<span title="${esc(source)}">${esc(library.latestRelease)}</span>`;
+  }
+
   function downloadsLabel(library) {
     const downloads = num(library.registry?.downloads);
     if (!downloads) return '';
@@ -374,7 +387,7 @@
     const primary =
       state.sort === 'name' ? cmpString(a.name, b.name)
       : state.sort === 'language' ? cmpString(a.language, b.language) || cmpString(a.name, b.name)
-      : state.sort === 'updated' ? cmpString(a.registry?.updatedAt ?? '', b.registry?.updatedAt ?? '')
+      : state.sort === 'updated' ? cmpString(a.latestRelease ?? '', b.latestRelease ?? '')
       : state.sort === 'stars' ? num(a.stars) - num(b.stars)
       : state.sort === 'downloads' ? num(a.registry?.downloads) - num(b.registry?.downloads)
       : popularity(a) - popularity(b);
@@ -406,7 +419,7 @@
       <td><span class="role role-${esc(library.role)}" title="${esc(role?.description ?? '')}">${esc(role?.label ?? library.role)}</span></td>
       <td class="num">${library.stars ? compact(library.stars) : '—'}</td>
       <td class="num">${esc(downloadsLabel(library)) || '—'}</td>
-      <td>${library.registry?.updatedAt ?? '—'}</td>
+      <td class="num">${releaseCell(library)}</td>
     </tr>`;
   }
 
@@ -433,7 +446,10 @@
       ['Звёзды', library.stars ? compact(library.stars) : '—'],
       ['Популярность', `${popularity(library).toFixed(2)} (2·log₁₀★ + log₁₀⬇${library.tier === 'A' ? ' + 0.5' : ''})`],
       ['Лицензия', library.license ?? '—'],
-      ['Обновлено', library.registry?.updatedAt ?? '—'],
+      ['Релиз', library.latestRelease ? `${library.latestRelease} (${RELEASE_SOURCE_LABEL[library.latestReleaseSource] ?? '—'})` : '—'],
+      ['Релиз в реестре', library.registry?.updatedAt ?? '—'],
+      ['Релиз на GitHub', library.github?.latestRelease ? `${library.github.latestRelease} · ${library.github.releasedAt ?? '—'}` : '—'],
+      ['Последний коммит', library.github?.pushedAt ?? '—'],
     ];
 
     el.drawer.innerHTML = `

@@ -828,28 +828,6 @@
       "notes": "MemGPT-подход: агент с собственной памятью и файловой системой. Форк MemGPT."
     },
     {
-      "name": "langchain4s/langchain4s",
-      "ecosystem": "github",
-      "language": "Scala",
-      "providers": [
-        "openai",
-        "anthropic",
-        "aws-bedrock",
-        "google-gemini",
-        "ollama",
-        "openai-compatible"
-      ],
-      "kind": "framework",
-      "tier": "C",
-      "features": [
-        "agents",
-        "rag",
-        "tools"
-      ],
-      "repo": "https://github.com/t-langchain4s/langchain4s",
-      "notes": "Порты LangChain/LangGraph под Scala. Артефактов в Maven Central нет — сборка через sbt из исходников."
-    },
-    {
       "name": "langchainrb",
       "ecosystem": "rubygems",
       "providers": [

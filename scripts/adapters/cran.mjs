@@ -11,6 +11,7 @@ export async function search(query, { limit = 10 } = {}) {
     name: pkg.Package,
     description: oneLine(pkg.Title),
     downloads: toInt(pkg._downloads ?? pkg.downloads),
+    downloadsPeriod: downloadsPeriod(pkg),
   }));
 }
 
@@ -36,13 +37,37 @@ export async function fetchMeta(name) {
       url: `https://cran.r-project.org/package=${data.Package}`,
       version: data.Version,
       downloads: toInt(data._downloads ?? data.downloads),
-      updatedAt: data._modified?.at
-        ? String(data._modified.at).slice(0, 10)
-        : data.Date?.Publication
-          ? String(data.Date.Publication).slice(0, 10)
-          : undefined,
+      downloadsPeriod: downloadsPeriod(data),
+      updatedAt: publishedAt(data),
     },
   };
+}
+
+/**
+ * Дата публикации на CRAN. r-universe отдаёт её в нескольких полях —
+ * у разных пакетов заполнено разное, поэтому берём первую доступную.
+ */
+function publishedAt(data) {
+  const candidates = [
+    data['Date/Publication'],
+    data._published,
+    data._modified?.at,
+    ...(data._releases ?? []).map((release) => release.date),
+  ];
+  for (const value of candidates) {
+    if (!value) continue;
+    const date = new Date(value);
+    if (!Number.isNaN(date.getTime())) return date.toISOString().slice(0, 10);
+  }
+  return undefined;
+}
+
+/** Период счётчика: r-universe прячет его в ссылке на источник. */
+function downloadsPeriod(data) {
+  const source = data._downloads?.source ?? '';
+  if (/last-month|monthly/i.test(source)) return 'month';
+  if (/last-week|daily|weekly/i.test(source)) return 'week';
+  return data._downloads ? 'total' : undefined;
 }
 
 function oneLine(value) {

@@ -177,12 +177,14 @@ export async function getText(url, options = {}) {
 }
 
 export async function getJson(url, options = {}) {
-  const { text, status, fromCache, notFound } = await getText(url, {
-    accept: 'application/json',
+  const { text, status, fromCache } = await getText(url, {
     ...options,
     headers: { accept: 'application/json', ...(options.headers ?? {}) },
   });
-  if (notFound || !text) return { data: null, status, fromCache };
+  // Некоторые API (например, NuGet registration) отдают тело, сжатое gzip'ом
+  // без заголовка content-encoding: такие ответы адаптер распаковывает сам.
+  if (options.raw) return { data: text, status, fromCache };
+  if (!text) return { data: null, status, fromCache };
   try {
     return { data: JSON.parse(text), status, fromCache };
   } catch (error) {
