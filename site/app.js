@@ -82,7 +82,7 @@
   // (LANGUAGE_HINTS, SEARCH_ENGINES), до которых нельзя дотянуться раньше времени.
 
   function init() {
-    fillRoleSelect();
+    fillRoleChips();
     fillSelect(el.language, uniq(libraries.map((l) => l.language)));
     fillSelect(el.provider, providers.map((p) => [p.id, p.name]));
     fillSelect(el.kind, uniq(libraries.map((l) => l.kind)));
@@ -97,11 +97,11 @@
     if (state.licenseFamily) el.license.value = state.licenseFamily;
     el.search.value = state.q;
 
-    const filterNodes = [el.search, el.role, el.language, el.provider, el.kind, el.status, el.tier, el.license];
+    // Чипы ролей не входят сюда: у них нет .value, и сбрасываются отдельно.
+    const filterNodes = [el.search, el.language, el.provider, el.kind, el.status, el.tier, el.license];
     for (const node of filterNodes) {
       node.addEventListener('input', () => {
         state.q = el.search.value.trim();
-        state.roleGroup = el.role.value;
         state.language = el.language.value;
         state.provider = el.provider.value;
         state.kind = el.kind.value;
@@ -116,6 +116,7 @@
     el.reset.addEventListener('click', () => {
       el.search.value = '';
       for (const node of filterNodes) node.value = '';
+      syncRoleChips();
       Object.assign(state, { q: '', roleGroup: 'api', language: '', provider: '', kind: '', status: '', tier: '', licenseFamily: '' });
       syncUrl();
       render();
@@ -327,14 +328,35 @@
       .join('');
   }
 
-  function fillRoleSelect() {
-    el.role.innerHTML = ROLE_GROUPS
-      .map(({ value, label, roles }) => {
-        const count = libraries.filter((l) => roles.includes(l.role)).length;
-        return `<option value="${value}">${esc(label)} — ${count}</option>`;
-      })
-      .join('');
-    el.role.value = state.roleGroup;
+  /**
+   * Роли — не выпадающий список, а ряд чипов. Список из семи пунктов с
+   * подписями и счётчиками занимал больше всего места в панели и требовал
+   * двух кликов ради значения, которое видно сразу. Радиогруппа означает,
+   * что выбор ровно один, и позволяет стрелками переключать.
+   */
+  function fillRoleChips() {
+    el.role.innerHTML = ROLE_GROUPS.map(({ value, label, roles }) => {
+      const count = libraries.filter((l) => roles.includes(l.role)).length;
+      const active = value === state.roleGroup;
+      return `<button type="button" class="chip role-chip${active ? ' active' : ''}" role="radio"
+        aria-checked="${active}" data-role-group="${esc(value)}" title="${esc(label)}">${esc(label)} <span class="chip-count">${count}</span></button>`;
+    }).join('');
+    el.role.querySelectorAll('.role-chip').forEach((chip) => {
+      chip.addEventListener('click', () => {
+        state.roleGroup = chip.dataset.roleGroup;
+        syncRoleChips();
+        syncUrl();
+        render();
+      });
+    });
+  }
+
+  function syncRoleChips() {
+    el.role.querySelectorAll('.role-chip').forEach((chip) => {
+      const active = chip.dataset.roleGroup === state.roleGroup;
+      chip.classList.toggle('active', active);
+      chip.setAttribute('aria-checked', String(active));
+    });
   }
 
   /**

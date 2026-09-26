@@ -116,6 +116,16 @@ function boot({ view = {}, referrer = '', search = '', strings = STRINGS } = {})
     return th;
   });
 
+  // Чипы ролей строит app.js, поэтому стаб должен уметь их найти и отдать
+  // их querySelectorAll по '.role-chip' — иначе проверялась бы не та
+  // разметка, которую увидит человек.
+  const roleChips = ['api', 'sdk', 'framework', 'runtime', 'support', 'all'].map((value) => {
+    const chip = createElement('button');
+    chip.dataset.roleGroup = value;
+    return chip;
+  });
+  elements.get('f-role').querySelectorAll = (selector) => (selector === '.role-chip' ? roleChips : []);
+
   const handlers = new Map();
   const windowHandlers = new Map();
   const documentStub = {
@@ -153,7 +163,7 @@ function boot({ view = {}, referrer = '', search = '', strings = STRINGS } = {})
   } catch (thrown) {
     error = thrown;
   }
-  return { elements, sortHeaders, handlers, windowHandlers, error };
+  return { elements, sortHeaders, roleChips, handlers, windowHandlers, error };
 }
 
 const popularity = (library) => {
@@ -306,13 +316,18 @@ assert(
 );
 
 // Переключаем роли на «все», иначе считаем пересечение с фильтром по ролям,
-// который на главной по умолчанию ограничен клиентами API.
-main.elements.get('f-role').value = 'all';
-main.elements.get('f-role').dispatch('input');
+// который на главной по умолчанию ограничен клиентами API. Кликаем по чипу —
+// он и есть теперь элемент управления, а не пункт списка.
+const allChip = main.roleChips.find((chip) => chip.dataset.roleGroup === 'all');
+assert(Boolean(allChip), 'в панели нет чипа «все роли»');
+allChip.dispatch('click');
 assert(
   main.elements.get('count').textContent.startsWith(countText(data.libraries.length, data.libraries.length)),
   `фильтр ролей «все» показал не все записи: ${main.elements.get('count').textContent}`,
 );
+// Активный чип отмечен ровно один, иначе непонятно, какая роль выбрана.
+const activeChips = main.roleChips.filter((chip) => chip.getAttribute('aria-checked') === 'true');
+assert(activeChips.length === 1, `активных чипов ролей: ${activeChips.length}, ожидался один`);
 
 for (const family of offeredFamilies) {
   const expected = data.libraries.filter((l) => (l.licenseFamily ?? 'unknown') === family);
@@ -420,8 +435,7 @@ assert(!/syncStickyOffset|getBoundingClientRect/.test(appSource), 'в app.js о�
 // Сайт — одна центрированная колонка. Полос на всю ширину окна быть не
 // должно: на 2560px лента с узким содержимым внутри выглядит нелепо, и
 // «починить» это растягиванием фона шапки тоже нельзя.
-assert(!/class="strip"/.test(drawerMarkup), 'в разметке появился блок на всю ширину: сайт должен быть одной колонкой');
-assert(!/\.strip\s*\{/.test(sticky), 'в стилях остался блок на всю ширину окна');
+assert(!/class="strip"/.test(drawerMarkup), 'в разметке появился блок на всю ширину: сайт должен быть одной колонкой');assert(!/\.strip\s*\{/.test(sticky), 'в стилях остался блок на всю ширину окна');
 assert(
   /header\.top \{[^}]*border-bottom/.test(sticky) && !/header\.top \{[^}]*background/.test(sticky),
   'у шапки не должно быть собственного фона: он и рисовал полосу во всю ширину',
@@ -431,6 +445,10 @@ assert(/\.wrap \{ max-width: 1400px/.test(sticky), 'колонка содерж�
 // пройти все фильтры.
 assert(/class="skip-link" href="#catalog"/.test(drawerMarkup), 'нет сквозной ссылки к таблице');
 assert(/\.skip-link:focus/.test(sticky), 'сквозная ссылка не видна при фокусе — она и не работает');
+// Роли — чипы, а не выпадающий список: список из семи пунктов с подписями
+// занимал больше всего места в панели. Плюс семантика: выбор ровно один.
+assert(/id="f-role"[^>]*role="radiogroup"/.test(drawerMarkup), 'фильтр ролей должен быть радиогруппой из чипов');
+assert(!/<select id="f-role"/.test(drawerMarkup), 'фильтр ролей снова стал выпадающим списком');
 // Анимации уважают системную настройку: переходы карточки при
 // motion sensitivity лишни.
 assert(/@media \(prefers-reduced-motion: reduce\)/.test(sticky), 'нет правила для prefers-reduced-motion');
