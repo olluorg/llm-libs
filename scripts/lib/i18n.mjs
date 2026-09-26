@@ -141,6 +141,7 @@ const en = {
 
   'theme.toggle': 'Light theme',
   'theme.toggleToDark': 'Dark theme',
+  'tags.label': 'Largest language collections',
   'skip.link': 'Skip to the table',
   'legend.title': 'Roles',
   'legend.more': 'What the roles mean and how the order is calculated',
@@ -159,7 +160,6 @@ const en = {
   'footer.noscript': 'Search and filters need JavaScript. The full dataset is in <a href="{{ROOT}}data/libraries.json">data/libraries.json</a>, the short index is in <a href="{{ROOT}}llms.txt">llms.txt</a>.',
 
   'collection.startHere': 'Where to start',
-  'collection.startHereHint': 'A few entries that cover most needs in %{language} — the rest is in the table below, with filters.',
   'collection.intro': '%{count} entries for %{language} in this catalog: %{roles}. Most called APIs: %{providers}.',
   'collection.roles': 'roles',
   'collection.providers': 'APIs called',
@@ -180,7 +180,6 @@ const en = {
   'page.index.title': 'LLM libraries catalog — OpenAI, Anthropic, Gemini, Bedrock, in every language',
   'page.index.description': '%{total} libraries for LLM work: official SDKs, frameworks, local runtimes (Ollama, vLLM, llama.cpp) and gateways. Python, TypeScript, Go, Rust, Java, C#, PHP, Ruby and more — with versions, downloads and GitHub stars.',
   'page.index.heading': 'Catalog of libraries for LLM APIs',
-  'page.index.subheading': 'Official SDKs first, then frameworks and community clients. OpenAI, Anthropic, Gemini, Bedrock, Azure and OpenAI-compatible providers across every programming language.',
   'page.index.keywords': 'llm libraries, openai sdk, anthropic claude sdk, gemini api, bedrock, azure openai, ollama, vllm, litellm, langchain, python llm, typescript llm, rust llm, go llm',
 
   'page.providers.title': 'LLM libraries by provider — OpenAI, Anthropic, Gemini, Bedrock',
@@ -360,6 +359,7 @@ const ru = {
 
   'theme.toggle': 'Светлая тема',
   'theme.toggleToDark': 'Тёмная тема',
+  'tags.label': 'Крупнейшие подборки по языкам',
   'skip.link': 'Перейти к таблице',
   'legend.title': 'Роли',
   'legend.more': 'Что значат роли и как считается порядок',
@@ -378,7 +378,6 @@ const ru = {
   'footer.noscript': 'Поиск и фильтры требуют JavaScript. Полный датасет — в <a href="{{ROOT}}data/libraries.json">data/libraries.json</a>, краткий указатель — в <a href="{{ROOT}}llms.txt">llms.txt</a>.',
 
   'collection.startHere': 'С чего начать',
-  'collection.startHereHint': 'Несколько записей, которые закрывают большинство задач на %{language}; остальное — в таблице ниже, с фильтрами.',
   'collection.intro': 'Записей для %{language} в каталоге: %{count}. По ролям: %{roles}. Чаще всего вызываемые API: %{providers}.',
   'collection.roles': 'роли',
   'collection.providers': 'вызываемые API',
@@ -399,7 +398,6 @@ const ru = {
   'page.index.title': 'Каталог библиотек для LLM — OpenAI, Anthropic, Gemini, Bedrock на всех языках',
   'page.index.description': '%{total} библиотек для работы с LLM: официальные SDK, фреймворки, локальные рантаймы (Ollama, vLLM, llama.cpp) и шлюзы. Python, TypeScript, Go, Rust, Java, C#, PHP, Ruby и другие языки, с версиями, загрузками и звёздами GitHub.',
   'page.index.heading': 'Каталог библиотек для работы с LLM',
-  'page.index.subheading': 'Сначала идут официальные SDK, затем фреймворки и комьюнити-клиенты. OpenAI, Anthropic, Gemini, Bedrock, Azure и OpenAI-совместимые провайдеры — по всем языкам программирования.',
   'page.index.keywords': 'llm библиотеки, openai sdk, anthropic claude sdk, gemini api, bedrock, azure openai, ollama, vllm, litellm, langchain, python llm, typescript llm, rust llm, go llm',
 
   'page.providers.title': 'Библиотеки для LLM по провайдерам — OpenAI, Anthropic, Gemini, Bedrock',

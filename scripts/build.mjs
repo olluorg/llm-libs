@@ -28,6 +28,14 @@ const PRE_RENDER_LIMIT = 150; // строк в статической разме
 // Порог для страницы «язык × роль»: меньше трёх записей — тонкий контент.
 const ROLE_SLICE_MIN = 3;
 
+// Порядок подбора в «с чего начать», если официальных SDK в языке меньше,
+// чем нужно: SDK → фреймворк → рантайм → шлюз.
+// Сколько языков показывать в ряду тегов.
+const TAG_LIMIT = 10;
+
+// Порядок подбора в «с чего начать».
+const PICK_ROLE_ORDER = ['sdk', 'framework', 'runtime', 'gateway'];
+
 // Сколько записей перечислять в секции подборки на странице языка.
 const COLLECTION_SECTION_LIMIT = 8;
 
@@ -71,6 +79,21 @@ const libraries = dataset.libraries.map((library) => ({
   ...library,
   providers: (library.providers ?? []).map((id) => providerMap.get(id)?.id ?? id),
 }));
+
+/**
+ * Имя провайдера под текущую локаль.
+ *
+ * Имена лежат в конфиге, и одно из них — «OpenAI-совместимые API» — попадало
+ * русским текстом в английские страницы: и в чипы строк, и во вступление
+ * подборки, и в метаданные. Поэтому у провайдера может быть nameEn, а выбор
+ * делается по локали страницы.
+ */
+function providerName(locale, id) {
+  const provider = providerMap.get(id);
+  if (!provider) return id;
+  if (locale !== DEFAULT_LOCALE && provider.nameEn) return provider.nameEn;
+  return provider.name;
+}
 
 const date = String(dataset.generatedAt).slice(0, 10);
 const languageCounts = countBy(libraries, (l) => l.language);
@@ -137,7 +160,9 @@ for (const locale of LOCALES) {
       title: t(locale, 'page.index.title'),
       description: t(locale, 'page.index.description', { total: libraries.length }),
       heading: t(locale, 'page.index.heading'),
-      subheading: t(locale, 'page.index.subheading'),
+      // Подзаголовка на главной нет: он пересказывал то, что уже видно
+      // в счётчиках над таблицей и в чипах ролей.
+      subheading: '',
       keywords: t(locale, 'page.index.keywords'),
       filter: () => libraries,
     },
@@ -367,7 +392,7 @@ function render(tpl, { locale, root, urlPath, view, title, description, heading,
     .replaceAll('{{CANONICAL}}', escapeHtml(canonical))
     .replaceAll('{{JSONLD}}', jsonLd({ locale, view, title, description, canonical, urlPath, subset: visible, heading }))
     .replaceAll('{{HEADING}}', escapeHtml(heading))
-    .replaceAll('{{SUBHEADING}}', escapeHtml(subheading))
+    .replaceAll('{{SUBHEADING}}', escapeHtml(subheading ?? ''))
     .replaceAll('{{VIEW}}', JSON.stringify(view))
     .replaceAll('{{TOTAL}}', String(visible.length || total))
     .replaceAll('{{LANGUAGES}}', String(new Set(visible.map((l) => l.language)).size))
@@ -378,6 +403,7 @@ function render(tpl, { locale, root, urlPath, view, title, description, heading,
     .replaceAll('{{SEO_LINKS}}', seoLinks(sorted, prefix, view))
     .replaceAll('{{COLLECTION}}', collectionHtml(locale, view, visible))
     .replaceAll('{{CRUMBS}}', crumbsHtml(locale, view, prefix))
+    .replaceAll('{{TAGS}}', tagBarHtml(locale, view, prefix))
     .replaceAll('{{RELATED}}', relatedHtml(locale, view, prefix))
     .replaceAll('{{ROWS}}', shown.map((library) => rowHtml(library, locale)).join('\n'))
     // Служебные подстановки: часть строк содержит свою разметку (<b>, <code>),
@@ -475,7 +501,7 @@ function switcherHtml(locale, urlPath, prefix) {
 function rowHtml(library, locale = DEFAULT_LOCALE) {
   const providerChips = (library.providers ?? [])
     .slice(0, 3)
-    .map((id) => `<span class="chip p">${escapeHtml(providerMap.get(id)?.name ?? id)}</span>`)
+    .map((id) => `<span class="chip p">${escapeHtml(providerName(locale, id))}</span>`)
     .join('');
 
   const l = (key) => escapeHtml(t(locale, key));
@@ -557,8 +583,12 @@ function compact(value) {
 // а не просто выдавала таблицу. Текст собирается только из полей записи:
 // роль, вид, звёзды, дата релиза, возможности, наличие OpenAI-совместимого
 
-/** Одна строка «почему эта запись» — только факты из записи. */
-function pickFacts(locale, library) {
+/**
+ * Одна строка «почему эта запись» — только факты из записи.
+ * `short` убирает перечень возможностей: в блоке «с чего начать» он лишний,
+ * там важны официальность, провайдер, звёзды и свежесть.
+ */
+function pickFacts(locale, library, { short = false } = {}) {
   const parts = [];
   // Роль в факты не берём: в русском «официальный клиенты API» читается
   // неграмотно, а роль и так видна в секции и в колонке таблицы.
@@ -567,7 +597,7 @@ function pickFacts(locale, library) {
   if (library.providers?.length) {
     parts.push(
       escapeHtml(
-        library.providers.slice(0, 3).map((id) => providerMap.get(id)?.name ?? id).join(', '),
+        library.providers.slice(0, 3).map((id) => providerName(locale, id)).join(', '),
       ),
     );
   }
@@ -577,8 +607,10 @@ function pickFacts(locale, library) {
     : (library.stars ? `★ ${compact(library.stars)}` : '');
   if (date) parts.push(escapeHtml(date));
   if (library.openaiCompatibleServer) parts.push(escapeHtml(t(locale, 'collection.compatibleServer')));
-  const features = (library.features ?? []).slice(0, 3).join(', ');
-  if (features) parts.push(escapeHtml(t(locale, 'collection.features').replace('%{features}', features)));
+  if (!short) {
+    const features = (library.features ?? []).slice(0, 3).join(', ');
+    if (features) parts.push(escapeHtml(t(locale, 'collection.features').replace('%{features}', features)));
+  }
   return parts.filter(Boolean).join(' · ');
 }
 
@@ -587,23 +619,57 @@ function pickLink(library) {
 }
 
 /** «С чего начать»: официальные SDK и по одному самому популярному на провайдера. */
+/**
+ * «С чего начать»: сначала официальные SDK, по одному на провайдера.
+ *
+ * Две тонкости, которые стоили неправильного списка:
+ *  - дедупликация по первому провайдеру, а не по всем. boto3 вызывает
+ *    Anthropic, Mistral и Bedrock и занимал их слоты, из-за чего
+ *    настоящие anthropic и mistralai в список не попадали;
+ *  - в запасном проходе пропускаем сопутствующие инструменты: «с чего
+ *    начать» — это не токенизатор, а SDK, фреймворк или рантайм.
+ */
+
 function starterPicks(locale, subset, limit = 5) {
   const sorted = sortForSeo(subset);
   const picked = [];
-  const seenProviders = new Set();
+  const seen = new Set();
+  const primary = (library) => (library.providers ?? [])[0];
+
   for (const library of sorted) {
     if (picked.length >= limit) break;
-    if (library.kind !== 'official-sdk' && (library.providers ?? []).some((p) => seenProviders.has(p))) continue;
+    if (library.kind !== 'official-sdk') continue;
+    if (seen.has(primary(library))) continue;
     picked.push(library);
-    for (const provider of library.providers ?? []) seenProviders.add(provider);
+    seen.add(primary(library));
   }
-  // Если официальных SDK мало, добираем популярными фреймворками и рантаймами.
+
   if (picked.length < limit) {
-    for (const library of sorted) {
-      if (picked.length >= limit) break;
-      if (!picked.includes(library)) picked.push(library);
+    // Порог: сто звёзд. У записи с восемью звёздами и 22 тысячами загрузок
+    // ответ на вопрос «с чего начать» — тот же, что у трёхсотзвёздного
+    // проекта, нет. Исключение — официальные SDK: их берёт первый проход,
+    // где порога нет, потому что у нишевых провайдеров звёзд мало, а SDK
+    // всё равно верный ответ.
+    const notable = (library) => (library.stars ?? 0) >= 100;
+    for (const role of PICK_ROLE_ORDER) {
+      for (const library of sorted) {
+        if (picked.length >= limit) break;
+        if (picked.includes(library) || library.role !== role) continue;
+        if (!notable(library)) continue;
+        // Провайдеры сверяем только среди клиентов API: иначе в списке
+        // оказываются пять вариантов одного OpenAI-клиента (async-openai,
+        // llm-chain-openai, llm-chain-openai-compatible…). У фреймворков и
+        // рантаймов сверки нет: они по определению работают со многими
+        // провайдерами, и по первому провайдеру выпадал rig-core (8.7k звёзд).
+        if (role === 'sdk' && library.providers?.length && seen.has(primary(library))) continue;
+        picked.push(library);
+        if (role === 'sdk' && library.providers?.length) seen.add(primary(library));
+      }
     }
   }
+  // В совсем ничевых языках порог может не оставить ничего — тогда показываем
+  // просто популярное, иначе блок останется пустым.
+  if (!picked.length) return sorted.slice(0, Math.min(limit, 2));
   return picked;
 }
 
@@ -626,11 +692,11 @@ function collectionHtml(locale, view, subset) {
   const providers = [...countBy(subset.flatMap((library) => library.providers), (id) => id).entries()]
     .sort((a, b) => b[1] - a[1])
     .slice(0, 5)
-    .map(([id, count]) => `${providerMap.get(id)?.name ?? id} (${count})`)
+    .map(([id, count]) => `${providerName(locale, id)} (${count})`)
     .join(', ');
 
   const picks = starterPicks(locale, subset).map(
-    (library) => `        <li><a href="#${escapeHtml(library.id)}"><b>${escapeHtml(library.name)}</b></a> — ${pickFacts(locale, library)}</li>`,
+    (library) => `        <li><a href="#${escapeHtml(library.id)}"><b>${escapeHtml(library.name)}</b></a> — ${pickFacts(locale, library, { short: true })}</li>`,
   );
 
   const sections = roleOrder
@@ -655,7 +721,6 @@ ${items}
     <p class="collection-intro">${escapeHtml(t(locale, 'collection.intro', { count: subset.length, language, roles, providers }))}</p>
 
     <h2>${escapeHtml(t(locale, 'collection.startHere'))}</h2>
-    <p>${escapeHtml(t(locale, 'collection.startHereHint', { language }))}</p>
     <ul class="picks">
 ${picks.join('\n')}
     </ul>
@@ -718,6 +783,36 @@ function crumbsHtml(locale, view, prefix) {
     .join(' ');
 }
 
+/**
+ * Ряд тегов с самыми крупными языками под хлебными крошками.
+ *
+ * Крошки отвечают на вопрос «где я», а теги — на вопрос «куда пойти»: с
+ * любой страницы (в том числе со среза по провайдеру) одним кликом — в крупнейшую
+ * подборку по языку. Заодно это внутренние ссылки с каждой из 166 страниц на
+ * главные разделы, а не только наоборот.
+ */
+function tagBarHtml(locale, view, prefix) {
+  // Текущий язык в ряд попадает всегда, даже если он не в десятке: на странице
+  // C++ (одна запись в каталоге) должно быть видно, где вы находитесь.
+  const top = [...languages].slice(0, view.language ? TAG_LIMIT - 1 : TAG_LIMIT);
+  if (view.language && !top.some(([language]) => language === view.language)) {
+    const entry = languages.find(([language]) => language === view.language);
+    if (entry) top.push(entry);
+  }
+  if (!top.length) return '';
+  const items = top
+    .map(([language, count]) => {
+      const active = view.language === language;
+      return `<a class="tag${active ? ' active' : ''}" href="${escapeHtml(`${prefix}languages/${slugify(language)}.html`)}"` +
+        `${active ? ' aria-current="page"' : ''}>` +
+        `${escapeHtml(language)} <span class="tag-count">${count}</span></a>`;
+    })
+    .join('\n      ');
+  return `  <nav class="tags" aria-label="${escapeHtml(t(locale, 'tags.label'))}">
+      ${items}
+  </nav>`;
+}
+
 function relatedHtml(locale, view, prefix) {
   if (!view.language) return '';
   const blocks = [];
@@ -760,7 +855,7 @@ function relatedHtml(locale, view, prefix) {
 
 function seoHeading(locale, view) {
   if (view.provider) {
-    const name = providerMap.get(view.provider)?.name ?? view.provider;
+    const name = providerName(locale, view.provider);
     return t(locale, 'seo.topProvider', { provider: name });
   }
   if (singleRole(view)) return t(locale, `role.${singleRole(view)}`);
@@ -848,7 +943,7 @@ function breadcrumbItems(locale, view, canonical) {
   if (view.provider) {
     return [
       { '@type': 'ListItem', position: 1, name: t(locale, 'nav.all'), item: `${siteUrl}/${alternatePath(locale, 'index.html')}` },
-      { '@type': 'ListItem', position: 2, name: providerMap.get(view.provider)?.name ?? view.provider, item: canonical },
+      { '@type': 'ListItem', position: 2, name: providerName(locale, view.provider), item: canonical },
     ];
   }
   if (!view.language) {

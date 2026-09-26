@@ -182,6 +182,7 @@
     {
       "id": "openai-compatible",
       "name": "OpenAI-совместимые API",
+      "nameEn": "OpenAI-compatible APIs",
       "category": "self-hosted",
       "sdkApi": "openai-compatible",
       "baseUrl": "http://localhost:11434/v1",

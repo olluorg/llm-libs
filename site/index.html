@@ -78,7 +78,7 @@
         {{SWITCHER}}
       </div>
     </div>
-    <p>{{SUBHEADING}}</p>
+    <p class="subheading">{{SUBHEADING}}</p>
     <p class="hint" id="hint" hidden></p>
     <div class="stats">
       <span class="stat"><b>{{TOTAL}}</b> {{STATS_LIBRARIES}}</span>
@@ -88,7 +88,10 @@
     </div>
   </header>
 
-  <nav class="crumbs" aria-label="{{NAV_SECTIONS}}">{{CRUMBS}}</nav>
+  <div class="crumbs-row">
+    <nav class="crumbs" aria-label="{{NAV_SECTIONS}}">{{CRUMBS}}</nav>
+    {{TAGS}}
+  </div>
 
   <div class="controls">
     <div class="controls-row">

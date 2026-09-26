@@ -738,9 +738,57 @@ function ownText(html) {
     .replace(/<a class="lang-switch"[\s\S]*?<\/a>/, '');
 }
 
+
 const htmlFiles = (await fs.readdir(DIST_DIR, { recursive: true }))
   .filter((name) => String(name).endsWith('.html'))
   .map(String);
+
+// Ряд тегов с крупнейшими языками: с любой страницы один клик в большую
+// подборку. Проверяем, что он есть везде, ведёт в существующие файлы и
+// указывает текущий язык.
+const topLanguages = [...new Set(data.libraries.map((l) => l.language))].length;
+for (const relative of htmlFiles) {
+  const html = await fs.readFile(path.join(DIST_DIR, relative), 'utf8');
+  const tags = /<nav class="tags"[\s\S]*?<\/nav>/.exec(html)?.[0] ?? '';
+  assert(tags.length > 0, `в ${relative} нет ряда тегов с языками`);
+  // Крошки и теги — одна строка навигации: отдельными блоками они занимали
+  // две строки ради одного и того же перехода по каталогу.
+  const navRow = /<div class="crumbs-row">[\s\S]*?<\/nav>\s*<\/div>/.exec(html)?.[0] ?? '';
+  assert(
+    navRow.includes('<nav class="crumbs"') && navRow.includes(tags),
+    `в ${relative} крошки и теги не в одной строке`,
+  );
+  const links = [...tags.matchAll(/href="([^"]+)"/g)].map(([, href]) => href);
+  assert(links.length >= 8, `в ${relative} в тегах всего ${links.length} языков`);
+  for (const href of links) {
+    const resolved = path.posix.normalize(path.posix.join(path.posix.dirname(relative), href));
+    assert(htmlFiles.includes(resolved), `тег в ${relative} ведёт на несуществующую страницу ${resolved}`);
+    // Теги внутри своей локали: на русской странице не должно быть ссылок
+    // в английское дерево и наоборот.
+    const crossesLocale = resolved.startsWith('ru/') !== relative.startsWith('ru/');
+    assert(!crossesLocale, `тег в ${relative} уходит в другую локаль: ${resolved}`);
+  }
+  // Активный язык отмечен один раз, и только на странице про этот язык.
+  // Страницу опознаём по данным в странице, а не по заголовку: в «Библиотеки
+  // для Google Gemini» регулярка без границ слов находит «Go».
+  const view = JSON.parse(/window\.__LLMDOCS_VIEW__ = (\{[\s\S]*?\});/.exec(html)[1]);
+  const active = (tags.match(/class="tag active"/g) ?? []).length;
+  if (view.language) {
+    assert(active === 1, `в ${relative} активных тегов языка: ${active}, ожидался один`);
+    assert(/aria-current="page"/.test(tags), `в ${relative} активный тег не помечен aria-current`);
+    // Имя языка попадает в регулярку как есть: в «C++» плюсы — это оператор
+    // повтора, и проверка падала с Invalid regular expression.
+    const escaped = view.language.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    assert(
+      new RegExp(`aria-current="page"[^>]*>\\s*${escaped}\\s*<`).test(tags),
+      `в ${relative} активен не тот язык, о котором страница (${view.language})`,
+    );
+  } else {
+    assert(active === 0, `в ${relative} отмечен активный язык, хотя страница не про язык`);
+  }
+}
+assert(topLanguages > 0, 'в датасете нет языков для тегов');
+
 
 for (const locale of LOCALES) {
   const dir = LOCALE_DIR[locale];
