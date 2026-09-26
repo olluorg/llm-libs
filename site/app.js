@@ -392,18 +392,6 @@
     });
   }
 
-  /**
-   * Липкая шапка таблицы должна остановиться под липкой панелью фильтров.
-   * Панель переносится на несколько строк, поэтому её высоту измеряем и
-   * кладём в CSS-переменную, а не задаём константой: при переносе на
-   * телефоне шапка иначе наезжает на фильтры.
-   */
-  function syncStickyOffset() {
-    const controls = document.querySelector('.controls');
-    const height = controls?.getBoundingClientRect?.().height ?? 0;
-    document.documentElement.style.setProperty('--sticky-h', `${Math.round(height)}px`);
-  }
-
   function render() {
     const rows = libraries.filter(matches).sort(comparator);
     el.count.textContent = tr('count.format').replace('%{shown}', rows.length).replace('%{total}', libraries.length);
@@ -685,13 +673,6 @@
 
   initTheme();
 
-  // Отступ липкой шапки таблицы зависит от высоты панели фильтров, а та
-  // меняется при переносе строк и смене ширины окна.
-  syncStickyOffset();
-  window.addEventListener('resize', syncStickyOffset);
-  // Ширина колонок меняется при переключении размера шрифта в браузере —
-  // без этого подписи в мобильных карточках поедут.
-  if (document.fonts?.ready) document.fonts.ready.then(syncStickyOffset);
 
   init();
 })();
