@@ -19,6 +19,15 @@
 <link rel="alternate" type="text/plain" href="{{ROOT}}llms.txt" title="LLM catalog index for AI agents">
 <script type="application/ld+json">{{JSONLD}}</script>
 <link rel="stylesheet" href="{{ROOT}}assets/style.css">
+<!-- Выбранная тема применяется до первой отрисовки: иначе страница моргает
+     тёмной и только потом переключается на светлую. -->
+<script>
+  try {
+    if (localStorage.getItem('llmcat.theme') === 'light') document.documentElement.dataset.theme = 'light';
+  } catch (error) {
+    /* localStorage недоступен — остаётся тёмная тема по умолчанию */
+  }
+</script>
 <script>window.__LLMDOCS_VIEW__ = {{VIEW}};</script>
 <script>window.__LLMDOCS_I18N__ = {{I18N}};</script>
 <!--
@@ -61,7 +70,12 @@
   <header class="top">
     <div class="top-row">
       <h1>{{HEADING}}</h1>
-      {{SWITCHER}}
+      <div class="top-actions">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false">
+          <span class="theme-icon" aria-hidden="true">◐</span><span id="theme-label">{{THEME_TOGGLE}}</span>
+        </button>
+        {{SWITCHER}}
+      </div>
     </div>
     <p>{{SUBHEADING}}</p>
     <p class="hint" id="hint" hidden></p>

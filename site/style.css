@@ -11,7 +11,29 @@
   --warn: #e3b341;
   --danger: #f7786b;
   --radius: 10px;
+  /* Заполняется из app.js по фактической высоте панели фильтров. */
+  --sticky-h: 0px;
   --mono: ui-monospace, "SF Mono", "JetBrains Mono", "Fira Code", Menlo, monospace;
+  /* Ниже — цвета, у которых тёмный и светлый варианты разные. */
+  --bg-blur: rgba(13, 17, 23, 0.92);
+  --bg-header: linear-gradient(180deg, #131a26, var(--bg));
+  --row-border: #1b2130;
+  --chip-bg: #12161f;
+  --chip-border: #2b4a6f;
+  --chip-text: #9dc4f5;
+  --hint-bg: #10243a;
+  --hint-border: #23486e;
+  --hint-text: #bcd7f5;
+  --on-accent: #0d1117;
+  --btn-hover-border: #3d4657;
+  --backdrop: rgba(0, 0, 0, 0.55);
+  --code-bg: #0a0e14;
+  --tier-a-border: #1f6f45;
+  --tier-b-border: #6b5a1f;
+  --danger-border: #6b2626;
+  --ok: #7fd6a2;
+  --info: #9dc4f5;
+  --violet: #b6a1e8;
 }
 
 * { box-sizing: border-box; }
@@ -30,7 +52,7 @@ a:hover { text-decoration: underline; }
 
 header.top {
   border-bottom: 1px solid var(--border);
-  background: linear-gradient(180deg, #131a26, var(--bg));
+  background: var(--bg-header);
   padding: 26px 0 18px;
   margin-bottom: 18px;
 }
@@ -47,7 +69,7 @@ header.top p { margin: 0; color: var(--text-dim); font-size: 14px; }
 
 .controls {
   position: sticky; top: 0; z-index: 20;
-  background: rgba(13, 17, 23, 0.92); backdrop-filter: blur(8px);
+  background: var(--bg-blur); backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border); padding: 12px 0;
   margin-bottom: 14px;
 }
@@ -67,8 +89,8 @@ button {
   border: 1px solid var(--border); border-radius: 8px;
   padding: 8px 12px; font-size: 13px; cursor: pointer; font-family: inherit;
 }
-button:hover { color: var(--text); border-color: #3d4657; }
-button.active { color: #0d1117; background: var(--accent); border-color: var(--accent); }
+button:hover { color: var(--text); border-color: var(--btn-hover-border); }
+button.active { color: var(--on-accent); background: var(--accent); border-color: var(--accent); }
 
 .count { color: var(--text-dim); font-size: 13px; margin-left: auto; }
 
@@ -79,7 +101,7 @@ thead th {
   padding: 8px 10px; border-bottom: 1px solid var(--border); cursor: pointer; white-space: nowrap;
 }
 thead th:hover { color: var(--text); }
-tbody tr { border-bottom: 1px solid #1b2130; cursor: pointer; }
+tbody tr { border-bottom: 1px solid var(--row-border); cursor: pointer; }
 tbody tr:hover { background: var(--bg-elev); }
 td { padding: 9px 10px; vertical-align: top; }
 td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
@@ -94,15 +116,15 @@ td.num span:first-child { font-size: 13px; color: var(--text); }
 .chips { display: flex; flex-wrap: wrap; gap: 4px; }
 .chip {
   font-size: 11px; padding: 1px 7px; border-radius: 999px;
-  border: 1px solid var(--border); color: var(--text-dim); background: #12161f;
+  border: 1px solid var(--border); color: var(--text-dim); background: var(--chip-bg);
   white-space: nowrap;
 }
-.chip.p { border-color: #2b4a6f; color: #9dc4f5; }
-.chip.tier-a { border-color: #1f6f45; color: var(--accent-2); }
-.chip.tier-b { border-color: #6b5a1f; color: var(--warn); }
-.chip.status-active { border-color: #1f6f45; color: var(--accent-2); }
-.chip.status-deprecated, .chip.status-archived { border-color: #6b2626; color: var(--danger); }
-.chip.status-beta { border-color: #2b4a6f; color: #9dc4f5; }
+.chip.p { border-color: var(--chip-border); color: var(--chip-text); }
+.chip.tier-a { border-color: var(--tier-a-border); color: var(--accent-2); }
+.chip.tier-b { border-color: var(--tier-b-border); color: var(--warn); }
+.chip.status-active { border-color: var(--tier-a-border); color: var(--accent-2); }
+.chip.status-deprecated, .chip.status-archived { border-color: var(--danger-border); color: var(--danger); }
+.chip.status-beta { border-color: var(--chip-border); color: var(--info); }
 
 /* Роль: главное отличие «клиента API» от локального рантайма и инфраструктуры. */
 /* Крошки и перекрёстные ссылки. */
@@ -155,9 +177,9 @@ td.lic { white-space: nowrap; }
   padding: 1px 5px;
   cursor: help;
 }
-.lic-permissive { color: #7fd6a2; }
+.lic-permissive { color: var(--ok); }
 .lic-copyleft { color: var(--warn); }
-.lic-source { color: #9dc4f5; }
+.lic-source { color: var(--info); }
 .lic-other, .lic-unknown { color: var(--text-dim); border-style: dashed; }
 
 /* Строка таблицы: имя библиотеки — кнопка, чтобы карточку можно было открыть
@@ -190,8 +212,8 @@ tbody tr { scroll-margin-top: var(--sticky-h, 120px); }
   font-size: 12px; white-space: nowrap; color: var(--text-dim);
 }
 .role-sdk { color: var(--accent-2); }
-.role-gateway { color: #b6a1e8; }
-.role-framework { color: #9dc4f5; }
+.role-gateway { color: var(--violet); }
+.role-framework { color: var(--info); }
 .role-runtime { color: var(--warn); }
 .role-support { color: var(--text-dim); }
 
@@ -200,7 +222,7 @@ tbody tr { scroll-margin-top: var(--sticky-h, 120px); }
 .legend code { font-family: var(--mono); font-size: 11px; }
 
 .drawer-backdrop {
-  position: fixed; inset: 0; background: rgba(0, 0, 0, 0.55);
+  position: fixed; inset: 0; background: var(--backdrop);
   opacity: 0; pointer-events: none; transition: opacity 0.15s; z-index: 40;
 }
 .drawer-backdrop.open { opacity: 1; pointer-events: auto; }
@@ -218,7 +240,7 @@ tbody tr { scroll-margin-top: var(--sticky-h, 120px); }
 .drawer dt { color: var(--text-dim); }
 .drawer dd { margin: 0; }
 pre.cmd {
-  background: #0a0e14; border: 1px solid var(--border); border-radius: 8px;
+  background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px;
   padding: 10px 12px; font-family: var(--mono); font-size: 13px; overflow-x: auto;
 }
 .empty { padding: 60px 0; text-align: center; color: var(--text-dim); }
@@ -247,7 +269,7 @@ footer code { font-family: var(--mono); font-size: 12px; }
 
 .hint {
   margin: 12px 0 0; padding: 8px 12px; font-size: 13px;
-  background: #10243a; border: 1px solid #23486e; border-radius: 8px; color: #bcd7f5;
+  background: var(--hint-bg); border: 1px solid var(--hint-border); border-radius: 8px; color: var(--hint-text);
 }
 .hint button { margin-left: 8px; padding: 2px 10px; font-size: 12px; }
 
@@ -322,3 +344,78 @@ thead th::after { content: ''; position: absolute; inset: auto 0 -1px 0; height:
 .legend-box[open] > summary::before { content: '▾'; }
 .legend-box > summary:hover { color: var(--text); }
 .legend-box .legend { margin: 6px 0 0; }
+
+/* ── Светлая тема ───────────────────────────────────────────────────────────
+   Тёмная остаётся основной: сайт изначально тёмный, и переключение не
+   должно менять вид у тех, кто к нему привык. Светлая — по кнопке в шапке,
+   выбор помнится в localStorage. Все цвета, у которых тёмный и светлый
+   варианты разные, вынесены в переменные выше, поэтому здесь только они. */
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #ffffff;
+  --bg-elev: #f6f8fa;
+  --bg-elev-2: #eef1f5;
+  --border: #d5dae1;
+  --text: #1c2128;
+  --text-dim: #5b6572;
+  --accent: #0969da;
+  --accent-2: #1a7f45;
+  --warn: #9a6700;
+  --danger: #cf222e;
+
+  --bg-blur: rgba(255, 255, 255, 0.92);
+  --bg-header: linear-gradient(180deg, #f6f8fa, var(--bg));
+  --row-border: #eaeef2;
+  --chip-bg: #f2f4f7;
+  --chip-border: #b6d4f7;
+  --chip-text: #0a5cc4;
+  --hint-bg: #ddf4ff;
+  --hint-border: #a9d6f5;
+  --hint-text: #0b3a63;
+  --on-accent: #ffffff;
+  --btn-hover-border: #8c959f;
+  --backdrop: rgba(27, 31, 36, 0.45);
+  --code-bg: #f6f8fa;
+
+  --tier-a-border: #a5d6b0;
+  --tier-b-border: #e3d08a;
+  --danger-border: #f0b3b0;
+  --ok: #1a7f45;
+  --info: #0a5cc4;
+  --violet: #6f42c1;
+}
+
+/* Переключатель темы */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  font-size: 12px;
+  color: var(--text-dim);
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.theme-toggle:hover { color: var(--text); border-color: var(--btn-hover-border); }
+.theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: no-preference) {
+  .theme-toggle .theme-icon { transition: transform 0.15s ease; }
+  .theme-toggle:hover .theme-icon { transform: rotate(-25deg); }
+}
+
+/* Действия в шапке: переключатель темы и переключатель языка рядом. */
+.top-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.top-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.lang-switch {
+  padding: 4px 10px;
+  font-size: 12px;
+  color: var(--text-dim);
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.lang-switch:hover { color: var(--text); border-color: var(--btn-hover-border); }

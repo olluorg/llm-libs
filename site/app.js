@@ -355,6 +355,44 @@
   }
 
   /**
+   * Тема. Тёмная — основная (так сайт выглядел изначально), светлая — по
+   * кнопке в шапке; выбор помнится в localStorage и применяется до первой
+   * отрисовки, иначе страница моргает тёмной. Системную тему намеренно не
+   * следим: человек приходит из поиска и не выбирал ничего, дефолт должен
+   * быть предсказуемым.
+   */
+  const THEME_KEY = 'llmcat.theme';
+
+  function applyTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    try {
+      localStorage.setItem(THEME_KEY, theme);
+    } catch {
+      // localStorage может быть недоступен — тема просто не запомнится.
+    }
+    const toggle = document.getElementById('theme-toggle');
+    if (toggle) {
+      const light = theme === 'light';
+      toggle.setAttribute('aria-pressed', String(light));
+      const label = document.getElementById('theme-label');
+      if (label) label.textContent = light ? tr('theme.toggleToDark') : tr('theme.toggle');
+    }
+  }
+
+  function initTheme() {
+    let saved = null;
+    try {
+      saved = localStorage.getItem(THEME_KEY);
+    } catch {
+      saved = null;
+    }
+    applyTheme(saved === 'light' ? 'light' : 'dark');
+    document.getElementById('theme-toggle')?.addEventListener('click', () => {
+      applyTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
+    });
+  }
+
+  /**
    * Липкая шапка таблицы должна остановиться под липкой панелью фильтров.
    * Панель переносится на несколько строк, поэтому её высоту измеряем и
    * кладём в CSS-переменную, а не задаём константой: при переносе на
@@ -644,6 +682,8 @@
   }
 
   document.getElementById('generated').textContent = new Date(generatedAt).toISOString().slice(0, 10);
+
+  initTheme();
 
   // Отступ липкой шапки таблицы зависит от высоты панели фильтров, а та
   // меняется при переносе строк и смене ширины окна.

@@ -139,6 +139,8 @@ const en = {
   'intent.hintButton': '<button type="button" id="hint-reset">Reset</button>',
   'count.format': '%{shown} of %{total}',
 
+  'theme.toggle': 'Light theme',
+  'theme.toggleToDark': 'Dark theme',
   'legend.title': 'Roles',
   'legend.more': 'What the roles mean and how the order is calculated',
   'legend.sdk': 'calls OpenAI, Anthropic, Gemini and similar APIs directly',
@@ -355,6 +357,8 @@ const ru = {
   'intent.hintButton': '<button type="button" id="hint-reset">Сбросить</button>',
   'count.format': '%{shown} из %{total}',
 
+  'theme.toggle': 'Светлая тема',
+  'theme.toggleToDark': 'Тёмная тема',
   'legend.title': 'Роли',
   'legend.more': 'Что значат роли и как считается порядок',
   'legend.sdk': 'звонит напрямую в OpenAI, Anthropic, Gemini и т. д.',
