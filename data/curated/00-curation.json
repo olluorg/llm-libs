@@ -52,6 +52,61 @@
       "reason": "Копия openai-php/client, залитая «Just for a test»: та же библиотека уже есть в каталоге под своим именем с 5833 звёздами, а копия получила tier B при нуле звёзд и без версии."
     },
     {
+      "ecosystem": "pypi",
+      "name": "coherence-client",
+      "reason": "Клиент кэш-грида Oracle Coherence, а не библиотека LLM. Провайдер cohere был выведен по подстроке: «Coherence» содержит «cohere»."
+    },
+    {
+      "ecosystem": "maven",
+      "name": "com.oracle.bedrock:bedrock-coherence",
+      "reason": "«Bedrock for Coherence Project» — это проект Oracle Coherence, а не Amazon Bedrock и не Cohere. Оба провайдера выведены по подстроке."
+    },
+    {
+      "ecosystem": "golang",
+      "name": "github.com/oracle/coherence-go-client/v2",
+      "reason": "Go-клиент кэш-грида Oracle Coherence, не про LLM. Провайдер cohere выведен по подстроке «Coherence»."
+    },
+    {
+      "ecosystem": "golang",
+      "name": "github.com/elastic/go-elasticsearch/v8",
+      "reason": "Официальный Go-клиент Elasticsearch, то есть поискового движка, а не LLM. worksWith=[cohere] выведен по подстроке."
+    },
+    {
+      "ecosystem": "cran",
+      "name": "httr2",
+      "reason": "HTTP-клиент общего назначения для R: в описании нет ни одного LLM-термина, а собственные notes признают, что пакет не LLM-специфичен. Провайдер openai-compatible выведен не по описанию."
+    },
+    {
+      "ecosystem": "pypi",
+      "name": "boto3",
+      "reason": "AWS SDK для Python целиком, а не библиотека LLM. Из-за 2,4 млрд загрузок занимал tier A и искажал всё, что сортируется по популярности; наборы features и провайдеры были заполнены по шаблону."
+    },
+    {
+      "ecosystem": "pypi",
+      "name": "huggingface-togetherai",
+      "reason": "Описание — заглушка «Add your description here», репозитория нет: содержательно записи не существует."
+    },
+    {
+      "ecosystem": "nuget",
+      "name": "anthropic.bedrock",
+      "reason": "Описание — служебная заглушка NuGet «Package Description», репозитория и документации нет."
+    },
+    {
+      "ecosystem": "rubygems",
+      "name": "foobara-anthropic-api",
+      "reason": "Описание — заглушка «No description. Add one.», репозитория нет."
+    },
+    {
+      "ecosystem": "maven",
+      "name": "com.wesuresoft.sdk:openai",
+      "reason": "Описание «开放平台API接口封装» («обёртка API открытой платформы») не содержит ни OpenAI, ни LLM; нет репозитория, лицензии и версии. Попала по имени артефакта."
+    },
+    {
+      "ecosystem": "maven",
+      "name": "io.github.cnzbq:openai",
+      "reason": "То же описание-заглушка, что и у com.wesuresoft.sdk:openai, и те же пустые поля: попал по имени артефакта."
+    },
+    {
       "ecosystem": "hex",
       "name": "bullmq",
       "reason": "Очередь задач на Redis для Elixir. Совпадение по слову «Bull» в запросах про LLM; к моделям отношения не имеет, а 9443 звезды делали его самым заметным в подборке Elixir."

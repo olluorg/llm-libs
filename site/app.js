@@ -19,7 +19,10 @@
   function providerName(id) {
     const provider = providerMap.get(id);
     if (!provider) return id;
-    return !englishPage && provider.nameEn ? provider.nameEn : provider.name;
+    // На английской странице берётся nameEn, на русской — name. Условие было
+    // инвертировано, то есть английское имя показывалось только в /ru/.
+    if (englishPage && provider.nameEn) return provider.nameEn;
+    return provider.name;
   }
 
   /**
@@ -596,8 +599,11 @@
    */
   function licenseCell(library) {
     const family = library.licenseFamily ?? 'unknown';
+    // Подпись бралась из словаря, а в тултип попал русский текст, зашитый прямо
+    // в строку: на английских страницах его видно было в каждой строке, у которой
+    // лицензия отличается от SPDX-идентификатора.
     const title = library.license && library.license !== library.licenseId
-      ? `${LICENSE_FAMILY_LABEL[family] ?? family} · в реестре: ${library.license}`
+      ? `${LICENSE_FAMILY_LABEL[family] ?? family} · ${tr('license.registryValue')}: ${library.license}`
       : (LICENSE_FAMILY_LABEL[family] ?? family);
     return `<span class="lic lic-${esc(family)}" title="${esc(title)}">${esc(library.licenseId ?? '—')}</span>`;
   }

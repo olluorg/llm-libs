@@ -26,7 +26,7 @@ const log = createLogger('collect');
  * Отсев шаблонных заготовок: пакеты, оставленные автором «на будущее»
  * с плейсхолдерными ссылками и описаниями-заглушками. В каталоге им не место.
  */
-const PLACEHOLDER = /(your[-_ ]?(repo|url|username|name|project)|example\.(com|org)|github\.com\/(user|username|your|test|example)\b|<your|todo|change me|lorem ipsum|coming soon|добавьте|заполните)/i;
+const PLACEHOLDER = /(your[-_ ]?(repo|url|username|name|project)|example\.(com|org)|github\.com\/(user|username|your|test|example)\b|<your|todo|change me|lorem ipsum|coming soon|добавьте|заполните|add your (description|readme|title|tagline|description here)|no description\.? ?add one|^package description$)/i;
 
 /**
  * SEO-мусор в реестрах: камни и модули, которые существуют ради ссылки на сайт.
@@ -355,11 +355,22 @@ function capTier(tier, confidence, evidence = {}) {
   return tier;
 }
 
+/**
+ * Ключевое слово ищется по границам слова, а не как подстрока.
+ *
+ * Иначе в каталог попадали библиотеки не про LLM: «Coherence» содержит «cohere»,
+ * поэтому клиент кэш-гриду Oracle Coherence получал провайдера Cohere, а
+ * «reranker» содержал «rerank» — то же ключевое слово Cohere. Нашлось четыре
+ * таких записи, включая официальный Go-клиент Elasticsearch с worksWith=[cohere].
+ */
+const keywordPattern = (keyword) =>
+  new RegExp(`(?<![a-z0-9])${keyword.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![a-z0-9])`);
+
 function inferProvidersFromText(text) {
   const haystack = text.toLowerCase();
   const found = [];
   for (const provider of Object.values(providers)) {
-    if ((provider.keywords ?? []).some((keyword) => haystack.includes(keyword.toLowerCase()))) {
+    if ((provider.keywords ?? []).some((keyword) => keywordPattern(keyword).test(haystack))) {
       found.push(provider.id);
     }
   }

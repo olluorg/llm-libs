@@ -661,21 +661,6 @@
       "notes": "R-обёртка над REST API OpenAI (httr/curl). Официальной поддержки со стороны OpenAI для R нет."
     },
     {
-      "name": "httr2",
-      "ecosystem": "cran",
-      "providers": [
-        "openai-compatible"
-      ],
-      "kind": "client",
-      "tier": "C",
-      "features": [
-        "http",
-        "streaming"
-      ],
-      "repo": "https://github.com/r-lib/httr2",
-      "notes": "Не LLM-специфичен, но это стандарт HTTP-клиента в R: на нём построены все R-клиенты LLM (ellmer, openai и др.)."
-    },
-    {
       "name": "gemini-api-php/client",
       "ecosystem": "packagist",
       "providers": [

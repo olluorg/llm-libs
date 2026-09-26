@@ -31,6 +31,9 @@ const en = {
   'nav.switchToEn': 'English',
 
   'stats.libraries': 'libraries',
+  // «349 of 484» — раньше строка собиралась мимо словаря, и на русской странице
+  // оставалась английская форма.
+  'stats.of': '%{shown} of %{total}',
   'stats.languages': 'languages / ecosystems',
   'stats.providers': 'LLM providers',
   'stats.updated': 'updated',
@@ -42,6 +45,9 @@ const en = {
   'filters.kind': 'Package type',
   'filters.status': 'Maintenance status',
   'filters.tier': 'Catalog tier',
+  // Отдельная короткая форма для чипа в строке таблицы: «Catalog tier: A»
+  // занимает много места в строке, а набор подписей фильтра остаётся прежним.
+  'chip.tier': 'tier',
   'filters.license': 'License',
   'filters.reset': 'Reset',
   'filters.count': 'shown',
@@ -257,6 +263,7 @@ const ru = {
   'nav.switchToEn': 'English',
 
   'stats.libraries': 'библиотек',
+  'stats.of': '%{shown} из %{total}',
   'stats.languages': 'языков / экосистем',
   'stats.providers': 'провайдеров LLM',
   'stats.updated': 'обновлено',
@@ -268,6 +275,7 @@ const ru = {
   'filters.kind': 'Тип пакета',
   'filters.status': 'Состояние поддержки',
   'filters.tier': 'Уровень каталога',
+  'chip.tier': 'уровень',
   'filters.license': 'Лицензия',
   'filters.reset': 'Сбросить',
   'filters.count': 'показано',

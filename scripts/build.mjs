@@ -70,8 +70,11 @@ if (!dataset.libraries?.length) {
 }
 
 const providersConfig = await readConfig('providers.json');
-const providerList = providersConfig.providers.map(({ id, name, category, docs, baseUrl, envVars, models, notes }) => ({
-  id, name, category, docs, baseUrl, envVars, models, notes,
+// nameEn обязателен в этом списке: без него providerName() всегда возвращает
+// русское имя, потому что условие по nameEn молча ложно. Именно так «OpenAI-совместимые
+// API» снова оказались в английских страницах, хотя правка в конфиге была.
+const providerList = providersConfig.providers.map(({ id, name, nameEn, category, docs, baseUrl, envVars, models, notes }) => ({
+  id, name, nameEn, category, docs, baseUrl, envVars, models, notes,
 }));
 const providerMap = new Map(providerList.map((p) => [p.id, p]));
 
@@ -91,7 +94,7 @@ const libraries = dataset.libraries.map((library) => ({
 function providerName(locale, id) {
   const provider = providerMap.get(id);
   if (!provider) return id;
-  if (locale !== DEFAULT_LOCALE && provider.nameEn) return provider.nameEn;
+  if (locale === DEFAULT_LOCALE && provider.nameEn) return provider.nameEn;
   return provider.name;
 }
 
@@ -206,15 +209,15 @@ for (const locale of LOCALES) {
         urlPath: urlPath(slug),
         view: { provider: provider.id, role: 'api' },
         roles: DEFAULT_ROLES.provider,
-        title: t(locale, 'page.provider.title', { name: provider.name, count: subset.length }),
+        title: t(locale, 'page.provider.title', { name: providerName(locale, provider.id), count: subset.length }),
         description: t(locale, 'page.provider.description', {
-          name: provider.name,
+          name: providerName(locale, provider.id),
           count: subset.length,
           top: topLanguages(subset).join(', '),
         }),
-        heading: t(locale, 'page.provider.heading', { name: provider.name }),
+        heading: t(locale, 'page.provider.heading', { name: providerName(locale, provider.id) }),
         subheading: providerSummary(locale, provider, subset),
-        keywords: t(locale, 'page.provider.keywords', { name: provider.name, id: provider.id }),
+        keywords: t(locale, 'page.provider.keywords', { name: providerName(locale, provider.id), id: provider.id }),
         filter: () => subset,
         subject: provider,
       };
@@ -511,7 +514,7 @@ function rowHtml(library, locale = DEFAULT_LOCALE) {
           ${library.description ? `<div class="desc">${escapeHtml(library.description)}</div>` : ''}
         </td>
         <td data-label="${l('th.language')}">${escapeHtml(library.language)}</td>
-        <td><div class="chips">${providerChips}${library.tier ? `<span class="chip tier-${escapeHtml(library.tier).toLowerCase()}">tier ${escapeHtml(library.tier)}</span>` : ''}</div></td>
+        <td><div class="chips">${providerChips}${library.tier ? `<span class="chip tier-${escapeHtml(library.tier).toLowerCase()}">${escapeHtml(t(locale, 'chip.tier'))} ${escapeHtml(library.tier)}</span>` : ''}</div></td>
         <td class="cell-meta" data-label="${l('th.role')}"><span class="role role-${escapeHtml(library.role)}" title="${escapeHtml(t(locale, `roleDesc.${library.role}`))}">${escapeHtml(t(locale, `role.${library.role}`))}</span></td>
         <td class="lic cell-meta" data-label="${l('th.license')}">${licenseCell(locale, library)}</td>
         <td class="num cell-meta" data-label="${l('th.stars')}">${library.stars ? compact(library.stars) : '—'}</td>
@@ -877,7 +880,7 @@ function seoText(locale, view, subset, hidden, roles) {
     const provider = providerMap.get(view.provider);
     const official = subset.filter((l) => l.kind === 'official-sdk').length;
     return (
-      t(locale, 'seoText.provider', { name: provider.name, count, official }) +
+      t(locale, 'seoText.provider', { name: providerName(locale, provider.id), count, official }) +
       (official ? t(locale, 'seoText.officialSuffix', { official }) : '') +
       tail
     );
@@ -899,7 +902,7 @@ function seoText(locale, view, subset, hidden, roles) {
       }) + tail
     );
   }
-  return t(locale, 'seoText.index', { count: hidden ? `${count} of ${count + hidden}` : count });
+  return t(locale, 'seoText.index', { count: hidden ? t(locale, 'stats.of', { shown: count, total: count + hidden }) : count });
 }
 
 function seoLinks(sorted, prefix, view) {
@@ -1017,7 +1020,7 @@ function buildLlmsTxt(locale, libs, providers) {
   for (const provider of providers) {
     const count = libs.filter((l) => l.providers.includes(provider.id)).length;
     if (!count) continue;
-    lines.push(`- [${provider.name}](${provider.docs ?? 'https://platform.openai.com/docs'}) — ${count} ${t(locale, 'stats.libraries')}${provider.baseUrl ? `, base URL: ${provider.baseUrl}` : ''}`);
+    lines.push(`- [${providerName(locale, provider.id)}](${provider.docs ?? 'https://platform.openai.com/docs'}) — ${count} ${t(locale, 'stats.libraries')}${provider.baseUrl ? `, base URL: ${provider.baseUrl}` : ''}`);
   }
 
   lines.push('', t(locale, 'llms.apiClients'), '');
@@ -1049,7 +1052,7 @@ function buildLlmsTxt(locale, libs, providers) {
  */
 function buildSitemap(pagesList) {
   const today = date;
-  const entries = [
+  const raw = [
     { loc: '/index.html', priority: '1.0' },
     { loc: '/providers.html', priority: '0.7' },
     { loc: '/languages.html', priority: '0.7' },
@@ -1057,6 +1060,12 @@ function buildSitemap(pagesList) {
       .filter((page) => page.urlPath !== 'index.html')
       .map((page) => ({ loc: `/${page.urlPath}`, priority: page.view.provider ? '0.8' : '0.6' })),
   ];
+  // providers.html и languages.html есть и в списке выше, и в pages: раньше они
+  // попадали в sitemap дважды, потому что фильтр исключал только index.html.
+  // Первое вхождение выигрывает, то есть с более высоким приоритетом.
+  const seen = new Set();
+  const entries = raw.filter((entry) => !seen.has(entry.loc) && seen.add(entry.loc));
+
   return (
     '<?xml version="1.0" encoding="UTF-8"?>\n' +
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' +
@@ -1065,7 +1074,12 @@ function buildSitemap(pagesList) {
         const alternates = LOCALES.filter((locale) => `${siteUrl}/${alternatePath(locale, entry.loc.replace(/^\//, ''))}` !== `${siteUrl}${entry.loc}`)
           .map((locale) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="${siteUrl}/${alternatePath(locale, entry.loc.replace(/^\//, ''))}"/>`)
           .join('\n');
-        return `  <url>\n    <loc>${siteUrl}${entry.loc}</loc>\n${alternates}\n    <lastmod>${today}</lastmod><changefreq>daily</changefreq><priority>${entry.priority}</priority>\n  </url>`;
+        // x-default отдаём только для главной: это адрес, который получает
+        // посетитель, чей язык не удалось определить.
+        const xDefault = entry.loc === '/index.html'
+          ? `    <xhtml:link rel="alternate" hreflang="x-default" href="${siteUrl}/index.html"/>`
+          : '';
+        return `  <url>\n    <loc>${siteUrl}${entry.loc}</loc>\n${alternates}${xDefault ? `\n${xDefault}` : ''}\n    <lastmod>${today}</lastmod><changefreq>daily</changefreq><priority>${entry.priority}</priority>\n  </url>`;
       })
       .join('\n') +
     '\n</urlset>\n'

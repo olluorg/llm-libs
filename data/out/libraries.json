@@ -1,62 +1,62 @@
 {
-  "generatedAt": "2026-09-26T22:54:08.808Z",
+  "generatedAt": "2026-09-26T23:04:55.728Z",
   "counts": {
-    "total": 484,
+    "total": 473,
     "byEcosystem": {
-      "nuget": 42,
-      "pypi": 90,
-      "golang": 29,
+      "nuget": 41,
+      "pypi": 87,
+      "golang": 27,
       "github": 26,
       "npm": 58,
       "crates": 45,
-      "rubygems": 42,
-      "maven": 46,
+      "rubygems": 41,
+      "maven": 43,
       "packagist": 41,
       "luarocks": 14,
       "swift": 14,
       "hex": 17,
-      "cran": 20
+      "cran": 19
     },
     "byLanguage": {
-      "C#": 42,
-      "Python": 91,
-      "Go": 29,
+      "C#": 41,
+      "Python": 88,
+      "Go": 27,
       "C++": 1,
       "TypeScript": 58,
       "Rust": 45,
-      "Ruby": 42,
+      "Ruby": 41,
       "Swift": 23,
-      "Java": 47,
+      "Java": 44,
       "PHP": 41,
       "Lua": 14,
       "Kotlin": 3,
       "Elixir": 18,
-      "R": 20,
+      "R": 19,
       "Haskell": 2,
       "Clojure": 2,
       "Scala": 3,
       "OCaml": 3
     },
     "byProvider": {
-      "openai": 256,
-      "openai-compatible": 75,
-      "anthropic": 143,
-      "cohere": 32,
-      "aws-bedrock": 48,
+      "openai": 254,
+      "openai-compatible": 74,
+      "anthropic": 140,
+      "cohere": 28,
       "google-gemini": 81,
-      "mistral": 40,
+      "aws-bedrock": 45,
+      "mistral": 39,
       "groq": 27,
       "azure-openai": 46,
       "vertex-ai": 12,
       "ollama": 43,
       "openrouter": 11,
-      "together": 5,
+      "together": 4,
       "perplexity": 4,
       "xai": 10,
       "deepseek": 13,
       "jina": 2,
       "replicate": 3,
-      "huggingface": 12,
+      "huggingface": 11,
       "vllm": 4,
       "llamacpp": 7,
       "lmstudio": 3,
@@ -69,28 +69,28 @@
       "deepinfra": 1
     },
     "byRole": {
-      "sdk": 333,
+      "sdk": 323,
       "framework": 52,
       "runtime": 37,
-      "support": 46,
+      "support": 45,
       "gateway": 16
     },
     "byKind": {
-      "client": 262,
+      "client": 255,
       "framework": 58,
-      "official-sdk": 77,
+      "official-sdk": 74,
       "local-runtime": 37,
       "util": 9,
       "ui": 9,
       "gateway": 16,
-      "retrieval": 9,
+      "retrieval": 8,
       "eval": 6,
       "orchestration": 1
     },
     "byStatus": {
-      "active": 323,
-      "unknown": 74,
-      "deprecated": 74,
+      "active": 318,
+      "unknown": 69,
+      "deprecated": 73,
       "archived": 13
     }
   },
@@ -472,51 +472,6 @@
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-09-16",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "nuget:anthropic.bedrock",
-      "name": "Anthropic.Bedrock",
-      "description": "Package Description",
-      "ecosystem": "nuget",
-      "language": "C#",
-      "role": "sdk",
-      "kind": "official-sdk",
-      "providers": [
-        "anthropic",
-        "aws-bedrock"
-      ],
-      "sdkApi": "anthropic-messages",
-      "status": "active",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "ANTHROPIC_API_KEY",
-        "AWS_ACCESS_KEY_ID",
-        "AWS_SECRET_ACCESS_KEY",
-        "AWS_REGION"
-      ],
-      "install": "dotnet add package Anthropic.Bedrock",
-      "homepage": "https://docs.anthropic.com/claude/reference",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://www.nuget.org/packages/Anthropic.Bedrock",
-        "version": "0.13.3",
-        "downloads": 219660,
-        "downloadsPeriod": "total",
-        "updatedAt": "2026-09-22"
-      },
-      "github": {},
-      "confidence": 0.75,
-      "source": [
-        "discovery:nuget"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "latestRelease": "2026-09-22",
       "latestReleaseSource": "registry"
     },
     {
@@ -5174,71 +5129,6 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "pypi:boto3",
-      "name": "boto3",
-      "description": "The AWS SDK for Python (Boto3)",
-      "ecosystem": "pypi",
-      "language": "Python",
-      "role": "sdk",
-      "kind": "official-sdk",
-      "providers": [
-        "aws-bedrock",
-        "anthropic",
-        "mistral",
-        "cohere"
-      ],
-      "sdkApi": "bedrock",
-      "status": "active",
-      "tier": "A",
-      "features": [
-        "chat",
-        "streaming",
-        "tools",
-        "vision",
-        "embeddings",
-        "batch"
-      ],
-      "envVars": [
-        "AWS_ACCESS_KEY_ID",
-        "AWS_SECRET_ACCESS_KEY",
-        "AWS_REGION",
-        "AWS_BEARER_TOKEN_BEDROCK"
-      ],
-      "repo": "https://github.com/boto/boto3",
-      "docs": "https://docs.aws.amazon.com/boto3/latest",
-      "homepage": "https://github.com/boto/boto3",
-      "license": "Apache-2.0",
-      "licenseId": "Apache-2.0",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://pypi.org/project/boto3",
-        "version": "1.43.103",
-        "downloads": 2427733999,
-        "downloadsPeriod": "month",
-        "updatedAt": "2026-09-25"
-      },
-      "github": {
-        "stars": 9909,
-        "forks": 1994,
-        "openIssues": 200,
-        "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2015-04-09",
-        "latestRelease": "0.0.14"
-      },
-      "confidence": 0.9,
-      "source": [
-        "registry:pypi",
-        "curated:01-official-sdks.json"
-      ],
-      "notes": "Официальный AWS SDK для Python; доступ к Bedrock Runtime/AgentRuntime и остальным сервисам AWS. Основной вход для Bedrock.",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 9909,
-      "latestRelease": "2026-09-25",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "golang:github.com/tmc/langchaingo",
       "name": "github.com/tmc/langchaingo",
       "description": "🎉 Join our new official Discord community! Connect with other LangChain Go developers, get help and contribute: Join Discord 🦜️🔗 LangChain Go ⚡ Building applications with LLMs through composability, with Go! ⚡ 🤔 What is this? This is the Go language implementation of LangChain . 📖 Documentation Documentation Site API Reference 🎉 Examples See ./examples for example usage. Resources Join the D",
@@ -5986,56 +5876,6 @@
       "updatedAt": "2026-09-26",
       "stars": 6177,
       "latestRelease": "2023-11-03",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "golang:github.com/elastic/go-elasticsearch/v8",
-      "name": "github.com/elastic/go-elasticsearch/v8",
-      "description": "go-elasticsearch The official Go client for Elasticsearch . Download the latest version of Elasticsearch or sign-up for a free trial of Elastic Cloud . Compatibility Go Starting from version , this library follows the Go language's release policy . Each major Go release is supported until there are two newer major releases. For example, Go 1.5 was supported until the Go 1.7 release, and Go 1.6 was",
-      "ecosystem": "golang",
-      "language": "Go",
-      "role": "support",
-      "kind": "retrieval",
-      "providers": [],
-      "worksWith": [
-        "cohere"
-      ],
-      "sdkApi": "cohere-v2",
-      "status": "active",
-      "tier": "B",
-      "features": [],
-      "envVars": [],
-      "install": "go get github.com/elastic/go-elasticsearch/v8",
-      "repo": "https://github.com/elastic/go-elasticsearch",
-      "homepage": "https://github.com/elastic/go-elasticsearch",
-      "license": "Apache-2.0",
-      "licenseId": "Apache-2.0",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://pkg.go.dev/github.com/elastic/go-elasticsearch/v8",
-        "version": "v8.19.7",
-        "downloads": 2,
-        "downloadsPeriod": "imports",
-        "updatedAt": "2026-08-04"
-      },
-      "github": {
-        "stars": 6069,
-        "forks": 644,
-        "openIssues": 31,
-        "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-01",
-        "latestRelease": "v9.5.2"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:golang"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (cohere, inference)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 6069,
-      "latestRelease": "2026-08-04",
       "latestReleaseSource": "registry"
     },
     {
@@ -12306,57 +12146,6 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "cran:httr2",
-      "name": "httr2",
-      "description": "Tools for creating and modifying HTTP requests, then performing them and processing the results. 'httr2' is a modern re-imagining of 'httr' that uses a pipe-based interface and solves more of the problems that API wrapping packages face.",
-      "ecosystem": "cran",
-      "language": "R",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai-compatible"
-      ],
-      "sdkApi": "n/a",
-      "status": "active",
-      "tier": "C",
-      "features": [
-        "http",
-        "streaming"
-      ],
-      "envVars": [],
-      "repo": "https://github.com/r-lib/httr2",
-      "homepage": "https://httr2.r-lib.org",
-      "license": "MIT + file LICENSE",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://cran.r-project.org/package=httr2",
-        "version": "1.3.0",
-        "downloadsPeriod": "month",
-        "updatedAt": "2026-07-13"
-      },
-      "github": {
-        "stars": 271,
-        "forks": 91,
-        "openIssues": 27,
-        "archived": false,
-        "pushedAt": "2026-09-10",
-        "releasedAt": "2026-07-14",
-        "latestRelease": "v1.3.0"
-      },
-      "confidence": 0.9,
-      "source": [
-        "registry:cran",
-        "curated:03-community-clients.json"
-      ],
-      "notes": "Не LLM-специфичен, но это стандарт HTTP-клиента в R: на нём построены все R-клиенты LLM (ellmer, openai и др.).",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 271,
-      "latestRelease": "2026-07-13",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "swift:opendive/openaikit",
       "name": "OpenDive/OpenAIKit",
       "description": "Swift Package for OpenAI's API",
@@ -17439,48 +17228,6 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "pypi:huggingface-togetherai",
-      "name": "huggingface-togetherai",
-      "description": "Add your description here",
-      "ecosystem": "pypi",
-      "language": "Python",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "together",
-        "huggingface"
-      ],
-      "sdkApi": "n/a",
-      "status": "unknown",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "TOGETHER_API_KEY",
-        "HF_TOKEN",
-        "HUGGING_FACE_HUB_TOKEN",
-        "HUGGINGFACEHUB_API_TOKEN"
-      ],
-      "install": "pip install huggingface-togetherai",
-      "licenseFamily": "unknown",
-      "registry": {
-        "url": "https://pypi.org/project/huggingface-togetherai",
-        "version": "1.1.2",
-        "downloads": 21,
-        "downloadsPeriod": "month",
-        "updatedAt": "2025-02-25"
-      },
-      "github": {},
-      "confidence": 0.75,
-      "source": [
-        "discovery:pypi"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (huggingface)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "latestRelease": "2025-02-25",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "rubygems:ruby_llm_community",
       "name": "ruby_llm_community",
       "description": "One beautiful Ruby API for GPT, Claude, Gemini, and more. Easily build chatbots, AI agents, RAG applications, and content generators. Features chat (text, images, audio, PDFs), image generation, embeddings, tools (function calling), structured output, Rails integration, and streaming. Works with OpenAI, Anthropic, Google Gemini, AWS Bedrock, DeepSeek, Mistral, Ollama (local models), OpenRouter, Perplexity, GPUStack, and any OpenAI-compatible API. Minimal dependencies - just Faraday, Zeitwerk, and Marcel. With additional features from the community.",
@@ -17806,61 +17553,6 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "golang:github.com/oracle/coherence-go-client/v2",
-      "name": "github.com/oracle/coherence-go-client/v2",
-      "description": "Coherence Go Client The Coherence Go Client allows Go applications to act as cache clients to a Coherence Cluster using gRPC for the network transport. Coherence is a scalable, fault-tolerant, cloud-ready, distributed platform for building grid-based applications and reliably storing data. The product is used at scale, for both compute and raw storage, in a vast array of industries such as critica",
-      "ecosystem": "golang",
-      "language": "Go",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "cohere"
-      ],
-      "sdkApi": "cohere-v2",
-      "status": "unknown",
-      "tier": "B",
-      "features": [
-        "rag",
-        "caching"
-      ],
-      "envVars": [
-        "CO_API_KEY",
-        "COHERE_API_KEY"
-      ],
-      "install": "go get github.com/oracle/coherence-go-client/v2",
-      "repo": "https://github.com/oracle/coherence-go-client",
-      "homepage": "https://pkg.go.dev/github.com/oracle/coherence-go-client/v2/coherence",
-      "license": "UPL-1.0",
-      "licenseId": "UPL-1.0",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://pkg.go.dev/github.com/oracle/coherence-go-client/v2",
-        "version": "v2.3.1",
-        "downloads": 2,
-        "downloadsPeriod": "imports",
-        "updatedAt": "2025-06-21"
-      },
-      "github": {
-        "stars": 15,
-        "forks": 6,
-        "openIssues": 0,
-        "archived": false,
-        "pushedAt": "2026-04-27",
-        "releasedAt": "2025-06-22",
-        "latestRelease": "v2.3.1"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:golang"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (cohere)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 15,
-      "latestRelease": "2025-06-21",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "hex:anthropic_community",
       "name": "anthropic_community",
       "description": "Elixir client for the Anthropic Messages API — typed content blocks, native tool use, streaming, retries.",
@@ -18013,60 +17705,6 @@
       "updatedAt": "2026-09-26",
       "stars": 12,
       "latestRelease": "2026-09-12",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "pypi:coherence-client",
-      "name": "coherence-client",
-      "description": "The Coherence Python Client allows Python applications to act as cache clients to a Coherence Cluster using Google's gRPC framework as the network transport.",
-      "ecosystem": "pypi",
-      "language": "Python",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "cohere"
-      ],
-      "sdkApi": "cohere-v2",
-      "status": "unknown",
-      "tier": "B",
-      "features": [
-        "caching"
-      ],
-      "envVars": [
-        "CO_API_KEY",
-        "COHERE_API_KEY"
-      ],
-      "install": "pip install coherence-client",
-      "repo": "https://github.com/oracle/coherence-py-client",
-      "homepage": "https://oracle.github.io/coherence-py-client",
-      "license": "UPL-1.0",
-      "licenseId": "UPL-1.0",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://pypi.org/project/coherence-client",
-        "version": "2.0.4",
-        "downloads": 108,
-        "downloadsPeriod": "month",
-        "updatedAt": "2025-07-08"
-      },
-      "github": {
-        "stars": 12,
-        "forks": 6,
-        "openIssues": 16,
-        "archived": false,
-        "pushedAt": "2026-04-27",
-        "releasedAt": "2025-07-08",
-        "latestRelease": "v2.0.4"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:pypi"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (cohere)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 12,
-      "latestRelease": "2025-07-08",
       "latestReleaseSource": "registry"
     },
     {
@@ -21379,54 +21017,6 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "rubygems:foobara-anthropic-api",
-      "name": "foobara-anthropic-api",
-      "description": "No description. Add one.",
-      "ecosystem": "rubygems",
-      "language": "Ruby",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "anthropic"
-      ],
-      "sdkApi": "anthropic-messages",
-      "status": "active",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "ANTHROPIC_API_KEY"
-      ],
-      "install": "gem install foobara-anthropic-api",
-      "repo": "https://github.com/foobara/anthropic-api",
-      "homepage": "https://github.com/foobara/anthropic-api",
-      "license": "None specified yet",
-      "licenseFamily": "unknown",
-      "registry": {
-        "url": "https://rubygems.org/gems/foobara-anthropic-api",
-        "version": "1.0.8",
-        "downloads": 7624,
-        "downloadsPeriod": "total",
-        "updatedAt": "2026-09-22"
-      },
-      "github": {
-        "stars": 2,
-        "forks": 0,
-        "openIssues": 0,
-        "archived": false,
-        "pushedAt": "2026-09-22"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:rubygems"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 2,
-      "latestRelease": "2026-09-22",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "rubygems:llm_gateway",
       "name": "llm_gateway",
       "description": "LlmGateway provides a consistent Ruby interface for multiple LLM providers including Claude, OpenAI, and Groq. Features include unified response formatting, error handling, and fluent data mapping.",
@@ -23587,83 +23177,6 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "maven:com.oracle.bedrock:bedrock-coherence",
-      "name": "com.oracle.bedrock:bedrock-coherence",
-      "description": "Bedrock for Coherence Project",
-      "ecosystem": "maven",
-      "language": "Java",
-      "role": "sdk",
-      "kind": "official-sdk",
-      "providers": [
-        "aws-bedrock",
-        "cohere"
-      ],
-      "sdkApi": "bedrock",
-      "status": "unknown",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "AWS_ACCESS_KEY_ID",
-        "AWS_SECRET_ACCESS_KEY",
-        "AWS_REGION",
-        "CO_API_KEY",
-        "COHERE_API_KEY"
-      ],
-      "install": "mvn::",
-      "licenseFamily": "unknown",
-      "registry": {
-        "url": "https://central.sonatype.com/artifact/com.oracle.bedrock/bedrock-coherence",
-        "version": "7.0.9",
-        "updatedAt": "2025-02-18"
-      },
-      "github": {},
-      "confidence": 0.75,
-      "source": [
-        "discovery:maven"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (cohere)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "latestRelease": "2025-02-18",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "maven:com.wesuresoft.sdk:openai",
-      "name": "com.wesuresoft.sdk:openai",
-      "description": "开放平台API接口封装.",
-      "ecosystem": "maven",
-      "language": "Java",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai"
-      ],
-      "sdkApi": "openai",
-      "status": "unknown",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "OPENAI_API_KEY"
-      ],
-      "install": "mvn::",
-      "licenseFamily": "unknown",
-      "registry": {
-        "url": "https://central.sonatype.com/artifact/com.wesuresoft.sdk/openai",
-        "version": "2.0.7",
-        "updatedAt": "2025-04-02"
-      },
-      "github": {},
-      "confidence": 0.75,
-      "source": [
-        "discovery:maven"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "latestRelease": "2025-04-02",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "maven:dev.struchkov.openai:openai-context",
       "name": "dev.struchkov.openai:openai-context",
       "ecosystem": "maven",
@@ -23805,42 +23318,6 @@
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2023-05-16",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "maven:io.github.cnzbq:openai",
-      "name": "io.github.cnzbq:openai",
-      "description": "开放平台API接口封装.",
-      "ecosystem": "maven",
-      "language": "Java",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai"
-      ],
-      "sdkApi": "openai",
-      "status": "deprecated",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "OPENAI_API_KEY"
-      ],
-      "install": "mvn::",
-      "licenseFamily": "unknown",
-      "registry": {
-        "url": "https://central.sonatype.com/artifact/io.github.cnzbq/openai",
-        "version": "1.0.8",
-        "updatedAt": "2023-07-07"
-      },
-      "github": {},
-      "confidence": 0.6,
-      "source": [
-        "discovery:maven"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "latestRelease": "2023-07-07",
       "latestReleaseSource": "registry"
     },
     {

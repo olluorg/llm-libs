@@ -898,6 +898,9 @@ for (const locale of LOCALES) {
     );
 
     // Собственный текст английской страницы не должен содержать кириллицу.
+    // Проверяется для всех страниц, а не только для верхнего уровня: утечка
+    // «OpenAI-совместимые API» в английские страницы прошла именно потому, что
+    // вложенные срезы providers/* и languages/* этой проверкой не охватывались.
     if (locale === 'en') {
       const text = ownText(html);
       const cyrillic = text.match(/[Ѐ-ӿ][^<>]{0,40}/g) ?? [];
@@ -909,6 +912,47 @@ for (const locale of LOCALES) {
       const text = ownText(html);
       assert(CYRILLIC.test(text), `в русской странице ${relative} нет ни одного русского слова — похоже, словарь не применился`);
     }
+  }
+}
+
+// Собственный текст каждой страницы: кириллица в английском дереве и
+// непереведённые английские подписи в русском. Отдельный проход по всем
+// страницам, потому что канонический адрес, hreflang и переключатель языка
+// проверяются только у файлов верхнего уровня, а текст — везде.
+{
+  // Описания библиотек приходят из реестров и могут быть на любом языке: это
+  // данные, а не интерфейс. Поэтому обратная проверка смотрит только туда, где
+  // текст интерфейса действительно находится, — в заголовок, в h1 и в
+  // метаданные. В подборке и в таблице описания остаются как есть.
+  const UI_PARTS = (html) => [
+    /<title>([^<]*)<\/title>/.exec(html)?.[1] ?? '',
+    /<h1[^>]*>([\s\S]*?)<\/h1>/.exec(html)?.[1] ?? '',
+    /<meta name="description" content="([^"]*)"/.exec(html)?.[1] ?? '',
+    /<meta name="keywords" content="([^"]*)"/.exec(html)?.[1] ?? '',
+  ].join(' | ');
+
+  const EN_UI_PHRASES = ['Libraries for', 'Catalog tier', 'of ', 'in every language', 'Browse', 'How many'];
+
+  for (const relative of htmlFiles) {
+    const html = await fs.readFile(path.join(DIST_DIR, relative), 'utf8');
+    const isEnglish = !relative.startsWith('ru/');
+    if (isEnglish) {
+      // Описания библиотек вырезаются вместе с tbody, поэтому кириллица в
+      // английском дереве — это точно интерфейс, а не данные реестра.
+      const text = ownText(html);
+      const cyrillic = text.match(/[Ѐ-ӿ][^<>]{0,60}/g) ?? [];
+      assert(
+        cyrillic.length === 0,
+        `в английской странице ${relative} русский текст: ${cyrillic.slice(0, 3).join(' | ')}`,
+      );
+      continue;
+    }
+    const ui = UI_PARTS(html);
+    const found = EN_UI_PHRASES.filter((phrase) => ui.includes(phrase));
+    assert(
+      found.length === 0,
+      `в русской странице ${relative} в заголовке или метаданных осталась английская подпись: ${found.join(', ')}`,
+    );
   }
 }
 

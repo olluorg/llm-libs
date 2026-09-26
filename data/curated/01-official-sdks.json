@@ -611,35 +611,6 @@
       "notes": "Java-клиент Azure OpenAI."
     },
     {
-      "name": "boto3",
-      "ecosystem": "pypi",
-      "providers": [
-        "aws-bedrock",
-        "anthropic",
-        "mistral",
-        "cohere"
-      ],
-      "kind": "official-sdk",
-      "tier": "A",
-      "features": [
-        "chat",
-        "streaming",
-        "tools",
-        "vision",
-        "embeddings",
-        "batch"
-      ],
-      "envVars": [
-        "AWS_ACCESS_KEY_ID",
-        "AWS_SECRET_ACCESS_KEY",
-        "AWS_REGION",
-        "AWS_BEARER_TOKEN_BEDROCK"
-      ],
-      "sdkApi": "bedrock",
-      "repo": "https://github.com/boto/boto3",
-      "notes": "Официальный AWS SDK для Python; доступ к Bedrock Runtime/AgentRuntime и остальным сервисам AWS. Основной вход для Bedrock."
-    },
-    {
       "name": "@aws-sdk/client-bedrock-runtime",
       "ecosystem": "npm",
       "providers": [
