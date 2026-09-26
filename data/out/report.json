@@ -1,82 +1,13 @@
 {
-  "startedAt": "2026-09-26T14:02:51.121Z",
-  "perEcosystem": {
-    "pypi": {
-      "candidates": 1208,
-      "accepted": 40,
-      "collected": 37
-    },
-    "npm": {
-      "candidates": 869,
-      "accepted": 40,
-      "collected": 40
-    },
-    "crates": {
-      "candidates": 370,
-      "accepted": 40,
-      "collected": 40
-    },
-    "golang": {
-      "candidates": 258,
-      "accepted": 40,
-      "collected": 32
-    },
-    "maven": {
-      "candidates": 357,
-      "accepted": 40,
-      "collected": 40
-    },
-    "nuget": {
-      "candidates": 224,
-      "accepted": 40,
-      "collected": 40
-    },
-    "rubygems": {
-      "candidates": 116,
-      "accepted": 40,
-      "collected": 40
-    },
-    "packagist": {
-      "candidates": 81,
-      "accepted": 40,
-      "collected": 40
-    },
-    "hex": {
-      "candidates": 42,
-      "accepted": 16,
-      "collected": 16
-    },
-    "luarocks": {
-      "candidates": 28,
-      "accepted": 19,
-      "collected": 19
-    },
-    "cran": {
-      "candidates": 63,
-      "accepted": 22,
-      "collected": 22
-    },
-    "swift": {
-      "candidates": 101,
-      "accepted": 40,
-      "collected": 14
-    },
-    "github": {
-      "candidates": 224,
-      "accepted": 40,
-      "collected": 27
-    }
-  },
-  "errors": [],
-  "enrichedAt": "2026-09-26T14:03:43.303Z",
+  "enrichedAt": "2026-09-26T18:06:11.689Z",
   "github": {
-    "queued": 454,
+    "queued": 452,
     "fetched": 442,
-    "notFound": 12,
+    "notFound": 10,
     "releases": {
-      "mode": "missing",
-      "requested": 16,
-      "withDate": 13
+      "mode": "all",
+      "requested": 442,
+      "withDate": 351
     },
     "skipped": 0,
     "quotaExhausted": false,
@@ -84,7 +15,7 @@
       "limit": 5000,
       "used": 0,
       "remaining": 5000,
-      "reset": 1790435020
+      "reset": 1790449455
     },
     "token": true
   },
@@ -92,11 +23,11 @@
     "total": 504,
     "byEcosystem": {
       "nuget": 42,
-      "crates": 45,
       "pypi": 90,
       "golang": 29,
       "github": 35,
       "npm": 59,
+      "crates": 45,
       "rubygems": 42,
       "maven": 46,
       "hex": 18,
@@ -107,11 +38,11 @@
     },
     "byLanguage": {
       "C#": 42,
-      "Rust": 45,
       "Python": 91,
       "Go": 29,
       "C++": 1,
       "TypeScript": 59,
+      "Rust": 45,
       "Ruby": 42,
       "Swift": 30,
       "Java": 47,
@@ -126,15 +57,15 @@
       "OCaml": 3
     },
     "byProvider": {
-      "openai": 264,
+      "openai": 269,
       "openai-compatible": 76,
       "anthropic": 146,
-      "cohere": 37,
+      "cohere": 32,
       "aws-bedrock": 48,
       "google-gemini": 84,
-      "mistral": 42,
+      "mistral": 41,
       "groq": 28,
-      "azure-openai": 45,
+      "azure-openai": 46,
       "vertex-ai": 12,
       "ollama": 45,
       "openrouter": 11,
@@ -164,21 +95,21 @@
       "gateway": 16
     },
     "byKind": {
-      "client": 283,
+      "client": 282,
       "framework": 58,
+      "official-sdk": 77,
       "local-runtime": 37,
-      "official-sdk": 76,
-      "retrieval": 9,
       "util": 9,
       "ui": 9,
       "gateway": 16,
+      "retrieval": 9,
       "eval": 6,
       "orchestration": 1
     },
     "byStatus": {
-      "active": 335,
-      "unknown": 81,
-      "deprecated": 75,
+      "active": 336,
+      "unknown": 77,
+      "deprecated": 78,
       "archived": 13
     }
   }

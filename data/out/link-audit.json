@@ -1,12 +1,11 @@
 {
-  "generatedAt": "2026-09-26T14:03:43.513Z",
+  "generatedAt": "2026-09-26T18:06:18.158Z",
   "checked": 504,
   "uniqueSlugs": 387,
   "tally": {
-    "none": 59,
+    "none": 60,
     "ok": 442,
-    "fixed": 2,
-    "nonGithub": 1
+    "nonGithub": 2
   },
   "descriptions": {
     "ok": "ссылка жива и указывает на корень репозитория",
@@ -75,22 +74,6 @@
       "note": "ссылки на репозиторий нет"
     },
     {
-      "id": "nuget:forge.openai",
-      "ecosystem": "nuget",
-      "name": "Forge.OpenAI",
-      "source": "discovery:nuget",
-      "verdict": "none",
-      "note": "ссылки на репозиторий нет"
-    },
-    {
-      "id": "pypi:pinecone-client",
-      "ecosystem": "pypi",
-      "name": "pinecone-client",
-      "source": "registry:pypi,curated:04-infra.json",
-      "verdict": "none",
-      "note": "ссылки на репозиторий нет"
-    },
-    {
       "id": "nuget:universe.openai.api",
       "ecosystem": "nuget",
       "name": "Universe.OpenAI.API",
@@ -139,53 +122,12 @@
       "note": "ссылки на репозиторий нет"
     },
     {
-      "id": "crates:tch",
-      "ecosystem": "crates",
-      "name": "tch",
-      "source": "registry:crates,curated:04-infra.json",
-      "verdict": "fixed",
-      "requested": "pykeio/tch",
-      "replacement": "https://github.com/LaurentMazare/tch-rs",
-      "repo": "https://github.com/pykeio/tch",
-      "note": "404, но реестр указывает на https://github.com/LaurentMazare/tch-rs"
-    },
-    {
       "id": "nuget:devexpress.aiintegration.openai",
       "ecosystem": "nuget",
       "name": "DevExpress.AIIntegration.OpenAI",
       "source": "discovery:nuget",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
-    },
-    {
-      "id": "pypi:fastmcp",
-      "ecosystem": "pypi",
-      "name": "fastmcp",
-      "source": "registry:pypi,curated:05-mcp.json",
-      "verdict": "ok",
-      "requested": "PrefectHQ/fastmcp",
-      "canonical": "https://github.com/PrefectHQ/fastmcp",
-      "stars": {
-        "recorded": 27905,
-        "actual": 27907
-      },
-      "starsChanged": true,
-      "note": "ссылка жива и указывает на корень репозитория"
-    },
-    {
-      "id": "pypi:jina",
-      "ecosystem": "pypi",
-      "name": "jina",
-      "source": "registry:pypi,curated:01-official-sdks.json",
-      "verdict": "ok",
-      "requested": "jina-ai/serve",
-      "canonical": "https://github.com/jina-ai/serve",
-      "stars": {
-        "recorded": 21861,
-        "actual": 21862
-      },
-      "starsChanged": true,
-      "note": "ссылка жива и указывает на корень репозитория"
     },
     {
       "id": "npm:@claude-flow/embeddings",
@@ -210,21 +152,6 @@
       "source": "discovery:rubygems",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
-    },
-    {
-      "id": "pypi:ragas",
-      "ecosystem": "pypi",
-      "name": "ragas",
-      "source": "registry:pypi,curated:04-infra.json",
-      "verdict": "ok",
-      "requested": "vibrantlabsai/ragas",
-      "canonical": "https://github.com/vibrantlabsai/ragas",
-      "stars": {
-        "recorded": 15851,
-        "actual": 15853
-      },
-      "starsChanged": true,
-      "note": "ссылка жива и указывает на корень репозитория"
     },
     {
       "id": "crates:oai",
@@ -257,21 +184,6 @@
       "source": "discovery:pypi",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
-    },
-    {
-      "id": "pypi:claude-code-sdk",
-      "ecosystem": "pypi",
-      "name": "claude-code-sdk",
-      "source": "discovery:pypi",
-      "verdict": "ok",
-      "requested": "anthropics/claude-agent-sdk-python",
-      "canonical": "https://github.com/anthropics/claude-agent-sdk-python",
-      "stars": {
-        "recorded": 8166,
-        "actual": 8167
-      },
-      "starsChanged": true,
-      "note": "ссылка жива и указывает на корень репозитория"
     },
     {
       "id": "rubygems:net-llm",
@@ -312,17 +224,6 @@
       "source": "registry:crates,curated:03-community-clients.json,discovery:crates",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
-    },
-    {
-      "id": "hex:ollama",
-      "ecosystem": "hex",
-      "name": "ollama",
-      "source": "registry:hex,curated:04-infra.json",
-      "verdict": "fixed",
-      "requested": "elixir-ollama/ollama",
-      "replacement": "https://github.com/aaronrussell/ollama-ex",
-      "repo": "https://github.com/elixir-ollama/ollama",
-      "note": "404, но реестр указывает на https://github.com/aaronrussell/ollama-ex"
     },
     {
       "id": "hex:req_anthropic",
@@ -525,6 +426,15 @@
       "note": "ссылки на репозиторий нет"
     },
     {
+      "id": "maven:cn.gjsm:openai",
+      "ecosystem": "maven",
+      "name": "cn.gjsm:openai",
+      "source": "discovery:maven",
+      "verdict": "nonGithub",
+      "note": "https://gitee.com/miukoo/openai",
+      "repo": "https://gitee.com/miukoo/openai"
+    },
+    {
       "id": "maven:com.oracle.bedrock:bedrock-coherence",
       "ecosystem": "maven",
       "name": "com.oracle.bedrock:bedrock-coherence",
@@ -536,6 +446,22 @@
       "id": "maven:com.wesuresoft.sdk:openai",
       "ecosystem": "maven",
       "name": "com.wesuresoft.sdk:openai",
+      "source": "discovery:maven",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "maven:dev.struchkov.openai:openai-context",
+      "ecosystem": "maven",
+      "name": "dev.struchkov.openai:openai-context",
+      "source": "discovery:maven",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "maven:dev.struchkov.openai:openai-domain",
+      "ecosystem": "maven",
+      "name": "dev.struchkov.openai:openai-domain",
       "source": "discovery:maven",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
@@ -558,9 +484,9 @@
       "note": "ссылки на репозиторий нет"
     },
     {
-      "id": "maven:io.github.fern-api:cohere",
+      "id": "maven:io.github.cnzbq:openai",
       "ecosystem": "maven",
-      "name": "io.github.fern-api:cohere",
+      "name": "io.github.cnzbq:openai",
       "source": "discovery:maven",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
@@ -578,6 +504,14 @@
       "ecosystem": "packagist",
       "name": "assistant-engine/php-openai-client",
       "source": "discovery:packagist",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:pinecone-client",
+      "ecosystem": "pypi",
+      "name": "pinecone-client",
+      "source": "registry:pypi,curated:04-infra.json",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
     }
