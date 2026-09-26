@@ -10,7 +10,8 @@
 import { createLogger } from './lib/log.mjs';
 import { getText } from './lib/http.mjs';
 import { mapLimit, repoSlug } from './lib/github.mjs';
-import { loadCuration, loadProviders, readDataset, CURATED_DIR } from './lib/store.mjs';
+import { curationKey, loadCuration, loadProviders, readDataset, CURATED_DIR } from './lib/store.mjs';
+import { findCopies, findDeclaredForks, findRewrittenCandidates } from './lib/fork.mjs';
 import { makeId, CALLS_PROVIDER_API, ROLES } from './lib/record.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -157,10 +158,63 @@ log.info(
     }
     if (!item.reason) problems.warnings.push(`исправление без причины: ${key}`);
   }
-  if (curation.exclude.length || curation.patch.length) {
+  for (const item of curation.keep) {
+    if (!item.reason) problems.warnings.push(`решение оставить без причины: ${curationKey(item.ecosystem, item.name)}`);
+  }
+  if (curation.exclude.length || curation.patch.length || curation.keep.length) {
     log.info(
-      `ручные решения: исключено ${curation.exclude.length}, исправлено полей у ${curation.patch.length}`,
+      `ручные решения: исключено ${curation.exclude.length}, исправлено полей у ${curation.patch.length}, оставлено ${curation.keep.length}`,
     );
+  }
+}
+
+/**
+ * Копии и форки: каждое найденное совпадение должно иметь записанное решение.
+ *
+ * Без этого новые копии появлялись бы молча — форк с чужим описанием ничем не
+ * отличается от самостоятельной библиотеки, пока не посмотришь описание целиком.
+ * Дословные копии и заявленные форки — ошибка, потому что решение по ним
+ * однозначно: убрать или оставить с причиной. Переписанные описания — только
+ * предупреждение: под этот признак попадают и соседние пакеты одного проекта.
+ */
+{
+  const curation = await loadCuration();
+  const decided = new Set([
+    ...curation.exclude.map((item) => curationKey(item.ecosystem, item.name)),
+    ...curation.keep.map((item) => curationKey(item.ecosystem, item.name)),
+  ]);
+  const libraries = dataset.libraries ?? [];
+
+  for (const family of findCopies(libraries)) {
+    // Решение требуется только по копиям: оригинал остаётся по умолчанию,
+    // иначе каждое семейство требовало бы лишней записи о себе.
+    for (const copy of family.copies) {
+      if (decided.has(copy.id.toLowerCase())) continue;
+      problems.errors.push(
+        `описание совпадает с описанием ${family.original.id} (загрузок ${family.original.registry?.downloads ?? 0}, звёзд ${family.original.stars ?? 0}), но решения нет: ${copy.id}. Добавьте её в exclude или keep с причиной.`,
+      );
+    }
+  }
+
+  for (const { id, source } of findDeclaredForks(libraries)) {
+    if (decided.has(id.toLowerCase())) continue;
+    problems.errors.push(
+      `описание сообщает о форке (${source}), но решения нет: ${id}. Добавьте её в exclude или keep с причиной.`,
+    );
+  }
+
+  const unreviewed = findRewrittenCandidates(libraries).filter(
+    (pair) => !decided.has(pair.original.id.toLowerCase()) && !decided.has(pair.other.id.toLowerCase()),
+  );
+  for (const pair of unreviewed) {
+    problems.warnings.push(
+      `описания пересекаются, но не совпадают (содержание ${pair.containment.toFixed(2)}, общих слов ${pair.shared}): ${pair.original.id} ↔ ${pair.other.id}. Похоже на копию, но под признак попадают и соседние пакеты — посмотрите глазами.`,
+    );
+  }
+
+  const copies = findCopies(libraries).reduce((sum, family) => sum + family.copies.length, 0);
+  if (copies || findDeclaredForks(libraries).length || unreviewed.length) {
+    log.info(`копии и форки: дословных копий ${copies}, заявленных форков ${findDeclaredForks(libraries).length}, на проверку ${unreviewed.length}`);
   }
 }
 

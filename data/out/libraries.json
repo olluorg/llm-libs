@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-09-26T23:04:55.728Z",
+  "generatedAt": "2026-09-26T23:36:35.439Z",
   "counts": {
-    "total": 473,
+    "total": 456,
     "byEcosystem": {
       "nuget": 41,
       "pypi": 87,
-      "golang": 27,
+      "golang": 23,
       "github": 26,
       "npm": 58,
-      "crates": 45,
-      "rubygems": 41,
+      "crates": 42,
+      "rubygems": 40,
       "maven": 43,
-      "packagist": 41,
+      "packagist": 32,
       "luarocks": 14,
       "swift": 14,
       "hex": 17,
@@ -20,14 +20,14 @@
     "byLanguage": {
       "C#": 41,
       "Python": 88,
-      "Go": 27,
+      "Go": 23,
       "C++": 1,
       "TypeScript": 58,
-      "Rust": 45,
-      "Ruby": 41,
+      "Rust": 42,
+      "Ruby": 40,
       "Swift": 23,
       "Java": 44,
-      "PHP": 41,
+      "PHP": 32,
       "Lua": 14,
       "Kotlin": 3,
       "Elixir": 18,
@@ -38,59 +38,59 @@
       "OCaml": 3
     },
     "byProvider": {
-      "openai": 254,
-      "openai-compatible": 74,
-      "anthropic": 140,
+      "openai": 240,
+      "openai-compatible": 71,
+      "anthropic": 138,
       "cohere": 28,
-      "google-gemini": 81,
-      "aws-bedrock": 45,
-      "mistral": 39,
+      "google-gemini": 79,
+      "aws-bedrock": 44,
+      "mistral": 38,
       "groq": 27,
       "azure-openai": 46,
       "vertex-ai": 12,
-      "ollama": 43,
-      "openrouter": 11,
+      "ollama": 41,
+      "openrouter": 10,
       "together": 4,
-      "perplexity": 4,
+      "perplexity": 3,
       "xai": 10,
-      "deepseek": 13,
+      "deepseek": 11,
       "jina": 2,
       "replicate": 3,
       "huggingface": 11,
       "vllm": 4,
       "llamacpp": 7,
       "lmstudio": 3,
-      "nvidia": 8,
+      "nvidia": 7,
       "moonshot": 5,
-      "qwen": 5,
+      "qwen": 4,
       "sap": 1,
       "ai21": 1,
       "fireworks": 1,
       "deepinfra": 1
     },
     "byRole": {
-      "sdk": 323,
-      "framework": 52,
+      "sdk": 310,
+      "framework": 49,
       "runtime": 37,
-      "support": 45,
+      "support": 44,
       "gateway": 16
     },
     "byKind": {
-      "client": 255,
-      "framework": 58,
+      "client": 242,
+      "framework": 55,
       "official-sdk": 74,
       "local-runtime": 37,
       "util": 9,
-      "ui": 9,
+      "ui": 8,
       "gateway": 16,
       "retrieval": 8,
       "eval": 6,
       "orchestration": 1
     },
     "byStatus": {
-      "active": 318,
-      "unknown": 69,
-      "deprecated": 73,
+      "active": 313,
+      "unknown": 65,
+      "deprecated": 65,
       "archived": 13
     }
   },
@@ -8988,60 +8988,6 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "crates:llm-chain-openai-compatible",
-      "name": "llm-chain-openai-compatible",
-      "description": "A library implementing `llm-chains` for OpenAI's models. Chains can be use to apply the model series to complete complex tasks, such as text summation.",
-      "ecosystem": "crates",
-      "language": "Rust",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai",
-        "openai-compatible"
-      ],
-      "sdkApi": "openai",
-      "status": "deprecated",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "OPENAI_API_KEY",
-        "OPENAI_BASE_URL",
-        "OPENAI_API_BASE"
-      ],
-      "install": "cargo add llm-chain-openai-compatible",
-      "repo": "https://github.com/sobelio/llm-chain",
-      "homepage": "https://llm-chain.xyz",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://crates.io/crates/llm-chain-openai-compatible",
-        "version": "0.0.0",
-        "downloads": 1284,
-        "downloadsPeriod": "total",
-        "updatedAt": "2024-05-18"
-      },
-      "github": {
-        "stars": 1602,
-        "forks": 140,
-        "openIssues": 41,
-        "archived": false,
-        "pushedAt": "2024-10-31",
-        "releasedAt": "2023-05-11",
-        "latestRelease": "llm-chain-local-v0.9.1"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:crates"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 1602,
-      "latestRelease": "2024-05-18",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "maven:com.openai:openai-java",
       "name": "com.openai:openai-java",
       "description": "The OpenAI REST API. Please see https://platform.openai.com/docs/api-reference for more details.",
@@ -17708,58 +17654,6 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "golang:github.com/meguminnnnnnnnn/go-openai",
-      "name": "github.com/meguminnnnnnnnn/go-openai",
-      "description": "Go OpenAI This library provides unofficial Go clients for OpenAI API . We support: ChatGPT 4o, o1 GPT-3, GPT-4 DALL·E 2, DALL·E 3, GPT Image 1 Whisper Installation Currently, go-openai requires Go version 1.18 or greater. Usage ChatGPT example usage: Getting an OpenAI API Key: Visit the OpenAI website at https://platform.openai.com/account/api-keys . If you don't have an account, click on \"Sign Up",
-      "ecosystem": "golang",
-      "language": "Go",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai"
-      ],
-      "sdkApi": "openai",
-      "status": "active",
-      "tier": "B",
-      "features": [
-        "audio"
-      ],
-      "envVars": [
-        "OPENAI_API_KEY"
-      ],
-      "install": "go get github.com/meguminnnnnnnnn/go-openai",
-      "repo": "https://github.com/meguminnnnnnnnn/go-openai",
-      "license": "Apache-2.0",
-      "licenseId": "Apache-2.0",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://pkg.go.dev/github.com/meguminnnnnnnnn/go-openai",
-        "version": "v0.1.6",
-        "downloads": 10,
-        "downloadsPeriod": "imports",
-        "updatedAt": "2026-09-24"
-      },
-      "github": {
-        "stars": 11,
-        "forks": 25,
-        "openIssues": 6,
-        "archived": false,
-        "pushedAt": "2026-09-24",
-        "releasedAt": "2026-09-24",
-        "latestRelease": "v0.1.6"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:golang"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 11,
-      "latestRelease": "2026-09-24",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "luarocks:ai.nvim",
       "name": "ai.nvim",
       "description": "Query LLMs following OpenAI API specification",
@@ -18009,55 +17903,6 @@
       "updatedAt": "2026-09-26",
       "stars": 10,
       "latestRelease": "2026-05-05",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "crates:ai-chain-openai-compatible",
-      "name": "ai-chain-openai-compatible",
-      "description": "A library implementing `ai-chains` for OpenAI's models. Chains can be use to apply the model series to complete complex tasks, such as text summation.",
-      "ecosystem": "crates",
-      "language": "Rust",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai",
-        "openai-compatible"
-      ],
-      "sdkApi": "openai",
-      "status": "deprecated",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "OPENAI_API_KEY",
-        "OPENAI_BASE_URL",
-        "OPENAI_API_BASE"
-      ],
-      "install": "cargo add ai-chain-openai-compatible",
-      "repo": "https://github.com/louloulin/ai-chain",
-      "licenseFamily": "unknown",
-      "registry": {
-        "url": "https://crates.io/crates/ai-chain-openai-compatible",
-        "version": "0.14.2",
-        "downloads": 3943,
-        "downloadsPeriod": "total",
-        "updatedAt": "2024-05-22"
-      },
-      "github": {
-        "stars": 10,
-        "forks": 1,
-        "openIssues": 1,
-        "archived": false,
-        "pushedAt": "2024-06-04"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:crates"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 10,
-      "latestRelease": "2024-05-22",
       "latestReleaseSource": "registry"
     },
     {
@@ -21527,54 +21372,6 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "golang:github.com/czc09/langchaingo",
-      "name": "github.com/czc09/langchaingo",
-      "description": "🦜️🔗 LangChain Go ⚡ Building applications with LLMs through composability, with Go! ⚡ 🤔 What is this? This is the Go language implementation of LangChain . 📖 Documentation Documentation Site API Reference 🎉 Examples See ./examples for example usage. Resources Here are some links to blog posts and articles on using Langchain Go: Using Gemini models in Go with LangChainGo - Jan 2024 Using Ollama",
-      "ecosystem": "golang",
-      "language": "Go",
-      "role": "framework",
-      "kind": "framework",
-      "providers": [
-        "openai",
-        "ollama"
-      ],
-      "sdkApi": "openai",
-      "status": "deprecated",
-      "tier": "B",
-      "features": [],
-      "envVars": [],
-      "install": "go get github.com/czc09/langchaingo",
-      "repo": "https://github.com/czc09/langchaingo",
-      "homepage": "https://tmc.github.io/langchaingo",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://pkg.go.dev/github.com/czc09/langchaingo",
-        "version": "v0.1.25",
-        "downloads": 25,
-        "downloadsPeriod": "imports",
-        "updatedAt": "2024-09-26"
-      },
-      "github": {
-        "stars": 1,
-        "forks": 0,
-        "openIssues": 0,
-        "archived": false,
-        "pushedAt": "2024-11-03"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:golang"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, langchain)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 1,
-      "latestRelease": "2024-09-26",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "golang:github.com/eino-contrib/ollama",
       "name": "github.com/eino-contrib/ollama",
       "description": "Get up and running with OpenAI gpt-oss, DeepSeek-R1, Gemma 3 and other models.",
@@ -21880,57 +21677,6 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "packagist:google-gemini-api-php/client",
-      "name": "google-gemini-api-php/client",
-      "description": "PHP API client for Google's Gemini API",
-      "ecosystem": "packagist",
-      "language": "PHP",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "google-gemini"
-      ],
-      "sdkApi": "gemini",
-      "status": "deprecated",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "GEMINI_API_KEY",
-        "GOOGLE_API_KEY"
-      ],
-      "install": "composer require google-gemini-api-php/client",
-      "repo": "https://github.com/UsmanIlamdin/google-gemini-api-php",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://packagist.org/packages/google-gemini-api-php/client",
-        "version": "1.0.2",
-        "downloads": 1,
-        "downloadsPeriod": "month",
-        "updatedAt": "2024-09-12"
-      },
-      "github": {
-        "stars": 1,
-        "forks": 0,
-        "openIssues": 0,
-        "archived": false,
-        "pushedAt": "2024-09-12",
-        "releasedAt": "2024-09-12",
-        "latestRelease": "1.0.2"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:packagist"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (gemini)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 1,
-      "latestRelease": "2024-09-12",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "packagist:ikarolaborda/azure-openai-sdk-php",
       "name": "ikarolaborda/azure-openai-sdk-php",
       "description": "Azure OpenAI PHP SDK — first-class Azure OpenAI Service support built on top of openai-php/client",
@@ -21982,54 +21728,6 @@
       "updatedAt": "2026-09-26",
       "stars": 1,
       "latestRelease": "2026-03-29",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "packagist:pythias/openai-client",
-      "name": "pythias/openai-client",
-      "description": "OpenAI PHP is a supercharged PHP API client that allows you to interact with the Open AI API, forked from https://github.com/openai-php/client",
-      "ecosystem": "packagist",
-      "language": "PHP",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai"
-      ],
-      "sdkApi": "openai",
-      "status": "deprecated",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "OPENAI_API_KEY"
-      ],
-      "install": "composer require pythias/openai-client",
-      "repo": "https://github.com/pythias/openai-php",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://packagist.org/packages/pythias/openai-client",
-        "version": "v0.3.4",
-        "downloads": 0,
-        "downloadsPeriod": "month",
-        "updatedAt": "2023-03-07"
-      },
-      "github": {
-        "stars": 1,
-        "forks": 2,
-        "openIssues": 0,
-        "archived": false,
-        "pushedAt": "2023-03-14"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:packagist"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 1,
-      "latestRelease": "2023-03-07",
       "latestReleaseSource": "registry"
     },
     {
@@ -22238,73 +21936,6 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "rubygems:ruby_llm_swarm",
-      "name": "ruby_llm_swarm",
-      "description": "Fork of RubyLLM with features to power Swarm, a multi-agent orchestration framework. One beautiful Ruby API for GPT, Claude, Gemini, and more. Easily build chatbots, AI agents, RAG applications, and content generators. Features chat (text, images, audio, PDFs), image generation, embeddings, tools (function calling), structured output, Rails integration, and streaming. Works with OpenAI, Anthropic, Google Gemini, AWS Bedrock, DeepSeek, Mistral, Ollama (local models), OpenRouter, Perplexity, GPUStack, and any OpenAI-compatible API. Minimal dependencies - just Faraday, Zeitwerk, and Marcel.",
-      "ecosystem": "rubygems",
-      "language": "Ruby",
-      "role": "framework",
-      "kind": "framework",
-      "providers": [
-        "openai",
-        "anthropic",
-        "google-gemini",
-        "aws-bedrock",
-        "openai-compatible",
-        "ollama",
-        "openrouter",
-        "mistral",
-        "perplexity",
-        "deepseek",
-        "nvidia"
-      ],
-      "sdkApi": "openai",
-      "status": "active",
-      "tier": "B",
-      "features": [
-        "agents",
-        "rag",
-        "structured-output",
-        "tools",
-        "streaming",
-        "embeddings",
-        "audio",
-        "image"
-      ],
-      "envVars": [],
-      "install": "gem install ruby_llm_swarm",
-      "repo": "https://github.com/parruda/ruby_llm",
-      "docs": "https://github.com/parruda/ruby_llm",
-      "homepage": "https://github.com/parruda/ruby_llm",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://rubygems.org/gems/ruby_llm_swarm",
-        "version": "1.9.7",
-        "downloads": 7301,
-        "downloadsPeriod": "total",
-        "updatedAt": "2026-01-14"
-      },
-      "github": {
-        "stars": 1,
-        "forks": 0,
-        "openIssues": 0,
-        "archived": false,
-        "pushedAt": "2026-01-14"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:rubygems"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (llm, gpt, openai, anthropic)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 1,
-      "latestRelease": "2026-01-14",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "rubygems:ruby-openai-cli",
       "name": "ruby-openai-cli",
       "description": "Using ChatGPT from the command line.",
@@ -22481,59 +22112,6 @@
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2023-04-27",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "crates:async-openai-thinking",
-      "name": "async-openai-thinking",
-      "description": "Fork of async-openai 0.41.3 adding reasoning_content (thinking tokens) to chat completion responses/deltas (DeepSeek, Qwen, etc.)",
-      "ecosystem": "crates",
-      "language": "Rust",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai",
-        "deepseek",
-        "qwen"
-      ],
-      "sdkApi": "openai",
-      "status": "active",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "OPENAI_API_KEY",
-        "DEEPSEEK_API_KEY",
-        "DASHSCOPE_API_KEY"
-      ],
-      "install": "cargo add async-openai-thinking",
-      "repo": "https://github.com/crow-cli/async-openai",
-      "homepage": "https://github.com/crow-cli/async-openai",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://crates.io/crates/async-openai-thinking",
-        "version": "0.41.5",
-        "downloads": 69,
-        "downloadsPeriod": "total",
-        "updatedAt": "2026-08-08"
-      },
-      "github": {
-        "stars": 0,
-        "forks": 0,
-        "openIssues": 0,
-        "archived": false,
-        "pushedAt": "2026-08-05"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:crates"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (openai, chat completion)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 0,
-      "latestRelease": "2026-08-08",
       "latestReleaseSource": "registry"
     },
     {
@@ -22746,107 +22324,6 @@
       "updatedAt": "2026-09-26",
       "stars": 0,
       "latestRelease": "2024-05-25",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "golang:github.com/szirtesitidom/langchaingo",
-      "name": "github.com/szirtesitidom/langchaingo",
-      "description": "🦜️🔗 LangChain Go ⚡ Building applications with LLMs through composability, with Go! ⚡ 🤔 What is this? This is the Go language implementation of LangChain . 📖 Documentation Documentation Site API Reference 🎉 Examples See ./examples for example usage. Resources Here are some links to blog posts and articles on using Langchain Go: Using Gemini models in Go with LangChainGo - Jan 2024 Using Ollama",
-      "ecosystem": "golang",
-      "language": "Go",
-      "role": "framework",
-      "kind": "framework",
-      "providers": [
-        "openai"
-      ],
-      "sdkApi": "openai",
-      "status": "deprecated",
-      "tier": "B",
-      "features": [],
-      "envVars": [],
-      "install": "go get github.com/szirtesitidom/langchaingo",
-      "repo": "https://github.com/szirtesitidom/langchaingo",
-      "homepage": "https://tmc.github.io/langchaingo",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://pkg.go.dev/github.com/szirtesitidom/langchaingo",
-        "version": "v1.6.0",
-        "downloads": 23,
-        "downloadsPeriod": "imports",
-        "updatedAt": "2024-08-28"
-      },
-      "github": {
-        "stars": 0,
-        "forks": 0,
-        "openIssues": 0,
-        "archived": false,
-        "pushedAt": "2024-08-28",
-        "releasedAt": "2024-08-28",
-        "latestRelease": "v1.6.0"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:golang"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, langchain)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 0,
-      "latestRelease": "2024-08-28",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "golang:github.com/yomorun/go-openai",
-      "name": "github.com/yomorun/go-openai",
-      "description": "Go OpenAI This library provides unofficial Go clients for OpenAI API . We support: ChatGPT 4o, o1 GPT-3, GPT-4 DALL·E 2, DALL·E 3, GPT Image 1 Whisper Gemini 3 Pro, Gemini 3 Flash Installation Currently, go-openai requires Go version 1.18 or greater. Usage ChatGPT example usage: Getting an OpenAI API Key: Visit the OpenAI website at https://platform.openai.com/account/api-keys . If you don't have",
-      "ecosystem": "golang",
-      "language": "Go",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai"
-      ],
-      "sdkApi": "openai",
-      "status": "active",
-      "tier": "B",
-      "features": [
-        "audio"
-      ],
-      "envVars": [
-        "OPENAI_API_KEY"
-      ],
-      "install": "go get github.com/yomorun/go-openai",
-      "repo": "https://github.com/yomorun/go-openai",
-      "license": "Apache-2.0",
-      "licenseId": "Apache-2.0",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://pkg.go.dev/github.com/yomorun/go-openai",
-        "version": "v1.50.6",
-        "downloads": 22,
-        "downloadsPeriod": "imports",
-        "updatedAt": "2026-06-10"
-      },
-      "github": {
-        "stars": 0,
-        "forks": 0,
-        "openIssues": 0,
-        "archived": false,
-        "pushedAt": "2026-06-10",
-        "releasedAt": "2026-06-10",
-        "latestRelease": "v1.50.6"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:golang"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 0,
-      "latestRelease": "2026-06-10",
       "latestReleaseSource": "registry"
     },
     {
@@ -24064,152 +23541,6 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "packagist:charescape/openai-sdk-php",
-      "name": "charescape/openai-sdk-php",
-      "description": "OpenAI PHP is a supercharged PHP API client that allows you to interact with the Open AI API",
-      "ecosystem": "packagist",
-      "language": "PHP",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai"
-      ],
-      "sdkApi": "openai",
-      "status": "unknown",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "OPENAI_API_KEY"
-      ],
-      "install": "composer require charescape/openai-sdk-php",
-      "repo": "https://github.com/charescape/openai-sdk-php",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://packagist.org/packages/charescape/openai-sdk-php",
-        "downloads": 39,
-        "downloadsPeriod": "month"
-      },
-      "github": {
-        "stars": 0,
-        "forks": 0,
-        "openIssues": 0,
-        "archived": false,
-        "pushedAt": "2025-02-05"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:packagist"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 0,
-      "latestRelease": "2025-02-05",
-      "latestReleaseSource": "github-commit"
-    },
-    {
-      "id": "packagist:cryptoman3/anthropic-php",
-      "name": "cryptoman3/anthropic-php",
-      "description": "Anthropic PHP client with extended thinking support (fork of mozex/anthropic-php).",
-      "ecosystem": "packagist",
-      "language": "PHP",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "anthropic"
-      ],
-      "sdkApi": "anthropic-messages",
-      "status": "active",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "ANTHROPIC_API_KEY"
-      ],
-      "install": "composer require cryptoman3/anthropic-php",
-      "repo": "https://github.com/cryptoman3/anthropic-php",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://packagist.org/packages/cryptoman3/anthropic-php",
-        "version": "1.0.1",
-        "downloads": 1045,
-        "downloadsPeriod": "month",
-        "updatedAt": "2026-04-05"
-      },
-      "github": {
-        "stars": 0,
-        "forks": 0,
-        "openIssues": 0,
-        "archived": false,
-        "pushedAt": "2026-04-05",
-        "releasedAt": "2026-04-05",
-        "latestRelease": "1.0.1"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:packagist"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 0,
-      "latestRelease": "2026-04-05",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "packagist:cv001/openai-php",
-      "name": "cv001/openai-php",
-      "description": "OpenAI PHP is a supercharged PHP API client that allows you to interact with the Open AI API, forked from https://github.com/openai-php/client",
-      "ecosystem": "packagist",
-      "language": "PHP",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai"
-      ],
-      "sdkApi": "openai",
-      "status": "unknown",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "OPENAI_API_KEY"
-      ],
-      "install": "composer require cv001/openai-php",
-      "repo": "https://github.com/cv001/openai-php",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://packagist.org/packages/cv001/openai-php",
-        "version": "v0.0.5",
-        "downloads": 9,
-        "downloadsPeriod": "month",
-        "updatedAt": "2025-03-31"
-      },
-      "github": {
-        "stars": 0,
-        "forks": 0,
-        "openIssues": 0,
-        "archived": false,
-        "pushedAt": "2025-03-31",
-        "releasedAt": "2025-03-31",
-        "latestRelease": "v0.0.5"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:packagist"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 0,
-      "latestRelease": "2025-03-31",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "packagist:eseperio/yii2-openai-responses",
       "name": "eseperio/yii2-openai-responses",
       "description": "Yii2 component wrapper around openai-php client responses API.",
@@ -24306,151 +23637,6 @@
       "updatedAt": "2026-09-26",
       "stars": 0,
       "latestRelease": "2023-03-02",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "packagist:loffel/laravel-chatgpt",
-      "name": "loffel/laravel-chatgpt",
-      "description": "Super simple wrapper for openai-php/client with error handling. Specifically for ChatGPT conversations.",
-      "ecosystem": "packagist",
-      "language": "PHP",
-      "role": "support",
-      "kind": "ui",
-      "providers": [],
-      "worksWith": [
-        "openai"
-      ],
-      "sdkApi": "openai",
-      "status": "deprecated",
-      "tier": "B",
-      "features": [],
-      "envVars": [],
-      "install": "composer require loffel/laravel-chatgpt",
-      "repo": "https://github.com/Loffel/laravel-chatgpt",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://packagist.org/packages/loffel/laravel-chatgpt",
-        "version": "1.0.4",
-        "downloads": 0,
-        "downloadsPeriod": "month",
-        "updatedAt": "2024-05-24"
-      },
-      "github": {
-        "stars": 0,
-        "forks": 0,
-        "openIssues": 0,
-        "archived": false,
-        "pushedAt": "2024-05-24",
-        "releasedAt": "2023-06-20",
-        "latestRelease": "1.0.2"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:packagist"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (gpt, chatgpt, openai)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 0,
-      "latestRelease": "2024-05-24",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "packagist:markbeam/openai-php-client",
-      "name": "markbeam/openai-php-client",
-      "description": "OpenAI PHP is a supercharged PHP API client that allows you to interact with the Open AI API",
-      "ecosystem": "packagist",
-      "language": "PHP",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai"
-      ],
-      "sdkApi": "openai",
-      "status": "unknown",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "OPENAI_API_KEY"
-      ],
-      "install": "composer require markbeam/openai-php-client",
-      "repo": "https://github.com/markbeam/openai-php-client",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://packagist.org/packages/markbeam/openai-php-client",
-        "version": "0.10.3",
-        "downloads": 9,
-        "downloadsPeriod": "month",
-        "updatedAt": "2025-04-02"
-      },
-      "github": {
-        "stars": 0,
-        "forks": 0,
-        "openIssues": 0,
-        "archived": false,
-        "pushedAt": "2025-04-02"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:packagist"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 0,
-      "latestRelease": "2025-04-02",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "packagist:markbeam/openai-php-laravel",
-      "name": "markbeam/openai-php-laravel",
-      "description": "OpenAI PHP for Laravel is a supercharged PHP API client that allows you to interact with the Open AI API",
-      "ecosystem": "packagist",
-      "language": "PHP",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai"
-      ],
-      "sdkApi": "openai",
-      "status": "unknown",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "OPENAI_API_KEY"
-      ],
-      "install": "composer require markbeam/openai-php-laravel",
-      "repo": "https://github.com/markbeam/openai-php-laravel",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://packagist.org/packages/markbeam/openai-php-laravel",
-        "version": "0.10.2",
-        "downloads": 9,
-        "downloadsPeriod": "month",
-        "updatedAt": "2025-04-02"
-      },
-      "github": {
-        "stars": 0,
-        "forks": 0,
-        "openIssues": 0,
-        "archived": false,
-        "pushedAt": "2025-04-02"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:packagist"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 0,
-      "latestRelease": "2025-04-02",
       "latestReleaseSource": "registry"
     },
     {
@@ -24696,56 +23882,6 @@
       "updatedAt": "2026-09-26",
       "stars": 0,
       "latestRelease": "2025-06-12",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "packagist:wmwgijol28/openai-php",
-      "name": "wmwgijol28/openai-php",
-      "description": "OpenAI PHP is a supercharged PHP API client that allows you to interact with the Open AI API, forked from https://github.com/openai-php/client",
-      "ecosystem": "packagist",
-      "language": "PHP",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai"
-      ],
-      "sdkApi": "openai",
-      "status": "deprecated",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "OPENAI_API_KEY"
-      ],
-      "install": "composer require wmwgijol28/openai-php",
-      "repo": "https://github.com/wmwgijol28/openai-php",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://packagist.org/packages/wmwgijol28/openai-php",
-        "version": "v0.5.2",
-        "downloads": 0,
-        "downloadsPeriod": "month",
-        "updatedAt": "2023-06-01"
-      },
-      "github": {
-        "stars": 0,
-        "forks": 0,
-        "openIssues": 0,
-        "archived": false,
-        "pushedAt": "2023-06-01",
-        "releasedAt": "2023-06-01",
-        "latestRelease": "v0.5.2"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:packagist"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 0,
-      "latestRelease": "2023-06-01",
       "latestReleaseSource": "registry"
     },
     {

@@ -101,9 +101,12 @@ export async function loadCurated() {
  * убрать и какие поля поправить.
  */
 export async function loadCuration() {
-  const payload = await readJson(path.join(CURATED_DIR, '00-curation.json'), { exclude: [], patch: [] });
-  return { exclude: payload.exclude ?? [], patch: payload.patch ?? [] };
+  const payload = await readJson(path.join(CURATED_DIR, '00-curation.json'), { exclude: [], keep: [], patch: [] });
+  return { exclude: payload.exclude ?? [], keep: payload.keep ?? [], patch: payload.patch ?? [] };
 }
+
+/** Ключ записи в виде, по которому её ищут все списки курирования. */
+export const curationKey = (ecosystem, name) => `${ecosystem}:${name}`.toLowerCase();
 
 /**
  * Применяет ручные решения поверх готового набора записей.

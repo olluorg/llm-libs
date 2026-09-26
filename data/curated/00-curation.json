@@ -110,6 +110,113 @@
       "ecosystem": "hex",
       "name": "bullmq",
       "reason": "Очередь задач на Redis для Elixir. Совпадение по слову «Bull» в запросах про LLM; к моделям отношения не имеет, а 9443 звезды делали его самым заметным в подборке Elixir."
+    },
+    {
+      "ecosystem": "packagist",
+      "name": "charescape/openai-sdk-php",
+      "reason": "Копия openai-php/client: описание дословно совпадает, отличается только владелец репозитория. У оригинала 2,4 млн загрузок."
+    },
+    {
+      "ecosystem": "packagist",
+      "name": "cv001/openai-php",
+      "reason": "Копия openai-php/client, описание скопировано вместе с пометкой «forked from https://github.com/openai-php/client»."
+    },
+    {
+      "ecosystem": "packagist",
+      "name": "markbeam/openai-php-client",
+      "reason": "Копия openai-php/client под другим владельцем, описание дословно совпадает."
+    },
+    {
+      "ecosystem": "packagist",
+      "name": "pythias/openai-client",
+      "reason": "Копия openai-php/client, описание скопировано вместе с пометкой о форке."
+    },
+    {
+      "ecosystem": "packagist",
+      "name": "wmwgijol28/openai-php",
+      "reason": "Копия openai-php/client, описание скопировано вместе с пометкой о форке."
+    },
+    {
+      "ecosystem": "packagist",
+      "name": "markbeam/openai-php-laravel",
+      "reason": "Копия openai-php/laravel под другим владельцем, описание дословно совпадает."
+    },
+    {
+      "ecosystem": "packagist",
+      "name": "loffel/laravel-chatgpt",
+      "reason": "Копия nwilging/laravel-chatgpt: описание дословно совпадает, пакет помечен deprecated, загрузок ноль."
+    },
+    {
+      "ecosystem": "crates",
+      "name": "ai-chain-openai-compatible",
+      "reason": "Копия llm-chain-openai под другим владельцем: описание дословно совпадает, это старое имя того же крата."
+    },
+    {
+      "ecosystem": "crates",
+      "name": "llm-chain-openai-compatible",
+      "reason": "Копия llm-chain-openai под другим владельцем, описание дословно совпадает."
+    },
+    {
+      "ecosystem": "golang",
+      "name": "github.com/czc09/langchaingo",
+      "reason": "Копия tmc/langchaingo, который уже есть в каталоге с 9696 звездами. Описание у этой копии совпало с другой копией, а не с оригиналом, потому что у tmc описание обновили."
+    },
+    {
+      "ecosystem": "golang",
+      "name": "github.com/szirtesitidom/langchaingo",
+      "reason": "Копия tmc/langchaingo, который уже есть в каталоге. Описание дословно совпадает с другой копией того же форка."
+    },
+    {
+      "ecosystem": "golang",
+      "name": "github.com/meguminnnnnnnnn/go-openai",
+      "reason": "Копия sashabaranov/go-openai, который уже есть в каталоге. Описание переписано — копия дописала модели, — поэтому похожесть ниже, чем у дословных копий, и находится только при проверке вручную. Ник выглядит автоматическим."
+    },
+    {
+      "ecosystem": "golang",
+      "name": "github.com/yomorun/go-openai",
+      "reason": "Копия sashabaranov/go-openai, который уже есть в каталоге. Описание совпадает с описанием другой копии с добавлением Gemini."
+    },
+    {
+      "ecosystem": "packagist",
+      "name": "cryptoman3/anthropic-php",
+      "reason": "Форк mozex/anthropic-php, который уже есть в каталоге с 75696 загрузок. Форк добавляет extended thinking, но это единственное отличие при нуле звёзд."
+    },
+    {
+      "ecosystem": "crates",
+      "name": "async-openai-thinking",
+      "reason": "Форк async-openai, который уже есть в каталоге с 8,6 млн загрузок. Форк добавляет одно поле reasoning_content, при нуле звёзд и 69 загрузках."
+    },
+    {
+      "ecosystem": "packagist",
+      "name": "google-gemini-api-php/client",
+      "reason": "Копия gemini-api-php/client, который уже есть в каталоге: описание это официальное с добавленным словом «PHP», а репозиторий принадлежит другому аккаунту. Одна загрузка."
+    },
+    {
+      "ecosystem": "rubygems",
+      "name": "ruby_llm_swarm",
+      "reason": "Форк ruby_llm, который уже есть в каталоге с 12,6 млн загрузок, при одной звезде. Описание наполовину заимствовано у ruby_llm_community."
+    }
+  ],
+  "keep": [
+    {
+      "ecosystem": "rubygems",
+      "name": "ruby_llm_community",
+      "reason": "Описание пересекается с ruby_llm_swarm, но это самостоятельный гем: своё описание, свой репозиторий, 11608 загрузок. Признак копии выполняется только по одному переписанному предложению."
+    },
+    {
+      "ecosystem": "nuget",
+      "name": "openai-dotnet",
+      "reason": "Описание сообщает, что это форк OpenAI-API-dotnet, но пакет самостоятельный и популярный: 3,4 млн загрузок и 759 звезд, статус active. В каталоге есть Betalgo.OpenAI, но это другая кодовая база."
+    },
+    {
+      "ecosystem": "github",
+      "name": "kengirie/ocaml-ai-agent",
+      "reason": "Форк ocaml-deepseek, которого в каталоге нет. Запись развилась в самостоятельную мультипровайдерную библиотеку, поэтому убирать её было бы неверно."
+    },
+    {
+      "ecosystem": "crates",
+      "name": "ai-chain-qwen",
+      "reason": "Описание почти совпадает с llm-chain-openai, но это не копия: другой автор, своё описание «A library implementing llm-chains for Qwen models» и своё назначение — провайдер Qwen. Общий текст объясняется тем, что оба крата реализуют один и тот же трейт llm-chains."
     }
   ],
   "patch": [
