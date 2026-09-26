@@ -143,7 +143,13 @@ export function applyCuration(records, curation) {
       confidence: 0.95,
       source: ['curation'],
     });
-    kept.push(mergeRecords(record, override));
+    const merged = mergeRecords(record, override);
+    // mergeRecords выбирает лучшее значение, а не более новое: tier, например,
+    // не понижается никогда. Для ручного решения это неверно — «исправлено» со
+    // значением ниже исходного должно означать именно понижение, иначе запись
+    // с недоказанным качеством невозможно исправить.
+    if (patch.tier !== undefined) merged.tier = patch.tier;
+    kept.push(merged);
     patched.push({ id: `${record.ecosystem}:${record.name}`, reason, fields: Object.keys(fields) });
     patches.delete(key);
   }
@@ -181,9 +187,55 @@ export function dedupe(libraries) {
     const existing = byId.get(record.id);
     byId.set(record.id, existing ? mergeRecords(existing, record) : record);
   }
-  return [...byId.values()].sort(
+  return collapseGithubDuplicates([...byId.values()]).sort(
     (a, b) => (b.stars ?? b.registry.downloads ?? 0) - (a.stars ?? a.registry.downloads ?? 0) || a.id.localeCompare(b.id),
   );
+}
+
+const repoKey = (repo) => (repo ?? '').toLowerCase().replace(/\.git$/, '').replace(/\/+$/, '');
+
+/**
+ * Одна библиотека, посчитанная дважды: запись из GitHub и запись реестра на
+ * тот же репозиторий. Признаки одни и те же — те же звёзды, то же описание,
+ * — а различается только инструкция установки, и у записи из GitHub она
+ * заведомо худшая: «git clone» вместо `luarocks install` или SwiftPM.
+ *
+ * Остаётся запись реестра, а поля дубля переносятся в неё: у записи из GitHub
+ * иногда проставлены провайдеры или описание, которых у записи реестра нет.
+ * Порядок слияния обратный именно поэтому — `install` берётся у второго
+ * аргумента, то есть у записи реестра.
+ */
+function collapseGithubDuplicates(records) {
+  const byRepo = new Map();
+  for (const record of records) {
+    const key = repoKey(record.repo);
+    if (!key) continue;
+    byRepo.set(key, [...(byRepo.get(key) ?? []), record]);
+  }
+
+  const byId = new Map(records.map((record) => [record.id, record]));
+  const dropped = [];
+  for (const group of byRepo.values()) {
+    const fromGithub = group.filter((record) => record.ecosystem === 'github');
+    const fromRegistry = group.filter((record) => record.ecosystem !== 'github');
+    if (!fromGithub.length || !fromRegistry.length) continue;
+
+    for (const target of fromRegistry) {
+      for (const duplicate of fromGithub) {
+        byId.set(target.id, mergeRecords(duplicate, byId.get(target.id)));
+      }
+    }
+    for (const duplicate of fromGithub) {
+      byId.delete(duplicate.id);
+      dropped.push(`${duplicate.id} → ${fromRegistry.map((r) => r.id).join(', ')}`);
+    }
+  }
+
+  if (dropped.length) {
+    log.info(`записей GitHub, дублирующих запись реестра: ${dropped.length}, поля перенесены в записи реестра`);
+    for (const line of dropped) log.info(`  ${line}`);
+  }
+  return [...byId.values()];
 }
 
 export function countBy(records) {

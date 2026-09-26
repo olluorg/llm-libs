@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-09-26T22:43:04.635Z",
+  "generatedAt": "2026-09-26T22:54:08.808Z",
   "counts": {
-    "total": 497,
+    "total": 484,
     "byEcosystem": {
       "nuget": 42,
       "pypi": 90,
       "golang": 29,
-      "github": 35,
+      "github": 26,
       "npm": 58,
       "crates": 45,
       "rubygems": 42,
       "maven": 46,
-      "packagist": 42,
-      "luarocks": 17,
+      "packagist": 41,
+      "luarocks": 14,
       "swift": 14,
       "hex": 17,
       "cran": 20
@@ -25,30 +25,30 @@
       "TypeScript": 58,
       "Rust": 45,
       "Ruby": 42,
-      "Swift": 30,
+      "Swift": 23,
       "Java": 47,
-      "PHP": 42,
-      "Lua": 18,
+      "PHP": 41,
+      "Lua": 14,
       "Kotlin": 3,
       "Elixir": 18,
       "R": 20,
       "Haskell": 2,
-      "Scala": 4,
       "Clojure": 2,
+      "Scala": 3,
       "OCaml": 3
     },
     "byProvider": {
-      "openai": 269,
-      "openai-compatible": 76,
-      "anthropic": 146,
+      "openai": 256,
+      "openai-compatible": 75,
+      "anthropic": 143,
       "cohere": 32,
       "aws-bedrock": 48,
-      "google-gemini": 84,
+      "google-gemini": 81,
       "mistral": 40,
       "groq": 27,
       "azure-openai": 46,
       "vertex-ai": 12,
-      "ollama": 45,
+      "ollama": 43,
       "openrouter": 11,
       "together": 5,
       "perplexity": 4,
@@ -56,27 +56,27 @@
       "deepseek": 13,
       "jina": 2,
       "replicate": 3,
-      "huggingface": 13,
+      "huggingface": 12,
       "vllm": 4,
-      "llamacpp": 8,
+      "llamacpp": 7,
       "lmstudio": 3,
-      "nvidia": 11,
-      "qwen": 7,
+      "nvidia": 8,
       "moonshot": 5,
+      "qwen": 5,
       "sap": 1,
       "ai21": 1,
       "fireworks": 1,
       "deepinfra": 1
     },
     "byRole": {
-      "sdk": 350,
+      "sdk": 333,
       "framework": 52,
       "runtime": 37,
-      "support": 42,
+      "support": 46,
       "gateway": 16
     },
     "byKind": {
-      "client": 275,
+      "client": 262,
       "framework": 58,
       "official-sdk": 77,
       "local-runtime": 37,
@@ -88,9 +88,9 @@
       "orchestration": 1
     },
     "byStatus": {
-      "active": 331,
-      "unknown": 77,
-      "deprecated": 76,
+      "active": 323,
+      "unknown": 74,
+      "deprecated": 74,
       "archived": 13
     }
   },
@@ -4196,9 +4196,10 @@
       "description": "一个简洁优雅的词典翻译 macOS App。开箱即用，支持离线 OCR 识别，支持有道词典，🍎 苹果系统词典，🍎 苹果系统翻译，OpenAI，Gemini，DeepL，Google，Bing，腾讯，百度，阿里，小牛，彩云和火山翻译。A concise and elegant Dictionary and Translator macOS App for looking up words and translating text.",
       "ecosystem": "github",
       "language": "Swift",
-      "role": "sdk",
+      "role": "support",
       "kind": "client",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai",
         "google-gemini"
       ],
@@ -4233,9 +4234,10 @@
         "releasedAt": "2026-08-23",
         "latestRelease": "2.22.0"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:github"
+        "discovery:github",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (openai, gemini)",
       "discoveredAt": "2026-09-26",
@@ -6491,9 +6493,10 @@
       "description": "Stop juggling AI accounts. Quotio is a beautiful native macOS menu bar app that unifies your Claude, Gemini, OpenAI, Qwen, and Antigravity subscriptions – with real-time quota tracking and smart auto-failover for AI coding tools like Claude Code, OpenCode, and Droid.",
       "ecosystem": "github",
       "language": "Swift",
-      "role": "sdk",
+      "role": "support",
       "kind": "client",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai",
         "anthropic",
         "google-gemini",
@@ -6531,9 +6534,10 @@
         "releasedAt": "2026-09-17",
         "latestRelease": "v0.33.0"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:github"
+        "discovery:github",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (openai, claude, gemini)",
       "discoveredAt": "2026-09-26",
@@ -7743,55 +7747,6 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "github:macpaw/openai",
-      "name": "MacPaw/OpenAI",
-      "description": "Swift community driven package for OpenAI public API",
-      "ecosystem": "github",
-      "language": "Swift",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai"
-      ],
-      "sdkApi": "openai",
-      "status": "active",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "OPENAI_API_KEY"
-      ],
-      "install": "git clone",
-      "repo": "https://github.com/MacPaw/OpenAI",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://github.com/MacPaw/OpenAI",
-        "downloads": 520,
-        "downloadsPeriod": "total",
-        "updatedAt": "2026-09-23"
-      },
-      "github": {
-        "stars": 2946,
-        "forks": 520,
-        "openIssues": 45,
-        "archived": false,
-        "pushedAt": "2026-09-23",
-        "releasedAt": "2026-07-21",
-        "latestRelease": "0.5.1"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:github"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 2946,
-      "latestRelease": "2026-09-23",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "swift:macpaw/openai",
       "name": "MacPaw/OpenAI",
       "description": "Swift community driven package for OpenAI public API",
@@ -7831,6 +7786,7 @@
       },
       "confidence": 0.75,
       "source": [
+        "discovery:github",
         "discovery:swift"
       ],
       "notes": "Признаки: LLM-признаки в описании (openai)",
@@ -10530,61 +10486,6 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "github:sharpai/swiftlm",
-      "name": "SharpAI/SwiftLM",
-      "description": "⚡ Native MLX Swift LLM inference server for Apple Silicon. OpenAI-compatible API, SSD streaming for 100B+ MoE models, TurboQuant KV cache compression, MACOS + iOS iPhone app.",
-      "ecosystem": "github",
-      "language": "Swift",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai",
-        "openai-compatible"
-      ],
-      "sdkApi": "openai",
-      "status": "active",
-      "tier": "B",
-      "features": [
-        "streaming",
-        "caching"
-      ],
-      "envVars": [
-        "OPENAI_API_KEY",
-        "OPENAI_BASE_URL",
-        "OPENAI_API_BASE"
-      ],
-      "install": "git clone",
-      "repo": "https://github.com/SharpAI/SwiftLM",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://github.com/SharpAI/SwiftLM",
-        "downloads": 54,
-        "downloadsPeriod": "total",
-        "updatedAt": "2026-09-26"
-      },
-      "github": {
-        "stars": 773,
-        "forks": 54,
-        "openIssues": 2,
-        "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-26",
-        "latestRelease": "b782"
-      },
-      "confidence": 0.6,
-      "source": [
-        "discovery:github"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, inference)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 773,
-      "latestRelease": "2026-09-26",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "swift:sharpai/swiftlm",
       "name": "SharpAI/SwiftLM",
       "description": "⚡ Native MLX Swift LLM inference server for Apple Silicon. OpenAI-compatible API, SSD streaming for 100B+ MoE models, TurboQuant KV cache compression, MACOS + iOS iPhone app.",
@@ -10630,6 +10531,7 @@
       },
       "confidence": 0.6,
       "source": [
+        "discovery:github",
         "discovery:swift"
       ],
       "notes": "Признаки: LLM-признаки в описании (llm, openai, inference)",
@@ -10757,56 +10659,6 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "github:dylanshine/openai-kit",
-      "name": "dylanshine/openai-kit",
-      "description": "A community Swift package used to interact with the OpenAI API",
-      "ecosystem": "github",
-      "language": "Swift",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai"
-      ],
-      "sdkApi": "openai",
-      "status": "deprecated",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "OPENAI_API_KEY"
-      ],
-      "install": "git clone",
-      "repo": "https://github.com/dylanshine/openai-kit",
-      "homepage": "https://platform.openai.com/docs/api-reference",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://github.com/dylanshine/openai-kit",
-        "downloads": 116,
-        "downloadsPeriod": "total",
-        "updatedAt": "2024-08-26"
-      },
-      "github": {
-        "stars": 729,
-        "forks": 116,
-        "openIssues": 11,
-        "archived": false,
-        "pushedAt": "2024-08-26",
-        "releasedAt": "2023-06-15",
-        "latestRelease": "1.8.2"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:github"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 729,
-      "latestRelease": "2024-08-26",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "swift:dylanshine/openai-kit",
       "name": "dylanshine/openai-kit",
       "description": "A community Swift package used to interact with the OpenAI API",
@@ -10847,6 +10699,7 @@
       },
       "confidence": 0.75,
       "source": [
+        "discovery:github",
         "discovery:swift"
       ],
       "notes": "Признаки: LLM-признаки в описании (openai)",
@@ -11021,68 +10874,10 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "github:jamesrochabrun/openai",
-      "name": "jamesrochabrun/OpenAI",
-      "description": "The most complete open-source Swift package for interacting with OpenAI's public API.",
-      "ecosystem": "github",
-      "language": "Swift",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai",
-        "openai-compatible"
-      ],
-      "sdkApi": "n/a",
-      "status": "active",
-      "tier": "B",
-      "features": [
-        "chat",
-        "streaming",
-        "tools",
-        "vision",
-        "embeddings",
-        "audio",
-        "image"
-      ],
-      "envVars": [
-        "OPENAI_API_KEY"
-      ],
-      "repo": "https://github.com/jamesrochabrun/SwiftOpenAI",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://github.com/jamesrochabrun/SwiftOpenAI",
-        "downloads": 130,
-        "downloadsPeriod": "total",
-        "updatedAt": "2026-09-09"
-      },
-      "github": {
-        "stars": 664,
-        "forks": 130,
-        "openIssues": 11,
-        "archived": false,
-        "pushedAt": "2026-09-09",
-        "releasedAt": "2026-09-09",
-        "latestRelease": "4.6.2"
-      },
-      "confidence": 0.9,
-      "source": [
-        "registry:github",
-        "curated:03-community-clients.json"
-      ],
-      "notes": "Swift-пакет для OpenAI (SwiftPM). Поддерживает произвольный baseURL, поэтому удобен для Ollama/vLLM.",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 664,
-      "latestRelease": "2026-09-09",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "github:jamesrochabrun/swiftopenai",
+      "id": "swift:jamesrochabrun/swiftopenai",
       "name": "jamesrochabrun/SwiftOpenAI",
       "description": "The most complete open-source Swift package for interacting with OpenAI's public API.",
-      "ecosystem": "github",
+      "ecosystem": "swift",
       "language": "Swift",
       "role": "sdk",
       "kind": "client",
@@ -11098,59 +10893,11 @@
         "chat",
         "streaming",
         "tools",
-        "vision"
+        "vision",
+        "embeddings",
+        "audio",
+        "image"
       ],
-      "envVars": [
-        "OPENAI_API_KEY"
-      ],
-      "install": "git clone",
-      "repo": "https://github.com/jamesrochabrun/SwiftOpenAI",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://github.com/jamesrochabrun/SwiftOpenAI",
-        "downloads": 130,
-        "downloadsPeriod": "total",
-        "updatedAt": "2026-09-09"
-      },
-      "github": {
-        "stars": 664,
-        "forks": 130,
-        "openIssues": 11,
-        "archived": false,
-        "pushedAt": "2026-09-09",
-        "releasedAt": "2026-09-09",
-        "latestRelease": "4.6.2"
-      },
-      "confidence": 0.9,
-      "source": [
-        "registry:github",
-        "curated:03-community-clients.json",
-        "discovery:github"
-      ],
-      "notes": "Ещё один Swift-клиент OpenAI, ориентированный на macOS/iOS-приложения.",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 664,
-      "latestRelease": "2026-09-09",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "swift:jamesrochabrun/swiftopenai",
-      "name": "jamesrochabrun/SwiftOpenAI",
-      "description": "The most complete open-source Swift package for interacting with OpenAI's public API.",
-      "ecosystem": "swift",
-      "language": "Swift",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai"
-      ],
-      "sdkApi": "openai",
-      "status": "active",
-      "tier": "B",
-      "features": [],
       "envVars": [
         "OPENAI_API_KEY"
       ],
@@ -11174,11 +10921,14 @@
         "releasedAt": "2026-09-09",
         "latestRelease": "4.6.2"
       },
-      "confidence": 0.75,
+      "confidence": 0.9,
       "source": [
+        "registry:github",
+        "curated:03-community-clients.json",
+        "discovery:github",
         "discovery:swift"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "notes": "Swift-пакет для OpenAI (SwiftPM). Поддерживает произвольный baseURL, поэтому удобен для Ollama/vLLM.",
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 664,
@@ -11827,54 +11577,6 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "github:m1guelpf/swift-realtime-openai",
-      "name": "m1guelpf/swift-realtime-openai",
-      "description": "A modern Swift SDK for OpenAI's Realtime API",
-      "ecosystem": "github",
-      "language": "Swift",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai"
-      ],
-      "sdkApi": "openai",
-      "status": "active",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "OPENAI_API_KEY"
-      ],
-      "install": "git clone",
-      "repo": "https://github.com/m1guelpf/swift-realtime-openai",
-      "homepage": "https://swiftpackageindex.com/m1guelpf/swift-realtime-openai",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://github.com/m1guelpf/swift-realtime-openai",
-        "downloads": 121,
-        "downloadsPeriod": "total",
-        "updatedAt": "2025-10-06"
-      },
-      "github": {
-        "stars": 435,
-        "forks": 121,
-        "openIssues": 15,
-        "archived": false,
-        "pushedAt": "2025-10-06"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:github"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 435,
-      "latestRelease": "2025-10-06",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "swift:m1guelpf/swift-realtime-openai",
       "name": "m1guelpf/swift-realtime-openai",
       "description": "A modern Swift SDK for OpenAI's Realtime API",
@@ -11913,6 +11615,7 @@
       },
       "confidence": 0.75,
       "source": [
+        "discovery:github",
         "discovery:swift"
       ],
       "notes": "Признаки: LLM-признаки в описании (openai)",
@@ -11983,64 +11686,6 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "github:carloslfu/slotstream",
-      "name": "carloslfu/slotstream",
-      "description": "Run a 105 GB AI model on a Mac that can't hold it. Slotstream streams Qwen3.8-Flash-Next (125B mixture of experts) from your SSD and caches the busiest experts in memory, so it runs on Macs with 16 to 64 GB. One native Swift binary on MLX and Metal, no Python, offline. Works with Claude Code, Codex and Ollama or OpenAI clients.",
-      "ecosystem": "github",
-      "language": "Swift",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai",
-        "anthropic",
-        "ollama",
-        "qwen"
-      ],
-      "sdkApi": "openai",
-      "status": "active",
-      "tier": "B",
-      "features": [
-        "caching"
-      ],
-      "envVars": [
-        "OPENAI_API_KEY",
-        "ANTHROPIC_API_KEY",
-        "OLLAMA_HOST",
-        "DASHSCOPE_API_KEY"
-      ],
-      "install": "git clone",
-      "repo": "https://github.com/carloslfu/slotstream",
-      "homepage": "https://sevrahq.com",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://github.com/carloslfu/slotstream",
-        "downloads": 26,
-        "downloadsPeriod": "total",
-        "updatedAt": "2026-09-26"
-      },
-      "github": {
-        "stars": 399,
-        "forks": 26,
-        "openIssues": 13,
-        "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-24",
-        "latestRelease": "v0.2.25"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:github"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (openai, claude, ollama)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 399,
-      "latestRelease": "2026-09-26",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "swift:carloslfu/slotstream",
       "name": "carloslfu/slotstream",
       "description": "Run a 105 GB AI model on a Mac that can't hold it. Slotstream streams Qwen3.8-Flash-Next (125B mixture of experts) from your SSD and caches the busiest experts in memory, so it runs on Macs with 16 to 64 GB. One native Swift binary on MLX and Metal, no Python, offline. Works with Claude Code, Codex and Ollama or OpenAI clients.",
@@ -12089,6 +11734,7 @@
       },
       "confidence": 0.75,
       "source": [
+        "discovery:github",
         "discovery:swift"
       ],
       "notes": "Признаки: LLM-признаки в описании (openai, claude, ollama)",
@@ -12870,16 +12516,17 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "github:cequence-io/openai-scala-client",
-      "name": "cequence-io/openai-scala-client",
-      "description": "Scala client for OpenAI API and other major LLM providers",
-      "ecosystem": "github",
-      "language": "Scala",
+      "id": "maven:io.cequence:openai-scala-anthropic-client_2.12",
+      "name": "io.cequence:openai-scala-anthropic-client_2.12",
+      "description": "Scala client for Anthropic API implemented using Play WS lib.",
+      "ecosystem": "maven",
+      "language": "Java",
       "role": "sdk",
       "kind": "client",
       "providers": [
         "openai",
-        "openai-compatible"
+        "openai-compatible",
+        "anthropic"
       ],
       "sdkApi": "openai",
       "status": "active",
@@ -12891,16 +12538,18 @@
         "embeddings"
       ],
       "envVars": [
-        "OPENAI_API_KEY"
+        "OPENAI_API_KEY",
+        "ANTHROPIC_API_KEY"
       ],
-      "install": "git clone",
+      "install": "mvn::",
       "repo": "https://github.com/cequence-io/openai-scala-client",
       "homepage": "https://cequence.io",
       "license": "MIT",
       "licenseId": "MIT",
       "licenseFamily": "permissive",
       "registry": {
-        "url": "https://github.com/cequence-io/openai-scala-client",
+        "url": "https://central.sonatype.com/artifact/io.cequence/openai-scala-anthropic-client_2.12",
+        "version": "1.3.0",
         "downloads": 39,
         "downloadsPeriod": "total",
         "updatedAt": "2026-09-25"
@@ -12918,64 +12567,14 @@
       "source": [
         "registry:github",
         "curated:03-community-clients.json",
-        "discovery:github"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 250,
-      "latestRelease": "2026-09-25",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "maven:io.cequence:openai-scala-anthropic-client_2.12",
-      "name": "io.cequence:openai-scala-anthropic-client_2.12",
-      "description": "Scala client for Anthropic API implemented using Play WS lib.",
-      "ecosystem": "maven",
-      "language": "Java",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai",
-        "anthropic"
-      ],
-      "sdkApi": "openai",
-      "status": "unknown",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "OPENAI_API_KEY",
-        "ANTHROPIC_API_KEY"
-      ],
-      "install": "mvn::",
-      "repo": "https://github.com/cequence-io/openai-scala-client",
-      "homepage": "https://cequence.io",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://central.sonatype.com/artifact/io.cequence/openai-scala-anthropic-client_2.12",
-        "version": "1.3.0",
-        "updatedAt": "2025-04-23"
-      },
-      "github": {
-        "stars": 250,
-        "forks": 39,
-        "openIssues": 8,
-        "archived": false,
-        "pushedAt": "2026-09-25",
-        "releasedAt": "2026-09-18",
-        "latestRelease": "v1.3.0"
-      },
-      "confidence": 0.75,
-      "source": [
+        "discovery:github",
         "discovery:maven"
       ],
       "notes": "Признаки: LLM-признаки в описании (openai, anthropic)",
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 250,
-      "latestRelease": "2025-04-23",
+      "latestRelease": "2026-09-25",
       "latestReleaseSource": "registry"
     },
     {
@@ -12988,12 +12587,18 @@
       "kind": "client",
       "providers": [
         "openai",
+        "openai-compatible",
         "anthropic"
       ],
       "sdkApi": "openai",
-      "status": "unknown",
+      "status": "active",
       "tier": "B",
-      "features": [],
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "embeddings"
+      ],
       "envVars": [
         "OPENAI_API_KEY",
         "ANTHROPIC_API_KEY"
@@ -13007,7 +12612,9 @@
       "registry": {
         "url": "https://central.sonatype.com/artifact/io.cequence/openai-scala-anthropic-client_2.13",
         "version": "1.3.0",
-        "updatedAt": "2025-04-23"
+        "downloads": 39,
+        "downloadsPeriod": "total",
+        "updatedAt": "2026-09-25"
       },
       "github": {
         "stars": 250,
@@ -13018,15 +12625,18 @@
         "releasedAt": "2026-09-18",
         "latestRelease": "v1.3.0"
       },
-      "confidence": 0.75,
+      "confidence": 0.9,
       "source": [
+        "registry:github",
+        "curated:03-community-clients.json",
+        "discovery:github",
         "discovery:maven"
       ],
       "notes": "Признаки: LLM-признаки в описании (openai, anthropic)",
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 250,
-      "latestRelease": "2025-04-23",
+      "latestRelease": "2026-09-25",
       "latestReleaseSource": "registry"
     },
     {
@@ -13039,12 +12649,18 @@
       "kind": "client",
       "providers": [
         "openai",
+        "openai-compatible",
         "anthropic"
       ],
       "sdkApi": "openai",
-      "status": "unknown",
+      "status": "active",
       "tier": "B",
-      "features": [],
+      "features": [
+        "chat",
+        "streaming",
+        "tools",
+        "embeddings"
+      ],
       "envVars": [
         "OPENAI_API_KEY",
         "ANTHROPIC_API_KEY"
@@ -13058,7 +12674,9 @@
       "registry": {
         "url": "https://central.sonatype.com/artifact/io.cequence/openai-scala-anthropic-client_3",
         "version": "1.3.0",
-        "updatedAt": "2025-04-23"
+        "downloads": 39,
+        "downloadsPeriod": "total",
+        "updatedAt": "2026-09-25"
       },
       "github": {
         "stars": 250,
@@ -13069,15 +12687,18 @@
         "releasedAt": "2026-09-18",
         "latestRelease": "v1.3.0"
       },
-      "confidence": 0.75,
+      "confidence": 0.9,
       "source": [
+        "registry:github",
+        "curated:03-community-clients.json",
+        "discovery:github",
         "discovery:maven"
       ],
       "notes": "Признаки: LLM-признаки в описании (openai, anthropic)",
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 250,
-      "latestRelease": "2025-04-23",
+      "latestRelease": "2026-09-25",
       "latestReleaseSource": "registry"
     },
     {
@@ -15419,60 +15040,6 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "github:leafo/lua-openai",
-      "name": "leafo/lua-openai",
-      "description": "OpenAI API bindings for Lua",
-      "ecosystem": "github",
-      "language": "Lua",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai",
-        "openai-compatible"
-      ],
-      "sdkApi": "n/a",
-      "status": "active",
-      "tier": "C",
-      "features": [
-        "chat",
-        "streaming",
-        "tools"
-      ],
-      "envVars": [
-        "OPENAI_API_KEY"
-      ],
-      "repo": "https://github.com/leafo/lua-openai",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://github.com/leafo/lua-openai",
-        "downloads": 9,
-        "downloadsPeriod": "total",
-        "updatedAt": "2026-06-11"
-      },
-      "github": {
-        "stars": 93,
-        "forks": 9,
-        "openIssues": 6,
-        "archived": false,
-        "pushedAt": "2026-06-11",
-        "releasedAt": "2026-06-11",
-        "latestRelease": "v1.8.0"
-      },
-      "confidence": 0.9,
-      "source": [
-        "registry:github",
-        "curated:03-community-clients.json"
-      ],
-      "notes": "Lua-клиент OpenAI с Neovim-плагинами (openai.nvim, CodeCompanion).",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 93,
-      "latestRelease": "2026-06-11",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "luarocks:lua-openai",
       "name": "lua-openai",
       "description": "Bindings to the OpenAI HTTP API for Lua.",
@@ -15517,8 +15084,9 @@
       },
       "confidence": 0.9,
       "source": [
-        "registry:luarocks",
+        "registry:github",
         "curated:03-community-clients.json",
+        "registry:luarocks",
         "discovery:luarocks"
       ],
       "notes": "Признаки: LLM-признаки в описании (openai); точное совпадение с поисковым запросом",
@@ -19891,43 +19459,6 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "luarocks:gpt-image-2-dev",
-      "name": "gpt-image-2-dev",
-      "description": "Minimal LuaRocks package for GPT Image 2 AI image generator site metadata.",
-      "ecosystem": "luarocks",
-      "language": "Lua",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "nvidia"
-      ],
-      "sdkApi": "n/a",
-      "status": "active",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "NVIDIA_API_KEY"
-      ],
-      "install": "luarocks install gpt-image-2-dev",
-      "licenseFamily": "unknown",
-      "registry": {
-        "url": "https://luarocks.org/modules/lisa0802/gpt-image-2-dev",
-        "downloads": 6,
-        "downloadsPeriod": "total",
-        "updatedAt": "2026-04-13"
-      },
-      "github": {},
-      "confidence": 0.6,
-      "source": [
-        "discovery:luarocks"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (gpt)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "latestRelease": "2026-04-13",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "luarocks:kai.nvim",
       "name": "kai.nvim",
       "description": "Generate, edit text and chat in Neovim using OpenAI GPT.",
@@ -20629,43 +20160,6 @@
       "updatedAt": "2026-09-26",
       "stars": 4,
       "latestRelease": "2025-12-04",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "luarocks:gpt-image-2",
-      "name": "gpt-image-2",
-      "description": "Minimal LuaRocks package for GPT Image 2 tool page metadata.",
-      "ecosystem": "luarocks",
-      "language": "Lua",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "nvidia"
-      ],
-      "sdkApi": "n/a",
-      "status": "active",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "NVIDIA_API_KEY"
-      ],
-      "install": "luarocks install gpt-image-2",
-      "licenseFamily": "unknown",
-      "registry": {
-        "url": "https://luarocks.org/modules/lisa0802/gpt-image-2",
-        "downloads": 4,
-        "downloadsPeriod": "total",
-        "updatedAt": "2026-04-15"
-      },
-      "github": {},
-      "confidence": 0.6,
-      "source": [
-        "discovery:luarocks"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (gpt)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "latestRelease": "2026-04-15",
       "latestReleaseSource": "registry"
     },
     {
@@ -22591,43 +22085,6 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "luarocks:gpt-image-2-5",
-      "name": "gpt-image-2-5",
-      "description": "Minimal LuaRocks package for GPT Image 2.5 AI image generator site metadata.",
-      "ecosystem": "luarocks",
-      "language": "Lua",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "nvidia"
-      ],
-      "sdkApi": "n/a",
-      "status": "active",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "NVIDIA_API_KEY"
-      ],
-      "install": "luarocks install gpt-image-2-5",
-      "licenseFamily": "unknown",
-      "registry": {
-        "url": "https://luarocks.org/modules/andywang201212/gpt-image-2-5",
-        "downloads": 1,
-        "downloadsPeriod": "none",
-        "updatedAt": "2026-09-10"
-      },
-      "github": {},
-      "confidence": 0.6,
-      "source": [
-        "discovery:luarocks"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (gpt)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "latestRelease": "2026-09-10",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "nuget:soenneker.azure.openai.client.chat",
       "name": "Soenneker.Azure.OpenAI.Client.Chat",
       "description": "An async thread-safe singleton for the Azure OpenAI Chat (completions) client",
@@ -23614,7 +23071,7 @@
       ],
       "sdkApi": "openai",
       "status": "active",
-      "tier": "B",
+      "tier": "C",
       "features": [
         "agents"
       ],
@@ -23642,9 +23099,10 @@
         "archived": false,
         "pushedAt": "2026-09-15"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:github"
+        "discovery:github",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (llm, openai, anthropic, gemini)",
       "discoveredAt": "2026-09-26",
@@ -23665,8 +23123,8 @@
         "openai"
       ],
       "sdkApi": "openai",
-      "status": "deprecated",
-      "tier": "B",
+      "status": "unknown",
+      "tier": "C",
       "features": [],
       "envVars": [
         "OPENAI_API_KEY"
@@ -23688,9 +23146,10 @@
         "archived": false,
         "pushedAt": "2024-05-25"
       },
-      "confidence": 0.6,
+      "confidence": 0.95,
       "source": [
-        "discovery:github"
+        "discovery:github",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (openai)",
       "discoveredAt": "2026-09-26",
@@ -24481,9 +23940,10 @@
       "description": "Find where your LLM tokens and cost actually go — and which of them were avoidable. Token cost profiler for Claude, OpenAI, Gemini, Ollama and Vercel AI SDK agents. Detects missing prompt caching, wasted tool output and retries. Local CLI + web UI, zero d",
       "ecosystem": "npm",
       "language": "TypeScript",
-      "role": "sdk",
+      "role": "support",
       "kind": "client",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai",
         "anthropic",
         "google-gemini",
@@ -24526,9 +23986,10 @@
         "releasedAt": "2026-08-27",
         "latestRelease": "v0.2.0"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:npm"
+        "discovery:npm",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (llm, openai, claude, gemini)",
       "discoveredAt": "2026-09-26",
@@ -25320,52 +24781,6 @@
       "stars": 0,
       "latestRelease": "2025-08-26",
       "latestReleaseSource": "registry"
-    },
-    {
-      "id": "packagist:floridaman963/openai",
-      "name": "floridaman963/openai",
-      "description": "Just for a test,the origin is from Openai-php/client",
-      "ecosystem": "packagist",
-      "language": "PHP",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai"
-      ],
-      "sdkApi": "openai",
-      "status": "unknown",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "OPENAI_API_KEY"
-      ],
-      "install": "composer require floridaman963/openai",
-      "repo": "https://github.com/floridaman963/openai",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://packagist.org/packages/floridaman963/openai",
-        "downloads": 0,
-        "downloadsPeriod": "month"
-      },
-      "github": {
-        "stars": 0,
-        "forks": 0,
-        "openIssues": 0,
-        "archived": false,
-        "pushedAt": "2023-04-27"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:packagist"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 0,
-      "latestRelease": "2023-04-27",
-      "latestReleaseSource": "github-commit"
     },
     {
       "id": "packagist:laswitchtech/php-openai",
@@ -26320,15 +25735,16 @@
       "description": "Native macOS local LLM app for Apple Silicon — SwiftUI, llama.cpp, Metal, Hugging Face GGUF",
       "ecosystem": "swift",
       "language": "Swift",
-      "role": "sdk",
+      "role": "support",
       "kind": "client",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "llamacpp",
         "huggingface"
       ],
       "sdkApi": "n/a",
       "status": "active",
-      "tier": "B",
+      "tier": "C",
       "features": [],
       "envVars": [
         "HF_TOKEN",
@@ -26355,9 +25771,10 @@
         "releasedAt": "2026-08-20",
         "latestRelease": "v1.15.0"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:swift"
+        "discovery:swift",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (llm)",
       "discoveredAt": "2026-09-26",

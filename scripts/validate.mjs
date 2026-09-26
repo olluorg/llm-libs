@@ -148,7 +148,9 @@ log.info(
       continue;
     }
     for (const [field, value] of Object.entries(item)) {
-      if (field === 'reason') continue;
+      // ecosystem и name — ключ, по которому запись найдена, а reason —
+      // объяснение для человека; исправляемых полей среди них нет.
+      if (field === 'reason' || field === 'ecosystem' || field === 'name') continue;
       if (library[field] !== value) {
         problems.errors.push(`ручное исправление не применилось: ${key}.${field} = ${JSON.stringify(library[field])}, ожидалось ${JSON.stringify(value)}`);
       }
@@ -162,9 +164,21 @@ log.info(
   }
 }
 
+// Список проблем печатается, а не только считается: «критичные проблемы
+// найдены» без единого слова о том, какие, бесполезны — приходится гадать,
+// где чинить. Предупреждений бывает много, поэтому они ограничены.
+const shownWarnings = problems.warnings.slice(0, 20);
+for (const error of problems.errors) log.error(error);
+for (const warning of shownWarnings) log.warn(warning);
+for (const note of problems.info) log.info(note);
+if (problems.warnings.length > shownWarnings.length) {
+  log.warn(`…и ещё предупреждений: ${problems.warnings.length - shownWarnings.length}`);
+}
+
 if (problems.errors.length) {
-  log.error('критичные проблемы найдены');
-  process.exit(1);}
+  log.error(`критичных проблем: ${problems.errors.length}`);
+  process.exit(1);
+}
 
 /** Идентификаторы всех записей из data/curated/*.json. */
 async function collectCuratedIds() {

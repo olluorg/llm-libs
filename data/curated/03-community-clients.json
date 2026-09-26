@@ -363,13 +363,9 @@
       "notes": "Лёгкий .NET-клиент без зависимостей."
     },
     {
-      "name": "cequence-io/openai-scala-client",
-      "ecosystem": "github",
+      "name": "io.cequence:openai-scala-anthropic-client_2.13",
+      "ecosystem": "maven",
       "language": "Scala",
-      "providers": [
-        "openai",
-        "openai-compatible"
-      ],
       "kind": "client",
       "tier": "C",
       "features": [
@@ -382,7 +378,7 @@
         "OPENAI_API_KEY"
       ],
       "repo": "https://github.com/cequence-io/openai-scala-client",
-      "notes": "Scala-клиент OpenAI от Scala Center."
+      "notes": "Scala-клиент от Scala Center. Раньше запись велась как `github:cequence-io/openai-scala-client`, но это один и тот же проект, что и артефакты в Maven, и из-за этого он попадал в каталог дважды: с инструкцией установки `git clone` вместо `mvn`. Провайдеры и описание берутся из реестра Maven, где артефакт заявлен для API Anthropic, поэтому `openai-compatible` убран — сам артефакт этого не заявляет."
     },
     {
       "name": "ruby_llm",
@@ -533,11 +529,12 @@
       "notes": "Единый PHP-интерфейс к провайдерам с тестами и поддержкой Laravel."
     },
     {
-      "name": "jamesrochabrun/OpenAI",
-      "ecosystem": "github",
+      "name": "jamesrochabrun/swiftopenai",
+      "ecosystem": "swift",
       "language": "Swift",
       "providers": [
         "openai",
+        "azure-openai",
         "openai-compatible"
       ],
       "kind": "client",
@@ -555,29 +552,7 @@
         "OPENAI_API_KEY"
       ],
       "repo": "https://github.com/jamesrochabrun/OpenAI",
-      "notes": "Swift-пакет для OpenAI (SwiftPM). Поддерживает произвольный baseURL, поэтому удобен для Ollama/vLLM."
-    },
-    {
-      "name": "jamesrochabrun/SwiftOpenAI",
-      "ecosystem": "github",
-      "language": "Swift",
-      "providers": [
-        "openai",
-        "azure-openai",
-        "openai-compatible"
-      ],
-      "kind": "client",
-      "tier": "C",
-      "features": [
-        "chat",
-        "streaming",
-        "tools",
-        "vision"
-      ],
-      "envVars": [
-        "OPENAI_API_KEY"
-      ],
-      "notes": "Ещё один Swift-клиент OpenAI, ориентированный на macOS/iOS-приложения."
+      "notes": "Swift-пакет для OpenAI (SwiftPM). Поддерживает произвольный baseURL, поэтому удобен для Ollama/vLLM; есть поддержка Azure OpenAI. В файле было две записи на один репозиторий — `jamesrochabrun/OpenAI` и `jamesrochabrun/SwiftOpenAI`, — из-за чего проект учитывался дважды, а запись из GitHub к тому же репозиторию давала инструкцию установки `git clone` вместо SwiftPM."
     },
     {
       "name": "lua-openai",
@@ -597,28 +572,7 @@
         "OPENAI_API_KEY"
       ],
       "repo": "https://github.com/leafo/lua-openai",
-      "notes": "Биндинги к HTTP API OpenAI для Lua (автор — создатель OpenResty)."
-    },
-    {
-      "name": "leafo/lua-openai",
-      "ecosystem": "github",
-      "language": "Lua",
-      "providers": [
-        "openai",
-        "openai-compatible"
-      ],
-      "kind": "client",
-      "tier": "C",
-      "features": [
-        "chat",
-        "streaming",
-        "tools"
-      ],
-      "envVars": [
-        "OPENAI_API_KEY"
-      ],
-      "repo": "https://github.com/leafo/lua-openai",
-      "notes": "Lua-клиент OpenAI с Neovim-плагинами (openai.nvim, CodeCompanion)."
+      "notes": "Биндинги к HTTP API OpenAI для Lua (автор — создатель OpenResty). Запись `github:leafo/lua-openai` была удалена: это тот же проект, что и камень luarocks, и она давала инструкцию установки `git clone` вместо `luarocks install`."
     },
     {
       "name": "ggml-org/llama.cpp",

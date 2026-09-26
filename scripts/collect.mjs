@@ -28,11 +28,28 @@ const log = createLogger('collect');
  */
 const PLACEHOLDER = /(your[-_ ]?(repo|url|username|name|project)|example\.(com|org)|github\.com\/(user|username|your|test|example)\b|<your|todo|change me|lorem ipsum|coming soon|добавьте|заполните)/i;
 
+/**
+ * SEO-мусор в реестрах: камни и модули, которые существуют ради ссылки на сайт.
+ * В каталоге LLM-библиотек им не место, а имена плодятся под каждую новую
+ * модель: gpt-image-2, gpt-image-2-5, gpt-image-2-dev — один автор, одна схема.
+ *
+ * Фраза сама по себе ничего не доказывает: «SEO content generator powered by
+ * GPT-4» и «Backlink analysis for your site — runs on Ollama» — законные
+ * LLM-инструменты. Поэтому решает conjunction: у настоящей библиотеки есть
+ * репозиторий или хотя бы версия, а у этих камней нет ни того, ни другого, ни
+ * звёзд. Ложное срабатывание здесь стоит дороже пропущенного мусора — из
+ * каталога выпадет реальная библиотека, — поэтому условие строгое.
+ */
+const SEO_SPAM = /(back[- ]?links?\b|(site|page|website|tool page)\s+metadata|metadata (for|helper for))/i;
+
 function isJunk(candidate, meta) {
   const links = [meta.repo, meta.homepage, meta.docs].filter(Boolean).join(' ');
   const description = meta.description || candidate.description || '';
   if (links && PLACEHOLDER.test(links)) return true;
   if (PLACEHOLDER.test(description)) return true;
+  // Фраза про SEO — только повод проверить: отбрасываем лишь если записи нечего
+  // показать, то есть нет ни репозитория, ни версии в реестре.
+  if (SEO_SPAM.test(description) && !meta.repo && !meta.registry?.version) return true;
   // Ни описания, ни репозитория, ни версии — запись не о чем.
   return !description && !meta.repo && !meta.registry?.version;
 }
@@ -292,7 +309,11 @@ function candidateToRecord(candidate, meta, config, ecosystem, adapter) {
     openaiCompatibleServer: meta.openaiCompatibleServer,
     sdkApi: inferSdkApi(providersForRecord),
     status: inferStatus({ description, updatedAt }),
-    tier: capTier(tierFromScore(candidate.score, downloads), confidence),
+    tier: capTier(tierFromScore(candidate.score, downloads), confidence, {
+      stars: candidate.stars,
+      version: meta.version ?? candidate.version,
+      downloads,
+    }),
     features: inferFeatures(name, description),
     // Ключи окружения нужны только клиентам API: у рантаймов их нет.
     envVars: role === 'sdk' ? inferEnvVars(providersForRecord, providers) : [],
@@ -319,9 +340,18 @@ function candidateToRecord(candidate, meta, config, ecosystem, adapter) {
 }
 
 /** Уровень A оставляем только за курируемыми записями: автонайденное подтверждаем на глаз. */
-function capTier(tier, confidence) {
+/**
+ * Tier — это обещание качества, поэтому оно не может быть выше того, что
+ * запись доказывает. У записи без единого доказательства (ни звёзд, ни версии,
+ * ни загрузок) score всё равно набирается по словам в описании, и копии вроде
+ * «Just for a test, the origin is from openai-php/client» получали B. Ниже C
+ * опуститься нельзя: это нижняя граница, а не оценка.
+ */
+function capTier(tier, confidence, evidence = {}) {
   if (!tier) return tier;
   if (tier === 'A' && confidence < 0.8) return 'B';
+  const proven = Boolean(evidence.stars) || Boolean(evidence.version) || Boolean(evidence.downloads);
+  if (!proven) return 'C';
   return tier;
 }
 

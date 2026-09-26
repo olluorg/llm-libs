@@ -32,6 +32,26 @@
       "reason": "Промо-камень на сторонний сайт images25.art, а не SDK: в описании только «metadata helper» и ссылка."
     },
     {
+      "ecosystem": "luarocks",
+      "name": "gpt-image-2",
+      "reason": "SEO-мусор: «Minimal LuaRocks package for GPT Image 2 tool page metadata» — камень существует ради ссылки на сайт, а не ради кода."
+    },
+    {
+      "ecosystem": "luarocks",
+      "name": "gpt-image-2-dev",
+      "reason": "Тот же SEO-мусор, что и gpt-image-2: описание прямо говорит про site metadata."
+    },
+    {
+      "ecosystem": "luarocks",
+      "name": "gpt-image-2-5",
+      "reason": "Тот же SEO-мусор: «AI image generator site metadata», имя плодится под каждую новую модель."
+    },
+    {
+      "ecosystem": "packagist",
+      "name": "floridaman963/openai",
+      "reason": "Копия openai-php/client, залитая «Just for a test»: та же библиотека уже есть в каталоге под своим именем с 5833 звёздами, а копия получила tier B при нуле звёзд и без версии."
+    },
+    {
       "ecosystem": "hex",
       "name": "bullmq",
       "reason": "Очередь задач на Redis для Elixir. Совпадение по слову «Bull» в запросах про LLM; к моделям отношения не имеет, а 9443 звезды делали его самым заметным в подборке Elixir."
@@ -67,6 +87,48 @@
       "name": "langchain_prompt",
       "role": "support",
       "reason": "Обёртка над промптами LangChain — сопутствующий инструмент."
+    },
+    {
+      "ecosystem": "github",
+      "name": "tisfeng/easydict",
+      "role": "support",
+      "reason": "Приложение-переводчик для macOS, а не клиент API. В каталоге инструменты с интерфейсом относятся к support, а не к sdk."
+    },
+    {
+      "ecosystem": "github",
+      "name": "nguyenphutrong/quotio",
+      "role": "support",
+      "reason": "Нативное приложение macOS для управления аккаунтами ИИ, а не клиент API."
+    },
+    {
+      "ecosystem": "swift",
+      "name": "kuarezma/macllm",
+      "role": "support",
+      "reason": "Приложение macOS для запуска локальных моделей. Локальный запуск моделей — это роль runtime, но там движки вроде llama.cpp и Ollama, а не приложение с интерфейсом."
+    },
+    {
+      "ecosystem": "npm",
+      "name": "fyren-ai",
+      "role": "support",
+      "reason": "Профилировщик стоимости токенов, то есть наблюдаемость, а не клиент API."
+    },
+    {
+      "ecosystem": "github",
+      "name": "artmsh/clj-tools-agents",
+      "tier": "C",
+      "reason": "Ни звёзд, ни версии, ни загрузок: score набирался только по словам в описании, и запись получила B. Настоящий клиент, но доказательств качества нет."
+    },
+    {
+      "ecosystem": "github",
+      "name": "hugodro/openai-client",
+      "tier": "C",
+      "reason": "То же: Haskell-клиент без единого доказательства, tier B был поставлен по словам описания."
+    },
+    {
+      "ecosystem": "swift",
+      "name": "kuarezma/macllm",
+      "tier": "C",
+      "reason": "То же: приложение macOS без звёзд, версии и загрузок."
     }
   ]
 }
