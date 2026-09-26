@@ -13,7 +13,7 @@
  *   node scripts/derive.mjs
  */
 import { createLogger } from './lib/log.mjs';
-import { readDataset, writeDataset } from './lib/store.mjs';
+import { applyCuration, loadCuration, readDataset, writeDataset } from './lib/store.mjs';
 
 const log = createLogger('derive');
 
@@ -25,8 +25,13 @@ if (!dataset.libraries.length) {
 
 // writeDataset прогоняет записи через dedupe → normalizeRecord, то есть
 // пересчитывает все производные поля, включая дату релиза и лицензию.
+const curation = await loadCuration();
+const { records: cleaned, dropped, patched, unmatched } = applyCuration(dataset.libraries, curation);
 const before = dataset.libraries.length;
-const payload = await writeDataset(dataset.libraries);
+const payload = await writeDataset(cleaned);
+if (dropped.length) log.info(`исключено по ручному решению: ${dropped.length}`);
+if (patched.length) log.info(`исправлено полей: ${patched.map((p) => p.id).join(", ")}`);
+if (unmatched.length) log.info(`правила, уже сработавшие или устаревшие: ${unmatched.join(", ")}`);
 
 const sample = payload.libraries.find((library) => library.licenseId);
 log.info(`пересчитано записей: ${before} → ${payload.libraries.length}`);

@@ -106,7 +106,7 @@ function countText(shown, total, strings = STRINGS) {
 }
 
 /** Поднимает app.js в чистом окружении и возвращает доступ к DOM-заглушкам. */
-function boot({ view = {}, referrer = '', search = '', strings = STRINGS } = {}) {
+function boot({ view = {}, referrer = '', search = '', hash = '', strings = STRINGS } = {}) {
   const ids = ['search', 'f-role', 'f-language', 'f-provider', 'f-kind', 'f-status', 'f-tier', 'f-license', 'count', 'rows', 'drawer', 'backdrop', 'reset', 'generated', 'hint'];
   const elements = new Map(ids.map((id) => [id, createElement()]));
 
@@ -149,7 +149,7 @@ function boot({ view = {}, referrer = '', search = '', strings = STRINGS } = {})
     },
     document: documentStub,
     history: { replaceState() {} },
-    location: { pathname: '/', search },
+    location: { pathname: '/', search, hash },
     navigator: {},
     URL,
     URLSearchParams,
@@ -591,9 +591,28 @@ assert(
 );
 
 // Прямая ссылка с параметрами должна работать так же.
-const fromUrl = boot({ search: '?q=anthropic&language=Python' });
-assert(fromUrl.elements.get('search').value === 'anthropic', 'параметр ?q= не подставляется в поиск');
-assert(fromUrl.elements.get('f-language').value === 'Python', 'параметр ?language= не применяется');
+// Фильтры храним в location.hash: при переходе по ссылке сервер не должен
+// получать параметры в query string (это статический сайт).
+const fromUrl = boot({ hash: '#q=anthropic&language=Python' });
+assert(fromUrl.elements.get('search').value === 'anthropic', 'параметр #q= не подставляется в поиск');
+assert(fromUrl.elements.get('f-language').value === 'Python', 'параметр #language= не применяется');
+
+// Сортировка через hash: прямая ссылка с sort= и dir= должна работать.
+const fromUrlWithSort = boot({ hash: '#sort=name&dir=1' });
+assert(
+  fromUrlWithSort.elements.get('rows').innerHTML.length > 0,
+  'после сортировки по имени список пуст',
+);
+// Проверяем, что сортировка применилась: заголовок таблицы должен быть отсортирован.
+const sortedByName = fromUrlWithSort.sortHeaders.find((th) => th.dataset.sort === 'name');
+assert(
+  sortedByName?.classList.contains('sorted'),
+  'сортировка по имени не применилась из hash',
+);
+assert(
+  sortedByName?.getAttribute('aria-sort') === 'ascending',
+  'сортировка по имени должна быть по возрастанию (dir=1)',
+);
 
 // Срез по языку важнее запроса из поисковика: страница /languages/r.html
 // не должна переключаться на язык из referrer.

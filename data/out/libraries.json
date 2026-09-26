@@ -1,37 +1,37 @@
 {
-  "generatedAt": "2026-09-26T18:06:11.674Z",
+  "generatedAt": "2026-09-26T22:43:04.635Z",
   "counts": {
-    "total": 504,
+    "total": 497,
     "byEcosystem": {
       "nuget": 42,
       "pypi": 90,
       "golang": 29,
       "github": 35,
-      "npm": 59,
+      "npm": 58,
       "crates": 45,
       "rubygems": 42,
       "maven": 46,
-      "hex": 18,
       "packagist": 42,
-      "luarocks": 19,
+      "luarocks": 17,
       "swift": 14,
-      "cran": 23
+      "hex": 17,
+      "cran": 20
     },
     "byLanguage": {
       "C#": 42,
       "Python": 91,
       "Go": 29,
       "C++": 1,
-      "TypeScript": 59,
+      "TypeScript": 58,
       "Rust": 45,
       "Ruby": 42,
       "Swift": 30,
       "Java": 47,
-      "Elixir": 19,
       "PHP": 42,
-      "Lua": 20,
+      "Lua": 18,
       "Kotlin": 3,
-      "R": 23,
+      "Elixir": 18,
+      "R": 20,
       "Haskell": 2,
       "Scala": 4,
       "Clojure": 2,
@@ -44,8 +44,8 @@
       "cohere": 32,
       "aws-bedrock": 48,
       "google-gemini": 84,
-      "mistral": 41,
-      "groq": 28,
+      "mistral": 40,
+      "groq": 27,
       "azure-openai": 46,
       "vertex-ai": 12,
       "ollama": 45,
@@ -69,14 +69,14 @@
       "deepinfra": 1
     },
     "byRole": {
-      "sdk": 360,
-      "framework": 54,
+      "sdk": 350,
+      "framework": 52,
       "runtime": 37,
-      "support": 37,
+      "support": 42,
       "gateway": 16
     },
     "byKind": {
-      "client": 282,
+      "client": 275,
       "framework": 58,
       "official-sdk": 77,
       "local-runtime": 37,
@@ -88,9 +88,9 @@
       "orchestration": 1
     },
     "byStatus": {
-      "active": 336,
+      "active": 331,
       "unknown": 77,
-      "deprecated": 78,
+      "deprecated": 76,
       "archived": 13
     }
   },
@@ -5508,53 +5508,6 @@
       "latestReleaseSource": "github-release"
     },
     {
-      "id": "hex:bullmq",
-      "name": "bullmq",
-      "description": "A powerful, fast, and robust job queue for Elixir backed by Redis",
-      "ecosystem": "hex",
-      "language": "Elixir",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [],
-      "sdkApi": "n/a",
-      "status": "active",
-      "tier": "C",
-      "features": [],
-      "envVars": [],
-      "install": "mix deps.get bullmq",
-      "repo": "https://github.com/taskforcesh/bullmq",
-      "homepage": "https://bullmq.io",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://hex.pm/packages/bullmq",
-        "version": "2.2.3",
-        "downloads": 8447,
-        "downloadsPeriod": "month",
-        "updatedAt": "2026-09-18"
-      },
-      "github": {
-        "stars": 9443,
-        "forks": 694,
-        "openIssues": 389,
-        "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-26",
-        "latestRelease": "vrs1.3.3"
-      },
-      "confidence": 0.45,
-      "source": [
-        "discovery:hex"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (llm)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 9443,
-      "latestRelease": "2026-09-18",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "pypi:mlx-lm",
       "name": "mlx-lm",
       "description": "LLMs with MLX and the Hugging Face Hub",
@@ -5916,58 +5869,6 @@
       "updatedAt": "2026-09-26",
       "stars": 6445,
       "latestRelease": "2026-09-24",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "npm:groq",
-      "name": "groq",
-      "description": "Tagged template literal for Sanity.io GROQ-queries",
-      "ecosystem": "npm",
-      "language": "TypeScript",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "groq"
-      ],
-      "sdkApi": "n/a",
-      "status": "active",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "GROQ_API_KEY"
-      ],
-      "install": "npm i groq",
-      "repo": "https://github.com/sanity-io/sanity",
-      "docs": "https://www.sanity.io",
-      "homepage": "https://www.sanity.io",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://www.npmjs.com/package/groq",
-        "version": "6.16.0",
-        "downloads": 7469974,
-        "downloadsPeriod": "month",
-        "updatedAt": "2026-09-22"
-      },
-      "github": {
-        "stars": 6336,
-        "forks": 554,
-        "openIssues": 257,
-        "archived": false,
-        "pushedAt": "2026-09-26",
-        "releasedAt": "2026-09-22",
-        "latestRelease": "v6.16.0"
-      },
-      "confidence": 0.75,
-      "source": [
-        "discovery:npm"
-      ],
-      "notes": "Признаки: имя == ключевое слово провайдера «Groq»; LLM-признаки в описании (groq)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 6336,
-      "latestRelease": "2026-09-22",
       "latestReleaseSource": "registry"
     },
     {
@@ -9843,7 +9744,7 @@
       "description": "LLM powered development for Neovim",
       "ecosystem": "luarocks",
       "language": "Lua",
-      "role": "sdk",
+      "role": "support",
       "kind": "client",
       "providers": [],
       "sdkApi": "n/a",
@@ -9869,9 +9770,10 @@
         "archived": false,
         "pushedAt": "2026-09-23"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:luarocks"
+        "discovery:luarocks",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (llm)",
       "discoveredAt": "2026-09-26",
@@ -16348,7 +16250,7 @@
       "description": "LLM model metadata catalog with fast, capability-aware lookups.",
       "ecosystem": "hex",
       "language": "Elixir",
-      "role": "sdk",
+      "role": "support",
       "kind": "client",
       "providers": [],
       "sdkApi": "n/a",
@@ -16378,9 +16280,10 @@
         "releasedAt": "2026-09-26",
         "latestRelease": "history-latest-0001790397687725-00000000000000000001-82a43d…"
       },
-      "confidence": 0.45,
+      "confidence": 0.95,
       "source": [
-        "discovery:hex"
+        "discovery:hex",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (llm)",
       "discoveredAt": "2026-09-26",
@@ -16766,7 +16669,7 @@
       "description": "A basic writing tool powered by LLM ✍️",
       "ecosystem": "luarocks",
       "language": "Lua",
-      "role": "sdk",
+      "role": "support",
       "kind": "client",
       "providers": [],
       "sdkApi": "n/a",
@@ -16794,9 +16697,10 @@
         "releasedAt": "2025-01-10",
         "latestRelease": "v1.3.1"
       },
-      "confidence": 0.3,
+      "confidence": 0.95,
       "source": [
-        "discovery:luarocks"
+        "discovery:luarocks",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (llm)",
       "discoveredAt": "2026-09-26",
@@ -19051,39 +18955,6 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "luarocks:gpt-images-25",
-      "name": "gpt-images-25",
-      "description": "SDK client and metadata helper for GPT images 2.5 (https://images25.art)",
-      "ecosystem": "luarocks",
-      "language": "Lua",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [],
-      "sdkApi": "n/a",
-      "status": "active",
-      "tier": "B",
-      "features": [],
-      "envVars": [],
-      "install": "luarocks install gpt-images-25",
-      "licenseFamily": "unknown",
-      "registry": {
-        "url": "https://luarocks.org/modules/ryanellis42675/gpt-images-25",
-        "downloads": 10,
-        "downloadsPeriod": "none",
-        "updatedAt": "2026-09-25"
-      },
-      "github": {},
-      "confidence": 0.45,
-      "source": [
-        "discovery:luarocks"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (gpt)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "latestRelease": "2026-09-25",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "pypi:agentforge-reranker-sentence-transformers",
       "name": "agentforge-reranker-sentence-transformers",
       "description": "SentenceTransformers cross-encoder reranker for AgentForge",
@@ -19973,50 +19844,6 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "cran:symbol.equation.gpt",
-      "name": "symbol.equation.gpt",
-      "description": "Powerful user interface for adding symbols, smileys, arrows, building mathematical equations using 'LaTeX' or 'r2symbols'. Built for use in development of 'Markdown' and 'Shiny' Outputs.",
-      "ecosystem": "cran",
-      "language": "R",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [],
-      "sdkApi": "n/a",
-      "status": "deprecated",
-      "tier": "C",
-      "features": [],
-      "envVars": [],
-      "install": "install.packages('symbol.equation.gpt')",
-      "repo": "https://github.com/oobianom/symbol.equation.gpt",
-      "homepage": "https://symbols-ui.obi.obianom.com",
-      "license": "MIT + file LICENSE",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://cran.r-project.org/package=symbol.equation.gpt",
-        "version": "1.1.4",
-        "downloadsPeriod": "month",
-        "updatedAt": "2024-07-31"
-      },
-      "github": {
-        "stars": 6,
-        "forks": 1,
-        "openIssues": 1,
-        "archived": false,
-        "pushedAt": "2023-11-17"
-      },
-      "confidence": 0.3,
-      "source": [
-        "discovery:cran"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (gpt)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "stars": 6,
-      "latestRelease": "2024-07-31",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "crates:groq-api-rs",
       "name": "groq-api-rs",
       "description": "Client For Groq Cloud LLM APIs",
@@ -20241,39 +20068,6 @@
       "updatedAt": "2026-09-26",
       "stars": 5,
       "latestRelease": "2024-04-24",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "luarocks:gpt-image-2-app",
-      "name": "gpt-image-2-app",
-      "description": "GPT Image 2 official website backlink rock.",
-      "ecosystem": "luarocks",
-      "language": "Lua",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [],
-      "sdkApi": "n/a",
-      "status": "active",
-      "tier": "B",
-      "features": [],
-      "envVars": [],
-      "install": "luarocks install gpt-image-2-app",
-      "licenseFamily": "unknown",
-      "registry": {
-        "url": "https://luarocks.org/modules/lisa0802/gpt-image-2-app",
-        "downloads": 5,
-        "downloadsPeriod": "total",
-        "updatedAt": "2026-03-04"
-      },
-      "github": {},
-      "confidence": 0.45,
-      "source": [
-        "discovery:luarocks"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (gpt)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "latestRelease": "2026-03-04",
       "latestReleaseSource": "registry"
     },
     {
@@ -20796,7 +20590,7 @@
       "description": "Model Context Protocol (MCP) integration for LangChain Elixir. Enables LangChain to use MCP servers as tool providers.",
       "ecosystem": "hex",
       "language": "Elixir",
-      "role": "framework",
+      "role": "support",
       "kind": "framework",
       "providers": [],
       "sdkApi": "n/a",
@@ -20825,9 +20619,10 @@
         "releasedAt": "2025-12-04",
         "latestRelease": "v0.2.0"
       },
-      "confidence": 0.45,
+      "confidence": 0.95,
       "source": [
-        "discovery:hex"
+        "discovery:hex",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (langchain)",
       "discoveredAt": "2026-09-26",
@@ -23551,80 +23346,6 @@
       "latestReleaseSource": "registry"
     },
     {
-      "id": "cran:llm",
-      "name": "LLM",
-      "description": "Fits the Logit Leaf Model, makes predictions and visualizes the output. (De Caigny et al., (2018) <DOI:10.1016/j.ejor.2018.02.009>).",
-      "ecosystem": "cran",
-      "language": "R",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [],
-      "sdkApi": "n/a",
-      "status": "deprecated",
-      "tier": "B",
-      "features": [],
-      "envVars": [],
-      "install": "install.packages('LLM')",
-      "license": "GPL (>= 3)",
-      "licenseId": "GPL-3.0",
-      "licenseFamily": "copyleft",
-      "registry": {
-        "url": "https://cran.r-project.org/package=LLM",
-        "version": "1.1.0",
-        "downloadsPeriod": "month",
-        "updatedAt": "2020-05-08"
-      },
-      "github": {},
-      "confidence": 0.6,
-      "source": [
-        "discovery:cran"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (llm); точное совпадение с поисковым запросом",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "latestRelease": "2020-05-08",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "cran:mistral",
-      "name": "mistral",
-      "description": "Various reliability analysis methods for rare event inference (computing failure probability and quantile from model/function outputs).",
-      "ecosystem": "cran",
-      "language": "R",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "mistral"
-      ],
-      "sdkApi": "mistral",
-      "status": "active",
-      "tier": "B",
-      "features": [],
-      "envVars": [
-        "MISTRAL_API_KEY"
-      ],
-      "install": "install.packages('mistral')",
-      "license": "GPL-2",
-      "licenseId": "GPL-3.0",
-      "licenseFamily": "copyleft",
-      "registry": {
-        "url": "https://cran.r-project.org/package=mistral",
-        "version": "2.2.4",
-        "downloadsPeriod": "month",
-        "updatedAt": "2025-08-29"
-      },
-      "github": {},
-      "confidence": 0.75,
-      "source": [
-        "discovery:cran"
-      ],
-      "notes": "Признаки: имя == ключевое слово провайдера «Mistral AI»; LLM-признаки в описании (mistral)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "latestRelease": "2025-08-29",
-      "latestReleaseSource": "registry"
-    },
-    {
       "id": "cran:openairtools",
       "name": "openaiRtools",
       "description": "Complete R implementation of the 'OpenAI' Python 'SDK'. Provides full compatibility with the 'OpenAI' API including chat completions, 'embeddings', images, audio, fine-tuning, and model management.",
@@ -24135,7 +23856,7 @@
       "description": "Convenience wrapper around langchain with a structured prompt contract and post-processing.",
       "ecosystem": "hex",
       "language": "Elixir",
-      "role": "framework",
+      "role": "support",
       "kind": "framework",
       "providers": [],
       "sdkApi": "n/a",
@@ -24163,9 +23884,10 @@
         "archived": false,
         "pushedAt": "2026-06-12"
       },
-      "confidence": 0.45,
+      "confidence": 0.95,
       "source": [
-        "discovery:hex"
+        "discovery:hex",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (langchain, prompt)",
       "discoveredAt": "2026-09-26",

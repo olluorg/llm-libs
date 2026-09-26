@@ -54,6 +54,8 @@
     LICENSE_FAMILIES.map((family) => [family, tr(`licenseFamily.${family}`)]),
   );
 
+  const SORT_KEYS = ['name', 'language', 'popular', 'updated', 'stars', 'downloads', 'license'];
+
   const state = {
     q: '',
     // По умолчанию — только клиенты API провайдеров и шлюзы. На срезе языка
@@ -186,7 +188,10 @@
   // Если это разобрать, сразу ставим фильтр по языку и подставляем остаток
   // запроса в поиск, а не заставляем человека кликать по спискам.
   function applyIntent() {
-    const params = new URLSearchParams(location.search);
+    // Фильтры и сортировка храним в location.hash: при переходе по ссылке
+    // сервер не должен получать параметры в query string (это статический сайт).
+    const hash = location.hash.startsWith('#') ? location.hash.slice(1) : '';
+    const params = new URLSearchParams(hash);
     const fromUrl = params.get('q') ?? '';
     const languageFromUrl = params.get('language') ?? '';
     if (fromUrl) state.q = fromUrl;
@@ -197,6 +202,12 @@
     }
     if (params.get('license') && LICENSE_FAMILIES.includes(params.get('license'))) {
       state.licenseFamily = params.get('license');
+    }
+    if (params.get('sort') && SORT_KEYS.includes(params.get('sort'))) {
+      state.sort = params.get('sort');
+    }
+    if (params.get('dir') && ['1', '-1'].includes(params.get('dir'))) {
+      state.dir = Number(params.get('dir'));
     }
 
     if (state.q || state.language) return;
@@ -708,8 +719,13 @@
     // Лицензию в адрес пишем как `license`, а не именем поля состояния.
     if (state.licenseFamily) params.set('license', state.licenseFamily);
     if (state.roleGroup !== 'api') params.set('role', state.roleGroup);
+    // Сортировку пишем только если она отличается от дефолта, чтобы не мусорить в URL.
+    if (state.sort !== 'popular' || state.dir !== -1) {
+      params.set('sort', state.sort);
+      params.set('dir', String(state.dir));
+    }
     const query = params.toString();
-    history.replaceState(null, '', query ? `?${query}` : location.pathname);
+    history.replaceState(null, '', query ? `#${query}` : location.pathname);
   }
 
   function num(value) { const n = Number(value); return Number.isFinite(n) ? n : 0; }

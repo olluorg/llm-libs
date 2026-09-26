@@ -95,6 +95,68 @@ export async function loadCurated() {
   return records;
 }
 
+/**
+ * Ручные решения по конкретным записям: data/curated/00-curation.json.
+ * Это не часть курируемой базы — файл ничего не добавляет, а решает, что
+ * убрать и какие поля поправить.
+ */
+export async function loadCuration() {
+  const payload = await readJson(path.join(CURATED_DIR, '00-curation.json'), { exclude: [], patch: [] });
+  return { exclude: payload.exclude ?? [], patch: payload.patch ?? [] };
+}
+
+/**
+ * Применяет ручные решения поверх готового набора записей.
+ *
+ * Вызывается последним, после слияния курируемых данных и автообнаружения,
+ * поэтому исправления здесь авторитетны и не зависят от порядка имён файлов
+ * в data/curated.
+ */
+export function applyCuration(records, curation) {
+  // Ключ сравнивается в нижнем регистре, как строится id записи: в CRAN пакет
+  // называется `LLM`, а в исключении его естественно написать как `llm`, и при
+  // регистрозависимом сравнении правило молча не срабатывало.
+  const keyOf = (ecosystem, name) => `${ecosystem}:${name}`.toLowerCase();
+  const excluded = new Map(curation.exclude.map((item) => [keyOf(item.ecosystem, item.name), item]));
+  const patches = new Map(curation.patch.map((item) => [keyOf(item.ecosystem, item.name), item]));
+  const kept = [];
+  const dropped = [];
+  const patched = [];
+
+  for (const record of records) {
+    const key = keyOf(record.ecosystem, record.name);
+    if (excluded.has(key)) {
+      dropped.push(`${record.ecosystem}:${record.name}`);
+      excluded.delete(key);
+      continue;
+    }
+    const patch = patches.get(key);
+    if (!patch) {
+      kept.push(record);
+      continue;
+    }
+    const { reason, ...fields } = patch;
+    const override = normalizeRecord({
+      ...fields,
+      ecosystem: record.ecosystem,
+      name: record.name,
+      confidence: 0.95,
+      source: ['curation'],
+    });
+    kept.push(mergeRecords(record, override));
+    patched.push({ id: `${record.ecosystem}:${record.name}`, reason, fields: Object.keys(fields) });
+    patches.delete(key);
+  }
+
+  // Правила, которые ничего не нашли: либо запись уже исчезла и правило
+  // устарело, либо в нём опечатка. Молча такое проходить не должно.
+  const unmatched = [
+    ...[...excluded.values()].map((item) => `${item.ecosystem}:${item.name} (исключение)`),
+    ...[...patches.values()].map((item) => `${item.ecosystem}:${item.name} (исправление)`),
+  ];
+  return { records: kept, dropped, patched, unmatched };
+}
+
 export async function readDataset() {
   return readJson(path.join(OUT_DIR, 'libraries.json'), { generatedAt: null, libraries: [] });
 }

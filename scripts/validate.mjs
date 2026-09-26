@@ -10,7 +10,7 @@
 import { createLogger } from './lib/log.mjs';
 import { getText } from './lib/http.mjs';
 import { mapLimit, repoSlug } from './lib/github.mjs';
-import { loadProviders, readDataset, CURATED_DIR } from './lib/store.mjs';
+import { loadCuration, loadProviders, readDataset, CURATED_DIR } from './lib/store.mjs';
 import { makeId, CALLS_PROVIDER_API, ROLES } from './lib/record.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -127,10 +127,44 @@ log.info(
     .join(' · ')}`,
 );
 
+// Ручные решения: исключённых записей в датасете быть не должно, а
+// исправленные — должны нести исправленное значение. Иначе механизм молча
+// перестал работать: правило нашлось, но не применилось.
+{
+  const curation = await loadCuration();
+  const byId = new Map((dataset.libraries ?? []).map((library) => [library.id.toLowerCase(), library]));
+  for (const item of curation.exclude) {
+    const key = `${item.ecosystem}:${item.name}`.toLowerCase();
+    if (byId.has(key)) {
+      problems.errors.push(`запись исключена ручным решением, но попала в датасет: ${key}`);
+    }
+    if (!item.reason) problems.warnings.push(`исключение без причины: ${key}`);
+  }
+  for (const item of curation.patch) {
+    const key = `${item.ecosystem}:${item.name}`.toLowerCase();
+    const library = byId.get(key);
+    if (!library) {
+      problems.warnings.push(`исправление не нашло запись (запись исчезла или опечатка): ${key}`);
+      continue;
+    }
+    for (const [field, value] of Object.entries(item)) {
+      if (field === 'reason') continue;
+      if (library[field] !== value) {
+        problems.errors.push(`ручное исправление не применилось: ${key}.${field} = ${JSON.stringify(library[field])}, ожидалось ${JSON.stringify(value)}`);
+      }
+    }
+    if (!item.reason) problems.warnings.push(`исправление без причины: ${key}`);
+  }
+  if (curation.exclude.length || curation.patch.length) {
+    log.info(
+      `ручные решения: исключено ${curation.exclude.length}, исправлено полей у ${curation.patch.length}`,
+    );
+  }
+}
+
 if (problems.errors.length) {
   log.error('критичные проблемы найдены');
-  process.exit(1);
-}
+  process.exit(1);}
 
 /** Идентификаторы всех записей из data/curated/*.json. */
 async function collectCuratedIds() {

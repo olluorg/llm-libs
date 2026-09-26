@@ -1,0 +1,72 @@
+{
+  "$comment": "Ручные решения по конкретным записям. Применяется последним, поверх курируемых данных и автообнаружения, поэтому здесь порядок файлов в data/curated не важен. Каждое исключение — с причиной: иначе через полгода непонятно, почему запись убрана. Исключение означает «это не библиотека LLM», исправление — «запись настоящая, но поле определено неверно».",
+  "exclude": [
+    {
+      "ecosystem": "npm",
+      "name": "groq",
+      "reason": "Пакет npm `groq` — это библиотека запросов GROQ к CMS Sanity, а не SDK провайдера Groq. Совпадение только по имени, и оно вводило в каталог чужой пакет с 6336 звёзд."
+    },
+    {
+      "ecosystem": "cran",
+      "name": "mistral",
+      "reason": "R-пакет о статистике распределения «мистраль» (ветер), а не об ИИ. Попал по имени провайдера."
+    },
+    {
+      "ecosystem": "cran",
+      "name": "llm",
+      "reason": "R-пакет `llm` — это Logit Leaf Model, то есть логистическая регрессия (De Caigny et al., 2018). Совпадение только по имени."
+    },
+    {
+      "ecosystem": "cran",
+      "name": "symbol.equation.gpt",
+      "reason": "Редактор формул LaTeX с «GPT» в названии, к LLM отношения не имеет."
+    },
+    {
+      "ecosystem": "luarocks",
+      "name": "gpt-image-2-app",
+      "reason": "Backlink-камень на сайт gpt-image-2: в описании прямо сказано «official website backlink rock». Не модуль."
+    },
+    {
+      "ecosystem": "luarocks",
+      "name": "gpt-images-25",
+      "reason": "Промо-камень на сторонний сайт images25.art, а не SDK: в описании только «metadata helper» и ссылка."
+    },
+    {
+      "ecosystem": "hex",
+      "name": "bullmq",
+      "reason": "Очередь задач на Redis для Elixir. Совпадение по слову «Bull» в запросах про LLM; к моделям отношения не имеет, а 9443 звезды делали его самым заметным в подборке Elixir."
+    }
+  ],
+  "patch": [
+    {
+      "ecosystem": "luarocks",
+      "name": "llm.nvim",
+      "role": "support",
+      "reason": "Инструмент разработки на Neovim с вызовом LLM, а не клиент API провайдера."
+    },
+    {
+      "ecosystem": "luarocks",
+      "name": "dante.nvim",
+      "role": "support",
+      "reason": "Пишущий инструмент на LLM, а не клиент API."
+    },
+    {
+      "ecosystem": "hex",
+      "name": "llm_db",
+      "role": "support",
+      "reason": "Каталог метаданных моделей, а не клиент API."
+    },
+    {
+      "ecosystem": "hex",
+      "name": "langchain_mcp",
+      "role": "support",
+      "reason": "Обёртка MCP для LangChain — сопутствующий инструмент."
+    },
+    {
+      "ecosystem": "hex",
+      "name": "langchain_prompt",
+      "role": "support",
+      "reason": "Обёртка над промптами LangChain — сопутствующий инструмент."
+    }
+  ]
+}

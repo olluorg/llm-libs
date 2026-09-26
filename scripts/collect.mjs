@@ -13,7 +13,8 @@ import path from 'node:path';
 import { createLogger, log as rootLog } from './lib/log.mjs';
 import { repoSlug } from './lib/github.mjs';
 import {
-  dedupe, loadAdapter, loadCurated, loadEcosystems, loadProviders, writeDataset, writeJson, OUT_DIR,
+  applyCuration, dedupe, loadAdapter, loadCurated, loadCuration, loadEcosystems, loadProviders,
+  writeDataset, writeJson, OUT_DIR,
 } from './lib/store.mjs';
 import { mergeRecords } from './lib/record.mjs';
 import { inferEnvVars, inferFeatures, inferKind, inferSdkApi, inferStatus, roleForKind } from './lib/infer.mjs';
@@ -226,8 +227,15 @@ if (!options.curatedOnly) {
   }
 }
 
-const all = dedupe([...curated, ...discovered]);
-const payload = await writeDataset(all, { stats });
+const merged = dedupe([...curated, ...discovered]);
+// Ручные решения (исключения и исправления полей) — последними: они авторитетны
+// и не должны зависеть от того, в каком файле лежат курируемые записи.
+const curation = await loadCuration();
+const { records: curated2, dropped, patched, unmatched } = applyCuration(merged, curation);
+if (dropped.length) rootLog.info(`исключено по ручному решению: ${dropped.length} (${dropped.join(", ")})`);
+if (patched.length) rootLog.info(`исправлено полей по ручному решению: ${patched.map((p) => p.id).join(", ")}`);
+if (unmatched.length) rootLog.warn(`ручные решения ничего не нашли: ${unmatched.join(", ")} — опечатка или правило устарело`);
+const payload = await writeDataset(curated2, { stats });
 await writeJson(path.join(OUT_DIR, 'report.json'), {
   ...stats,
   finishedAt: new Date().toISOString(),
