@@ -18,7 +18,7 @@ import { createLogger } from './lib/log.mjs';
 import { readConfig, readDataset, DIST_DIR, ROOT } from './lib/store.mjs';
 import { slugify } from './lib/site-helpers.mjs';
 import { ROLES, CALLS_PROVIDER_API } from './lib/record.mjs';
-import { LICENSE_FAMILY_LABEL } from './lib/license.mjs';
+import { LOCALES, DEFAULT_LOCALE, LOCALE_DIR, localeStrings, t } from './lib/i18n.mjs';
 import { popularity as sharedPopularity } from './lib/popularity.mjs';
 
 const log = createLogger('build');
@@ -41,24 +41,7 @@ const DEFAULT_ROLES = {
 
 const ALL_ROLES = DEFAULT_ROLES.language;
 
-/** Откуда взялась дата релиза — для подсказки в таблице. */
-const RELEASE_SOURCE_LABEL = {
-  registry: 'релиз в реестре пакетов',
-  'github-release': 'релиз на GitHub',
-  'github-commit': 'последний коммит',
-};
-
-/** Пояснения к ролям: попадают в данные для сайта и в тексты для поисковиков. */
-const ROLE_DESCRIPTIONS = {
-  sdk: 'Прямой HTTP-клиент API провайдера. Создаёт подключение к OpenAI, Anthropic, Gemini, Bedrock и другим API.',
-  framework:
-    'Абстракция поверх клиентских SDK: агенты, цепочки, RAG-пайплайны, структурированный вывод. Сама к провайдеру не ходит.',
-  runtime:
-    'Считает модель локально или поднимает сервер инференса. К API облачного провайдера не обращается; Ollama, vLLM и llama.cpp дают OpenAI-совместимый сервер.',
-  gateway: 'Прокси к провайдерам с единым форматом запросов, ретраями и учётом стоимости.',
-  support:
-    'Сопутствующий слой: векторные базы, наблюдаемость, оценки, токенизаторы, интерфейсы, серверы MCP.',
-};
+/** Пояснения к ролям лежат в словаре локализации: ключи roleDesc.<роль>. */
 
 const siteUrl =
   process.env.SITE_URL ??
@@ -89,112 +72,153 @@ const providerCounts = countBy(libraries, (l) => l.providers[0] ?? '—');
 const languages = [...languageCounts.entries()].sort((a, b) => b[1] - a[1]);
 const usedProviders = providerList.filter((p) => libraries.some((l) => l.providers.includes(p.id)));
 const roleCounts = countBy(libraries, (l) => l.role);
-const roleList = Object.entries(ROLES)
-  .map(([id, label]) => ({ id, label, count: roleCounts.get(id) ?? 0, description: ROLE_DESCRIPTIONS[id] }))
+// Подписи ролей и их пояснения живут в словаре локализации (role.<роль>,
+// roleDesc.<роль>), поэтому здесь только идентификаторы и счётчики.
+const roleList = Object.keys(ROLES)
+  .map((id) => ({ id, count: roleCounts.get(id) ?? 0 }))
   .filter((role) => role.count > 0);
 
 await fs.rm(DIST_DIR, { recursive: true, force: true });
 await fs.mkdir(path.join(DIST_DIR, 'assets'), { recursive: true });
 
 // ── Данные и ассеты ───────────────────────────────────────────────────────
-await write(
-  path.join(DIST_DIR, 'assets', 'data.js'),
-  `window.__LLMDOCS__ = ${JSON.stringify({ generatedAt: dataset.generatedAt, providers: providerList, roles: roleList, libraries })};\n`,
-);
-await write(path.join(DIST_DIR, 'data', 'libraries.json'), `${JSON.stringify(dataset, null, 2)}\n`);
-await copy(path.join(ROOT, 'site', 'app.js'), path.join(DIST_DIR, 'assets', 'app.js'));
-await copy(path.join(ROOT, 'site', 'style.css'), path.join(DIST_DIR, 'assets', 'style.css'));
+//
+// Ассеты и данные копируются в каждое дерево локали: и dist/, и dist/ru/.
+// Благодаря этому префиксы в разметке относительны «внутри дерева» (../),
+// а не от корня сайта, и каждую папку можно скачать и открыть отдельно.
+for (const locale of LOCALES) {
+  const tree = LOCALE_DIR[locale] ? path.join(DIST_DIR, LOCALE_DIR[locale].replace(/^\//, '')) : DIST_DIR;
+  await fs.mkdir(path.join(tree, 'assets'), { recursive: true });
+  await write(
+    path.join(tree, 'assets', 'data.js'),
+    `window.__LLMDOCS__ = ${JSON.stringify({ generatedAt: dataset.generatedAt, providers: providerList, roles: roleList, libraries })};\n`,
+  );
+  await write(path.join(tree, 'data', 'libraries.json'), `${JSON.stringify(dataset, null, 2)}\n`);
+  await copy(path.join(ROOT, 'site', 'app.js'), path.join(tree, 'assets', 'app.js'));
+  await copy(path.join(ROOT, 'site', 'style.css'), path.join(tree, 'assets', 'style.css'));
+}
 
 const template = await fs.readFile(path.join(ROOT, 'site', 'index.html'), 'utf8');
 
 // ── Страницы ──────────────────────────────────────────────────────────────
-const pages = [
-  {
-    file: 'index.html',
-    root: '',
-    view: { role: 'api' },
-    roles: DEFAULT_ROLES.catalog,
-    title: 'Каталог библиотек для LLM — OpenAI, Anthropic, Gemini, Bedrock на всех языках',
-    description:
-      `${libraries.length} библиотек для работы с LLM: OpenAI, Anthropic Claude, Google Gemini, AWS Bedrock, Azure OpenAI, ` +
-      'Ollama, vLLM, Groq, OpenRouter, Mistral, Cohere и OpenAI-совместимые API. Python, TypeScript, Go, Rust, Java, ' +
-      'C#, PHP, Ruby, R, Elixir, Lua, Swift и другие языки, с версиями, загрузками и звёздами GitHub.',
-    heading: 'Каталог библиотек для работы с LLM',
-    subheading:
-      'OpenAI, Anthropic, Gemini, Bedrock, Azure и OpenAI-совместимые провайдеры — по всем языкам программирования. ' +
-      'Сначала идут официальные SDK, затем фреймворки и комьюнити-клиенты.',
-    keywords: 'llm библиотеки, openai sdk, anthropic claude sdk, gemini api, bedrock, ollama, vllm, litellm, langchain, llama-index',
-    filter: () => libraries,
-  },
-  {
-    file: 'providers.html',
-    root: '',
-    view: { role: 'all' },
-    roles: DEFAULT_ROLES.hub,
-    title: 'Библиотеки для LLM по провайдерам — OpenAI, Anthropic, Gemini, Bedrock',
-    description:
-      'Срез каталога по API-провайдерам: сколько библиотек вызывают API каждого провайдера, ссылки на документацию ' +
-      'и base URL. OpenAI, Anthropic, Google Gemini, AWS Bedrock, Azure OpenAI, Ollama, vLLM, Groq, OpenRouter, Mistral, Cohere.',
-    heading: 'Библиотеки по провайдерам',
-    subheading: 'Здесь только то, что обращается к API провайдера: клиентские SDK и фреймворки поверх них.',
-    keywords: 'llm провайдеры, openai, anthropic, gemini, bedrock, azure openai, ollama, groq, openrouter, mistral, cohere',
-    filter: () => libraries,
-    hub: 'providers',
-  },
-  {
-    file: 'languages.html',
-    root: '',
-    view: { role: 'all' },
-    roles: DEFAULT_ROLES.hub,
-    title: 'Библиотеки для LLM по языкам программирования',
-    description:
-      'Срез каталога по языкам: Python, TypeScript, JavaScript, Go, Rust, Java, Kotlin, C#/.NET, PHP, Ruby, R, ' +
-      'Elixir, Lua, Swift, Scala, Haskell, Clojure, C++, Dart, Zig, OCaml. С версиями, загрузками и звёздами GitHub.',
-    heading: 'Библиотеки по языкам',
-    subheading: 'Сколько клиентов API и фреймворков для работы с LLM доступно в каждом языке и экосистеме пакетов.',
-    keywords: 'llm sdk по языкам, python openai, typescript anthropic, golang llm, rust llm, java openai, c# llm, php llm',
-    filter: () => libraries,
-    hub: 'languages',
-  },
-  ...usedProviders.map((provider) => {
-    const subset = libraries.filter((l) => l.providers.includes(provider.id));
-    return {
-      file: path.join('providers', `${slugify(provider.id)}.html`),
-      root: '../',
-      view: { provider: provider.id, role: 'api' },
-      roles: DEFAULT_ROLES.provider,
-      title: `Библиотеки для ${provider.name} — ${subset.length} шт. | LLM-каталог`,
-      description:
-        `Готовые библиотеки и SDK для провайдера ${provider.name}: ${subset.length} пакетов для ` +
-        `${topLanguages(subset).join(', ')}. Версии, загрузки, звёзды GitHub, официальные SDK и комьюнити-клиенты.` +
-        (provider.docs ? ` Документация: ${provider.docs}` : ''),
-      heading: `Библиотеки для ${provider.name}`,
-      subheading: providerSummary(provider, subset),
-      keywords: `${provider.name} sdk, ${provider.name} api библиотеки, llm ${provider.id}`,
-      filter: () => subset,
-      subject: provider,
-    };
-  }),
-  ...languages.map(([language, count]) => {
-    const subset = libraries.filter((l) => l.language === language);
-    return {
-      file: path.join('languages', `${slugify(language)}.html`),
-      root: '../',
-      view: { language, role: 'all' },
-      roles: DEFAULT_ROLES.language,
-      title: `Библиотеки для LLM на ${language} — ${count} шт. | LLM-каталог`,
-      description:
-        `${count} библиотек для работы с LLM на языке ${language}: ` +
-        `${topPackages(subset).join(', ')}. Официальные SDK, фреймворки, локальный инференс, ` +
-        'шлюзы и наблюдаемость — с версиями и загрузками.',
-      heading: `Библиотеки для LLM на ${language}`,
-      subheading: `${count} записей в каталоге. Нажмите на библиотеку, чтобы увидеть установку и ссылки.`,
-      keywords: `llm ${language}, ${language} openai sdk, ${language} anthropic, llm библиотеки ${language}`,
-      filter: () => subset,
-      subject: { name: language, kind: 'language' },
-    };
-  }),
-];
+//
+// Страница описывается один раз, тексты берутся из словаря под нужную локаль.
+// Английский вариант лежит по чистому адресу (это x-default для поисковиков),
+// русский — по префиксу /ru/; обе версии отдаются целиком и связаны hreflang.
+const pages = [];
+
+for (const locale of LOCALES) {
+  const dir = LOCALE_DIR[locale];
+  const treeRoot = `${dir}/`.replace(/^\/+/, '');
+  // Путь внутри dist: у русского дерева это dist/ru/…
+  const inTree = (relative) => (dir ? path.join(dir.replace(/^\//, ''), relative) : relative);
+  // Настоящий адрес страницы на сайте (без префикса сайта), нужен для hreflang.
+  // С индексной страницей адрес оставляем как /index.html: так canonical,
+  // hreflang и sitemap.xml сходятся, и при смене хостинга ничего не ломается.
+  const urlPath = (relative) => `${treeRoot}${relative}`;
+  // Префикс относительных ссылок ВНУТРИ дерева локали: ассеты и соседние
+  // страницы лежат рядом, поэтому от глубины зависит только число ../.
+  const up = (depth) => '../'.repeat(depth);
+
+  pages.push(
+    {
+      locale,
+      file: inTree('index.html'),
+      root: up(0),
+      urlPath: urlPath('index.html'),
+      view: { role: 'api' },
+      roles: DEFAULT_ROLES.catalog,
+      title: t(locale, 'page.index.title'),
+      description: t(locale, 'page.index.description', { total: libraries.length }),
+      heading: t(locale, 'page.index.heading'),
+      subheading: t(locale, 'page.index.subheading'),
+      keywords: t(locale, 'page.index.keywords'),
+      filter: () => libraries,
+    },
+    {
+      locale,
+      file: inTree('providers.html'),
+      root: up(0),
+      urlPath: urlPath('providers.html'),
+      view: { role: 'all' },
+      roles: DEFAULT_ROLES.hub,
+      title: t(locale, 'page.providers.title'),
+      description: t(locale, 'page.providers.description'),
+      heading: t(locale, 'page.providers.heading'),
+      subheading: t(locale, 'page.providers.subheading'),
+      keywords: t(locale, 'page.providers.keywords'),
+      filter: () => libraries,
+      hub: 'providers',
+    },
+    {
+      locale,
+      file: inTree('languages.html'),
+      root: up(0),
+      urlPath: urlPath('languages.html'),
+      view: { role: 'all' },
+      roles: DEFAULT_ROLES.hub,
+      title: t(locale, 'page.languages.title'),
+      description: t(locale, 'page.languages.description'),
+      heading: t(locale, 'page.languages.heading'),
+      subheading: t(locale, 'page.languages.subheading'),
+      keywords: t(locale, 'page.languages.keywords'),
+      filter: () => libraries,
+      hub: 'languages',
+    },
+    ...usedProviders.map((provider) => {
+      const subset = libraries.filter((l) => l.providers.includes(provider.id));
+      const slug = `providers/${slugify(provider.id)}.html`;
+      return {
+        locale,
+        file: inTree(path.join('providers', `${slugify(provider.id)}.html`)),
+        root: up(1),
+        urlPath: urlPath(slug),
+        view: { provider: provider.id, role: 'api' },
+        roles: DEFAULT_ROLES.provider,
+        title: t(locale, 'page.provider.title', { name: provider.name, count: subset.length }),
+        description: t(locale, 'page.provider.description', {
+          name: provider.name,
+          count: subset.length,
+          top: topLanguages(subset).join(', '),
+        }),
+        heading: t(locale, 'page.provider.heading', { name: provider.name }),
+        subheading: providerSummary(locale, provider, subset),
+        keywords: t(locale, 'page.provider.keywords', { name: provider.name, id: provider.id }),
+        filter: () => subset,
+        subject: provider,
+      };
+    }),
+    ...languages.map(([language, count]) => {
+      const subset = libraries.filter((l) => l.language === language);
+      const slug = `languages/${slugify(language)}.html`;
+      return {
+        locale,
+        file: inTree(path.join('languages', `${slugify(language)}.html`)),
+        root: up(1),
+        urlPath: urlPath(slug),
+        view: { language, role: 'all' },
+        roles: DEFAULT_ROLES.language,
+        title: t(locale, 'page.language.title', { language, count }),
+        description: t(locale, 'page.language.description', {
+          language,
+          count,
+          top: topPackages(subset).join(', '),
+        }),
+        heading: t(locale, 'page.language.heading', { language }),
+        subheading: t(locale, 'page.language.subheading', { count }),
+        keywords: t(locale, 'page.language.keywords', { language }),
+        filter: () => subset,
+        subject: { name: language, kind: 'language' },
+      };
+    }),
+  );
+}
+
+/** Адрес той же страницы на другом языке: меняется только префикс /ru. */
+function alternatePath(locale, urlPath) {
+  const clean = urlPath.replace(/^\/?ru\//, '');
+  return locale === DEFAULT_LOCALE ? clean : `ru/${clean}`;
+}
 
 for (const page of pages) {
   const subset = page.filter();
@@ -212,7 +236,12 @@ for (const page of pages) {
 }
 
 // ── Служебные файлы ───────────────────────────────────────────────────────
-await write(path.join(DIST_DIR, 'llms.txt'), buildLlmsTxt(libraries, usedProviders));
+// llms.txt — указатель для ИИ-агентов: по языку, чтобы агент мог прочитать
+// нужную версию, не разбирая весь каталог.
+for (const locale of LOCALES) {
+  const inTree = LOCALE_DIR[locale] ? path.join(LOCALE_DIR[locale].replace(/^\//, ''), 'llms.txt') : 'llms.txt';
+  await write(path.join(DIST_DIR, inTree), buildLlmsTxt(locale, libraries, usedProviders));
+}
 await write(path.join(DIST_DIR, 'sitemap.xml'), buildSitemap(pages));
 await write(
   path.join(DIST_DIR, 'robots.txt'),
@@ -246,22 +275,26 @@ for (const [language, count] of languages) log.info(`  ${language.padEnd(14)} ${
 // ── Рендер страницы ───────────────────────────────────────────────────────
 
 /** Роли, которые попадают в статическую разметку и в JSON-LD по умолчанию. */
-function render(tpl, { root, view, title, description, heading, subheading, keywords, subset, file, roles, total }) {
+function render(tpl, { locale, root, urlPath, view, title, description, heading, subheading, keywords, subset, file, roles, total }) {
   const prefix = root ? `${root.replace(/\/+$/, '')}/` : '';
   // Канонический адрес — от корня сайта, без ../ от текущей страницы.
-  const canonical = `${siteUrl}/${file.split(path.sep).join('/')}`;
+  const canonical = `${siteUrl}/${urlPath}`;
   const visible = subset.filter((library) => roles.includes(library.role));
   const hidden = subset.length - visible.length;
   const sorted = sortForSeo(visible.length ? visible : subset);
   const shown = sorted.slice(0, PRE_RENDER_LIMIT);
 
   return tpl
+    .replaceAll('{{LANG}}', locale)
+    .replaceAll('{{ALTERNATES}}', alternatesHtml(locale, urlPath))
+    .replaceAll('{{SWITCHER}}', switcherHtml(locale, urlPath, prefix))
+    .replaceAll('{{I18N}}', JSON.stringify(localeStrings(locale)))
     .replaceAll(/\{\{ROOT\}\}/g, prefix)
     .replaceAll('{{TITLE}}', escapeHtml(title))
     .replaceAll('{{DESCRIPTION}}', escapeHtml(description))
     .replaceAll('{{KEYWORDS}}', escapeHtml(keywords))
     .replaceAll('{{CANONICAL}}', escapeHtml(canonical))
-    .replaceAll('{{JSONLD}}', jsonLd({ view, title, description, canonical, subset: visible, heading }))
+    .replaceAll('{{JSONLD}}', jsonLd({ locale, view, title, description, canonical, urlPath, subset: visible, heading }))
     .replaceAll('{{HEADING}}', escapeHtml(heading))
     .replaceAll('{{SUBHEADING}}', escapeHtml(subheading))
     .replaceAll('{{VIEW}}', JSON.stringify(view))
@@ -269,23 +302,95 @@ function render(tpl, { root, view, title, description, heading, subheading, keyw
     .replaceAll('{{LANGUAGES}}', String(new Set(visible.map((l) => l.language)).size))
     .replaceAll('{{PROVIDERS}}', String(new Set(visible.flatMap((l) => l.providers)).size))
     .replaceAll('{{CAPTION}}', escapeHtml(heading))
-    .replaceAll('{{SEO_HEADING}}', escapeHtml(seoHeading(view)))
-    .replaceAll('{{SEO_TEXT}}', escapeHtml(seoText(view, visible, hidden, roles)))
+    .replaceAll('{{SEO_HEADING}}', escapeHtml(seoHeading(locale, view)))
+    .replaceAll('{{SEO_TEXT}}', escapeHtml(seoText(locale, view, visible, hidden, roles)))
     .replaceAll('{{SEO_LINKS}}', seoLinks(sorted, prefix, view))
-    .replaceAll('{{ROWS}}', shown.map((library) => rowHtml(library)).join('\n'));
+    .replaceAll('{{ROWS}}', shown.map((library) => rowHtml(library, locale)).join('\n'))
+    // Служебные подстановки: часть строк содержит свою разметку (<b>, <code>),
+    // поэтому подставляется как есть — все они из словаря, не из данных.
+    .replaceAll('{{SITE_NAME}}', escapeHtml(t(locale, 'site.name')))
+    .replaceAll('{{STATS_LIBRARIES}}', escapeHtml(t(locale, 'stats.libraries')))
+    .replaceAll('{{STATS_LANGUAGES}}', escapeHtml(t(locale, 'stats.languages')))
+    .replaceAll('{{STATS_PROVIDERS}}', escapeHtml(t(locale, 'stats.providers')))
+    .replaceAll('{{STATS_UPDATED}}', escapeHtml(t(locale, 'stats.updated')))
+    .replaceAll('{{NAV_SECTIONS}}', escapeHtml(t(locale, 'nav.sections')))
+    .replaceAll('{{NAV_ALL}}', escapeHtml(t(locale, 'nav.all')))
+    .replaceAll('{{NAV_PROVIDERS}}', escapeHtml(t(locale, 'nav.providers')))
+    .replaceAll('{{NAV_LANGUAGES}}', escapeHtml(t(locale, 'nav.languages')))
+    .replaceAll('{{SEARCH}}', escapeHtml(t(locale, 'filters.search')))
+    .replaceAll('{{FILTER_ROLE}}', escapeHtml(t(locale, 'filters.role')))
+    .replaceAll('{{FILTER_LANGUAGE}}', escapeHtml(t(locale, 'filters.language')))
+    .replaceAll('{{FILTER_PROVIDER}}', escapeHtml(t(locale, 'filters.provider')))
+    .replaceAll('{{FILTER_KIND}}', escapeHtml(t(locale, 'filters.kind')))
+    .replaceAll('{{FILTER_STATUS}}', escapeHtml(t(locale, 'filters.status')))
+    .replaceAll('{{FILTER_TIER}}', escapeHtml(t(locale, 'filters.tier')))
+    .replaceAll('{{FILTER_LICENSE}}', escapeHtml(t(locale, 'filters.license')))
+    .replaceAll('{{FILTER_RESET}}', escapeHtml(t(locale, 'filters.reset')))
+    .replaceAll('{{FILTER_COUNT}}', escapeHtml(t(locale, 'filters.count')))
+    .replaceAll('{{LEGEND_SDK}}', escapeHtml(t(locale, 'role.api')))
+    .replaceAll('{{LEGEND_SDK_TEXT}}', escapeHtml(t(locale, 'legend.sdk')))
+    .replaceAll('{{LEGEND_GATEWAY}}', escapeHtml(t(locale, 'role.gateway')))
+    .replaceAll('{{LEGEND_GATEWAY_TEXT}}', escapeHtml(t(locale, 'legend.gateway')))
+    .replaceAll('{{LEGEND_FRAMEWORK}}', escapeHtml(t(locale, 'role.framework')))
+    .replaceAll('{{LEGEND_FRAMEWORK_TEXT}}', escapeHtml(t(locale, 'legend.framework')))
+    .replaceAll('{{LEGEND_RUNTIME}}', escapeHtml(t(locale, 'role.runtime')))
+    .replaceAll('{{LEGEND_RUNTIME_TEXT}}', t(locale, 'legend.runtime'))
+    .replaceAll('{{LEGEND_SUPPORT}}', escapeHtml(t(locale, 'role.support')))
+    .replaceAll('{{LEGEND_SUPPORT_TEXT}}', escapeHtml(t(locale, 'legend.support')))
+    .replaceAll('{{LEGEND_POPULARITY}}', t(locale, 'legend.popularity'))
+    .replaceAll('{{FOOTER_NOSCRIPT}}', t(locale, 'footer.noscript').replaceAll('{{ROOT}}', prefix))
+    .replaceAll('{{FOOTER_BUILD}}', escapeHtml(t(locale, 'footer.build')))
+    .replaceAll('{{FOOTER_MACHINE}}', escapeHtml(t(locale, 'footer.machine')))
+    .replaceAll('{{FOOTER_AGENTS}}', escapeHtml(t(locale, 'footer.agents')))
+    .replaceAll('{{FOOTER_KEYS}}', t(locale, 'footer.keys'))
+    .replaceAll('{{TH_LIBRARY}}', escapeHtml(t(locale, 'th.library')))
+    .replaceAll('{{TH_LANGUAGE}}', escapeHtml(t(locale, 'th.language')))
+    .replaceAll('{{TH_PROVIDERS}}', escapeHtml(t(locale, 'th.providers')))
+    .replaceAll('{{TH_ROLE}}', escapeHtml(t(locale, 'th.role')))
+    .replaceAll('{{TH_LICENSE}}', escapeHtml(t(locale, 'th.license')))
+    .replaceAll('{{TH_LICENSE_TITLE}}', escapeHtml(t(locale, 'th.licenseTitle')))
+    .replaceAll('{{TH_STARS}}', escapeHtml(t(locale, 'th.stars')))
+    .replaceAll('{{TH_STARS_TITLE}}', escapeHtml(t(locale, 'th.starsTitle')))
+    .replaceAll('{{TH_DOWNLOADS}}', escapeHtml(t(locale, 'th.downloads')))
+    .replaceAll('{{TH_DOWNLOADS_TITLE}}', escapeHtml(t(locale, 'th.downloadsTitle')))
+    .replaceAll('{{TH_RELEASE}}', escapeHtml(t(locale, 'th.release')))
+    .replaceAll('{{TH_RELEASE_TITLE}}', escapeHtml(t(locale, 'th.releaseTitle')));
+}
+
+/**
+ * hreflang: у каждой страницы ссылка на все локали и на версию по умолчанию.
+ * Английский — x-default: это язык, который показывают, когда язык системы не
+ * распознан, и на него указывают поисковики при отсутствии предпочтений.
+ */
+function alternatesHtml(locale, urlPath) {
+  const links = LOCALES.map(
+    (other) => `<link rel="alternate" hreflang="${other}" href="${escapeHtml(`${siteUrl}/${alternatePath(other, urlPath)}`)}">`,
+  );
+  links.push(
+    `<link rel="alternate" hreflang="x-default" href="${escapeHtml(`${siteUrl}/${alternatePath(DEFAULT_LOCALE, urlPath)}`)}">`,
+  );
+  return links.join('\n');
+}
+
+/**
+ * Переключатель языка — обычная ссылка, работает и без JavaScript.
+ * Адрес собирается из префикса страницы (сколько уровней вверх до корня)
+ * и пути на другой локали: иначе на вложенной странице вроде
+ * providers/openai.html ссылка ушла бы в providers/ru/… и не открылась.
+ */
+function switcherHtml(locale, urlPath, prefix) {
+  const other = locale === DEFAULT_LOCALE ? 'ru' : DEFAULT_LOCALE;
+  const label = t(locale, other === 'ru' ? 'nav.switchToRu' : 'nav.switchToEn');
+  const href = `${prefix}${alternatePath(other, urlPath)}`;
+  return `<a class="lang-switch" href="${escapeHtml(href)}" hreflang="${other}" lang="${other}" data-locale-link="${other}" title="${escapeHtml(t(locale, 'nav.languageSwitcher'))}">${escapeHtml(label)}</a>`;
 }
 
 /** Статическая разметка строки таблицы: тот же вид, что рисует app.js. */
-function rowHtml(library) {
+function rowHtml(library, locale = DEFAULT_LOCALE) {
   const providerChips = (library.providers ?? [])
     .slice(0, 3)
     .map((id) => `<span class="chip p">${escapeHtml(providerMap.get(id)?.name ?? id)}</span>`)
     .join('');
-  const role = roleList.find((item) => item.id === library.role);
-  const metrics = [
-    library.stars ? `<span title="Звёзды GitHub">★ ${compact(library.stars)}</span>` : '',
-    downloadsLabel(library) ? `<span title="Счётчик реестра пакетов">⬇ ${escapeHtml(downloadsLabel(library))}</span>` : '',
-  ].filter(Boolean).join('');
 
   return `<tr data-id="${escapeHtml(library.id)}">
         <td>
@@ -294,11 +399,11 @@ function rowHtml(library) {
         </td>
         <td>${escapeHtml(library.language)}</td>
         <td><div class="chips">${providerChips}${library.tier ? `<span class="chip tier-${escapeHtml(library.tier).toLowerCase()}">tier ${escapeHtml(library.tier)}</span>` : ''}</div></td>
-        <td><span class="role role-${escapeHtml(library.role)}">${escapeHtml(role?.label ?? library.role)}</span></td>
-        <td class="lic">${licenseCell(library)}</td>
+        <td><span class="role role-${escapeHtml(library.role)}" title="${escapeHtml(t(locale, `roleDesc.${library.role}`))}">${escapeHtml(t(locale, `role.${library.role}`))}</span></td>
+        <td class="lic">${licenseCell(locale, library)}</td>
         <td class="num">${library.stars ? compact(library.stars) : '—'}</td>
-        <td class="num">${escapeHtml(downloadsLabel(library)) || '—'}</td>
-        <td class="num">${releaseCell(library)}</td>
+        <td class="num">${escapeHtml(downloadsLabel(locale, library)) || '—'}</td>
+        <td class="num">${releaseCell(locale, library)}</td>
       </tr>`;
 }
 
@@ -308,23 +413,27 @@ function rowHtml(library) {
  * в scripts/lib/license.mjs, без неё «MIT», «MIT License» и «MIT + file LICENSE»
  * были бы тремя разными значениями.
  */
-function licenseCell(library) {
+function licenseCell(locale, library) {
   const family = library.licenseFamily ?? 'unknown';
+  const label = t(locale, `licenseFamily.${family}`);
   const title = library.license && library.license !== library.licenseId
-    ? `${LICENSE_FAMILY_LABEL[family] ?? family} · в реестре: ${library.license}`
-    : (LICENSE_FAMILY_LABEL[family] ?? family);
+    ? `${label} · ${t(locale, 'license.registryValue')}: ${library.license}`
+    : label;
   return `<span class="lic lic-${escapeHtml(family)}" title="${escapeHtml(title)}">${escapeHtml(library.licenseId ?? '—')}</span>`;
 }
 
-function sortForSeo(subset) {  return [...subset].sort(
+function sortForSeo(subset) {
+  return [...subset].sort(
     (a, b) => popularity(b) - popularity(a) || String(a.name).localeCompare(String(b.name)),
   );
 }
 
 /** Дата последнего релиза: реестр → релиз на GitHub → последний коммит. */
-function releaseCell(library) {
+function releaseCell(locale, library) {
   if (!library.latestRelease) return '—';
-  const source = RELEASE_SOURCE_LABEL[library.latestReleaseSource] ?? library.latestReleaseSource ?? '';
+  const source = library.latestReleaseSource
+    ? t(locale, `releaseSource.${library.latestReleaseSource}`)
+    : '';
   return `<span title="${escapeHtml(source)}">${escapeHtml(library.latestRelease)}</span>`;
 }
 
@@ -334,11 +443,11 @@ function popularity(library) {
 }
 
 /** Счётчик загрузок: подпись зависит от того, что он измеряет. */
-function downloadsLabel(library) {
+function downloadsLabel(locale, library) {
   const downloads = num(library.registry?.downloads);
   if (!downloads) return '';
   const period = library.registry?.downloadsPeriod;
-  const suffix = { month: '/мес', imports: ' импортов', total: ' всего', none: '' }[period] ?? '';
+  const suffix = period && period !== 'none' ? t(locale, `downloads.${period}`) : '';
   return `${compact(downloads)}${suffix}`;
 }
 
@@ -355,47 +464,44 @@ function compact(value) {
   return String(parsed);
 }
 
-function seoHeading(view) {
-  if (view.provider) return `Популярные библиотеки для ${providerMap.get(view.provider)?.name ?? view.provider}`;
-  if (view.language) return `Популярные библиотеки на ${view.language}`;
-  return 'С чего начать';
+function seoHeading(locale, view) {
+  if (view.provider) {
+    const name = providerMap.get(view.provider)?.name ?? view.provider;
+    return t(locale, 'seo.topProvider', { provider: name });
+  }
+  if (view.language) return t(locale, 'seo.topLanguage', { language: view.language });
+  return t(locale, 'seo.startHere');
 }
 
-function seoText(view, subset, hidden, roles) {
+function seoText(locale, view, subset, hidden, roles) {
   const count = subset.length;
   const hiddenRoles = roleList.filter((role) => !roles.includes(role.id) && role.count);
   const tail = hidden
-    ? ` Ещё ${hidden} записей типов «${hiddenRoles.map((r) => `${r.label.toLowerCase()} — ${r.count}`).join(', ')}» — ` +
-      'переключите фильтр ролей, чтобы их увидеть.'
+    ? t(locale, 'seoText.hiddenRoles', {
+        hidden,
+        roles: hiddenRoles.map((r) => `${t(locale, `role.${r.id}`).toLowerCase()} — ${r.count}`).join(', '),
+      })
     : '';
 
   if (view.provider) {
     const provider = providerMap.get(view.provider);
     const official = subset.filter((l) => l.kind === 'official-sdk').length;
     return (
-      `Клиенты API ${provider.name} и фреймворки, которые через них работают: ${count} записей` +
-      (official ? `, из них ${official} официальных SDK` : '') +
-      `. Список по убыванию популярности (звёзды GitHub и загрузки за месяц).` +
-      ` Нужен единый шлюз ко всем провайдерам — LiteLLM; нужен агентный фреймворк — LangChain или Vercel AI SDK.${tail}`
+      t(locale, 'seoText.provider', { name: provider.name, count, official }) +
+      (official ? t(locale, 'seoText.officialSuffix', { official }) : '') +
+      tail
     );
   }
   if (view.language) {
     return (
-      `Клиенты API LLM и фреймворки на языке ${view.language}: ${count} записей` +
-      (hidden ? `, плюс локальные рантаймы и сопутствующие инструменты для этого языка` : '') +
-      `. Сортировка — по популярности; клик по заголовку меняет порядок, поиск работает по названию, ` +
-      `описанию, провайдерам и возможностям.${tail}`
+      t(locale, 'seoText.language', {
+        language: view.language,
+        count,
+        hidden: hidden ? t(locale, 'seoText.hiddenSuffix') : '',
+      }) + tail
     );
   }
-  return (
-    `По умолчанию показаны только клиенты API провайдеров (${count}${hidden ? ` из ${count + hidden}` : ''}) — те, ` +
-    'кто действительно отправляет запросы в OpenAI, Anthropic, Gemini, Bedrock и другие API. ' +
-    'Остальное доступно через фильтр ролей: локальный запуск моделей (Ollama, vLLM, transformers, llama.cpp), ' +
-    'фреймворки поверх SDK (LangChain, Pydantic AI, DSPy), шлюзы (LiteLLM) и сопутствующие инструменты — ' +
-    'векторные базы, наблюдаемость, eval, токенизаторы, интерфейсы, серверы MCP. ' +
-    'Каталог собран автоматически из реестров пакетов и обогащён данными GitHub; если вы пришли из поиска, ' +
-    'язык из запроса подставляется автоматически.'
-  );
+  return t(locale, 'seoText.index', { count: hidden ? `${count} of ${count + hidden}` : count });
 }
 
 function seoLinks(sorted, prefix, view) {
@@ -420,18 +526,18 @@ function topLanguages(subset) {
     .map(([language]) => language);
 }
 
-function providerSummary(provider, subset) {
-  const parts = [`${subset.length} библиотек`];
+function providerSummary(locale, provider, subset) {
+  const parts = [t(locale, 'summary.count', { count: subset.length })];
   const official = subset.filter((l) => l.kind === 'official-sdk').length;
-  if (official) parts.push(`${official} официальных SDK`);
-  parts.push(`языки: ${topLanguages(subset).join(', ')}`);
+  if (official) parts.push(t(locale, 'summary.official', { official }));
+  parts.push(t(locale, 'summary.languages', { languages: topLanguages(subset).join(', ') }));
   if (provider.docs) parts.push(provider.docs);
   return parts.join(' · ');
 }
 
 // ── Разметка для поисковиков ──────────────────────────────────────────────
 
-function jsonLd({ view, title, description, canonical, subset, heading }) {
+function jsonLd({ locale, view, title, description, canonical, urlPath, subset, heading }) {
   const items = sortForSeo(subset).slice(0, 100).map((library) => ({
     '@type': 'SoftwareSourceCode',
     name: library.name,
@@ -451,7 +557,7 @@ function jsonLd({ view, title, description, canonical, subset, heading }) {
         name: title,
         description,
         url: canonical,
-        inLanguage: 'ru',
+        inLanguage: locale,
         dateModified: dataset.generatedAt,
         mainEntity: {
           '@type': 'ItemList',
@@ -463,7 +569,7 @@ function jsonLd({ view, title, description, canonical, subset, heading }) {
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Каталог', item: `${siteUrl}/index.html` },
+          { '@type': 'ListItem', position: 1, name: t(locale, 'nav.all'), item: `${siteUrl}/${alternatePath(locale, 'index.html')}` },
           ...(view.provider
             ? [{ '@type': 'ListItem', position: 2, name: providerMap.get(view.provider)?.name ?? view.provider, item: canonical }]
             : view.language
@@ -477,27 +583,31 @@ function jsonLd({ view, title, description, canonical, subset, heading }) {
   return JSON.stringify(payload).replace(/</g, '\\u003c');
 }
 
-function buildLlmsTxt(libs, providers) {
+function buildLlmsTxt(locale, libs, providers) {
   const lines = [
-    '# Каталог библиотек для работы с LLM',
+    t(locale, 'llms.title'),
     '',
-    `> Сгенерировано ${date}. ${libs.length} библиотек для ${new Set(libs.map((l) => l.language)).size} языков.`,
-    '> Полные данные: data/libraries.json',
+    t(locale, 'llms.generated', {
+      date,
+      total: libs.length,
+      languages: new Set(libs.map((l) => l.language)).size,
+    }),
+    t(locale, 'llms.fullData'),
     '',
-    '## Роли',
+    t(locale, 'llms.roles'),
     '',
-    ...roleList.map((role) => `- **${role.label}** (${role.count}): ${role.description}`),
+    ...roleList.map((role) => `- **${t(locale, `role.${role.id}`)}** (${role.count}): ${t(locale, `roleDesc.${role.id}`)}`),
     '',
-    '## Провайдеры',
+    t(locale, 'llms.providers'),
     '',
   ];
   for (const provider of providers) {
     const count = libs.filter((l) => l.providers.includes(provider.id)).length;
     if (!count) continue;
-    lines.push(`- [${provider.name}](${provider.docs ?? 'https://platform.openai.com/docs'}) — ${count} библиотек вызывают этот API${provider.baseUrl ? `, base URL: ${provider.baseUrl}` : ''}`);
+    lines.push(`- [${provider.name}](${provider.docs ?? 'https://platform.openai.com/docs'}) — ${count} ${t(locale, 'stats.libraries')}${provider.baseUrl ? `, base URL: ${provider.baseUrl}` : ''}`);
   }
 
-  lines.push('', '## Клиенты API (tier A/B)', '');
+  lines.push('', t(locale, 'llms.apiClients'), '');
   const top = sortForSeo(libs.filter((l) => (DEFAULT_ROLES.catalog.includes(l.role)) && (l.tier === 'A' || l.tier === 'B'))).slice(0, 200);
   let currentLanguage = null;
   for (const library of top) {
@@ -510,15 +620,20 @@ function buildLlmsTxt(libs, providers) {
     lines.push(`- [${library.name}](${link}) (${library.ecosystem}, ${library.kind})${install}`);
   }
 
-  lines.push('', '## Локальный запуск моделей', '');
+  lines.push('', t(locale, 'llms.runtimes'), '');
   for (const library of sortForSeo(libs.filter((l) => l.role === 'runtime')).slice(0, 40)) {
     const link = library.repo ?? library.registry?.url ?? '';
-    const server = library.openaiCompatibleServer ? ', OpenAI-совместимый сервер' : '';
+    const server = library.openaiCompatibleServer ? t(locale, 'llms.openaiCompatible') : '';
     lines.push(`- [${library.name}](${link}) (${library.ecosystem})${server}`);
   }
   return `${lines.join('\n')}\n`;
 }
 
+/**
+ * Sitemap: обе локали, каждая со ссылками на альтернативы, чтобы поисковик
+ * не считал их дубликатами. x-default отдаём отдельным urlset-элементом
+ * только для главной — на остальных страницах хватает hreflang в <head>.
+ */
 function buildSitemap(pagesList) {
   const today = date;
   const entries = [
@@ -526,17 +641,19 @@ function buildSitemap(pagesList) {
     { loc: '/providers.html', priority: '0.7' },
     { loc: '/languages.html', priority: '0.7' },
     ...pagesList
-      .filter((p) => p.file !== 'index.html')
-      .map((p) => ({ loc: `/${p.file.split(path.sep).join('/')}`, priority: p.view.provider ? '0.8' : '0.6' })),
+      .filter((page) => page.urlPath !== 'index.html')
+      .map((page) => ({ loc: `/${page.urlPath}`, priority: page.view.provider ? '0.8' : '0.6' })),
   ];
   return (
     '<?xml version="1.0" encoding="UTF-8"?>\n' +
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' +
     entries
-      .map(
-        (entry) =>
-          `  <url><loc>${siteUrl}${entry.loc}</loc><lastmod>${today}</lastmod><changefreq>daily</changefreq><priority>${entry.priority}</priority></url>`,
-      )
+      .map((entry) => {
+        const alternates = LOCALES.filter((locale) => `${siteUrl}/${alternatePath(locale, entry.loc.replace(/^\//, ''))}` !== `${siteUrl}${entry.loc}`)
+          .map((locale) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="${siteUrl}/${alternatePath(locale, entry.loc.replace(/^\//, ''))}"/>`)
+          .join('\n');
+        return `  <url>\n    <loc>${siteUrl}${entry.loc}</loc>\n${alternates}\n    <lastmod>${today}</lastmod><changefreq>daily</changefreq><priority>${entry.priority}</priority>\n  </url>`;
+      })
       .join('\n') +
     '\n</urlset>\n'
   );

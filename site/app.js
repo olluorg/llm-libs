@@ -15,14 +15,20 @@
    * обращается к API провайдера: клиенты и шлюзы. Локальные рантаймы, фреймворки
    * и сопутствующие инструменты — отдельные группы, иначе они неотличимы от SDK.
    */
+  // Словарь интерфейса встроен в страницу сборщиком: на английской странице
+  // window.__LLMDOCS_I18N__ — английский, на /ru/… — русский.
+  const T = window.__LLMDOCS_I18N__ ?? {};
+  /** Строка из словаря; при отсутствии показываем ключ, а не пустоту. */
+  const tr = (key) => T[key] ?? key;
+
   const ROLE_GROUPS = [
-    { value: 'api', label: 'Клиенты и шлюзы', roles: ['sdk', 'gateway'] },
-    { value: 'sdk', label: 'Только клиенты API', roles: ['sdk'] },
-    { value: 'framework', label: 'Фреймворки', roles: ['framework'] },
-    { value: 'runtime', label: 'Локальный запуск моделей', roles: ['runtime'] },
-    { value: 'support', label: 'Сопутствующие инструменты', roles: ['support'] },
-    { value: 'all', label: 'Все роли', roles: ['sdk', 'framework', 'runtime', 'gateway', 'support'] },
-  ];
+    { value: 'api', roles: ['sdk', 'gateway'] },
+    { value: 'sdk', roles: ['sdk'] },
+    { value: 'framework', roles: ['framework'] },
+    { value: 'runtime', roles: ['runtime'] },
+    { value: 'support', roles: ['support'] },
+    { value: 'all', roles: ['sdk', 'framework', 'runtime', 'gateway', 'support'] },
+  ].map((group) => ({ ...group, label: tr(`roleGroup.${group.value}`) }));
 
   /**
    * Семейства лицензий. Реестры отдают «MIT», «MIT License», «MIT + file LICENSE»
@@ -31,13 +37,9 @@
    * Фильтруем по семейству: по сырому значению получилось бы 274 пункта.
    */
   const LICENSE_FAMILIES = ['permissive', 'copyleft', 'source', 'other', 'unknown'];
-  const LICENSE_FAMILY_LABEL = {
-    permissive: 'Разрешающая — MIT, Apache-2.0, BSD',
-    copyleft: 'С обязательным открытием кода — GPL, AGPL',
-    source: 'Открывает исходники, без вирусности — MPL, EPL',
-    other: 'Указана, но не приведена к SPDX',
-    unknown: 'Не указана',
-  };
+  const LICENSE_FAMILY_LABEL = Object.fromEntries(
+    LICENSE_FAMILIES.map((family) => [family, tr(`licenseFamily.${family}`)]),
+  );
 
   const state = {
     q: '',
@@ -299,11 +301,9 @@
   function showIntentHint(detected) {
     const hint = $('#hint');
     if (!hint || view.language || view.provider) return;
-    const parts = [`пришли с запросом «${esc(detected.query)}»`];
-    if (detected.language) parts.push(`язык: ${detected.language}`);
-    hint.innerHTML =
-      `Подстроили каталог под ваш запрос: ${parts.join(' · ')}. ` +
-      '<button type="button" id="hint-reset">Сбросить</button>';
+    const parts = [tr('intent.hintQuery').replace('%{query}', esc(detected.query))];
+    if (detected.language) parts.push(tr('intent.hintLanguage').replace('%{language}', detected.language));
+    hint.innerHTML = tr('intent.hint').replace('%{parts}', parts.join(' · ')) + tr('intent.hintButton');
     hint.hidden = false;
     hint.querySelector('#hint-reset').addEventListener('click', () => {
       state.q = '';
@@ -318,7 +318,7 @@
 
   function fillSelect(node, options) {
     const values = options.map((o) => (Array.isArray(o) ? o : [o, o])).sort((a, b) => a[1].localeCompare(b[1]));
-    node.innerHTML = `<option value="">все</option>` + values
+    node.innerHTML = `<option value="">${esc(tr('filters.all'))}</option>` + values
       .map(([value, label]) => `<option value="${esc(value)}">${esc(label)}</option>`)
       .join('');
   }
@@ -354,9 +354,9 @@
 
   function render() {
     const rows = libraries.filter(matches).sort(comparator);
-    el.count.textContent = `${rows.length} из ${libraries.length}`;
+    el.count.textContent = tr('count.format').replace('%{shown}', rows.length).replace('%{total}', libraries.length);
     if (!rows.length) {
-      el.tbody.innerHTML = `<tr><td colspan="7" class="empty">Ничего не найдено — ослабьте фильтры.</td></tr>`;
+      el.tbody.innerHTML = `<tr><td colspan="7" class="empty">${esc(tr('empty.title'))}</td></tr>`;
       return;
     }
     el.tbody.innerHTML = rows.map(rowHtml).join('');
@@ -401,25 +401,18 @@
     return 2 * Math.log10(stars + 10) + weight * Math.log10(downloads + 10) + (library.tier === 'A' ? 0.5 : 0);
   }
 
-  const RELEASE_SOURCE_LABEL = {
-    registry: 'релиз в реестре пакетов',
-    'github-release': 'релиз на GitHub',
-    'github-commit': 'последний коммит',
-  };
-
   /** Дата последнего релиза и её источник: реестр → релиз на GitHub → коммит. */
   function releaseCell(library) {
     if (!library.latestRelease) return '—';
-    const source = RELEASE_SOURCE_LABEL[library.latestReleaseSource] ?? library.latestReleaseSource;
+    const source = library.latestReleaseSource ? tr(`releaseSource.${library.latestReleaseSource}`) : library.latestReleaseSource;
     return `<span title="${esc(source)}">${esc(library.latestRelease)}</span>`;
   }
 
   function downloadsLabel(library) {
     const downloads = num(library.registry?.downloads);
     if (!downloads) return '';
-    const suffix = { month: '/мес', imports: ' импортов', total: ' всего', none: '' }[
-      library.registry?.downloadsPeriod
-    ] ?? '';
+    const period = library.registry?.downloadsPeriod;
+    const suffix = period && period !== 'none' ? tr(`downloads.${period}`) : '';
     return `${compact(downloads)}${suffix}`;
   }
 
@@ -430,6 +423,9 @@
       : state.sort === 'updated' ? cmpString(a.latestRelease ?? '', b.latestRelease ?? '')
       : state.sort === 'stars' ? num(a.stars) - num(b.stars)
       : state.sort === 'downloads' ? num(a.registry?.downloads) - num(b.registry?.downloads)
+      // Лицензии сравниваем по идентификатору, а при равенстве — по популярности:
+      // так порядок детерминирован и не «прыгает» между сборками.
+      : state.sort === 'license' ? cmpString(a.licenseId ?? '', b.licenseId ?? '')
       : popularity(a) - popularity(b);
 
     // При равных значениях (у языков без звёзд метрики близки к нулю)
@@ -483,55 +479,53 @@
     const providerNames = (library.providers ?? []).map((p) => providerMap.get(p)?.name ?? p);
     const worksWith = (library.worksWith ?? []).map((p) => providerMap.get(p)?.name ?? p);
     const rows = [
-      ['Роль', `${role?.label ?? library.role} — ${role?.description ?? ''}`],
-      ['Тип', library.kind],
-      ['Статус', library.status],
-      ['API', library.sdkApi],
-      ['Чей API вызывается', providerNames.join(', ') || (library.role === 'runtime' ? 'никого — считает модель сам' : '—')],
-      ...(worksWith.length ? [['Связана с', worksWith.join(', ')]] : []),
-      ...(library.openaiCompatibleServer
-        ? [['Совместимость', 'поднимает сервер /v1, доступен из openai-клиента через base_url']]
-        : []),
-      ['Возможности', (library.features ?? []).join(', ') || '—'],
-      ['Переменные', (library.envVars ?? []).map((v) => `<code>${esc(v)}</code>`).join(' ') || '—'],
-      ['Версия', library.registry?.version ?? '—'],
-      ['Загрузки', downloadsLabel(library) || '—'],
-      ['Звёзды', library.stars ? compact(library.stars) : '—'],
-      ['Популярность', `${popularity(library).toFixed(2)} (2·log₁₀★ + log₁₀⬇${library.tier === 'A' ? ' + 0.5' : ''})`],
-      ['Лицензия', library.licenseId
+      [tr('drawer.role'), `${tr(`role.${library.role}`)} — ${tr(`roleDesc.${library.role}`)}`],
+      [tr('drawer.kind'), library.kind],
+      [tr('drawer.status'), library.status],
+      [tr('drawer.api'), library.sdkApi],
+      [tr('drawer.providers'), providerNames.join(', ') || (library.role === 'runtime' ? tr('drawer.noProvider') : '—')],
+      ...(worksWith.length ? [[tr('drawer.worksWith'), worksWith.join(', ')]] : []),
+      ...(library.openaiCompatibleServer ? [[tr('drawer.compatibility'), tr('drawer.compatibilityText')]] : []),
+      [tr('drawer.features'), (library.features ?? []).join(', ') || '—'],
+      [tr('drawer.envVars'), (library.envVars ?? []).map((v) => `<code>${esc(v)}</code>`).join(' ') || '—'],
+      [tr('drawer.version'), library.registry?.version ?? '—'],
+      [tr('drawer.downloads'), downloadsLabel(library) || '—'],
+      [tr('drawer.stars'), library.stars ? compact(library.stars) : '—'],
+      [tr('drawer.popularity'), `${popularity(library).toFixed(2)} (2·log₁₀★ + log₁₀⬇${library.tier === 'A' ? ' + 0.5' : ''})`],
+      [tr('drawer.license'), library.licenseId
         ? `<span class="lic lic-${esc(library.licenseFamily ?? 'unknown')}">${esc(library.licenseId)}</span> <span style="color:var(--text-dim)">${esc(LICENSE_FAMILY_LABEL[library.licenseFamily] ?? '')}</span>`
         : `<span style="color:var(--text-dim)">${esc(LICENSE_FAMILY_LABEL.unknown)}</span>`],
-      ['В реестре указано', library.license ?? '—'],
-      ['Релиз', library.latestRelease ? `${library.latestRelease} (${RELEASE_SOURCE_LABEL[library.latestReleaseSource] ?? '—'})` : '—'],
-      ['Релиз в реестре', library.registry?.updatedAt ?? '—'],
-      ['Релиз на GitHub', library.github?.latestRelease ? `${library.github.latestRelease} · ${library.github.releasedAt ?? '—'}` : '—'],
-      ['Последний коммит', library.github?.pushedAt ?? '—'],
+      [tr('license.registryValue'), library.license ?? '—'],
+      [tr('drawer.release'), library.latestRelease ? `${library.latestRelease} (${tr(`releaseSource.${library.latestReleaseSource}`) || '—'})` : '—'],
+      [tr('drawer.registryRelease'), library.registry?.updatedAt ?? '—'],
+      [tr('drawer.githubRelease'), library.github?.latestRelease ? `${library.github.latestRelease} · ${library.github.releasedAt ?? '—'}` : '—'],
+      [tr('drawer.lastCommit'), library.github?.pushedAt ?? '—'],
     ];
 
     el.drawer.innerHTML = `
-      <button class="close" id="drawer-close">✕</button>
+      <button class="close" id="drawer-close" title="${esc(tr('drawer.close'))}">✕</button>
       <h2>${esc(library.name)}</h2>
       <div class="chips">
-        <span class="role role-${esc(library.role)}">${esc(role?.label ?? library.role)}</span>
+        <span class="role role-${esc(library.role)}">${esc(tr(`role.${library.role}`))}</span>
         ${providerNames.map((p) => `<span class="chip p">${esc(p)}</span>`).join('')}
         <span class="chip status-${esc(library.status)}">${esc(library.status)}</span>
         ${library.tier ? `<span class="chip tier-${esc(library.tier).toLowerCase()}">tier ${esc(library.tier)}</span>` : ''}
       </div>
       ${library.description ? `<p style="color:var(--text-dim)">${esc(library.description)}</p>` : ''}
-      ${role?.description ? `<p style="color:var(--text-dim);font-size:13px">${esc(role.description)}</p>` : ''}
-      <h3>Установка</h3>
+      <p style="color:var(--text-dim);font-size:13px">${esc(tr(`roleDesc.${library.role}`))}</p>
+      <h3>${esc(tr('drawer.install'))}</h3>
       <pre class="cmd" id="cmd">${esc(library.install ?? `—`)}</pre>
-      <h3>Детали</h3>
+      <h3>${esc(tr('drawer.details'))}</h3>
       <dl>${rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${v}</dd>`).join('')}</dl>
-      <h3>Ссылки</h3>
+      <h3>${esc(tr('drawer.links'))}</h3>
       <ul>
-        ${library.repo ? `<li><a href="${esc(library.repo)}" target="_blank" rel="noopener">Репозиторий</a></li>` : ''}
-        ${library.docs ? `<li><a href="${esc(library.docs)}" target="_blank" rel="noopener">Документация</a></li>` : ''}
-        ${library.registry?.url ? `<li><a href="${esc(library.registry.url)}" target="_blank" rel="noopener">Реестр</a></li>` : ''}
-        ${library.homepage ? `<li><a href="${esc(library.homepage)}" target="_blank" rel="noopener">Сайт</a></li>` : ''}
+        ${library.repo ? `<li><a href="${esc(library.repo)}" target="_blank" rel="noopener">${esc(tr('drawer.repository'))}</a></li>` : ''}
+        ${library.docs ? `<li><a href="${esc(library.docs)}" target="_blank" rel="noopener">${esc(tr('drawer.docs'))}</a></li>` : ''}
+        ${library.registry?.url ? `<li><a href="${esc(library.registry.url)}" target="_blank" rel="noopener">${esc(tr('drawer.registry'))}</a></li>` : ''}
+        ${library.homepage ? `<li><a href="${esc(library.homepage)}" target="_blank" rel="noopener">${esc(tr('drawer.homepage'))}</a></li>` : ''}
       </ul>
-      ${library.notes ? `<h3>Примечания</h3><p style="color:var(--text-dim)">${esc(library.notes)}</p>` : ''}
-      <h3>Источники данных</h3>
+      ${library.notes ? `<h3>${esc(tr('drawer.notes'))}</h3><p style="color:var(--text-dim)">${esc(library.notes)}</p>` : ''}
+      <h3>${esc(tr('drawer.sources'))}</h3>
       <div class="chips">${(library.source ?? []).map((s) => `<span class="chip">${esc(s)}</span>`).join('')}</div>
     `;
     el.drawer.classList.add('open');

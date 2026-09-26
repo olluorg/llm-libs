@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="{{LANG}}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,62 +11,95 @@
 <meta property="og:title" content="{{TITLE}}">
 <meta property="og:description" content="{{DESCRIPTION}}">
 <meta property="og:url" content="{{CANONICAL}}">
-<meta property="og:site_name" content="Каталог библиотек LLM">
+<meta property="og:site_name" content="{{SITE_NAME}}">
+<meta property="og:locale" content="{{LANG}}">
 <meta name="twitter:card" content="summary">
 <meta name="keywords" content="{{KEYWORDS}}">
-<link rel="alternate" type="text/plain" href="{{ROOT}}llms.txt" title="Указатель каталога для ИИ-агентов">
+{{ALTERNATES}}
+<link rel="alternate" type="text/plain" href="{{ROOT}}llms.txt" title="LLM catalog index for AI agents">
 <script type="application/ld+json">{{JSONLD}}</script>
 <link rel="stylesheet" href="{{ROOT}}assets/style.css">
 <script>window.__LLMDOCS_VIEW__ = {{VIEW}};</script>
+<script>window.__LLMDOCS_I18N__ = {{I18N}};</script>
+<!--
+  Язык интерфейса. Английский лежит по чистому адресу и остаётся языком по
+  умолчанию (x-default). Если язык системы русский, а посетитель ещё ничего не
+  выбирал и пришёл без параметров — один раз уводим на /ru/… и запоминаем выбор.
+  Поисковик сюда не попадает: переход делается только в браузере, по localStorage,
+  а обе версии отдаются целиком и связаны hreflang.
+-->
+<script>
+(function () {
+  try {
+    var forced = new URLSearchParams(location.search).get('lang');
+    var saved = localStorage.getItem('llmcat.lang');
+    var locale = forced || saved || document.documentElement.lang;
+    if (forced) localStorage.setItem('llmcat.lang', forced);
+    if (forced && forced !== document.documentElement.lang) {
+      var target = new URL(location.href);
+      target.searchParams.set('lang', forced);
+      location.replace(target.toString());
+      return;
+    }
+    if (saved) return;
+    var system = (navigator.languages || [navigator.language || '']).join(',').toLowerCase();
+    var wanted = /(?:^|[^a-z])(ru|be|uk|kaz|ky)(?:[^a-z]|$)/.test(system) ? 'ru' : 'en';
+    if (wanted === document.documentElement.lang) return;
+    if (location.search || location.hash) return;
+    var link = document.querySelector('[data-locale-link="' + wanted + '"]');
+    if (!link) return;
+    localStorage.setItem('llmcat.lang', wanted);
+    location.replace(link.getAttribute('href'));
+  } catch (error) {
+    /* localStorage может быть недоступен — тогда просто остаёмся на текущей версии */
+  }
+})();
+</script>
 </head>
 <body>
 <div class="wrap">
   <header class="top">
-    <h1>{{HEADING}}</h1>
+    <div class="top-row">
+      <h1>{{HEADING}}</h1>
+      {{SWITCHER}}
+    </div>
     <p>{{SUBHEADING}}</p>
     <p class="hint" id="hint" hidden></p>
     <div class="stats">
-      <span class="stat"><b>{{TOTAL}}</b> библиотек</span>
-      <span class="stat"><b>{{LANGUAGES}}</b> языков / экосистем</span>
-      <span class="stat"><b>{{PROVIDERS}}</b> провайдеров LLM</span>
-      <span class="stat">обновлено <b id="generated">—</b></span>
+      <span class="stat"><b>{{TOTAL}}</b> {{STATS_LIBRARIES}}</span>
+      <span class="stat"><b>{{LANGUAGES}}</b> {{STATS_LANGUAGES}}</span>
+      <span class="stat"><b>{{PROVIDERS}}</b> {{STATS_PROVIDERS}}</span>
+      <span class="stat">{{STATS_UPDATED}} <b id="generated">—</b></span>
     </div>
   </header>
 
-  <nav class="crumbs" aria-label="Разделы каталога">
-    <a href="{{ROOT}}index.html">Все библиотеки</a>
+  <nav class="crumbs" aria-label="{{NAV_SECTIONS}}">
+    <a href="{{ROOT}}index.html">{{NAV_ALL}}</a>
     <span>·</span>
-    <a href="{{ROOT}}providers.html">по провайдерам</a>
+    <a href="{{ROOT}}providers.html">{{NAV_PROVIDERS}}</a>
     <span>·</span>
-    <a href="{{ROOT}}languages.html">по языкам</a>
+    <a href="{{ROOT}}languages.html">{{NAV_LANGUAGES}}</a>
   </nav>
 
   <div class="controls">
     <div class="controls-row">
-      <input type="search" id="search" placeholder="Поиск: openai, anthropic, rag, streaming…  ( / )" autocomplete="off">
-      <select id="f-role" title="Что библиотека делает с LLM"></select>
-      <select id="f-language"></select>
-      <select id="f-provider" title="Чей API вызывается"></select>
-      <select id="f-kind"></select>
-      <select id="f-status"></select>
-      <select id="f-tier"></select>
-      <select id="f-license" title="Лицензия: разрешающая, с обязательным открытием кода, открывает исходники, не указана"></select>
-      <button id="reset">Сбросить</button>
-      <span class="count" id="count">{{TOTAL}} из {{TOTAL}}</span>
+      <input type="search" id="search" placeholder="{{SEARCH}}" autocomplete="off">
+      <select id="f-role" title="{{FILTER_ROLE}}"></select>
+      <select id="f-language" title="{{FILTER_LANGUAGE}}"></select>
+      <select id="f-provider" title="{{FILTER_PROVIDER}}"></select>
+      <select id="f-kind" title="{{FILTER_KIND}}"></select>
+      <select id="f-status" title="{{FILTER_STATUS}}"></select>
+      <select id="f-tier" title="{{FILTER_TIER}}"></select>
+      <select id="f-license" title="{{FILTER_LICENSE}}"></select>
+      <button id="reset">{{FILTER_RESET}}</button>
+      <span class="count" id="count">{{TOTAL}} / {{TOTAL}} {{FILTER_COUNT}}</span>
     </div>
-    <p class="legend">
-      <b>Клиент API провайдера</b> — звонит напрямую в OpenAI, Anthropic, Gemini и т. д.
-      <b>Шлюз</b> — прокси к провайдерам (LiteLLM).
-      <b>Фреймворк</b> — абстракция поверх SDK (LangChain, Pydantic AI).
-      <b>Локальный запуск</b> — считает модель сам (Ollama, vLLM, transformers, llama.cpp); Ollama, vLLM и llama.cpp поднимают сервер, совместимый с <code>openai</code>-клиентом через <code>base_url</code>.
-      <b>Сопутствующее</b> — векторные БД, наблюдаемость, eval, токенизаторы, UI, MCP.
-    </p>
-    <p class="legend">
-      Порядок по умолчанию — <b>популярность</b> = 2·log₁₀(звёзды) + log₁₀(счётчик реестра) + 0.5 за tier A.
-      Счётчики приведены к логарифму, потому что величины несопоставимы: boto3 ставят
-      2.4 млрд загрузок в месяц, у crates.io счётчик накопительный, у Go — число импортов.
-      Поэтому ★ и ⬇ можно сортировать отдельно: клик по заголовку.
-    </p>
+    <p class="legend"><b>{{LEGEND_SDK}}</b> — {{LEGEND_SDK_TEXT}}<br>
+      <b>{{LEGEND_GATEWAY}}</b> — {{LEGEND_GATEWAY_TEXT}}<br>
+      <b>{{LEGEND_FRAMEWORK}}</b> — {{LEGEND_FRAMEWORK_TEXT}}<br>
+      <b>{{LEGEND_RUNTIME}}</b> — {{LEGEND_RUNTIME_TEXT}}<br>
+      <b>{{LEGEND_SUPPORT}}</b> — {{LEGEND_SUPPORT_TEXT}}</p>
+    <p class="legend">{{LEGEND_POPULARITY}}</p>
   </div>
 
   <section class="seo-text">
@@ -79,30 +112,28 @@
     <caption class="visually-hidden">{{CAPTION}}</caption>
     <thead>
       <tr>
-        <th data-sort="name">Библиотека</th>
-        <th data-sort="language">Язык</th>
-        <th>Провайдеры</th>
-        <th>Роль</th>
-        <th data-sort="license" title="Лицензия пакета, приведённая к SPDX. Реестры пишут «MIT», «MIT License» и «MIT + file LICENSE» — в каталоге это один идентификатор">Лицензия</th>
-        <th class="num" data-sort="stars" title="Звёзды GitHub у репозитория">★</th>
-        <th class="num" data-sort="downloads" title="Счётчик реестра пакетов. У PyPI, npm, Packagist и Hex — за месяц, у crates.io, NuGet, RubyGems — накопительно, у Go — число импортов">⬇</th>
-        <th data-sort="updated" title="Дата последнего релиза: сначала релиз в реестре пакета, затем релиз на GitHub, затем последний коммит">Релиз</th>
+        <th data-sort="name">{{TH_LIBRARY}}</th>
+        <th data-sort="language">{{TH_LANGUAGE}}</th>
+        <th>{{TH_PROVIDERS}}</th>
+        <th>{{TH_ROLE}}</th>
+        <th data-sort="license" title="{{TH_LICENSE_TITLE}}">{{TH_LICENSE}}</th>
+        <th class="num" data-sort="stars" title="{{TH_STARS_TITLE}}">{{TH_STARS}}</th>
+        <th class="num" data-sort="downloads" title="{{TH_DOWNLOADS_TITLE}}">{{TH_DOWNLOADS}}</th>
+        <th data-sort="updated" title="{{TH_RELEASE_TITLE}}">{{TH_RELEASE}}</th>
       </tr>
     </thead>
     <tbody id="rows">{{ROWS}}</tbody>
   </table>
 
   <noscript>
-    <p class="empty">Поиск и фильтры требуют JavaScript. Полный датасет — в
-      <a href="{{ROOT}}data/libraries.json">data/libraries.json</a>, краткий указатель —
-      в <a href="{{ROOT}}llms.txt">llms.txt</a>.</p>
+    <p class="empty">{{FOOTER_NOSCRIPT}}</p>
   </noscript>
 
   <footer>
-    <p>Сборка каталога: <code>node scripts/collect.mjs &amp;&amp; node scripts/enrich.mjs &amp;&amp; node scripts/build.mjs</code>.
-    Машиночитаемая версия: <a href="{{ROOT}}data/libraries.json">libraries.json</a>,
-    краткий указатель для ИИ-агентов: <a href="{{ROOT}}llms.txt">llms.txt</a>.</p>
-    <p><span class="kbd">/</span> — фокус на поиск, <span class="kbd">Esc</span> — закрыть карточку.</p>
+    <p>{{FOOTER_BUILD}} <code>node scripts/collect.mjs &amp;&amp; node scripts/enrich.mjs &amp;&amp; node scripts/build.mjs</code>.
+    {{FOOTER_MACHINE}}: <a href="{{ROOT}}data/libraries.json">libraries.json</a>,
+    {{FOOTER_AGENTS}}: <a href="{{ROOT}}llms.txt">llms.txt</a>.</p>
+    <p>{{FOOTER_KEYS}}</p>
   </footer>
 </div>
 

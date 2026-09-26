@@ -74,8 +74,20 @@ assert(Boolean(data), 'assets/data.js не задаёт window.__LLMDOCS__');
 if (!data) process.exit(1);
 const appSource = await fs.readFile(path.join(DIST_DIR, 'assets', 'app.js'), 'utf8');
 
+// Словарь интерфейса лежит в собранной странице: читаем его оттуда, чтобы
+// тесты проверяли настоящие строки, а не жёстко зашитый русский текст.
+const indexMarkup = await fs.readFile(path.join(DIST_DIR, 'index.html'), 'utf8');
+const ruMarkup = await fs.readFile(path.join(DIST_DIR, 'ru', 'index.html'), 'utf8');
+const STRINGS = JSON.parse(/window\.__LLMDOCS_I18N__ = (\{[\s\S]*?\});/.exec(indexMarkup)[1]);
+const RU_STRINGS = JSON.parse(/window\.__LLMDOCS_I18N__ = (\{[\s\S]*?\});/.exec(ruMarkup)[1]);
+
+/** Текст счётчика в нужной локали: «306 of 504» / «306 из 504». */
+function countText(shown, total, strings = STRINGS) {
+  return strings['count.format'].replace('%{shown}', shown).replace('%{total}', total);
+}
+
 /** Поднимает app.js в чистом окружении и возвращает доступ к DOM-заглушкам. */
-function boot({ view = {}, referrer = '', search = '' } = {}) {
+function boot({ view = {}, referrer = '', search = '', strings = STRINGS } = {}) {
   const ids = ['search', 'f-role', 'f-language', 'f-provider', 'f-kind', 'f-status', 'f-tier', 'f-license', 'count', 'rows', 'drawer', 'backdrop', 'reset', 'generated', 'hint'];
   const elements = new Map(ids.map((id) => [id, createElement()]));
 
@@ -96,7 +108,7 @@ function boot({ view = {}, referrer = '', search = '' } = {}) {
   };
 
   const context = vm.createContext({
-    window: { __LLMDOCS__: data, __LLMDOCS_VIEW__: view },
+    window: { __LLMDOCS__: data, __LLMDOCS_VIEW__: view, __LLMDOCS_I18N__: strings },
     document: documentStub,
     history: { replaceState() {} },
     location: { pathname: '/', search },
@@ -174,9 +186,9 @@ assert(rowsHtml.length > 0, 'при первом открытии список �
 // фреймворки и инфраструктура — отдельная роль, иначе они неотличимы от SDK.
 const defaultVisible = data.libraries.filter((l) => l.role === 'sdk' || l.role === 'gateway');
 assert(
-  main.elements.get('count').textContent === `${defaultVisible.length} из ${data.libraries.length}`,
+  main.elements.get('count').textContent === countText(defaultVisible.length, data.libraries.length),
   `в режиме по умолчанию показано ${main.elements.get('count').textContent}, ` +
-    `ожидалось ${defaultVisible.length} из ${data.libraries.length} (роль sdk+gateway)`,
+    `ожидалось ${countText(defaultVisible.length, data.libraries.length)} (роль sdk+gateway)`,
 );
 assert(
   !rowsHtml.includes('data-id="pypi:transformers"') && !rowsHtml.includes('data-id="pypi:ollama"'),
@@ -230,7 +242,7 @@ main.elements.get('f-provider').value = data.providers[0].id;
 main.elements.get('f-provider').dispatch('input');
 const filteredCount = main.elements.get('count').textContent;
 assert(
-  !filteredCount.startsWith(`${data.libraries.length} из`),
+  !filteredCount.startsWith(countText(data.libraries.length, data.libraries.length)),
   `фильтр по провайдеру «${data.providers[0].id}» не изменил выборку (${filteredCount})`,
 );
 main.elements.get('reset').dispatch('click');
@@ -254,7 +266,7 @@ assert(
 main.elements.get('f-role').value = 'all';
 main.elements.get('f-role').dispatch('input');
 assert(
-  main.elements.get('count').textContent.startsWith(`${data.libraries.length} из`),
+  main.elements.get('count').textContent.startsWith(countText(data.libraries.length, data.libraries.length)),
   `фильтр ролей «все» показал не все записи: ${main.elements.get('count').textContent}`,
 );
 
@@ -264,7 +276,7 @@ for (const family of offeredFamilies) {
   licenseSelect.dispatch('input');
   const shown = main.elements.get('count').textContent;
   assert(
-    shown.startsWith(`${expected.length} из`),
+    shown.startsWith(countText(expected.length, data.libraries.length)),
     `фильтр «${family}» показал ${shown} вместо ${expected.length}`,
   );
   const licenseIds = [...main.elements.get('rows').innerHTML.matchAll(/class="lic lic-[a-z]+"[^>]*>([^<]*)</g)].map((m) => m[1]);
@@ -415,7 +427,7 @@ assert(fromOther.elements.get('rows').innerHTML.length > 0, 'после не-sea
 // ── 4b. Фильтр ролей ──────────────────────────────────────────────────────
 const allRoles = boot({ view: { role: 'all' } });
 assert(
-  allRoles.elements.get('count').textContent === `${data.libraries.length} из ${data.libraries.length}`,
+  allRoles.elements.get('count').textContent === countText(data.libraries.length, data.libraries.length),
   `режим «все роли» показывает не всё: ${allRoles.elements.get('count').textContent}`,
 );
 const runtimes = boot({ view: { role: 'runtime' } });
@@ -464,11 +476,12 @@ try {
 }
 
 // Страницы провайдеров и языков: та же структура + собственные метаданные.
+// Ожидаемый заголовок берём из словаря той локали, которую проверяем.
 for (const [file, expected] of [
   ['providers/openai.html', 'OpenAI'],
   ['languages/r.html', 'R'],
-  ['providers.html', 'провайдерам'],
-  ['languages.html', 'языкам'],
+  ['providers.html', STRINGS['nav.providers']],
+  ['languages.html', STRINGS['nav.languages']],
 ]) {
   const html = await fs.readFile(path.join(DIST_DIR, file), 'utf8').catch(() => null);
   if (html === null) {
@@ -489,11 +502,14 @@ for (const [file, expected] of [
   );
 }
 
-// Служебные файлы для поисковиков.
+// Служебные файлы для поисковиков. sitemap.xml перечисляет обе локали,
+// llms.txt лежит в каждом дереве.
 for (const [file, pattern] of [
   ['robots.txt', /Sitemap: https?:\/\/\S+\/sitemap\.xml/],
-  ['sitemap.xml', /<urlset[\s\S]*<url><loc>https?:\/\/[^<]*index\.html<\/loc>/],
-  ['llms.txt', /## Провайдеры/],
+  ['sitemap.xml', /<urlset[\s\S]*<loc>https?:\/\/[^<]*index\.html<\/loc>/],
+  ['sitemap.xml', /<xhtml:link rel="alternate" hreflang="ru" href="[^"]*\/ru\/index\.html"/],
+  ['llms.txt', new RegExp(STRINGS['llms.providers'].replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))],
+  ['ru/llms.txt', new RegExp(RU_STRINGS['llms.providers'].replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))],
 ]) {
   const content = await fs.readFile(path.join(DIST_DIR, file), 'utf8').catch(() => null);
   assert(content !== null && pattern.test(content), `файл ${file} отсутствует или неверен`);
@@ -528,11 +544,141 @@ for (const library of data.libraries) {
   }
 }
 
+// ── 6. Локализация ────────────────────────────────────────────────────────
+//
+// Три вещи, которые иначе расходятся молча:
+//  - непереведённая строка в английской версии (ловим по кириллице);
+//  - страница, существующая только в одной локали;
+//  - hreflang, указывающий на несуществующий или не тот же адрес.
+const LOCALES = ['en', 'ru'];
+const LOCALE_DIR = { en: '', ru: 'ru' };
+const CYRILLIC = /[Ѐ-ӿ]/;
+
+/**
+ * Собственный текст страницы: без описаний библиотек (они из реестров), без
+ * JSON-LD, словаря и комментариев разработчика — они не видны посетителю,
+ * поэтому отсутствие перевода в них не ошибка.
+ */
+function ownText(html) {
+  return html
+    .replace(/<tbody id="rows">[\s\S]*?<\/tbody>/, '')
+    .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, '')
+    .replace(/window\.__LLMDOCS_I18N__ = \{[\s\S]*?\};/, '')
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .replace(/^\s*\/\/.*$/gm, '')
+    // Переключатель языка по правилам показывает целевой язык его же названием
+    // («Русский» на английской странице), поэтому из проверки исключён.
+    .replace(/<a class="lang-switch"[\s\S]*?<\/a>/, '');
+}
+
+const htmlFiles = (await fs.readdir(DIST_DIR, { recursive: true }))
+  .filter((name) => String(name).endsWith('.html'))
+  .map(String);
+
+for (const locale of LOCALES) {
+  const dir = LOCALE_DIR[locale];
+  const prefix = dir ? `${dir}/` : '';
+  for (const relative of htmlFiles.filter((name) => name.startsWith(prefix) && !name.slice(prefix.length).includes('/'))) {
+    const html = await fs.readFile(path.join(DIST_DIR, relative), 'utf8');
+    const lang = /<html lang="([a-z]+)"/.exec(html)?.[1];
+    assert(lang === locale, `в ${relative} lang="${lang}", а ожидалась локаль ${locale}`);
+
+    // Канонический адрес и hreflang указывают на адрес этой же страницы.
+    const canonical = /<link rel="canonical" href="([^"]+)"/.exec(html)?.[1] ?? '';
+    assert(
+      canonical.endsWith(`/${relative.split(path.sep).join('/')}`),
+      `в ${relative} canonical указывает на другую страницу: ${canonical}`,
+    );
+    const alternates = [...html.matchAll(/<link rel="alternate" hreflang="([a-z-]+)" href="([^"]+)"/g)];
+    const byLang = Object.fromEntries(alternates.map(([, lang2, href]) => [lang2, href]));
+    for (const other of LOCALES) {
+      assert(Boolean(byLang[other]), `в ${relative} нет hreflang="${other}"`);
+      const target = relative.replace(new RegExp(`^${prefix}`), '');
+      const expectedTail = other === 'en' ? `/${target}` : `/ru/${target}`;
+      assert(
+        byLang[other]?.endsWith(expectedTail),
+        `в ${relative} hreflang="${other}" указывает на ${byLang[other]}, а не на ${expectedTail}`,
+      );
+    }
+    assert(
+      byLang['x-default'] === byLang.en,
+      `в ${relative} x-default (${byLang['x-default']}) должен совпадать с английской версией (${byLang.en})`,
+    );
+
+    // Переключатель ведёт на ту же страницу на другом языке и подписан её названием.
+    const switcher = /<a class="lang-switch" href="([^"]+)" hreflang="(\w+)"/.exec(html);
+    const otherLocale = locale === 'en' ? 'ru' : 'en';
+    const ownRelative = relative.slice(prefix.length).split(path.sep).join('/');
+    const expectedHref = (otherLocale === 'ru' ? 'ru/' : '') + ownRelative;
+    assert(
+      switcher?.[2] === otherLocale && switcher[1].endsWith(expectedHref),
+      `в ${relative} переключатель языка ведёт на ${switcher?.[1] ?? 'никуда'}, а не на ${expectedHref}`,
+    );
+    // Ссылка относительная: с такого уровня вложенности она обязана существовать.
+    const resolved = path.posix.normalize(path.posix.join(path.posix.dirname(relative), switcher?.[1] ?? ''));
+    assert(
+      htmlFiles.includes(resolved),
+      `в ${relative} переключатель языка указывает на несуществующий файл ${resolved}`,
+    );
+    const switchLabel = /<a class="lang-switch"[\s\S]*?>([^<]+)</.exec(html)?.[1] ?? '';
+    assert(
+      switchLabel === STRINGS[`nav.switchTo${otherLocale === 'ru' ? 'Ru' : 'En'}`],
+      `в ${relative} подпись переключателя «${switchLabel}» не совпадает со словарём`,
+    );
+
+    // Собственный текст английской страницы не должен содержать кириллицу.
+    if (locale === 'en') {
+      const text = ownText(html);
+      const cyrillic = text.match(/[Ѐ-ӿ][^<>]{0,40}/g) ?? [];
+      assert(
+        cyrillic.length === 0,
+        `в английской странице ${relative} остался русский текст: ${cyrillic.slice(0, 3).join(' | ')}`,
+      );
+    } else {
+      const text = ownText(html);
+      assert(CYRILLIC.test(text), `в русской странице ${relative} нет ни одного русского слова — похоже, словарь не применился`);
+    }
+  }
+}
+
+// Симметрия деревьев: у каждой страницы есть пара на другом языке.
+const enPages = htmlFiles.filter((name) => !name.startsWith('ru/')).map((name) => `ru/${name}`);
+for (const mirror of enPages) {
+  assert(htmlFiles.includes(mirror), `нет русской версии страницы ${mirror}`);
+}
+
+// Страница на другом языке открывается без JavaScript и тоже работает.
+const ruMain = boot({ strings: RU_STRINGS });
+assert(ruMain.error === null, `app.js падает на русской странице: ${ruMain.error?.message}`);
+assert(
+  ruMain.elements.get('rows').innerHTML.length > 0,
+  'на русской странице список пуст до первого клика',
+);
+assert(
+  ruMain.elements.get('count').textContent === countText(
+    data.libraries.filter((l) => ['sdk', 'gateway'].includes(l.role)).length,
+    data.libraries.length,
+    RU_STRINGS,
+  ),
+  `на русской странице неверный счётчик: ${ruMain.elements.get('count').textContent}`,
+);
+assert(
+  ruMain.elements.get('drawer') !== null,
+  'на русской странице не инициализировалась карточка',
+);
+
+// Словарь: обе локали должны знать одни и те же ключи.
+const missingInRu = Object.keys(STRINGS).filter((key) => !(key in RU_STRINGS));
+const missingInEn = Object.keys(RU_STRINGS).filter((key) => !(key in STRINGS));
+assert(missingInRu.length === 0, `в русском словаре нет ключей: ${missingInRu.slice(0, 5).join(', ')}`);
+assert(missingInEn.length === 0, `в английском словаре нет ключей: ${missingInEn.slice(0, 5).join(', ')}`);
+
 // ── Итог ──────────────────────────────────────────────────────────────────
 if (failures.length === 0) {
   log.info(
     `сайт в порядке: ${data.libraries.length} библиотек, ${preRendered} строк в статической разметке, ` +
-      'сортировка/карточка/поиск из поисковика/SEO-разметка проверены',
+      `локалей ${LOCALES.length} (${htmlFiles.length} страниц), сортировка/карточка/поиск из поисковика/SEO-разметка проверены`,
   );
   process.exit(0);
 }
