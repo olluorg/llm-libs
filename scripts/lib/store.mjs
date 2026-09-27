@@ -16,6 +16,8 @@ export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '
 export const DATA_DIR = path.join(ROOT, 'data');
 export const CONFIG_DIR = path.join(DATA_DIR, 'config');
 export const CURATED_DIR = path.join(DATA_DIR, 'curated');
+/** Файл исправленных адресов: он по определении переопределяет поля других. */
+const LINK_FIXES_FILE = '99-link-fixes.json';
 export const OUT_DIR = path.join(DATA_DIR, 'out');
 export const DIST_DIR = path.join(ROOT, 'dist');
 
@@ -61,42 +63,80 @@ export async function loadAdapter(adapterName) {
 }
 
 /**
- * Загружает все курируемые записи из data/curated/*.json.
- * Записи с одинаковым id сливаются, а не заменяют друг друга: так отдельный
- * файл правок (99-link-fixes.json) может нести только исправленное поле,
- * не выписывая запись целиком.
+ * Читает сырые строки всех курируемых файлов: [{ file, item }].
+ * Вынесено отдельно от loadCurated, потому что расхождения между файлами
+ * нужно видеть и до слияния, и в проверках.
  */
-export async function loadCurated() {
-  const byId = new Map();
+export async function readCuratedEntries() {
   let files = [];
   try {
     files = await fs.readdir(CURATED_DIR);
   } catch (error) {
     if (error.code !== 'ENOENT') throw error;
   }
-  files = files.filter((f) => f.endsWith('.json')).sort();
-  let total = 0;
-
-  for (const file of files) {
+  const entries = [];
+  for (const file of files.filter((f) => f.endsWith('.json')).sort()) {
     const payload = await readJson(path.join(CURATED_DIR, file));
     const list = Array.isArray(payload) ? payload : payload.libraries ?? [];
-    for (const item of list) {
-      try {
-        const record = normalizeRecord({
-          confidence: 0.9,
-          ...item,
-          source: [...(item.source ?? []), `curated:${file}`],
-        });
-        const existing = byId.get(record.id);
-        byId.set(record.id, existing ? mergeRecords(existing, record) : record);
-        total += 1;
-      } catch (error) {
-        log.warn(`пропущена запись в ${file}: ${error.message}`);
-      }
+    for (const item of list) entries.push({ file, item });
+  }
+  return entries;
+}
+
+/**
+ * Один и тот же пакет, записанный в двух курируемых файлах, — это ошибка в
+ * имени, а не дополнение: 99-link-fixes.json правит поля, и совпадение с ним
+ * ожидаемо, но два полных описания одного пакета означают, что одно из них
+ * названо чужим именем. Так Betalgo.OpenAI был записан как «OpenAI» рядом с
+ * официальной библиотекой OpenAI, которая лежит в 01-official-sdks.json под
+ * тем же именем: слияние брало репозиторий из более позднего файла, и в
+ * каталоге у официальной библиотеки оказывался репозиторий Betalgo.
+ *
+ * Возвращает расхождения по ключу записи, где файлы называют разные
+ * репозитории. Файл правок ссылок не считается: он существует именно для
+ * того, чтобы переопределить поле у записи, описанной в другом файле.
+ */
+export function curatedIdConflicts(entries) {
+  const isLinkFix = (file) => file === LINK_FIXES_FILE;
+  const seen = new Map();
+  const conflicts = [];
+  for (const { file, item } of entries) {
+    if (isLinkFix(file)) continue;
+    const id = `${item.ecosystem}:${item.name}`.toLowerCase();
+    const previous = seen.get(id);
+    if (previous && previous.item.repo && item.repo && previous.item.repo !== item.repo) {
+      conflicts.push({ id, from: `${previous.file} → ${previous.item.repo}`, to: `${file} → ${item.repo}` });
+    }
+    seen.set(id, { file, item });
+  }
+  return conflicts;
+}
+
+/**
+ * Загружает все курируемые записи из data/curated/*.json.
+ * Записи с одинаковым id сливаются, а не заменяют друг друга: так отдельный
+ * файл правок (99-link-fixes.json) может нести только исправленное поле,
+ * не выписывая запись целиком.
+ */
+export async function loadCurated() {
+  const entries = await readCuratedEntries();
+  const byId = new Map();
+
+  for (const { file, item } of entries) {
+    try {
+      const record = normalizeRecord({
+        confidence: 0.9,
+        ...item,
+        source: [...(item.source ?? []), `curated:${file}`],
+      });
+      const existing = byId.get(record.id);
+      byId.set(record.id, existing ? mergeRecords(existing, record) : record);
+    } catch (error) {
+      log.warn(`пропущена запись в ${file}: ${error.message}`);
     }
   }
   const records = [...byId.values()];
-  log.info(`курируемых записей: ${records.length} (из ${total} строк в ${files.length} файлах)`);
+  log.info(`курируемых записей: ${records.length} (из ${entries.length} строк в ${new Set(entries.map((e) => e.file)).size} файлах)`);
   return records;
 }
 

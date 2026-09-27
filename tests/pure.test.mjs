@@ -11,7 +11,7 @@ import assert from 'node:assert/strict';
 import { normalizeLicense, isPermissive } from '../scripts/lib/license.mjs';
 import { findForks, normalizeDescription, ownerKey, repoKey } from '../scripts/lib/fork.mjs';
 import { mergeRecords, normalizeRecord, makeId } from '../scripts/lib/record.mjs';
-import { applyCuration } from '../scripts/lib/store.mjs';
+import { applyCuration, curatedIdConflicts } from '../scripts/lib/store.mjs';
 import { declined, counted } from '../scripts/lib/i18n.mjs';
 import { toCsv, toJson, CSV_COLUMNS } from '../scripts/lib/dataset.mjs';
 import { slugify } from '../scripts/lib/site-helpers.mjs';
@@ -347,4 +347,64 @@ test('slugify: знаки, из-за которых страницы стано�
   assert.equal(slugify('F#'), 'f-sharp');
   assert.equal(slugify('Objective-C'), 'objective-c');
   assert.equal(slugify('Python'), 'python');
+});
+
+// ── Один пакет под двумя именами ───────────────────────────────────────────
+
+test('curatedIdConflicts: два файла с одним пакетом и разными репозиториями', () => {
+  // Случай из данных: Betalgo.OpenAI был записан как «OpenAI» рядом с
+  // официальной библиотекой OpenAI, и в каталог попал репозиторий Betalgo.
+  const conflicts = curatedIdConflicts([
+    { file: '01-official-sdks.json', item: { ecosystem: 'nuget', name: 'OpenAI', repo: 'https://github.com/openai/openai-dotnet' } },
+    { file: '03-community-clients.json', item: { ecosystem: 'nuget', name: 'OpenAI', repo: 'https://github.com/betalgo/openai' } },
+  ]);
+  assert.equal(conflicts.length, 1);
+  assert.equal(conflicts[0].id, 'nuget:openai');
+  assert.match(conflicts[0].from, /openai\/openai-dotnet/);
+  assert.match(conflicts[0].to, /betalgo\/openai/);
+});
+
+test('curatedIdConflicts: файл правок ссылок переопределять имеет право', () => {
+  assert.deepEqual(
+    curatedIdConflicts([
+      { file: '04-infra.json', item: { ecosystem: 'crates', name: 'tch', repo: 'https://github.com/pykeio/tch' } },
+      { file: '99-link-fixes.json', item: { ecosystem: 'crates', name: 'tch', repo: 'https://github.com/LaurentMazare/tch-rs' } },
+    ]),
+    [],
+  );
+});
+
+test('curatedIdConflicts: одинаковый репозиторий и разные экосистемы — не конфликт', () => {
+  assert.deepEqual(
+    curatedIdConflicts([
+      { file: '01-official-sdks.json', item: { ecosystem: 'pypi', name: 'openai', repo: 'https://github.com/openai/openai-python' } },
+      { file: '02-frameworks.json', item: { ecosystem: 'npm', name: 'openai', repo: 'https://github.com/openai/openai-node' } },
+      { file: '03-community-clients.json', item: { ecosystem: 'pypi', name: 'openai', repo: 'https://github.com/openai/openai-python' } },
+    ]),
+    [],
+  );
+});
+
+// ── Примечание записи ─────────────────────────────────────────────────────
+
+test('normalizeRecord: машинный текст не попадает в примечание, признаки — в своё поле', () => {
+  // 321 запись из 456 показывала на странице «Признаки: LLM-признаки в
+  // описании (openai)»: это рассуждение сборщика о записи, а не о библиотеке.
+  const record = normalizeRecord({
+    ecosystem: 'pypi',
+    name: 'openai',
+    notes: 'Признаки: LLM-признаки в описании (openai)',
+    matchReasons: ['LLM-признаки в описании (openai)'],
+  });
+  assert.equal(record.notes, undefined);
+  assert.deepEqual(record.matchReasons, ['LLM-признаки в описании (openai)']);
+});
+
+test('normalizeRecord: написанное человеком примечание остаётся', () => {
+  const record = normalizeRecord({
+    ecosystem: 'pypi',
+    name: 'jina',
+    notes: 'Исторически клиент jina, переименован в jina-ai/serve.',
+  });
+  assert.match(record.notes, /переименован/);
 });

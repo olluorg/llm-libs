@@ -10,7 +10,7 @@
 import { createLogger } from './lib/log.mjs';
 import { getText } from './lib/http.mjs';
 import { mapLimit, repoSlug } from './lib/github.mjs';
-import { curationKey, loadCuration, loadProviders, readDataset, CURATED_DIR, OUT_DIR } from './lib/store.mjs';
+import { curationKey, curatedIdConflicts, loadCuration, loadProviders, readCuratedEntries, readDataset, CURATED_DIR, OUT_DIR } from './lib/store.mjs';
 import { findForks } from './lib/fork.mjs';
 import { makeId, CALLS_PROVIDER_API, ROLES } from './lib/record.mjs';
 import fs from 'node:fs/promises';
@@ -212,6 +212,21 @@ log.info(
   }
   for (const item of curation.keep) {
     if (!item.reason) problems.warnings.push(`решение оставить без причины: ${curationKey(item.ecosystem, item.name)}`);
+  }
+  // Один пакет под двумя именами в курируемых файлах: слияние берёт поля из
+  // более позднего файла, и расхождение не видно нигде. Betalgo.OpenAI был
+  // записан как «OpenAI» рядом с официальной библиотекой OpenAI, и в каталог
+  // попал репозиторий Betalgo.
+  for (const conflict of curatedIdConflicts(await readCuratedEntries())) {
+    problems.errors.push(`один пакет в двух курируемых файлах: ${conflict.id} — ${conflict.from} и ${conflict.to}`);
+  }
+  // Примечание на странице записи пишет человек; признаки опознавания лежат
+  // в matchReasons. Машинный текст в примечании — 321 запись из 456 показывали
+  // «Признаки: LLM-признаки в описании», что читателю ничего не сообщает.
+  for (const library of dataset.libraries ?? []) {
+    if (library.notes?.startsWith('Признаки: ')) {
+      problems.errors.push(`машинный текст в примечании: ${library.id}`);
+    }
   }
   if (curation.exclude.length || curation.patch.length || curation.keep.length) {
     log.info(

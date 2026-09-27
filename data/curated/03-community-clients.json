@@ -321,7 +321,7 @@
       "notes": "Идиоматичный Kotlin-клиент (Ktor, корутины, DSL) — альтернатива openai-java."
     },
     {
-      "name": "OpenAI",
+      "name": "Betalgo.OpenAI",
       "ecosystem": "nuget",
       "providers": [
         "openai",
@@ -359,8 +359,8 @@
       "envVars": [
         "OPENAI_API_KEY"
       ],
-      "repo": "https://github.com/Roger-Chen/OpenAI-DotNet",
-      "notes": "Лёгкий .NET-клиент без зависимостей."
+      "repo": "https://github.com/RageAgainstThePixel/OpenAI-DotNet",
+      "notes": "Неофициальный клиент OpenAI для .NET, самый популярный до появления официальной библиотеки. Поддерживается сообществом, а не OpenAI."
     },
     {
       "name": "io.cequence:openai-scala-anthropic-client_2.13",

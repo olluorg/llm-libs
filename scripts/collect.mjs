@@ -335,7 +335,10 @@ function candidateToRecord(candidate, meta, config, ecosystem, adapter) {
     stars: meta.github?.stars ?? candidate.stars,
     confidence,
     source: [`discovery:${ecosystem}`],
-    notes: candidate.reasons?.length ? `Признаки: ${candidate.reasons.slice(0, 2).join('; ')}` : undefined,
+    // Признаки опознавания — в matchReasons, а не в notes: примечание читает
+    // человек на странице, и «Признаки: LLM-признаки в описании» ничего ему
+    // не сообщает.
+    matchReasons: candidate.reasons ?? [],
   };
 }
 

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T09:40:51.022Z",
+  "generatedAt": "2026-09-27T17:37:28.544Z",
   "counts": {
     "total": 456,
     "byEcosystem": {
@@ -89,8 +89,8 @@
     },
     "byStatus": {
       "active": 312,
-      "unknown": 57,
       "deprecated": 74,
+      "unknown": 57,
       "archived": 13
     }
   },
@@ -133,7 +133,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-09-25",
@@ -175,7 +177,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, chat completion, embedding)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, chat completion, embedding)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-09-03",
@@ -215,7 +219,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-02-10",
@@ -266,6 +272,7 @@
         "discovery:nuget"
       ],
       "notes": "Официальный .NET-клиент Anthropic (NuGet id Anthropic, издатель — организация Anthropic). Репозиторий у SDK не публичный, поэтому ссылка ведёт на документацию. Популярная альтернатива от сообщества — Anthropic.SDK.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-09-22",
@@ -308,7 +315,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, agent, agents)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, agent, agents)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-09-18",
@@ -348,53 +357,12 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-09-23",
-      "latestReleaseSource": "registry"
-    },
-    {
-      "id": "nuget:betalgo.openai",
-      "name": "Betalgo.OpenAI",
-      "description": "Dotnet SDK for OpenAI ChatGPT, Whisper, GPT-4 and DALL·E",
-      "ecosystem": "nuget",
-      "language": "C#",
-      "role": "sdk",
-      "kind": "client",
-      "providers": [
-        "openai"
-      ],
-      "sdkApi": "openai",
-      "status": "unknown",
-      "tier": "B",
-      "features": [
-        "audio"
-      ],
-      "envVars": [
-        "OPENAI_API_KEY"
-      ],
-      "install": "dotnet add package Betalgo.OpenAI",
-      "homepage": "https://openai.com",
-      "license": "MIT",
-      "licenseId": "MIT",
-      "licenseFamily": "permissive",
-      "registry": {
-        "url": "https://www.nuget.org/packages/Betalgo.OpenAI",
-        "version": "8.7.2",
-        "downloads": 2213059,
-        "downloadsPeriod": "total",
-        "updatedAt": "2024-10-10"
-      },
-      "github": {},
-      "confidence": 0.75,
-      "source": [
-        "discovery:nuget"
-      ],
-      "notes": "Признаки: LLM-признаки в описании (gpt, chatgpt, openai)",
-      "discoveredAt": "2026-09-26",
-      "updatedAt": "2026-09-26",
-      "latestRelease": "2024-10-10",
       "latestReleaseSource": "registry"
     },
     {
@@ -429,7 +397,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (gpt, chatgpt, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (gpt, chatgpt, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2023-05-14",
@@ -468,7 +438,9 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: LLM-признаки в описании (cohere)",
+      "matchReasons": [
+        "LLM-признаки в описании (cohere)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-09-16",
@@ -532,6 +504,7 @@
         "discovery:golang"
       ],
       "notes": "Сам сервер Ollama на Go; содержит типы нативного API, которые переиспользуют Go-клиенты. Готовый локальный рантайм для OpenAI-совместимых SDK.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 181765,
@@ -595,6 +568,7 @@
         "discovery:pypi"
       ],
       "notes": "Де-факто стандарт локального ML: загрузка моделей с Hub, pipeline, квантизация, LoRA-дообучение, ONNX-экспорт. Модели в формате safetensors/GGUF.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 166688,
@@ -664,6 +638,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "Базовый пакет LangChain (Python). Интеграции вынесены в отдельные пакеты: langchain-openai, langchain-anthropic, ... Цена — лишние абстракции и быстрая смена API.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 147102,
@@ -719,6 +694,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "ChatAnthropic с поддержкой prompt caching и computer use.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 147102,
@@ -773,6 +749,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "ChatBedrock, ChatBedrockConverse, S3-векторы.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 147102,
@@ -829,6 +806,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "Интеграция Gemini/Vertex с LangChain.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 147102,
@@ -889,6 +867,7 @@
         "curated:03-community-clients.json"
       ],
       "notes": "C/C++-референс локального инференса: GGUF-квантизация, собственный HTTP-сервер с OpenAI-совместимым API, биндинги C/C++/Swift/Go/WebAssembly.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 129593,
@@ -940,7 +919,10 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 109619,
@@ -995,6 +977,7 @@
         "curated:04-infra.json"
       ],
       "notes": "Базовый рантайм для локального инференса и обучения (в т.ч. моделей из Hugging Face).",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 103362,
@@ -1058,6 +1041,7 @@
         "discovery:pypi"
       ],
       "notes": "Промышленный сервер инференса: PagedAttention, непрерывный батчинг, OpenAI-совместимый /v1, поддержка LoRA, спекулятивный декодинг.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 92720,
@@ -1112,6 +1096,7 @@
         "curated:05-mcp.json"
       ],
       "notes": "Справочные серверы MCP от сообщества (GitHub, Filesystem, Slack и др.) как образец для своих серверов.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 90605,
@@ -1175,6 +1160,7 @@
         "curation"
       ],
       "notes": "Self-hosted чат-интерфейс с множеством провайдеров. Полезен как референс и как локальный чат.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 82837,
@@ -1234,6 +1220,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "Microsoft AutoGen: multi-agent разговоры, новый стек AgentChat/Core. Активно развивается, API меняется.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 61179,
@@ -1295,6 +1282,7 @@
         "curated:04-infra.json"
       ],
       "notes": "JS-версия LiteLLM (прокси и клиент).",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 59669,
@@ -1373,6 +1361,7 @@
         "curated:04-infra.json"
       ],
       "notes": "Прокси-шлюз и SDK: единый OpenAI-формат для 100+ провайдеров, фолбэки, бюджеты, кэш, observability, OpenAI-совместимый /proxy-эндпоинт.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 59669,
@@ -1433,6 +1422,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "«Экипажи» агентов с ролями и задачами. Популярен в быстрых прототипах.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 59059,
@@ -1474,7 +1464,10 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: имя == ключевое слово провайдера «Cohere»; LLM-признаки в описании (cohere)",
+      "matchReasons": [
+        "имя == ключевое слово провайдера «Cohere»",
+        "LLM-признаки в описании (cohere)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-09-25",
@@ -1531,6 +1524,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "LlamaIndex для TypeScript.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 52327,
@@ -1591,6 +1585,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "Фреймворк для данных вокруг LLM: Document/Node, индексы, query-движки, агенты. Сильная сторона — RAG по документам.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 52327,
@@ -1646,6 +1641,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "Ядро LlamaIndex, интеграции вынесены в llama-index-llms-* и llama-index-embeddings-*.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 52327,
@@ -1707,6 +1703,7 @@
         "curation"
       ],
       "notes": "Пакет переименован в agno: репозиторий указывает на agno-agi/agno, а версия 2.7.10 — последняя до переименования. Звёзды и описание относятся к agno, в каталоге такой записи пока нет.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 42351,
@@ -1766,6 +1763,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "Графы состояний для агентов с циклами, памятью и human-in-the-loop. Стабильнее, чем ранние паттерны LangChain.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 42325,
@@ -1820,7 +1818,9 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 38887,
@@ -1879,6 +1879,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "Декларативный фреймворк: описываете вход/выход, DSPy сам подбирает промпты и компилирует программу (оптимизаторы + метрики).",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 38339,
@@ -1938,6 +1939,7 @@
         "curation"
       ],
       "notes": "JS/TS-клиент Langfuse (собственный или через OpenTelemetry).",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 35075,
@@ -2002,6 +2004,7 @@
         "curation"
       ],
       "notes": "LLM-observability и платформа промптов: трейсинг, оценки, датасеты, A/B-тесты, self-hosted. Есть SDK для всех major языков.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 35075,
@@ -2073,6 +2076,7 @@
         "discovery:pypi"
       ],
       "notes": "Референсный SDK: sync + async клиенты, Responses API, Realtime, Assistants, батареи eval-инструментов. Для Azure OpenAI используется тот же пакет, но класс AzureOpenAI (свой endpoint и api-version).",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 31697,
@@ -2112,7 +2116,10 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: имя == ключевое слово провайдера «Anthropic Claude»; LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "имя == ключевое слово провайдера «Anthropic Claude»",
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2024-09-03",
@@ -2153,7 +2160,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2024-06-26",
@@ -2213,6 +2222,7 @@
         "discovery:pypi"
       ],
       "notes": "Официальный Agents SDK OpenAI на Python: агенты, handoffs, guardrails, встроенный tracing. Наследует API openai-пакета.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 29709,
@@ -2271,6 +2281,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "Минималистичные агенты от Hugging Face: code-агенты, доступ к любой модели через единый интерфейс.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 29502,
@@ -2327,6 +2338,7 @@
         "curated:04-infra.json"
       ],
       "notes": "Векторная БД для RAG: встраиваемая и клиент-серверная, встроенная коллекция embeddings.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 29387,
@@ -2391,6 +2403,7 @@
         "discovery:nuget"
       ],
       "notes": "Семантическое ядро Microsoft: плагины, планировщики, оркестрация, коннекторы к Azure OpenAI и Anthropic.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 28607,
@@ -2448,6 +2461,7 @@
         "curation"
       ],
       "notes": "Более простой сервер MCP на Python (декораторы, автогенерация схем). Часто выбирают вместо официального SDK.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 27907,
@@ -2506,7 +2520,10 @@
         "curated:02-frameworks.json",
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic, claude); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic, claude)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 26966,
@@ -2562,6 +2579,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "Провайдер Gemini для Vercel AI SDK.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 26966,
@@ -2623,7 +2641,10 @@
         "curated:02-frameworks.json",
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, embeddings, embedding); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, embeddings, embedding)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 26966,
@@ -2691,6 +2712,7 @@
         "discovery:npm"
       ],
       "notes": "Ключевая библиотека для любых OpenAI-совместимых серверов: Ollama, vLLM, llama.cpp, LM Studio, OpenRouter.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 26966,
@@ -2745,7 +2767,9 @@
       "source": [
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 26966,
@@ -2819,6 +2843,7 @@
         "discovery:npm"
       ],
       "notes": "Vercel AI SDK (v4/v5): единый интерфейс провайдеров через @ai-sdk/*, React-хуки useChat/useCompletion, поддержка edge. Самая популярная альтернатива LangChain в JS.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 26966,
@@ -2877,6 +2902,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "Пайплайны RAG с продвинутым поиском, агентами и оценщиками. Сильная интеграция с Elasticsearch/OpenSearch.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 26612,
@@ -2940,6 +2966,7 @@
         "curated:04-infra.json"
       ],
       "notes": "Red-teaming и evals: сравнение промптов/моделей, атаки, отчёты. Де-факто стандарт LLM-тестирования.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 25475,
@@ -2997,6 +3024,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "MemGPT-подход: агент с собственной памятью и файловой системой. Форк MemGPT.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 24896,
@@ -3054,6 +3082,7 @@
         "curated:05-mcp.json"
       ],
       "notes": "Официальный Python-SDK Model Context Protocol: серверы и клиенты, stdio/SSE/HTTP транспорты. Нужен, чтобы подключать к агенту внешние инструменты и данные.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 24407,
@@ -3095,7 +3124,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, ollama)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, ollama)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-09-18",
@@ -3146,7 +3177,9 @@
       "source": [
         "discovery:github"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, claude)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, claude)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 21946,
@@ -3203,6 +3236,7 @@
         "curation"
       ],
       "notes": "Embeddings, reranker, multimodal search API.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 21862,
@@ -3261,6 +3295,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "Программируемый синтаксис для промптов с перехватом генерации на уровне токенов (constrained decoding).",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 21780,
@@ -3313,6 +3348,7 @@
         "curated:04-infra.json"
       ],
       "notes": "Минималистичный ML-фреймворк на Rust от Hugging Face: локальный инференс без Python.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 21108,
@@ -3377,6 +3413,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "Агенты на типизованных моделях Pydantic. Лёгкая альтернатива LangChain с упором на типы и предсказуемость.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 20193,
@@ -3425,6 +3462,7 @@
         "curated:04-infra.json"
       ],
       "notes": "Официальный репозиторий бенчмарков OpenAI (пакета на PyPI нет — ставится из репозитория). Скорее исследовательский инструмент.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 19509,
@@ -3477,6 +3515,7 @@
         "curated:04-infra.json"
       ],
       "notes": "Эталонный токенизатор OpenAI: подсчёт токенов, кодирование/декодирование. Нужен для учёта стоимости и лимитов контекста.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 19331,
@@ -3533,6 +3572,7 @@
         "curated:04-infra.json"
       ],
       "notes": "LLM прямо в браузере через WebGPU (MLC), OpenAI-совместимый интерфейс.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 19194,
@@ -3590,6 +3630,7 @@
         "curated:04-infra.json"
       ],
       "notes": "Pytest-подобные evals с LLM-as-a-judge метриками (answer relevancy, faithfulness, hallucination).",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 18453,
@@ -3644,6 +3685,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "Интеграция Anthropic для LangChain.js.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 18230,
@@ -3702,6 +3744,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "Базовые абстракции LangChain.js: Runnable, MessageHistory, tools.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 18230,
@@ -3757,6 +3800,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "Интеграция OpenAI для LangChain.js.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 18230,
@@ -3818,6 +3862,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "JS/TS-версия LangChain. Интеграции: @langchain/openai, @langchain/anthropic, @langchain/google-genai.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 18230,
@@ -3868,7 +3913,10 @@
       "source": [
         "discovery:npm"
       ],
-      "notes": "Признаки: имя == ключевое слово провайдера «OpenAI»; LLM-признаки в описании (gpt, chatgpt)",
+      "matchReasons": [
+        "имя == ключевое слово провайдера «OpenAI»",
+        "LLM-признаки в описании (gpt, chatgpt)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 18102,
@@ -3930,6 +3978,7 @@
         "discovery:npm"
       ],
       "notes": "Запуск моделей Hugging Face в браузере/Node через ONNX Runtime Web: chat templates, WebGPU. Название пакета раньше было transformers.js.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 16323,
@@ -3985,6 +4034,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "Ограничение декодирования по грамматике/схеме для локальных моделей (llama.cpp, transformers, vLLM). К облачным провайдерам не ходит.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 15885,
@@ -4043,6 +4093,7 @@
         "curation"
       ],
       "notes": "Метрики качества RAG: faithfulness, answer relevancy, context precision/recall.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 15853,
@@ -4099,6 +4150,7 @@
         "curated:04-infra.json"
       ],
       "notes": "Парсинг документов (PDF, DOCX, HTML) в структурированные элементы для RAG.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 15501,
@@ -4148,7 +4200,9 @@
       "source": [
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, claude, transformers, embeddings)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, claude, transformers, embeddings)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-05-18",
@@ -4203,7 +4257,9 @@
         "discovery:github",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, gemini)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, gemini)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-27",
       "stars": 14763,
@@ -4265,6 +4321,7 @@
         "curation"
       ],
       "notes": "Гарантированный структурированный вывод: Pydantic-модель + ретраи + валидация. Работает поверх большинства SDK.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 13944,
@@ -4322,6 +4379,7 @@
         "curated:05-mcp.json"
       ],
       "notes": "Официальный TypeScript-SDK MCP. Интеграция с Vercel AI SDK (@ai-sdk/mcp) и Anthropic SDK.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 13464,
@@ -4362,7 +4420,9 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: LLM-признаки в описании (mistral)",
+      "matchReasons": [
+        "LLM-признаки в описании (mistral)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-09-18",
@@ -4423,6 +4483,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "Java-фреймворк, аналог LangChain для JVM. Интеграции: langchain4j-open-ai, langchain4j-anthropic, langchain4j-amazon-bedrock, langchain4j-ollama.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 13160,
@@ -4475,7 +4536,9 @@
         "curated:02-frameworks.json",
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic, langchain)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic, langchain)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 13160,
@@ -4530,6 +4593,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "Модели OpenAI для LangChain4j, в том числе все OpenAI-совместимые серверы через OpenAiChatModel.builder().baseUrl(...).",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 13160,
@@ -4591,6 +4655,7 @@
         "curated:04-infra.json"
       ],
       "notes": "AI-шлюз с наблюдаемостью, кэшем и A/B-тестированием моделей.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 13086,
@@ -4632,7 +4697,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2023-01-13",
@@ -4681,6 +4748,7 @@
         "curated:03-community-clients.json"
       ],
       "notes": "Сервер-шлюз с единым API к разным рантаймам. Полезен для локальной разработки.; не найден в реестре при проверке",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 12548,
@@ -4736,6 +4804,7 @@
         "curated:04-infra.json"
       ],
       "notes": "Векторная БД на Lance/Arrow: embedded, без сервера.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 11535,
@@ -4804,7 +4873,10 @@
         "curated:01-official-sdks.json",
         "discovery:npm"
       ],
-      "notes": "Признаки: имя == ключевое слово провайдера «OpenAI»; LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "имя == ключевое слово провайдера «OpenAI»",
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 11187,
@@ -4859,6 +4931,7 @@
         "curated:04-infra.json"
       ],
       "notes": "Быстрые токенизаторы (BPE/SentencePiece/WordPiece) на Rust с готовыми словарями моделей.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 11119,
@@ -4904,6 +4977,7 @@
         "curated:03-community-clients.json"
       ],
       "notes": "Лёгкий OpenAI-клиент для Rust без async-рантайма.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2020-06-02",
@@ -4968,6 +5042,7 @@
         "discovery:golang"
       ],
       "notes": "Самый популярный Go-клиент OpenAI. Поддерживает Chat Completions, Responses API, кастомный BaseURL (Azure, Ollama, vLLM, OpenRouter).",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 10778,
@@ -5028,6 +5103,7 @@
         "curated:04-infra.json"
       ],
       "notes": "GGUF-модели в Python: быстрый локальный инференс, OpenAI-совместимый сервер, function calling по грамматикам.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 10635,
@@ -5091,6 +5167,7 @@
         "curation"
       ],
       "notes": "Клиент Ollama на Python: chat, generate, embeddings, список/загрузка моделей. Модели: Llama, Qwen, Gemma, Mistral, Phi и др.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 10558,
@@ -5132,7 +5209,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2024-06-21",
@@ -5195,6 +5274,7 @@
         "discovery:golang"
       ],
       "notes": "LangChain для Go: цепочки, агенты, промпты, RAG, интеграции с Ollama и OpenAI.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 9696,
@@ -5249,7 +5329,9 @@
         "curated:02-frameworks.json",
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 9484,
@@ -5298,7 +5380,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 9484,
@@ -5347,7 +5431,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 9484,
@@ -5403,6 +5489,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "Spring AI: LLM-абстракции внутри Spring, Vector Store, Advisors (RAG, память), MCP-клиент.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 9484,
@@ -5456,6 +5543,7 @@
         "curated:04-infra.json"
       ],
       "notes": "Локальный инференс LLM на Apple Silicon (MLX), есть Swift-пакет mlx-lm.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 8982,
@@ -5519,6 +5607,7 @@
         "curated:03-community-clients.json"
       ],
       "notes": "Единый слой над десятками LLM-провайдеров в Rust: агенты, tool calling, RAG, извлечение данных. Активно развивается.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 8738,
@@ -5565,7 +5654,9 @@
       "source": [
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, anthropic, gemini)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, anthropic, gemini)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-03-22",
@@ -5615,7 +5706,10 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: LLM-признаки в описании (claude); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (claude)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 8170,
@@ -5657,7 +5751,10 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: имя == ключевое слово провайдера «Azure OpenAI»; LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "имя == ключевое слово провайдера «Azure OpenAI»",
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2023-09-04",
@@ -5713,7 +5810,9 @@
       "source": [
         "discovery:golang"
       ],
-      "notes": "Признаки: LLM-признаки в описании (ollama)",
+      "matchReasons": [
+        "LLM-признаки в описании (ollama)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 6455,
@@ -5769,7 +5868,9 @@
         "discovery:github",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 6445,
@@ -5826,6 +5927,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "Идея: преобразования данных через LLM с типами (вместо ручного парсинга).",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 6198,
@@ -5885,6 +5987,7 @@
         "curated:04-infra.json"
       ],
       "notes": "Прокси-аналитика LLM-запросов: латентности, стоимость, кэш, rate limits.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 6177,
@@ -5938,7 +6041,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, agent, agents)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, agent, agents)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 6058,
@@ -6004,7 +6109,10 @@
         "curated:01-official-sdks.json",
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 6058,
@@ -6067,6 +6175,7 @@
         "discovery:packagist"
       ],
       "notes": "Официальный PHP-клиент OpenAI: PSR-18 HTTP-клиент, полное покрытие Responses/Assistants/Batch.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 5833,
@@ -6114,7 +6223,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, anthropic, claude)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, anthropic, claude)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-01-15",
@@ -6169,6 +6280,7 @@
         "curated:01-official-sdks.json"
       ],
       "notes": "Клиент Azure AI Agents Service (Foundry).",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 5609,
@@ -6228,6 +6340,7 @@
         "curated:01-official-sdks.json"
       ],
       "notes": "Azure AI Inference: единая точка доступа к serverless- и managed-эндпоинтам моделей в Azure AI Foundry. Отдельного пакета azure-ai-openai для Python нет: класс AzureOpenAI входит в официальный пакет openai.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 5609,
@@ -6282,6 +6395,7 @@
         "curated:01-official-sdks.json"
       ],
       "notes": "Клиент проектов Azure AI Foundry: агенты, оценки, развёртывания.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 5609,
@@ -6334,6 +6448,7 @@
         "curated:99-link-fixes.json"
       ],
       "notes": "Ссылка исправлена аудитом: pykeio/tch → https://github.com/LaurentMazare/tch-rs",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 5495,
@@ -6392,7 +6507,9 @@
         "discovery:github",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, claude, gemini)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, claude, gemini)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-27",
       "stars": 4873,
@@ -6440,7 +6557,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (gpt, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (gpt, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 4721,
@@ -6488,7 +6607,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (gpt, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (gpt, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 4721,
@@ -6549,6 +6670,7 @@
         "curation"
       ],
       "notes": "Самый популярный Java-клиент OpenAI (retracted upstream, живёт своей жизнью). BaseURL + Proxy для Azure/Ollama.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 4721,
@@ -6624,6 +6746,7 @@
         "discovery:rubygems"
       ],
       "notes": "Современный Ruby-клиент: единый API для всех провайдеров, Rails-интеграция, встроенный тестовый дабл (VCR).",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 4413,
@@ -6686,7 +6809,10 @@
         "discovery:npm",
         "curation"
       ],
-      "notes": "Признаки: имя == ключевое слово провайдера «Ollama»; LLM-признаки в описании (ollama)",
+      "matchReasons": [
+        "имя == ключевое слово провайдера «Ollama»",
+        "LLM-признаки в описании (ollama)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 4373,
@@ -6734,7 +6860,9 @@
       "source": [
         "discovery:luarocks"
       ],
-      "notes": "Признаки: LLM-признаки в описании (gpt, chatgpt, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (gpt, chatgpt, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 3996,
@@ -6799,6 +6927,7 @@
         "curated:01-official-sdks.json"
       ],
       "notes": "Актуальное поколение SDK (Google Gen AI SDK). Работает и с Gemini API, и с Vertex AI.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 3992,
@@ -6848,7 +6977,10 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: LLM-признаки в описании (huggingface); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (huggingface)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 3936,
@@ -6913,6 +7045,7 @@
         "discovery:pypi"
       ],
       "notes": "Messages API, prompt caching, tool use, computer use, beta-заголовки. Один и тот же пакет умеет ходить и в api.anthropic.com, и в Bedrock/Vertex — через AnthropicBedrock и AnthropicVertex.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 3922,
@@ -6972,6 +7105,7 @@
         "curation"
       ],
       "notes": "C#-обёртки над llama.cpp и ollama, есть встроенный сервер с OpenAI-совместимым API. Репозиторий переехал в организацию SciSharp (прежде FoundryLabs/llama.net).",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 3800,
@@ -7029,7 +7163,10 @@
         "curated:03-community-clients.json",
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 3755,
@@ -7081,6 +7218,7 @@
         "curated:05-mcp.json"
       ],
       "notes": "Официальный Java-SDK Model Context Protocol. Модули: mcp, mcp-core, mcp-spring-webmvc, mcp-spring-webflux.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 3712,
@@ -7145,6 +7283,7 @@
         "curated:01-official-sdks.json"
       ],
       "notes": "Converse API Bedrock для JS/TS.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 3670,
@@ -7200,6 +7339,7 @@
         "curated:01-official-sdks.json"
       ],
       "notes": "Официальный Go-модуль Bedrock Runtime.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 3659,
@@ -7256,6 +7396,7 @@
         "curated:01-official-sdks.json"
       ],
       "notes": "Ruby-клиент AWS Bedrock Runtime.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 3657,
@@ -7319,6 +7460,7 @@
         "discovery:golang"
       ],
       "notes": "Официальный Go-клиент OpenAI (модуль v3). Есть полиморфные client/option-паттерны, streaming, responses.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 3478,
@@ -7376,6 +7518,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "LangGraph для JS/TS.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 3317,
@@ -7436,6 +7579,7 @@
         "curation"
       ],
       "notes": "Исторически популярный гем. Сейчас официальный клиент — гем openai (openai/openai-ruby), а ruby-openai практически не обновляется.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-27",
       "stars": 3222,
@@ -7491,6 +7635,7 @@
         "curated:04-infra.json"
       ],
       "notes": "Быстрые локальные эмбеддинги (ONNX), без PyTorch.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 3219,
@@ -7549,6 +7694,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "Абстракции Microsoft.Extensions.AI (IChatClient, IEmbeddingGenerator) — тонкий слой над провайдерами.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 3216,
@@ -7596,10 +7742,67 @@
       "source": [
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, groq)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, groq)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-09-26",
+      "latestReleaseSource": "registry"
+    },
+    {
+      "id": "nuget:betalgo.openai",
+      "name": "Betalgo.OpenAI",
+      "description": "Dotnet SDK for OpenAI ChatGPT, Whisper, GPT-4 and DALL·E",
+      "ecosystem": "nuget",
+      "language": "C#",
+      "role": "sdk",
+      "kind": "client",
+      "providers": [
+        "openai"
+      ],
+      "sdkApi": "openai",
+      "status": "unknown",
+      "tier": "B",
+      "features": [
+        "audio"
+      ],
+      "envVars": [
+        "OPENAI_API_KEY"
+      ],
+      "install": "dotnet add package Betalgo.OpenAI",
+      "repo": "https://github.com/betalgo/openai",
+      "homepage": "https://openai.com",
+      "license": "MIT",
+      "licenseId": "MIT",
+      "licenseFamily": "permissive",
+      "registry": {
+        "url": "https://www.nuget.org/packages/Betalgo.OpenAI",
+        "version": "8.7.2",
+        "downloads": 2213059,
+        "downloadsPeriod": "total",
+        "updatedAt": "2024-10-10"
+      },
+      "github": {
+        "stars": 3026,
+        "forks": 538,
+        "openIssues": 19,
+        "archived": false,
+        "pushedAt": "2026-03-21"
+      },
+      "confidence": 0.95,
+      "source": [
+        "discovery:nuget",
+        "curation"
+      ],
+      "notes": "Неофициальный клиент OpenAI для .NET от Betalgo. Поддерживается сообществом, а не OpenAI.",
+      "matchReasons": [
+        "LLM-признаки в описании (gpt, chatgpt, openai)"
+      ],
+      "discoveredAt": "2026-09-26",
+      "updatedAt": "2026-09-26",
+      "stars": 3026,
+      "latestRelease": "2024-10-10",
       "latestReleaseSource": "registry"
     },
     {
@@ -7645,7 +7848,9 @@
         "discovery:github",
         "discovery:swift"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2946,
@@ -7706,6 +7911,7 @@
         "curated:04-infra.json"
       ],
       "notes": "Фреймворк evals/агентов от UK AISI: безопасность, возможности, бенчмарки. Поддерживает десятки моделей.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2862,
@@ -7763,6 +7969,7 @@
         "curation"
       ],
       "notes": "OpenTelemetry GenAI-семантические конвенции «из коробки».",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2797,
@@ -7798,7 +8005,7 @@
         "OPENAI_API_KEY"
       ],
       "install": "dotnet add package OpenAI",
-      "repo": "https://github.com/betalgo/openai",
+      "repo": "https://github.com/openai/openai-dotnet",
       "docs": "https://github.com/openai/openai-dotnet",
       "homepage": "https://github.com/openai/openai-dotnet/tree/OpenAI_2.14.0",
       "license": "MIT",
@@ -7812,9 +8019,9 @@
         "updatedAt": "2026-09-15"
       },
       "github": {
-        "stars": 2696,
-        "forks": 421,
-        "openIssues": 59,
+        "stars": 2698,
+        "forks": 422,
+        "openIssues": 61,
         "archived": false,
         "pushedAt": "2026-09-25",
         "releasedAt": "2026-09-15",
@@ -7828,10 +8035,11 @@
         "discovery:nuget",
         "curation"
       ],
-      "notes": "Исторически самый популярный .NET-клиент (Betalgo). Сейчас уступает официальному OpenAI (openai-dotnet).",
+      "notes": "Официальная библиотека OpenAI для .NET. Поддерживает Azure OpenAI через endpoint.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
-      "stars": 2696,
+      "stars": 2698,
       "latestRelease": "2026-09-15",
       "latestReleaseSource": "registry"
     },
@@ -7869,7 +8077,9 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: LLM-признаки в описании (mistral)",
+      "matchReasons": [
+        "LLM-признаки в описании (mistral)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-09-18",
@@ -7922,6 +8132,7 @@
         "curated:01-official-sdks.json"
       ],
       "notes": "Java-клиент Bedrock Runtime.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2623,
@@ -7981,7 +8192,10 @@
         "curated:01-official-sdks.json",
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2562,
@@ -8029,7 +8243,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2562,
@@ -8082,7 +8298,10 @@
         "discovery:npm",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (huggingface, inference); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (huggingface, inference)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2535,
@@ -8135,7 +8354,9 @@
         "discovery:npm",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (ollama, huggingface)",
+      "matchReasons": [
+        "LLM-признаки в описании (ollama, huggingface)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2535,
@@ -8199,6 +8420,7 @@
         "curated:03-community-clients.json"
       ],
       "notes": "Единый PHP-интерфейс к провайдерам с тестами и поддержкой Laravel.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2423,
@@ -8264,7 +8486,10 @@
         "curated:01-official-sdks.json",
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2295,
@@ -8320,7 +8545,9 @@
       "source": [
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2122,
@@ -8382,7 +8609,10 @@
         "curated:01-official-sdks.json",
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2122,
@@ -8450,6 +8680,7 @@
         "discovery:crates"
       ],
       "notes": "Де-факто стандарт OpenAI-клиента в Rust (Tokio, типизованные структуры, Responses API, кастомный base_url).",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2018,
@@ -8507,6 +8738,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "LangChain для Ruby.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1999,
@@ -8562,7 +8794,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (gpt, chatgpt, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (gpt, chatgpt, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1894,
@@ -8612,6 +8846,7 @@
         "curation"
       ],
       "notes": "Репозиторий crates.io-пакета huggingface больше не существует. Пакет заброшен (версия 0.1.0); используйте официальный hf-hub или candle.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-27",
       "latestRelease": "2023-07-24",
@@ -8667,6 +8902,7 @@
         "curated:03-community-clients.json"
       ],
       "notes": "Идиоматичный Kotlin-клиент (Ktor, корутины, DSL) — альтернатива openai-java.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1845,
@@ -8732,6 +8968,7 @@
         "curated:03-community-clients.json"
       ],
       "notes": "PHP-фреймворк для GenAI от Theodo Group: агенты, RAG, structured output, evals, память. На Packagist — theodo-group/llphant.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1711,
@@ -8780,7 +9017,9 @@
       "source": [
         "discovery:github"
       ],
-      "notes": "Признаки: LLM-признаки в описании (gpt, chatgpt, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (gpt, chatgpt, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1702,
@@ -8844,6 +9083,7 @@
         "curated:01-official-sdks.json"
       ],
       "notes": "Новое поколение TS-клиента Google.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1685,
@@ -8894,6 +9134,7 @@
         "curation"
       ],
       "notes": "Репозиторий пакета заброшен. Для Rust берите rig-core (единый слой над провайдерами) или genai.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-27",
       "latestRelease": "2023-12-21",
@@ -8953,7 +9194,10 @@
         "discovery:crates",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, gpt, chatgpt); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, gpt, chatgpt)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-27",
       "stars": 1602,
@@ -9004,7 +9248,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1602,
@@ -9067,6 +9313,7 @@
         "discovery:maven"
       ],
       "notes": "Официальный Java-клиент OpenAI (Apache-2.0), генерируется из OpenAPI-спецификации. Модули: openai-java-core, openai-java-client-okhttp, openai-java-bedrock, openai-java-spring-boot-starter.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1539,
@@ -9124,6 +9371,7 @@
         "discovery:maven"
       ],
       "notes": "Транспорт для AWS Bedrock в официальном Java-клиенте OpenAI.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1539,
@@ -9164,7 +9412,9 @@
       "source": [
         "discovery:hex"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-08-13",
@@ -9221,7 +9471,9 @@
       "source": [
         "discovery:luarocks"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, claude, gemini)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, claude, gemini)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1407,
@@ -9272,7 +9524,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (ollama)",
+      "matchReasons": [
+        "LLM-признаки в описании (ollama)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1404,
@@ -9329,6 +9583,7 @@
         "curated:04-infra.json"
       ],
       "notes": "Qdrant: фильтрованный векторный поиск, гибридный поиск, квантизация.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1363,
@@ -9378,7 +9633,9 @@
       "source": [
         "discovery:golang"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1203,
@@ -9437,7 +9694,10 @@
         "curated:02-frameworks.json",
         "discovery:hex"
       ],
-      "notes": "Признаки: LLM-признаки в описании (langchain); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (langchain)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1201,
@@ -9498,6 +9758,7 @@
         "curated:01-official-sdks.json"
       ],
       "notes": "Официальный Go-модуль Google Gen AI SDK.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1195,
@@ -9541,7 +9802,9 @@
         "discovery:luarocks",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-27",
       "stars": 1191,
@@ -9588,7 +9851,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (gemini, cohere, embedding)",
+      "matchReasons": [
+        "LLM-признаки в описании (gemini, cohere, embedding)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2025-12-25",
@@ -9649,6 +9914,7 @@
         "curated:04-infra.json"
       ],
       "notes": "Observability и evals от LangChain. Часто используется вместе с LangChain/LangGraph.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1063,
@@ -9709,7 +9975,9 @@
       "source": [
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, anthropic, gemini)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, anthropic, gemini)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1008,
@@ -9759,7 +10027,9 @@
       "source": [
         "discovery:cran"
       ],
-      "notes": "Признаки: LLM-признаки в описании (large language model, gpt)",
+      "matchReasons": [
+        "LLM-признаки в описании (large language model, gpt)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 992,
@@ -9807,7 +10077,9 @@
       "source": [
         "discovery:github"
       ],
-      "notes": "Признаки: LLM-признаки в описании (gpt, chatgpt, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (gpt, chatgpt, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 976,
@@ -9864,6 +10136,7 @@
         "curated:01-official-sdks.json"
       ],
       "notes": "Запуск любых community-моделей (изображения, видео, аудио).",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 917,
@@ -9923,6 +10196,7 @@
         "curated:01-official-sdks.json"
       ],
       "notes": "Vertex AI SDK: Gemini, PaLM-подобные модели, fine-tuning, evaluation.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 908,
@@ -9992,7 +10266,10 @@
         "curated:03-community-clients.json",
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, anthropic, gemini, groq); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, anthropic, gemini, groq)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 893,
@@ -10050,7 +10327,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, anthropic, gemini, groq)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, anthropic, gemini, groq)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 893,
@@ -10103,7 +10382,9 @@
         "discovery:github",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 889,
@@ -10144,7 +10425,9 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-09-23",
@@ -10198,7 +10481,9 @@
       "source": [
         "discovery:golang"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 816,
@@ -10251,7 +10536,9 @@
       "source": [
         "discovery:golang"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, embedding)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, embedding)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 813,
@@ -10292,7 +10579,9 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-09-23",
@@ -10350,7 +10639,9 @@
         "discovery:swift",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, inference)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, inference)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 773,
@@ -10409,7 +10700,10 @@
         "curated:01-official-sdks.json",
         "discovery:pypi"
       ],
-      "notes": "Признаки: имя == ключевое слово провайдера «Mistral AI»; LLM-признаки в описании (mistral)",
+      "matchReasons": [
+        "имя == ключевое слово провайдера «Mistral AI»",
+        "LLM-признаки в описании (mistral)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 769,
@@ -10439,7 +10733,7 @@
         "OPENAI_API_KEY"
       ],
       "install": "dotnet add package OpenAI-DotNet",
-      "repo": "https://github.com/roger-chen/openai-dotnet",
+      "repo": "https://github.com/RageAgainstThePixel/OpenAI-DotNet",
       "docs": "https://github.com/RageAgainstThePixel/OpenAI-DotNet",
       "homepage": "https://github.com/RageAgainstThePixel/OpenAI-DotNet",
       "license": "MIT",
@@ -10468,7 +10762,10 @@
         "discovery:nuget",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "notes": "Неофициальный клиент OpenAI для .NET от RageAgainstThePixel. По числу установок самый популярный из неофициальных.",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 759,
@@ -10519,7 +10816,9 @@
         "discovery:github",
         "discovery:swift"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 729,
@@ -10580,7 +10879,9 @@
       "source": [
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, anthropic, gemini)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, anthropic, gemini)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 697,
@@ -10629,7 +10930,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 683,
@@ -10683,7 +10986,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, mistral, inference)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, mistral, inference)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 683,
@@ -10747,6 +11052,7 @@
         "curation"
       ],
       "notes": "Swift-пакет для OpenAI (SwiftPM). Поддерживает произвольный baseURL, поэтому удобен для Ollama/vLLM.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 664,
@@ -10798,7 +11104,9 @@
       "source": [
         "discovery:cran"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, large language model)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, large language model)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 662,
@@ -10857,7 +11165,10 @@
         "curated:01-official-sdks.json",
         "discovery:pypi"
       ],
-      "notes": "Признаки: имя == ключевое слово провайдера «Groq»; LLM-признаки в описании (groq)",
+      "matchReasons": [
+        "имя == ключевое слово провайдера «Groq»",
+        "LLM-признаки в описании (groq)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 621,
@@ -10907,7 +11218,10 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: имя == ключевое слово провайдера «Groq»; LLM-признаки в описании (groq)",
+      "matchReasons": [
+        "имя == ключевое слово провайдера «Groq»",
+        "LLM-признаки в описании (groq)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 621,
@@ -10959,6 +11273,7 @@
         "curated:03-community-clients.json"
       ],
       "notes": "Haskell-клиент OpenAI.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 618,
@@ -11022,7 +11337,10 @@
         "discovery:cran",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, large language model); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, large language model)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 615,
@@ -11079,6 +11397,7 @@
         "curated:01-official-sdks.json"
       ],
       "notes": "Node-клиент Replicate.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 598,
@@ -11125,7 +11444,9 @@
       "source": [
         "discovery:hex"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 586,
@@ -11180,6 +11501,7 @@
         "curated:01-official-sdks.json"
       ],
       "notes": "Официальный клиент xAI (Grok).",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 580,
@@ -11226,7 +11548,9 @@
       "source": [
         "discovery:luarocks"
       ],
-      "notes": "Признаки: LLM-признаки в описании (gpt, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (gpt, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 568,
@@ -11276,6 +11600,7 @@
       "source": [
         "discovery:packagist"
       ],
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 473,
@@ -11339,6 +11664,7 @@
         "discovery:rubygems"
       ],
       "notes": "Официальный Ruby-клиент OpenAI. Гемы ruby-openai и openai_chatgpt — устаревшие альтернативы.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 463,
@@ -11388,7 +11714,9 @@
       "source": [
         "discovery:golang"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 447,
@@ -11437,7 +11765,9 @@
         "discovery:github",
         "discovery:swift"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 435,
@@ -11498,6 +11828,7 @@
         "discovery:pypi"
       ],
       "notes": "Chat (v2), Embed, Rerank, Classify. Cohere Embed — одна из лучших моделей эмбеддингов.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 400,
@@ -11556,7 +11887,9 @@
         "discovery:github",
         "discovery:swift"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, claude, ollama)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, claude, ollama)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 399,
@@ -11616,6 +11949,7 @@
         "curated:01-official-sdks.json"
       ],
       "notes": "Официальный Java-клиент нового поколения.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 398,
@@ -11661,7 +11995,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic, langchain)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic, langchain)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 380,
@@ -11716,7 +12052,10 @@
         "curated:01-official-sdks.json",
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 377,
@@ -11767,7 +12106,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 377,
@@ -11818,7 +12159,9 @@
       "source": [
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, anthropic, groq)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, anthropic, groq)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-08-27",
@@ -11876,7 +12219,10 @@
         "curated:01-official-sdks.json",
         "discovery:rubygems"
       ],
-      "notes": "Признаки: имя == ключевое слово провайдера «Anthropic Claude»; LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "имя == ключевое слово провайдера «Anthropic Claude»",
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 370,
@@ -11927,7 +12273,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 370,
@@ -11977,7 +12325,10 @@
       "source": [
         "discovery:hex"
       ],
-      "notes": "Признаки: имя == ключевое слово провайдера «OpenAI»; LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "имя == ключевое слово провайдера «OpenAI»",
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 353,
@@ -12024,6 +12375,7 @@
         "curated:02-frameworks.json"
       ],
       "notes": "Репозиторий пакета недоступен, поддержка не ведётся. В Elixir стоит смотреть brainlid/langchain (пакет langchain) или agentjido/req_llm (пакет req_llm).",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-09-08",
@@ -12068,7 +12420,9 @@
       "source": [
         "discovery:swift"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 327,
@@ -12117,7 +12471,10 @@
       "source": [
         "discovery:cran"
       ],
-      "notes": "Признаки: имя == ключевое слово провайдера «OpenAI»; LLM-признаки в описании (gpt, chatgpt)",
+      "matchReasons": [
+        "имя == ключевое слово провайдера «OpenAI»",
+        "LLM-признаки в описании (gpt, chatgpt)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 323,
@@ -12166,7 +12523,9 @@
       "source": [
         "discovery:swift"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 270,
@@ -12226,7 +12585,10 @@
         "curated:01-official-sdks.json",
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (groq); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (groq)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 266,
@@ -12277,7 +12639,9 @@
         "discovery:rubygems",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, large language model, ollama)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, large language model, ollama)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 258,
@@ -12339,7 +12703,9 @@
         "discovery:github",
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 250,
@@ -12401,7 +12767,9 @@
         "discovery:github",
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 250,
@@ -12463,7 +12831,9 @@
         "discovery:github",
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 250,
@@ -12518,6 +12888,7 @@
         "curated:03-community-clients.json"
       ],
       "notes": "Clojure-клиент OpenAI (обёртка над HTTP).",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 244,
@@ -12567,7 +12938,9 @@
       "source": [
         "discovery:swift"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 244,
@@ -12620,7 +12993,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, anthropic, gemini)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, anthropic, gemini)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 237,
@@ -12671,7 +13046,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 236,
@@ -12731,6 +13108,7 @@
         "curated:04-infra.json"
       ],
       "notes": "Векторная БД с модулями и GraphQL-интерфейсом.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 227,
@@ -12779,7 +13157,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 224,
@@ -12840,6 +13220,7 @@
         "discovery:nuget"
       ],
       "notes": "Клиент Anthropic от сообщества (tghamm), долгое время основной для .NET. Официальный пакет — Anthropic.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 223,
@@ -12898,6 +13279,7 @@
         "discovery:packagist"
       ],
       "notes": "PHP-клиент Gemini API от сообщества (официального PHP-SDK у Google нет).",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 223,
@@ -12959,6 +13341,7 @@
         "curation"
       ],
       "notes": "Symfony-интеграция официального PHP-клиента OpenAI (DI-конфигурация и сервисы).",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-27",
       "stars": 221,
@@ -13007,7 +13390,9 @@
       "source": [
         "discovery:hex"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 217,
@@ -13065,7 +13450,9 @@
       "source": [
         "discovery:swift"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, claude, gemini)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, claude, gemini)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 205,
@@ -13117,7 +13504,10 @@
       "source": [
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 196,
@@ -13166,7 +13556,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 196,
@@ -13221,7 +13613,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (gemini)",
+      "matchReasons": [
+        "LLM-признаки в описании (gemini)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 190,
@@ -13268,7 +13662,9 @@
       "source": [
         "discovery:swift"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 187,
@@ -13318,7 +13714,9 @@
       "source": [
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 183,
@@ -13379,6 +13777,7 @@
         "curation"
       ],
       "notes": "Node-клиент Vertex AI.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 182,
@@ -13423,7 +13822,9 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: LLM-признаки в описании (agent)",
+      "matchReasons": [
+        "LLM-признаки в описании (agent)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-08-24",
@@ -13477,6 +13878,7 @@
         "curated:03-community-clients.json"
       ],
       "notes": "Наиболее полный Go-клиент Anthropic: Messages, streaming, tool use, prompt caching, beta-фичи.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 175,
@@ -13533,7 +13935,9 @@
       "source": [
         "discovery:golang"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 175,
@@ -13594,7 +13998,10 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (gemini, function calling); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (gemini, function calling)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 174,
@@ -13655,7 +14062,10 @@
         "discovery:npm",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (cohere); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (cohere)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 171,
@@ -13718,6 +14128,7 @@
         "curation"
       ],
       "notes": "R-обёртка над REST API OpenAI (httr/curl). Официальной поддержки со стороны OpenAI для R нет.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 169,
@@ -13767,7 +14178,9 @@
       "source": [
         "discovery:golang"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 158,
@@ -13818,7 +14231,9 @@
       "source": [
         "discovery:swift"
       ],
-      "notes": "Признаки: LLM-признаки в описании (gpt, chatgpt, openai, rag)",
+      "matchReasons": [
+        "LLM-признаки в описании (gpt, chatgpt, openai, rag)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 158,
@@ -13879,7 +14294,10 @@
         "curated:01-official-sdks.json",
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (mistral); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (mistral)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 157,
@@ -13920,7 +14338,9 @@
       "source": [
         "discovery:golang"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, agent)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, agent)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-08-20",
@@ -13964,7 +14384,9 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: LLM-признаки в описании (agent)",
+      "matchReasons": [
+        "LLM-признаки в описании (agent)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-08-24",
@@ -14025,7 +14447,10 @@
         "discovery:nuget",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (inference); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (inference)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 142,
@@ -14070,7 +14495,9 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: LLM-признаки в описании (agent)",
+      "matchReasons": [
+        "LLM-признаки в описании (agent)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-08-24",
@@ -14127,6 +14554,7 @@
         "curation"
       ],
       "notes": "Ссылка исправлена аудитом: elixir-ollama/ollama → https://github.com/aaronrussell/ollama-ex",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 138,
@@ -14179,7 +14607,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 137,
@@ -14224,7 +14654,9 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: LLM-признаки в описании (agent)",
+      "matchReasons": [
+        "LLM-признаки в описании (agent)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-08-24",
@@ -14273,7 +14705,9 @@
         "discovery:cran",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (large language model, ollama)",
+      "matchReasons": [
+        "LLM-признаки в описании (large language model, ollama)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 127,
@@ -14323,7 +14757,10 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: имя == ключевое слово провайдера «OpenAI»; LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "имя == ключевое слово провайдера «OpenAI»",
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 127,
@@ -14373,7 +14810,9 @@
         "discovery:cran",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (ollama)",
+      "matchReasons": [
+        "LLM-признаки в описании (ollama)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 126,
@@ -14430,7 +14869,9 @@
       "source": [
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 126,
@@ -14492,7 +14933,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, anthropic, groq)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, anthropic, groq)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 125,
@@ -14552,7 +14995,9 @@
         "discovery:swift",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, prompt, inference)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, prompt, inference)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 118,
@@ -14604,7 +15049,9 @@
         "discovery:crates",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 116,
@@ -14654,7 +15101,9 @@
       "source": [
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (ollama)",
+      "matchReasons": [
+        "LLM-признаки в описании (ollama)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 104,
@@ -14708,7 +15157,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (gpt, openai, tokenizer)",
+      "matchReasons": [
+        "LLM-признаки в описании (gpt, openai, tokenizer)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 102,
@@ -14758,7 +15209,9 @@
       "source": [
         "discovery:hex"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 101,
@@ -14813,7 +15266,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (cohere, agent)",
+      "matchReasons": [
+        "LLM-признаки в описании (cohere, agent)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 96,
@@ -14870,7 +15325,10 @@
         "registry:luarocks",
         "discovery:luarocks"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 93,
@@ -14920,7 +15378,9 @@
         "discovery:golang",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (huggingface)",
+      "matchReasons": [
+        "LLM-признаки в описании (huggingface)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 89,
@@ -14966,7 +15426,9 @@
       "source": [
         "discovery:hex"
       ],
-      "notes": "Признаки: LLM-признаки в описании (huggingface)",
+      "matchReasons": [
+        "LLM-признаки в описании (huggingface)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-05-11",
@@ -15016,7 +15478,9 @@
       "source": [
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (gemini)",
+      "matchReasons": [
+        "LLM-признаки в описании (gemini)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 89,
@@ -15077,7 +15541,9 @@
       "source": [
         "discovery:cran"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, large language model)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, large language model)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 87,
@@ -15136,6 +15602,7 @@
         "curated:01-official-sdks.json"
       ],
       "notes": "Инференс открытых моделей + fine-tuning.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 81,
@@ -15189,7 +15656,9 @@
       "source": [
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 75,
@@ -15242,6 +15711,7 @@
         "curated:04-infra.json"
       ],
       "notes": "Java-клиент Langfuse. В Maven Central пакета нет — ставится через JitPack/GitHub Packages.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 74,
@@ -15290,7 +15760,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 72,
@@ -15345,6 +15817,7 @@
         "curated:01-official-sdks.json"
       ],
       "notes": "Официальный Python-клиент AI21 Labs для моделей Jamba.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 70,
@@ -15395,7 +15868,9 @@
       "source": [
         "discovery:golang"
       ],
-      "notes": "Признаки: LLM-признаки в описании (cohere)",
+      "matchReasons": [
+        "LLM-признаки в описании (cohere)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 69,
@@ -15443,7 +15918,9 @@
       "source": [
         "discovery:github"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 68,
@@ -15491,7 +15968,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 67,
@@ -15539,7 +16018,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 67,
@@ -15587,7 +16068,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 67,
@@ -15635,7 +16118,9 @@
         "discovery:hex",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-27",
       "stars": 62,
@@ -15690,7 +16175,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, claude, ollama)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, claude, ollama)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 60,
@@ -15749,7 +16236,10 @@
         "curated:01-official-sdks.json",
         "discovery:pypi"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 58,
@@ -15802,7 +16292,9 @@
         "discovery:golang",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (huggingface)",
+      "matchReasons": [
+        "LLM-признаки в описании (huggingface)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 57,
@@ -15852,7 +16344,9 @@
       "source": [
         "discovery:cran"
       ],
-      "notes": "Признаки: LLM-признаки в описании (gpt)",
+      "matchReasons": [
+        "LLM-признаки в описании (gpt)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 56,
@@ -15907,7 +16401,9 @@
       "source": [
         "discovery:github"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, agent, agents)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, agent, agents)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 56,
@@ -15959,7 +16455,9 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 53,
@@ -16007,7 +16505,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 52,
@@ -16053,7 +16553,9 @@
         "discovery:luarocks",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-27",
       "stars": 50,
@@ -16096,7 +16598,9 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: LLM-признаки в описании (groq)",
+      "matchReasons": [
+        "LLM-признаки в описании (groq)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-05-29",
@@ -16151,7 +16655,9 @@
       "source": [
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic, tool use)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic, tool use)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 47,
@@ -16202,7 +16708,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (mistral)",
+      "matchReasons": [
+        "LLM-признаки в описании (mistral)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 46,
@@ -16253,7 +16761,9 @@
       "source": [
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 44,
@@ -16313,7 +16823,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, anthropic, gemini)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, anthropic, gemini)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 44,
@@ -16360,7 +16872,9 @@
       "source": [
         "discovery:hex"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 40,
@@ -16400,7 +16914,9 @@
         "discovery:npm",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, ollama)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, ollama)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2025-05-10",
@@ -16449,7 +16965,9 @@
       "source": [
         "discovery:golang"
       ],
-      "notes": "Признаки: LLM-признаки в описании (ollama)",
+      "matchReasons": [
+        "LLM-признаки в описании (ollama)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 38,
@@ -16498,7 +17016,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 37,
@@ -16546,7 +17066,9 @@
         "discovery:golang",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (ollama)",
+      "matchReasons": [
+        "LLM-признаки в описании (ollama)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 35,
@@ -16595,6 +17117,7 @@
       "source": [
         "discovery:packagist"
       ],
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 35,
@@ -16637,7 +17160,9 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2026-06-02",
@@ -16690,7 +17215,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 30,
@@ -16738,7 +17265,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 30,
@@ -16789,7 +17318,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (large language model, mistral)",
+      "matchReasons": [
+        "LLM-признаки в описании (large language model, mistral)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 30,
@@ -16844,6 +17375,7 @@
         "discovery:maven"
       ],
       "notes": "Java-клиент Cohere. Проверяется автоматически: если координаты в Maven Central не найдутся, запись будет помечена как непроверенная.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 29,
@@ -16895,7 +17427,10 @@
       "source": [
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai); точное совпадение с поисковым запросом",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)",
+        "точное совпадение с поисковым запросом"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 29,
@@ -16960,7 +17495,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, anthropic, ollama)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, anthropic, ollama)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 25,
@@ -17011,7 +17548,9 @@
       "source": [
         "discovery:luarocks"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, tokenizer)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, tokenizer)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 24,
@@ -17062,7 +17601,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 23,
@@ -17110,7 +17651,9 @@
         "discovery:cran",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (large language model, ollama)",
+      "matchReasons": [
+        "LLM-признаки в описании (large language model, ollama)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 22,
@@ -17161,7 +17704,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, huggingface, tokenizer, inference)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, huggingface, tokenizer, inference)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 22,
@@ -17217,7 +17762,9 @@
       "source": [
         "discovery:github"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, claude, gemini)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, claude, gemini)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 22,
@@ -17285,7 +17832,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, gpt, openai, anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, gpt, openai, anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 21,
@@ -17334,7 +17883,9 @@
       "source": [
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 20,
@@ -17387,7 +17938,9 @@
       "source": [
         "discovery:github"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 19,
@@ -17436,7 +17989,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic, claude)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic, claude)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 18,
@@ -17487,7 +18042,9 @@
       "source": [
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 16,
@@ -17542,7 +18099,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, gpt, openai, anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, gpt, openai, anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 16,
@@ -17596,7 +18155,9 @@
       "source": [
         "discovery:hex"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 15,
@@ -17646,7 +18207,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (gpt, chatgpt, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (gpt, chatgpt, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 13,
@@ -17697,7 +18260,9 @@
       "source": [
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 12,
@@ -17746,7 +18311,9 @@
       "source": [
         "discovery:luarocks"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 11,
@@ -17795,7 +18362,9 @@
       "source": [
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 11,
@@ -17850,7 +18419,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic, claude, gemini)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic, claude, gemini)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 11,
@@ -17901,7 +18472,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, agent, agents)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, agent, agents)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 11,
@@ -17949,7 +18522,9 @@
       "source": [
         "discovery:cran"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 10,
@@ -17999,7 +18574,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 10,
@@ -18049,7 +18626,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (groq)",
+      "matchReasons": [
+        "LLM-признаки в описании (groq)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 10,
@@ -18102,7 +18681,9 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: LLM-признаки в описании (transformers, agent)",
+      "matchReasons": [
+        "LLM-признаки в описании (transformers, agent)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 10,
@@ -18161,6 +18742,7 @@
         "curated:01-official-sdks.json"
       ],
       "notes": "Быстрый инференс открытых моделей, поддержка function calling.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 10,
@@ -18213,7 +18795,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 9,
@@ -18268,7 +18852,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 9,
@@ -18316,7 +18902,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (mistral)",
+      "matchReasons": [
+        "LLM-признаки в описании (mistral)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 9,
@@ -18364,7 +18952,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (mistral)",
+      "matchReasons": [
+        "LLM-признаки в описании (mistral)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 9,
@@ -18412,7 +19002,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (mistral)",
+      "matchReasons": [
+        "LLM-признаки в описании (mistral)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 9,
@@ -18460,7 +19052,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (mistral)",
+      "matchReasons": [
+        "LLM-признаки в описании (mistral)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 9,
@@ -18513,7 +19107,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (cohere)",
+      "matchReasons": [
+        "LLM-признаки в описании (cohere)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 9,
@@ -18563,7 +19159,9 @@
       "source": [
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 9,
@@ -18609,7 +19207,9 @@
       "source": [
         "discovery:cran"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, large language model)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, large language model)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 8,
@@ -18662,7 +19262,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, large language model, huggingface, embeddings)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, large language model, huggingface, embeddings)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 8,
@@ -18723,7 +19325,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, gemini, cohere)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, gemini, cohere)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 8,
@@ -18770,7 +19374,9 @@
       "source": [
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (gpt, chatgpt, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (gpt, chatgpt, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 8,
@@ -18830,7 +19436,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, anthropic, mistral, ollama)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, anthropic, mistral, ollama)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 8,
@@ -18889,7 +19497,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, claude, gemini)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, claude, gemini)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 7,
@@ -18938,7 +19548,9 @@
       "source": [
         "discovery:github"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 7,
@@ -18985,7 +19597,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, groq)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, groq)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 6,
@@ -19030,7 +19644,9 @@
       "source": [
         "discovery:luarocks"
       ],
-      "notes": "Признаки: LLM-признаки в описании (gpt, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (gpt, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 6,
@@ -19080,7 +19696,9 @@
       "source": [
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, anthropic, claude)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, anthropic, claude)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 6,
@@ -19128,7 +19746,10 @@
       "source": [
         "discovery:hex"
       ],
-      "notes": "Признаки: имя == ключевое слово провайдера «Anthropic Claude»; LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "имя == ключевое слово провайдера «Anthropic Claude»",
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 5,
@@ -19181,7 +19802,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (cohere)",
+      "matchReasons": [
+        "LLM-признаки в описании (cohere)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 5,
@@ -19231,7 +19854,9 @@
       "source": [
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 5,
@@ -19281,7 +19906,9 @@
       "source": [
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 5,
@@ -19330,7 +19957,9 @@
       "source": [
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (gpt, chatgpt, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (gpt, chatgpt, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 5,
@@ -19382,7 +20011,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 5,
@@ -19438,7 +20069,10 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (gpt, openai, anthropic, claude); похоже на коллекцию/туториал («course»)",
+      "matchReasons": [
+        "LLM-признаки в описании (gpt, openai, anthropic, claude)",
+        "похоже на коллекцию/туториал («course»)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 5,
@@ -19489,7 +20123,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (gpt, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (gpt, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 5,
@@ -19540,7 +20176,9 @@
       "source": [
         "discovery:cran"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 4,
@@ -19597,7 +20235,9 @@
       "source": [
         "discovery:github"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 4,
@@ -19642,7 +20282,9 @@
       "source": [
         "discovery:github"
       ],
-      "notes": "Признаки: LLM-признаки в описании (groq)",
+      "matchReasons": [
+        "LLM-признаки в описании (groq)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 4,
@@ -19689,7 +20331,9 @@
         "discovery:hex",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (langchain)",
+      "matchReasons": [
+        "LLM-признаки в описании (langchain)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-27",
       "stars": 4,
@@ -19740,7 +20384,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 4,
@@ -19790,7 +20436,9 @@
       "source": [
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 4,
@@ -19840,7 +20488,9 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 4,
@@ -19891,7 +20541,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 4,
@@ -19939,7 +20591,9 @@
       "source": [
         "discovery:cran"
       ],
-      "notes": "Признаки: имя == ключевое слово провайдера «Mistral AI»",
+      "matchReasons": [
+        "имя == ключевое слово провайдера «Mistral AI»"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 3,
@@ -20001,7 +20655,9 @@
       "source": [
         "discovery:cran"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, large language model)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, large language model)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 3,
@@ -20054,7 +20710,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 3,
@@ -20100,7 +20758,9 @@
       "source": [
         "discovery:hex"
       ],
-      "notes": "Признаки: LLM-признаки в описании (langchain)",
+      "matchReasons": [
+        "LLM-признаки в описании (langchain)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 3,
@@ -20145,7 +20805,9 @@
       "source": [
         "discovery:luarocks"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 3,
@@ -20194,7 +20856,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 3,
@@ -20248,7 +20912,9 @@
       "source": [
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (transformers, huggingface, agent)",
+      "matchReasons": [
+        "LLM-признаки в описании (transformers, huggingface, agent)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 3,
@@ -20304,7 +20970,9 @@
       "source": [
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 3,
@@ -20361,7 +21029,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (cohere)",
+      "matchReasons": [
+        "LLM-признаки в описании (cohere)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 3,
@@ -20411,7 +21081,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, embedding)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, embedding)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 3,
@@ -20469,7 +21141,9 @@
       "source": [
         "discovery:cran"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, large language model, agent)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, large language model, agent)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2,
@@ -20529,7 +21203,9 @@
         "discovery:crates",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2,
@@ -20587,7 +21263,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, groq)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, groq)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2,
@@ -20648,7 +21326,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, gemini, mistral, cohere)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, gemini, mistral, cohere)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2,
@@ -20706,7 +21386,9 @@
       "source": [
         "discovery:github"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, anthropic, claude)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, anthropic, claude)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2,
@@ -20760,7 +21442,9 @@
       "source": [
         "discovery:github"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, anthropic, gemini)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, anthropic, gemini)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2,
@@ -20808,7 +21492,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2,
@@ -20856,7 +21542,9 @@
       "source": [
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2,
@@ -20907,7 +21595,9 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2,
@@ -20962,7 +21652,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, claude, groq)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, claude, groq)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2,
@@ -21019,7 +21711,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, chat completion, chat completions)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, chat completion, chat completions)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2,
@@ -21070,7 +21764,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2,
@@ -21132,7 +21828,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, anthropic, claude)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, anthropic, claude)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 2,
@@ -21192,7 +21890,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, anthropic, gemini)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, anthropic, gemini)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1,
@@ -21241,7 +21941,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1,
@@ -21301,7 +22003,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, anthropic, gemini)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, anthropic, gemini)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1,
@@ -21362,7 +22066,9 @@
       "source": [
         "discovery:github"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, anthropic, gemini)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, anthropic, gemini)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1,
@@ -21417,7 +22123,9 @@
       "source": [
         "discovery:github"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, anthropic, agent)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, anthropic, agent)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1,
@@ -21465,7 +22173,9 @@
       "source": [
         "discovery:golang"
       ],
-      "notes": "Признаки: LLM-признаки в описании (ollama)",
+      "matchReasons": [
+        "LLM-признаки в описании (ollama)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1,
@@ -21517,7 +22227,9 @@
       "source": [
         "discovery:golang"
       ],
-      "notes": "Признаки: LLM-признаки в описании (cohere)",
+      "matchReasons": [
+        "LLM-признаки в описании (cohere)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1,
@@ -21573,7 +22285,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1,
@@ -21625,7 +22339,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (mistral)",
+      "matchReasons": [
+        "LLM-признаки в описании (mistral)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1,
@@ -21676,7 +22392,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1,
@@ -21722,7 +22440,9 @@
       "source": [
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1,
@@ -21776,7 +22496,9 @@
       "source": [
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1,
@@ -21824,7 +22546,9 @@
       "source": [
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1,
@@ -21873,7 +22597,9 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1,
@@ -21926,7 +22652,9 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1,
@@ -21983,6 +22711,7 @@
         "curated:01-official-sdks.json"
       ],
       "notes": "Инференс и fine-tuning открытых моделей.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1,
@@ -22031,7 +22760,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (gpt, chatgpt, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (gpt, chatgpt, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 1,
@@ -22071,7 +22802,9 @@
       "source": [
         "discovery:cran"
       ],
-      "notes": "Признаки: LLM-признаки в описании (gpt, chatgpt, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (gpt, chatgpt, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2025-04-05",
@@ -22121,7 +22854,9 @@
       "source": [
         "discovery:cran"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -22162,7 +22897,9 @@
       "source": [
         "discovery:cran"
       ],
-      "notes": "Признаки: LLM-признаки в описании (large language model, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (large language model, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2023-04-27",
@@ -22211,7 +22948,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -22271,7 +23010,9 @@
       "source": [
         "discovery:crates"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -22326,7 +23067,9 @@
         "discovery:github",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, anthropic, gemini)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, anthropic, gemini)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-27",
       "stars": 0,
@@ -22373,7 +23116,9 @@
         "discovery:github",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-27",
       "stars": 0,
@@ -22423,7 +23168,9 @@
       "source": [
         "discovery:hex"
       ],
-      "notes": "Признаки: LLM-признаки в описании (claude, agent)",
+      "matchReasons": [
+        "LLM-признаки в описании (claude, agent)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -22469,7 +23216,9 @@
         "discovery:hex",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (langchain, prompt)",
+      "matchReasons": [
+        "LLM-признаки в описании (langchain, prompt)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-27",
       "stars": 0,
@@ -22512,7 +23261,9 @@
       "source": [
         "discovery:luarocks"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, inference)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, inference)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -22563,7 +23314,9 @@
         "discovery:luarocks",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, ollama, agent)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, ollama, agent)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -22607,7 +23360,10 @@
       "source": [
         "discovery:luarocks"
       ],
-      "notes": "Признаки: имя == ключевое слово провайдера «OpenAI»; LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "имя == ключевое слово провайдера «OpenAI»",
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -22662,7 +23418,9 @@
       "source": [
         "discovery:luarocks"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, ollama)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, ollama)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -22702,7 +23460,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2023-04-14",
@@ -22737,7 +23497,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2023-05-16",
@@ -22772,7 +23534,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2023-05-16",
@@ -22811,7 +23575,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2023-05-16",
@@ -22846,7 +23612,9 @@
       "source": [
         "discovery:maven"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2023-05-16",
@@ -22884,7 +23652,9 @@
         "discovery:maven",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (ollama)",
+      "matchReasons": [
+        "LLM-признаки в описании (ollama)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2025-06-20",
@@ -22939,7 +23709,9 @@
         "discovery:npm",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, claude, agent)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, claude, agent)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -23003,7 +23775,9 @@
         "discovery:npm",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, claude, gemini)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, claude, gemini)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-27",
       "stars": 0,
@@ -23056,7 +23830,9 @@
       "source": [
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -23113,7 +23889,9 @@
       "source": [
         "discovery:npm"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, anthropic, gemini)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, anthropic, gemini)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -23168,7 +23946,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, cohere, chat completion, chat completions)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, cohere, chat completion, chat completions)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -23224,7 +24004,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -23282,7 +24064,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -23335,7 +24119,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (cohere)",
+      "matchReasons": [
+        "LLM-признаки в описании (cohere)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -23388,7 +24174,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (cohere)",
+      "matchReasons": [
+        "LLM-признаки в описании (cohere)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -23443,7 +24231,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (cohere)",
+      "matchReasons": [
+        "LLM-признаки в описании (cohere)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -23501,7 +24291,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, agent)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, agent)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -23553,7 +24345,9 @@
       "source": [
         "discovery:nuget"
       ],
-      "notes": "Признаки: LLM-признаки в описании (mistral)",
+      "matchReasons": [
+        "LLM-признаки в описании (mistral)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -23592,7 +24386,9 @@
       "source": [
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2025-06-12",
@@ -23641,7 +24437,9 @@
       "source": [
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -23690,7 +24488,9 @@
       "source": [
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -23742,7 +24542,9 @@
       "source": [
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -23792,7 +24594,9 @@
       "source": [
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -23841,7 +24645,9 @@
       "source": [
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -23887,7 +24693,9 @@
       "source": [
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -23935,7 +24743,9 @@
       "source": [
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -23986,7 +24796,9 @@
       "source": [
         "discovery:packagist"
       ],
-      "notes": "Признаки: LLM-признаки в описании (gpt, openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (gpt, openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -24035,7 +24847,9 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: LLM-признаки в описании (ollama)",
+      "matchReasons": [
+        "LLM-признаки в описании (ollama)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -24084,7 +24898,9 @@
       "source": [
         "discovery:pypi"
       ],
-      "notes": "Признаки: LLM-признаки в описании (groq)",
+      "matchReasons": [
+        "LLM-признаки в описании (groq)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -24131,6 +24947,7 @@
         "curated:04-infra.json"
       ],
       "notes": "Облачный векторный поиск.",
+      "matchReasons": [],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "latestRelease": "2025-02-21",
@@ -24181,7 +24998,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, anthropic)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, anthropic)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -24234,7 +25053,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, anthropic, ollama)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, anthropic, ollama)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -24285,7 +25106,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai, chat completion, chat completions)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai, chat completion, chat completions)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -24344,7 +25167,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm, openai, anthropic, gemini)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm, openai, anthropic, gemini)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -24393,7 +25218,9 @@
       "source": [
         "discovery:rubygems"
       ],
-      "notes": "Признаки: LLM-признаки в описании (openai)",
+      "matchReasons": [
+        "LLM-признаки в описании (openai)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 0,
@@ -24447,7 +25274,9 @@
         "discovery:swift",
         "curation"
       ],
-      "notes": "Признаки: LLM-признаки в описании (llm)",
+      "matchReasons": [
+        "LLM-признаки в описании (llm)"
+      ],
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-27",
       "stars": 0,

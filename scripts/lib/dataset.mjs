@@ -38,14 +38,15 @@ const FIELDS = {
   github: ['object', 'Данные GitHub: звёзды, форки, открытые задачи, помечен ли архивным, когда был последний коммит и релиз.'],
   confidence: ['number', 'Служебное: насколько записи доверяет сбор. Внутреннее поле.'],
   source: ['string[]', 'Служебное: откуда взялась запись — реестр, курируемый список или автообнаружение. Внутреннее поле.'],
-  notes: ['string', 'Заметка из курируемого списка: почему запись в каталоге.'],
+  notes: ['string', 'Заметка из курируемого списка: чем запись примечательна. Пусто у большинства записей — это нормально, описание пакета уже есть в description.'],
+  matchReasons: ['string[]', 'Служебное: по каким признакам сбор опознал пакет как LLM-библиотеку. Внутреннее поле.'],
   discoveredAt: ['string', 'Дата первого попадания в каталог.'],
   updatedAt: ['string', 'Дата последней проверки записи в реестре.'],
   latestRelease: ['string', 'Последний релиз по данным GitHub.'],
   latestReleaseSource: ['string', 'Откуда взята дата релиза: тег или реестр.'],
 };
 
-const INTERNAL = new Set(['confidence', 'source', 'repoDropped']);
+const INTERNAL = new Set(['confidence', 'source', 'repoDropped', 'matchReasons']);
 
 /** Тип значения по факту, а не по описанию: пригодится словарю. */
 function typeOf(value) {
@@ -84,6 +85,7 @@ export const CSV_COLUMNS = [
   'id', 'name', 'ecosystem', 'language', 'role', 'kind', 'status', 'tier',
   'providers', 'sdkApi', 'licenseId', 'licenseFamily', 'stars', 'downloads',
   'version', 'updatedAt', 'repo', 'homepage', 'install', 'envVars', 'features', 'description', 'notes',
+  'matchReasons',
 ];
 
 /** Одна CSV-строка: кавычки вокруг всего, внутри — удвоенные. */

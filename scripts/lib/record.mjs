@@ -141,6 +141,17 @@ function cleanUrl(value) {
   }
 }
 
+/**
+ * Префикс машинной заметки, которой сборщик помечал, по каким признакам
+ * опознал пакет как LLM-библиотеку. Такая заметка — внутреннее рассуждение о
+ * записи, а не о библиотеке, и в примечании читателю она не значит ничего:
+ * «Признаки: LLM-признаки в описании (openai)». На сайте примечание показывается
+ * рядом с описанием, и 321 запись из 456 показывала эту заглушку. Теперь
+ * признаки лежат в отдельном поле matchReasons, которое читается при разборе
+ * данных, а примечание остаётся за людьми.
+ */
+const MACHINE_NOTE_PREFIX = 'Признаки: ';
+
 /** Приводит произвольный объект к схеме записи. */
 export function normalizeRecord(input) {
   const ecosystem = String(input.ecosystem ?? 'github').toLowerCase();
@@ -228,7 +239,13 @@ export function normalizeRecord(input) {
     },
     confidence: clamp(numberOr(input.confidence) ?? 0.5, 0, 1),
     source: uniq(input.source ?? []),
-    notes: cleanString(input.notes, 1000),
+    // Заметка машинного происхождения (см. MACHINE_NOTE_PREFIX) в примечание
+    // не попадает: поле остаётся записью о библиотеке, написанной человеком.
+    notes: cleanString(input.notes)?.startsWith(MACHINE_NOTE_PREFIX) ? undefined : cleanString(input.notes),
+    // По каким признакам сбор опознал пакет как LLM-библиотеку. Служебное
+    // поле для разбора данных: у записи, чьё единственное основание — слово
+    // «openai» в описании, это видно сразу.
+    matchReasons: uniq(input.matchReasons ?? []).slice(0, 5),
     discoveredAt: isoDate(input.discoveredAt) ?? new Date().toISOString().slice(0, 10),
     updatedAt: isoDate(input.updatedAt) ?? new Date().toISOString().slice(0, 10),
   };

@@ -1,21 +1,21 @@
 {
-  "enrichedAt": "2026-09-27T09:42:04.273Z",
+  "enrichedAt": "2026-09-27T17:37:28.564Z",
   "github": {
-    "queued": 1,
-    "fetched": 1,
+    "queued": 3,
+    "fetched": 3,
     "notFound": 0,
     "releases": {
-      "mode": "all",
-      "requested": 1,
-      "withDate": 1
+      "mode": "missing",
+      "requested": 0,
+      "withDate": 0
     },
     "skipped": 0,
     "quotaExhausted": false,
     "rateLimit": {
       "limit": 5000,
-      "used": 3,
-      "remaining": 4997,
-      "reset": 1790505648
+      "used": 0,
+      "remaining": 5000,
+      "reset": 1790534246
     },
     "token": true
   },
@@ -108,8 +108,8 @@
     },
     "byStatus": {
       "active": 312,
-      "unknown": 57,
       "deprecated": 74,
+      "unknown": 57,
       "archived": 13
     }
   }
