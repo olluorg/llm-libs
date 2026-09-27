@@ -883,6 +883,56 @@ const htmlFiles = (await fs.readdir(DIST_DIR, { recursive: true }))
   .filter((name) => String(name).endsWith('.html'))
   .map(String);
 
+// Текст о библиотеках должен опираться на данные, и это проверяется структурно,
+// а не поимённо. Раньше страница провайдеров обещала «Only what calls a
+// provider API», а показывала все пять ролей, и текст про Perplexity советовал
+// LiteLLM, который к Perplexity отношения не имеет.
+{
+  const known = new Set(data.libraries.map((library) => library.name.toLowerCase()));
+
+  // 1. Список «самые популярные здесь» на странице провайдера обязан состоять
+  //    из записей каталога: он пришёл из данных, и это надо поддерживать.
+  for (const file of htmlFiles.filter((name) => name.includes('providers/'))) {
+    const html = await fs.readFile(path.join(DIST_DIR, file), 'utf8');
+    // Список заканчивается точкой с пробелом, а не просто точкой: имена
+    // пакетов сами содержат точки, и «github.com/…» обрывал захват.
+    const top = /The most popular here: (.+?)\.\s/.exec(html)?.[1] ?? '';
+    for (const name of top.split(',').map((part) => part.trim()).filter(Boolean)) {
+      assert(
+        known.has(name.toLowerCase()),
+        `в ${file} в тексте назван ${name}, а такой записи в каталоге нет — текст не из данных`,
+      );
+    }
+  }
+
+  // 2. Незаполненный параметр в заголовке или описании — это утверждение,
+  //    которого на странице нет: строковые шаблоны подставляют %{…}, и если
+  //    параметр не передали, он остаётся в тексте виден.
+  for (const file of htmlFiles) {
+    const html = await fs.readFile(path.join(DIST_DIR, file), 'utf8');
+    for (const [what, pattern] of [
+      ['title', /<title>([^<]*)<\/title>/],
+      ['description', /<meta name="description" content="([^"]*)"/],
+      ['h1', /<h1[^>]*>([\s\S]*?)<\/h1>/],
+    ]) {
+      const text = pattern.exec(html)?.[1] ?? '';
+      assert(
+        !text.includes('%{'),
+        `в ${what} страницы ${file} осталась неподставленная строка шаблона: ${text.slice(0, 60)}`,
+      );
+      // Повтор слова подряд — признак двойной подстановки: counted() уже
+      // вернул «41 libraries», а в шаблоне слово стояло ещё раз, и выходило
+      // «41 libraries libraries». Проверка ловит класс, а не конкретную строку.
+      const doubled = /\b(\w{3,})\s+\1\b/i.exec(text.replace(/<[^>]*>/g, ' '));
+      assert(
+        !doubled,
+        `в ${what} страницы ${file} слово повторяется подряд («${doubled?.[0]}»): ${text.replace(/<[^>]*>/g, ' ').slice(0, 70)}`,
+      );
+    }
+  }
+}
+
+
 // Ряд тегов с крупнейшими языками: с любой страницы один клик в большую
 // подборку. Проверяем, что он есть везде, ведёт в существующие файлы и
 // указывает текущий язык.

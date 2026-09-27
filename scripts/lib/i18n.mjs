@@ -31,6 +31,7 @@ const en = {
   'nav.switchToEn': 'English',
 
   'stats.libraries': 'libraries',
+  'stats.entries': 'entries',
   // «349 of 484» — раньше строка собиралась мимо словаря, и на русской странице
   // оставалась английская форма.
   'stats.of': '%{shown} of %{total}',
@@ -192,7 +193,7 @@ const en = {
   'seo.topProvider': 'Top libraries for %{provider}',
   'seo.topLanguage': 'Top libraries for %{language}',
 
-  'page.index.title': 'LLM libraries catalog — OpenAI, Anthropic, Gemini, Bedrock, in every language',
+  'page.index.title': 'LLM libraries catalog — OpenAI, Anthropic, Gemini, Bedrock, %{languages} languages',
   'page.index.description': '%{total} libraries for LLM work: official SDKs, frameworks, local runtimes (Ollama, vLLM, llama.cpp) and gateways. Python, TypeScript, Go, Rust, Java, C#, PHP, Ruby and more — with versions, downloads and GitHub stars.',
   'page.index.heading': 'Catalog of libraries for LLM APIs',
   'page.index.keywords': 'llm libraries, openai sdk, anthropic claude sdk, gemini api, bedrock, azure openai, ollama, vllm, litellm, langchain, python llm, typescript llm, rust llm, go llm',
@@ -200,13 +201,13 @@ const en = {
   'page.providers.title': 'LLM libraries by provider — OpenAI, Anthropic, Gemini, Bedrock',
   'page.providers.description': 'The catalog split by API provider: how many libraries call each provider API, with documentation links and base URLs. OpenAI, Anthropic, Google Gemini, AWS Bedrock, Azure OpenAI, Ollama, vLLM, Groq, OpenRouter, Mistral, Cohere.',
   'page.providers.heading': 'Libraries by provider',
-  'page.providers.subheading': 'Only what calls a provider API: client SDKs and the frameworks built on them.',
+  'page.providers.subheading': 'All catalog entries, grouped by provider: client SDKs, frameworks on top of them, local runtimes, gateways and supporting tools.',
   'page.providers.keywords': 'llm providers, openai, anthropic, gemini, bedrock, azure openai, ollama, groq, openrouter, mistral, cohere',
 
   'page.languages.title': 'LLM libraries by programming language',
-  'page.languages.description': 'The catalog split by language: Python, TypeScript, JavaScript, Go, Rust, Java, Kotlin, C#/.NET, PHP, Ruby, R, Elixir, Lua, Swift, Scala, Haskell, Clojure, C++, Dart, Zig, OCaml — with versions, downloads and GitHub stars.',
+  'page.languages.description': 'The catalog split by language: %{top}. With versions, downloads and GitHub stars.',
   'page.languages.heading': 'Libraries by language',
-  'page.languages.subheading': 'How many API clients and LLM frameworks are available in each language and package ecosystem.',
+  'page.languages.subheading': 'How many libraries each language has, and which of the five roles they fall into: API clients, frameworks, local runtimes, gateways and supporting tools.',
   'page.languages.keywords': 'llm sdk by language, python openai, typescript anthropic, golang llm, rust llm, java openai, c# llm, php llm, ruby llm',
 
   'page.provider.title': 'Libraries for %{name} — %{count} | LLM catalog',
@@ -215,9 +216,9 @@ const en = {
   'page.provider.keywords': '%{name} sdk, %{name} api libraries, llm %{id}',
 
   'page.language.title': 'LLM libraries for %{language} — %{count} | LLM catalog',
-  'page.language.description': '%{count} libraries for LLM work in %{language}: %{top}. Official SDKs, frameworks, local inference, gateways and observability — with versions and downloads.',
+  'page.language.description': '%{count} for LLM work in %{language}: %{top}. Official SDKs, frameworks, local inference, gateways and observability — with versions and downloads.',
   'page.language.heading': 'LLM libraries for %{language}',
-  'page.language.subheading': '%{count} entries in the catalog. Click a library to see installation and links.',
+  'page.language.subheading': '%{count} in the catalog. Click a library to see installation and links.',
   'page.language.keywords': 'llm %{language}, %{language} openai sdk, %{language} anthropic, llm libraries %{language}',
 
   'page.role.title': '%{role} for %{language} — %{count} | LLM catalog',
@@ -230,11 +231,11 @@ const en = {
   'related.otherRoles': 'Other roles in %{language}',
 
   'seoText.index': 'Only provider API clients (%{count}) are shown by default: what actually sends requests to OpenAI, Anthropic, Gemini, Bedrock and similar APIs. Everything else is available through the role filter: local model runtimes (Ollama, vLLM, transformers, llama.cpp), frameworks on top of SDKs (LangChain, Pydantic AI, DSPy), gateways (LiteLLM) and supporting tools — vector databases, observability, evaluation, tokenizers, UI kits, MCP servers. The catalog is built automatically from package registries and enriched with GitHub data; if you arrived from a search, your language is applied automatically.',
-  'seoText.provider': 'API clients for %{name} and the frameworks that work through them: %{count} entries. The list is sorted by popularity (GitHub stars and monthly downloads). Need one gateway for all providers — LiteLLM; need an agent framework — LangChain or the Vercel AI SDK.',
-  'seoText.language': 'LLM API clients and frameworks in %{language}: %{count} entries%{hidden}. The order is by popularity; click a header to sort, and search works by name, description, provider or features.',
+  'seoText.provider': 'Libraries that work with %{name}: %{count} entries, of all five roles — API clients, frameworks, local runtimes, gateways and supporting tools. The list is sorted by popularity (GitHub stars and monthly downloads). The most popular here: %{top}.',
+  'seoText.language': 'LLM API clients and frameworks in %{language}: %{count}%{hidden}. The order is by popularity; click a header to sort, and search works by name, description, provider or features.',
   'seoText.officialSuffix': ', %{official} of them official SDKs',
   'seoText.hiddenSuffix': ', plus local runtimes and supporting tools for this language',
-  'seoText.hiddenRoles': ' %{hidden} entries of other types (%{roles}) are hidden — switch the role filter to see them.',
+  'seoText.hiddenRoles': ' Hidden: %{hidden} of other types (%{roles}) — switch the role filter to see them.',
 
   'summary.count': '%{count} libraries',
   'summary.official': '%{official} official SDKs',
@@ -263,7 +264,8 @@ const ru = {
   'nav.switchToRu': 'Русский',
   'nav.switchToEn': 'English',
 
-  'stats.libraries': 'библиотек',
+  'stats.libraries': 'библиотека|библиотеки|библиотек',
+  'stats.entries': 'запись|записи|записей',
   'stats.of': '%{shown} из %{total}',
   'stats.languages': 'языков / экосистем',
   'stats.providers': 'провайдеров LLM',
@@ -419,7 +421,7 @@ const ru = {
   'seo.topProvider': 'Популярные библиотеки для %{provider}',
   'seo.topLanguage': 'Популярные библиотеки на %{language}',
 
-  'page.index.title': 'Каталог библиотек для LLM — OpenAI, Anthropic, Gemini, Bedrock на всех языках',
+  'page.index.title': 'Каталог библиотек для LLM — OpenAI, Anthropic, Gemini, Bedrock, %{languages} языков',
   'page.index.description': '%{total} библиотек для работы с LLM: официальные SDK, фреймворки, локальные рантаймы (Ollama, vLLM, llama.cpp) и шлюзы. Python, TypeScript, Go, Rust, Java, C#, PHP, Ruby и другие языки, с версиями, загрузками и звёздами GitHub.',
   'page.index.heading': 'Каталог библиотек для работы с LLM',
   'page.index.keywords': 'llm библиотеки, openai sdk, anthropic claude sdk, gemini api, bedrock, azure openai, ollama, vllm, litellm, langchain, python llm, typescript llm, rust llm, go llm',
@@ -427,13 +429,13 @@ const ru = {
   'page.providers.title': 'Библиотеки для LLM по провайдерам — OpenAI, Anthropic, Gemini, Bedrock',
   'page.providers.description': 'Срез каталога по API-провайдерам: сколько библиотек вызывают API каждого провайдера, ссылки на документацию и base URL. OpenAI, Anthropic, Google Gemini, AWS Bedrock, Azure OpenAI, Ollama, vLLM, Groq, OpenRouter, Mistral, Cohere.',
   'page.providers.heading': 'Библиотеки по провайдерам',
-  'page.providers.subheading': 'Здесь только то, что обращается к API провайдера: клиентские SDK и фреймворки поверх них.',
+  'page.providers.subheading': 'Все записи каталога, сгруппированные по провайдеру: клиентские SDK, фреймворки поверх них, локальные рантаймы, шлюзы и сопутствующие инструменты.',
   'page.providers.keywords': 'llm провайдеры, openai, anthropic, gemini, bedrock, azure openai, ollama, groq, openrouter, mistral, cohere',
 
   'page.languages.title': 'Библиотеки для LLM по языкам программирования',
-  'page.languages.description': 'Срез каталога по языкам: Python, TypeScript, JavaScript, Go, Rust, Java, Kotlin, C#/.NET, PHP, Ruby, R, Elixir, Lua, Swift, Scala, Haskell, Clojure, C++, Dart, Zig, OCaml. С версиями, загрузками и звёздами GitHub.',
+  'page.languages.description': 'Срез каталога по языкам: %{top}. С версиями, загрузками и звёздами GitHub.',
   'page.languages.heading': 'Библиотеки по языкам',
-  'page.languages.subheading': 'Сколько клиентов API и фреймворков для работы с LLM доступно в каждом языке и экосистеме пакетов.',
+  'page.languages.subheading': 'Сколько библиотек в каждом языке и в какую из пяти ролей они попадают: клиенты API, фреймворки, локальные рантаймы, шлюзы и сопутствующее.',
   'page.languages.keywords': 'llm sdk по языкам, python openai, typescript anthropic, golang llm, rust llm, java openai, c# llm, php llm, ruby llm',
 
   'page.provider.title': 'Библиотеки для %{name} — %{count} шт. | LLM-каталог',
@@ -442,9 +444,9 @@ const ru = {
   'page.provider.keywords': '%{name} sdk, %{name} api библиотеки, llm %{id}',
 
   'page.language.title': 'Библиотеки для LLM на %{language} — %{count} шт. | LLM-каталог',
-  'page.language.description': '%{count} библиотек для работы с LLM на языке %{language}: %{top}. Официальные SDK, фреймворки, локальный инференс, шлюзы и наблюдаемость — с версиями и загрузками.',
+  'page.language.description': '%{count} для работы с LLM на языке %{language}: %{top}. Официальные SDK, фреймворки, локальный инференс, шлюзы и наблюдаемость — с версиями и загрузками.',
   'page.language.heading': 'Библиотеки для LLM на %{language}',
-  'page.language.subheading': '%{count} записей в каталоге. Нажмите на библиотеку, чтобы увидеть установку и ссылки.',
+  'page.language.subheading': '%{count} в каталоге. Нажмите на библиотеку, чтобы увидеть установку и ссылки.',
   'page.language.keywords': 'llm %{language}, %{language} openai sdk, %{language} anthropic, llm библиотеки %{language}',
 
   'page.role.title': '%{role} для %{language} — %{count} шт. | LLM-каталог',
@@ -457,11 +459,11 @@ const ru = {
   'related.otherRoles': 'Другие роли в %{language}',
 
   'seoText.index': 'По умолчанию показаны только клиенты API провайдеров (%{count}) — кто действительно отправляет запросы в OpenAI, Anthropic, Gemini, Bedrock и другие API. Остальное доступно через фильтр ролей: локальный запуск моделей (Ollama, vLLM, transformers, llama.cpp), фреймворки поверх SDK (LangChain, Pydantic AI, DSPy), шлюзы (LiteLLM) и сопутствующие инструменты — векторные базы, наблюдаемость, eval, токенизаторы, интерфейсы, серверы MCP. Каталог собран автоматически из реестров пакетов и обогащён данными GitHub; если вы пришли из поиска, язык из запроса подставляется автоматически.',
-  'seoText.provider': 'Клиенты API %{name} и фреймворки, которые через них работают: %{count} записей. Список по убыванию популярности (звёзды GitHub и загрузки за месяц). Нужен единый шлюз ко всем провайдерам — LiteLLM; нужен агентный фреймворк — LangChain или Vercel AI SDK.',
-  'seoText.language': 'Клиенты API LLM и фреймворки на языке %{language}: %{count} записей%{hidden}. Сортировка — по популярности; клик по заголовку меняет порядок, поиск работает по названию, описанию, провайдеру и возможностям.',
+  'seoText.provider': 'Библиотеки, которые работают с %{name}: %{count} записей, всех пяти ролей — клиенты API, фреймворки, локальные рантаймы, шлюзы и сопутствующее. Список по убыванию популярности (звёзды GitHub и загрузки за месяц). Самое популярное здесь: %{top}.',
+  'seoText.language': 'Клиенты API LLM и фреймворки на языке %{language}: %{count}%{hidden}. Сортировка — по популярности; клик по заголовку меняет порядок, поиск работает по названию, описанию, провайдеру и возможностям.',
   'seoText.officialSuffix': ', из них %{official} официальных SDK',
   'seoText.hiddenSuffix': ', плюс локальные рантаймы и сопутствующие инструменты для этого языка',
-  'seoText.hiddenRoles': ' Ещё %{hidden} записей типов «%{roles}» — переключите фильтр ролей, чтобы их увидеть.',
+  'seoText.hiddenRoles': ' Скрыто %{hidden} шт. типов «%{roles}» — переключите фильтр ролей, чтобы их увидеть.',
 
   'summary.count': '%{count} библиотек',
   'summary.official': '%{official} официальных SDK',
@@ -490,6 +492,29 @@ export function t(locale, key, params) {
   if (template === undefined) throw new Error(`нет строки в словаре: ${key}`);
   if (!params) return template;
   return template.replace(/%\{(\w+)\}/g, (_, name) => String(params[name] ?? ''));
+}
+
+/**
+ * Существительное вместе с числом в правильной форме: «1 библиотека»,
+ * «2 библиотеки», «5 библиотек».
+ *
+ * Форма русского слова зависит от числа, а не от позиции в строке: 21
+ * библиотека, но 22 библиотеки, поэтому разбор идёт по 10 и по 100. У
+ * английского значения разделителя «|» нет, и слово не склоняется.
+ *
+ * @param {string} locale
+ * @param {number} n
+ * @param {string} word одно слово или три формы «одна|несколько|много»
+ * @returns {string}
+ */
+export function counted(locale, n, word) {
+  if (!word.includes('|')) return `${n} ${word}`;
+  const [one, few, many] = word.split('|');
+  const mod10 = n % 10;
+  const mod100 = n % 100;
+  if (mod10 === 1 && mod100 !== 11) return `${n} ${one}`;
+  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 10 || mod100 >= 20)) return `${n} ${few}`;
+  return `${n} ${many}`;
 }
 
 /** Все ключи, встречающиеся в обоих словарях, — проверка полноты перевода. */

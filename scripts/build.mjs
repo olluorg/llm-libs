@@ -19,7 +19,7 @@ import { readConfig, readDataset, DIST_DIR, ROOT } from './lib/store.mjs';
 import { toCsv, toDictionary, toJson } from './lib/dataset.mjs';
 import { slugify } from './lib/site-helpers.mjs';
 import { ROLES, ROLE_SLUGS, CALLS_PROVIDER_API } from './lib/record.mjs';
-import { LOCALES, DEFAULT_LOCALE, LOCALE_DIR, localeStrings, t } from './lib/i18n.mjs';
+import { LOCALES, DEFAULT_LOCALE, LOCALE_DIR, counted, localeStrings, t } from './lib/i18n.mjs';
 import { popularity as sharedPopularity } from './lib/popularity.mjs';
 
 const log = createLogger('build');
@@ -181,7 +181,10 @@ for (const locale of LOCALES) {
       urlPath: urlPath('index.html'),
       view: { role: 'api' },
       roles: DEFAULT_ROLES.catalog,
-      title: t(locale, 'page.index.title'),
+      // Число языков и список языков берутся из данных: зашитое перечисление
+      // разошлось с каталогом и называло JavaScript, Dart и Zig, для которых
+      // нет ни одной записи.
+      title: t(locale, 'page.index.title', { languages: languageCounts.size }),
       description: t(locale, 'page.index.description', { total: libraries.length }),
       heading: t(locale, 'page.index.heading'),
       // Подзаголовка на главной нет: он пересказывал то, что уже видно
@@ -213,7 +216,7 @@ for (const locale of LOCALES) {
       view: { role: 'all' },
       roles: DEFAULT_ROLES.hub,
       title: t(locale, 'page.languages.title'),
-      description: t(locale, 'page.languages.description'),
+      description: t(locale, 'page.languages.description', { top: topLanguages(libraries).join(', ') }),
       heading: t(locale, 'page.languages.heading'),
       subheading: t(locale, 'page.languages.subheading'),
       keywords: t(locale, 'page.languages.keywords'),
@@ -256,11 +259,15 @@ for (const locale of LOCALES) {
         title: t(locale, 'page.language.title', { language, count }),
         description: t(locale, 'page.language.description', {
           language,
-          count,
+          // counted(): в русском «1 библиотека», «2 библиотеки», «5 библиотек»,
+          // а подстановка %{count} рядом со словом давала «1 библиотек».
+          count: counted(locale, subset.length, t(locale, 'stats.libraries')),
           top: topPackages(subset).join(', '),
         }),
         heading: t(locale, 'page.language.heading', { language }),
-        subheading: t(locale, 'page.language.subheading', { count }),
+        subheading: t(locale, 'page.language.subheading', {
+          count: counted(locale, subset.length, t(locale, 'stats.entries')),
+        }),
         keywords: t(locale, 'page.language.keywords', { language }),
         filter: () => subset,
         subject: { name: language, kind: 'language' },
@@ -902,8 +909,12 @@ function seoText(locale, view, subset, hidden, roles) {
   if (view.provider) {
     const provider = providerMap.get(view.provider);
     const official = subset.filter((l) => l.kind === 'official-sdk').length;
+    // «Самые популярные здесь» — из данных этой страницы, а не из чужого
+    // совета: раньше здесь стояло «нужен шлюз — LiteLLM», и это печаталось на
+    // странице Perplexity, где LiteLLM не имеет отношения к делу.
+    const top = subset.slice(0, 3).map((l) => l.name).join(', ');
     return (
-      t(locale, 'seoText.provider', { name: providerName(locale, provider.id), count, official }) +
+      t(locale, 'seoText.provider', { name: providerName(locale, provider.id), count, official, top }) +
       (official ? t(locale, 'seoText.officialSuffix', { official }) : '') +
       tail
     );
@@ -920,7 +931,7 @@ function seoText(locale, view, subset, hidden, roles) {
     return (
       t(locale, 'seoText.language', {
         language: view.language,
-        count,
+        count: counted(locale, count, t(locale, 'stats.entries')),
         hidden: hidden ? t(locale, 'seoText.hiddenSuffix') : '',
       }) + tail
     );
