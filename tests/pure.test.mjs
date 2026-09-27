@@ -10,7 +10,7 @@ import assert from 'node:assert/strict';
 
 import { normalizeLicense, isPermissive } from '../scripts/lib/license.mjs';
 import { findForks, normalizeDescription, ownerKey, repoKey } from '../scripts/lib/fork.mjs';
-import { mergeRecords, normalizeRecord, makeId } from '../scripts/lib/record.mjs';
+import { mergeRecords, normalizeRecord, makeId, resolveSdkApi, sdkApiFor } from '../scripts/lib/record.mjs';
 import { applyCuration, curatedConfidence, curatedIdConflicts } from '../scripts/lib/store.mjs';
 import { declined, counted } from '../scripts/lib/i18n.mjs';
 import { toCsv, toJson, CSV_COLUMNS } from '../scripts/lib/dataset.mjs';
@@ -419,4 +419,59 @@ test('normalizeRecord: написанное человеком примечан�
     notes: 'Исторически клиент jina, переименован в jina-ai/serve.',
   });
   assert.match(record.notes, /переименован/);
+});
+
+test('normalizeRecord: признак приводится к тому написанию, которым он есть в каталоге', () => {
+  // embeddings стоит у 88 записей, embedding был у одной — и по тегу она не
+  // находилась нигде.
+  const record = normalizeRecord({
+    ecosystem: 'nuget',
+    name: 'Microsoft.Extensions.AI',
+    features: ['Embedding', 'embeddings', ' chat '],
+  });
+  assert.deepEqual(record.features, ['embeddings', 'chat']);
+});
+
+// ── Тип API ────────────────────────────────────────────────────────────────
+
+test('sdkApiFor: семейство одно — тип называется, даже если провайдеров несколько', () => {
+  // go-openai — клиент OpenAI, который вдобавок умеет Azure и совместимые
+  // адреса; это тот же протокол, а не три разных API.
+  assert.equal(sdkApiFor({ providers: ['openai', 'azure-openai', 'openai-compatible'] }), 'openai');
+  assert.equal(sdkApiFor({ providers: ['anthropic'] }), 'anthropic-messages');
+  assert.equal(sdkApiFor({ providers: ['google-gemini', 'vertex-ai'] }), 'gemini');
+});
+
+test('sdkApiFor: семейств несколько — ответа нет, а не первый по порядку', () => {
+  // Раньше порядок провайдеров давал ruby_llm «openai», и 49 записей с
+  // девятью и более провайдерами заявляли, что работают через OpenAI.
+  const rubyLlm = ['openai', 'anthropic', 'google-gemini', 'groq', 'ollama', 'openai-compatible',
+    'aws-bedrock', 'vertex-ai', 'openrouter', 'mistral', 'cohere', 'perplexity', 'xai', 'deepseek'];
+  assert.equal(sdkApiFor({ providers: rubyLlm, kind: 'framework' }), 'n/a');
+  assert.equal(sdkApiFor({ providers: ['openai', 'anthropic'] }), 'n/a');
+});
+
+test('sdkApiFor: официальный SDK отвечает своим API, даже если в списке другие хостинги', () => {
+  // У pypi:anthropic в провайдерах Bedrock и Vertex: это тот же Messages API
+  // на других хостингах, а не три разных API.
+  assert.equal(sdkApiFor({ providers: ['anthropic', 'aws-bedrock', 'vertex-ai'], kind: 'official-sdk' }), 'anthropic-messages');
+});
+
+test('resolveSdkApi: «n/a» в курируемом файле — отсутствие ответа, а не объявление', () => {
+  // 58 записей оставались без типа API только из-за явно записанного n/a.
+  assert.equal(resolveSdkApi({ declared: 'n/a', providers: ['anthropic'], kind: 'framework' }), 'anthropic-messages');
+  assert.equal(resolveSdkApi({ declared: undefined, providers: [], kind: 'framework' }), 'n/a');
+});
+
+test('resolveSdkApi: объявление, противоречащее провайдерам, не выживает', () => {
+  assert.equal(
+    resolveSdkApi({ declared: 'openai', providers: ['openai', 'anthropic'], kind: 'framework' }),
+    'n/a',
+  );
+  assert.equal(
+    resolveSdkApi({ declared: 'anthropic-messages', providers: ['anthropic'], kind: 'framework' }),
+    'anthropic-messages',
+  );
+  // Проверять нечего: ни один провайдер не говорит о типе API.
+  assert.equal(resolveSdkApi({ declared: 'openai', providers: [], kind: 'client' }), 'openai');
 });

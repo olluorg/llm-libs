@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T17:59:03.327Z",
+  "generatedAt": "2026-09-27T19:24:56.121Z",
   "counts": {
     "total": 456,
     "byEcosystem": {
@@ -655,7 +655,7 @@
       "providers": [
         "anthropic"
       ],
-      "sdkApi": "n/a",
+      "sdkApi": "anthropic-messages",
       "status": "active",
       "tier": "A",
       "features": [
@@ -767,7 +767,7 @@
         "google-gemini",
         "vertex-ai"
       ],
-      "sdkApi": "n/a",
+      "sdkApi": "gemini",
       "status": "active",
       "tier": "B",
       "features": [
@@ -2360,7 +2360,7 @@
         "aws-bedrock",
         "mistral"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "A",
       "features": [
@@ -2540,7 +2540,7 @@
       "providers": [
         "google-gemini"
       ],
-      "sdkApi": "n/a",
+      "sdkApi": "gemini",
       "status": "active",
       "tier": "B",
       "features": [
@@ -2796,7 +2796,7 @@
         "xai",
         "openai-compatible"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "A",
       "features": [
@@ -3145,7 +3145,7 @@
         "openai",
         "anthropic"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -3649,7 +3649,7 @@
       "providers": [
         "anthropic"
       ],
-      "sdkApi": "n/a",
+      "sdkApi": "anthropic-messages",
       "status": "active",
       "tier": "A",
       "features": [
@@ -3763,7 +3763,7 @@
       "providers": [
         "openai"
       ],
-      "sdkApi": "n/a",
+      "sdkApi": "openai",
       "status": "active",
       "tier": "A",
       "features": [
@@ -4171,7 +4171,7 @@
         "anthropic",
         "huggingface"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -4559,7 +4559,7 @@
         "azure-openai",
         "openai-compatible"
       ],
-      "sdkApi": "n/a",
+      "sdkApi": "openai",
       "status": "active",
       "tier": "A",
       "features": [
@@ -4720,7 +4720,7 @@
         "vllm",
         "llamacpp"
       ],
-      "sdkApi": "n/a",
+      "sdkApi": "openai",
       "status": "active",
       "tier": "C",
       "features": [
@@ -4952,7 +4952,7 @@
         "azure-openai",
         "openai-compatible"
       ],
-      "sdkApi": "n/a",
+      "sdkApi": "openai",
       "status": "deprecated",
       "tier": "C",
       "features": [
@@ -5235,7 +5235,7 @@
         "openai-compatible",
         "huggingface"
       ],
-      "sdkApi": "anthropic-messages",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "A",
       "features": [
@@ -5454,7 +5454,7 @@
         "azure-openai",
         "openai-compatible"
       ],
-      "sdkApi": "n/a",
+      "sdkApi": "openai",
       "status": "active",
       "tier": "A",
       "features": [
@@ -6199,7 +6199,7 @@
         "ollama",
         "nvidia"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -6706,7 +6706,7 @@
         "xai",
         "deepseek"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -7668,7 +7668,7 @@
       "tier": "B",
       "features": [
         "chat",
-        "embedding",
+        "embeddings",
         "tools",
         "caching"
       ],
@@ -8873,7 +8873,7 @@
         "openai",
         "openai-compatible"
       ],
-      "sdkApi": "n/a",
+      "sdkApi": "openai",
       "status": "active",
       "tier": "B",
       "features": [
@@ -9114,7 +9114,7 @@
         "ollama",
         "openai-compatible"
       ],
-      "sdkApi": "mistral",
+      "sdkApi": "n/a",
       "status": "deprecated",
       "tier": "C",
       "features": [
@@ -9164,7 +9164,7 @@
         "huggingface",
         "ollama"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "deprecated",
       "tier": "C",
       "features": [
@@ -9835,7 +9835,7 @@
         "google-gemini",
         "cohere"
       ],
-      "sdkApi": "gemini",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -10306,7 +10306,7 @@
         "ollama",
         "groq"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "deprecated",
       "tier": "B",
       "features": [],
@@ -11090,7 +11090,7 @@
         "openai",
         "anthropic"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "C",
       "features": [],
@@ -11143,7 +11143,7 @@
       "providers": [
         "groq"
       ],
-      "sdkApi": "openai-compatible",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -11258,7 +11258,7 @@
       "providers": [
         "openai"
       ],
-      "sdkApi": "n/a",
+      "sdkApi": "openai",
       "status": "active",
       "tier": "C",
       "features": [
@@ -11315,7 +11315,7 @@
         "ollama",
         "openai-compatible"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "A",
       "features": [
@@ -11483,7 +11483,7 @@
       "providers": [
         "xai"
       ],
-      "sdkApi": "openai-compatible",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "C",
       "features": [
@@ -12566,7 +12566,7 @@
       "providers": [
         "groq"
       ],
-      "sdkApi": "openai-compatible",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -12684,7 +12684,7 @@
         "openai-compatible",
         "anthropic"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -12748,7 +12748,7 @@
         "openai-compatible",
         "anthropic"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -12812,7 +12812,7 @@
         "openai-compatible",
         "anthropic"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -12874,7 +12874,7 @@
       "providers": [
         "openai"
       ],
-      "sdkApi": "n/a",
+      "sdkApi": "openai",
       "status": "unknown",
       "tier": "C",
       "features": [
@@ -12985,7 +12985,7 @@
         "aws-bedrock",
         "ollama"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -13866,7 +13866,7 @@
       "providers": [
         "anthropic"
       ],
-      "sdkApi": "n/a",
+      "sdkApi": "anthropic-messages",
       "status": "deprecated",
       "tier": "A",
       "features": [
@@ -14920,7 +14920,7 @@
         "together",
         "nvidia"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "unknown",
       "tier": "B",
       "features": [
@@ -15529,7 +15529,7 @@
         "ollama",
         "mistral"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "C",
       "features": [
@@ -15589,7 +15589,7 @@
       "providers": [
         "together"
       ],
-      "sdkApi": "openai-compatible",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "C",
       "features": [
@@ -16168,7 +16168,7 @@
         "anthropic",
         "ollama"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -17485,7 +17485,7 @@
         "lmstudio",
         "openrouter"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -17759,7 +17759,7 @@
         "google-gemini",
         "xai"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -17825,7 +17825,7 @@
         "deepseek",
         "nvidia"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -18416,7 +18416,7 @@
         "anthropic",
         "google-gemini"
       ],
-      "sdkApi": "anthropic-messages",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -18577,7 +18577,7 @@
         "moonshot",
         "qwen"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "deprecated",
       "tier": "B",
       "features": [],
@@ -18735,7 +18735,7 @@
       "providers": [
         "fireworks"
       ],
-      "sdkApi": "openai-compatible",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "C",
       "features": [
@@ -19436,7 +19436,7 @@
         "openrouter",
         "mistral"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "archived",
       "tier": "B",
       "features": [
@@ -19500,7 +19500,7 @@
         "ollama",
         "mistral"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "archived",
       "tier": "B",
       "features": [
@@ -19705,7 +19705,7 @@
         "anthropic",
         "openai-compatible"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -20237,7 +20237,7 @@
         "anthropic",
         "xai"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -20655,7 +20655,7 @@
         "ollama",
         "together"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "C",
       "features": [
@@ -21144,7 +21144,7 @@
         "anthropic",
         "ollama"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "C",
       "features": [
@@ -21206,7 +21206,7 @@
         "openai-compatible"
       ],
       "openaiCompatibleServer": true,
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -21330,7 +21330,7 @@
         "mistral",
         "cohere"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -21393,7 +21393,7 @@
         "anthropic",
         "google-gemini"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -21454,7 +21454,7 @@
         "anthropic",
         "google-gemini"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -21664,7 +21664,7 @@
         "anthropic",
         "groq"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -21835,7 +21835,7 @@
         "google-gemini",
         "nvidia"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -21900,7 +21900,7 @@
         "google-gemini",
         "deepseek"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -22017,7 +22017,7 @@
         "deepseek",
         "moonshot"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -22141,7 +22141,7 @@
         "deepseek",
         "moonshot"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -22725,7 +22725,7 @@
       "providers": [
         "deepinfra"
       ],
-      "sdkApi": "openai-compatible",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "C",
       "features": [
@@ -23025,7 +23025,7 @@
         "openai-compatible"
       ],
       "openaiCompatibleServer": true,
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -23087,7 +23087,7 @@
         "anthropic",
         "google-gemini"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "C",
       "features": [
@@ -23339,7 +23339,7 @@
         "openai-compatible",
         "ollama"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -23730,7 +23730,7 @@
         "openai-compatible"
       ],
       "openaiCompatibleServer": true,
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -23909,7 +23909,7 @@
         "google-gemini",
         "moonshot"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],

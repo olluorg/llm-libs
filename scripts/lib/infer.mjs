@@ -4,7 +4,7 @@
  * сценарии (features), тип API и статус.
  */
 
-import { ROLE_BY_KIND } from './record.mjs';
+import { ROLE_BY_KIND, sdkApiFor } from './record.mjs';
 
 const KIND_RULES = [
   // Сопутствующее: хранилища, наблюдаемость, eval, UI, утилиты.
@@ -104,12 +104,15 @@ export function inferFeatures(name, description = '') {
   return [...new Set(features)];
 }
 
-export function inferSdkApi(providers = []) {
-  const ranked = [
-    'openai', 'anthropic', 'aws-bedrock', 'azure-openai', 'google-gemini', 'cohere', 'mistral',
-    'vertex-ai', 'qwen', 'jina', 'ai21', 'replicate', 'ibm', 'openai-compatible',
-  ].filter((id) => providers.includes(id));
-  return ranked.map((id) => SDK_BY_PROVIDER[id]).find(Boolean) ?? 'n/a';
+/**
+ * Тип API выводится из провайдеров, но только когда семейство одно: правило
+ * живёт в record.mjs рядом с таблицей провайдеров, здесь оно переиспользуется,
+ * чтобы в каталоге не появилось второго правила. Раньше здесь был свой
+ * порядок провайдеров, и первым попадался openai — у записей с девятью и
+ * более провайдерами это был выдуманный ответ.
+ */
+export function inferSdkApi(providers = [], kind) {
+  return sdkApiFor({ providers, kind });
 }
 
 export function inferStatus({ description = '', updatedAt, license } = {}) {

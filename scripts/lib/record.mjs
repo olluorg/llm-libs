@@ -152,6 +152,126 @@ function cleanUrl(value) {
  */
 const MACHINE_NOTE_PREFIX = 'Признаки: ';
 
+/**
+ * Приводит признак к тому написанию, которым он уже есть в каталоге.
+ *
+ * Словарь признаков открыт, но внутри он должен быть один: `embeddings` стоит
+ * у 88 записей, а `embedding` — у одной, и по тегу эта запись не находилась
+ * нигде. Список не правится вручную, потому что в курируемом файле написано
+ * как автор пакета; приводится к общему виду при нормализации.
+ *
+ * Сюда попадает только однозначное: `tracing` и `observability` похожи, но
+ * означают разное, а `chain` и `orchestration` — тем более, поэтому такие
+ * пары не объединяются.
+ */
+const FEATURE_ALIASES = new Map([['embedding', 'embeddings']]);
+
+/**
+ * Провайдер → семейство API, и провайдер → точное имя API.
+ *
+ * Разделение нужно, потому что одно семейство обслуживают несколько
+ * провайдеров: Azure OpenAI говорит по протоколу OpenAI, и любой
+ * openai-совместимый адрес — тоже. Определять «используемый API» по первому
+ * провайдеру из фиксированного порядка нельзя: у rubygems:ruby_llm их
+ * четырнадцать, и порядок выдавал ей «openai», то есть запись утверждала, что
+ * библиотека работает через OpenAI API. Половина каталога с тремя и более
+ * провайдерами несла такой выдуманный ответ — 49 записей со значением
+ * «openai».
+ */
+const PROVIDER_API_FAMILY = {
+  openai: 'openai',
+  'azure-openai': 'openai',
+  'openai-compatible': 'openai',
+  anthropic: 'anthropic',
+  'google-gemini': 'gemini',
+  'vertex-ai': 'gemini',
+  'aws-bedrock': 'bedrock',
+  cohere: 'cohere',
+  mistral: 'mistral',
+  qwen: 'dashscope',
+  jina: 'jina',
+  ai21: 'ai21',
+  replicate: 'replicate',
+  ibm: 'watsonx',
+};
+
+const PROVIDER_API_VALUE = {
+  openai: 'openai',
+  'azure-openai': 'azure-openai',
+  'openai-compatible': 'openai-compatible',
+  anthropic: 'anthropic-messages',
+  'google-gemini': 'gemini',
+  'vertex-ai': 'vertex',
+  'aws-bedrock': 'bedrock',
+  cohere: 'cohere-v2',
+  mistral: 'mistral',
+  qwen: 'dashscope',
+  jina: 'jina',
+  ai21: 'ai21',
+  replicate: 'replicate',
+  ibm: 'watsonx',
+};
+
+/** Точность имени внутри семейства: чем ниже, тем конкретнее адрес. */
+const API_VALUE_PRECISION = ['openai', 'azure-openai', 'openai-compatible', 'gemini', 'vertex'];
+
+/**
+ * Какой API запись использует — или 'n/a', если ответ неоднозначен.
+ *
+ * Имя ставится, когда у записи одно семейство API: у go-openai это OpenAI
+ * (Azure и совместимые адреса — тот же протокол), у langchain-anthropic —
+ * Messages API. Если семейств несколько, «используемый API» не существует, и
+ * запись честно остаётся без ответа.
+ *
+ * Отдельное исключение — официальный SDK: пакет опубликован тем же
+ * поставщиком, чей это API, а прочие провайдеры в его списке — это тот же API
+ * на других хостингах (Anthropic на Bedrock и Vertex). Иначе pypi:anthropic,
+ * у которого в провайдерах Bedrock и Vertex, потерял бы верный ответ.
+ */
+export function sdkApiFor({ providers = [], kind } = {}) {
+  const known = providers.filter((id) => PROVIDER_API_VALUE[id]);
+  if (!known.length) return 'n/a';
+
+  const families = new Set(known.map((id) => PROVIDER_API_FAMILY[id]));
+  if (families.size > 1 && kind !== 'official-sdk') return 'n/a';
+
+  if (kind === 'official-sdk') {
+    const exact = known.find((id) => id !== 'openai-compatible');
+    return PROVIDER_API_VALUE[exact ?? known[0]];
+  }
+  const ranked = known.sort(
+    (a, b) => API_VALUE_PRECISION.indexOf(a) - API_VALUE_PRECISION.indexOf(b),
+  );
+  return PROVIDER_API_VALUE[ranked[0]];
+}
+
+/**
+ * Итоговый sdkApi записи: объявленное значение, если оно не противоречит
+ * провайдерам, иначе выведенное.
+ *
+ * Два решения из данных, а не из вкуса. «n/a» в курируемом файле — это не
+ * объявление, а отсутствие ответа, и из-за него 58 записей оставались без
+ * типа API, хотя провайдер у них один и ответ однозначен. А объявленный
+ * «openai» у записи с девятью семействами — утверждение, которого в данных
+ * нет: ruby_llm заявлял, что работает через OpenAI API, будучи framework над
+ * четырнадцатью провайдерами.
+ */
+export function resolveSdkApi({ declared, providers = [], kind } = {}) {
+  const stated = declared && declared !== 'n/a' ? declared : undefined;
+  // Объявленное проверять нечем: ни один провайдер в списке не говорит о типе
+  // API (так у клиентов локального рантайма), и тогда объявление остаётся.
+  if (!providers.some((id) => PROVIDER_API_VALUE[id])) return stated ?? 'n/a';
+
+  const inferred = sdkApiFor({ providers, kind });
+  if (!stated) return inferred;
+  return inferred === 'n/a' ? 'n/a' : stated;
+}
+
+function canonicalFeature(feature) {
+  const text = String(feature).trim().toLowerCase();
+  return FEATURE_ALIASES.get(text) ?? text;
+}
+
 /** Приводит произвольный объект к схеме записи. */
 export function normalizeRecord(input) {
   const ecosystem = String(input.ecosystem ?? 'github').toLowerCase();
@@ -195,10 +315,16 @@ export function normalizeRecord(input) {
     // когда запись одна, и остаток от вывода по названию сохранялся — у
     // токенизатора tiktoken_core и переводчика Easydict стоял openai, и
     // фильтр «по типу API» показывал им чужой тип.
-    sdkApi: CALLS_PROVIDER_API.has(role) ? (cleanString(input.sdkApi, 60) ?? 'n/a') : 'n/a',
+    //
+    // Если тип не объявлен или объявление противоречит провайдерам, он
+    // выводится из провайдеров — но только когда семейство API одно, иначе
+    // «используемый API» был бы выдумкой.
+    sdkApi: CALLS_PROVIDER_API.has(role)
+      ? resolveSdkApi({ declared: cleanString(input.sdkApi, 60), providers, kind })
+      : 'n/a',
     status: STATUSES.has(input.status) ? input.status : 'unknown',
     tier: TIERS.has(input.tier) ? input.tier : undefined,
-    features: uniq(input.features ?? []).slice(0, 20),
+    features: uniq((input.features ?? []).map(canonicalFeature)).slice(0, 20),
     envVars: uniq(input.envVars ?? []).slice(0, 10),
     install: cleanString(input.install, 300),
     // repoDropped ставит только аудит ссылок: репозиторий проверен и не найден,
