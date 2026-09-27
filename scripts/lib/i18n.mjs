@@ -30,8 +30,8 @@ const en = {
   'nav.switchToRu': 'Русский',
   'nav.switchToEn': 'English',
 
-  'stats.libraries': 'libraries',
-  'stats.entries': 'entries',
+  'stats.libraries': 'library|libraries',
+  'stats.entries': 'entry|entries',
   // «349 of 484» — раньше строка собиралась мимо словаря, и на русской странице
   // оставалась английская форма.
   'stats.of': '%{shown} of %{total}',
@@ -64,6 +64,12 @@ const en = {
 
   'role.api': 'Provider API clients only',
   'role.sdk': 'API clients',
+  // Формы для места рядом с числом: одна|несколько|много.
+  'roleCount.sdk': 'API client|API clients',
+  'roleCount.framework': 'framework|frameworks',
+  'roleCount.runtime': 'local model runtime|local model runtimes',
+  'roleCount.gateway': 'gateway|gateways',
+  'roleCount.support': 'supporting tool|supporting tools',
   'role.framework': 'Frameworks',
   'role.runtime': 'Local model runtimes',
   'role.support': 'Supporting tools',
@@ -292,6 +298,11 @@ const ru = {
 
   'role.api': 'Только клиенты API',
   'role.sdk': 'Клиенты API',
+  'roleCount.sdk': 'клиент API|клиента API|клиентов API',
+  'roleCount.framework': 'фреймворк|фреймворка|фреймворков',
+  'roleCount.runtime': 'рантайм локального запуска|рантайма локального запуска|рантаймов локального запуска',
+  'roleCount.gateway': 'шлюз|шлюза|шлюзов',
+  'roleCount.support': 'сопутствующий инструмент|сопутствующих инструмента|сопутствующих инструментов',
   'role.framework': 'Фреймворки',
   'role.runtime': 'Локальный запуск моделей',
   'role.support': 'Сопутствующие инструменты',
@@ -495,26 +506,44 @@ export function t(locale, key, params) {
 }
 
 /**
- * Существительное вместе с числом в правильной форме: «1 библиотека»,
- * «2 библиотеки», «5 библиотек».
- *
- * Форма русского слова зависит от числа, а не от позиции в строке: 21
- * библиотека, но 22 библиотеки, поэтому разбор идёт по 10 и по 100. У
- * английского значения разделителя «|» нет, и слово не склоняется.
+ * Слово в форме, которая подходит числу: «клиентов» для 5, «клиент» для 1.
+ * Без самого числа — когда в шаблоне рядом уже стоит %{count}.
  *
  * @param {string} locale
  * @param {number} n
- * @param {string} word одно слово или три формы «одна|несколько|много»
+ * @param {string} word одно слово или формы «одна|несколько|много»
+ * @returns {string}
+ */
+export function declined(locale, n, word) {
+  if (!word.includes('|')) return word;
+  const forms = word.split('|');
+  // Английского хватает двух форм: одна и много. Русский разбирает по 10 и по
+  // 100, потому что 21 библиотека, но 22 библиотеки.
+  if (forms.length === 2) return n === 1 ? forms[0] : forms[1];
+  const [one, few, many] = forms;
+  const mod10 = n % 10;
+  const mod100 = n % 100;
+  if (mod10 === 1 && mod100 !== 11) return one;
+  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 10 || mod100 >= 20)) return few;
+  return many;
+}
+
+/**
+ * Существительное вместе с числом в правильной форме: «1 библиотека»,
+ * «2 библиотеки», «5 библиотек».
+ *
+ * Нужны обе функции, а не одна: в шаблоне может быть «%{count} %{word}», где
+ * слово должно склоняться, а числа в тексте ещё нет. Если подставить
+ * «5 библиотек» вместо слова, число в шаблоне останется вторым — выходило
+ * «35 35 клиентов API».
+ *
+ * @param {string} locale
+ * @param {number} n
+ * @param {string} word одно слово или формы «одна|несколько|много»
  * @returns {string}
  */
 export function counted(locale, n, word) {
-  if (!word.includes('|')) return `${n} ${word}`;
-  const [one, few, many] = word.split('|');
-  const mod10 = n % 10;
-  const mod100 = n % 100;
-  if (mod10 === 1 && mod100 !== 11) return `${n} ${one}`;
-  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 10 || mod100 >= 20)) return `${n} ${few}`;
-  return `${n} ${many}`;
+  return `${n} ${declined(locale, n, word)}`;
 }
 
 /** Все ключи, встречающиеся в обоих словарях, — проверка полноты перевода. */

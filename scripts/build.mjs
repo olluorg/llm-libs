@@ -19,7 +19,7 @@ import { readConfig, readDataset, DIST_DIR, ROOT } from './lib/store.mjs';
 import { toCsv, toDictionary, toJson } from './lib/dataset.mjs';
 import { slugify } from './lib/site-helpers.mjs';
 import { ROLES, ROLE_SLUGS, CALLS_PROVIDER_API } from './lib/record.mjs';
-import { LOCALES, DEFAULT_LOCALE, LOCALE_DIR, counted, localeStrings, t } from './lib/i18n.mjs';
+import { LOCALES, DEFAULT_LOCALE, LOCALE_DIR, counted, declined, localeStrings, t } from './lib/i18n.mjs';
 import { popularity as sharedPopularity } from './lib/popularity.mjs';
 
 const log = createLogger('build');
@@ -292,7 +292,9 @@ for (const locale of LOCALES) {
         title: t(locale, 'page.role.title', { role: roleLabel, language, count: subset.length }),
         description: t(locale, 'page.role.description', {
           role: roleLabel,
-          roleLower: roleLabel.toLowerCase(),
+          // Роль рядом с числом стоит в родительном падеже: «35 клиентов API»,
+          // а именительный давал «35 клиенты api».
+          roleLower: declined(locale, subset.length, t(locale, `roleCount.${role}`)),
           language,
           count: subset.length,
           top: topPackages(subset).join(', '),
