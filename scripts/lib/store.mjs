@@ -4,6 +4,11 @@ import { fileURLToPath } from 'node:url';
 
 import { createLogger } from './log.mjs';
 import { mergeRecords, normalizeRecord } from './record.mjs';
+// Общий помощник приведения адреса к виду, по которому сравниваются
+// репозитории. Раньше он был объявлен здесь же, вторым экземпляром, и в нём
+// порядок замен шёл неверно: у ссылки «owner/repo.git/» суффикс .git не
+// снимался, и такая запись не совпадала с канонической.
+import { repoKey } from './fork.mjs';
 
 const log = createLogger('store');
 
@@ -186,9 +191,27 @@ export async function writeDataset(libraries, extra = {}) {
     libraries: deduped,
     ...extra,
   };
-  await writeJson(path.join(OUT_DIR, 'libraries.json'), payload);
+
+  // Файл переписывается, только если содержимое действительно изменилось.
+  // Раньше каждый прогон ставил новую метку времени, и в истории репозитория
+  // появлялся коммит, где единственное изменение — timestamp: данных в нём
+  // нет, а diff занимает место. В ежедневном прогоне данные меняются всегда,
+  // и тогда файл пишется как обычно.
+  const file = path.join(OUT_DIR, 'libraries.json');
+  const previous = await readJson(file, null);
+  if (previous && sameData(previous, payload)) {
+    log.info(`датасет не изменился: ${deduped.length} записей, файл оставлен как есть`);
+    return previous;
+  }
+  await writeJson(file, payload);
   log.info(`датасет сохранён: ${deduped.length} записей`);
   return payload;
+}
+
+/** Одинаково ли содержание двух наборов данных, если не смотреть на метку времени. */
+function sameData(previous, next) {
+  const strip = (payload) => JSON.stringify({ ...payload, generatedAt: null });
+  return strip(previous) === strip(next);
 }
 
 export function dedupe(libraries) {
@@ -202,8 +225,6 @@ export function dedupe(libraries) {
     (a, b) => (b.stars ?? b.registry.downloads ?? 0) - (a.stars ?? a.registry.downloads ?? 0) || a.id.localeCompare(b.id),
   );
 }
-
-const repoKey = (repo) => (repo ?? '').toLowerCase().replace(/\.git$/, '').replace(/\/+$/, '');
 
 /**
  * Одна библиотека, посчитанная дважды: запись из GitHub и запись реестра на

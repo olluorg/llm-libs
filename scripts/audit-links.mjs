@@ -335,8 +335,8 @@ function linkForm(url) {
     .replace(/^ssh:\/\/git@/i, 'https://')
     .replace(/^https?:\/\/(?:www\.)?github\.com\//i, 'https://github.com/')
     .replace(/[?#].*$/, '')
-    .replace(/\.git$/i, '')
     .replace(/\/+$/, '')
+    .replace(/\.git$/i, '')
     .toLowerCase();
 }
 
