@@ -207,3 +207,35 @@ jobs:
             echo "- Отчёт о ссылках: артефакт \`link-audit\`"
             echo "- Сайт: https://${{ steps.pages.outputs.base_url }}"
           } >> "$GITHUB_STEP_SUMMARY"
+
+  # Ночное обновление идёт без присмотра, и до этого узнать о сбое можно было
+  # только визитом на сайт: предыдущая версия оставалась на месте и выглядела
+  # исправной. Задача падает вместе с основной и оставляет след в репозитории.
+  #
+  # Не новая задача на каждый сбой, а комментарий в уже открытую: сломанный
+  # реестр даёт падение три дня подряд, и три задачи об одном и том же ничего
+  # не добавляют. Метка не используется намеренно — создавать её в этом шаге
+  # значит зависеть от того, что она заведёна; поиск идёт по заголовку.
+  alert:
+    name: Сообщить о сбое обновления
+    needs: refresh
+    if: ${{ failure() && needs.refresh.result == 'failure' }}
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Открыть задачу или дополнить открытую
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          TITLE: 'Сбой ночного обновления каталога'
+        run: |
+          body="$(date -u '+Прогон %Y-%m-%d %H:%M UTC упал. Логи: ')$RUN_URL"
+          number=$(gh issue list --state open --limit 100 \
+            --json number,title --jq ".[] | select(.title | startswith(\"$TITLE\")) | .number" | head -1)
+          if [ -n "$number" ]; then
+            gh issue comment "$number" --body "$body"
+            echo "Дописано в задачу №$number"
+          else
+            gh issue create --title "$TITLE" --body "$body"
+          fi

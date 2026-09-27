@@ -14,12 +14,27 @@ import path from 'node:path';
 
 import { createLogger } from './lib/log.mjs';
 import { ROOT } from './lib/store.mjs';
+import { dictionaryKeys } from './lib/i18n.mjs';
 
 const log = createLogger('lint');
 const problems = [];
 
 const SCRIPT_DIRS = ['scripts', 'site'];
 const IGNORED = new Set(['node_modules', 'dist', '.cache', '.git']);
+
+/**
+ * Прямое обращение к словарю по индексу: STRINGS['filters.all'].
+ *
+ * Такое обращение не бросает исключение, как t(), — оно молча даёт undefined.
+ * Проверка в check-site сравнивала подпись фильтра с STRINGS['filters.all'],
+ * которого в словаре уже нет, и потому всегда проходила: сравнение с
+ * undefined истинно. Ловятся только ключи с точкой, написанные текстом;
+ * динамические (`role.${role}`) сюда не попадают, их полноту проверяет
+ * dictionaryKeys.
+ */
+const DICTIONARY_INDEX = /\b[A-Za-z_$][\w$]*(?:STRINGS|strings)\[\s*'([a-z][\w]*(?:\.[\w]+)+)'\s*\]/g;
+
+const knownKeys = new Set(dictionaryKeys().keys);
 
 async function collectScripts(dir) {
   const found = [];
@@ -79,6 +94,16 @@ for (const dir of SCRIPT_DIRS) {
           `${relative}:${lineNumber} — console.${/console\.(\w+)\(/.exec(line)[1]} в библиотечном коде, используйте createLogger`,
         );
       }
+
+      if (!isComment) {
+        for (const [, key] of line.matchAll(DICTIONARY_INDEX)) {
+          if (!knownKeys.has(key)) {
+            problems.push(
+              `${relative}:${lineNumber} — в словаре нет ключа «${key}»: обращение даст undefined, и сравнение с ним всегда истинно`,
+            );
+          }
+        }
+      }
     });
   }
 }
@@ -88,7 +113,7 @@ if (problems.length) {
   log.error(`проблем: ${problems.length}`);
   process.exit(1);
 }
-log.info('скрипты в порядке: порядок объявлений и отсутствие console.log проверены');
+log.info('скрипты в порядке: порядок объявлений, отсутствие console.log и обращения к ключам словаря проверены');
 
 /** Убирает комментарии и содержимое строковых литералов с одной строки. */
 function stripLiterals(line) {

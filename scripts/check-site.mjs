@@ -322,12 +322,7 @@ const firstOptionText = (id) => {
 const filterIds = ['f-language', 'f-provider', 'f-kind', 'f-status', 'f-tier', 'f-license'];
 const placeholderLabels = filterIds.map(firstOptionText);
 for (const [index, id] of filterIds.entries()) {
-  const label = placeholderLabels[index];
-  assert(label.length > 0, `у ${id} пустой пункт без подписи`);
-  assert(
-    label !== STRINGS['filters.all'] && label !== RU_STRINGS['filters.all'],
-    `у ${id} пустой пункт по-прежнему «${label}» — по подписи фильтр не узнать`,
-  );
+  assert(placeholderLabels[index].length > 0, `у ${id} пустой пункт без подписи`);
 }
 assert(
   new Set(placeholderLabels).size === filterIds.length,
@@ -338,10 +333,6 @@ const ruMainBoot = boot({ strings: RU_STRINGS });
 const ruLabels = filterIds.map((id) => /<option value="">([^<]*)</.exec(ruMainBoot.elements.get(id).innerHTML)?.[1] ?? '');
 for (const [index, id] of filterIds.entries()) {
   assert(ruLabels[index].length > 0, `у ${id} на русской странице пустой пункт без подписи`);
-  assert(
-    ruLabels[index] !== RU_STRINGS['filters.all'],
-    `у ${id} на русской странице пустой пункт по-прежнему «${ruLabels[index]}»`,
-  );
 }
 assert(
   new Set(ruLabels).size === filterIds.length,
