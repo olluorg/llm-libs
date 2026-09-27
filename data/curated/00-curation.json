@@ -283,7 +283,8 @@
       "ecosystem": "github",
       "name": "artmsh/clj-tools-agents",
       "tier": "C",
-      "reason": "Ни звёзд, ни версии, ни загрузок: score набирался только по словам в описании, и запись получила B. Настоящий клиент, но доказательств качества нет."
+      "reason": "Ни звёзд, ни версии, ни загрузок: score набирался только по словам в описании, и запись получила B. Настоящий клиент, но доказательств качества нет. Роль тоже исправлена: «Pure-Clojure LLM API clients ... and a Model Context Protocol implementation» с агентным слоем — это надстройка над клиентами, а не сам клиент.",
+      "role": "framework"
     },
     {
       "ecosystem": "github",
@@ -491,7 +492,8 @@
       "ecosystem": "maven",
       "name": "com.theokanning.openai-gpt3-java:service",
       "repo": "https://github.com/sashabaranov/openai-java",
-      "reason": "Репозиторий из автосбора перебивал курируемый: в слиянии побеждал второй аргумент независимо от уверенности. Приоритет исправлен в record.mjs, значение восстановлено здесь, потому что пересчёт производных полей курируемые файлы не перечитывает. Звёзды и дата релиза придут из правильного репозитория при следующем обогащении."
+      "reason": "Репозиторий из автосбора перебивал курируемый: в слиянии побеждал второй аргумент независимо от уверенности. Приоритет исправлен в record.mjs, значение восстановлено здесь, потому что пересчёт производных полей курируемые файлы не перечитывает. Звёзды и дата релиза придут из правильного репозитория при следующем обогащении. Роль тоже исправлена: «Basic service to create and use an OpenAI retrofit client»: Spring-обвязка готового клиента, своего вызова API не делает.",
+      "role": "support"
     },
     {
       "ecosystem": "nuget",
@@ -597,6 +599,271 @@
       "repo": "https://github.com/openai/openai-dotnet",
       "reason": "Ключ nuget:OpenAI был занят дважды: в 01-official-sdks.json это официальная библиотека openai/openai-dotnet, а в 03-community-clients.json под тем же именем лежал Betalgo.OpenAI. Более поздний файл перебил официальный, и в каталоге у официального пакета оказался репозиторий и описание Betalgo. Настоящее имя пакета Betalgo — Betalgo.OpenAI; запись переименована, а официальной возвращён её репозиторий. Само совпадение имён теперь ломает проверку: curatedIdConflicts в scripts/lib/store.mjs. Примечание перенесено на ту же запись, к которой относится: пока репозиторий был приписан не тому пакету, текст о нём уезжал вместе с ним.",
       "notes": "Официальная библиотека OpenAI для .NET. Поддерживает Azure OpenAI через endpoint."
+    },
+    {
+      "ecosystem": "rubygems",
+      "name": "ruby_llm",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. Описание прямо называет себя фреймворком: «A delightful Ruby AI framework». 14 провайдеров под одной оболочкой."
+    },
+    {
+      "ecosystem": "rubygems",
+      "name": "net-llm",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «A minimal Ruby gem providing interfaces to connect to OpenAI, Ollama, and Anthropic» — один интерфейс на три API."
+    },
+    {
+      "ecosystem": "rubygems",
+      "name": "ai_client",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «versatile Ruby gem that offers a seamless interface» поверх пяти провайдеров: единый интерфейс, а не клиент одного API."
+    },
+    {
+      "ecosystem": "rubygems",
+      "name": "llm_gateway",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «a consistent Ruby interface for multiple LLM providers» с единым форматированием ответов и обработкой ошибок. Имя про шлюз, но сервер не поднимается и запросы не проксируются: провайдеры вызываются напрямую, поэтому это абстракция."
+    },
+    {
+      "ecosystem": "rubygems",
+      "name": "prompt_builder",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. Ruby DSL для построения запросов сразу к пяти API (Responses, Chat Completions, Messages, Gemini, Bedrock) — надстройка над клиентами."
+    },
+    {
+      "ecosystem": "rubygems",
+      "name": "ruby-pi",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «composable AI agent harness for Ruby» с единым интерфейсом провайдера: агентный слой, а не клиент."
+    },
+    {
+      "ecosystem": "crates",
+      "name": "genai",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «Multi-AI Providers Library for Rust» на десять провайдеров: единая оболочка над клиентами."
+    },
+    {
+      "ecosystem": "crates",
+      "name": "genai-custom",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. Библиотека мультипровайдерных бэкендов, выделенная из genai, о которой идёт речь там же."
+    },
+    {
+      "ecosystem": "crates",
+      "name": "llmrust",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «Unified Rust interface for 7 LLM providers»."
+    },
+    {
+      "ecosystem": "crates",
+      "name": "agentix",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «Multi-provider LLM client for Rust» с tool calls и MCP: клиент сразу к четырём провайдерам — это абстракция."
+    },
+    {
+      "ecosystem": "crates",
+      "name": "embedrs",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «Unified embedding — cloud APIs + local inference, one interface»: один интерфейс на семь бэкендов, включая локальный."
+    },
+    {
+      "ecosystem": "crates",
+      "name": "zeph-llm",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «LLM provider abstraction» с бэкендами Ollama, Claude, OpenAI и Candle."
+    },
+    {
+      "ecosystem": "crates",
+      "name": "open-agent-sdk",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «Production-ready Rust SDK for building AI agents» — агентный слой над двумя протоколами."
+    },
+    {
+      "ecosystem": "crates",
+      "name": "ai-chain-qwen",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. Библиотека цепочек ai-chains для моделей moonshot: цепочка — надстройка над вызовом модели."
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@deuz-sdk/core",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «Pure, web-first, multi-provider TypeScript AI SDK» на пять провайдеров."
+    },
+    {
+      "ecosystem": "npm",
+      "name": "polygate",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «One consistent function to call any LLM provider»."
+    },
+    {
+      "ecosystem": "packagist",
+      "name": "prism-php/prism",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. Laravel-пакет для интеграции LLM с агентами и структурированным выводом: приложение-надстройка, а не клиент."
+    },
+    {
+      "ecosystem": "packagist",
+      "name": "theodo-group/llphant",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «library to help you build Generative AI applications»: слой приложения над клиентами."
+    },
+    {
+      "ecosystem": "cran",
+      "name": "tidyllm",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «A tidy interface for integrating LLM APIs» на пять провайдеров."
+    },
+    {
+      "ecosystem": "cran",
+      "name": "rtemis.llm",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «Unified interface for creating LLM and Agent objects» с типизированными векторами значений."
+    },
+    {
+      "ecosystem": "cran",
+      "name": "pairwiseLLM",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «unified framework for generating, submitting, and analyzing pairwise comparisons» — методика поверх вызова модели."
+    },
+    {
+      "ecosystem": "luarocks",
+      "name": "ug-lua-llm",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «Unified Lua client for cloud LLM APIs, local Ollama models, and OpenAI-compatible endpoints»: один клиент на три вида адресов."
+    },
+    {
+      "ecosystem": "github",
+      "name": "deths74r/llaml",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «behind one set of types» девять OpenAI-совместимых провайдеров и четыре прямых API."
+    },
+    {
+      "ecosystem": "github",
+      "name": "kengirie/ocaml-ai-agent",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «multi-provider tool-using LLM agent» — агентный слой."
+    },
+    {
+      "ecosystem": "github",
+      "name": "Anonyfox/chatoyant",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «Unified TypeScript SDK for LLM providers» с общей потоковой выдачей."
+    },
+    {
+      "ecosystem": "github",
+      "name": "f3xp/swift-agent-sdk",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «Typed, model-agnostic LLM agents in Swift» — порт pydantic-ai."
+    },
+    {
+      "ecosystem": "github",
+      "name": "zjywill/aikitswift",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «Unified LLM provider layer for Swift» — 46 провайдеров за одним событийным API."
+    },
+    {
+      "ecosystem": "github",
+      "name": "salmanashraf/android-ai-chat-sdk",
+      "role": "framework",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. Мультипровайдерный чат-SDK с Compose-интерфейсом, Room-историей и headless API: приложение-надстройка."
+    },
+    {
+      "ecosystem": "npm",
+      "name": "smart-mcp",
+      "role": "support",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «Smart UI MCP Server for VS Code, Cursor, and AI IDEs»: сервер MCP с UI-компонентами."
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@inngest/ai",
+      "role": "support",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «AI adapter package for Inngest»: мост к чужому фреймворку, своего вызова API не делает."
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@leanroute/vercel-ai-sdk",
+      "role": "support",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «thin wrapper» над клиентом leanroute: провайдер для Vercel AI SDK."
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@warlock.js/ai-groq",
+      "role": "support",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «Groq adapter ... thin wrapper over @warlock.js/ai-openai»: тонкая обёртка над чужим клиентом."
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@sap-ai-sdk/openai",
+      "role": "support",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «integration with the official OpenAI npm package for Azure OpenAI on SAP AI Core»: склейка с облаком SAP, своего запроса к провайдеру не делает."
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@ai-sdk/openai-compatible",
+      "role": "support",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «provides a foundation for implementing providers»: база для авторов провайдеров, а не клиент."
+    },
+    {
+      "ecosystem": "crates",
+      "name": "llm-kit-openai-compatible",
+      "role": "support",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «OpenAI-compatible provider implementation for the LLM Kit»: реализация провайдера для чужого набора инструментов."
+    },
+    {
+      "ecosystem": "crates",
+      "name": "chio-groq-tools-adapter",
+      "role": "support",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «tool-use adapter for Chio»: адаптер к чужому набору инструментов."
+    },
+    {
+      "ecosystem": "rubygems",
+      "name": "llm_cost_tracker",
+      "role": "support",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «Logs every call your Rails app makes»: считает токены, стоимость и задержки, провайдера сам не вызывает."
+    },
+    {
+      "ecosystem": "rubygems",
+      "name": "llm_meta_client",
+      "role": "support",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. Rails Engine с генераторами скаффолдов и аутентификации: инструмент для разработчиков, а не клиент."
+    },
+    {
+      "ecosystem": "luarocks",
+      "name": "minuet-ai.nvim",
+      "role": "support",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. Плагин neovim для автодополнения по коду: интерфейс, а не библиотека API."
+    },
+    {
+      "ecosystem": "swift",
+      "name": "carloslfu/slotstream",
+      "role": "runtime",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «Run a 105 GB AI model on a Mac that can't hold it»: запускает модель локально, подгружая веса с диска."
+    },
+    {
+      "ecosystem": "swift",
+      "name": "Eric-Terminal/ETOS-LLM-Studio",
+      "role": "runtime",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «Run local GGUF models offline» на iOS и Apple Watch: локальный запуск моделей."
+    },
+    {
+      "ecosystem": "crates",
+      "name": "adk-mistralrs",
+      "role": "runtime",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «native local LLM inference with Gemma 4, Qwen 3.5, Voxtral» через mistral.rs."
+    },
+    {
+      "ecosystem": "crates",
+      "name": "embacle",
+      "role": "runtime",
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «LLM runner library — 12 AI CLI tools, ACP, and HTTP APIs»: запускает и обслуживает модели."
+    },
+    {
+      "ecosystem": "crates",
+      "name": "synapse-gateway",
+      "role": "gateway",
+      "openaiCompatibleServer": true,
+      "reason": "Роль стояла sdk, хотя описание говорит о другом. «OpenAI-compatible LLM router and gateway» с мультипровайдерным откатом: проксирует запросы и поднимает совместимый сервер. При роли sdk флаг openaiCompatibleServer не мог выставиться в принципе."
     }
   ]
 }

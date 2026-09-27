@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T17:37:28.544Z",
+  "generatedAt": "2026-09-27T17:59:03.327Z",
   "counts": {
     "total": 456,
     "byEcosystem": {
@@ -38,42 +38,41 @@
       "OCaml": 3
     },
     "byProvider": {
-      "openai": 233,
-      "openai-compatible": 66,
-      "anthropic": 135,
-      "cohere": 28,
-      "google-gemini": 75,
+      "openai": 218,
+      "openai-compatible": 59,
+      "anthropic": 127,
+      "cohere": 27,
+      "google-gemini": 68,
       "aws-bedrock": 42,
-      "mistral": 38,
-      "groq": 27,
-      "azure-openai": 46,
+      "mistral": 35,
+      "groq": 23,
+      "azure-openai": 41,
       "vertex-ai": 12,
-      "ollama": 41,
-      "openrouter": 10,
+      "ollama": 37,
+      "openrouter": 8,
       "together": 4,
       "perplexity": 3,
-      "xai": 10,
-      "deepseek": 10,
+      "xai": 8,
+      "deepseek": 9,
       "jina": 2,
       "replicate": 3,
       "huggingface": 11,
-      "vllm": 4,
-      "llamacpp": 7,
-      "lmstudio": 3,
+      "llamacpp": 5,
+      "vllm": 3,
       "nvidia": 7,
       "moonshot": 5,
-      "qwen": 3,
-      "sap": 1,
       "ai21": 1,
+      "lmstudio": 1,
+      "qwen": 1,
       "fireworks": 1,
       "deepinfra": 1
     },
     "byRole": {
-      "sdk": 316,
-      "framework": 49,
-      "runtime": 26,
-      "support": 50,
-      "gateway": 15
+      "sdk": 270,
+      "framework": 78,
+      "runtime": 30,
+      "support": 62,
+      "gateway": 16
     },
     "byKind": {
       "client": 253,
@@ -2657,9 +2656,10 @@
       "description": "This package provides a foundation for implementing providers that expose an OpenAI-compatible API.",
       "ecosystem": "npm",
       "language": "TypeScript",
-      "role": "sdk",
+      "role": "support",
       "kind": "client",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai-compatible",
         "ollama",
         "vllm",
@@ -2668,7 +2668,7 @@
         "openrouter",
         "openai"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "A",
       "features": [
@@ -2705,11 +2705,12 @@
         "releasedAt": "2026-09-26",
         "latestRelease": "@ai-sdk/perplexity@5.0.0"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:npm",
         "curated:02-frameworks.json",
-        "discovery:npm"
+        "discovery:npm",
+        "curation"
       ],
       "notes": "Ключевая библиотека для любых OpenAI-совместимых серверов: Ollama, vLLM, llama.cpp, LM Studio, OpenRouter.",
       "matchReasons": [],
@@ -5620,15 +5621,16 @@
       "description": "Smart UI MCP Server for VS Code, Cursor, and AI IDEs. Provides Smart UI components, metadata, and Angular code generation through the Model Context Protocol with support for Azure OpenAI, OpenAI, Anthropic, Gemini, and local LLMs.",
       "ecosystem": "npm",
       "language": "TypeScript",
-      "role": "sdk",
+      "role": "support",
       "kind": "official-sdk",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai",
         "azure-openai",
         "anthropic",
         "google-gemini"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -5650,9 +5652,10 @@
         "updatedAt": "2026-03-22"
       },
       "github": {},
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:npm"
+        "discovery:npm",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, openai, anthropic, gemini)"
@@ -6188,7 +6191,7 @@
       "description": "A minimal Ruby gem providing interfaces to connect to OpenAI, Ollama, and Anthropic (Claude) LLM APIs",
       "ecosystem": "rubygems",
       "language": "Ruby",
-      "role": "sdk",
+      "role": "framework",
       "kind": "client",
       "providers": [
         "openai",
@@ -6219,9 +6222,10 @@
         "updatedAt": "2026-01-15"
       },
       "github": {},
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:rubygems"
+        "discovery:rubygems",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, openai, anthropic, claude)"
@@ -6622,14 +6626,15 @@
       "description": "Basic service to create and use an OpenAI retrofit client",
       "ecosystem": "maven",
       "language": "Java",
-      "role": "sdk",
+      "role": "support",
       "kind": "client",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai",
         "azure-openai",
         "openai-compatible"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "archived",
       "tier": "A",
       "features": [
@@ -6683,7 +6688,7 @@
       "description": "Build AI features the Ruby way. A delightful Ruby AI framework that feels at home in Rails: switch models without rewriting your code, then scale from a single call to production agents, RAG, and workflows. Features chat (text, images, audio, PDFs), image generation, embeddings, tools (function calling), structured output, Rails integration, and streaming. Works with OpenAI, Azure, Anthropic, Google Gemini, Vertex AI, AWS Bedrock, xAI, Cohere, DeepSeek, Mistral, Perplexity, OpenRouter, ElevenLabs, Deepgram, Ollama and GPUStack (local models), and any OpenAI-compatible API. Plain Ruby with a s…",
       "ecosystem": "rubygems",
       "language": "Ruby",
-      "role": "sdk",
+      "role": "framework",
       "kind": "framework",
       "providers": [
         "openai",
@@ -6739,11 +6744,12 @@
         "releasedAt": "2026-09-18",
         "latestRelease": "v2.0.0"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:rubygems",
         "curated:03-community-clients.json",
-        "discovery:rubygems"
+        "discovery:rubygems",
+        "curation"
       ],
       "notes": "Современный Ruby-клиент: единый API для всех провайдеров, Rails-интеграция, встроенный тестовый дабл (VCR).",
       "matchReasons": [],
@@ -7707,14 +7713,15 @@
       "description": "Groq adapter for @warlock.js/ai (OpenAI-compatible, thin wrapper over @warlock.js/ai-openai)",
       "ecosystem": "npm",
       "language": "TypeScript",
-      "role": "sdk",
+      "role": "support",
       "kind": "client",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai",
         "openai-compatible",
         "groq"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -7738,9 +7745,10 @@
         "updatedAt": "2026-09-26"
       },
       "github": {},
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:npm"
+        "discovery:npm",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (openai, groq)"
@@ -8369,7 +8377,7 @@
       "description": "A powerful Laravel package for integrating Large Language Models (LLMs) into your applications.",
       "ecosystem": "packagist",
       "language": "PHP",
-      "role": "sdk",
+      "role": "framework",
       "kind": "client",
       "providers": [
         "openai",
@@ -8414,10 +8422,11 @@
         "releasedAt": "2026-03-20",
         "latestRelease": "v0.100.1"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:packagist",
-        "curated:03-community-clients.json"
+        "curated:03-community-clients.json",
+        "curation"
       ],
       "notes": "Единый PHP-интерфейс к провайдерам с тестами и поддержкой Laravel.",
       "matchReasons": [],
@@ -8915,7 +8924,7 @@
       "description": "LLPhant is a library to help you build Generative AI applications.",
       "ecosystem": "packagist",
       "language": "PHP",
-      "role": "sdk",
+      "role": "framework",
       "kind": "client",
       "providers": [
         "openai",
@@ -8962,10 +8971,11 @@
         "releasedAt": "2026-09-25",
         "latestRelease": "1.0.3"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:packagist",
-        "curated:03-community-clients.json"
+        "curated:03-community-clients.json",
+        "curation"
       ],
       "notes": "PHP-фреймворк для GenAI от Theodo Group: агенты, RAG, structured output, evals, память. На Packagist — theodo-group/llphant.",
       "matchReasons": [],
@@ -9426,16 +9436,17 @@
       "description": "💃 Dance with Intelligence in Your Code. Minuet offers code completion as-you-type from popular LLMs including OpenAI, Gemini, Claude, Ollama, Codestral, and more.",
       "ecosystem": "luarocks",
       "language": "Lua",
-      "role": "sdk",
+      "role": "support",
       "kind": "client",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai",
         "anthropic",
         "google-gemini",
         "ollama",
         "mistral"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -9467,9 +9478,10 @@
         "releasedAt": "2026-07-31",
         "latestRelease": "v0.10.0"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:luarocks"
+        "discovery:luarocks",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, openai, claude, gemini)"
@@ -9927,16 +9939,17 @@
       "description": "AI adapter package for Inngest, providing type-safe interfaces to various AI providers including OpenAI, Anthropic, Gemini, Grok, and Azure OpenAI.",
       "ecosystem": "npm",
       "language": "TypeScript",
-      "role": "sdk",
+      "role": "support",
       "kind": "official-sdk",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai",
         "azure-openai",
         "anthropic",
         "google-gemini",
         "xai"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -9971,9 +9984,10 @@
         "releasedAt": "2026-09-22",
         "latestRelease": "inngest@4.21.0"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:npm"
+        "discovery:npm",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (openai, anthropic, gemini)"
@@ -10209,7 +10223,7 @@
       "description": "Multi-AI Providers Library for Rust. (OpenAI, Gemini, Anthropic, Ollama, AWS Bedrock, Vertex, Groq, DeepSeek, Kimi, GLM and many more)",
       "ecosystem": "crates",
       "language": "Rust",
-      "role": "sdk",
+      "role": "framework",
       "kind": "official-sdk",
       "providers": [
         "openai",
@@ -10260,11 +10274,12 @@
         "archived": false,
         "pushedAt": "2026-09-26"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:crates",
         "curated:03-community-clients.json",
-        "discovery:crates"
+        "discovery:crates",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (openai, anthropic, gemini, groq)",
@@ -10282,7 +10297,7 @@
       "description": "Multi-AI Providers Library for Rust. (Ollama, OpenAI, Anthropic, Groq, Gemini, ...)",
       "ecosystem": "crates",
       "language": "Rust",
-      "role": "sdk",
+      "role": "framework",
       "kind": "client",
       "providers": [
         "openai",
@@ -10323,9 +10338,10 @@
         "archived": false,
         "pushedAt": "2026-09-26"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:crates"
+        "discovery:crates",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (openai, anthropic, gemini, groq)"
@@ -10831,7 +10847,7 @@
       "description": "Pure, web-first, multi-provider TypeScript AI SDK (Anthropic, OpenAI, xAI, Gemini, Azure, Bedrock, …).",
       "ecosystem": "npm",
       "language": "TypeScript",
-      "role": "sdk",
+      "role": "framework",
       "kind": "official-sdk",
       "providers": [
         "openai",
@@ -10875,9 +10891,10 @@
         "releasedAt": "2026-09-26",
         "latestRelease": "v2.2.0"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:npm"
+        "discovery:npm",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (openai, anthropic, gemini)"
@@ -10945,14 +10962,15 @@
       "description": "mistral.rs integration for ADK-Rust - native local LLM inference with Gemma 4, Qwen 3.5, Voxtral, and 50+ model architectures",
       "ecosystem": "crates",
       "language": "Rust",
-      "role": "sdk",
+      "role": "runtime",
       "kind": "client",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "google-gemini",
         "mistral",
         "qwen"
       ],
-      "sdkApi": "gemini",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -10982,9 +11000,10 @@
         "releasedAt": "2026-09-01",
         "latestRelease": "v2.2.0"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:crates"
+        "discovery:crates",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, mistral, inference)"
@@ -11841,15 +11860,16 @@
       "description": "Run a 105 GB AI model on a Mac that can't hold it. Slotstream streams Qwen3.8-Flash-Next (125B mixture of experts) from your SSD and caches the busiest experts in memory, so it runs on Macs with 16 to 64 GB. One native Swift binary on MLX and Metal, no Python, offline. Works with Claude Code, Codex and Ollama or OpenAI clients.",
       "ecosystem": "swift",
       "language": "Swift",
-      "role": "sdk",
+      "role": "runtime",
       "kind": "client",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai",
         "anthropic",
         "ollama",
         "qwen"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -11882,10 +11902,11 @@
         "releasedAt": "2026-09-24",
         "latestRelease": "v0.2.25"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
         "discovery:github",
-        "discovery:swift"
+        "discovery:swift",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (openai, claude, ollama)"
@@ -12121,16 +12142,17 @@
       "description": "Vercel AI SDK provider for Leanroute. Drop-in `leanroute` provider — same interface as `@ai-sdk/openai`, but routes across 13 LLM providers (OpenAI, Anthropic, Google, DeepSeek, Groq, xAI, and more) with cost caps, failover, and MCP support baked in at th",
       "ecosystem": "npm",
       "language": "TypeScript",
-      "role": "sdk",
+      "role": "support",
       "kind": "client",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai",
         "anthropic",
         "groq",
         "xai",
         "deepseek"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -12155,9 +12177,10 @@
         "updatedAt": "2026-08-27"
       },
       "github": {},
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:npm"
+        "discovery:npm",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, openai, anthropic, groq)"
@@ -13405,16 +13428,17 @@
       "description": "A native LLM client for iOS & Apple Watch. Run local GGUF models offline via llama.cpp, or connect to OpenAI/Claude/Gemini. Features local RAG, Model Context Protocol (MCP) tools, Siri Shortcuts, and cross-device sync. Built with Swift.",
       "ecosystem": "swift",
       "language": "Swift",
-      "role": "sdk",
+      "role": "runtime",
       "kind": "client",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai",
         "anthropic",
         "google-gemini",
         "llamacpp",
         "lmstudio"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -13446,9 +13470,10 @@
         "releasedAt": "2026-06-27",
         "latestRelease": "debug-tools-go-v0.1.6"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:swift"
+        "discovery:swift",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, openai, claude, gemini)"
@@ -14825,14 +14850,15 @@
       "description": "SAP AI SDK integration with the official OpenAI npm package for Azure OpenAI on SAP AI Core",
       "ecosystem": "npm",
       "language": "TypeScript",
-      "role": "sdk",
+      "role": "support",
       "kind": "official-sdk",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai",
         "azure-openai",
         "sap"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -14865,9 +14891,10 @@
         "releasedAt": "2026-09-18",
         "latestRelease": "v2.16.0"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:npm"
+        "discovery:npm",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (openai)"
@@ -15493,7 +15520,7 @@
       "description": "A tidy interface for integrating large language model (LLM) APIs such as 'Claude', 'OpenAI', 'Gemini', 'Mistral', and local models via 'Ollama' into R workflows. The package supports text, image, audio, video, and document interactions; a unified media interface for attaching inline files or uploading to provider file stores; batch request APIs for cost-efficient large-scale processing; and a pipeline-oriented interface for seamless integration into data workflows. Web services are available at",
       "ecosystem": "cran",
       "language": "R",
-      "role": "sdk",
+      "role": "framework",
       "kind": "client",
       "providers": [
         "openai",
@@ -15537,9 +15564,10 @@
         "releasedAt": "2025-03-26",
         "latestRelease": "v0.3.4"
       },
-      "confidence": 0.3,
+      "confidence": 0.95,
       "source": [
-        "discovery:cran"
+        "discovery:cran",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, large language model)"
@@ -16133,7 +16161,7 @@
       "description": "LLM provider abstraction with Ollama, Claude, OpenAI, and Candle backends",
       "ecosystem": "crates",
       "language": "Rust",
-      "role": "sdk",
+      "role": "framework",
       "kind": "client",
       "providers": [
         "openai",
@@ -16171,9 +16199,10 @@
         "releasedAt": "2026-09-18",
         "latestRelease": "v0.22.5"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:crates"
+        "discovery:crates",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, openai, claude, ollama)"
@@ -16776,15 +16805,16 @@
       "description": "Logs every call your Rails app makes to OpenAI, Anthropic, Gemini, RubyLLM, or an OpenAI-compatible API: tokens, cost, latency, tags. Calls go straight to the provider — no proxy. Includes price sync, budget guardrails, and a mountable dashboard.",
       "ecosystem": "rubygems",
       "language": "Ruby",
-      "role": "sdk",
+      "role": "support",
       "kind": "client",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai",
         "anthropic",
         "google-gemini",
         "openai-compatible"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -16819,9 +16849,10 @@
         "releasedAt": "2026-09-25",
         "latestRelease": "v0.14.1"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:rubygems"
+        "discovery:rubygems",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, openai, anthropic, gemini)"
@@ -17443,7 +17474,7 @@
       "description": "Production-ready Rust SDK for building AI agents over two wire protocols: OpenAI chat completions (LMStudio, Ollama, llama.cpp, vLLM, OpenRouter) and Anthropic messages. Features streaming, tools, hooks, retry logic, and comprehensive examples.",
       "ecosystem": "crates",
       "language": "Rust",
-      "role": "sdk",
+      "role": "framework",
       "kind": "client",
       "providers": [
         "openai",
@@ -17491,9 +17522,10 @@
         "releasedAt": "2026-09-05",
         "latestRelease": "v0.11.3"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:crates"
+        "discovery:crates",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, openai, anthropic, ollama)"
@@ -17719,7 +17751,7 @@
       "description": "Multi-provider Android AI chat SDK with Jetpack Compose UI, headless Kotlin API, Room history, and support for OpenAI, Gemini, Claude, and Grok.",
       "ecosystem": "github",
       "language": "Kotlin",
-      "role": "sdk",
+      "role": "framework",
       "kind": "client",
       "providers": [
         "openai",
@@ -17758,9 +17790,10 @@
         "releasedAt": "2026-05-29",
         "latestRelease": "v1.0.3"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:github"
+        "discovery:github",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (openai, claude, gemini)"
@@ -18537,7 +18570,7 @@
       "description": "A library implementing `ai-chains` for moonshot OpenAI's models. Chains can be use to apply the model series to complete complex tasks, such as text summation.",
       "ecosystem": "crates",
       "language": "Rust",
-      "role": "sdk",
+      "role": "framework",
       "kind": "client",
       "providers": [
         "openai",
@@ -18570,9 +18603,10 @@
         "archived": false,
         "pushedAt": "2024-06-04"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:crates"
+        "discovery:crates",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (openai)"
@@ -18810,14 +18844,15 @@
       "description": "OpenAI-compatible provider implementation for the LLM Kit - supports OpenAI, Azure OpenAI, and compatible APIs",
       "ecosystem": "crates",
       "language": "Rust",
-      "role": "sdk",
+      "role": "support",
       "kind": "official-sdk",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai",
         "azure-openai",
         "openai-compatible"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -18848,9 +18883,10 @@
         "archived": false,
         "pushedAt": "2026-01-18"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:crates"
+        "discovery:crates",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, openai)"
@@ -19277,9 +19313,10 @@
       "description": "LLM runner library — 12 AI CLI tools, ACP, and HTTP APIs (Gemini, Cohere, Groq, OpenRouter, OpenAI-compatible) as pluggable LLM providers with fallback chains, agent loop, guardrails, and cost tracking",
       "ecosystem": "crates",
       "language": "Rust",
-      "role": "sdk",
+      "role": "runtime",
       "kind": "client",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai",
         "google-gemini",
         "openai-compatible",
@@ -19287,7 +19324,7 @@
         "openrouter",
         "cohere"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -19321,9 +19358,10 @@
         "releasedAt": "2026-09-26",
         "latestRelease": "v0.31.0"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:crates"
+        "discovery:crates",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, openai, gemini, cohere)"
@@ -19389,7 +19427,7 @@
       "description": "`ai_client` is a versatile Ruby gem that offers a seamless interface for integrating a wide range of AI service providers through a single, unified API. With `ai_client`, you can simply specify the model name and quickly leverage advanced features such as chatting, transcription, and speech synthesis. The gem supports prominent providers, including OpenAI, Anthropic, Google, Mistral, LocalAI, Ollama, and OpenRouter, making it easier than ever to build innovative applications. Plus, its flexible middleware architecture allows for easy customization of request and response handling, ensuring th…",
       "ecosystem": "rubygems",
       "language": "Ruby",
-      "role": "sdk",
+      "role": "framework",
       "kind": "client",
       "providers": [
         "openai",
@@ -19432,9 +19470,10 @@
         "archived": true,
         "pushedAt": "2025-04-11"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:rubygems"
+        "discovery:rubygems",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (openai, anthropic, mistral, ollama)"
@@ -20191,7 +20230,7 @@
       "description": "Unified TypeScript SDK for LLM providers (OpenAI, Anthropic, xAI) with streaming, structured outputs, and zero dependencies.",
       "ecosystem": "github",
       "language": "OCaml",
-      "role": "sdk",
+      "role": "framework",
       "kind": "client",
       "providers": [
         "openai",
@@ -20231,9 +20270,10 @@
         "releasedAt": "2026-08-15",
         "latestRelease": "v0.14.0"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:github"
+        "discovery:github",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, openai, anthropic)"
@@ -20606,7 +20646,7 @@
       "description": "Provides a unified framework for generating, submitting, and analyzing pairwise comparisons of writing quality using large language models (LLMs). The package supports live and/or batch evaluation workflows across multiple providers ('OpenAI', 'Anthropic', 'Google Gemini', 'Together AI', and locally-hosted 'Ollama' models), includes bias-tested prompt templates and a flexible template registry, and offers tools for constructing forward and reversed comparison sets to analyze consistency and posi",
       "ecosystem": "cran",
       "language": "R",
-      "role": "sdk",
+      "role": "framework",
       "kind": "client",
       "providers": [
         "openai",
@@ -20651,9 +20691,10 @@
         "releasedAt": "2026-09-06",
         "latestRelease": "v1.3.1"
       },
-      "confidence": 0.3,
+      "confidence": 0.95,
       "source": [
-        "discovery:cran"
+        "discovery:cran",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, large language model)"
@@ -21096,7 +21137,7 @@
       "description": "Unified interface for creating LLM and Agent objects, generating responses and performing batch inference based on a type-checked and validated 'S7' backend. Features reasoning, structured output, memory management, and tool use. Supports 'Ollama' <https://docs.ollama.com/api>, 'OpenAI'-compatible <https://developers.openai.com/api/reference/overview>, and 'Anthropic'-compatible <https://platform.claude.com/docs/en/api/getting-started> endpoints. Runs Apple's on-device 'Foundation Models' throug",
       "ecosystem": "cran",
       "language": "R",
-      "role": "sdk",
+      "role": "framework",
       "kind": "client",
       "providers": [
         "openai",
@@ -21137,9 +21178,10 @@
         "releasedAt": "2026-09-24",
         "latestRelease": "v0.8.7"
       },
-      "confidence": 0.3,
+      "confidence": 0.95,
       "source": [
-        "discovery:cran"
+        "discovery:cran",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, large language model, agent)"
@@ -21218,15 +21260,16 @@
       "description": "Groq OpenAI-compatible chat/completions tool-use adapter for Chio (pinned to API 2025-04)",
       "ecosystem": "crates",
       "language": "Rust",
-      "role": "sdk",
+      "role": "support",
       "kind": "client",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai",
         "openai-compatible",
         "groq",
         "mistral"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -21259,9 +21302,10 @@
         "releasedAt": "2026-09-09",
         "latestRelease": "v0.1.0"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:crates"
+        "discovery:crates",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (openai, groq)"
@@ -21278,7 +21322,7 @@
       "description": "Unified embedding — cloud APIs (OpenAI, Cohere, Gemini, Voyage, Jina, Mistral) + local inference, one interface",
       "ecosystem": "crates",
       "language": "Rust",
-      "role": "sdk",
+      "role": "framework",
       "kind": "client",
       "providers": [
         "openai",
@@ -21322,9 +21366,10 @@
         "releasedAt": "2026-08-13",
         "latestRelease": "v0.6.1"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:crates"
+        "discovery:crates",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (openai, gemini, mistral, cohere)"
@@ -21341,7 +21386,7 @@
       "description": "Typed, model-agnostic LLM agents in Swift — a pydantic-ai port built on Apple FoundationModels. Anthropic Claude, OpenAI, Google Gemini, and on-device, with tools, structured output, streaming, and a graph-based run engine.",
       "ecosystem": "github",
       "language": "Swift",
-      "role": "sdk",
+      "role": "framework",
       "kind": "client",
       "providers": [
         "openai",
@@ -21382,9 +21427,10 @@
         "releasedAt": "2026-06-18",
         "latestRelease": "v0.1.0"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:github"
+        "discovery:github",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, openai, anthropic, claude)"
@@ -21401,7 +21447,7 @@
       "description": "Unified LLM provider layer for Swift — Anthropic, OpenAI, Gemini and 46 more behind one normalized streaming event API. Modeled on the Vercel AI SDK event spec.",
       "ecosystem": "github",
       "language": "Swift",
-      "role": "sdk",
+      "role": "framework",
       "kind": "client",
       "providers": [
         "openai",
@@ -21438,9 +21484,10 @@
         "archived": false,
         "pushedAt": "2026-09-26"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:github"
+        "discovery:github",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, openai, anthropic, gemini)"
@@ -21610,7 +21657,7 @@
       "description": "LlmGateway provides a consistent Ruby interface for multiple LLM providers including Claude, OpenAI, and Groq. Features include unified response formatting, error handling, and fluent data mapping.",
       "ecosystem": "rubygems",
       "language": "Ruby",
-      "role": "sdk",
+      "role": "framework",
       "kind": "client",
       "providers": [
         "openai",
@@ -21648,9 +21695,10 @@
         "releasedAt": "2026-07-13",
         "latestRelease": "v0.9.0"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:rubygems"
+        "discovery:rubygems",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, openai, claude, groq)"
@@ -21779,7 +21827,7 @@
       "description": "RubyPi is a minimal, composable AI agent harness for Ruby. Build production-ready LLM agents and AI agents with a unified provider interface across OpenAI, Anthropic Claude, and Google Gemini, plus first-class support for tool calling (function calling), streaming responses, automatic retries, provider fallback, context compaction, and a think-act-observe agent loop. Anti-framework design — small, idiomatic, and explicit. Ideal for building autonomous AI agents, ReAct agents, tool-using LLM agents, and chatbots in Ruby.",
       "ecosystem": "rubygems",
       "language": "Ruby",
-      "role": "sdk",
+      "role": "framework",
       "kind": "client",
       "providers": [
         "openai",
@@ -21824,9 +21872,10 @@
         "releasedAt": "2026-06-09",
         "latestRelease": "v0.1.8"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:rubygems"
+        "discovery:rubygems",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, openai, anthropic, claude)"
@@ -21843,7 +21892,7 @@
       "description": "Multi-provider LLM client for Rust — streaming, non-streaming, tool calls, MCP, DeepSeek, OpenAI, Anthropic, Gemini, Codex",
       "ecosystem": "crates",
       "language": "Rust",
-      "role": "sdk",
+      "role": "framework",
       "kind": "client",
       "providers": [
         "openai",
@@ -21886,9 +21935,10 @@
         "releasedAt": "2026-04-23",
         "latestRelease": "v0.18.2"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:crates"
+        "discovery:crates",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, openai, anthropic, gemini)"
@@ -21956,7 +22006,7 @@
       "description": "Unified Rust interface for 7 LLM providers (OpenAI, Anthropic, DeepSeek, Google Gemini, Ollama, Moonshot, OpenRouter) with HTTP proxy",
       "ecosystem": "crates",
       "language": "Rust",
-      "role": "sdk",
+      "role": "framework",
       "kind": "client",
       "providers": [
         "openai",
@@ -21999,9 +22049,10 @@
         "releasedAt": "2026-09-12",
         "latestRelease": "v0.1.4"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:crates"
+        "discovery:crates",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, openai, anthropic, gemini)"
@@ -22018,7 +22069,7 @@
       "description": "Canonical-type LLM client for OCaml — OpenAI / Anthropic / Gemini / Bedrock and 9 OpenAI-compatible providers behind one set of types. Streaming, tools, reasoning effort, prompt caching, router with fallbacks.",
       "ecosystem": "github",
       "language": "OCaml",
-      "role": "sdk",
+      "role": "framework",
       "kind": "official-sdk",
       "providers": [
         "openai",
@@ -22062,9 +22113,10 @@
         "releasedAt": "2026-04-16",
         "latestRelease": "v0.1.5"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:github"
+        "discovery:github",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, openai, anthropic, gemini)"
@@ -22081,7 +22133,7 @@
       "description": "Capability-confined, multi-provider tool-using LLM agent in OCaml (Anthropic, OpenAI, DeepSeek, Kimi). A fork of ocaml-deepseek.",
       "ecosystem": "github",
       "language": "OCaml",
-      "role": "sdk",
+      "role": "framework",
       "kind": "client",
       "providers": [
         "openai",
@@ -22119,9 +22171,10 @@
         "archived": false,
         "pushedAt": "2026-08-23"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:github"
+        "discovery:github",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, openai, anthropic, agent)"
@@ -22963,7 +23016,7 @@
       "description": "OpenAI-compatible LLM router and gateway with streaming, tool calling, multi-provider fallback, native Vertex AI, and per-tenant cost accounting",
       "ecosystem": "crates",
       "language": "Rust",
-      "role": "sdk",
+      "role": "gateway",
       "kind": "client",
       "providers": [
         "openai",
@@ -22971,6 +23024,7 @@
         "vertex-ai",
         "openai-compatible"
       ],
+      "openaiCompatibleServer": true,
       "sdkApi": "openai",
       "status": "active",
       "tier": "B",
@@ -23006,9 +23060,10 @@
         "archived": false,
         "pushedAt": "2026-09-23"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:crates"
+        "discovery:crates",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, openai)"
@@ -23025,7 +23080,7 @@
       "description": "Pure-Clojure LLM API clients (Anthropic, OpenAI, Gemini) and a Model Context Protocol implementation. Zero dependencies; runs on JVM Clojure and Babashka.",
       "ecosystem": "github",
       "language": "Clojure",
-      "role": "sdk",
+      "role": "framework",
       "kind": "client",
       "providers": [
         "openai",
@@ -23376,7 +23431,7 @@
       "description": "Unified Lua client for cloud LLM APIs, local Ollama models, and OpenAI-compatible endpoints",
       "ecosystem": "luarocks",
       "language": "Lua",
-      "role": "sdk",
+      "role": "framework",
       "kind": "client",
       "providers": [
         "openai",
@@ -23414,9 +23469,10 @@
         "releasedAt": "2026-08-19",
         "latestRelease": "v0.4.0"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:luarocks"
+        "discovery:luarocks",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, openai, ollama)"
@@ -23845,7 +23901,7 @@
       "description": "One consistent function to call any LLM provider — Anthropic, OpenAI, Gemini, Moonshot, and more.",
       "ecosystem": "npm",
       "language": "TypeScript",
-      "role": "sdk",
+      "role": "framework",
       "kind": "client",
       "providers": [
         "openai",
@@ -23885,9 +23941,10 @@
         "archived": false,
         "pushedAt": "2026-08-17"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:npm"
+        "discovery:npm",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, openai, anthropic, gemini)"
@@ -25013,14 +25070,15 @@
       "description": "llm_meta_client provides a Rails Engine with scaffold and authentication generators for building LLM-powered chat applications. Supports OpenAI, Anthropic, Google, and Ollama providers.",
       "ecosystem": "rubygems",
       "language": "Ruby",
-      "role": "sdk",
+      "role": "support",
       "kind": "client",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai",
         "anthropic",
         "ollama"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -25049,9 +25107,10 @@
         "archived": false,
         "pushedAt": "2026-03-27"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:rubygems"
+        "discovery:rubygems",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, openai, anthropic, ollama)"
@@ -25121,7 +25180,7 @@
       "description": "Ruby DSL for building and parsing LLM API requests across OpenAI Responses, OpenAI Chat Completions, Anthropic Messages, Google Gemini, and Bedrock Converse formats",
       "ecosystem": "rubygems",
       "language": "Ruby",
-      "role": "sdk",
+      "role": "framework",
       "kind": "official-sdk",
       "providers": [
         "openai",
@@ -25163,9 +25222,10 @@
         "releasedAt": "2026-08-13",
         "latestRelease": "v0.4.0"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:rubygems"
+        "discovery:rubygems",
+        "curation"
       ],
       "matchReasons": [
         "LLM-признаки в описании (llm, openai, anthropic, gemini)"
