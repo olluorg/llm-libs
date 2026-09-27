@@ -10,7 +10,7 @@
 import { createLogger } from './lib/log.mjs';
 import { getText } from './lib/http.mjs';
 import { mapLimit, repoSlug } from './lib/github.mjs';
-import { curationKey, loadCuration, loadProviders, readDataset, CURATED_DIR } from './lib/store.mjs';
+import { curationKey, loadCuration, loadProviders, readDataset, CURATED_DIR, OUT_DIR } from './lib/store.mjs';
 import { findForks } from './lib/fork.mjs';
 import { makeId, CALLS_PROVIDER_API, ROLES } from './lib/record.mjs';
 import fs from 'node:fs/promises';
@@ -102,6 +102,32 @@ const curatedCount = (dataset.libraries ?? []).filter((l) =>
     problems.warnings.push(
       `у ${withoutApi.length} записей с ролью клиента не указан тип API — фильтр «по типу API» их не покажет`,
     );
+  }
+}
+
+// Живые ссылки, которые ведут на другой проект, должны получить решение.
+// Аудит умеет находить такое только с сетью, поэтому проверка читает его отчёт
+// и молчит, если отчёта нет: локально validate работает без сети.
+{
+  const report = await fs.readFile(path.join(OUT_DIR, 'link-audit.json'), 'utf8')
+    .then((text) => JSON.parse(text))
+    .catch(() => null);
+  if (report?.nameMismatches?.length) {
+    const curation = await loadCuration();
+    const decided = new Set([
+      ...curation.exclude.map((item) => curationKey(item.ecosystem, item.name)),
+      ...curation.keep.map((item) => curationKey(item.ecosystem, item.name)),
+    ]);
+    const undecided = report.nameMismatches.filter((item) => !decided.has(item.id.toLowerCase()));
+    if (undecided.length) {
+      problems.warnings.push(
+        `ссылка, похожая на другой проект, без решения: ${undecided.length}. ` +
+          `Например ${undecided.slice(0, 3).map((item) => `${item.id} → ${item.repo}`).join('; ')}. ` +
+          'Добавьте запись в exclude или keep с причиной.',
+      );
+    } else {
+      log.info(`ссылки на другие проекты: ${report.nameMismatches.length}, все с решением`);
+    }
   }
 }
 

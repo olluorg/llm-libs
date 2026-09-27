@@ -115,6 +115,9 @@ jobs:
             node -e "
               const r = require('./data/out/link-audit.json');
               for (const [k, v] of Object.entries(r.tally)) console.log('- ' + (r.descriptions[k] ?? k) + ': ' + v);
+              const m = r.nameMismatches ?? [];
+              console.log('- живые ссылки, похожие на другой проект: ' + m.length);
+              for (const item of m.slice(0, 20)) console.log('  - ' + item.id + ' → ' + item.repo);
             "
           } >> "$GITHUB_STEP_SUMMARY"
 

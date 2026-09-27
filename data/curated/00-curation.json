@@ -542,6 +542,54 @@
       "repo": "https://github.com/jina-ai/jina",
       "description": "Embeddings, reranker, multimodal search API.",
       "reason": "Автосбор подставил репозиторий jina-ai/serve — это сервис развёртывания моделей в Kubernetes, а не клиент: от него же пришли описание, 21862 звезды и дата релиза. Значения взяты из курируемого файла 01-official-sdks.json. Звёзды и дата релиза обновятся при следующем обогащении, уже по правильному адресу."
+    },
+    {
+      "ecosystem": "github",
+      "name": "arthur-ficial/apfel",
+      "role": "runtime",
+      "openaiCompatibleServer": true,
+      "reason": "«CLI tool, OpenAI-compatible server, and interactive chat — all on-device» — это локальный рантайм, а не клиент. Своё описание прямо говорит, что запись поднимает сервер с OpenAI-совместимым API, а поле молчало: гейт требовал строго роль runtime, и до шлюзов вроде LiteLLM он не доходил."
+    },
+    {
+      "ecosystem": "github",
+      "name": "gety-ai/apple-on-device-openai",
+      "role": "runtime",
+      "openaiCompatibleServer": true,
+      "reason": "«OpenAI-compatible API server for Apple on-device models» — по названию и описанию сервер. Своё описание прямо говорит, что запись поднимает сервер с OpenAI-совместимым API, а поле молчало: гейт требовал строго роль runtime, и до шлюзов вроде LiteLLM он не доходил."
+    },
+    {
+      "ecosystem": "swift",
+      "name": "sharpai/swiftlm",
+      "role": "runtime",
+      "openaiCompatibleServer": true,
+      "reason": "«Native MLX Swift LLM inference server for Apple Silicon. OpenAI-compatible API» — сервер локального запуска. Своё описание прямо говорит, что запись поднимает сервер с OpenAI-совместимым API, а поле молчало: гейт требовал строго роль runtime, и до шлюзов вроде LiteLLM он не доходил."
+    },
+    {
+      "ecosystem": "swift",
+      "name": "neelm0906/mference",
+      "role": "runtime",
+      "openaiCompatibleServer": true,
+      "reason": "«Swift + Metal MoE inference for Apple Silicon … native Mac app, CLI, and OpenAI-compatible server» — сервер. Своё описание прямо говорит, что запись поднимает сервер с OpenAI-совместимым API, а поле молчало: гейт требовал строго роль runtime, и до шлюзов вроде LiteLLM он не доходил."
+    },
+    {
+      "ecosystem": "crates",
+      "name": "litellm-rs",
+      "openaiCompatibleServer": true,
+      "reason": "«A high-performance AI Gateway written in Rust, providing OpenAI-compatible…» — шлюз, который поднимает такой сервер. Своё описание прямо говорит, что запись поднимает сервер с OpenAI-совместимым API, а поле молчало: гейт требовал строго роль runtime, и до шлюзов вроде LiteLLM он не доходил."
+    },
+    {
+      "ecosystem": "crates",
+      "name": "bedrock-gateway-rust",
+      "role": "gateway",
+      "kind": "gateway",
+      "openaiCompatibleServer": true,
+      "reason": "«A 100% Rust, OpenAI-compatible API gateway for AWS Bedrock» — прокси, а не прямой клиент. Своё описание прямо говорит, что запись поднимает сервер с OpenAI-совместимым API, а поле молчало: гейт требовал строго роль runtime, и до шлюзов вроде LiteLLM он не доходил."
+    },
+    {
+      "ecosystem": "npm",
+      "name": "cli-openai-proxy",
+      "openaiCompatibleServer": true,
+      "reason": "«Run agentic coding CLIs behind an OpenAI-compatible proxy» — прокси. Своё описание прямо говорит, что запись поднимает сервер с OpenAI-совместимым API, а поле молчало: гейт требовал строго роль runtime, и до шлюзов вроде LiteLLM он не доходил."
     }
   ]
 }

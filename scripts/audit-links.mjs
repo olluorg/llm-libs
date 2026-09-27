@@ -45,6 +45,8 @@ const VERDICTS = {
 
 const results = [];
 const slugs = new Set();
+/** Живые ссылки, которые, по похоже имён, ведут на другой проект. */
+const mismatches = [];
 const libraries = dataset.libraries.filter(
   (library) => !only || only.includes(library.ecosystem) || only.includes(library.language),
 );
@@ -89,6 +91,13 @@ await mapLimit(libraries, 8, async (library) => {
   }
 
   const canonicalSlug = canonical.slug.toLowerCase();
+  // Ссылка живая, но ведёт на другой проект: у pypi:jina репозиторием оказался
+  // jina-ai/serve — сервис развёртывания моделей в Kubernetes, и от него же
+  // пришли описание и звёзды. Такой сбой не выдаёт себя ничем: 404 нет, пакет
+  // живой, а данные в записи от чужого проекта. Адрес автоматически не
+  // меняется — какое имя правильное, решает человек, а не совпадение строк.
+  const otherProject = nameMismatch(library.name, canonicalSlug);
+  if (otherProject) mismatches.push({ id: library.id, name: library.name, repo: canonicalSlug, reason: otherProject });
   // В каталоге ссылка должна быть ровно https://github.com/владелец/репозиторий.
   // Подпапка или файл (`/blob/main/README.md`), `.git`, `git@github.com:…`, `www.`
   // и лишний слэш ссылку не ломают, но её стоит привести к канонической: так
@@ -166,6 +175,10 @@ await writeJson(path.join(OUT_DIR, 'link-audit.json'), {
   uniqueSlugs: slugs.size,
   tally,
   descriptions: VERDICTS,
+  // Живые ссылки, которые, по похоже имён, ведут на другой проект. Отдельным
+  // списком, а не вердиктом: вердикт здесь означал бы решение, а это только
+  // повод посмотреть. Разбор — в data/curated/00-curation.json.
+  nameMismatches: mismatches,
   // В отчёт идут все записи, кроме полностью совпавших: расхождения по
   // звёздам — тоже повод посмотреть запись.
   results: results.filter((r) => r.verdict !== 'ok' || r.starsChanged),
@@ -195,6 +208,14 @@ if (deadDiscovered.length) {
       'будут убраны при следующем прогоне с --apply',
   );
   for (const item of deadDiscovered.slice(0, 10)) log.warn(`  ${item.id}: ${item.requested}`);
+}
+
+if (mismatches.length) {
+  // Не ошибка и не автоправка: у npm-пакета cohere-ai репозиторий cohere-node,
+  // и это один проект. Совпадение имён — повод посмотреть глазами, решение
+  // принимается в data/curated/00-curation.json.
+  log.warn(`живые ссылки, похожие на другой проект: ${mismatches.length} — нужно решение вручную`);
+  for (const item of mismatches.slice(0, 20)) log.warn(`  ${item.id}: ${item.reason} (репозиторий ${item.repo})`);
 }
 
 report();
@@ -262,10 +283,38 @@ async function findReplacement(library, requested) {
 }
 
 /**
- * Глубина пути внутри github.com: "owner/repo" — 2 (корень репозитория),
- * "owner/repo/blob/main/README.md" — больше. Нужна, чтобы отличить ссылку
- * на репозиторий от ссылки на файл в нём.
+ * Похоже ли имя пакета на имя репозитория.
+ *
+ * Сигнал осторожный: у npm-пакета cohere-ai репозиторий cohere-node, и это
+ * один и тот же проект, так что расхождение — повод посмотреть, а не приговор.
+ * Поэтому сравниваются не строки, а общие значимые куски: имя пакета без
+ * области (@scope/… и @modelcontextprotocol/), без префиксов python-,
+ * js-, node- и golang- и без типичных слов openai-sdk, client, api.
+ *
+ * @returns {string|null} причина расхождения либо null, если похоже
  */
+function nameMismatch(packageName, slug) {
+  const repoName = slug.split('/').pop()?.toLowerCase() ?? '';
+  if (!repoName || !packageName) return null;
+
+  const strip = (value) => value
+    .toLowerCase()
+    .replace(/^@[^/]+\//, '')                 // область действия npm
+    .replace(/^(python|py|js|javascript|node|golang|go|java|dotnet|rust|php|ruby)-/, '')
+    .replace(/[-_.]?(sdk|client|api|lib|library|wrapper|bindings?)$/, '');
+  const words = (value) => new Set(
+    strip(value).split(/[-_.\s]+/).filter((word) => word.length > 2),
+  );
+
+  const a = words(packageName);
+  const b = words(repoName);
+  if (!a.size || !b.size) return null;
+  const shared = [...a].filter((word) => b.has(word));
+  if (shared.length) return null;
+  return `имя пакета «${packageName}» не похоже на имя репозитория «${repoName}» — возможно, это другой проект`;
+}
+
+
 function githubDepth(url) {
   const match = /github\.com[/:]([\w.-]+\/[\w.-]+)(?:\/(.*))?/i.exec(url ?? '');
   if (!match) return 0;

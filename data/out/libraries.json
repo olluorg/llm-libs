@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T09:15:13.476Z",
+  "generatedAt": "2026-09-27T09:28:15.637Z",
   "counts": {
     "total": 456,
     "byEcosystem": {
@@ -38,11 +38,11 @@
       "OCaml": 3
     },
     "byProvider": {
-      "openai": 237,
-      "openai-compatible": 70,
+      "openai": 233,
+      "openai-compatible": 66,
       "anthropic": 135,
       "cohere": 28,
-      "google-gemini": 76,
+      "google-gemini": 75,
       "aws-bedrock": 42,
       "mistral": 38,
       "groq": 27,
@@ -53,7 +53,7 @@
       "together": 4,
       "perplexity": 3,
       "xai": 10,
-      "deepseek": 11,
+      "deepseek": 10,
       "jina": 2,
       "replicate": 3,
       "huggingface": 11,
@@ -62,27 +62,27 @@
       "lmstudio": 3,
       "nvidia": 7,
       "moonshot": 5,
-      "qwen": 4,
+      "qwen": 3,
       "sap": 1,
       "ai21": 1,
       "fireworks": 1,
       "deepinfra": 1
     },
     "byRole": {
-      "sdk": 321,
+      "sdk": 316,
       "framework": 49,
-      "runtime": 22,
+      "runtime": 26,
       "support": 50,
-      "gateway": 14
+      "gateway": 15
     },
     "byKind": {
       "client": 253,
       "framework": 55,
-      "official-sdk": 74,
+      "official-sdk": 73,
       "local-runtime": 25,
       "util": 9,
       "ui": 8,
-      "gateway": 17,
+      "gateway": 18,
       "retrieval": 8,
       "eval": 6,
       "orchestration": 1
@@ -5722,17 +5722,19 @@
     },
     {
       "id": "github:arthur-ficial/apfel",
-      "name": "Arthur-Ficial/apfel",
+      "name": "arthur-ficial/apfel",
       "description": "The free AI already on your Mac. CLI tool, OpenAI-compatible server, and interactive chat — all on-device via Apple Intelligence. No API keys, no cloud, no downloads.",
       "ecosystem": "github",
       "language": "Swift",
-      "role": "sdk",
+      "role": "runtime",
       "kind": "client",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai",
         "openai-compatible"
       ],
-      "sdkApi": "openai",
+      "openaiCompatibleServer": true,
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -5762,9 +5764,10 @@
         "releasedAt": "2026-09-24",
         "latestRelease": "v1.12.0"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:github"
+        "discovery:github",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (openai)",
       "discoveredAt": "2026-09-26",
@@ -10060,13 +10063,15 @@
       "description": "OpenAI-compatible API server for Apple on-device models",
       "ecosystem": "github",
       "language": "Swift",
-      "role": "sdk",
+      "role": "runtime",
       "kind": "client",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai",
         "openai-compatible"
       ],
-      "sdkApi": "openai",
+      "openaiCompatibleServer": true,
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -10093,9 +10098,10 @@
         "releasedAt": "2025-10-02",
         "latestRelease": "v1.1.3"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:github"
+        "discovery:github",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (openai)",
       "discoveredAt": "2026-09-26",
@@ -10294,17 +10300,19 @@
     },
     {
       "id": "swift:sharpai/swiftlm",
-      "name": "SharpAI/SwiftLM",
+      "name": "sharpai/swiftlm",
       "description": "⚡ Native MLX Swift LLM inference server for Apple Silicon. OpenAI-compatible API, SSD streaming for 100B+ MoE models, TurboQuant KV cache compression, MACOS + iOS iPhone app.",
       "ecosystem": "swift",
       "language": "Swift",
-      "role": "sdk",
+      "role": "runtime",
       "kind": "client",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai",
         "openai-compatible"
       ],
-      "sdkApi": "openai",
+      "openaiCompatibleServer": true,
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -10336,10 +10344,11 @@
         "releasedAt": "2026-09-26",
         "latestRelease": "b782"
       },
-      "confidence": 0.6,
+      "confidence": 0.95,
       "source": [
         "discovery:github",
-        "discovery:swift"
+        "discovery:swift",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (llm, openai, inference)",
       "discoveredAt": "2026-09-26",
@@ -14492,20 +14501,22 @@
     },
     {
       "id": "swift:neelm0906/mference",
-      "name": "NeelM0906/Mference",
+      "name": "neelm0906/mference",
       "description": "Swift + Metal MoE inference for Apple Silicon: Qwen 3.6 35B at 23.5–29.3 tok/s decode with 2.20× faster long-prompt prefill on a 24 GB M5; Gemma 4 26B in ~2 GB, DeepSeek-V4-Flash 284B, Inkling-Small 276B, native Mac app, CLI, and OpenAI-compatible server.",
       "ecosystem": "swift",
       "language": "Swift",
-      "role": "sdk",
+      "role": "runtime",
       "kind": "client",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai",
         "google-gemini",
         "openai-compatible",
         "deepseek",
         "qwen"
       ],
-      "sdkApi": "openai",
+      "openaiCompatibleServer": true,
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -14536,9 +14547,10 @@
         "releasedAt": "2026-09-21",
         "latestRelease": "v0.1.0"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:swift"
+        "discovery:swift",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (openai, prompt, inference)",
       "discoveredAt": "2026-09-26",
@@ -14559,6 +14571,7 @@
         "openai",
         "openai-compatible"
       ],
+      "openaiCompatibleServer": true,
       "sdkApi": "openai",
       "status": "active",
       "tier": "B",
@@ -14586,9 +14599,10 @@
         "releasedAt": "2026-08-12",
         "latestRelease": "v0.6.0"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:crates"
+        "discovery:crates",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (llm, openai)",
       "discoveredAt": "2026-09-26",
@@ -20468,13 +20482,14 @@
       "description": "A 100% Rust, OpenAI-compatible API gateway for AWS Bedrock — drop-in, single-binary, blazingly fast.",
       "ecosystem": "crates",
       "language": "Rust",
-      "role": "sdk",
-      "kind": "official-sdk",
+      "role": "gateway",
+      "kind": "gateway",
       "providers": [
         "openai",
         "aws-bedrock",
         "openai-compatible"
       ],
+      "openaiCompatibleServer": true,
       "sdkApi": "openai",
       "status": "active",
       "tier": "B",
@@ -20509,9 +20524,10 @@
         "releasedAt": "2026-09-11",
         "latestRelease": "bedrock-gateway-rust-v0.16.6"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:crates"
+        "discovery:crates",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (openai)",
       "discoveredAt": "2026-09-26",
@@ -22887,6 +22903,7 @@
         "anthropic",
         "openai-compatible"
       ],
+      "openaiCompatibleServer": true,
       "sdkApi": "openai",
       "status": "active",
       "tier": "B",
@@ -22917,9 +22934,10 @@
         "releasedAt": "2026-08-10",
         "latestRelease": "v0.1.0"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:npm"
+        "discovery:npm",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (openai, claude, agent)",
       "discoveredAt": "2026-09-26",

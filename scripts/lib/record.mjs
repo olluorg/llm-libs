@@ -84,6 +84,10 @@ export const ROLE_BY_KIND = {
 /** Роли, которые по определению обращаются к API провайдера. */
 export const CALLS_PROVIDER_API = new Set(['sdk', 'framework', 'gateway']);
 
+// Роли, которые поднимают сервер с OpenAI-совместимым API: локальный запуск
+// моделей и прокси-шлюз. Клиентские библиотеки сервер не поднимают.
+export const SERVE_COMPATIBLE_API = new Set(['runtime', 'gateway']);
+
 export const KINDS = new Set([
   'official-sdk', 'client', 'framework', 'gateway', 'local-runtime',
   'retrieval', 'eval', 'orchestration', 'ui', 'util',
@@ -168,8 +172,13 @@ export function normalizeRecord(input) {
     kind,
     providers,
     worksWith,
+    // Поднимает /v1-совместимый сервер: локальный рантайм или шлюз. Раньше
+    // гейт требовал строго runtime, и поле оказывалось недостижимым для
+    // шлюзов — а именно они и поднимают такой сервер: LiteLLM, bedrock-gateway,
+    // cli-openai-proxy. Одиннадцать записей заявляли в своём тексте
+    // OpenAI-совместимый сервер, и ни у одной поле не могло выставиться.
     openaiCompatibleServer:
-      input.openaiCompatibleServer === true && role === 'runtime' ? true : undefined,
+      input.openaiCompatibleServer === true && SERVE_COMPATIBLE_API.has(role) ? true : undefined,
     // Тип API имеет смысл только для ролей, которые этот API вызывают.
     // Проверка здесь, в нормализации, а не в слиянии: слияние не работает,
     // когда запись одна, и остаток от вывода по названию сохранялся — у
