@@ -139,19 +139,27 @@ export function applyCuration(records, curation) {
       continue;
     }
     const { reason, ...fields } = patch;
+    // Важно:override собирается из самой записи, а не только из полей патча.
+    // normalizeRecord подставляет значения по умолчанию во все поля, и в слиянии
+    // более уверенный аргумент побеждал по confidence: патч без поля role
+    // возвращал записи роль по умолчанию. Так crates:llm-chain из framework
+    // молча стал sdk из-за патча, который трогал только tier.
     const override = normalizeRecord({
+      ...record,
       ...fields,
-      ecosystem: record.ecosystem,
-      name: record.name,
       confidence: 0.95,
       source: ['curation'],
     });
     const merged = mergeRecords(record, override);
-    // mergeRecords выбирает лучшее значение, а не более новое: tier, например,
-    // не понижается никогда. Для ручного решения это неверно — «исправлено» со
-    // значением ниже исходного должно означать именно понижение, иначе запись
-    // с недоказанным качеством невозможно исправить.
-    if (patch.tier !== undefined) merged.tier = patch.tier;
+    // Явно названное патчем поле авторитетно. Для слияния это неверно: оно
+    // выбирает «лучшее» или более специфичное значение, а не более новое, —
+    // и патч, который понижает tier или меняет роль на менее «специфичную»,
+    // молча не действовал. Правило распространено на все простые поля:
+    // списки и объекты не трогаем, их слияние объединяет содержимое.
+    for (const [field, value] of Object.entries(fields)) {
+      if (value === null || typeof value === 'object') continue;
+      merged[field] = value;
+    }
     kept.push(merged);
     patched.push({ id: `${record.ecosystem}:${record.name}`, reason, fields: Object.keys(fields) });
     patches.delete(key);

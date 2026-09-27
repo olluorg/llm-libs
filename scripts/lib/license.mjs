@@ -98,19 +98,41 @@ const NO_LICENSE = /^(noassertion|none(\s+specified(\s+yet)?)?|unknown|proprieta
  * Приводит значение реестра к SPDX-идентификатору.
  * Возвращает { id, family } либо { id: undefined, family: 'unknown' }.
  */
+/**
+ * Узнаёт лицензию по узнаваемому началу полного текста.
+ * Возвращает SPDX-идентификатор либо null, если это не текст лицензии.
+ */
+function licenseFromText(value) {
+  if (/apache licen[cs]e/i.test(value)) return 'apache-2.0';
+  // Хвост «free of charge» в обрезанном тексте отсутствует, а начало
+  // «Permission is hereby granted» — каноническое начало лицензии MIT, и
+  // другой лицензии с таким началом не существует.
+  if (/mit licen[cs]e|permission is hereby granted/i.test(value)) return 'mit';
+  if (/mozilla public licen[cs]e/i.test(value)) return 'mpl-2.0';
+  if (/gnu (general|affero|lesser) public licen[cs]e/i.test(value)) return 'gpl-3.0';
+  return null;
+}
+
 export function normalizeLicense(raw) {
   const value = typeof raw === 'string' ? raw.trim() : '';
   if (!value || NO_LICENSE.test(value)) return { id: undefined, family: 'unknown' };
 
   // Полный текст лицензии или ссылка на неё — SPDX из URL не достать,
   // но узнать можно по узнаваемому началу.
-  if (value.length > 80) {
-    if (/apache licen[cs]e/i.test(value)) return classify('apache-2.0');
-    if (/mit licen[cs]e|permission is hereby granted, free of charge/i.test(value)) return classify('mit');
-    if (/mozilla public licen[cs]e/i.test(value)) return classify('mpl-2.0');
-    if (/gnu (general|affero|lesser) public licen[cs]e/i.test(value)) return classify('gpl-3.0');
-    return { id: undefined, family: 'other' };
-  }
+  //
+  // Длина — грубый признак «это текст, а не идентификатор», и на границе он
+  // ломался: PyPI обрезает значение лицензии ровно до 80 символов, и обрезанный
+  // текст уходил в family=other, то есть запись выпадала из фильтра лицензий.
+  //
+  // Обрезанное значение разбирается в два захода: сначала как текст, иначе как
+  // выражение идентификаторов. Обе формы PyPI обрезает одинаково и на вид они
+  // неразличимы: у torch «Apache-2.0 AND BSD-3-Clause…» — выражение
+  // идентификаторов, у bedrock-anthropic «…Permission is hereby granted…» —
+  // текст лицензии MIT.
+  const text = licenseFromText(value);
+  const truncated = /(?:…|\.\.\.)\s*$/.test(value);
+  if (text && (value.length > 80 || truncated)) return classify(text);
+  if (value.length > 80) return { id: undefined, family: 'other' };
 
   // «MIT + file LICENSE», «Apache-2.0 OR MIT» и подобные — берём первую
   // известную часть: уточнение в скобках для фильтра не важно.

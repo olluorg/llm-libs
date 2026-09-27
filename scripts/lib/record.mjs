@@ -285,7 +285,14 @@ function isoDate(value) {
   return date.toISOString().slice(0, 10);
 }
 
-const RANK = { archived: 0, deprecated: 1, unknown: 2, beta: 3, active: 4 };
+// Ранг статуса: чем выше, тем «живее» запись.
+//
+// Значение unknown стоит ниже любого известного, а не между deprecated и beta:
+// это отсутствие данных, и оно не должно побеждать. Иначе курируемый
+// статус deprecated терялся при слиянии с записью, для которой реестр
+// статуса не отдал, и у crates:huggingface и crates:mistralai он превращался
+// в unknown — то есть запись выглядела живее, чем есть.
+const RANK = { unknown: -1, archived: 0, deprecated: 1, beta: 3, active: 4 };
 
 /**
  * Сливает две записи об одном пакете: берём лучшее из каждого поля,
@@ -315,7 +322,13 @@ export function mergeRecords(base, patch) {
     role: preferRole(a, b),
     openaiCompatibleServer: a.openaiCompatibleServer === true || b.openaiCompatibleServer === true,
     status: (RANK[b.status] ?? 0) > (RANK[a.status] ?? 0) ? b.status : a.status,
-    tier: bestTier(a.tier, b.tier),
+    // Tier берётся из более доверенного источника, как role и остальные
+    // выбираемые поля. Раньше здесь стоял «лучший из двух», из-за чего
+    // курируемая запись с tier C проигрывала автосбору с tier B: человек
+    // ставил C в data/curated, а выходило B, и правка молча не действовала.
+    // Подтвердилось на crates:huggingface, crates:mistralai, crates:llm-chain,
+    // packagist:openai-php/symfony и rubygems:ruby-openai.
+    tier: pickPreferred(a, b).tier ?? bestTier(a.tier, b.tier),
     // Аудит ссылок может явно пометить ссылку как нерабочую — тогда она
     // не восстанавливается из реестра, а удаляется.
     repo: b.repoDropped === true ? undefined : b.repo ?? a.repo,

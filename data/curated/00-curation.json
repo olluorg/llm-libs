@@ -291,6 +291,39 @@
       "name": "kuarezma/macllm",
       "tier": "C",
       "reason": "То же: приложение macOS без звёзд, версии и загрузок."
+    },
+    {
+      "ecosystem": "crates",
+      "name": "huggingface",
+      "tier": "C",
+      "status": "deprecated",
+      "reason": "В 03-community-clients.json объявлены tier C и статус deprecated, а в датасете было B и unknown. Причина twofold: слияние выбирало «лучший» tier в обход уверенности источника, а прежний механизм патчей собирал override только из полей патча, normalizeRecord подставлял значения по умолчанию, и статус из курируемого файла терялся. Обе причины исправлены, значения восстановлены здесь."
+    },
+    {
+      "ecosystem": "crates",
+      "name": "mistralai",
+      "tier": "C",
+      "status": "deprecated",
+      "reason": "То же: курируемый tier C и статус deprecated не действовали — первый из-за выбора «лучшего» значения в слиянии, второй из-за подстановки значений по умолчанию в прежнем механизме патчей."
+    },
+    {
+      "ecosystem": "crates",
+      "name": "llm-chain",
+      "tier": "C",
+      "role": "framework",
+      "reason": "Курируемый tier C не действовал из-за слияния. Роль тоже восстановлена: её сбросил прежний механизм патчей, который собирал override только из полей патча, и normalizeRecord подставлял роль по умолчанию, а слияние выбирало её по уверенности. Запись стала sdk вместо framework. Роль соответствует её же kind: framework."
+    },
+    {
+      "ecosystem": "packagist",
+      "name": "openai-php/symfony",
+      "tier": "C",
+      "reason": "То же: курируемый tier C не действовал из-за слияния."
+    },
+    {
+      "ecosystem": "rubygems",
+      "name": "ruby-openai",
+      "tier": "C",
+      "reason": "То же: курируемый tier C не действовал из-за слияния."
     }
   ]
 }
