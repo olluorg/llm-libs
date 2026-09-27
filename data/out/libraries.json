@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T08:53:59.422Z",
+  "generatedAt": "2026-09-27T09:12:04.609Z",
   "counts": {
     "total": 456,
     "byEcosystem": {
@@ -38,12 +38,12 @@
       "OCaml": 3
     },
     "byProvider": {
-      "openai": 240,
-      "openai-compatible": 71,
-      "anthropic": 138,
+      "openai": 237,
+      "openai-compatible": 70,
+      "anthropic": 135,
       "cohere": 28,
-      "google-gemini": 79,
-      "aws-bedrock": 44,
+      "google-gemini": 76,
+      "aws-bedrock": 42,
       "mistral": 38,
       "groq": 27,
       "azure-openai": 46,
@@ -69,28 +69,28 @@
       "deepinfra": 1
     },
     "byRole": {
-      "sdk": 310,
+      "sdk": 321,
       "framework": 49,
-      "runtime": 37,
-      "support": 44,
-      "gateway": 16
+      "runtime": 22,
+      "support": 50,
+      "gateway": 14
     },
     "byKind": {
-      "client": 242,
+      "client": 253,
       "framework": 55,
       "official-sdk": 74,
-      "local-runtime": 37,
+      "local-runtime": 25,
       "util": 9,
       "ui": 8,
-      "gateway": 16,
+      "gateway": 17,
       "retrieval": 8,
       "eval": 6,
       "orchestration": 1
     },
     "byStatus": {
-      "active": 313,
+      "active": 312,
       "unknown": 65,
-      "deprecated": 65,
+      "deprecated": 66,
       "archived": 13
     }
   },
@@ -907,7 +907,7 @@
       "worksWith": [
         "openai"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "unknown",
       "tier": "B",
       "features": [
@@ -1889,15 +1889,16 @@
       "description": "NOT the latest Langfuse JS/TS SDK. Deprecated v3 client (new Langfuse(), trace(), api.traceList). For new work: npm install @langfuse/tracing @langfuse/otel @opentelemetry/sdk-node. Docs: https://langfuse.com/docs/observability/sdk/overview",
       "ecosystem": "npm",
       "language": "TypeScript",
-      "role": "gateway",
+      "role": "support",
       "kind": "gateway",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai",
         "anthropic",
         "google-gemini"
       ],
       "sdkApi": "n/a",
-      "status": "active",
+      "status": "deprecated",
       "tier": "A",
       "features": [
         "observability",
@@ -1928,10 +1929,11 @@
         "releasedAt": "2026-09-25",
         "latestRelease": "v4.46.0"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:npm",
-        "curated:04-infra.json"
+        "curated:04-infra.json",
+        "curation"
       ],
       "notes": "JS/TS-клиент Langfuse (собственный или через OpenTelemetry).",
       "discoveredAt": "2026-09-26",
@@ -1946,9 +1948,10 @@
       "description": "Langfuse Python SDK - LLM observability/tracing, datasets, experiments, LLM-as-a-judge evaluation, and prompt management",
       "ecosystem": "pypi",
       "language": "Python",
-      "role": "gateway",
+      "role": "support",
       "kind": "gateway",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai",
         "anthropic",
         "google-gemini",
@@ -1990,10 +1993,11 @@
         "releasedAt": "2026-09-25",
         "latestRelease": "v4.46.0"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:pypi",
-        "curated:04-infra.json"
+        "curated:04-infra.json",
+        "curation"
       ],
       "notes": "LLM-observability и платформа промптов: трейсинг, оценки, датасеты, A/B-тесты, self-hosted. Есть SDK для всех major языков.",
       "discoveredAt": "2026-09-26",
@@ -3828,7 +3832,7 @@
       "worksWith": [
         "openai"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "archived",
       "tier": "B",
       "features": [],
@@ -4158,7 +4162,7 @@
         "openai",
         "google-gemini"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -5030,14 +5034,13 @@
       "description": "The official Python client for Ollama.",
       "ecosystem": "pypi",
       "language": "Python",
-      "role": "runtime",
-      "kind": "local-runtime",
+      "role": "sdk",
+      "kind": "client",
       "providers": [],
       "worksWith": [
         "ollama",
         "openai-compatible"
       ],
-      "openaiCompatibleServer": true,
       "sdkApi": "n/a",
       "status": "active",
       "tier": "A",
@@ -5074,11 +5077,12 @@
         "releasedAt": "2026-04-29",
         "latestRelease": "v0.6.2"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:pypi",
         "curated:04-infra.json",
-        "discovery:pypi"
+        "discovery:pypi",
+        "curation"
       ],
       "notes": "Клиент Ollama на Python: chat, generate, embeddings, список/загрузка моделей. Модели: Llama, Qwen, Gemma, Mistral, Phi и др.",
       "discoveredAt": "2026-09-26",
@@ -6342,7 +6346,7 @@
         "google-gemini",
         "qwen"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [],
@@ -6622,14 +6626,13 @@
       "description": "Ollama Javascript library",
       "ecosystem": "npm",
       "language": "TypeScript",
-      "role": "runtime",
-      "kind": "local-runtime",
+      "role": "sdk",
+      "kind": "client",
       "providers": [],
       "worksWith": [
         "ollama",
         "openai-compatible"
       ],
-      "openaiCompatibleServer": true,
       "sdkApi": "n/a",
       "status": "active",
       "tier": "A",
@@ -6666,11 +6669,12 @@
         "releasedAt": "2025-11-13",
         "latestRelease": "v0.6.3"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:npm",
         "curated:04-infra.json",
-        "discovery:npm"
+        "discovery:npm",
+        "curation"
       ],
       "notes": "Признаки: имя == ключевое слово провайдера «Ollama»; LLM-признаки в описании (ollama)",
       "discoveredAt": "2026-09-26",
@@ -6691,7 +6695,7 @@
       "worksWith": [
         "openai"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "deprecated",
       "tier": "B",
       "features": [],
@@ -6907,12 +6911,12 @@
     },
     {
       "id": "nuget:llamasharp",
-      "name": "LLamaSharp",
+      "name": "llamasharp",
       "description": "LLamaSharp is a cross-platform library to run 🦙LLaMA/Mtmd model (and others) in your local device. Based on [llama.cpp](https://github.com/ggerganov/llama.cpp), inference with LLamaSharp is efficient on both CPU and GPU. With the higher-level APIs and RAG support, it's convenient to deploy LLM (Large Language Model) in your application with LLamaSharp.",
       "ecosystem": "nuget",
       "language": "C#",
-      "role": "runtime",
-      "kind": "local-runtime",
+      "role": "sdk",
+      "kind": "client",
       "providers": [],
       "worksWith": [
         "ollama",
@@ -6951,10 +6955,11 @@
         "releasedAt": "2026-08-24",
         "latestRelease": "v0.29.0"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:nuget",
-        "curated:02-frameworks.json"
+        "curated:02-frameworks.json",
+        "curation"
       ],
       "notes": "C#-обёртки над llama.cpp и ollama, есть встроенный сервер с OpenAI-совместимым API. Репозиторий переехал в организацию SciSharp (прежде FoundryLabs/llama.net).",
       "discoveredAt": "2026-09-26",
@@ -7703,9 +7708,10 @@
       "description": "OpenTelemetry-native Auto instrumentation library for monitoring LLM Applications and GPUs, facilitating the integration of observability into your GenAI-driven projects",
       "ecosystem": "pypi",
       "language": "Python",
-      "role": "gateway",
+      "role": "support",
       "kind": "gateway",
-      "providers": [
+      "providers": [],
+      "worksWith": [
         "openai",
         "anthropic",
         "aws-bedrock",
@@ -7740,10 +7746,11 @@
         "releasedAt": "2026-09-10",
         "latestRelease": "openlit-2.1.0"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:pypi",
-        "curated:04-infra.json"
+        "curated:04-infra.json",
+        "curation"
       ],
       "notes": "OpenTelemetry GenAI-семантические конвенции «из коробки».",
       "discoveredAt": "2026-09-26",
@@ -8024,8 +8031,8 @@
       "description": "Typescript client for the Hugging Face Inference Providers and Inference Endpoints",
       "ecosystem": "npm",
       "language": "TypeScript",
-      "role": "runtime",
-      "kind": "local-runtime",
+      "role": "sdk",
+      "kind": "client",
       "providers": [],
       "worksWith": [
         "huggingface",
@@ -8059,9 +8066,10 @@
         "releasedAt": "2026-09-25",
         "latestRelease": "lerobot-v0.0.8"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:npm"
+        "discovery:npm",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (huggingface, inference); точное совпадение с поисковым запросом",
       "discoveredAt": "2026-09-26",
@@ -8076,7 +8084,7 @@
       "description": "Various utilities for maintaining Ollama compatibility with models on Hugging Face hub",
       "ecosystem": "npm",
       "language": "TypeScript",
-      "role": "runtime",
+      "role": "support",
       "kind": "local-runtime",
       "providers": [],
       "worksWith": [
@@ -8111,9 +8119,10 @@
         "releasedAt": "2026-09-25",
         "latestRelease": "lerobot-v0.0.8"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:npm"
+        "discovery:npm",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (ollama, huggingface)",
       "discoveredAt": "2026-09-26",
@@ -9758,7 +9767,7 @@
       "worksWith": [
         "openai"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "archived",
       "tier": "B",
       "features": [],
@@ -12058,7 +12067,7 @@
       "worksWith": [
         "openai"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "deprecated",
       "tier": "B",
       "features": [],
@@ -12210,8 +12219,8 @@
       "description": "A Ruby gem for interacting with Ollama's API that allows you to run open source AI LLMs (Large Language Models) locally.",
       "ecosystem": "rubygems",
       "language": "Ruby",
-      "role": "runtime",
-      "kind": "local-runtime",
+      "role": "sdk",
+      "kind": "client",
       "providers": [],
       "worksWith": [
         "ollama"
@@ -12243,9 +12252,10 @@
         "releasedAt": "2024-07-21",
         "latestRelease": "v1.3.0"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:rubygems"
+        "discovery:rubygems",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (llm, large language model, ollama)",
       "discoveredAt": "2026-09-26",
@@ -14048,14 +14058,13 @@
       "description": "A nifty little library for working with Ollama in Elixir.",
       "ecosystem": "hex",
       "language": "Elixir",
-      "role": "runtime",
-      "kind": "local-runtime",
+      "role": "sdk",
+      "kind": "client",
       "providers": [],
       "worksWith": [
         "ollama",
         "openai-compatible"
       ],
-      "openaiCompatibleServer": true,
       "sdkApi": "n/a",
       "status": "active",
       "tier": "C",
@@ -14086,11 +14095,12 @@
         "archived": false,
         "pushedAt": "2026-02-10"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:hex",
         "curated:04-infra.json",
-        "curated:99-link-fixes.json"
+        "curated:99-link-fixes.json",
+        "curation"
       ],
       "notes": "Ссылка исправлена аудитом: elixir-ollama/ollama → https://github.com/aaronrussell/ollama-ex",
       "discoveredAt": "2026-09-26",
@@ -14202,8 +14212,8 @@
       "description": "Wraps the 'Ollama' <https://ollama.com> API, which can be used to communicate with generative large language models locally.",
       "ecosystem": "cran",
       "language": "R",
-      "role": "runtime",
-      "kind": "local-runtime",
+      "role": "sdk",
+      "kind": "client",
       "providers": [],
       "worksWith": [
         "ollama"
@@ -14234,9 +14244,10 @@
         "releasedAt": "2026-08-24",
         "latestRelease": "v0.3.1"
       },
-      "confidence": 0.6,
+      "confidence": 0.95,
       "source": [
-        "discovery:cran"
+        "discovery:cran",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (large language model, ollama)",
       "discoveredAt": "2026-09-26",
@@ -14301,8 +14312,8 @@
       "description": "An interface to easily run local language models with 'Ollama' <https://ollama.com> server and API endpoints (see <https://github.com/ollama/ollama/blob/main/docs/api.md> for details). It lets you run open-source large language models locally on your machine.",
       "ecosystem": "cran",
       "language": "R",
-      "role": "runtime",
-      "kind": "local-runtime",
+      "role": "sdk",
+      "kind": "client",
       "providers": [],
       "worksWith": [
         "ollama"
@@ -14333,9 +14344,10 @@
         "releasedAt": "2025-01-08",
         "latestRelease": "v1.2.2"
       },
-      "confidence": 0.6,
+      "confidence": 0.95,
       "source": [
-        "discovery:cran"
+        "discovery:cran",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (ollama)",
       "discoveredAt": "2026-09-26",
@@ -14842,7 +14854,7 @@
       "description": "go-huggingface , download, tokenize and convert models from HuggingFace. 📖 Overview Simple APIs for downloading ( ), tokenizing ( ), ( experimental ) model conversion ( ) of HuggingFace🤗 transformer models using GoMLX , and last but not least, datasets (parquet-based) downloading and scanning . Each component is independent, and only depends on what it needs -- has no dependency on , has no depe",
       "ecosystem": "golang",
       "language": "Go",
-      "role": "runtime",
+      "role": "support",
       "kind": "local-runtime",
       "providers": [],
       "worksWith": [
@@ -14874,9 +14886,10 @@
         "releasedAt": "2026-09-04",
         "latestRelease": "v0.4.4"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:golang"
+        "discovery:golang",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (huggingface)",
       "discoveredAt": "2026-09-26",
@@ -15755,9 +15768,10 @@
         "releasedAt": "2024-01-07",
         "latestRelease": "v0.0.15"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:golang"
+        "discovery:golang",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (huggingface)",
       "discoveredAt": "2026-09-26",
@@ -16030,7 +16044,7 @@
         "openai",
         "groq"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -16330,14 +16344,14 @@
       "description": "Ollama OpenAI Proxy MCP Server",
       "ecosystem": "npm",
       "language": "TypeScript",
-      "role": "runtime",
+      "role": "support",
       "kind": "local-runtime",
       "providers": [],
       "worksWith": [
         "openai",
         "ollama"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "unknown",
       "tier": "B",
       "features": [],
@@ -16352,9 +16366,10 @@
         "updatedAt": "2025-05-10"
       },
       "github": {},
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:npm"
+        "discovery:npm",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (openai, ollama)",
       "discoveredAt": "2026-09-26",
@@ -16467,8 +16482,8 @@
       "description": "Go package and example utilities for using Ollama / LLMs",
       "ecosystem": "golang",
       "language": "Go",
-      "role": "runtime",
-      "kind": "local-runtime",
+      "role": "sdk",
+      "kind": "client",
       "providers": [],
       "worksWith": [
         "ollama"
@@ -16497,9 +16512,10 @@
         "archived": false,
         "pushedAt": "2026-05-20"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:golang"
+        "discovery:golang",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (ollama)",
       "discoveredAt": "2026-09-26",
@@ -16934,7 +16950,7 @@
       "worksWith": [
         "openai"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -17030,8 +17046,8 @@
       "description": "Chat with large language models on your machine without internet with complete privacy via 'ollama', powered by R 'shiny' interface. For more information on 'ollama', visit <https://ollama.com>.",
       "ecosystem": "cran",
       "language": "R",
-      "role": "runtime",
-      "kind": "local-runtime",
+      "role": "sdk",
+      "kind": "client",
       "providers": [],
       "worksWith": [
         "ollama"
@@ -17060,9 +17076,10 @@
         "archived": false,
         "pushedAt": "2025-03-12"
       },
-      "confidence": 0.6,
+      "confidence": 0.95,
       "source": [
-        "discovery:cran"
+        "discovery:cran",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (large language model, ollama)",
       "discoveredAt": "2026-09-26",
@@ -17465,7 +17482,7 @@
         "groq",
         "openrouter"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -17569,7 +17586,7 @@
       "worksWith": [
         "openai"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "deprecated",
       "tier": "B",
       "features": [],
@@ -18023,7 +18040,7 @@
         "cohere",
         "huggingface"
       ],
-      "sdkApi": "cohere-v2",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -18696,7 +18713,7 @@
       "worksWith": [
         "openai"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "deprecated",
       "tier": "B",
       "features": [],
@@ -19254,7 +19271,7 @@
       "worksWith": [
         "openai"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "deprecated",
       "tier": "B",
       "features": [],
@@ -19359,7 +19376,7 @@
         "mistral",
         "qwen"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -20168,7 +20185,7 @@
         "cohere",
         "huggingface"
       ],
-      "sdkApi": "cohere-v2",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -20334,7 +20351,7 @@
       "worksWith": [
         "openai"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "deprecated",
       "tier": "B",
       "features": [
@@ -22477,8 +22494,8 @@
       "description": "Kong Gateway plugin for routing OpenAI-compatible requests to ollama-agent-router nodes",
       "ecosystem": "luarocks",
       "language": "Lua",
-      "role": "runtime",
-      "kind": "local-runtime",
+      "role": "gateway",
+      "kind": "gateway",
       "providers": [],
       "worksWith": [
         "openai",
@@ -22510,9 +22527,10 @@
         "archived": false,
         "pushedAt": "2026-05-11"
       },
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:luarocks"
+        "discovery:luarocks",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (openai, ollama, agent)",
       "discoveredAt": "2026-09-26",
@@ -22809,8 +22827,8 @@
       "description": "Ollama API is a small set of utilities to make integrating LLM's into your Java projects easy.",
       "ecosystem": "maven",
       "language": "Java",
-      "role": "runtime",
-      "kind": "local-runtime",
+      "role": "sdk",
+      "kind": "client",
       "providers": [],
       "worksWith": [
         "ollama"
@@ -22830,9 +22848,10 @@
         "updatedAt": "2025-06-20"
       },
       "github": {},
-      "confidence": 0.75,
+      "confidence": 0.95,
       "source": [
-        "discovery:maven"
+        "discovery:maven",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (ollama)",
       "discoveredAt": "2026-09-26",
@@ -22909,7 +22928,7 @@
         "google-gemini",
         "ollama"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [
@@ -23608,7 +23627,7 @@
       "worksWith": [
         "openai"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "deprecated",
       "tier": "B",
       "features": [],
@@ -24003,7 +24022,7 @@
         "openai",
         "groq"
       ],
-      "sdkApi": "openai",
+      "sdkApi": "n/a",
       "status": "active",
       "tier": "B",
       "features": [

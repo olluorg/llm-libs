@@ -324,6 +324,133 @@
       "name": "ruby-openai",
       "tier": "C",
       "reason": "То же: курируемый tier C не действовал из-за слияния."
+    },
+    {
+      "ecosystem": "pypi",
+      "name": "ollama",
+      "role": "sdk",
+      "reason": "«The official Python client for Ollama» — это клиент HTTP API, а не рантайм. Ollama и Hugging Face — это рантаймы, а запись ниже клиент к их HTTP API. Рантайм и клиент ходят по разным адресам: у клиента есть провайдеры и ключи, у рантайма их нет.",
+      "kind": "client"
+    },
+    {
+      "ecosystem": "npm",
+      "name": "ollama",
+      "role": "sdk",
+      "reason": "«Ollama Javascript library» — клиент HTTP API. Ollama и Hugging Face — это рантаймы, а запись ниже клиент к их HTTP API. Рантайм и клиент ходят по разным адресам: у клиента есть провайдеры и ключи, у рантайма их нет.",
+      "kind": "client"
+    },
+    {
+      "ecosystem": "nuget",
+      "name": "llamasharp",
+      "role": "sdk",
+      "reason": "«The easiest way to use the Ollama API in .NET» — клиент HTTP API. Ollama и Hugging Face — это рантаймы, а запись ниже клиент к их HTTP API. Рантайм и клиент ходят по разным адресам: у клиента есть провайдеры и ключи, у рантайма их нет.",
+      "kind": "client"
+    },
+    {
+      "ecosystem": "rubygems",
+      "name": "ollama-ai",
+      "role": "sdk",
+      "reason": "«A Ruby gem for interacting with Ollama’s API» — клиент. Ollama и Hugging Face — это рантаймы, а запись ниже клиент к их HTTP API. Рантайм и клиент ходят по разным адресам: у клиента есть провайдеры и ключи, у рантайма их нет.",
+      "kind": "client"
+    },
+    {
+      "ecosystem": "hex",
+      "name": "ollama",
+      "role": "sdk",
+      "reason": "«A nifty little library for working with Ollama in Elixir» — клиент HTTP API. Ollama и Hugging Face — это рантаймы, а запись ниже клиент к их HTTP API. Рантайм и клиент ходят по разным адресам: у клиента есть провайдеры и ключи, у рантайма их нет.",
+      "kind": "client"
+    },
+    {
+      "ecosystem": "cran",
+      "name": "rollama",
+      "role": "sdk",
+      "reason": "«Wraps the Ollama API» — обёртка над HTTP API, а не локальный запуск моделей.",
+      "kind": "client"
+    },
+    {
+      "ecosystem": "cran",
+      "name": "ollamar",
+      "role": "sdk",
+      "reason": "«An interface to easily run local language models with Ollama» — интерфейс к уже запущенному Ollama, то есть клиент.",
+      "kind": "client"
+    },
+    {
+      "ecosystem": "cran",
+      "name": "shiny.ollama",
+      "role": "sdk",
+      "reason": "«Chat with large language models on your machine» — клиент Ollama плюс интерфейс Shiny, а не движок моделей.",
+      "kind": "client"
+    },
+    {
+      "ecosystem": "golang",
+      "name": "github.com/xyproto/ollamaclient/v2",
+      "role": "sdk",
+      "reason": "«Go package and example utilities for using Ollama / LLMs» — клиент HTTP API.",
+      "kind": "client"
+    },
+    {
+      "ecosystem": "maven",
+      "name": "io.github.umutayb:ollama-api",
+      "role": "sdk",
+      "reason": "«Small set of utilities to make integrating LLMs into your Java projects easy» — клиент HTTP API Ollama.",
+      "kind": "client"
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@huggingface/inference",
+      "role": "sdk",
+      "reason": "«Typescript client for the Hugging Face Inference Providers and Inference Endpoints» — клиент удалённого API, а не локальный запуск моделей.",
+      "kind": "client"
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@huggingface/ollama-utils",
+      "role": "support",
+      "reason": "«Various utilities for maintaining Ollama compatibility» — утилиты, сопутствующий инструмент."
+    },
+    {
+      "ecosystem": "golang",
+      "name": "github.com/hupe1980/go-huggingface",
+      "role": "sdk",
+      "reason": "«The Hugging Face Inference Client in Golang» — прямо назван клиентом."
+    },
+    {
+      "ecosystem": "golang",
+      "name": "github.com/gomlx/go-huggingface",
+      "role": "support",
+      "reason": "«Download, tokenize and convert models from HuggingFace» — качает и конвертирует модели, а не выполняет их; это сопутствующий инструмент."
+    },
+    {
+      "ecosystem": "luarocks",
+      "name": "kong-plugin-ollama-agent-router",
+      "role": "gateway",
+      "reason": "«Kong Gateway plugin for routing OpenAI-compatible requests to ollama-agent-router nodes» — прокси и маршрутизация запросов, то есть шлюз, а не рантайм.",
+      "kind": "gateway"
+    },
+    {
+      "ecosystem": "npm",
+      "name": "ollama-openai-mcp",
+      "role": "support",
+      "reason": "«Ollama OpenAI Proxy MCP Server» — MCP-сервер, то есть сопутствующий инструмент, а не локальный запуск моделей."
+    },
+    {
+      "ecosystem": "pypi",
+      "name": "langfuse",
+      "role": "support",
+      "reason": "«Langfuse Python SDK — LLM observability/tracing, datasets, experiments» — это следящий и оценочный инструмент, а шлюз проксирует запросы к провайдерам."
+    },
+    {
+      "ecosystem": "npm",
+      "name": "langfuse",
+      "role": "support",
+      "reason": "То же: Langfuse — наблюдаемость. Заодно статус: описание прямо говорит «NOT the latest Langfuse JS/TS SDK. Deprecated v3 client», а в записи стояло active.",
+      "status": "deprecated"
+    },
+    {
+      "ecosystem": "pypi",
+      "name": "openlit",
+      "role": "support",
+      "reason": "«OpenTelemetry-native auto instrumentation for monitoring LLM Applications» — инструментация и мониторинг, а не прокси к провайдерам."
     }
   ]
 }

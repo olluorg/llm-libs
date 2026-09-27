@@ -79,6 +79,32 @@ const curatedCount = (dataset.libraries ?? []).filter((l) =>
   (l.source ?? []).some((s) => s.startsWith('curated:')),
 ).length;
 
+// Тип API заполнен только у ролей, которые этот API вызывают. Проверка в
+// нормализации записи не заменяет её: правило может разъехаться с ролью при
+// правке курируемого файла, и тогда фильтр «по типу API» снова начнёт показывать
+// токенизаторам и приложениям чужой тип.
+{
+  const strayApi = (dataset.libraries ?? []).filter(
+    (library) => library.sdkApi && library.sdkApi !== 'n/a' && !CALLS_PROVIDER_API.has(library.role),
+  );
+  if (strayApi.length) {
+    problems.errors.push(
+      `у ${strayApi.length} записей тип API задан, хотя роль его не вызывает: ${strayApi.slice(0, 5).map((l) => `${l.id} (${l.role}, ${l.sdkApi})`).join(', ')}`,
+    );
+  }
+  // Обратная сторона: роль клиента без типа API — это запись, у которой тип
+  // вывести не удалось. Предупреждение, а не ошибка: из курируемых файлов тип
+  // часто не задан, и это не ошибка данных.
+  const withoutApi = (dataset.libraries ?? []).filter(
+    (library) => CALLS_PROVIDER_API.has(library.role) && (!library.sdkApi || library.sdkApi === 'n/a'),
+  );
+  if (withoutApi.length) {
+    problems.warnings.push(
+      `у ${withoutApi.length} записей с ролью клиента не указан тип API — фильтр «по типу API» их не покажет`,
+    );
+  }
+}
+
 if ((dataset.libraries?.length ?? 0) < 100) {
   problems.errors.push(`каталог подозрительно мал: ${dataset.libraries?.length ?? 0} записей`);
 }

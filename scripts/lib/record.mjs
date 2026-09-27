@@ -170,7 +170,12 @@ export function normalizeRecord(input) {
     worksWith,
     openaiCompatibleServer:
       input.openaiCompatibleServer === true && role === 'runtime' ? true : undefined,
-    sdkApi: cleanString(input.sdkApi, 60) ?? 'n/a',
+    // Тип API имеет смысл только для ролей, которые этот API вызывают.
+    // Проверка здесь, в нормализации, а не в слиянии: слияние не работает,
+    // когда запись одна, и остаток от вывода по названию сохранялся — у
+    // токенизатора tiktoken_core и переводчика Easydict стоял openai, и
+    // фильтр «по типу API» показывал им чужой тип.
+    sdkApi: CALLS_PROVIDER_API.has(role) ? (cleanString(input.sdkApi, 60) ?? 'n/a') : 'n/a',
     status: STATUSES.has(input.status) ? input.status : 'unknown',
     tier: TIERS.has(input.tier) ? input.tier : undefined,
     features: uniq(input.features ?? []).slice(0, 20),
@@ -317,7 +322,14 @@ export function mergeRecords(base, patch) {
     features: uniq([...(a.features ?? []), ...(b.features ?? [])]),
     envVars: uniq([...(a.envVars ?? []), ...(b.envVars ?? [])]),
     source: uniq([...(a.source ?? []), ...(b.source ?? [])]),
-    sdkApi: b.sdkApi !== 'n/a' ? b.sdkApi : a.sdkApi,
+    // sdkApi описывает, какой API вызывает клиент, поэтому у ролей, которые
+    // API не вызывают, его быть не должно. Раньше оставался остаток от
+    // вывода по названию: у tiktoken_core (токенизатор, ни к какому API не
+    // ходит) стоял openai, а у переводчика Easydict — тоже openai, и фильтр
+    // «по типу API» показывал им чужой тип.
+    sdkApi: CALLS_PROVIDER_API.has(pickPreferred(a, b).role) && pickPreferred(a, b).sdkApi !== 'n/a'
+      ? pickPreferred(a, b).sdkApi
+      : 'n/a',
     kind: moreSpecificKind(a.kind, b.kind),
     role: preferRole(a, b),
     openaiCompatibleServer: a.openaiCompatibleServer === true || b.openaiCompatibleServer === true,

@@ -254,9 +254,23 @@ assert(
   `в режиме по умолчанию показано ${main.elements.get('count').textContent}, ` +
     `ожидалось ${countText(defaultVisible.length, data.libraries.length)} (роль sdk+gateway)`,
 );
+// В списке клиентов API по умолчанию не должно быть локальных рантаймов:
+// рантайм запускает модели, а не обращается к API провайдера.
+//
+// Проверяется по данным, а не по паре имён. Раньше здесь стояли два конкретных
+// id, и после того как роль pypi:ollama исправили с runtime на sdk — это клиент
+// HTTP API, — проверка начала врать на живых данных.
+const runtimesAmongClients = data.libraries.filter(
+  (library) => (library.role === 'sdk' || library.role === 'gateway') && library.kind === 'local-runtime',
+);
 assert(
-  !rowsHtml.includes('data-id="pypi:transformers"') && !rowsHtml.includes('data-id="pypi:ollama"'),
-  'в списке клиентов API по умолчанию есть локальные рантаймы',
+  runtimesAmongClients.length === 0,
+  `в списке клиентов API по умолчанию есть локальные рантаймы: ${runtimesAmongClients.slice(0, 4).map((l) => l.id).join(', ')}`,
+);
+// И одна конкретная проверка остаётся: настоящий рантайм в выдаче не появляется.
+assert(
+  !rowsHtml.includes('data-id="pypi:transformers"'),
+  'в списке клиентов API по умолчании есть локальный рантайм pypi:transformers',
 );
 
 // Самое популярное среди клиентов должно быть первым.
