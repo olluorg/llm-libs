@@ -11,7 +11,7 @@ import assert from 'node:assert/strict';
 import { normalizeLicense, isPermissive } from '../scripts/lib/license.mjs';
 import { findForks, normalizeDescription, ownerKey, repoKey } from '../scripts/lib/fork.mjs';
 import { mergeRecords, normalizeRecord, makeId } from '../scripts/lib/record.mjs';
-import { applyCuration, curatedIdConflicts } from '../scripts/lib/store.mjs';
+import { applyCuration, curatedConfidence, curatedIdConflicts } from '../scripts/lib/store.mjs';
 import { declined, counted } from '../scripts/lib/i18n.mjs';
 import { toCsv, toJson, CSV_COLUMNS } from '../scripts/lib/dataset.mjs';
 import { slugify } from '../scripts/lib/site-helpers.mjs';
@@ -372,6 +372,18 @@ test('curatedIdConflicts: файл правок ссылок переопред�
     ]),
     [],
   );
+});
+
+test('curatedConfidence: исправленный адрес выигрывает не порядком файлов, а доверием', () => {
+  // pykeio/tch не существует, elixir-ollama/ollama не существует: правильные
+  // адреса лежат в файле правок и должны побеждать по существу.
+  assert.ok(curatedConfidence('99-link-fixes.json') > curatedConfidence('03-community-clients.json'));
+  assert.equal(curatedConfidence('03-community-clients.json'), 0.9);
+  const merged = mergeRecords(
+    normalizeRecord({ ecosystem: 'crates', name: 'tch', repo: 'https://github.com/pykeio/tch', confidence: curatedConfidence('04-infra.json') }),
+    normalizeRecord({ ecosystem: 'crates', name: 'tch', repo: 'https://github.com/LaurentMazare/tch-rs', confidence: curatedConfidence('99-link-fixes.json') }),
+  );
+  assert.equal(merged.repo, 'https://github.com/LaurentMazare/tch-rs');
 });
 
 test('curatedIdConflicts: одинаковый репозиторий и разные экосистемы — не конфликт', () => {

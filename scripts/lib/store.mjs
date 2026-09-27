@@ -113,6 +113,22 @@ export function curatedIdConflicts(entries) {
 }
 
 /**
+ * Доверие к записи в курируемом файле.
+ *
+ * Обычный курируемый список — 0.9: это ручная правка, но она могла устареть.
+ * Файл исправленных адресов — 0.95: там лежит то, что проверено и найдено
+ * верным, и он должен выигрывать у остальных файлов по существу, а не потому
+ * что «99-» сортируется последним. Иначе достаточно переименовать файл, и в
+ * каталог вернутся мёртвые адреса: у hex:ollama в 03-community-clients.json
+ * лежит elixir-ollama/ollama, которого нет (404), и правильный адрес
+ * aaronrussell/ollama-ex держится только на порядке файлов. То же у
+ * crates:tch: pykeio/tch не существует, а tch-rs жив.
+ */
+export function curatedConfidence(file) {
+  return file === LINK_FIXES_FILE ? 0.95 : 0.9;
+}
+
+/**
  * Загружает все курируемые записи из data/curated/*.json.
  * Записи с одинаковым id сливаются, а не заменяют друг друга: так отдельный
  * файл правок (99-link-fixes.json) может нести только исправленное поле,
@@ -125,8 +141,8 @@ export async function loadCurated() {
   for (const { file, item } of entries) {
     try {
       const record = normalizeRecord({
-        confidence: 0.9,
         ...item,
+        confidence: curatedConfidence(file),
         source: [...(item.source ?? []), `curated:${file}`],
       });
       const existing = byId.get(record.id);
