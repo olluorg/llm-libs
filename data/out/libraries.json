@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T09:36:20.428Z",
+  "generatedAt": "2026-09-27T09:40:51.022Z",
   "counts": {
     "total": 456,
     "byEcosystem": {
@@ -89,8 +89,8 @@
     },
     "byStatus": {
       "active": 312,
-      "unknown": 65,
-      "deprecated": 66,
+      "unknown": 57,
+      "deprecated": 74,
       "archived": 13
     }
   },
@@ -1258,7 +1258,7 @@
         "openrouter"
       ],
       "sdkApi": "n/a",
-      "status": "unknown",
+      "status": "deprecated",
       "tier": "B",
       "features": [
         "gateway",
@@ -3156,7 +3156,7 @@
     {
       "id": "pypi:jina",
       "name": "jina",
-      "description": "Embeddings, reranker, multimodal search API.",
+      "description": "Multimodal AI services & pipelines with cloud-native stack: gRPC, Kubernetes, Docker, OpenTelemetry, Prometheus, Jaeger, etc.",
       "ecosystem": "pypi",
       "language": "Python",
       "role": "sdk",
@@ -3175,7 +3175,7 @@
       "envVars": [
         "JINA_API_KEY"
       ],
-      "repo": "https://github.com/jina-ai/jina",
+      "repo": "https://github.com/jina-ai/serve",
       "homepage": "https://github.com/jina-ai/jina",
       "license": "Apache 2.0",
       "licenseId": "Apache-2.0",
@@ -4879,7 +4879,7 @@
         "openai-compatible"
       ],
       "sdkApi": "n/a",
-      "status": "unknown",
+      "status": "deprecated",
       "tier": "C",
       "features": [
         "chat",
@@ -5847,7 +5847,7 @@
         "openai-compatible"
       ],
       "sdkApi": "n/a",
-      "status": "unknown",
+      "status": "deprecated",
       "tier": "B",
       "features": [
         "observability",
@@ -8914,7 +8914,7 @@
         "ollama"
       ],
       "sdkApi": "openai",
-      "status": "unknown",
+      "status": "deprecated",
       "tier": "C",
       "features": [
         "chain",
@@ -13441,7 +13441,7 @@
         "anthropic"
       ],
       "sdkApi": "n/a",
-      "status": "unknown",
+      "status": "deprecated",
       "tier": "A",
       "features": [
         "chat",
@@ -13676,7 +13676,7 @@
         "openai-compatible"
       ],
       "sdkApi": "openai",
-      "status": "unknown",
+      "status": "deprecated",
       "tier": "B",
       "features": [
         "chat",
@@ -22345,7 +22345,7 @@
         "openai"
       ],
       "sdkApi": "openai",
-      "status": "unknown",
+      "status": "deprecated",
       "tier": "C",
       "features": [],
       "envVars": [
@@ -23860,7 +23860,7 @@
         "openai"
       ],
       "sdkApi": "openai",
-      "status": "unknown",
+      "status": "deprecated",
       "tier": "B",
       "features": [],
       "envVars": [

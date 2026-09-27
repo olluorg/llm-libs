@@ -91,18 +91,24 @@ await mapLimit(libraries, 8, async (library) => {
   }
 
   const canonicalSlug = canonical.slug.toLowerCase();
+  const moved = canonicalSlug !== requested.toLowerCase();
   // Ссылка живая, но ведёт на другой проект: у pypi:jina репозиторием оказался
   // jina-ai/serve — сервис развёртывания моделей в Kubernetes, и от него же
   // пришли описание и звёзды. Такой сбой не выдаёт себя ничем: 404 нет, пакет
   // живой, а данные в записи от чужого проекта. Адрес автоматически не
   // меняется — какое имя правильное, решает человек, а не совпадение строк.
-  const otherProject = nameMismatch(library.name, canonicalSlug);
-  if (otherProject) mismatches.push({ id: library.id, name: library.name, repo: canonicalSlug, reason: otherProject });
+  // Переименованный репозиторий сюда не попадает: имя меняется целиком и так
+  // же расходится с именем пакета. Именно это и случилось с jina-ai/jina,
+  // который GitHub отдаёт как редирект на jina-ai/serve: проект один, а
+  // аудит уже переписал ссылку на каноническую.
+  if (!moved) {
+    const otherProject = nameMismatch(library.name, canonicalSlug);
+    if (otherProject) mismatches.push({ id: library.id, name: library.name, repo: canonicalSlug, reason: otherProject });
+  }
   // В каталоге ссылка должна быть ровно https://github.com/владелец/репозиторий.
   // Подпапка или файл (`/blob/main/README.md`), `.git`, `git@github.com:…`, `www.`
   // и лишний слэш ссылку не ломают, но её стоит привести к канонической: так
   // каталог выглядит одинаково и ссылки не расходятся между страницами.
-  const moved = canonicalSlug !== requested.toLowerCase();
   const isSubpath = linkForm(library.repo) !== `https://github.com/${canonicalSlug}`;
   const subpathNote =
     githubDepth(library.repo) > 2

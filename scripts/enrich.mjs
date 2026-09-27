@@ -22,6 +22,10 @@ const concurrency = Number(args.concurrency ?? 4);
 // all — обновлять дату релиза у всех записей, missing — только там, где реестр
 // её не дал (экономит квоту: в daily-запуске разница невелика).
 const releaseMode = args.releases ?? 'missing';
+// Фильтр по конкретным записям: --id=pypi:jina,pyproject:langchain. Нужен,
+// чтобы обновить одну запись, не прогоняя все четыреста: порядок записей задан
+// популярностью, и --limit до нужной не доходит.
+const onlyIds = new Set(String(args.id ?? '').split(',').map((id) => id.trim().toLowerCase()).filter(Boolean));
 if (!['all', 'missing', 'none'].includes(releaseMode)) {
   log.error(`--releases принимает all | missing | none, а не «${releaseMode}»`);
   process.exit(1);
@@ -53,8 +57,10 @@ const records = dataset.libraries
       (b.record.stars ?? b.record.registry?.downloads ?? 0) - (a.record.stars ?? a.record.registry?.downloads ?? 0),
   );
 
-const targets = records.slice(0, Number.isFinite(limit) ? limit : records.length);
-log.info(`репозиториев к обновлению: ${targets.length} из ${records.length} записей с ссылкой на GitHub`);
+// Записи здесь — обёртки { record, slug }, а не сами записи.
+const chosen = onlyIds.size ? records.filter((entry) => onlyIds.has(entry.record.id.toLowerCase())) : records;
+const targets = chosen.slice(0, Number.isFinite(limit) ? limit : chosen.length);
+log.info(`репозиториев к обновлению: ${targets.length} из ${records.length} записей с ссылкой на GitHub` + (onlyIds.size ? ` (только ${[...onlyIds].join(', ')})` : ''));
 
 // Без токена GitHub отдаёт 60 запросов в час: обрабатываем столько, сколько осталось.
 let queue = targets;
