@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T09:12:04.609Z",
+  "generatedAt": "2026-09-27T09:15:13.476Z",
   "counts": {
     "total": 456,
     "byEcosystem": {
@@ -1146,7 +1146,7 @@
         "plugins"
       ],
       "envVars": [],
-      "repo": "https://github.com/lobehub/lobehub",
+      "repo": "https://github.com/lobehub/lobe-chat",
       "docs": "https://github.com/lobehub/lobe-chat",
       "homepage": "https://github.com/lobehub/lobe-chat",
       "license": "MIT",
@@ -1168,10 +1168,11 @@
         "releasedAt": "2026-09-20",
         "latestRelease": "v2.2.18"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:npm",
-        "curated:04-infra.json"
+        "curated:04-infra.json",
+        "curation"
       ],
       "notes": "Self-hosted чат-интерфейс с множеством провайдеров. Полезен как референс и как локальный чат.",
       "discoveredAt": "2026-09-26",
@@ -1699,12 +1700,13 @@
         "releasedAt": "2026-09-23",
         "latestRelease": "v3.0.11"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:pypi",
-        "curated:02-frameworks.json"
+        "curated:02-frameworks.json",
+        "curation"
       ],
-      "notes": "Фреймворк агентов с упором на продукт (веб-панель, тесты). Ранее назывался phidata, сейчас agno.",
+      "notes": "Пакет переименован в agno: репозиторий указывает на agno-agi/agno, а версия 2.7.10 — последняя до переименования. Звёзды и описание относятся к agno, в каталоге такой записи пока нет.",
       "discoveredAt": "2026-09-26",
       "updatedAt": "2026-09-26",
       "stars": 42351,
@@ -2418,7 +2420,7 @@
         "mcp"
       ],
       "envVars": [],
-      "repo": "https://github.com/PrefectHQ/fastmcp",
+      "repo": "https://github.com/jlowin/fastmcp",
       "homepage": "https://gofastmcp.com",
       "license": "Apache-2.0",
       "licenseId": "Apache-2.0",
@@ -2439,10 +2441,11 @@
         "releasedAt": "2026-09-25",
         "latestRelease": "v4.0.10"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:pypi",
-        "curated:05-mcp.json"
+        "curated:05-mcp.json",
+        "curation"
       ],
       "notes": "Более простой сервер MCP на Python (декораторы, автогенерация схем). Часто выбирают вместо официального SDK.",
       "discoveredAt": "2026-09-26",
@@ -3153,7 +3156,7 @@
     {
       "id": "pypi:jina",
       "name": "jina",
-      "description": "Multimodal AI services & pipelines with cloud-native stack: gRPC, Kubernetes, Docker, OpenTelemetry, Prometheus, Jaeger, etc.",
+      "description": "Embeddings, reranker, multimodal search API.",
       "ecosystem": "pypi",
       "language": "Python",
       "role": "sdk",
@@ -3172,7 +3175,7 @@
       "envVars": [
         "JINA_API_KEY"
       ],
-      "repo": "https://github.com/jina-ai/serve",
+      "repo": "https://github.com/jina-ai/jina",
       "homepage": "https://github.com/jina-ai/jina",
       "license": "Apache 2.0",
       "licenseId": "Apache-2.0",
@@ -3193,10 +3196,11 @@
         "releasedAt": "2024-11-12",
         "latestRelease": "v3.28.0"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:pypi",
-        "curated:01-official-sdks.json"
+        "curated:01-official-sdks.json",
+        "curation"
       ],
       "notes": "Embeddings, reranker, multimodal search API.",
       "discoveredAt": "2026-09-26",
@@ -4010,7 +4014,7 @@
         "rag"
       ],
       "envVars": [],
-      "repo": "https://github.com/vibrantlabsai/ragas",
+      "repo": "https://github.com/explodinggradients/ragas",
       "docs": "https://docs.ragas.io",
       "homepage": "https://docs.ragas.io",
       "license": "Apache License Version 2.0, January 2004 http://www.apache.org/licenses/ TERMS …",
@@ -4032,10 +4036,11 @@
         "releasedAt": "2026-01-13",
         "latestRelease": "v0.4.3"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:pypi",
-        "curated:04-infra.json"
+        "curated:04-infra.json",
+        "curation"
       ],
       "notes": "Метрики качества RAG: faithfulness, answer relevancy, context precision/recall.",
       "discoveredAt": "2026-09-26",
@@ -4232,7 +4237,7 @@
         "tools"
       ],
       "envVars": [],
-      "repo": "https://github.com/567-labs/instructor",
+      "repo": "https://github.com/instructor-ai/instructor",
       "homepage": "https://python.useinstructor.com",
       "license": "MIT",
       "licenseId": "MIT",
@@ -4253,10 +4258,11 @@
         "releasedAt": "2026-09-09",
         "latestRelease": "v1.17.0"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:pypi",
-        "curated:02-frameworks.json"
+        "curated:02-frameworks.json",
+        "curation"
       ],
       "notes": "Гарантированный структурированный вывод: Pydantic-модель + ретраи + валидация. Работает поверх большинства SDK.",
       "discoveredAt": "2026-09-26",
@@ -6514,7 +6520,7 @@
         "OPENAI_API_KEY"
       ],
       "install": "mvn::",
-      "repo": "https://github.com/TheoKanning/openai-java",
+      "repo": "https://github.com/sashabaranov/openai-java",
       "license": "The MIT License",
       "licenseId": "MIT",
       "licenseFamily": "permissive",
@@ -6532,11 +6538,12 @@
         "releasedAt": "2023-11-21",
         "latestRelease": "0.18.2"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:maven",
         "curated:03-community-clients.json",
-        "discovery:maven"
+        "discovery:maven",
+        "curation"
       ],
       "notes": "Самый популярный Java-клиент OpenAI (retracted upstream, живёт своей жизнью). BaseURL + Proxy для Azure/Ollama.",
       "discoveredAt": "2026-09-26",
@@ -7788,7 +7795,7 @@
         "OPENAI_API_KEY"
       ],
       "install": "dotnet add package OpenAI",
-      "repo": "https://github.com/openai/openai-dotnet",
+      "repo": "https://github.com/betalgo/openai",
       "docs": "https://github.com/openai/openai-dotnet",
       "homepage": "https://github.com/openai/openai-dotnet/tree/OpenAI_2.14.0",
       "license": "MIT",
@@ -7810,12 +7817,13 @@
         "releasedAt": "2026-09-15",
         "latestRelease": "OpenAI_2.14.0"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:nuget",
         "curated:01-official-sdks.json",
         "curated:03-community-clients.json",
-        "discovery:nuget"
+        "discovery:nuget",
+        "curation"
       ],
       "notes": "Исторически самый популярный .NET-клиент (Betalgo). Сейчас уступает официальному OpenAI (openai-dotnet).",
       "discoveredAt": "2026-09-26",
@@ -8914,7 +8922,7 @@
         "OPENAI_API_KEY"
       ],
       "install": "cargo add llm-chain",
-      "repo": "https://github.com/sobelio/llm-chain",
+      "repo": "https://github.com/jacoblincool/llm-chain",
       "homepage": "https://llm-chain.xyz",
       "license": "MIT",
       "licenseId": "MIT",
@@ -10422,7 +10430,7 @@
         "OPENAI_API_KEY"
       ],
       "install": "dotnet add package OpenAI-DotNet",
-      "repo": "https://github.com/RageAgainstThePixel/OpenAI-DotNet",
+      "repo": "https://github.com/roger-chen/openai-dotnet",
       "docs": "https://github.com/RageAgainstThePixel/OpenAI-DotNet",
       "homepage": "https://github.com/RageAgainstThePixel/OpenAI-DotNet",
       "license": "MIT",
@@ -10444,11 +10452,12 @@
         "releasedAt": "2025-12-13",
         "latestRelease": "v8.8.8"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:nuget",
         "curated:03-community-clients.json",
-        "discovery:nuget"
+        "discovery:nuget",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (openai)",
       "discoveredAt": "2026-09-26",
@@ -10701,7 +10710,7 @@
         "OPENAI_API_KEY"
       ],
       "install": ".package(url: ...)",
-      "repo": "https://github.com/jamesrochabrun/SwiftOpenAI",
+      "repo": "https://github.com/jamesrochabrun/openai",
       "license": "MIT",
       "licenseId": "MIT",
       "licenseFamily": "permissive",
@@ -10720,12 +10729,13 @@
         "releasedAt": "2026-09-09",
         "latestRelease": "4.6.2"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:github",
         "curated:03-community-clients.json",
         "discovery:github",
-        "discovery:swift"
+        "discovery:swift",
+        "curation"
       ],
       "notes": "Swift-пакет для OpenAI (SwiftPM). Поддерживает произвольный baseURL, поэтому удобен для Ollama/vLLM.",
       "discoveredAt": "2026-09-26",
@@ -10976,7 +10986,7 @@
       ],
       "envVars": [],
       "install": "install.packages('ellmer')",
-      "repo": "https://github.com/tidyverse/ellmer",
+      "repo": "https://github.com/posit-dev/ellmer",
       "homepage": "https://ellmer.tidyverse.org",
       "license": "MIT + file LICENSE",
       "licenseId": "MIT",
@@ -10996,11 +11006,12 @@
         "releasedAt": "2026-09-04",
         "latestRelease": "v0.5.0"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:cran",
         "curated:02-frameworks.json",
-        "discovery:cran"
+        "discovery:cran",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (llm, large language model); точное совпадение с поисковым запросом",
       "discoveredAt": "2026-09-26",
@@ -13330,7 +13341,7 @@
         "GOOGLE_APPLICATION_CREDENTIALS",
         "GOOGLE_CLOUD_PROJECT"
       ],
-      "repo": "https://github.com/googleapis/nodejs-agentplatform",
+      "repo": "https://github.com/googleapis/nodejs-vertexai",
       "docs": "https://github.com/googleapis/nodejs-vertexai",
       "homepage": "https://github.com/googleapis/nodejs-vertexai",
       "license": "Apache-2.0",
@@ -13352,10 +13363,11 @@
         "releasedAt": "2026-09-22",
         "latestRelease": "v0.12.0"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:npm",
-        "curated:01-official-sdks.json"
+        "curated:01-official-sdks.json",
+        "curation"
       ],
       "notes": "Node-клиент Vertex AI.",
       "discoveredAt": "2026-09-26",
@@ -13605,7 +13617,7 @@
         "COHERE_API_KEY"
       ],
       "install": "npm i cohere-ai",
-      "repo": "https://github.com/cohere-ai/cohere-typescript",
+      "repo": "https://github.com/cohere-ai/cohere-node",
       "docs": "https://github.com/cohere-ai/cohere-typescript",
       "homepage": "https://github.com/cohere-ai/cohere-typescript",
       "license": "MIT",
@@ -13627,11 +13639,12 @@
         "releasedAt": "2026-08-26",
         "latestRelease": "8.1.0"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:npm",
         "curated:01-official-sdks.json",
-        "discovery:npm"
+        "discovery:npm",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (cohere); точное совпадение с поисковым запросом",
       "discoveredAt": "2026-09-26",
@@ -13670,7 +13683,7 @@
         "OPENAI_API_KEY"
       ],
       "install": "install.packages('openai')",
-      "repo": "https://github.com/irudnyts/openai",
+      "repo": "https://github.com/paranoidmaus/openai",
       "homepage": "https://github.com/irudnyts/openai",
       "license": "MIT + file LICENSE",
       "licenseId": "MIT",
@@ -13688,11 +13701,12 @@
         "archived": false,
         "pushedAt": "2024-11-13"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:cran",
         "curated:03-community-clients.json",
-        "discovery:cran"
+        "discovery:cran",
+        "curation"
       ],
       "notes": "R-обёртка над REST API OpenAI (httr/curl). Официальной поддержки со стороны OpenAI для R нет.",
       "discoveredAt": "2026-09-26",
@@ -13973,7 +13987,7 @@
         "AWS_SECRET_ACCESS_KEY"
       ],
       "install": "dotnet add package AWSSDK.BedrockRuntime",
-      "repo": "https://github.com/aws/aws-sdk-net",
+      "repo": "https://github.com/aws/aws-sdk-for-net",
       "docs": "https://github.com/aws/aws-sdk-net",
       "homepage": "https://github.com/aws/aws-sdk-net",
       "license": "Apache-2.0",
@@ -13995,11 +14009,12 @@
         "releasedAt": "2026-09-25",
         "latestRelease": "4.0.342.0"
       },
-      "confidence": 0.9,
+      "confidence": 0.95,
       "source": [
         "registry:nuget",
         "curated:01-official-sdks.json",
-        "discovery:nuget"
+        "discovery:nuget",
+        "curation"
       ],
       "notes": "Признаки: LLM-признаки в описании (inference); точное совпадение с поисковым запросом",
       "discoveredAt": "2026-09-26",

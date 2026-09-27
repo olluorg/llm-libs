@@ -343,7 +343,14 @@ export function mergeRecords(base, patch) {
     tier: pickPreferred(a, b).tier ?? bestTier(a.tier, b.tier),
     // Аудит ссылок может явно пометить ссылку как нерабочую — тогда она
     // не восстанавливается из реестра, а удаляется.
-    repo: b.repoDropped === true ? undefined : b.repo ?? a.repo,
+    // Репозиторий берётся из более доверенного источника, как роль и статус.
+    // Раньше побеждал второй аргумент, и автосбор перебивал курируемый: у
+    // 16 из 150 курируемых записей в датасете стоял чужой репозиторий — например
+    // у pypi:jina вместо клиента jina-ai/jina оказывался сервис развёртывания
+    // jina-ai/serve вместе со звёздами и описанием от него. Устаревший
+    // курируемый адрес при этом чинится аудитом ссылок, который пишет
+    // 99-link-fixes.json с той же уверенностью и потому выигрывает здесь.
+    repo: b.repoDropped === true ? undefined : (pickPreferred(a, b).repo ?? a.repo ?? b.repo),
     repoDropped: b.repoDropped === true ? true : a.repoDropped,
     docs: b.docs ?? a.docs,
     homepage: b.homepage ?? a.homepage,
