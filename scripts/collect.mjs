@@ -259,7 +259,7 @@ await writeJson(path.join(OUT_DIR, 'report.json'), {
   counts: payload.counts,
 });
 
-log.info(`всего: ${all.length} записей (курируемых ${curated.length}, найдено ${discovered.length})`);
+log.info(`всего: ${curated2.length} записей (курируемых ${curated.length}, найдено ${discovered.length})`);
 for (const [ecosystem, data] of Object.entries(payload.counts.byEcosystem)) {
   log.info(`  ${ecosystem.padEnd(10)} ${String(data).padStart(4)}`);
 }
