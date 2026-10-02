@@ -227,6 +227,9 @@ jobs:
       - name: Открыть задачу или дополнить открытую
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # checkout в этой задаче нет, и без GH_REPO gh ищет репозиторий
+          # в .git рабочей папки и падает с «not a git repository».
+          GH_REPO: ${{ github.repository }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           TITLE: 'Сбой ночного обновления каталога'
         run: |
