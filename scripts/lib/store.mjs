@@ -20,6 +20,8 @@ export const CURATED_DIR = path.join(DATA_DIR, 'curated');
 export const LINK_FIXES_FILE = '99-link-fixes.json';
 /** Поля патча, которые правят не данные записи, а саму запись: ключ и причина. */
 const PATCH_META_FIELDS = new Set(['ecosystem', 'name', 'reason']);
+/** Поля курируемой записи, которые накапливаются, а не заменяются. */
+const CURATED_LIST_FIELDS = new Set(['providers', 'worksWith', 'features', 'envVars', 'source']);
 export const OUT_DIR = path.join(DATA_DIR, 'out');
 export const DIST_DIR = path.join(ROOT, 'dist');
 
@@ -136,24 +138,78 @@ export function curatedConfidence(file) {
  * файл правок (99-link-fixes.json) может нести только исправленное поле,
  * не выписывая запись целиком.
  */
-export async function loadCurated() {
-  const entries = await readCuratedEntries();
-  const byId = new Map();
+/**
+ * Слияние двух курируемых записей одного пакета — до normalizeRecord.
+ *
+ * Списки объединяются, остальное берётся из последней: у pypi:langchain в
+ * 02-frameworks.json две записи с восемью и двумя провайдерами, и раньше
+ * mergeRecords давал всех десятерых. Списком здесь называется только то, что
+ * в normalizeRecord тоже объединяется, — остальное не накапливается.
+ */
+function mergeCuratedItems(base, patch) {
+  const merged = { ...base };
+  for (const [field, value] of Object.entries(patch)) {
+    if (!CURATED_LIST_FIELDS.has(field)) {
+      merged[field] = value;
+      continue;
+    }
+    const asList = (v) => (v === undefined || v === null ? [] : Array.isArray(v) ? v : [v]);
+    merged[field] = [...new Set([...asList(merged[field]), ...asList(value)])];
+  }
+  return merged;
+}
 
-  for (const { file, item } of entries) {
+export async function loadCurated() {
+  // Файл правок ссылок сливается последним независимо от имени: он правит
+  // адрес, и адрес из него должен побеждать устаревший в остальных файлах.
+  // На порядок имён полагаться нельзя — файл можно переименовать.
+  const entries = await readCuratedEntries();
+  const ordered = [
+    ...entries.filter(({ file }) => file !== LINK_FIXES_FILE),
+    ...entries.filter(({ file }) => file === LINK_FIXES_FILE),
+  ];
+  const byId = new Map();
+  const filesById = new Map();
+
+  for (const { file, item } of ordered) {
     try {
-      const record = normalizeRecord({
-        ...item,
-        confidence: curatedConfidence(file),
-        source: [...(item.source ?? []), `curated:${file}`],
-      });
-      const existing = byId.get(record.id);
-      byId.set(record.id, existing ? mergeRecords(existing, record) : record);
+      // id считаем через normalizeRecord: он учитывает явное поле id и
+      // приводит имя к каноническому виду, иначе записи не сопоставятся.
+      const { id } = normalizeRecord(item);
+      const files = filesById.get(id) ?? new Set();
+      files.add(file);
+      filesById.set(id, files);
+      // Слияние — до нормализации, и это главное. Раньше здесь нормализовали
+      // каждую запись, а потом сливали, и частичная запись приносила в слияние
+      // значения по умолчанию за те поля, которых в ней нет. В 99-link-fixes.json
+      // лежит только repo, но normalizeRecord дописывала kind=client и role=sdk,
+      // а уверенность файла (0.95) выше, чем у остальных, — и эти выдуманные
+      // значения побеждали настоящие. У crates:tch выходило role=sdk при
+      // kind=local-runtime, то есть локальный рантайм в списке клиентов API;
+      // дымовой тест сайта это видел и ронял прогон.
+      byId.set(id, mergeCuratedItems(byId.get(id), item));
     } catch (error) {
       log.warn(`пропущена запись в ${file}: ${error.message}`);
     }
   }
-  const records = [...byId.values()];
+
+  const records = [];
+  for (const [id, item] of byId) {
+    try {
+      const files = [...(filesById.get(id) ?? [])];
+      records.push(
+        normalizeRecord({
+          ...item,
+          // Доверие — наибольшее из файлов: проверенный адрес из файла правок
+          // ссылок должен выигрывать устаревший в остальных курируемых файлах.
+          confidence: Math.max(...files.map(curatedConfidence)),
+          source: [...(item.source ?? []), ...files.map((file) => `curated:${file}`)],
+        }),
+      );
+    } catch (error) {
+      log.warn(`пропущена запись ${id}: ${error.message}`);
+    }
+  }
   log.info(`курируемых записей: ${records.length} (из ${entries.length} строк в ${new Set(entries.map((e) => e.file)).size} файлах)`);
   return records;
 }

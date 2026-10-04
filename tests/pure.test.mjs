@@ -11,7 +11,7 @@ import assert from 'node:assert/strict';
 import { normalizeLicense, isPermissive } from '../scripts/lib/license.mjs';
 import { findForks, normalizeDescription, ownerKey, repoKey } from '../scripts/lib/fork.mjs';
 import { mergeRecords, normalizeRecord, makeId, resolveSdkApi, sdkApiFor } from '../scripts/lib/record.mjs';
-import { applyCuration, curatedConfidence, curatedIdConflicts } from '../scripts/lib/store.mjs';
+import { applyCuration, curatedConfidence, curatedIdConflicts, loadCurated } from '../scripts/lib/store.mjs';
 import { declined, counted } from '../scripts/lib/i18n.mjs';
 import { toCsv, toJson, CSV_COLUMNS } from '../scripts/lib/dataset.mjs';
 import { slugify } from '../scripts/lib/site-helpers.mjs';
@@ -314,6 +314,28 @@ test('без аудита патч меняет адрес', () => {
     { exclude: [], patch: [{ ecosystem: 'pypi', name: 'fastmcp', repo: 'https://github.com/jlowin/fastmcp', reason: 'пример' }] },
   );
   assert.equal(records[0].repo, 'https://github.com/jlowin/fastmcp');
+});
+
+test('частичная курируемая запись не выдумывает роль и вид', async () => {
+  // 99-link-fixes.json несёт только адрес, но normalizeRecord дописывает в
+  // остальные поля значения по умолчанию: kind=client, role=sdk. При уверенности
+  // файла 0.95 эти выдуманные значения побеждали настоящие из 04-infra.json, и у
+  // crates:tch выходило role=sdk при kind=local-runtime — локальный рантайм в
+  // списке клиентов API. Дымовой тест сайта это видел и ронял ночной прогон,
+  // а на закоммиченном датасете расхождения не было, поэтому ci.yml молчал:
+  // он не выполняет collect.
+  const curated = await loadCurated();
+  const contradictions = curated.filter(
+    (r) => (r.role === 'sdk' || r.role === 'gateway') && r.kind === 'local-runtime',
+  );
+  assert.deepEqual(
+    contradictions.map((r) => r.id),
+    [],
+    'локальный рантайм не должен носить роль клиента API',
+  );
+  const tch = curated.find((r) => r.id === 'crates:tch');
+  assert.equal(tch.role, 'runtime', 'Rust-биндинги к LibTorch — локальный рантайм');
+  assert.equal(tch.repo, 'https://github.com/LaurentMazare/tch-rs', 'адрес из файла правок ссылок');
 });
 
 test('правила сравниваются без учёта регистра', () => {
