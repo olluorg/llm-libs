@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T19:24:56.121Z",
+  "generatedAt": "2026-10-04T10:07:10.868Z",
   "counts": {
     "total": 456,
     "byEcosystem": {
@@ -1130,7 +1130,7 @@
         "plugins"
       ],
       "envVars": [],
-      "repo": "https://github.com/lobehub/lobe-chat",
+      "repo": "https://github.com/lobehub/lobehub",
       "docs": "https://github.com/lobehub/lobe-chat",
       "homepage": "https://github.com/lobehub/lobe-chat",
       "license": "MIT",
@@ -2432,7 +2432,7 @@
         "mcp"
       ],
       "envVars": [],
-      "repo": "https://github.com/jlowin/fastmcp",
+      "repo": "https://github.com/PrefectHQ/fastmcp",
       "homepage": "https://gofastmcp.com",
       "license": "Apache-2.0",
       "licenseId": "Apache-2.0",
@@ -4065,7 +4065,7 @@
         "rag"
       ],
       "envVars": [],
-      "repo": "https://github.com/explodinggradients/ragas",
+      "repo": "https://github.com/vibrantlabsai/ragas",
       "docs": "https://docs.ragas.io",
       "homepage": "https://docs.ragas.io",
       "license": "Apache License Version 2.0, January 2004 http://www.apache.org/licenses/ TERMS …",
@@ -4294,7 +4294,7 @@
         "tools"
       ],
       "envVars": [],
-      "repo": "https://github.com/instructor-ai/instructor",
+      "repo": "https://github.com/567-labs/instructor",
       "homepage": "https://python.useinstructor.com",
       "license": "MIT",
       "licenseId": "MIT",
@@ -6649,7 +6649,7 @@
         "OPENAI_API_KEY"
       ],
       "install": "mvn::",
-      "repo": "https://github.com/sashabaranov/openai-java",
+      "repo": "https://github.com/TheoKanning/openai-java",
       "license": "The MIT License",
       "licenseId": "MIT",
       "licenseFamily": "permissive",
@@ -9176,7 +9176,7 @@
         "OPENAI_API_KEY"
       ],
       "install": "cargo add llm-chain",
-      "repo": "https://github.com/jacoblincool/llm-chain",
+      "repo": "https://github.com/sobelio/llm-chain",
       "homepage": "https://llm-chain.xyz",
       "license": "MIT",
       "licenseId": "MIT",
@@ -11043,7 +11043,7 @@
         "OPENAI_API_KEY"
       ],
       "install": ".package(url: ...)",
-      "repo": "https://github.com/jamesrochabrun/openai",
+      "repo": "https://github.com/jamesrochabrun/SwiftOpenAI",
       "license": "MIT",
       "licenseId": "MIT",
       "licenseFamily": "permissive",
@@ -11329,7 +11329,7 @@
       ],
       "envVars": [],
       "install": "install.packages('ellmer')",
-      "repo": "https://github.com/posit-dev/ellmer",
+      "repo": "https://github.com/tidyverse/ellmer",
       "homepage": "https://ellmer.tidyverse.org",
       "license": "MIT + file LICENSE",
       "licenseId": "MIT",
@@ -13773,7 +13773,7 @@
         "GOOGLE_APPLICATION_CREDENTIALS",
         "GOOGLE_CLOUD_PROJECT"
       ],
-      "repo": "https://github.com/googleapis/nodejs-vertexai",
+      "repo": "https://github.com/googleapis/nodejs-agentplatform",
       "docs": "https://github.com/googleapis/nodejs-vertexai",
       "homepage": "https://github.com/googleapis/nodejs-vertexai",
       "license": "Apache-2.0",
@@ -14058,7 +14058,7 @@
         "COHERE_API_KEY"
       ],
       "install": "npm i cohere-ai",
-      "repo": "https://github.com/cohere-ai/cohere-node",
+      "repo": "https://github.com/cohere-ai/cohere-typescript",
       "docs": "https://github.com/cohere-ai/cohere-typescript",
       "homepage": "https://github.com/cohere-ai/cohere-typescript",
       "license": "MIT",
@@ -14127,7 +14127,7 @@
         "OPENAI_API_KEY"
       ],
       "install": "install.packages('openai')",
-      "repo": "https://github.com/paranoidmaus/openai",
+      "repo": "https://github.com/irudnyts/openai",
       "homepage": "https://github.com/irudnyts/openai",
       "license": "MIT + file LICENSE",
       "licenseId": "MIT",
@@ -14443,7 +14443,7 @@
         "AWS_SECRET_ACCESS_KEY"
       ],
       "install": "dotnet add package AWSSDK.BedrockRuntime",
-      "repo": "https://github.com/aws/aws-sdk-for-net",
+      "repo": "https://github.com/aws/aws-sdk-net",
       "docs": "https://github.com/aws/aws-sdk-net",
       "homepage": "https://github.com/aws/aws-sdk-net",
       "license": "Apache-2.0",

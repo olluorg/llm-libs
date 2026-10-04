@@ -10,7 +10,7 @@
 import { createLogger } from './lib/log.mjs';
 import { getText } from './lib/http.mjs';
 import { mapLimit, repoSlug } from './lib/github.mjs';
-import { curationKey, curatedIdConflicts, loadCuration, loadProviders, readCuratedEntries, readDataset, CURATED_DIR, OUT_DIR } from './lib/store.mjs';
+import { curationKey, curatedIdConflicts, LINK_FIXES_FILE, loadCuration, loadProviders, readCuratedEntries, readDataset, CURATED_DIR, OUT_DIR } from './lib/store.mjs';
 import { findForks } from './lib/fork.mjs';
 import { makeId, CALLS_PROVIDER_API, ROLES } from './lib/record.mjs';
 import fs from 'node:fs/promises';
@@ -185,6 +185,13 @@ log.info(
 // перестал работать: правило нашлось, но не применилось.
 {
   const curation = await loadCuration();
+  // Адреса, которые аудит признал верными, — тоже курация: они лежат в
+  // data/curated/99-link-fixes.json и по доверию стоят выше остальных файлов.
+  // Сверять запись только с 00-curation.json нельзя: там у двенадцати записей
+  // лежат адреса, которых больше нет (404), и аудит в этом же прогоне
+  // заменил их на актуальные. Проверка видела расхождение и роняла validate
+  // каждую ночь, хотя данные к этому моменту уже были верными.
+  const audited = await readLinkFixes();
   const byId = new Map((dataset.libraries ?? []).map((library) => [library.id.toLowerCase(), library]));
   for (const item of curation.exclude) {
     const key = `${item.ecosystem}:${item.name}`.toLowerCase();
@@ -204,8 +211,12 @@ log.info(
       // ecosystem и name — ключ, по которому запись найдена, а reason —
       // объяснение для человека; исправляемых полей среди них нет.
       if (field === 'reason' || field === 'ecosystem' || field === 'name') continue;
-      if (library[field] !== value) {
-        problems.errors.push(`ручное исправление не применилось: ${key}.${field} = ${JSON.stringify(library[field])}, ожидалось ${JSON.stringify(value)}`);
+      // Адрес сверяется с тем, что аудит признал верным: если аудит заменил
+      // мёртвый адрес из патча на живой, расхождения с патчем быть не должно —
+      // патч просто устарел, а данные верны.
+      const expected = field === 'repo' ? (audited.get(key) ?? value) : value;
+      if (library[field] !== expected) {
+        problems.errors.push(`ручное исправление не применилось: ${key}.${field} = ${JSON.stringify(library[field])}, ожидалось ${JSON.stringify(expected)}`);
       }
     }
     if (!item.reason) problems.warnings.push(`исправление без причины: ${key}`);
@@ -301,6 +312,31 @@ if (problems.warnings.length > shownWarnings.length) {
 if (problems.errors.length) {
   log.error(`критичных проблем: ${problems.errors.length}`);
   process.exit(1);
+}
+
+/**
+ * Адреса, признанные верными аудитом: data/curated/99-link-fixes.json.
+ * Ключ — id записи в нижнем регистре, значение — адрес.
+ *
+ * Файл пишет scripts/audit-links.mjs --apply, и в ночном прогоне он обновляется
+ * до validate, поэтому проверка видит решения текущей ночи, а не прошлой.
+ * Записи с repoDropped адреса не имеют: там, где аудит удалил ссылку, решает
+ * патч, и в map такая запись не попадает.
+ */
+async function readLinkFixes() {
+  const repos = new Map();
+  const file = path.join(CURATED_DIR, LINK_FIXES_FILE);
+  let payload;
+  try {
+    payload = JSON.parse(await fs.readFile(file, 'utf8'));
+  } catch {
+    return repos; // файла нет — проверяем датасет только по 00-curation.json
+  }
+  for (const item of payload.libraries ?? []) {
+    if (item.repoDropped || !item.repo) continue;
+    repos.set(makeId(item.ecosystem, item.name), item.repo);
+  }
+  return repos;
 }
 
 /** Идентификаторы всех записей из data/curated/*.json. */

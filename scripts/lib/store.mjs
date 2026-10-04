@@ -17,7 +17,9 @@ export const DATA_DIR = path.join(ROOT, 'data');
 export const CONFIG_DIR = path.join(DATA_DIR, 'config');
 export const CURATED_DIR = path.join(DATA_DIR, 'curated');
 /** Файл исправленных адресов: он по определении переопределяет поля других. */
-const LINK_FIXES_FILE = '99-link-fixes.json';
+export const LINK_FIXES_FILE = '99-link-fixes.json';
+/** Поля патча, которые правят не данные записи, а саму запись: ключ и причина. */
+const PATCH_META_FIELDS = new Set(['ecosystem', 'name', 'reason']);
 export const OUT_DIR = path.join(DATA_DIR, 'out');
 export const DIST_DIR = path.join(ROOT, 'dist');
 
@@ -177,12 +179,35 @@ export const curationKey = (ecosystem, name) => `${ecosystem}:${name}`.toLowerCa
  * в data/curated.
  */
 export function applyCuration(records, curation) {
+  /**
+   * Адрес этой записи пришёл из файла правок ссылок, то есть его проверили по
+   * GitHub API в этом же прогоне. Отличить его от адреса, написанного человеком
+   * руками, можно по провенансу: loadCurated помечает источник именем файла, и
+   * mergeRecords сохраняет эту пометку. Проверенный адрес, по которому не
+   * 404, предпочтительнее патча — патч мог устареть.
+   *
+   * Если аудит удалил ссылку (repoDropped), адреса у записи нет, и патч может
+   * его вернуть: это единственный источник, который тут что-то знает.
+   */
+  const hasAuditedRepo = (record) =>
+    Boolean(record.repo) && (record.source ?? []).includes(`curated:${LINK_FIXES_FILE}`);
   // Ключ сравнивается в нижнем регистре, как строится id записи: в CRAN пакет
   // называется `LLM`, а в исключении его естественно написать как `llm`, и при
   // регистрозависимом сравнении правило молча не срабатывало.
   const keyOf = (ecosystem, name) => `${ecosystem}:${name}`.toLowerCase();
   const excluded = new Map(curation.exclude.map((item) => [keyOf(item.ecosystem, item.name), item]));
-  const patches = new Map(curation.patch.map((item) => [keyOf(item.ecosystem, item.name), item]));
+  // Несколько патчей на одну запись должны сливаться полями, а не вытеснять
+  // друг друга. Раньше здесь стоял new Map(curation.patch.map(...)), и записи с
+  // одинаковым ключом схлопывались: в Map попадала последняя, а её поля —
+  // единственные. У swift:kuarezma/macllm патч role=support стоит выше патча
+  // tier=C и молча исчезал, а роль возвращалась к выведенной из описания.
+  // Ровно один такой случай был, и он стоил ночного прогона: роль «sdk»
+  // вместо «support» — расхождение, которое validate видит как потерю правки.
+  const patches = new Map();
+  for (const item of curation.patch) {
+    const key = keyOf(item.ecosystem, item.name);
+    patches.set(key, { ...patches.get(key), ...item });
+  }
   const kept = [];
   const dropped = [];
   const patched = [];
@@ -199,7 +224,26 @@ export function applyCuration(records, curation) {
       kept.push(record);
       continue;
     }
-    const { reason, ...fields } = patch;
+    // ecosystem и name — ключ, по которому запись найдена, а reason —
+    // объяснение для человека; исправляемых полей среди них нет. Раньше они
+    // попадали и в override, и в отчёт «исправлено полей», где выглядели как
+    // правки данных. Набор полей-исключений тот же, что и в validate.mjs.
+    const fields = Object.fromEntries(
+      Object.entries(patch).filter(([field]) => !PATCH_META_FIELDS.has(field)),
+    );
+    const { reason } = patch;
+    // Адрес, проверенный аудитом, важнее патча, и его надо исключить здесь, а
+    // не в цикле ниже: override собирается из полей патча, поэтому мёртвый адрес
+    // попал бы в запись через слияние, даже если последнее присваивание
+    // пропущено. Патч писали, когда репозиторий был жив; потом его переименовали
+    // или удалили, аудит увидел 404 и записал нынешний адрес.
+    //
+    // Без этого правила порядок шагов refresh (collect → derive → audit →
+    // validate) даёт замкнутый круг: derive возвращает адрес, которого больше
+    // нет, аудит ломает его заново, validate падает, коммит не происходит — и
+    // правка аудита теряется до следующей ночи. Проверяем до того, как адрес
+    // перезаписан, иначе слияние успевает подставить патч.
+    if (hasAuditedRepo(record)) delete fields.repo;
     // Важно:override собирается из самой записи, а не только из полей патча.
     // normalizeRecord подставляет значения по умолчанию во все поля, и в слиянии
     // более уверенный аргумент побеждал по confidence: патч без поля role

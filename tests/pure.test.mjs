@@ -262,6 +262,60 @@ test('исправление меняет роль на менее специф�
   assert.equal(records[0].role, 'framework');
 });
 
+test('два исправления одной записи не вытесняют друг друга', () => {
+  // new Map(curation.patch.map(...)) схлопывал патчи с одинаковым ключом: в
+  // Map попадал последний, и его поля оказывались единственными. У
+  // swift:kuarezma/macllm патч role=support стоял выше патча tier=C и исчезал,
+  // а роль возвращалась к выведенной из описания — и validate каждую ночь
+  // сообщал о потере правки. Ровно одна такая пара была в 00-curation.json.
+  const { records, patched } = applyCuration(
+    [record({ id: 'swift:kuarezma/macllm', name: 'kuarezma/macllm', ecosystem: 'swift', role: 'sdk', tier: 'B' })],
+    {
+      exclude: [],
+      patch: [
+        { ecosystem: 'swift', name: 'kuarezma/macllm', role: 'support', reason: 'приложение macOS' },
+        { ecosystem: 'swift', name: 'kuarezma/macllm', tier: 'C', reason: 'без доказательств качества' },
+      ],
+    },
+  );
+  assert.equal(records[0].role, 'support');
+  assert.equal(records[0].tier, 'C');
+  // Ключ и причина — не исправляемые поля, в отчёте им не место.
+  assert.deepEqual(patched[0].fields.sort(), ['role', 'tier']);
+});
+
+test('адрес, проверенный аудитом, не перебивается устаревшим патчем', () => {
+  // Репозиторий, на который указывал патч, переименовали: аудит увидел 404 и
+  // записал нынешний адрес в 99-link-fixes.json. Если патч побеждает и здесь,
+  // порядок шагов refresh (collect → derive → audit → validate) даёт замкнутый
+  // круг — derive возвращает мёртвый адрес, аудит ломает его заново, validate
+  // падает. Проверяется до слияния: override собирается из полей патча, и
+  // мёртвый адрес иначе попал бы в запись через него.
+  const { records } = applyCuration(
+    [
+      record({
+        id: 'pypi:fastmcp',
+        name: 'fastmcp',
+        ecosystem: 'pypi',
+        repo: 'https://github.com/PrefectHQ/fastmcp',
+        source: ['registry:pypi', 'curated:99-link-fixes.json'],
+      }),
+    ],
+    { exclude: [], patch: [{ ecosystem: 'pypi', name: 'fastmcp', repo: 'https://github.com/jlowin/fastmcp', reason: 'пример' }] },
+  );
+  assert.equal(records[0].repo, 'https://github.com/PrefectHQ/fastmcp');
+});
+
+test('без аудита патч меняет адрес', () => {
+  // Обратная сторона предыдущего теста: если запись не проходила аудит, патч
+  // обязан действовать, иначе правка в 00-curation.json вообще ничего не значит.
+  const { records } = applyCuration(
+    [record({ id: 'pypi:fastmcp', name: 'fastmcp', ecosystem: 'pypi', repo: 'https://github.com/старое/имя', source: ['registry:pypi'] })],
+    { exclude: [], patch: [{ ecosystem: 'pypi', name: 'fastmcp', repo: 'https://github.com/jlowin/fastmcp', reason: 'пример' }] },
+  );
+  assert.equal(records[0].repo, 'https://github.com/jlowin/fastmcp');
+});
+
 test('правила сравниваются без учёта регистра', () => {
   // В CRAN пакет называется LLM, и регистрозависимое сравнение молча не
   // срабатывало: правило было написано, а запись оставалась.

@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-27T09:42:56.877Z",
-  "checked": 19,
-  "uniqueSlugs": 19,
+  "generatedAt": "2026-10-04T10:13:44.504Z",
+  "checked": 456,
+  "uniqueSlugs": 363,
   "tally": {
-    "ok": 15,
-    "none": 2,
-    "fixed": 2
+    "none": 47,
+    "ok": 407,
+    "nonGithub": 2
   },
   "descriptions": {
     "ok": "ссылка жива и указывает на корень репозитория",
@@ -18,13 +18,3625 @@
   },
   "nameMismatches": [
     {
+      "id": "golang:github.com/ollama/ollama",
+      "name": "github.com/ollama/ollama",
+      "repo": "ollama/ollama",
+      "reason": "имя пакета «github.com/ollama/ollama» не похоже на имя репозитория «ollama» — возможно, это другой проект"
+    },
+    {
+      "id": "pypi:torch",
+      "name": "torch",
+      "repo": "pytorch/pytorch",
+      "reason": "имя пакета «torch» не похоже на имя репозитория «pytorch» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:mcp",
+      "name": "mcp",
+      "repo": "modelcontextprotocol/servers",
+      "reason": "имя пакета «mcp» не похоже на имя репозитория «servers» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:@lobehub/chat",
+      "name": "@lobehub/chat",
+      "repo": "lobehub/lobehub",
+      "reason": "имя пакета «@lobehub/chat» не похоже на имя репозитория «lobehub» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:llamaindex",
+      "name": "llamaindex",
+      "repo": "run-llama/llama_index",
+      "reason": "имя пакета «llamaindex» не похоже на имя репозитория «llama_index» — возможно, это другой проект"
+    },
+    {
+      "id": "pypi:phidata",
+      "name": "phidata",
+      "repo": "agno-agi/agno",
+      "reason": "имя пакета «phidata» не похоже на имя репозитория «agno» — возможно, это другой проект"
+    },
+    {
+      "id": "pypi:chromadb",
+      "name": "chromadb",
+      "repo": "chroma-core/chroma",
+      "reason": "имя пакета «chromadb» не похоже на имя репозитория «chroma» — возможно, это другой проект"
+    },
+    {
+      "id": "nuget:microsoft.semantickernel",
+      "name": "Microsoft.SemanticKernel",
+      "repo": "microsoft/semantic-kernel",
+      "reason": "имя пакета «Microsoft.SemanticKernel» не похоже на имя репозитория «semantic-kernel» — возможно, это другой проект"
+    },
+    {
+      "id": "github:steipete/codexbar",
+      "name": "steipete/CodexBar",
+      "repo": "steipete/codexbar",
+      "reason": "имя пакета «steipete/CodexBar» не похоже на имя репозитория «codexbar» — возможно, это другой проект"
+    },
+    {
+      "id": "pypi:jina",
+      "name": "jina",
+      "repo": "jina-ai/serve",
+      "reason": "имя пакета «jina» не похоже на имя репозитория «serve» — возможно, это другой проект"
+    },
+    {
+      "id": "github:openai/evals",
+      "name": "openai/evals",
+      "repo": "openai/evals",
+      "reason": "имя пакета «openai/evals» не похоже на имя репозитория «evals» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:chatgpt",
+      "name": "chatgpt",
+      "repo": "transitive-bullshit/agentic",
+      "reason": "имя пакета «chatgpt» не похоже на имя репозитория «agentic» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:@langchain/anthropic",
+      "name": "@langchain/anthropic",
+      "repo": "langchain-ai/langchainjs",
+      "reason": "имя пакета «@langchain/anthropic» не похоже на имя репозитория «langchainjs» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:langchain",
+      "name": "langchain",
+      "repo": "langchain-ai/langchainjs",
+      "reason": "имя пакета «langchain» не похоже на имя репозитория «langchainjs» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:@langchain/core",
+      "name": "@langchain/core",
+      "repo": "langchain-ai/langchainjs",
+      "reason": "имя пакета «@langchain/core» не похоже на имя репозитория «langchainjs» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:@langchain/openai",
+      "name": "@langchain/openai",
+      "repo": "langchain-ai/langchainjs",
+      "reason": "имя пакета «@langchain/openai» не похоже на имя репозитория «langchainjs» — возможно, это другой проект"
+    },
+    {
+      "id": "github:tisfeng/easydict",
+      "name": "tisfeng/easydict",
+      "repo": "tisfeng/easydict",
+      "reason": "имя пакета «tisfeng/easydict» не похоже на имя репозитория «easydict» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:dev.langchain4j:langchain4j",
+      "name": "dev.langchain4j:langchain4j",
+      "repo": "langchain4j/langchain4j",
+      "reason": "имя пакета «dev.langchain4j:langchain4j» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:dev.langchain4j:langchain4j-anthropic",
+      "name": "dev.langchain4j:langchain4j-anthropic",
+      "repo": "langchain4j/langchain4j",
+      "reason": "имя пакета «dev.langchain4j:langchain4j-anthropic» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:dev.langchain4j:langchain4j-open-ai",
+      "name": "dev.langchain4j:langchain4j-open-ai",
+      "repo": "langchain4j/langchain4j",
+      "reason": "имя пакета «dev.langchain4j:langchain4j-open-ai» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:portkey",
+      "name": "portkey",
+      "repo": "portkey-ai/gateway",
+      "reason": "имя пакета «portkey» не похоже на имя репозитория «gateway» — возможно, это другой проект"
+    },
+    {
+      "id": "golang:github.com/bentoml/openllm",
+      "name": "github.com/bentoml/OpenLLM",
+      "repo": "bentoml/openllm",
+      "reason": "имя пакета «github.com/bentoml/OpenLLM» не похоже на имя репозитория «openllm» — возможно, это другой проект"
+    },
+    {
+      "id": "golang:github.com/tmc/langchaingo",
+      "name": "github.com/tmc/langchaingo",
+      "repo": "tmc/langchaingo",
+      "reason": "имя пакета «github.com/tmc/langchaingo» не похоже на имя репозитория «langchaingo» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:org.springframework.ai:spring-ai-autoconfigure-model-anthropic",
+      "name": "org.springframework.ai:spring-ai-autoconfigure-model-anthropic",
+      "repo": "spring-projects/spring-ai",
+      "reason": "имя пакета «org.springframework.ai:spring-ai-autoconfigure-model-anthropic» не похоже на имя репозитория «spring-ai» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:org.springframework.ai:spring-ai-anthropic",
+      "name": "org.springframework.ai:spring-ai-anthropic",
+      "repo": "spring-projects/spring-ai",
+      "reason": "имя пакета «org.springframework.ai:spring-ai-anthropic» не похоже на имя репозитория «spring-ai» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:org.springframework.ai:spring-ai-openai",
+      "name": "org.springframework.ai:spring-ai-openai",
+      "repo": "spring-projects/spring-ai",
+      "reason": "имя пакета «org.springframework.ai:spring-ai-openai» не похоже на имя репозитория «spring-ai» — возможно, это другой проект"
+    },
+    {
+      "id": "golang:github.com/firebase/genkit/go",
+      "name": "github.com/firebase/genkit/go",
+      "repo": "genkit-ai/genkit",
+      "reason": "имя пакета «github.com/firebase/genkit/go» не похоже на имя репозитория «genkit» — возможно, это другой проект"
+    },
+    {
+      "id": "github:arthur-ficial/apfel",
+      "name": "arthur-ficial/apfel",
+      "repo": "arthur-ficial/apfel",
+      "reason": "имя пакета «arthur-ficial/apfel» не похоже на имя репозитория «apfel» — возможно, это другой проект"
+    },
+    {
+      "id": "github:nguyenphutrong/quotio",
+      "name": "nguyenphutrong/quotio",
+      "repo": "nguyenphutrong/quotio",
+      "reason": "имя пакета «nguyenphutrong/quotio» не похоже на имя репозитория «quotio» — возможно, это другой проект"
+    },
+    {
+      "id": "packagist:openai-php/laravel",
+      "name": "openai-php/laravel",
+      "repo": "openai-php/laravel",
+      "reason": "имя пакета «openai-php/laravel» не похоже на имя репозитория «laravel» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:@aws-sdk/client-bedrock-runtime",
+      "name": "@aws-sdk/client-bedrock-runtime",
+      "repo": "aws/aws-sdk-js-v3",
+      "reason": "имя пакета «@aws-sdk/client-bedrock-runtime» не похоже на имя репозитория «aws-sdk-js-v3» — возможно, это другой проект"
+    },
+    {
+      "id": "golang:github.com/openai/openai-go/v3",
+      "name": "github.com/openai/openai-go/v3",
+      "repo": "openai/openai-go",
+      "reason": "имя пакета «github.com/openai/openai-go/v3» не похоже на имя репозитория «openai-go» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:@langchain/langgraph",
+      "name": "@langchain/langgraph",
+      "repo": "langchain-ai/langgraphjs",
+      "reason": "имя пакета «@langchain/langgraph» не похоже на имя репозитория «langgraphjs» — возможно, это другой проект"
+    },
+    {
+      "id": "swift:macpaw/openai",
+      "name": "MacPaw/OpenAI",
+      "repo": "macpaw/openai",
+      "reason": "имя пакета «MacPaw/OpenAI» не похоже на имя репозитория «openai» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:software.amazon.awssdk:bedrockruntime",
+      "name": "software.amazon.awssdk:bedrockruntime",
+      "repo": "aws/aws-sdk-java-v2",
+      "reason": "имя пакета «software.amazon.awssdk:bedrockruntime» не похоже на имя репозитория «aws-sdk-java-v2» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:com.azure:azure-ai-openai",
+      "name": "com.azure:azure-ai-openai",
+      "repo": "azure/azure-sdk-for-java",
+      "reason": "имя пакета «com.azure:azure-ai-openai» не похоже на имя репозитория «azure-sdk-for-java» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:com.azure:azure-ai-openai-assistants",
+      "name": "com.azure:azure-ai-openai-assistants",
+      "repo": "azure/azure-sdk-for-java",
+      "reason": "имя пакета «com.azure:azure-ai-openai-assistants» не похоже на имя репозитория «azure-sdk-for-java» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:@huggingface/inference",
+      "name": "@huggingface/inference",
+      "repo": "huggingface/huggingface.js",
+      "reason": "имя пакета «@huggingface/inference» не похоже на имя репозитория «huggingface.js» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:@huggingface/ollama-utils",
+      "name": "@huggingface/ollama-utils",
+      "repo": "huggingface/huggingface.js",
+      "reason": "имя пакета «@huggingface/ollama-utils» не похоже на имя репозитория «huggingface.js» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:@anthropic-ai/bedrock-sdk",
+      "name": "@anthropic-ai/bedrock-sdk",
+      "repo": "anthropics/anthropic-sdk-typescript",
+      "reason": "имя пакета «@anthropic-ai/bedrock-sdk» не похоже на имя репозитория «anthropic-sdk-typescript» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:@azure/openai",
+      "name": "@azure/openai",
+      "repo": "azure/azure-sdk-for-js",
+      "reason": "имя пакета «@azure/openai» не похоже на имя репозитория «azure-sdk-for-js» — возможно, это другой проект"
+    },
+    {
+      "id": "packagist:theodo-group/llphant",
+      "name": "theodo-group/llphant",
+      "repo": "llphant/llphant",
+      "reason": "имя пакета «theodo-group/llphant» не похоже на имя репозитория «llphant» — возможно, это другой проект"
+    },
+    {
+      "id": "github:adamrushy/openaiswift",
+      "name": "adamrushy/OpenAISwift",
+      "repo": "adamrushy/openaiswift",
+      "reason": "имя пакета «adamrushy/OpenAISwift» не похоже на имя репозитория «openaiswift» — возможно, это другой проект"
+    },
+    {
+      "id": "golang:google.golang.org/genai",
+      "name": "google.golang.org/genai",
+      "repo": "googleapis/go-genai",
+      "reason": "имя пакета «google.golang.org/genai» не похоже на имя репозитория «go-genai» — возможно, это другой проект"
+    },
+    {
+      "id": "github:37mobileteam/ichatgpt",
+      "name": "37MobileTeam/iChatGPT",
+      "repo": "37mobileteam/ichatgpt",
+      "reason": "имя пакета «37MobileTeam/iChatGPT» не похоже на имя репозитория «ichatgpt» — возможно, это другой проект"
+    },
+    {
+      "id": "golang:github.com/go-kratos/blades/contrib/openai",
+      "name": "github.com/go-kratos/blades/contrib/openai",
+      "repo": "go-kratos/blades",
+      "reason": "имя пакета «github.com/go-kratos/blades/contrib/openai» не похоже на имя репозитория «blades» — возможно, это другой проект"
+    },
+    {
+      "id": "swift:sharpai/swiftlm",
+      "name": "sharpai/swiftlm",
+      "repo": "sharpai/swiftlm",
+      "reason": "имя пакета «sharpai/swiftlm» не похоже на имя репозитория «swiftlm» — возможно, это другой проект"
+    },
+    {
+      "id": "pypi:mistralai",
+      "name": "mistralai",
+      "repo": "mistralai/client-python",
+      "reason": "имя пакета «mistralai» не похоже на имя репозитория «client-python» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:@deuz-sdk/core",
+      "name": "@deuz-sdk/core",
+      "repo": "deuz-ai/deuz-sdk",
+      "reason": "имя пакета «@deuz-sdk/core» не похоже на имя репозитория «deuz-sdk» — возможно, это другой проект"
+    },
+    {
+      "id": "swift:jamesrochabrun/swiftopenai",
+      "name": "jamesrochabrun/SwiftOpenAI",
+      "repo": "jamesrochabrun/swiftopenai",
+      "reason": "имя пакета «jamesrochabrun/SwiftOpenAI» не похоже на имя репозитория «swiftopenai» — возможно, это другой проект"
+    },
+    {
+      "id": "github:gabriella439/grace",
+      "name": "Gabriella439/grace",
+      "repo": "gabriella439/grace",
+      "reason": "имя пакета «Gabriella439/grace» не похоже на имя репозитория «grace» — возможно, это другой проект"
+    },
+    {
+      "id": "pypi:groqcloud",
+      "name": "groqcloud",
+      "repo": "groq/groq-python",
+      "reason": "имя пакета «groqcloud» не похоже на имя репозитория «groq-python» — возможно, это другой проект"
+    },
+    {
+      "id": "golang:github.com/rakyll/openai-go",
+      "name": "github.com/rakyll/openai-go",
+      "repo": "rakyll/openai-go",
+      "reason": "имя пакета «github.com/rakyll/openai-go» не похоже на имя репозитория «openai-go» — возможно, это другой проект"
+    },
+    {
+      "id": "swift:carloslfu/slotstream",
+      "name": "carloslfu/slotstream",
+      "repo": "carloslfu/slotstream",
+      "reason": "имя пакета «carloslfu/slotstream» не похоже на имя репозитория «slotstream» — возможно, это другой проект"
+    },
+    {
+      "id": "swift:opendive/openaikit",
+      "name": "OpenDive/OpenAIKit",
+      "repo": "opendive/openaikit",
+      "reason": "имя пакета «OpenDive/OpenAIKit» не похоже на имя репозитория «openaikit» — возможно, это другой проект"
+    },
+    {
+      "id": "swift:swiftbeta/swiftopenai",
+      "name": "SwiftBeta/SwiftOpenAI",
+      "repo": "swiftbeta/swiftopenai",
+      "reason": "имя пакета «SwiftBeta/SwiftOpenAI» не похоже на имя репозитория «swiftopenai» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:cc.unitmesh:openai",
+      "name": "cc.unitmesh:openai",
+      "repo": "unit-mesh/choco-builder",
+      "reason": "имя пакета «cc.unitmesh:openai» не похоже на имя репозитория «choco-builder» — возможно, это другой проект"
+    },
+    {
+      "id": "packagist:openai-php/symfony",
+      "name": "openai-php/symfony",
+      "repo": "openai-php/symfony",
+      "reason": "имя пакета «openai-php/symfony» не похоже на имя репозитория «symfony» — возможно, это другой проект"
+    },
+    {
+      "id": "swift:mattt/openai",
+      "name": "mattt/OpenAI",
+      "repo": "mattt/openai",
+      "reason": "имя пакета «mattt/OpenAI» не похоже на имя репозитория «openai» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:@google-cloud/vertexai",
+      "name": "@google-cloud/vertexai",
+      "repo": "googleapis/nodejs-agentplatform",
+      "reason": "имя пакета «@google-cloud/vertexai» не похоже на имя репозитория «nodejs-agentplatform» — возможно, это другой проект"
+    },
+    {
+      "id": "golang:github.com/liushuangls/go-anthropic/v2",
+      "name": "github.com/liushuangls/go-anthropic/v2",
+      "repo": "liushuangls/go-anthropic",
+      "reason": "имя пакета «github.com/liushuangls/go-anthropic/v2» не похоже на имя репозитория «go-anthropic» — возможно, это другой проект"
+    },
+    {
+      "id": "swift:futurragroup/openai",
+      "name": "FuturraGroup/OpenAI",
+      "repo": "futurragroup/openai",
+      "reason": "имя пакета «FuturraGroup/OpenAI» не похоже на имя репозитория «openai» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:@mistralai/mistralai",
+      "name": "@mistralai/mistralai",
+      "repo": "mistralai/client-ts",
+      "reason": "имя пакета «@mistralai/mistralai» не похоже на имя репозитория «client-ts» — возможно, это другой проект"
+    },
+    {
+      "id": "nuget:awssdk.bedrockruntime",
+      "name": "AWSSDK.BedrockRuntime",
+      "repo": "aws/aws-sdk-net",
+      "reason": "имя пакета «AWSSDK.BedrockRuntime» не похоже на имя репозитория «aws-sdk-net» — возможно, это другой проект"
+    },
+    {
       "id": "cran:ollamar",
       "name": "ollamar",
       "repo": "hauselin/ollama-r",
       "reason": "имя пакета «ollamar» не похоже на имя репозитория «ollama-r» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:@sap-ai-sdk/openai",
+      "name": "@sap-ai-sdk/openai",
+      "repo": "sap/ai-sdk-js",
+      "reason": "имя пакета «@sap-ai-sdk/openai» не похоже на имя репозитория «ai-sdk-js» — возможно, это другой проект"
+    },
+    {
+      "id": "swift:neelm0906/mference",
+      "name": "neelm0906/mference",
+      "repo": "neelm0906/mference",
+      "reason": "имя пакета «neelm0906/mference» не похоже на имя репозитория «mference» — возможно, это другой проект"
+    },
+    {
+      "id": "nuget:agentframeworktoolkit.cohere",
+      "name": "AgentFrameworkToolkit.Cohere",
+      "repo": "rwjdk/agent-framework-toolkit",
+      "reason": "имя пакета «AgentFrameworkToolkit.Cohere» не похоже на имя репозитория «agent-framework-toolkit» — возможно, это другой проект"
+    },
+    {
+      "id": "packagist:gemini-api-php/laravel",
+      "name": "gemini-api-php/laravel",
+      "repo": "gemini-api-php/laravel",
+      "reason": "имя пакета «gemini-api-php/laravel» не похоже на имя репозитория «laravel» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:com.cjcrafter:openai",
+      "name": "com.cjcrafter:openai",
+      "repo": "cjcrafter/chatgpt-java-api",
+      "reason": "имя пакета «com.cjcrafter:openai» не похоже на имя репозитория «chatgpt-java-api» — возможно, это другой проект"
+    },
+    {
+      "id": "golang:github.com/cohere-ai/cohere-go/v2",
+      "name": "github.com/cohere-ai/cohere-go/v2",
+      "repo": "cohere-ai/cohere-go",
+      "reason": "имя пакета «github.com/cohere-ai/cohere-go/v2» не похоже на имя репозитория «cohere-go» — возможно, это другой проект"
+    },
+    {
+      "id": "hex:llm_db",
+      "name": "llm_db",
+      "repo": "agentjido/llmdb",
+      "reason": "имя пакета «llm_db» не похоже на имя репозитория «llmdb» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:io.github.jetkai:openai",
+      "name": "io.github.jetkai:openai",
+      "repo": "jetkai/openai-for-java",
+      "reason": "имя пакета «io.github.jetkai:openai» не похоже на имя репозитория «openai-for-java» — возможно, это другой проект"
+    },
+    {
+      "id": "golang:github.com/xyproto/ollamaclient/v2",
+      "name": "github.com/xyproto/ollamaclient/v2",
+      "repo": "xyproto/ollamaclient",
+      "reason": "имя пакета «github.com/xyproto/ollamaclient/v2» не похоже на имя репозитория «ollamaclient» — возможно, это другой проект"
+    },
+    {
+      "id": "packagist:prism-php/bedrock",
+      "name": "prism-php/bedrock",
+      "repo": "prism-php/bedrock",
+      "reason": "имя пакета «prism-php/bedrock» не похоже на имя репозитория «bedrock» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:community.flock.aigentic:openai",
+      "name": "community.flock.aigentic:openai",
+      "repo": "flock-community/aigentic",
+      "reason": "имя пакета «community.flock.aigentic:openai» не похоже на имя репозитория «aigentic» — возможно, это другой проект"
+    },
+    {
+      "id": "crates:dynamo-tokenizers",
+      "name": "dynamo-tokenizers",
+      "repo": "ai-dynamo/frontend-crates",
+      "reason": "имя пакета «dynamo-tokenizers» не похоже на имя репозитория «frontend-crates» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:io.cequence:mistral-client_2.12",
+      "name": "io.cequence:mistral-client_2.12",
+      "repo": "cequence-io/babyagi-s",
+      "reason": "имя пакета «io.cequence:mistral-client_2.12» не похоже на имя репозитория «babyagi-s» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:io.cequence:mistral-client_2.13",
+      "name": "io.cequence:mistral-client_2.13",
+      "repo": "cequence-io/babyagi-s",
+      "reason": "имя пакета «io.cequence:mistral-client_2.13» не похоже на имя репозитория «babyagi-s» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:io.cequence:mistral-client-domain_2.12",
+      "name": "io.cequence:mistral-client-domain_2.12",
+      "repo": "cequence-io/babyagi-s",
+      "reason": "имя пакета «io.cequence:mistral-client-domain_2.12» не похоже на имя репозитория «babyagi-s» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:io.cequence:mistral-client-domain_2.13",
+      "name": "io.cequence:mistral-client-domain_2.13",
+      "repo": "cequence-io/babyagi-s",
+      "reason": "имя пакета «io.cequence:mistral-client-domain_2.13» не похоже на имя репозитория «babyagi-s» — возможно, это другой проект"
+    },
+    {
+      "id": "packagist:easygithdev/php-openai",
+      "name": "easygithdev/php-openai",
+      "repo": "easygithdev/phpopenai",
+      "reason": "имя пакета «easygithdev/php-openai» не похоже на имя репозитория «phpopenai» — возможно, это другой проект"
+    },
+    {
+      "id": "packagist:easygithdev/phpopenai",
+      "name": "easygithdev/phpopenai",
+      "repo": "easygithdev/phpopenai",
+      "reason": "имя пакета «easygithdev/phpopenai» не похоже на имя репозитория «phpopenai» — возможно, это другой проект"
+    },
+    {
+      "id": "github:anonyfox/chatoyant",
+      "name": "Anonyfox/chatoyant",
+      "repo": "anonyfox/chatoyant",
+      "reason": "имя пакета «Anonyfox/chatoyant» не похоже на имя репозитория «chatoyant» — возможно, это другой проект"
+    },
+    {
+      "id": "github:gazolla/groqclientapikotlin",
+      "name": "gazolla/GroqClientApiKotlin",
+      "repo": "gazolla/groqclientapikotlin",
+      "reason": "имя пакета «gazolla/GroqClientApiKotlin» не похоже на имя репозитория «groqclientapikotlin» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:@graphorin/reranker-transformersjs",
+      "name": "@graphorin/reranker-transformersjs",
+      "repo": "o-stepper/graphorin",
+      "reason": "имя пакета «@graphorin/reranker-transformersjs» не похоже на имя репозитория «graphorin» — возможно, это другой проект"
+    },
+    {
+      "id": "crates:embedrs",
+      "name": "embedrs",
+      "repo": "goliajp/rust-embeddings",
+      "reason": "имя пакета «embedrs» не похоже на имя репозитория «rust-embeddings» — возможно, это другой проект"
+    },
+    {
+      "id": "github:zjywill/aikitswift",
+      "name": "zjywill/aikitswift",
+      "repo": "zjywill/aikitswift",
+      "reason": "имя пакета «zjywill/aikitswift» не похоже на имя репозитория «aikitswift» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:io.github.yilengyao:openai",
+      "name": "io.github.yilengyao:openai",
+      "repo": "yilengyao/openai-java",
+      "reason": "имя пакета «io.github.yilengyao:openai» не похоже на имя репозитория «openai-java» — возможно, это другой проект"
+    },
+    {
+      "id": "github:deths74r/llaml",
+      "name": "deths74r/llaml",
+      "repo": "deths74r/llaml",
+      "reason": "имя пакета «deths74r/llaml» не похоже на имя репозитория «llaml» — возможно, это другой проект"
+    },
+    {
+      "id": "golang:github.com/eino-contrib/ollama",
+      "name": "github.com/eino-contrib/ollama",
+      "repo": "eino-contrib/ollama",
+      "reason": "имя пакета «github.com/eino-contrib/ollama» не похоже на имя репозитория «ollama» — возможно, это другой проект"
+    },
+    {
+      "id": "golang:github.com/henomis/cohere-go",
+      "name": "github.com/henomis/cohere-go",
+      "repo": "henomis/cohere-go",
+      "reason": "имя пакета «github.com/henomis/cohere-go» не похоже на имя репозитория «cohere-go» — возможно, это другой проект"
+    },
+    {
+      "id": "packagist:spryker-community/open-ai-client",
+      "name": "spryker-community/open-ai-client",
+      "repo": "spryker-community/open-ai-client",
+      "reason": "имя пакета «spryker-community/open-ai-client» не похоже на имя репозитория «open-ai-client» — возможно, это другой проект"
+    },
+    {
+      "id": "github:hugodro/openai-client",
+      "name": "hugodro/openai-client",
+      "repo": "hugodro/openai-client",
+      "reason": "имя пакета «hugodro/openai-client» не похоже на имя репозитория «openai-client» — возможно, это другой проект"
+    },
+    {
+      "id": "packagist:sdkfabric/openai",
+      "name": "sdkfabric/openai",
+      "repo": "sdk-fabric/openai-php",
+      "reason": "имя пакета «sdkfabric/openai» не похоже на имя репозитория «openai-php» — возможно, это другой проект"
+    },
+    {
+      "id": "swift:kuarezma/macllm",
+      "name": "kuarezma/macllm",
+      "repo": "kuarezma/macllm",
+      "reason": "имя пакета «kuarezma/macllm» не похоже на имя репозитория «macllm» — возможно, это другой проект"
     }
   ],
   "results": [
+    {
+      "id": "nuget:microsoft.extensions.ai.openai",
+      "ecosystem": "nuget",
+      "name": "Microsoft.Extensions.AI.OpenAI",
+      "source": "discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "nuget:microsoft.semantickernel.connectors.openai",
+      "ecosystem": "nuget",
+      "name": "Microsoft.SemanticKernel.Connectors.OpenAI",
+      "source": "discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "nuget:rystem.openai",
+      "ecosystem": "nuget",
+      "name": "Rystem.OpenAi",
+      "source": "discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "nuget:anthropic",
+      "ecosystem": "nuget",
+      "name": "Anthropic",
+      "source": "registry:nuget,curated:01-official-sdks.json,discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "nuget:microsoft.agents.ai.openai",
+      "ecosystem": "nuget",
+      "name": "Microsoft.Agents.AI.OpenAI",
+      "source": "discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "nuget:tryagi.openai",
+      "ecosystem": "nuget",
+      "name": "tryAGI.OpenAI",
+      "source": "discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "nuget:universe.openai.api",
+      "ecosystem": "nuget",
+      "name": "Universe.OpenAI.API",
+      "source": "discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:cohere-compass-sdk",
+      "ecosystem": "pypi",
+      "name": "cohere-compass-sdk",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:langchain-anthropic",
+      "ecosystem": "pypi",
+      "name": "langchain-anthropic",
+      "source": "registry:pypi,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "langchain-ai/langchain",
+      "canonical": "https://github.com/langchain-ai/langchain",
+      "stars": {
+        "recorded": 147102,
+        "actual": 147426
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:langchain",
+      "ecosystem": "pypi",
+      "name": "langchain",
+      "source": "registry:pypi,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "langchain-ai/langchain",
+      "canonical": "https://github.com/langchain-ai/langchain",
+      "stars": {
+        "recorded": 147102,
+        "actual": 147426
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:langchain-google-genai",
+      "ecosystem": "pypi",
+      "name": "langchain-google-genai",
+      "source": "registry:pypi,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "langchain-ai/langchain",
+      "canonical": "https://github.com/langchain-ai/langchain",
+      "stars": {
+        "recorded": 147102,
+        "actual": 147426
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:transformers",
+      "ecosystem": "pypi",
+      "name": "transformers",
+      "source": "registry:pypi,curated:04-infra.json,discovery:pypi",
+      "verdict": "ok",
+      "requested": "huggingface/transformers",
+      "canonical": "https://github.com/huggingface/transformers",
+      "stars": {
+        "recorded": 166688,
+        "actual": 166939
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:langchain-aws",
+      "ecosystem": "pypi",
+      "name": "langchain-aws",
+      "source": "registry:pypi,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "langchain-ai/langchain",
+      "canonical": "https://github.com/langchain-ai/langchain",
+      "stars": {
+        "recorded": 147102,
+        "actual": 147085
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "golang:github.com/ollama/ollama",
+      "ecosystem": "golang",
+      "name": "github.com/ollama/ollama",
+      "source": "registry:golang,curated:03-community-clients.json,discovery:golang",
+      "verdict": "ok",
+      "requested": "ollama/ollama",
+      "canonical": "https://github.com/ollama/ollama",
+      "stars": {
+        "recorded": 181765,
+        "actual": 182152
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:openai-whisper",
+      "ecosystem": "pypi",
+      "name": "openai-whisper",
+      "source": "discovery:pypi",
+      "verdict": "ok",
+      "requested": "openai/whisper",
+      "canonical": "https://github.com/openai/whisper",
+      "stars": {
+        "recorded": 109619,
+        "actual": 109942
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "github:ggml-org/llama.cpp",
+      "ecosystem": "github",
+      "name": "ggml-org/llama.cpp",
+      "source": "registry:github,curated:03-community-clients.json",
+      "verdict": "ok",
+      "requested": "ggml-org/llama.cpp",
+      "canonical": "https://github.com/ggml-org/llama.cpp",
+      "stars": {
+        "recorded": 129593,
+        "actual": 130265
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:torch",
+      "ecosystem": "pypi",
+      "name": "torch",
+      "source": "registry:pypi,curated:04-infra.json",
+      "verdict": "ok",
+      "requested": "pytorch/pytorch",
+      "canonical": "https://github.com/pytorch/pytorch",
+      "stars": {
+        "recorded": 103362,
+        "actual": 103734
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "nuget:cohere",
+      "ecosystem": "nuget",
+      "name": "Cohere",
+      "source": "discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:vllm",
+      "ecosystem": "pypi",
+      "name": "vllm",
+      "source": "registry:pypi,curated:04-infra.json,discovery:pypi",
+      "verdict": "ok",
+      "requested": "vllm-project/vllm",
+      "canonical": "https://github.com/vllm-project/vllm",
+      "stars": {
+        "recorded": 92720,
+        "actual": 93150
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:mcp",
+      "ecosystem": "npm",
+      "name": "mcp",
+      "source": "registry:npm,curated:05-mcp.json",
+      "verdict": "ok",
+      "requested": "modelcontextprotocol/servers",
+      "canonical": "https://github.com/modelcontextprotocol/servers",
+      "stars": {
+        "recorded": 90605,
+        "actual": 90994
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:@lobehub/chat",
+      "ecosystem": "npm",
+      "name": "@lobehub/chat",
+      "source": "registry:npm,curated:04-infra.json,curation",
+      "verdict": "ok",
+      "requested": "lobehub/lobehub",
+      "canonical": "https://github.com/lobehub/lobehub",
+      "stars": {
+        "recorded": 82837,
+        "actual": 82978
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:autogen-agentchat",
+      "ecosystem": "pypi",
+      "name": "autogen-agentchat",
+      "source": "registry:pypi,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "microsoft/autogen",
+      "canonical": "https://github.com/microsoft/autogen",
+      "stars": {
+        "recorded": 61179,
+        "actual": 61250
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:litellm",
+      "ecosystem": "npm",
+      "name": "litellm",
+      "source": "registry:npm,curated:04-infra.json",
+      "verdict": "ok",
+      "requested": "BerriAI/litellm",
+      "canonical": "https://github.com/BerriAI/litellm",
+      "stars": {
+        "recorded": 59669,
+        "actual": 60115
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:litellm",
+      "ecosystem": "pypi",
+      "name": "litellm",
+      "source": "registry:pypi,curated:04-infra.json",
+      "verdict": "ok",
+      "requested": "BerriAI/litellm",
+      "canonical": "https://github.com/BerriAI/litellm",
+      "stars": {
+        "recorded": 59669,
+        "actual": 60115
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:crewai",
+      "ecosystem": "pypi",
+      "name": "crewai",
+      "source": "registry:pypi,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "crewAIInc/crewAI",
+      "canonical": "https://github.com/crewAIInc/crewAI",
+      "stars": {
+        "recorded": 59059,
+        "actual": 59331
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:llamaindex",
+      "ecosystem": "npm",
+      "name": "llamaindex",
+      "source": "registry:npm,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "run-llama/llama_index",
+      "canonical": "https://github.com/run-llama/llama_index",
+      "stars": {
+        "recorded": 52327,
+        "actual": 52404
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:llama-index",
+      "ecosystem": "pypi",
+      "name": "llama-index",
+      "source": "registry:pypi,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "run-llama/llama_index",
+      "canonical": "https://github.com/run-llama/llama_index",
+      "stars": {
+        "recorded": 52327,
+        "actual": 52404
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:llama-index-core",
+      "ecosystem": "pypi",
+      "name": "llama-index-core",
+      "source": "registry:pypi,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "run-llama/llama_index",
+      "canonical": "https://github.com/run-llama/llama_index",
+      "stars": {
+        "recorded": 52327,
+        "actual": 52404
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "crates:anthropic",
+      "ecosystem": "crates",
+      "name": "anthropic",
+      "source": "discovery:crates",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "rubygems:anthropic-rb",
+      "ecosystem": "rubygems",
+      "name": "anthropic-rb",
+      "source": "discovery:rubygems",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:phidata",
+      "ecosystem": "pypi",
+      "name": "phidata",
+      "source": "registry:pypi,curated:02-frameworks.json,curation",
+      "verdict": "ok",
+      "requested": "agno-agi/agno",
+      "canonical": "https://github.com/agno-agi/agno",
+      "stars": {
+        "recorded": 42351,
+        "actual": 42544
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:langextract-azureopenai",
+      "ecosystem": "pypi",
+      "name": "langextract-azureopenai",
+      "source": "discovery:pypi",
+      "verdict": "ok",
+      "requested": "google/langextract",
+      "canonical": "https://github.com/google/langextract",
+      "stars": {
+        "recorded": 38887,
+        "actual": 38919
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:langgraph",
+      "ecosystem": "pypi",
+      "name": "langgraph",
+      "source": "registry:pypi,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "langchain-ai/langgraph",
+      "canonical": "https://github.com/langchain-ai/langgraph",
+      "stars": {
+        "recorded": 42325,
+        "actual": 42694
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:dspy",
+      "ecosystem": "pypi",
+      "name": "dspy",
+      "source": "registry:pypi,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "stanfordnlp/dspy",
+      "canonical": "https://github.com/stanfordnlp/dspy",
+      "stars": {
+        "recorded": 38339,
+        "actual": 38495
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:langfuse",
+      "ecosystem": "npm",
+      "name": "langfuse",
+      "source": "registry:npm,curated:04-infra.json,curation",
+      "verdict": "ok",
+      "requested": "langfuse/langfuse",
+      "canonical": "https://github.com/langfuse/langfuse",
+      "stars": {
+        "recorded": 35075,
+        "actual": 35357
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:langfuse",
+      "ecosystem": "pypi",
+      "name": "langfuse",
+      "source": "registry:pypi,curated:04-infra.json,curation",
+      "verdict": "ok",
+      "requested": "langfuse/langfuse",
+      "canonical": "https://github.com/langfuse/langfuse",
+      "stars": {
+        "recorded": 35075,
+        "actual": 35064
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:openai",
+      "ecosystem": "pypi",
+      "name": "openai",
+      "source": "registry:pypi,curated:01-official-sdks.json,discovery:pypi",
+      "verdict": "ok",
+      "requested": "openai/openai-python",
+      "canonical": "https://github.com/openai/openai-python",
+      "stars": {
+        "recorded": 31697,
+        "actual": 31741
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:openai-agents",
+      "ecosystem": "pypi",
+      "name": "openai-agents",
+      "source": "registry:pypi,curated:02-frameworks.json,discovery:pypi",
+      "verdict": "ok",
+      "requested": "openai/openai-agents-python",
+      "canonical": "https://github.com/openai/openai-agents-python",
+      "stars": {
+        "recorded": 29709,
+        "actual": 29826
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:smolagents",
+      "ecosystem": "pypi",
+      "name": "smolagents",
+      "source": "registry:pypi,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "huggingface/smolagents",
+      "canonical": "https://github.com/huggingface/smolagents",
+      "stars": {
+        "recorded": 29502,
+        "actual": 29667
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:chromadb",
+      "ecosystem": "pypi",
+      "name": "chromadb",
+      "source": "registry:pypi,curated:04-infra.json",
+      "verdict": "ok",
+      "requested": "chroma-core/chroma",
+      "canonical": "https://github.com/chroma-core/chroma",
+      "stars": {
+        "recorded": 29387,
+        "actual": 29433
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "nuget:microsoft.semantickernel",
+      "ecosystem": "nuget",
+      "name": "Microsoft.SemanticKernel",
+      "source": "registry:nuget,curated:02-frameworks.json,discovery:nuget",
+      "verdict": "ok",
+      "requested": "microsoft/semantic-kernel",
+      "canonical": "https://github.com/microsoft/semantic-kernel",
+      "stars": {
+        "recorded": 28607,
+        "actual": 28624
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:fastmcp",
+      "ecosystem": "pypi",
+      "name": "fastmcp",
+      "source": "registry:pypi,curated:05-mcp.json,curation",
+      "verdict": "ok",
+      "requested": "PrefectHQ/fastmcp",
+      "canonical": "https://github.com/PrefectHQ/fastmcp",
+      "stars": {
+        "recorded": 27907,
+        "actual": 27969
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:@ai-sdk/openai",
+      "ecosystem": "npm",
+      "name": "@ai-sdk/openai",
+      "source": "registry:npm,curated:02-frameworks.json,discovery:npm",
+      "verdict": "ok",
+      "requested": "vercel/ai",
+      "canonical": "https://github.com/vercel/ai",
+      "stars": {
+        "recorded": 26966,
+        "actual": 27110
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:ai",
+      "ecosystem": "npm",
+      "name": "ai",
+      "source": "registry:npm,curated:02-frameworks.json,discovery:npm",
+      "verdict": "ok",
+      "requested": "vercel/ai",
+      "canonical": "https://github.com/vercel/ai",
+      "stars": {
+        "recorded": 26966,
+        "actual": 27110
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:@ai-sdk/anthropic",
+      "ecosystem": "npm",
+      "name": "@ai-sdk/anthropic",
+      "source": "registry:npm,curated:02-frameworks.json,discovery:npm",
+      "verdict": "ok",
+      "requested": "vercel/ai",
+      "canonical": "https://github.com/vercel/ai",
+      "stars": {
+        "recorded": 26966,
+        "actual": 27110
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "nuget:devexpress.aiintegration.openai",
+      "ecosystem": "nuget",
+      "name": "DevExpress.AIIntegration.OpenAI",
+      "source": "discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "npm:@ai-sdk/openai-compatible",
+      "ecosystem": "npm",
+      "name": "@ai-sdk/openai-compatible",
+      "source": "registry:npm,curated:02-frameworks.json,discovery:npm,curation",
+      "verdict": "ok",
+      "requested": "vercel/ai",
+      "canonical": "https://github.com/vercel/ai",
+      "stars": {
+        "recorded": 26966,
+        "actual": 27110
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:@ai-sdk/google",
+      "ecosystem": "npm",
+      "name": "@ai-sdk/google",
+      "source": "registry:npm,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "vercel/ai",
+      "canonical": "https://github.com/vercel/ai",
+      "stars": {
+        "recorded": 26966,
+        "actual": 27110
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:@ctilkaz/openai-compatible-ignore-unknown",
+      "ecosystem": "npm",
+      "name": "@ctilkaz/openai-compatible-ignore-unknown",
+      "source": "discovery:npm",
+      "verdict": "ok",
+      "requested": "vercel/ai",
+      "canonical": "https://github.com/vercel/ai",
+      "stars": {
+        "recorded": 26966,
+        "actual": 27110
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:haystack-ai",
+      "ecosystem": "pypi",
+      "name": "haystack-ai",
+      "source": "registry:pypi,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "deepset-ai/haystack",
+      "canonical": "https://github.com/deepset-ai/haystack",
+      "stars": {
+        "recorded": 26612,
+        "actual": 26646
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:promptfoo",
+      "ecosystem": "npm",
+      "name": "promptfoo",
+      "source": "registry:npm,curated:04-infra.json",
+      "verdict": "ok",
+      "requested": "promptfoo/promptfoo",
+      "canonical": "https://github.com/promptfoo/promptfoo",
+      "stars": {
+        "recorded": 25475,
+        "actual": 25692
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:letta",
+      "ecosystem": "pypi",
+      "name": "letta",
+      "source": "registry:pypi,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "letta-ai/letta",
+      "canonical": "https://github.com/letta-ai/letta",
+      "stars": {
+        "recorded": 24896,
+        "actual": 25024
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:mcp",
+      "ecosystem": "pypi",
+      "name": "mcp",
+      "source": "registry:pypi,curated:05-mcp.json",
+      "verdict": "ok",
+      "requested": "modelcontextprotocol/python-sdk",
+      "canonical": "https://github.com/modelcontextprotocol/python-sdk",
+      "stars": {
+        "recorded": 24407,
+        "actual": 24476
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "github:steipete/codexbar",
+      "ecosystem": "github",
+      "name": "steipete/CodexBar",
+      "source": "discovery:github",
+      "verdict": "ok",
+      "requested": "steipete/CodexBar",
+      "canonical": "https://github.com/steipete/CodexBar",
+      "stars": {
+        "recorded": 21946,
+        "actual": 22173
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:jina",
+      "ecosystem": "pypi",
+      "name": "jina",
+      "source": "registry:pypi,curated:01-official-sdks.json,curation",
+      "verdict": "ok",
+      "requested": "jina-ai/serve",
+      "canonical": "https://github.com/jina-ai/serve",
+      "stars": {
+        "recorded": 21862,
+        "actual": 21864
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:guidance",
+      "ecosystem": "pypi",
+      "name": "guidance",
+      "source": "registry:pypi,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "guidance-ai/guidance",
+      "canonical": "https://github.com/guidance-ai/guidance",
+      "stars": {
+        "recorded": 21780,
+        "actual": 21788
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "crates:candle",
+      "ecosystem": "crates",
+      "name": "candle",
+      "source": "registry:crates,curated:04-infra.json",
+      "verdict": "ok",
+      "requested": "huggingface/candle",
+      "canonical": "https://github.com/huggingface/candle",
+      "stars": {
+        "recorded": 21108,
+        "actual": 21138
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:pydantic-ai",
+      "ecosystem": "pypi",
+      "name": "pydantic-ai",
+      "source": "registry:pypi,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "pydantic/pydantic-ai",
+      "canonical": "https://github.com/pydantic/pydantic-ai",
+      "stars": {
+        "recorded": 20193,
+        "actual": 20394
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "github:openai/evals",
+      "ecosystem": "github",
+      "name": "openai/evals",
+      "source": "registry:github,curated:04-infra.json",
+      "verdict": "ok",
+      "requested": "openai/evals",
+      "canonical": "https://github.com/openai/evals",
+      "stars": {
+        "recorded": 19509,
+        "actual": 19551
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:tiktoken",
+      "ecosystem": "pypi",
+      "name": "tiktoken",
+      "source": "registry:pypi,curated:04-infra.json",
+      "verdict": "ok",
+      "requested": "openai/tiktoken",
+      "canonical": "https://github.com/openai/tiktoken",
+      "stars": {
+        "recorded": 19331,
+        "actual": 19379
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:@mlc-ai/web-llm",
+      "ecosystem": "npm",
+      "name": "@mlc-ai/web-llm",
+      "source": "registry:npm,curated:04-infra.json",
+      "verdict": "ok",
+      "requested": "mlc-ai/web-llm",
+      "canonical": "https://github.com/mlc-ai/web-llm",
+      "stars": {
+        "recorded": 19194,
+        "actual": 19221
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:deepeval",
+      "ecosystem": "pypi",
+      "name": "deepeval",
+      "source": "registry:pypi,curated:04-infra.json",
+      "verdict": "ok",
+      "requested": "confident-ai/deepeval",
+      "canonical": "https://github.com/confident-ai/deepeval",
+      "stars": {
+        "recorded": 18453,
+        "actual": 18618
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:@langchain/anthropic",
+      "ecosystem": "npm",
+      "name": "@langchain/anthropic",
+      "source": "registry:npm,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "langchain-ai/langchainjs",
+      "canonical": "https://github.com/langchain-ai/langchainjs",
+      "stars": {
+        "recorded": 18230,
+        "actual": 18246
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:@claude-flow/embeddings",
+      "ecosystem": "npm",
+      "name": "@claude-flow/embeddings",
+      "source": "discovery:npm",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:outlines",
+      "ecosystem": "pypi",
+      "name": "outlines",
+      "source": "registry:pypi,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "dottxt-ai/outlines",
+      "canonical": "https://github.com/dottxt-ai/outlines",
+      "stars": {
+        "recorded": 15885,
+        "actual": 15898
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:langchain",
+      "ecosystem": "npm",
+      "name": "langchain",
+      "source": "registry:npm,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "langchain-ai/langchainjs",
+      "canonical": "https://github.com/langchain-ai/langchainjs",
+      "stars": {
+        "recorded": 18230,
+        "actual": 18246
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:@langchain/core",
+      "ecosystem": "npm",
+      "name": "@langchain/core",
+      "source": "registry:npm,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "langchain-ai/langchainjs",
+      "canonical": "https://github.com/langchain-ai/langchainjs",
+      "stars": {
+        "recorded": 18230,
+        "actual": 18246
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:mistralai-search-toolkit",
+      "ecosystem": "pypi",
+      "name": "mistralai-search-toolkit",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "npm:@langchain/openai",
+      "ecosystem": "npm",
+      "name": "@langchain/openai",
+      "source": "registry:npm,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "langchain-ai/langchainjs",
+      "canonical": "https://github.com/langchain-ai/langchainjs",
+      "stars": {
+        "recorded": 18230,
+        "actual": 18246
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:@huggingface/transformers",
+      "ecosystem": "npm",
+      "name": "@huggingface/transformers",
+      "source": "registry:npm,curated:04-infra.json,discovery:npm",
+      "verdict": "ok",
+      "requested": "huggingface/transformers.js",
+      "canonical": "https://github.com/huggingface/transformers.js",
+      "stars": {
+        "recorded": 16323,
+        "actual": 16338
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:ragas",
+      "ecosystem": "pypi",
+      "name": "ragas",
+      "source": "registry:pypi,curated:04-infra.json,curation",
+      "verdict": "ok",
+      "requested": "vibrantlabsai/ragas",
+      "canonical": "https://github.com/vibrantlabsai/ragas",
+      "stars": {
+        "recorded": 15853,
+        "actual": 15919
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:unstructured",
+      "ecosystem": "pypi",
+      "name": "unstructured",
+      "source": "registry:pypi,curated:04-infra.json",
+      "verdict": "ok",
+      "requested": "Unstructured-IO/unstructured",
+      "canonical": "https://github.com/Unstructured-IO/unstructured",
+      "stars": {
+        "recorded": 15501,
+        "actual": 15527
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "rubygems:openai-please",
+      "ecosystem": "rubygems",
+      "name": "openai-please",
+      "source": "discovery:rubygems",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "github:tisfeng/easydict",
+      "ecosystem": "github",
+      "name": "tisfeng/easydict",
+      "source": "discovery:github,curation",
+      "verdict": "ok",
+      "requested": "tisfeng/Easydict",
+      "canonical": "https://github.com/tisfeng/Easydict",
+      "stars": {
+        "recorded": 14763,
+        "actual": 14834
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:instructor",
+      "ecosystem": "pypi",
+      "name": "instructor",
+      "source": "registry:pypi,curated:02-frameworks.json,curation",
+      "verdict": "ok",
+      "requested": "567-labs/instructor",
+      "canonical": "https://github.com/567-labs/instructor",
+      "stars": {
+        "recorded": 13944,
+        "actual": 13973
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:@modelcontextprotocol/sdk",
+      "ecosystem": "npm",
+      "name": "@modelcontextprotocol/sdk",
+      "source": "registry:npm,curated:05-mcp.json",
+      "verdict": "ok",
+      "requested": "modelcontextprotocol/typescript-sdk",
+      "canonical": "https://github.com/modelcontextprotocol/typescript-sdk",
+      "stars": {
+        "recorded": 13464,
+        "actual": 13511
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "maven:dev.langchain4j:langchain4j",
+      "ecosystem": "maven",
+      "name": "dev.langchain4j:langchain4j",
+      "source": "registry:maven,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "langchain4j/langchain4j",
+      "canonical": "https://github.com/langchain4j/langchain4j",
+      "stars": {
+        "recorded": 13160,
+        "actual": 13202
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "crates:oai",
+      "ecosystem": "crates",
+      "name": "oai",
+      "source": "registry:crates,curated:03-community-clients.json",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "maven:dev.langchain4j:langchain4j-anthropic",
+      "ecosystem": "maven",
+      "name": "dev.langchain4j:langchain4j-anthropic",
+      "source": "registry:maven,curated:02-frameworks.json,discovery:maven",
+      "verdict": "ok",
+      "requested": "langchain4j/langchain4j",
+      "canonical": "https://github.com/langchain4j/langchain4j",
+      "stars": {
+        "recorded": 13160,
+        "actual": 13159
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "maven:dev.langchain4j:langchain4j-open-ai",
+      "ecosystem": "maven",
+      "name": "dev.langchain4j:langchain4j-open-ai",
+      "source": "registry:maven,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "langchain4j/langchain4j",
+      "canonical": "https://github.com/langchain4j/langchain4j",
+      "stars": {
+        "recorded": 13160,
+        "actual": 13159
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:portkey",
+      "ecosystem": "npm",
+      "name": "portkey",
+      "source": "registry:npm,curated:04-infra.json",
+      "verdict": "ok",
+      "requested": "Portkey-AI/gateway",
+      "canonical": "https://github.com/Portkey-AI/gateway",
+      "stars": {
+        "recorded": 13086,
+        "actual": 13125
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "rubygems:openai_101",
+      "ecosystem": "rubygems",
+      "name": "openai_101",
+      "source": "discovery:rubygems",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "golang:github.com/bentoml/openllm",
+      "ecosystem": "golang",
+      "name": "github.com/bentoml/OpenLLM",
+      "source": "curated:03-community-clients.json",
+      "verdict": "ok",
+      "requested": "bentoml/OpenLLM",
+      "canonical": "https://github.com/bentoml/OpenLLM",
+      "stars": {
+        "recorded": 12548,
+        "actual": 12552
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:lancedb",
+      "ecosystem": "pypi",
+      "name": "lancedb",
+      "source": "registry:pypi,curated:04-infra.json",
+      "verdict": "ok",
+      "requested": "lancedb/lancedb",
+      "canonical": "https://github.com/lancedb/lancedb",
+      "stars": {
+        "recorded": 11535,
+        "actual": 11600
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:openai",
+      "ecosystem": "npm",
+      "name": "openai",
+      "source": "registry:npm,curated:01-official-sdks.json,discovery:npm",
+      "verdict": "ok",
+      "requested": "openai/openai-node",
+      "canonical": "https://github.com/openai/openai-node",
+      "stars": {
+        "recorded": 11187,
+        "actual": 11200
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "crates:tokenizers",
+      "ecosystem": "crates",
+      "name": "tokenizers",
+      "source": "registry:crates,curated:04-infra.json",
+      "verdict": "ok",
+      "requested": "huggingface/tokenizers",
+      "canonical": "https://github.com/huggingface/tokenizers",
+      "stars": {
+        "recorded": 11119,
+        "actual": 11151
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "golang:github.com/sashabaranov/go-openai",
+      "ecosystem": "golang",
+      "name": "github.com/sashabaranov/go-openai",
+      "source": "registry:golang,curated:03-community-clients.json,discovery:golang",
+      "verdict": "ok",
+      "requested": "sashabaranov/go-openai",
+      "canonical": "https://github.com/sashabaranov/go-openai",
+      "stars": {
+        "recorded": 10778,
+        "actual": 10781
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "golang:github.com/tmc/langchaingo",
+      "ecosystem": "golang",
+      "name": "github.com/tmc/langchaingo",
+      "source": "registry:golang,curated:03-community-clients.json,discovery:golang",
+      "verdict": "ok",
+      "requested": "tmc/langchaingo",
+      "canonical": "https://github.com/tmc/langchaingo",
+      "stars": {
+        "recorded": 9696,
+        "actual": 9709
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:llama-cpp-python",
+      "ecosystem": "pypi",
+      "name": "llama-cpp-python",
+      "source": "registry:pypi,curated:04-infra.json",
+      "verdict": "ok",
+      "requested": "abetlen/llama-cpp-python",
+      "canonical": "https://github.com/abetlen/llama-cpp-python",
+      "stars": {
+        "recorded": 10635,
+        "actual": 10637
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:smart-mcp",
+      "ecosystem": "npm",
+      "name": "smart-mcp",
+      "source": "discovery:npm,curation",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:ollama",
+      "ecosystem": "pypi",
+      "name": "ollama",
+      "source": "registry:pypi,curated:04-infra.json,discovery:pypi,curation",
+      "verdict": "ok",
+      "requested": "ollama/ollama-python",
+      "canonical": "https://github.com/ollama/ollama-python",
+      "stars": {
+        "recorded": 10558,
+        "actual": 10571
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:azureopenai",
+      "ecosystem": "pypi",
+      "name": "azureopenai",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "maven:org.springframework.ai:spring-ai-autoconfigure-model-anthropic",
+      "ecosystem": "maven",
+      "name": "org.springframework.ai:spring-ai-autoconfigure-model-anthropic",
+      "source": "discovery:maven",
+      "verdict": "ok",
+      "requested": "spring-projects/spring-ai",
+      "canonical": "https://github.com/spring-projects/spring-ai",
+      "stars": {
+        "recorded": 9484,
+        "actual": 9506
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "maven:org.springframework.ai:spring-ai-anthropic-spring-boot-starter",
+      "ecosystem": "maven",
+      "name": "org.springframework.ai:spring-ai-anthropic-spring-boot-starter",
+      "source": "discovery:maven",
+      "verdict": "ok",
+      "requested": "spring-projects/spring-ai",
+      "canonical": "https://github.com/spring-projects/spring-ai",
+      "stars": {
+        "recorded": 9484,
+        "actual": 9506
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "maven:org.springframework.ai:spring-ai-anthropic",
+      "ecosystem": "maven",
+      "name": "org.springframework.ai:spring-ai-anthropic",
+      "source": "registry:maven,curated:02-frameworks.json,discovery:maven",
+      "verdict": "ok",
+      "requested": "spring-projects/spring-ai",
+      "canonical": "https://github.com/spring-projects/spring-ai",
+      "stars": {
+        "recorded": 9484,
+        "actual": 9506
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "maven:org.springframework.ai:spring-ai-openai",
+      "ecosystem": "maven",
+      "name": "org.springframework.ai:spring-ai-openai",
+      "source": "registry:maven,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "spring-projects/spring-ai",
+      "canonical": "https://github.com/spring-projects/spring-ai",
+      "stars": {
+        "recorded": 9484,
+        "actual": 9506
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:mlx-lm",
+      "ecosystem": "pypi",
+      "name": "mlx-lm",
+      "source": "registry:pypi,curated:04-infra.json",
+      "verdict": "ok",
+      "requested": "ml-explore/mlx-examples",
+      "canonical": "https://github.com/ml-explore/mlx-examples",
+      "stars": {
+        "recorded": 8982,
+        "actual": 8990
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "crates:rig-core",
+      "ecosystem": "crates",
+      "name": "rig-core",
+      "source": "registry:crates,curated:03-community-clients.json",
+      "verdict": "ok",
+      "requested": "0xPlaygrounds/rig",
+      "canonical": "https://github.com/0xPlaygrounds/rig",
+      "stars": {
+        "recorded": 8738,
+        "actual": 8803
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:claude-code-sdk",
+      "ecosystem": "pypi",
+      "name": "claude-code-sdk",
+      "source": "discovery:pypi",
+      "verdict": "ok",
+      "requested": "anthropics/claude-agent-sdk-python",
+      "canonical": "https://github.com/anthropics/claude-agent-sdk-python",
+      "stars": {
+        "recorded": 8170,
+        "actual": 8213
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "rubygems:net-llm",
+      "ecosystem": "rubygems",
+      "name": "net-llm",
+      "source": "discovery:rubygems,curation",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "golang:github.com/firebase/genkit/go",
+      "ecosystem": "golang",
+      "name": "github.com/firebase/genkit/go",
+      "source": "discovery:golang",
+      "verdict": "ok",
+      "requested": "genkit-ai/genkit",
+      "canonical": "https://github.com/genkit-ai/genkit",
+      "stars": {
+        "recorded": 6455,
+        "actual": 6469
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "github:arthur-ficial/apfel",
+      "ecosystem": "github",
+      "name": "arthur-ficial/apfel",
+      "source": "discovery:github,curation",
+      "verdict": "ok",
+      "requested": "Arthur-Ficial/apfel",
+      "canonical": "https://github.com/Arthur-Ficial/apfel",
+      "stars": {
+        "recorded": 6445,
+        "actual": 6453
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:marvin",
+      "ecosystem": "pypi",
+      "name": "marvin",
+      "source": "registry:pypi,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "PrefectHQ/marvin",
+      "canonical": "https://github.com/PrefectHQ/marvin",
+      "stars": {
+        "recorded": 6198,
+        "actual": 6203
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:helicone",
+      "ecosystem": "pypi",
+      "name": "helicone",
+      "source": "registry:pypi,curated:04-infra.json",
+      "verdict": "ok",
+      "requested": "Helicone/helicone",
+      "canonical": "https://github.com/Helicone/helicone",
+      "stars": {
+        "recorded": 6177,
+        "actual": 6199
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "nuget:azure.ai.extensions.openai",
+      "ecosystem": "nuget",
+      "name": "Azure.AI.Extensions.OpenAI",
+      "source": "discovery:nuget",
+      "verdict": "ok",
+      "requested": "Azure/azure-sdk-for-net",
+      "canonical": "https://github.com/Azure/azure-sdk-for-net",
+      "stars": {
+        "recorded": 6058,
+        "actual": 6061
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "nuget:azure.ai.openai",
+      "ecosystem": "nuget",
+      "name": "Azure.AI.OpenAI",
+      "source": "registry:nuget,curated:01-official-sdks.json,discovery:nuget",
+      "verdict": "ok",
+      "requested": "Azure/azure-sdk-for-net",
+      "canonical": "https://github.com/Azure/azure-sdk-for-net",
+      "stars": {
+        "recorded": 6058,
+        "actual": 6061
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "packagist:openai-php/client",
+      "ecosystem": "packagist",
+      "name": "openai-php/client",
+      "source": "registry:packagist,curated:03-community-clients.json,discovery:packagist",
+      "verdict": "ok",
+      "requested": "openai-php/client",
+      "canonical": "https://github.com/openai-php/client",
+      "stars": {
+        "recorded": 5833,
+        "actual": 5835
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:azure-ai-agents",
+      "ecosystem": "pypi",
+      "name": "azure-ai-agents",
+      "source": "registry:pypi,curated:01-official-sdks.json",
+      "verdict": "ok",
+      "requested": "Azure/azure-sdk-for-python",
+      "canonical": "https://github.com/Azure/azure-sdk-for-python",
+      "stars": {
+        "recorded": 5609,
+        "actual": 5612
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:azure-ai-inference",
+      "ecosystem": "pypi",
+      "name": "azure-ai-inference",
+      "source": "registry:pypi,curated:01-official-sdks.json",
+      "verdict": "ok",
+      "requested": "Azure/azure-sdk-for-python",
+      "canonical": "https://github.com/Azure/azure-sdk-for-python",
+      "stars": {
+        "recorded": 5609,
+        "actual": 5612
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "github:nguyenphutrong/quotio",
+      "ecosystem": "github",
+      "name": "nguyenphutrong/quotio",
+      "source": "discovery:github,curation",
+      "verdict": "ok",
+      "requested": "nguyenphutrong/quotio",
+      "canonical": "https://github.com/nguyenphutrong/quotio",
+      "stars": {
+        "recorded": 4873,
+        "actual": 4879
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "crates:tch",
+      "ecosystem": "crates",
+      "name": "tch",
+      "source": "registry:crates,curated:04-infra.json,curated:99-link-fixes.json",
+      "verdict": "ok",
+      "requested": "LaurentMazare/tch-rs",
+      "canonical": "https://github.com/LaurentMazare/tch-rs",
+      "stars": {
+        "recorded": 5495,
+        "actual": 5497
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "maven:com.theokanning.openai-gpt3-java:api",
+      "ecosystem": "maven",
+      "name": "com.theokanning.openai-gpt3-java:api",
+      "source": "discovery:maven",
+      "verdict": "ok",
+      "requested": "TheoKanning/openai-java",
+      "canonical": "https://github.com/TheoKanning/openai-java",
+      "stars": {
+        "recorded": 4721,
+        "actual": 4718
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "rubygems:ruby_llm",
+      "ecosystem": "rubygems",
+      "name": "ruby_llm",
+      "source": "registry:rubygems,curated:03-community-clients.json,discovery:rubygems,curation",
+      "verdict": "ok",
+      "requested": "crmne/ruby_llm",
+      "canonical": "https://github.com/crmne/ruby_llm",
+      "stars": {
+        "recorded": 4413,
+        "actual": 4428
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:ollama",
+      "ecosystem": "npm",
+      "name": "ollama",
+      "source": "registry:npm,curated:04-infra.json,discovery:npm,curation",
+      "verdict": "ok",
+      "requested": "ollama/ollama-js",
+      "canonical": "https://github.com/ollama/ollama-js",
+      "stars": {
+        "recorded": 4373,
+        "actual": 4378
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "luarocks:chatgpt.nvim",
+      "ecosystem": "luarocks",
+      "name": "chatgpt.nvim",
+      "source": "discovery:luarocks",
+      "verdict": "ok",
+      "requested": "jackMort/ChatGPT.nvim",
+      "canonical": "https://github.com/jackMort/ChatGPT.nvim",
+      "stars": {
+        "recorded": 3996,
+        "actual": 3995
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:google-genai",
+      "ecosystem": "pypi",
+      "name": "google-genai",
+      "source": "registry:pypi,curated:01-official-sdks.json",
+      "verdict": "ok",
+      "requested": "googleapis/python-genai",
+      "canonical": "https://github.com/googleapis/python-genai",
+      "stars": {
+        "recorded": 3992,
+        "actual": 4001
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:huggingface-hub",
+      "ecosystem": "pypi",
+      "name": "huggingface-hub",
+      "source": "discovery:pypi",
+      "verdict": "ok",
+      "requested": "huggingface/huggingface_hub",
+      "canonical": "https://github.com/huggingface/huggingface_hub",
+      "stars": {
+        "recorded": 3936,
+        "actual": 3956
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:anthropic",
+      "ecosystem": "pypi",
+      "name": "anthropic",
+      "source": "registry:pypi,curated:01-official-sdks.json,discovery:pypi",
+      "verdict": "ok",
+      "requested": "anthropics/anthropic-sdk-python",
+      "canonical": "https://github.com/anthropics/anthropic-sdk-python",
+      "stars": {
+        "recorded": 3922,
+        "actual": 3947
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "nuget:llamasharp",
+      "ecosystem": "nuget",
+      "name": "llamasharp",
+      "source": "registry:nuget,curated:02-frameworks.json,curation",
+      "verdict": "ok",
+      "requested": "SciSharp/LLamaSharp",
+      "canonical": "https://github.com/SciSharp/LLamaSharp",
+      "stars": {
+        "recorded": 3800,
+        "actual": 3809
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "packagist:openai-php/laravel",
+      "ecosystem": "packagist",
+      "name": "openai-php/laravel",
+      "source": "registry:packagist,curated:03-community-clients.json,discovery:packagist",
+      "verdict": "ok",
+      "requested": "openai-php/laravel",
+      "canonical": "https://github.com/openai-php/laravel",
+      "stars": {
+        "recorded": 3755,
+        "actual": 3756
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "rubygems:aws-sdk-bedrockruntime",
+      "ecosystem": "rubygems",
+      "name": "aws-sdk-bedrockruntime",
+      "source": "registry:rubygems,curated:01-official-sdks.json",
+      "verdict": "ok",
+      "requested": "aws/aws-sdk-ruby",
+      "canonical": "https://github.com/aws/aws-sdk-ruby",
+      "stars": {
+        "recorded": 3657,
+        "actual": 3656
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:@warlock.js/ai-groq",
+      "ecosystem": "npm",
+      "name": "@warlock.js/ai-groq",
+      "source": "discovery:npm,curation",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "golang:github.com/aws/aws-sdk-go-v2/service/bedrockruntime",
+      "ecosystem": "golang",
+      "name": "github.com/aws/aws-sdk-go-v2/service/bedrockruntime",
+      "source": "registry:golang,curated:01-official-sdks.json",
+      "verdict": "ok",
+      "requested": "aws/aws-sdk-go-v2",
+      "canonical": "https://github.com/aws/aws-sdk-go-v2",
+      "stars": {
+        "recorded": 3659,
+        "actual": 3660
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "maven:io.modelcontextprotocol.sdk:mcp",
+      "ecosystem": "maven",
+      "name": "io.modelcontextprotocol.sdk:mcp",
+      "source": "registry:maven,curated:05-mcp.json",
+      "verdict": "ok",
+      "requested": "modelcontextprotocol/java-sdk",
+      "canonical": "https://github.com/modelcontextprotocol/java-sdk",
+      "stars": {
+        "recorded": 3712,
+        "actual": 3718
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "golang:github.com/openai/openai-go/v3",
+      "ecosystem": "golang",
+      "name": "github.com/openai/openai-go/v3",
+      "source": "registry:golang,curated:01-official-sdks.json,discovery:golang",
+      "verdict": "ok",
+      "requested": "openai/openai-go",
+      "canonical": "https://github.com/openai/openai-go",
+      "stars": {
+        "recorded": 3478,
+        "actual": 3483
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:@langchain/langgraph",
+      "ecosystem": "npm",
+      "name": "@langchain/langgraph",
+      "source": "registry:npm,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "langchain-ai/langgraphjs",
+      "canonical": "https://github.com/langchain-ai/langgraphjs",
+      "stars": {
+        "recorded": 3317,
+        "actual": 3335
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:mistralai-search-toolkit-plugins-postgres",
+      "ecosystem": "pypi",
+      "name": "mistralai-search-toolkit-plugins-postgres",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:fastembed",
+      "ecosystem": "pypi",
+      "name": "fastembed",
+      "source": "registry:pypi,curated:04-infra.json",
+      "verdict": "ok",
+      "requested": "qdrant/fastembed",
+      "canonical": "https://github.com/qdrant/fastembed",
+      "stars": {
+        "recorded": 3219,
+        "actual": 3234
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "nuget:microsoft.extensions.ai",
+      "ecosystem": "nuget",
+      "name": "Microsoft.Extensions.AI",
+      "source": "registry:nuget,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "dotnet/extensions",
+      "canonical": "https://github.com/dotnet/extensions",
+      "stars": {
+        "recorded": 3216,
+        "actual": 3219
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "nuget:betalgo.openai",
+      "ecosystem": "nuget",
+      "name": "Betalgo.OpenAI",
+      "source": "discovery:nuget,curation",
+      "verdict": "ok",
+      "requested": "betalgo/openai",
+      "canonical": "https://github.com/betalgo/openai",
+      "stars": {
+        "recorded": 3026,
+        "actual": 3023
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:inspect-ai",
+      "ecosystem": "pypi",
+      "name": "inspect-ai",
+      "source": "registry:pypi,curated:04-infra.json",
+      "verdict": "ok",
+      "requested": "UKGovernmentBEIS/inspect_ai",
+      "canonical": "https://github.com/UKGovernmentBEIS/inspect_ai",
+      "stars": {
+        "recorded": 2862,
+        "actual": 2930
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:openlit",
+      "ecosystem": "pypi",
+      "name": "openlit",
+      "source": "registry:pypi,curated:04-infra.json,curation",
+      "verdict": "ok",
+      "requested": "openlit/openlit",
+      "canonical": "https://github.com/openlit/openlit",
+      "stars": {
+        "recorded": 2797,
+        "actual": 2814
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "nuget:openai",
+      "ecosystem": "nuget",
+      "name": "OpenAI",
+      "source": "registry:nuget,curated:01-official-sdks.json,curated:03-community-clients.json,discovery:nuget,curation",
+      "verdict": "ok",
+      "requested": "openai/openai-dotnet",
+      "canonical": "https://github.com/openai/openai-dotnet",
+      "stars": {
+        "recorded": 2698,
+        "actual": 2703
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "maven:com.azure:azure-ai-openai",
+      "ecosystem": "maven",
+      "name": "com.azure:azure-ai-openai",
+      "source": "registry:maven,curated:01-official-sdks.json,discovery:maven",
+      "verdict": "ok",
+      "requested": "Azure/azure-sdk-for-java",
+      "canonical": "https://github.com/Azure/azure-sdk-for-java",
+      "stars": {
+        "recorded": 2562,
+        "actual": 2563
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "maven:com.azure:azure-ai-openai-assistants",
+      "ecosystem": "maven",
+      "name": "com.azure:azure-ai-openai-assistants",
+      "source": "discovery:maven",
+      "verdict": "ok",
+      "requested": "Azure/azure-sdk-for-java",
+      "canonical": "https://github.com/Azure/azure-sdk-for-java",
+      "stars": {
+        "recorded": 2562,
+        "actual": 2563
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:@huggingface/inference",
+      "ecosystem": "npm",
+      "name": "@huggingface/inference",
+      "source": "discovery:npm,curation",
+      "verdict": "ok",
+      "requested": "huggingface/huggingface.js",
+      "canonical": "https://github.com/huggingface/huggingface.js",
+      "stars": {
+        "recorded": 2535,
+        "actual": 2539
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "packagist:prism-php/prism",
+      "ecosystem": "packagist",
+      "name": "prism-php/prism",
+      "source": "registry:packagist,curated:03-community-clients.json,curation",
+      "verdict": "ok",
+      "requested": "prism-php/prism",
+      "canonical": "https://github.com/prism-php/prism",
+      "stars": {
+        "recorded": 2423,
+        "actual": 2427
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "crates:huggingface",
+      "ecosystem": "crates",
+      "name": "huggingface",
+      "source": "registry:crates,curated:03-community-clients.json,discovery:crates,curation",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "npm:@huggingface/ollama-utils",
+      "ecosystem": "npm",
+      "name": "@huggingface/ollama-utils",
+      "source": "discovery:npm,curation",
+      "verdict": "ok",
+      "requested": "huggingface/huggingface.js",
+      "canonical": "https://github.com/huggingface/huggingface.js",
+      "stars": {
+        "recorded": 2535,
+        "actual": 2539
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:@anthropic-ai/sdk",
+      "ecosystem": "npm",
+      "name": "@anthropic-ai/sdk",
+      "source": "registry:npm,curated:01-official-sdks.json,discovery:npm",
+      "verdict": "ok",
+      "requested": "anthropics/anthropic-sdk-typescript",
+      "canonical": "https://github.com/anthropics/anthropic-sdk-typescript",
+      "stars": {
+        "recorded": 2122,
+        "actual": 2131
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "crates:mistralai",
+      "ecosystem": "crates",
+      "name": "mistralai",
+      "source": "registry:crates,curated:03-community-clients.json,discovery:crates,curation",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "npm:@anthropic-ai/bedrock-sdk",
+      "ecosystem": "npm",
+      "name": "@anthropic-ai/bedrock-sdk",
+      "source": "discovery:npm",
+      "verdict": "ok",
+      "requested": "anthropics/anthropic-sdk-typescript",
+      "canonical": "https://github.com/anthropics/anthropic-sdk-typescript",
+      "stars": {
+        "recorded": 2122,
+        "actual": 2131
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:@azure/openai",
+      "ecosystem": "npm",
+      "name": "@azure/openai",
+      "source": "registry:npm,curated:01-official-sdks.json,discovery:npm",
+      "verdict": "ok",
+      "requested": "Azure/azure-sdk-for-js",
+      "canonical": "https://github.com/Azure/azure-sdk-for-js",
+      "stars": {
+        "recorded": 2295,
+        "actual": 2298
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "github:aallam/openai-kotlin",
+      "ecosystem": "github",
+      "name": "aallam/openai-kotlin",
+      "source": "registry:github,curated:03-community-clients.json",
+      "verdict": "ok",
+      "requested": "aallam/openai-kotlin",
+      "canonical": "https://github.com/aallam/openai-kotlin",
+      "stars": {
+        "recorded": 1845,
+        "actual": 1846
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "hex:req_anthropic",
+      "ecosystem": "hex",
+      "name": "req_anthropic",
+      "source": "discovery:hex",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "packagist:theodo-group/llphant",
+      "ecosystem": "packagist",
+      "name": "theodo-group/llphant",
+      "source": "registry:packagist,curated:03-community-clients.json,curation",
+      "verdict": "ok",
+      "requested": "LLPhant/LLPhant",
+      "canonical": "https://github.com/LLPhant/LLPhant",
+      "stars": {
+        "recorded": 1711,
+        "actual": 1714
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "github:adamrushy/openaiswift",
+      "ecosystem": "github",
+      "name": "adamrushy/OpenAISwift",
+      "source": "discovery:github",
+      "verdict": "ok",
+      "requested": "adamrushy/OpenAISwift",
+      "canonical": "https://github.com/adamrushy/OpenAISwift",
+      "stars": {
+        "recorded": 1702,
+        "actual": 1700
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:@google/genai",
+      "ecosystem": "npm",
+      "name": "@google/genai",
+      "source": "registry:npm,curated:01-official-sdks.json",
+      "verdict": "ok",
+      "requested": "googleapis/js-genai",
+      "canonical": "https://github.com/googleapis/js-genai",
+      "stars": {
+        "recorded": 1685,
+        "actual": 1683
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "maven:com.openai:openai-java",
+      "ecosystem": "maven",
+      "name": "com.openai:openai-java",
+      "source": "registry:maven,curated:01-official-sdks.json,discovery:maven",
+      "verdict": "ok",
+      "requested": "openai/openai-java",
+      "canonical": "https://github.com/openai/openai-java",
+      "stars": {
+        "recorded": 1539,
+        "actual": 1541
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "nuget:olbrasoft.text.transformation.cohere",
+      "ecosystem": "nuget",
+      "name": "Olbrasoft.Text.Transformation.Cohere",
+      "source": "discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "luarocks:minuet-ai.nvim",
+      "ecosystem": "luarocks",
+      "name": "minuet-ai.nvim",
+      "source": "discovery:luarocks,curation",
+      "verdict": "ok",
+      "requested": "milanglacier/minuet-ai.nvim",
+      "canonical": "https://github.com/milanglacier/minuet-ai.nvim",
+      "stars": {
+        "recorded": 1407,
+        "actual": 1416
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "nuget:ollamasharp",
+      "ecosystem": "nuget",
+      "name": "OllamaSharp",
+      "source": "discovery:nuget",
+      "verdict": "ok",
+      "requested": "awaescher/OllamaSharp",
+      "canonical": "https://github.com/awaescher/OllamaSharp",
+      "stars": {
+        "recorded": 1404,
+        "actual": 1405
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:qdrant-client",
+      "ecosystem": "pypi",
+      "name": "qdrant-client",
+      "source": "registry:pypi,curated:04-infra.json",
+      "verdict": "ok",
+      "requested": "qdrant/qdrant-client",
+      "canonical": "https://github.com/qdrant/qdrant-client",
+      "stars": {
+        "recorded": 1363,
+        "actual": 1369
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "hex:langchain",
+      "ecosystem": "hex",
+      "name": "langchain",
+      "source": "registry:hex,curated:02-frameworks.json,discovery:hex",
+      "verdict": "ok",
+      "requested": "brainlid/langchain",
+      "canonical": "https://github.com/brainlid/langchain",
+      "stars": {
+        "recorded": 1201,
+        "actual": 1204
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "golang:github.com/anthropics/anthropic-sdk-go",
+      "ecosystem": "golang",
+      "name": "github.com/anthropics/anthropic-sdk-go",
+      "source": "discovery:golang",
+      "verdict": "ok",
+      "requested": "anthropics/anthropic-sdk-go",
+      "canonical": "https://github.com/anthropics/anthropic-sdk-go",
+      "stars": {
+        "recorded": 1203,
+        "actual": 1210
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:@inngest/ai",
+      "ecosystem": "npm",
+      "name": "@inngest/ai",
+      "source": "discovery:npm,curation",
+      "verdict": "ok",
+      "requested": "inngest/inngest-js",
+      "canonical": "https://github.com/inngest/inngest-js",
+      "stars": {
+        "recorded": 1008,
+        "actual": 1011
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "cran:gptstudio",
+      "ecosystem": "cran",
+      "name": "gptstudio",
+      "source": "discovery:cran",
+      "verdict": "ok",
+      "requested": "MichelNivard/gptstudio",
+      "canonical": "https://github.com/MichelNivard/gptstudio",
+      "stars": {
+        "recorded": 992,
+        "actual": 991
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "luarocks:llm.nvim",
+      "ecosystem": "luarocks",
+      "name": "llm.nvim",
+      "source": "discovery:luarocks,curation",
+      "verdict": "ok",
+      "requested": "huggingface/llm.nvim",
+      "canonical": "https://github.com/huggingface/llm.nvim",
+      "stars": {
+        "recorded": 1191,
+        "actual": 1193
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "golang:google.golang.org/genai",
+      "ecosystem": "golang",
+      "name": "google.golang.org/genai",
+      "source": "registry:golang,curated:01-official-sdks.json",
+      "verdict": "ok",
+      "requested": "googleapis/go-genai",
+      "canonical": "https://github.com/googleapis/go-genai",
+      "stars": {
+        "recorded": 1195,
+        "actual": 1201
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:ai-parrot-client-openai",
+      "ecosystem": "pypi",
+      "name": "ai-parrot-client-openai",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:langsmith",
+      "ecosystem": "pypi",
+      "name": "langsmith",
+      "source": "registry:pypi,curated:04-infra.json",
+      "verdict": "ok",
+      "requested": "langchain-ai/langsmith-sdk",
+      "canonical": "https://github.com/langchain-ai/langsmith-sdk",
+      "stars": {
+        "recorded": 1063,
+        "actual": 1067
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:ai-parrot-client-anthropic",
+      "ecosystem": "pypi",
+      "name": "ai-parrot-client-anthropic",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "crates:genai",
+      "ecosystem": "crates",
+      "name": "genai",
+      "source": "registry:crates,curated:03-community-clients.json,discovery:crates,curation",
+      "verdict": "ok",
+      "requested": "jeremychone/rust-genai",
+      "canonical": "https://github.com/jeremychone/rust-genai",
+      "stars": {
+        "recorded": 893,
+        "actual": 896
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "crates:genai-custom",
+      "ecosystem": "crates",
+      "name": "genai-custom",
+      "source": "discovery:crates,curation",
+      "verdict": "ok",
+      "requested": "jeremychone/rust-genai",
+      "canonical": "https://github.com/jeremychone/rust-genai",
+      "stars": {
+        "recorded": 893,
+        "actual": 896
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "github:gety-ai/apple-on-device-openai",
+      "ecosystem": "github",
+      "name": "gety-ai/apple-on-device-openai",
+      "source": "discovery:github,curation",
+      "verdict": "ok",
+      "requested": "gety-ai/apple-on-device-openai",
+      "canonical": "https://github.com/gety-ai/apple-on-device-openai",
+      "stars": {
+        "recorded": 889,
+        "actual": 890
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "golang:github.com/go-kratos/blades/contrib/openai",
+      "ecosystem": "golang",
+      "name": "github.com/go-kratos/blades/contrib/openai",
+      "source": "discovery:golang",
+      "verdict": "ok",
+      "requested": "go-kratos/blades",
+      "canonical": "https://github.com/go-kratos/blades",
+      "stars": {
+        "recorded": 816,
+        "actual": 817
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "golang:github.com/cloudwego/eino-ext",
+      "ecosystem": "golang",
+      "name": "github.com/cloudwego/eino-ext",
+      "source": "discovery:golang",
+      "verdict": "ok",
+      "requested": "cloudwego/eino-ext",
+      "canonical": "https://github.com/cloudwego/eino-ext",
+      "stars": {
+        "recorded": 813,
+        "actual": 817
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "swift:sharpai/swiftlm",
+      "ecosystem": "swift",
+      "name": "sharpai/swiftlm",
+      "source": "discovery:github,discovery:swift,curation",
+      "verdict": "ok",
+      "requested": "SharpAI/SwiftLM",
+      "canonical": "https://github.com/SharpAI/SwiftLM",
+      "stars": {
+        "recorded": 773,
+        "actual": 777
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:mistralai",
+      "ecosystem": "pypi",
+      "name": "mistralai",
+      "source": "registry:pypi,curated:01-official-sdks.json,discovery:pypi",
+      "verdict": "ok",
+      "requested": "mistralai/client-python",
+      "canonical": "https://github.com/mistralai/client-python",
+      "stars": {
+        "recorded": 769,
+        "actual": 770
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "swift:dylanshine/openai-kit",
+      "ecosystem": "swift",
+      "name": "dylanshine/openai-kit",
+      "source": "discovery:github,discovery:swift",
+      "verdict": "ok",
+      "requested": "dylanshine/openai-kit",
+      "canonical": "https://github.com/dylanshine/openai-kit",
+      "stars": {
+        "recorded": 729,
+        "actual": 728
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "nuget:openai-dotnet",
+      "ecosystem": "nuget",
+      "name": "OpenAI-DotNet",
+      "source": "registry:nuget,curated:03-community-clients.json,discovery:nuget,curation",
+      "verdict": "ok",
+      "requested": "RageAgainstThePixel/OpenAI-DotNet",
+      "canonical": "https://github.com/RageAgainstThePixel/OpenAI-DotNet",
+      "stars": {
+        "recorded": 759,
+        "actual": 757
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "crates:adk-anthropic",
+      "ecosystem": "crates",
+      "name": "adk-anthropic",
+      "source": "discovery:crates",
+      "verdict": "ok",
+      "requested": "zavora-ai/adk-rust",
+      "canonical": "https://github.com/zavora-ai/adk-rust",
+      "stars": {
+        "recorded": 683,
+        "actual": 690
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "crates:adk-mistralrs",
+      "ecosystem": "crates",
+      "name": "adk-mistralrs",
+      "source": "discovery:crates,curation",
+      "verdict": "ok",
+      "requested": "zavora-ai/adk-rust",
+      "canonical": "https://github.com/zavora-ai/adk-rust",
+      "stars": {
+        "recorded": 683,
+        "actual": 690
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "cran:ellmer",
+      "ecosystem": "cran",
+      "name": "ellmer",
+      "source": "registry:cran,curated:02-frameworks.json,discovery:cran,curation",
+      "verdict": "ok",
+      "requested": "tidyverse/ellmer",
+      "canonical": "https://github.com/tidyverse/ellmer",
+      "stars": {
+        "recorded": 615,
+        "actual": 617
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "github:gabriella439/grace",
+      "ecosystem": "github",
+      "name": "Gabriella439/grace",
+      "source": "registry:github,curated:03-community-clients.json",
+      "verdict": "ok",
+      "requested": "Gabriella439/grace",
+      "canonical": "https://github.com/Gabriella439/grace",
+      "stars": {
+        "recorded": 618,
+        "actual": 619
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "hex:req_llm",
+      "ecosystem": "hex",
+      "name": "req_llm",
+      "source": "discovery:hex",
+      "verdict": "ok",
+      "requested": "agentjido/req_llm",
+      "canonical": "https://github.com/agentjido/req_llm",
+      "stars": {
+        "recorded": 586,
+        "actual": 590
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:xai-sdk",
+      "ecosystem": "pypi",
+      "name": "xai-sdk",
+      "source": "registry:pypi,curated:01-official-sdks.json",
+      "verdict": "ok",
+      "requested": "xai-org/xai-sdk-python",
+      "canonical": "https://github.com/xai-org/xai-sdk-python",
+      "stars": {
+        "recorded": 580,
+        "actual": 582
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "luarocks:neoai.nvim",
+      "ecosystem": "luarocks",
+      "name": "neoai.nvim",
+      "source": "discovery:luarocks",
+      "verdict": "ok",
+      "requested": "Bryley/neoai.nvim",
+      "canonical": "https://github.com/Bryley/neoai.nvim",
+      "stars": {
+        "recorded": 568,
+        "actual": 567
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "packagist:deepseek-php/deepseek-php-client",
+      "ecosystem": "packagist",
+      "name": "deepseek-php/deepseek-php-client",
+      "source": "discovery:packagist",
+      "verdict": "ok",
+      "requested": "deepseek-php/deepseek-php-client",
+      "canonical": "https://github.com/deepseek-php/deepseek-php-client",
+      "stars": {
+        "recorded": 473,
+        "actual": 472
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "rubygems:openai",
+      "ecosystem": "rubygems",
+      "name": "openai",
+      "source": "registry:rubygems,curated:01-official-sdks.json,discovery:rubygems",
+      "verdict": "ok",
+      "requested": "openai/openai-ruby",
+      "canonical": "https://github.com/openai/openai-ruby",
+      "stars": {
+        "recorded": 463,
+        "actual": 465
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:@leanroute/vercel-ai-sdk",
+      "ecosystem": "npm",
+      "name": "@leanroute/vercel-ai-sdk",
+      "source": "discovery:npm,curation",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:cohere",
+      "ecosystem": "pypi",
+      "name": "cohere",
+      "source": "registry:pypi,curated:01-official-sdks.json,discovery:pypi",
+      "verdict": "ok",
+      "requested": "cohere-ai/cohere-python",
+      "canonical": "https://github.com/cohere-ai/cohere-python",
+      "stars": {
+        "recorded": 400,
+        "actual": 402
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "swift:carloslfu/slotstream",
+      "ecosystem": "swift",
+      "name": "carloslfu/slotstream",
+      "source": "discovery:github,discovery:swift,curation",
+      "verdict": "ok",
+      "requested": "carloslfu/slotstream",
+      "canonical": "https://github.com/carloslfu/slotstream",
+      "stars": {
+        "recorded": 399,
+        "actual": 412
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "hex:llm",
+      "ecosystem": "hex",
+      "name": "llm",
+      "source": "registry:hex,curated:02-frameworks.json",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "hex:openai",
+      "ecosystem": "hex",
+      "name": "openai",
+      "source": "discovery:hex",
+      "verdict": "ok",
+      "requested": "mgallo/openai.ex",
+      "canonical": "https://github.com/mgallo/openai.ex",
+      "stars": {
+        "recorded": 353,
+        "actual": 352
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "swift:opendive/openaikit",
+      "ecosystem": "swift",
+      "name": "OpenDive/OpenAIKit",
+      "source": "discovery:swift",
+      "verdict": "ok",
+      "requested": "OpenDive/OpenAIKit",
+      "canonical": "https://github.com/OpenDive/OpenAIKit",
+      "stars": {
+        "recorded": 270,
+        "actual": 269
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "maven:io.cequence:openai-scala-anthropic-client_2.12",
+      "ecosystem": "maven",
+      "name": "io.cequence:openai-scala-anthropic-client_2.12",
+      "source": "registry:github,curated:03-community-clients.json,discovery:github,discovery:maven",
+      "verdict": "ok",
+      "requested": "cequence-io/openai-scala-client",
+      "canonical": "https://github.com/cequence-io/openai-scala-client",
+      "stars": {
+        "recorded": 250,
+        "actual": 255
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "rubygems:ruby-anthropic",
+      "ecosystem": "rubygems",
+      "name": "ruby-anthropic",
+      "source": "discovery:rubygems",
+      "verdict": "ok",
+      "requested": "alexrudall/ruby-anthropic",
+      "canonical": "https://github.com/alexrudall/ruby-anthropic",
+      "stars": {
+        "recorded": 236,
+        "actual": 235
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "nuget:anthropic.sdk",
+      "ecosystem": "nuget",
+      "name": "Anthropic.SDK",
+      "source": "registry:nuget,curated:03-community-clients.json,discovery:nuget",
+      "verdict": "ok",
+      "requested": "tghamm/Anthropic.SDK",
+      "canonical": "https://github.com/tghamm/Anthropic.SDK",
+      "stars": {
+        "recorded": 223,
+        "actual": 222
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:weaviate-client",
+      "ecosystem": "pypi",
+      "name": "weaviate-client",
+      "source": "registry:pypi,curated:04-infra.json",
+      "verdict": "ok",
+      "requested": "weaviate/weaviate-python-client",
+      "canonical": "https://github.com/weaviate/weaviate-python-client",
+      "stars": {
+        "recorded": 227,
+        "actual": 228
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "swift:eric-terminal/etos-llm-studio",
+      "ecosystem": "swift",
+      "name": "Eric-Terminal/ETOS-LLM-Studio",
+      "source": "discovery:swift,curation",
+      "verdict": "ok",
+      "requested": "Eric-Terminal/ETOS-LLM-Studio",
+      "canonical": "https://github.com/Eric-Terminal/ETOS-LLM-Studio",
+      "stars": {
+        "recorded": 205,
+        "actual": 207
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:aws_sdk_bedrock_agentcore",
+      "ecosystem": "pypi",
+      "name": "aws_sdk_bedrock_agentcore",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "packagist:anthropic-ai/sdk",
+      "ecosystem": "packagist",
+      "name": "anthropic-ai/sdk",
+      "source": "discovery:packagist",
+      "verdict": "ok",
+      "requested": "anthropics/anthropic-sdk-php",
+      "canonical": "https://github.com/anthropics/anthropic-sdk-php",
+      "stars": {
+        "recorded": 183,
+        "actual": 187
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:@google-cloud/vertexai",
+      "ecosystem": "npm",
+      "name": "@google-cloud/vertexai",
+      "source": "registry:npm,curated:01-official-sdks.json,curation",
+      "verdict": "ok",
+      "requested": "googleapis/nodejs-agentplatform",
+      "canonical": "https://github.com/googleapis/nodejs-agentplatform",
+      "stars": {
+        "recorded": 182,
+        "actual": 181
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "golang:github.com/liushuangls/go-anthropic",
+      "ecosystem": "golang",
+      "name": "github.com/liushuangls/go-anthropic",
+      "source": "registry:golang,curated:03-community-clients.json",
+      "verdict": "ok",
+      "requested": "liushuangls/go-anthropic",
+      "canonical": "https://github.com/liushuangls/go-anthropic",
+      "stars": {
+        "recorded": 175,
+        "actual": 174
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "golang:trpc.group/trpc-go/trpc-agent-go",
+      "ecosystem": "golang",
+      "name": "trpc.group/trpc-go/trpc-agent-go",
+      "source": "discovery:golang",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:aws_sdk_bedrock_agentcore_control",
+      "ecosystem": "pypi",
+      "name": "aws_sdk_bedrock_agentcore_control",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "golang:github.com/liushuangls/go-anthropic/v2",
+      "ecosystem": "golang",
+      "name": "github.com/liushuangls/go-anthropic/v2",
+      "source": "discovery:golang",
+      "verdict": "ok",
+      "requested": "liushuangls/go-anthropic",
+      "canonical": "https://github.com/liushuangls/go-anthropic",
+      "stars": {
+        "recorded": 175,
+        "actual": 174
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:aws_sdk_bedrock_agent",
+      "ecosystem": "pypi",
+      "name": "aws_sdk_bedrock_agent",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "nuget:google_generativeai",
+      "ecosystem": "nuget",
+      "name": "Google_GenerativeAI",
+      "source": "discovery:nuget",
+      "verdict": "ok",
+      "requested": "gunpal5/Google_GenerativeAI",
+      "canonical": "https://github.com/gunpal5/Google_GenerativeAI",
+      "stars": {
+        "recorded": 174,
+        "actual": 172
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:aws_sdk_bedrock_agent_runtime",
+      "ecosystem": "pypi",
+      "name": "aws_sdk_bedrock_agent_runtime",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "golang:github.com/mozilla-ai/any-llm-go",
+      "ecosystem": "golang",
+      "name": "github.com/mozilla-ai/any-llm-go",
+      "source": "discovery:golang",
+      "verdict": "ok",
+      "requested": "mozilla-ai/any-llm-go",
+      "canonical": "https://github.com/mozilla-ai/any-llm-go",
+      "stars": {
+        "recorded": 158,
+        "actual": 159
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "swift:futurragroup/openai",
+      "ecosystem": "swift",
+      "name": "FuturraGroup/OpenAI",
+      "source": "discovery:swift",
+      "verdict": "ok",
+      "requested": "FuturraGroup/OpenAI",
+      "canonical": "https://github.com/FuturraGroup/OpenAI",
+      "stars": {
+        "recorded": 158,
+        "actual": 157
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "nuget:awssdk.bedrockruntime",
+      "ecosystem": "nuget",
+      "name": "AWSSDK.BedrockRuntime",
+      "source": "registry:nuget,curated:01-official-sdks.json,discovery:nuget,curation",
+      "verdict": "ok",
+      "requested": "aws/aws-sdk-net",
+      "canonical": "https://github.com/aws/aws-sdk-net",
+      "stars": {
+        "recorded": 142,
+        "actual": 144
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "rubygems:opentelemetry-instrumentation-anthropic",
+      "ecosystem": "rubygems",
+      "name": "opentelemetry-instrumentation-anthropic",
+      "source": "discovery:rubygems",
+      "verdict": "ok",
+      "requested": "open-telemetry/opentelemetry-ruby-contrib",
+      "canonical": "https://github.com/open-telemetry/opentelemetry-ruby-contrib",
+      "stars": {
+        "recorded": 137,
+        "actual": 136
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "swift:neelm0906/mference",
+      "ecosystem": "swift",
+      "name": "neelm0906/mference",
+      "source": "discovery:swift,curation",
+      "verdict": "ok",
+      "requested": "NeelM0906/Mference",
+      "canonical": "https://github.com/NeelM0906/Mference",
+      "stars": {
+        "recorded": 118,
+        "actual": 119
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "hex:huggingface_client",
+      "ecosystem": "hex",
+      "name": "huggingface_client",
+      "source": "discovery:hex",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "crates:litellm-rs",
+      "ecosystem": "crates",
+      "name": "litellm-rs",
+      "source": "discovery:crates,curation",
+      "verdict": "ok",
+      "requested": "majiayu000/litellm-rs",
+      "canonical": "https://github.com/majiayu000/litellm-rs",
+      "stars": {
+        "recorded": 116,
+        "actual": 115
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "maven:com.xemantic.anthropic:anthropic-sdk-kotlin-linuxarm64",
+      "ecosystem": "maven",
+      "name": "com.xemantic.anthropic:anthropic-sdk-kotlin-linuxarm64",
+      "source": "discovery:maven",
+      "verdict": "ok",
+      "requested": "xemantic/anthropic-sdk-kotlin",
+      "canonical": "https://github.com/xemantic/anthropic-sdk-kotlin",
+      "stars": {
+        "recorded": 67,
+        "actual": 66
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "maven:com.xemantic.anthropic:anthropic-sdk-kotlin-linuxx64",
+      "ecosystem": "maven",
+      "name": "com.xemantic.anthropic:anthropic-sdk-kotlin-linuxx64",
+      "source": "discovery:maven",
+      "verdict": "ok",
+      "requested": "xemantic/anthropic-sdk-kotlin",
+      "canonical": "https://github.com/xemantic/anthropic-sdk-kotlin",
+      "stars": {
+        "recorded": 67,
+        "actual": 66
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "hex:llm_db",
+      "ecosystem": "hex",
+      "name": "llm_db",
+      "source": "discovery:hex,curation",
+      "verdict": "ok",
+      "requested": "agentjido/llmdb",
+      "canonical": "https://github.com/agentjido/llmdb",
+      "stars": {
+        "recorded": 62,
+        "actual": 63
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "crates:zeph-llm",
+      "ecosystem": "crates",
+      "name": "zeph-llm",
+      "source": "discovery:crates,curation",
+      "verdict": "ok",
+      "requested": "bug-ops/zeph",
+      "canonical": "https://github.com/bug-ops/zeph",
+      "stars": {
+        "recorded": 60,
+        "actual": 63
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:groq-whisper-cli",
+      "ecosystem": "pypi",
+      "name": "groq-whisper-cli",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "npm:ollama-openai-mcp",
+      "ecosystem": "npm",
+      "name": "ollama-openai-mcp",
+      "source": "discovery:npm,curation",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "github:pepe-agent/pepe",
+      "ecosystem": "github",
+      "name": "pepe-agent/pepe",
+      "source": "discovery:github",
+      "verdict": "ok",
+      "requested": "pepe-agent/pepe",
+      "canonical": "https://github.com/pepe-agent/pepe",
+      "stars": {
+        "recorded": 56,
+        "actual": 67
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:anthropic-bedrock",
+      "ecosystem": "pypi",
+      "name": "anthropic-bedrock",
+      "source": "registry:pypi,curated:01-official-sdks.json,discovery:pypi",
+      "verdict": "ok",
+      "requested": "anthropics/anthropic-bedrock-python",
+      "canonical": "https://github.com/anthropics/anthropic-bedrock-python",
+      "stars": {
+        "recorded": 58,
+        "actual": 57
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:llm-bedrock-anthropic",
+      "ecosystem": "pypi",
+      "name": "llm-bedrock-anthropic",
+      "source": "discovery:pypi",
+      "verdict": "ok",
+      "requested": "sblakey/llm-bedrock-anthropic",
+      "canonical": "https://github.com/sblakey/llm-bedrock-anthropic",
+      "stars": {
+        "recorded": 53,
+        "actual": 52
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:enthusiast-model-azureopenai",
+      "ecosystem": "pypi",
+      "name": "enthusiast-model-azureopenai",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "golang:github.com/dianlight/gollama.cpp",
+      "ecosystem": "golang",
+      "name": "github.com/dianlight/gollama.cpp",
+      "source": "discovery:golang",
+      "verdict": "ok",
+      "requested": "dianlight/gollama.cpp",
+      "canonical": "https://github.com/dianlight/gollama.cpp",
+      "stars": {
+        "recorded": 38,
+        "actual": 39
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "crates:dynamo-tokenizers",
+      "ecosystem": "crates",
+      "name": "dynamo-tokenizers",
+      "source": "discovery:crates",
+      "verdict": "ok",
+      "requested": "ai-dynamo/frontend-crates",
+      "canonical": "https://github.com/ai-dynamo/frontend-crates",
+      "stars": {
+        "recorded": 22,
+        "actual": 23
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "crates:anthropic-ai-sdk",
+      "ecosystem": "crates",
+      "name": "anthropic-ai-sdk",
+      "source": "discovery:crates",
+      "verdict": "ok",
+      "requested": "katsuhirohonda/anthropic-sdk-rs",
+      "canonical": "https://github.com/katsuhirohonda/anthropic-sdk-rs",
+      "stars": {
+        "recorded": 18,
+        "actual": 17
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
     {
       "id": "cran:gptr",
       "ecosystem": "cran",
@@ -42,26 +3654,115 @@
       "note": "ссылки на репозиторий нет"
     },
     {
-      "id": "cran:ellmer",
-      "ecosystem": "cran",
-      "name": "ellmer",
-      "source": "registry:cran,curated:02-frameworks.json,discovery:cran,curation",
-      "verdict": "fixed",
-      "requested": "posit-dev/ellmer",
-      "replacement": "https://github.com/tidyverse/ellmer",
-      "repo": "https://github.com/posit-dev/ellmer",
-      "note": "404, но реестр указывает на https://github.com/tidyverse/ellmer"
+      "id": "crates:synapse-gateway",
+      "ecosystem": "crates",
+      "name": "synapse-gateway",
+      "source": "discovery:crates,curation",
+      "verdict": "ok",
+      "requested": "sustentabilitas/synapse-gateway",
+      "canonical": "https://github.com/sustentabilitas/synapse-gateway",
+      "stars": {
+        "recorded": 0,
+        "actual": 4
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
     },
     {
-      "id": "cran:openai",
-      "ecosystem": "cran",
-      "name": "openai",
-      "source": "registry:cran,curated:03-community-clients.json,discovery:cran,curation",
-      "verdict": "fixed",
-      "requested": "paranoidmaus/openai",
-      "replacement": "https://github.com/irudnyts/openai",
-      "repo": "https://github.com/paranoidmaus/openai",
-      "note": "404, но реестр указывает на https://github.com/irudnyts/openai"
+      "id": "maven:cn.gjsm:openai",
+      "ecosystem": "maven",
+      "name": "cn.gjsm:openai",
+      "source": "discovery:maven",
+      "verdict": "nonGithub",
+      "note": "https://gitee.com/miukoo/openai",
+      "repo": "https://gitee.com/miukoo/openai"
+    },
+    {
+      "id": "maven:dev.struchkov.openai:openai-context",
+      "ecosystem": "maven",
+      "name": "dev.struchkov.openai:openai-context",
+      "source": "discovery:maven",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "maven:dev.struchkov.openai:openai-domain",
+      "ecosystem": "maven",
+      "name": "dev.struchkov.openai:openai-domain",
+      "source": "discovery:maven",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "maven:dev.struchkov.openai:openai-parent-sdk",
+      "ecosystem": "maven",
+      "name": "dev.struchkov.openai:openai-parent-sdk",
+      "source": "discovery:maven",
+      "verdict": "nonGithub",
+      "note": "https://git.struchkov.dev/openai/openai-sdk",
+      "repo": "https://git.struchkov.dev/openai/openai-sdk"
+    },
+    {
+      "id": "maven:dev.struchkov.openai:openai-sdk",
+      "ecosystem": "maven",
+      "name": "dev.struchkov.openai:openai-sdk",
+      "source": "discovery:maven",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "maven:io.github.umutayb:ollama-api",
+      "ecosystem": "maven",
+      "name": "io.github.umutayb:ollama-api",
+      "source": "discovery:maven,curation",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "npm:cli-openai-proxy",
+      "ecosystem": "npm",
+      "name": "cli-openai-proxy",
+      "source": "discovery:npm,curation",
+      "verdict": "ok",
+      "requested": "sh1nj1/cli-openai-proxy",
+      "canonical": "https://github.com/sh1nj1/cli-openai-proxy",
+      "stars": {
+        "recorded": 0,
+        "actual": 1
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "nuget:soenneker.azure.openai.client.audio",
+      "ecosystem": "nuget",
+      "name": "Soenneker.Azure.OpenAI.Client.Audio",
+      "source": "discovery:nuget",
+      "verdict": "ok",
+      "requested": "soenneker/soenneker.azure.openai.client.audio",
+      "canonical": "https://github.com/soenneker/soenneker.azure.openai.client.audio",
+      "stars": {
+        "recorded": 0,
+        "actual": 2
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "packagist:assistant-engine/php-openai-client",
+      "ecosystem": "packagist",
+      "name": "assistant-engine/php-openai-client",
+      "source": "discovery:packagist",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:pinecone-client",
+      "ecosystem": "pypi",
+      "name": "pinecone-client",
+      "source": "registry:pypi,curated:04-infra.json",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
     }
   ],
   "httpProblems": []
