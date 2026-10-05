@@ -39,20 +39,18 @@ export class HttpError extends Error {
 const hostLocks = new Map();
 const hostGaps = new Map();
 
+// Ожидание считается в момент, когда подошла очередь, а не при постановке в неё:
+// иначе паузы ожидающих складывались, и при N параллельных запросах интервал
+// вырастал примерно в N раз.
 function acquireHost(host, gapMs) {
   const previous = hostLocks.get(host) ?? Promise.resolve();
-  const previousGap = hostGaps.get(host) ?? 0;
-  const now = Date.now();
-  const wait = Math.max(0, previousGap - now);
-
-  let release;
-  const mine = new Promise((resolve) => {
-    release = resolve;
+  const mine = previous.then(async () => {
+    const wait = (hostGaps.get(host) ?? 0) - Date.now();
+    if (wait > 0) await new Promise((resolve) => setTimeout(resolve, wait));
+    hostGaps.set(host, Date.now() + gapMs);
   });
-  hostLocks.set(host, previous.then(() => mine));
-  hostGaps.set(host, Math.max(now, previousGap) + gapMs);
-
-  return previous.then(() => (wait > 0 ? new Promise((r) => setTimeout(r, wait)) : undefined)).then(release);
+  hostLocks.set(host, mine);
+  return mine;
 }
 
 const DEFAULT_GAP_MS = Number(process.env.HTTP_GAP_MS ?? 120);
