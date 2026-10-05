@@ -114,7 +114,9 @@ export async function getText(url, options = {}) {
       const response = await fetch(url, {
         headers: {
           'user-agent': USER_AGENT,
-          ...(etags.get(url) ? { 'if-none-match': etags.get(url) } : {}),
+          // ETag берётся и из дискового кэша: без этого новый прогон всегда
+          // делал полный запрос, и 304 между прогонами не случались.
+          ...((etags.get(url) ?? cached?.etag) ? { 'if-none-match': etags.get(url) ?? cached.etag } : {}),
           ...headers,
         },
         signal: controller.signal,
@@ -189,7 +191,7 @@ export async function getText(url, options = {}) {
       }
 
       const text = await response.text();
-      await writeCache(url, { url, fetchedAt: Date.now(), status: response.status, text });
+      await writeCache(url, { url, fetchedAt: Date.now(), status: response.status, text, etag: etag ?? undefined });
       return { text, status: response.status, fromCache: false };
     } catch (error) {
       lastError = error;
