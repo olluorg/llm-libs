@@ -55,15 +55,15 @@ jobs:
     # поэтому запас по времени большой: лучше дольше, чем оборванный прогон.
     timeout-minutes: 120
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
 
       - name: Настройка Pages
         id: pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       # Кэш ответов реестров переживает прогоны: меньше нагрузки на npm/PyPI,
       # меньше 429, быстрее повторные запуски. Восстановление и сохранение
@@ -72,7 +72,7 @@ jobs:
       # лимитам и упирается в таймаут.
       - name: Восстановить кэш HTTP-ответов
         if: ${{ !inputs.publish-only }}
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v6
         with:
           path: .cache/http
           key: http-${{ github.run_id }}
@@ -126,7 +126,7 @@ jobs:
         # следующем прогоне — это разница между 40 минутами и пятью.
         # В режиме publish-only кэша нет: сети не касались, сохранять нечего.
         if: ${{ always() && !inputs.publish-only }}
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v6
         with:
           path: .cache/http
           key: http-${{ github.run_id }}
@@ -146,7 +146,7 @@ jobs:
         run: npm run stats
 
       - name: Каталог в виде вложения
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: libraries-json
           path: data/out/libraries.json
@@ -156,7 +156,7 @@ jobs:
         # always() и без сбора: в режиме publish-only отчёта не будет, и загружать
         # нечего.
         if: ${{ always() && !inputs.publish-only }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: link-audit
           path: data/out/link-audit.json
@@ -188,14 +188,14 @@ jobs:
           exit 1
 
       - name: Загрузка артефакта сайта
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: dist
 
       # Без этого шага артефайт лежит, но не публикуется: сайт отдаёт 404
       # «Site not found», хотя предыдущий шаг отмечен успешным.
       - name: Публикация сайта на GitHub Pages
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
       - name: Итог
         run: |
@@ -205,7 +205,7 @@ jobs:
             echo "- Данные изменились: ${{ steps.commit.outputs.changed || 'нет данных' }}"
             echo "- Полный датасет: артефакт \`libraries-json\`"
             echo "- Отчёт о ссылках: артефакт \`link-audit\`"
-            echo "- Сайт: https://${{ steps.pages.outputs.base_url }}"
+            echo "- Сайт: ${{ steps.pages.outputs.base_url }}"
           } >> "$GITHUB_STEP_SUMMARY"
 
   # Ночное обновление идёт без присмотра, и до этого узнать о сбое можно было
