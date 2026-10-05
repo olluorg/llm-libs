@@ -332,9 +332,9 @@
   function showIntentHint(detected) {
     const hint = $('#hint');
     if (!hint || view.language || view.provider) return;
-    const parts = [tr('intent.hintQuery').replace('%{query}', esc(detected.query))];
-    if (detected.language) parts.push(tr('intent.hintLanguage').replace('%{language}', detected.language));
-    hint.innerHTML = tr('intent.hint').replace('%{parts}', parts.join(' · ')) + tr('intent.hintButton');
+    const parts = [tr('intent.hintQuery').replace('%{query}', () => esc(detected.query))];
+    if (detected.language) parts.push(tr('intent.hintLanguage').replace('%{language}', () => detected.language));
+    hint.innerHTML = tr('intent.hint').replace('%{parts}', () => parts.join(' · ')) + tr('intent.hintButton');
     hint.hidden = false;
     hint.querySelector('#hint-reset').addEventListener('click', () => {
       state.q = '';
