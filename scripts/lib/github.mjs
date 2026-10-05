@@ -41,7 +41,7 @@ export async function rateLimit() {
 }
 
 export async function fetchRepo(slug) {
-  const { data, status } = await getJson(`${API}/repos/${slug}`, { headers: authHeaders() });
+  const { data, status } = await getJson(`${API}/repos/${slug}`, { headers: authHeaders(), gapMs: githubGapMs() });
   if (!data || status === 404 || data.message) return null;
   return {
     slug: data.full_name,
@@ -69,6 +69,7 @@ export async function fetchRepo(slug) {
 export async function fetchLatestRelease(slug) {
   const { data, status } = await getJson(`${API}/repos/${slug}/releases/latest`, {
     headers: authHeaders(),
+    gapMs: githubGapMs(),
   });
   if (status === 404 || !data || data.message || data.tag_name === undefined) return null;
   return {
