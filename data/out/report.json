@@ -1,13 +1,13 @@
 {
-  "enrichedAt": "2026-10-05T11:45:18.907Z",
+  "enrichedAt": "2026-10-06T11:38:45.042Z",
   "github": {
-    "queued": 395,
-    "fetched": 386,
+    "queued": 393,
+    "fetched": 384,
     "notFound": 9,
     "releases": {
       "mode": "all",
-      "requested": 386,
-      "withDate": 313
+      "requested": 384,
+      "withDate": 312
     },
     "skipped": 0,
     "quotaExhausted": false,
@@ -15,7 +15,7 @@
       "limit": 5000,
       "used": 0,
       "remaining": 5000,
-      "reset": 1791204221
+      "reset": 1791289789
     },
     "token": true
   },
@@ -59,23 +59,23 @@
     "byProvider": {
       "openai": 210,
       "openai-compatible": 56,
-      "anthropic": 131,
+      "anthropic": 129,
       "cohere": 27,
-      "google-gemini": 71,
+      "google-gemini": 70,
       "aws-bedrock": 43,
-      "mistral": 31,
+      "mistral": 30,
       "groq": 24,
       "azure-openai": 40,
       "vertex-ai": 13,
-      "ollama": 35,
+      "ollama": 34,
       "openrouter": 11,
       "together": 3,
       "perplexity": 3,
-      "xai": 9,
+      "xai": 8,
       "deepseek": 9,
       "jina": 2,
       "replicate": 3,
-      "huggingface": 11,
+      "huggingface": 12,
       "llamacpp": 6,
       "vllm": 4,
       "nvidia": 6,
@@ -88,27 +88,27 @@
     },
     "byRole": {
       "sdk": 264,
-      "framework": 72,
+      "framework": 71,
       "support": 52,
       "runtime": 30,
-      "gateway": 16
+      "gateway": 17
     },
     "byKind": {
-      "client": 237,
+      "client": 236,
       "framework": 51,
       "official-sdk": 73,
       "retrieval": 7,
       "local-runtime": 26,
       "util": 8,
       "ui": 7,
-      "gateway": 18,
+      "gateway": 19,
       "eval": 6,
       "orchestration": 1
     },
     "byStatus": {
-      "active": 299,
+      "active": 298,
       "unknown": 56,
-      "deprecated": 66,
+      "deprecated": 67,
       "archived": 13
     }
   }

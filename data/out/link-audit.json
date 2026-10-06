@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-05T11:45:23.499Z",
+  "generatedAt": "2026-10-06T11:38:55.797Z",
   "checked": 434,
-  "uniqueSlugs": 342,
+  "uniqueSlugs": 340,
   "tally": {
-    "none": 46,
-    "ok": 386,
+    "none": 48,
+    "ok": 384,
     "nonGithub": 2
   },
   "descriptions": {
@@ -30,16 +30,16 @@
       "reason": "имя пакета «torch» не похоже на имя репозитория «pytorch» — возможно, это другой проект"
     },
     {
-      "id": "npm:@lobehub/chat",
-      "name": "@lobehub/chat",
-      "repo": "lobehub/lobehub",
-      "reason": "имя пакета «@lobehub/chat» не похоже на имя репозитория «lobehub» — возможно, это другой проект"
-    },
-    {
       "id": "npm:mcp",
       "name": "mcp",
       "repo": "modelcontextprotocol/servers",
       "reason": "имя пакета «mcp» не похоже на имя репозитория «servers» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:@lobehub/chat",
+      "name": "@lobehub/chat",
+      "repo": "lobehub/lobehub",
+      "reason": "имя пакета «@lobehub/chat» не похоже на имя репозитория «lobehub» — возможно, это другой проект"
     },
     {
       "id": "npm:llamaindex",
@@ -114,16 +114,16 @@
       "reason": "имя пакета «dev.langchain4j:langchain4j» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
     },
     {
-      "id": "maven:dev.langchain4j:langchain4j-anthropic",
-      "name": "dev.langchain4j:langchain4j-anthropic",
-      "repo": "langchain4j/langchain4j",
-      "reason": "имя пакета «dev.langchain4j:langchain4j-anthropic» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
-    },
-    {
       "id": "maven:dev.langchain4j:langchain4j-open-ai",
       "name": "dev.langchain4j:langchain4j-open-ai",
       "repo": "langchain4j/langchain4j",
       "reason": "имя пакета «dev.langchain4j:langchain4j-open-ai» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:dev.langchain4j:langchain4j-anthropic",
+      "name": "dev.langchain4j:langchain4j-anthropic",
+      "repo": "langchain4j/langchain4j",
+      "reason": "имя пакета «dev.langchain4j:langchain4j-anthropic» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
     },
     {
       "id": "npm:portkey",
@@ -246,16 +246,16 @@
       "reason": "имя пакета «@anthropic-ai/bedrock-sdk» не похоже на имя репозитория «anthropic-sdk-typescript» — возможно, это другой проект"
     },
     {
-      "id": "packagist:theodo-group/llphant",
-      "name": "theodo-group/llphant",
-      "repo": "llphant/llphant",
-      "reason": "имя пакета «theodo-group/llphant» не похоже на имя репозитория «llphant» — возможно, это другой проект"
-    },
-    {
       "id": "github:adamrushy/openaiswift",
       "name": "adamrushy/OpenAISwift",
       "repo": "adamrushy/openaiswift",
       "reason": "имя пакета «adamrushy/OpenAISwift» не похоже на имя репозитория «openaiswift» — возможно, это другой проект"
+    },
+    {
+      "id": "packagist:theodo-group/llphant",
+      "name": "theodo-group/llphant",
+      "repo": "llphant/llphant",
+      "reason": "имя пакета «theodo-group/llphant» не похоже на имя репозитория «llphant» — возможно, это другой проект"
     },
     {
       "id": "golang:google.golang.org/genai",
@@ -318,16 +318,16 @@
       "reason": "имя пакета «Gabriella439/grace» не похоже на имя репозитория «grace» — возможно, это другой проект"
     },
     {
-      "id": "golang:github.com/rakyll/openai-go",
-      "name": "github.com/rakyll/openai-go",
-      "repo": "rakyll/openai-go",
-      "reason": "имя пакета «github.com/rakyll/openai-go» не похоже на имя репозитория «openai-go» — возможно, это другой проект"
-    },
-    {
       "id": "github:oriveo/oriveo",
       "name": "oriveo/oriveo",
       "repo": "oriveo/oriveo",
       "reason": "имя пакета «oriveo/oriveo» не похоже на имя репозитория «oriveo» — возможно, это другой проект"
+    },
+    {
+      "id": "golang:github.com/rakyll/openai-go",
+      "name": "github.com/rakyll/openai-go",
+      "repo": "rakyll/openai-go",
+      "reason": "имя пакета «github.com/rakyll/openai-go» не похоже на имя репозитория «openai-go» — возможно, это другой проект"
     },
     {
       "id": "swift:carloslfu/slotstream",
@@ -402,10 +402,10 @@
       "reason": "имя пакета «@sap-ai-sdk/openai» не похоже на имя репозитория «ai-sdk-js» — возможно, это другой проект"
     },
     {
-      "id": "npm:chatgpt",
-      "name": "chatgpt",
-      "repo": "transitive-bullshit/agentic",
-      "reason": "имя пакета «chatgpt» не похоже на имя репозитория «agentic» — возможно, это другой проект"
+      "id": "pypi:jina",
+      "name": "jina",
+      "repo": "jina-ai/serve",
+      "reason": "имя пакета «jina» не похоже на имя репозитория «serve» — возможно, это другой проект"
     },
     {
       "id": "nuget:agentframeworktoolkit.cohere",
@@ -442,6 +442,12 @@
       "name": "github.com/franciscoescher/goopenai",
       "repo": "franciscoescher/goopenai",
       "reason": "имя пакета «github.com/franciscoescher/goopenai» не похоже на имя репозитория «goopenai» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:chatgpt",
+      "name": "chatgpt",
+      "repo": "transitive-bullshit/agentic",
+      "reason": "имя пакета «chatgpt» не похоже на имя репозитория «agentic» — возможно, это другой проект"
     },
     {
       "id": "golang:github.com/xyproto/ollamaclient/v2",
@@ -498,10 +504,10 @@
       "reason": "имя пакета «io.cequence:mistral-client-domain_2.13» не похоже на имя репозитория «babyagi-s» — возможно, это другой проект"
     },
     {
-      "id": "pypi:jina",
-      "name": "jina",
-      "repo": "jina-ai/serve",
-      "reason": "имя пакета «jina» не похоже на имя репозитория «serve» — возможно, это другой проект"
+      "id": "maven:cc.unitmesh:openai",
+      "name": "cc.unitmesh:openai",
+      "repo": "unit-mesh/choco-builder",
+      "reason": "имя пакета «cc.unitmesh:openai» не похоже на имя репозитория «choco-builder» — возможно, это другой проект"
     },
     {
       "id": "packagist:easygithdev/php-openai",
@@ -574,12 +580,6 @@
       "name": "hugodro/openai-client",
       "repo": "hugodro/openai-client",
       "reason": "имя пакета «hugodro/openai-client» не похоже на имя репозитория «openai-client» — возможно, это другой проект"
-    },
-    {
-      "id": "maven:cc.unitmesh:openai",
-      "name": "cc.unitmesh:openai",
-      "repo": "unit-mesh/choco-builder",
-      "reason": "имя пакета «cc.unitmesh:openai» не похоже на имя репозитория «choco-builder» — возможно, это другой проект"
     },
     {
       "id": "packagist:sdkfabric/openai",
@@ -662,6 +662,14 @@
       "ecosystem": "pypi",
       "name": "pinecone-client",
       "source": "registry:pypi,curated:04-infra.json",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "nuget:betalgo.ranul.openai",
+      "ecosystem": "nuget",
+      "name": "Betalgo.Ranul.OpenAI",
+      "source": "discovery:nuget",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
     },
@@ -754,6 +762,36 @@
       "note": "ссылки на репозиторий нет"
     },
     {
+      "id": "maven:dev.langchain4j:langchain4j",
+      "ecosystem": "maven",
+      "name": "dev.langchain4j:langchain4j",
+      "source": "registry:maven,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "langchain4j/langchain4j",
+      "canonical": "https://github.com/langchain4j/langchain4j",
+      "stars": {
+        "recorded": 13205,
+        "actual": 13202
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "maven:dev.langchain4j:langchain4j-open-ai",
+      "ecosystem": "maven",
+      "name": "dev.langchain4j:langchain4j-open-ai",
+      "source": "registry:maven,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "langchain4j/langchain4j",
+      "canonical": "https://github.com/langchain4j/langchain4j",
+      "stars": {
+        "recorded": 13205,
+        "actual": 13202
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
       "id": "crates:oai",
       "ecosystem": "crates",
       "name": "oai",
@@ -768,6 +806,21 @@
       "source": "discovery:npm,curation",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "maven:org.springframework.ai:spring-ai-anthropic",
+      "ecosystem": "maven",
+      "name": "org.springframework.ai:spring-ai-anthropic",
+      "source": "registry:maven,curated:02-frameworks.json,discovery:maven",
+      "verdict": "ok",
+      "requested": "spring-projects/spring-ai",
+      "canonical": "https://github.com/spring-projects/spring-ai",
+      "stars": {
+        "recorded": 9510,
+        "actual": 9507
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
     },
     {
       "id": "pypi:azureopenai",
@@ -894,6 +947,14 @@
       "ecosystem": "pypi",
       "name": "groq-whisper-cli",
       "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "npm:openai-proxy",
+      "ecosystem": "npm",
+      "name": "openai-proxy",
+      "source": "discovery:npm",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
     },
