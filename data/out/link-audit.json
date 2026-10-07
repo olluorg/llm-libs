@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-06T11:38:55.797Z",
-  "checked": 434,
-  "uniqueSlugs": 340,
+  "generatedAt": "2026-10-07T11:25:59.814Z",
+  "checked": 435,
+  "uniqueSlugs": 338,
   "tally": {
-    "none": 48,
-    "ok": 384,
-    "nonGithub": 2
+    "none": 47,
+    "ok": 387,
+    "nonGithub": 1
   },
   "descriptions": {
     "ok": "ссылка жива и указывает на корень репозитория",
@@ -246,16 +246,16 @@
       "reason": "имя пакета «@anthropic-ai/bedrock-sdk» не похоже на имя репозитория «anthropic-sdk-typescript» — возможно, это другой проект"
     },
     {
-      "id": "github:adamrushy/openaiswift",
-      "name": "adamrushy/OpenAISwift",
-      "repo": "adamrushy/openaiswift",
-      "reason": "имя пакета «adamrushy/OpenAISwift» не похоже на имя репозитория «openaiswift» — возможно, это другой проект"
-    },
-    {
       "id": "packagist:theodo-group/llphant",
       "name": "theodo-group/llphant",
       "repo": "llphant/llphant",
       "reason": "имя пакета «theodo-group/llphant» не похоже на имя репозитория «llphant» — возможно, это другой проект"
+    },
+    {
+      "id": "github:adamrushy/openaiswift",
+      "name": "adamrushy/OpenAISwift",
+      "repo": "adamrushy/openaiswift",
+      "reason": "имя пакета «adamrushy/OpenAISwift» не похоже на имя репозитория «openaiswift» — возможно, это другой проект"
     },
     {
       "id": "golang:google.golang.org/genai",
@@ -324,12 +324,6 @@
       "reason": "имя пакета «oriveo/oriveo» не похоже на имя репозитория «oriveo» — возможно, это другой проект"
     },
     {
-      "id": "golang:github.com/rakyll/openai-go",
-      "name": "github.com/rakyll/openai-go",
-      "repo": "rakyll/openai-go",
-      "reason": "имя пакета «github.com/rakyll/openai-go» не похоже на имя репозитория «openai-go» — возможно, это другой проект"
-    },
-    {
       "id": "swift:carloslfu/slotstream",
       "name": "carloslfu/slotstream",
       "repo": "carloslfu/slotstream",
@@ -390,6 +384,12 @@
       "reason": "имя пакета «AWSSDK.BedrockRuntime» не похоже на имя репозитория «aws-sdk-net» — возможно, это другой проект"
     },
     {
+      "id": "golang:github.com/deepnoodle-ai/dive",
+      "name": "github.com/deepnoodle-ai/dive",
+      "repo": "deepnoodle-ai/dive",
+      "reason": "имя пакета «github.com/deepnoodle-ai/dive» не похоже на имя репозитория «dive» — возможно, это другой проект"
+    },
+    {
       "id": "cran:ollamar",
       "name": "ollamar",
       "repo": "hauselin/ollama-r",
@@ -430,12 +430,6 @@
       "name": "github.com/cohere-ai/cohere-go/v2",
       "repo": "cohere-ai/cohere-go",
       "reason": "имя пакета «github.com/cohere-ai/cohere-go/v2» не похоже на имя репозитория «cohere-go» — возможно, это другой проект"
-    },
-    {
-      "id": "maven:io.github.jetkai:openai",
-      "name": "io.github.jetkai:openai",
-      "repo": "jetkai/openai-for-java",
-      "reason": "имя пакета «io.github.jetkai:openai» не похоже на имя репозитория «openai-for-java» — возможно, это другой проект"
     },
     {
       "id": "golang:github.com/franciscoescher/goopenai",
@@ -480,6 +474,30 @@
       "reason": "имя пакета «github.com/firebase/genkit/go» не похоже на имя репозитория «genkit» — возможно, это другой проект"
     },
     {
+      "id": "maven:io.cequence:cohere-client_2.12",
+      "name": "io.cequence:cohere-client_2.12",
+      "repo": "cequence-io/babyagi-s",
+      "reason": "имя пакета «io.cequence:cohere-client_2.12» не похоже на имя репозитория «babyagi-s» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:io.cequence:cohere-client_2.13",
+      "name": "io.cequence:cohere-client_2.13",
+      "repo": "cequence-io/babyagi-s",
+      "reason": "имя пакета «io.cequence:cohere-client_2.13» не похоже на имя репозитория «babyagi-s» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:io.cequence:cohere-client-domain_2.12",
+      "name": "io.cequence:cohere-client-domain_2.12",
+      "repo": "cequence-io/babyagi-s",
+      "reason": "имя пакета «io.cequence:cohere-client-domain_2.12» не похоже на имя репозитория «babyagi-s» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:io.cequence:cohere-client-domain_2.13",
+      "name": "io.cequence:cohere-client-domain_2.13",
+      "repo": "cequence-io/babyagi-s",
+      "reason": "имя пакета «io.cequence:cohere-client-domain_2.13» не похоже на имя репозитория «babyagi-s» — возможно, это другой проект"
+    },
+    {
       "id": "maven:io.cequence:mistral-client_2.12",
       "name": "io.cequence:mistral-client_2.12",
       "repo": "cequence-io/babyagi-s",
@@ -514,6 +532,12 @@
       "name": "easygithdev/php-openai",
       "repo": "easygithdev/phpopenai",
       "reason": "имя пакета «easygithdev/php-openai» не похоже на имя репозитория «phpopenai» — возможно, это другой проект"
+    },
+    {
+      "id": "packagist:easygithdev/phpopenai",
+      "name": "easygithdev/phpopenai",
+      "repo": "easygithdev/phpopenai",
+      "reason": "имя пакета «easygithdev/phpopenai» не похоже на имя репозитория «phpopenai» — возможно, это другой проект"
     },
     {
       "id": "github:anonyfox/chatoyant",
@@ -770,7 +794,7 @@
       "requested": "langchain4j/langchain4j",
       "canonical": "https://github.com/langchain4j/langchain4j",
       "stars": {
-        "recorded": 13205,
+        "recorded": 13207,
         "actual": 13202
       },
       "starsChanged": true,
@@ -785,7 +809,7 @@
       "requested": "langchain4j/langchain4j",
       "canonical": "https://github.com/langchain4j/langchain4j",
       "stars": {
-        "recorded": 13205,
+        "recorded": 13207,
         "actual": 13202
       },
       "starsChanged": true,
@@ -816,7 +840,7 @@
       "requested": "spring-projects/spring-ai",
       "canonical": "https://github.com/spring-projects/spring-ai",
       "stars": {
-        "recorded": 9510,
+        "recorded": 9511,
         "actual": 9507
       },
       "starsChanged": true,
@@ -853,6 +877,21 @@
       "source": "registry:crates,curated:03-community-clients.json,discovery:crates,curation",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "maven:com.openai:openai-java",
+      "ecosystem": "maven",
+      "name": "com.openai:openai-java",
+      "source": "registry:maven,curated:01-official-sdks.json,discovery:maven",
+      "verdict": "ok",
+      "requested": "openai/openai-java",
+      "canonical": "https://github.com/openai/openai-java",
+      "stars": {
+        "recorded": 1542,
+        "actual": 1541
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
     },
     {
       "id": "hex:req_anthropic",
@@ -895,6 +934,14 @@
       "note": "ссылки на репозиторий нет"
     },
     {
+      "id": "npm:@doconda/sdk",
+      "ecosystem": "npm",
+      "name": "@doconda/sdk",
+      "source": "discovery:npm",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
       "id": "golang:trpc.group/trpc-go/trpc-agent-go",
       "ecosystem": "golang",
       "name": "trpc.group/trpc-go/trpc-agent-go",
@@ -907,14 +954,6 @@
       "ecosystem": "hex",
       "name": "huggingface_client",
       "source": "discovery:hex",
-      "verdict": "none",
-      "note": "ссылки на репозиторий нет"
-    },
-    {
-      "id": "pypi:aws_sdk_bedrock_agentcore",
-      "ecosystem": "pypi",
-      "name": "aws_sdk_bedrock_agentcore",
-      "source": "discovery:pypi",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
     },
@@ -951,14 +990,6 @@
       "note": "ссылки на репозиторий нет"
     },
     {
-      "id": "npm:openai-proxy",
-      "ecosystem": "npm",
-      "name": "openai-proxy",
-      "source": "discovery:npm",
-      "verdict": "none",
-      "note": "ссылки на репозиторий нет"
-    },
-    {
       "id": "npm:ollama-openai-mcp",
       "ecosystem": "npm",
       "name": "ollama-openai-mcp",
@@ -991,31 +1022,6 @@
       "note": "ссылки на репозиторий нет"
     },
     {
-      "id": "maven:cn.gjsm:openai",
-      "ecosystem": "maven",
-      "name": "cn.gjsm:openai",
-      "source": "discovery:maven",
-      "verdict": "nonGithub",
-      "note": "https://gitee.com/miukoo/openai",
-      "repo": "https://gitee.com/miukoo/openai"
-    },
-    {
-      "id": "maven:dev.struchkov.openai:openai-context",
-      "ecosystem": "maven",
-      "name": "dev.struchkov.openai:openai-context",
-      "source": "discovery:maven",
-      "verdict": "none",
-      "note": "ссылки на репозиторий нет"
-    },
-    {
-      "id": "maven:dev.struchkov.openai:openai-domain",
-      "ecosystem": "maven",
-      "name": "dev.struchkov.openai:openai-domain",
-      "source": "discovery:maven",
-      "verdict": "none",
-      "note": "ссылки на репозиторий нет"
-    },
-    {
       "id": "maven:dev.struchkov.openai:openai-parent-sdk",
       "ecosystem": "maven",
       "name": "dev.struchkov.openai:openai-parent-sdk",
@@ -1033,6 +1039,14 @@
       "note": "ссылки на репозиторий нет"
     },
     {
+      "id": "maven:io.github.fern-api:cohere",
+      "ecosystem": "maven",
+      "name": "io.github.fern-api:cohere",
+      "source": "discovery:maven",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
       "id": "maven:io.github.umutayb:ollama-api",
       "ecosystem": "maven",
       "name": "io.github.umutayb:ollama-api",
@@ -1045,6 +1059,14 @@
       "ecosystem": "packagist",
       "name": "assistant-engine/php-openai-client",
       "source": "discovery:packagist",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "pypi:aws_sdk_bedrock_agentcore",
+      "ecosystem": "pypi",
+      "name": "aws_sdk_bedrock_agentcore",
+      "source": "discovery:pypi",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
     }
