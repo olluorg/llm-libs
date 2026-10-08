@@ -1,9 +1,9 @@
 {
-  "enrichedAt": "2026-10-07T11:25:49.103Z",
+  "enrichedAt": "2026-10-08T11:46:13.891Z",
   "github": {
-    "queued": 397,
+    "queued": 398,
     "fetched": 387,
-    "notFound": 10,
+    "notFound": 11,
     "releases": {
       "mode": "all",
       "requested": 387,
@@ -15,7 +15,7 @@
       "limit": 5000,
       "used": 0,
       "remaining": 5000,
-      "reset": 1791375419
+      "reset": 1791463043
     },
     "token": true
   },
@@ -57,18 +57,18 @@
       "OCaml": 2
     },
     "byProvider": {
-      "openai": 206,
-      "openai-compatible": 56,
-      "anthropic": 130,
+      "openai": 207,
+      "openai-compatible": 57,
+      "anthropic": 131,
       "cohere": 32,
-      "google-gemini": 71,
-      "aws-bedrock": 44,
+      "google-gemini": 72,
+      "aws-bedrock": 45,
       "mistral": 30,
       "groq": 24,
       "azure-openai": 40,
       "vertex-ai": 14,
-      "ollama": 35,
-      "openrouter": 11,
+      "ollama": 34,
+      "openrouter": 12,
       "together": 3,
       "perplexity": 3,
       "xai": 8,
@@ -76,9 +76,9 @@
       "jina": 2,
       "replicate": 3,
       "huggingface": 12,
+      "nvidia": 6,
       "llamacpp": 6,
       "vllm": 4,
-      "nvidia": 6,
       "moonshot": 4,
       "lmstudio": 2,
       "ai21": 1,
@@ -87,16 +87,16 @@
       "deepinfra": 1
     },
     "byRole": {
-      "sdk": 266,
+      "sdk": 267,
       "framework": 71,
       "support": 52,
-      "runtime": 30,
+      "runtime": 29,
       "gateway": 16
     },
     "byKind": {
-      "client": 237,
+      "client": 236,
       "framework": 51,
-      "official-sdk": 74,
+      "official-sdk": 75,
       "retrieval": 7,
       "local-runtime": 26,
       "util": 8,
