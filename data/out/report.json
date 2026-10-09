@@ -1,13 +1,13 @@
 {
-  "enrichedAt": "2026-10-08T11:46:13.891Z",
+  "enrichedAt": "2026-10-09T11:34:38.492Z",
   "github": {
-    "queued": 398,
-    "fetched": 387,
-    "notFound": 11,
+    "queued": 396,
+    "fetched": 384,
+    "notFound": 12,
     "releases": {
       "mode": "all",
-      "requested": 387,
-      "withDate": 315
+      "requested": 384,
+      "withDate": 314
     },
     "skipped": 0,
     "quotaExhausted": false,
@@ -15,12 +15,12 @@
       "limit": 5000,
       "used": 0,
       "remaining": 5000,
-      "reset": 1791463043
+      "reset": 1791548749
     },
     "token": true
   },
   "counts": {
-    "total": 435,
+    "total": 432,
     "byEcosystem": {
       "nuget": 41,
       "pypi": 87,
@@ -30,11 +30,11 @@
       "rubygems": 40,
       "crates": 42,
       "maven": 44,
-      "packagist": 32,
+      "packagist": 33,
       "swift": 13,
-      "luarocks": 5,
       "hex": 12,
-      "cran": 12
+      "cran": 12,
+      "luarocks": 1
     },
     "byLanguage": {
       "C#": 41,
@@ -46,28 +46,28 @@
       "Rust": 42,
       "Swift": 23,
       "Java": 45,
-      "PHP": 32,
+      "PHP": 33,
       "Kotlin": 3,
-      "Lua": 5,
       "Elixir": 13,
       "Haskell": 2,
       "R": 12,
       "Clojure": 2,
+      "Lua": 1,
       "Scala": 3,
       "OCaml": 2
     },
     "byProvider": {
-      "openai": 207,
+      "openai": 206,
       "openai-compatible": 57,
-      "anthropic": 131,
+      "anthropic": 132,
       "cohere": 32,
       "google-gemini": 72,
       "aws-bedrock": 45,
       "mistral": 30,
       "groq": 24,
-      "azure-openai": 40,
+      "azure-openai": 41,
       "vertex-ai": 14,
-      "ollama": 34,
+      "ollama": 33,
       "openrouter": 12,
       "together": 3,
       "perplexity": 3,
@@ -87,29 +87,29 @@
       "deepinfra": 1
     },
     "byRole": {
-      "sdk": 267,
-      "framework": 71,
+      "sdk": 266,
+      "framework": 70,
       "support": 52,
       "runtime": 29,
-      "gateway": 16
+      "gateway": 15
     },
     "byKind": {
-      "client": 236,
+      "client": 232,
       "framework": 51,
-      "official-sdk": 75,
+      "official-sdk": 76,
       "retrieval": 7,
       "local-runtime": 26,
       "util": 8,
-      "ui": 7,
-      "gateway": 18,
+      "ui": 8,
+      "gateway": 17,
       "eval": 6,
       "orchestration": 1
     },
     "byStatus": {
-      "active": 299,
+      "active": 297,
       "unknown": 60,
       "deprecated": 63,
-      "archived": 13
+      "archived": 12
     }
   }
 }
