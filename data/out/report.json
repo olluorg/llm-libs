@@ -1,13 +1,13 @@
 {
-  "enrichedAt": "2026-10-09T11:34:38.492Z",
+  "enrichedAt": "2026-10-10T10:57:55.178Z",
   "github": {
-    "queued": 396,
-    "fetched": 384,
-    "notFound": 12,
+    "queued": 397,
+    "fetched": 386,
+    "notFound": 11,
     "releases": {
       "mode": "all",
-      "requested": 384,
-      "withDate": 314
+      "requested": 386,
+      "withDate": 317
     },
     "skipped": 0,
     "quotaExhausted": false,
@@ -15,18 +15,18 @@
       "limit": 5000,
       "used": 0,
       "remaining": 5000,
-      "reset": 1791548749
+      "reset": 1791632942
     },
     "token": true
   },
   "counts": {
-    "total": 432,
+    "total": 433,
     "byEcosystem": {
       "nuget": 41,
       "pypi": 87,
       "golang": 25,
       "github": 26,
-      "npm": 56,
+      "npm": 57,
       "rubygems": 40,
       "crates": 42,
       "maven": 44,
@@ -41,7 +41,7 @@
       "Python": 88,
       "Go": 25,
       "C++": 1,
-      "TypeScript": 56,
+      "TypeScript": 57,
       "Ruby": 40,
       "Rust": 42,
       "Swift": 23,
@@ -87,14 +87,14 @@
       "deepinfra": 1
     },
     "byRole": {
-      "sdk": 266,
+      "sdk": 267,
       "framework": 70,
       "support": 52,
       "runtime": 29,
       "gateway": 15
     },
     "byKind": {
-      "client": 232,
+      "client": 233,
       "framework": 51,
       "official-sdk": 76,
       "retrieval": 7,
@@ -106,9 +106,9 @@
       "orchestration": 1
     },
     "byStatus": {
-      "active": 297,
-      "unknown": 60,
-      "deprecated": 63,
+      "active": 298,
+      "unknown": 59,
+      "deprecated": 64,
       "archived": 12
     }
   }

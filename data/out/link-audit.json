@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-09T11:34:49.289Z",
-  "checked": 432,
-  "uniqueSlugs": 336,
+  "generatedAt": "2026-10-10T10:58:05.918Z",
+  "checked": 433,
+  "uniqueSlugs": 337,
   "tally": {
-    "none": 47,
-    "ok": 384,
+    "none": 46,
+    "ok": 386,
     "nonGithub": 1
   },
   "descriptions": {
@@ -126,28 +126,28 @@
       "reason": "имя пакета «dev.langchain4j:langchain4j-open-ai» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
     },
     {
-      "id": "golang:github.com/bentoml/openllm",
-      "name": "github.com/bentoml/OpenLLM",
-      "repo": "bentoml/openllm",
-      "reason": "имя пакета «github.com/bentoml/OpenLLM» не похоже на имя репозитория «openllm» — возможно, это другой проект"
-    },
-    {
       "id": "npm:portkey",
       "name": "portkey",
       "repo": "portkey-ai/gateway",
       "reason": "имя пакета «portkey» не похоже на имя репозитория «gateway» — возможно, это другой проект"
     },
     {
-      "id": "maven:org.springframework.ai:spring-ai-anthropic",
-      "name": "org.springframework.ai:spring-ai-anthropic",
-      "repo": "spring-projects/spring-ai",
-      "reason": "имя пакета «org.springframework.ai:spring-ai-anthropic» не похоже на имя репозитория «spring-ai» — возможно, это другой проект"
+      "id": "golang:github.com/bentoml/openllm",
+      "name": "github.com/bentoml/OpenLLM",
+      "repo": "bentoml/openllm",
+      "reason": "имя пакета «github.com/bentoml/OpenLLM» не похоже на имя репозитория «openllm» — возможно, это другой проект"
     },
     {
       "id": "golang:github.com/tmc/langchaingo",
       "name": "github.com/tmc/langchaingo",
       "repo": "tmc/langchaingo",
       "reason": "имя пакета «github.com/tmc/langchaingo» не похоже на имя репозитория «langchaingo» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:org.springframework.ai:spring-ai-anthropic",
+      "name": "org.springframework.ai:spring-ai-anthropic",
+      "repo": "spring-projects/spring-ai",
+      "reason": "имя пакета «org.springframework.ai:spring-ai-anthropic» не похоже на имя репозитория «spring-ai» — возможно, это другой проект"
     },
     {
       "id": "maven:org.springframework.ai:spring-ai-autoconfigure-model-anthropic",
@@ -220,6 +220,12 @@
       "name": "com.azure:azure-ai-openai-assistants",
       "repo": "azure/azure-sdk-for-java",
       "reason": "имя пакета «com.azure:azure-ai-openai-assistants» не похоже на имя репозитория «azure-sdk-for-java» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:@huggingface/inference",
+      "name": "@huggingface/inference",
+      "repo": "huggingface/huggingface.js",
+      "reason": "имя пакета «@huggingface/inference» не похоже на имя репозитория «huggingface.js» — возможно, это другой проект"
     },
     {
       "id": "npm:@huggingface/ollama-utils",
@@ -546,6 +552,12 @@
       "reason": "имя пакета «gazolla/GroqClientApiKotlin» не похоже на имя репозитория «groqclientapikotlin» — возможно, это другой проект"
     },
     {
+      "id": "github:zjywill/aikitswift",
+      "name": "zjywill/aikitswift",
+      "repo": "zjywill/aikitswift",
+      "reason": "имя пакета «zjywill/aikitswift» не похоже на имя репозитория «aikitswift» — возможно, это другой проект"
+    },
+    {
       "id": "npm:@graphorin/reranker-transformersjs",
       "name": "@graphorin/reranker-transformersjs",
       "repo": "o-stepper/graphorin",
@@ -556,12 +568,6 @@
       "name": "embedrs",
       "repo": "goliajp/rust-embeddings",
       "reason": "имя пакета «embedrs» не похоже на имя репозитория «rust-embeddings» — возможно, это другой проект"
-    },
-    {
-      "id": "github:zjywill/aikitswift",
-      "name": "zjywill/aikitswift",
-      "repo": "zjywill/aikitswift",
-      "reason": "имя пакета «zjywill/aikitswift» не похоже на имя репозитория «aikitswift» — возможно, это другой проект"
     },
     {
       "id": "maven:io.github.yilengyao:openai",
@@ -756,24 +762,16 @@
       "note": "ссылки на репозиторий нет"
     },
     {
-      "id": "nuget:managedcode.llmtck.openai",
-      "ecosystem": "nuget",
-      "name": "ManagedCode.LlmTck.OpenAI",
-      "source": "discovery:nuget",
-      "verdict": "none",
-      "note": "ссылки на репозиторий нет"
-    },
-    {
-      "id": "maven:dev.langchain4j:langchain4j",
-      "ecosystem": "maven",
-      "name": "dev.langchain4j:langchain4j",
-      "source": "registry:maven,curated:02-frameworks.json",
+      "id": "npm:@langchain/core",
+      "ecosystem": "npm",
+      "name": "@langchain/core",
+      "source": "registry:npm,curated:02-frameworks.json",
       "verdict": "ok",
-      "requested": "langchain4j/langchain4j",
-      "canonical": "https://github.com/langchain4j/langchain4j",
+      "requested": "langchain-ai/langchainjs",
+      "canonical": "https://github.com/langchain-ai/langchainjs",
       "stars": {
-        "recorded": 13219,
-        "actual": 13202
+        "recorded": 18252,
+        "actual": 18250
       },
       "starsChanged": true,
       "note": "ссылка жива и указывает на корень репозитория"
@@ -795,6 +793,29 @@
       "note": "ссылки на репозиторий нет"
     },
     {
+      "id": "maven:dev.langchain4j:langchain4j",
+      "ecosystem": "maven",
+      "name": "dev.langchain4j:langchain4j",
+      "source": "registry:maven,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "langchain4j/langchain4j",
+      "canonical": "https://github.com/langchain4j/langchain4j",
+      "stars": {
+        "recorded": 13220,
+        "actual": 13202
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "npm:smart-mcp",
+      "ecosystem": "npm",
+      "name": "smart-mcp",
+      "source": "discovery:npm,curation",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
       "id": "crates:oai",
       "ecosystem": "crates",
       "name": "oai",
@@ -811,19 +832,11 @@
       "requested": "spring-projects/spring-ai",
       "canonical": "https://github.com/spring-projects/spring-ai",
       "stars": {
-        "recorded": 9524,
+        "recorded": 9528,
         "actual": 9507
       },
       "starsChanged": true,
       "note": "ссылка жива и указывает на корень репозитория"
-    },
-    {
-      "id": "npm:smart-mcp",
-      "ecosystem": "npm",
-      "name": "smart-mcp",
-      "source": "discovery:npm,curation",
-      "verdict": "none",
-      "note": "ссылки на репозиторий нет"
     },
     {
       "id": "pypi:azureopenai",
@@ -851,7 +864,7 @@
       "canonical": "https://github.com/TheoKanning/openai-java",
       "stars": {
         "recorded": 4718,
-        "actual": 4717
+        "actual": 4719
       },
       "starsChanged": true,
       "note": "ссылка жива и указывает на корень репозитория"
@@ -873,6 +886,14 @@
       "note": "ссылки на репозиторий нет"
     },
     {
+      "id": "hex:req_anthropic",
+      "ecosystem": "hex",
+      "name": "req_anthropic",
+      "source": "discovery:hex",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
       "id": "maven:com.openai:openai-java",
       "ecosystem": "maven",
       "name": "com.openai:openai-java",
@@ -881,19 +902,11 @@
       "requested": "openai/openai-java",
       "canonical": "https://github.com/openai/openai-java",
       "stars": {
-        "recorded": 1544,
+        "recorded": 1547,
         "actual": 1541
       },
       "starsChanged": true,
       "note": "ссылка жива и указывает на корень репозитория"
-    },
-    {
-      "id": "hex:req_anthropic",
-      "ecosystem": "hex",
-      "name": "req_anthropic",
-      "source": "discovery:hex",
-      "verdict": "none",
-      "note": "ссылки на репозиторий нет"
     },
     {
       "id": "nuget:olbrasoft.text.transformation.cohere",
