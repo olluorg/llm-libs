@@ -1,13 +1,13 @@
 {
-  "enrichedAt": "2026-10-11T11:09:37.744Z",
+  "enrichedAt": "2026-10-12T12:20:25.762Z",
   "github": {
-    "queued": 396,
-    "fetched": 386,
+    "queued": 400,
+    "fetched": 390,
     "notFound": 10,
     "releases": {
       "mode": "all",
-      "requested": 386,
-      "withDate": 314
+      "requested": 390,
+      "withDate": 318
     },
     "skipped": 0,
     "quotaExhausted": false,
@@ -15,12 +15,12 @@
       "limit": 5000,
       "used": 0,
       "remaining": 5000,
-      "reset": 1791720048
+      "reset": 1791810689
     },
     "token": true
   },
   "counts": {
-    "total": 432,
+    "total": 435,
     "byEcosystem": {
       "nuget": 41,
       "pypi": 87,
@@ -29,7 +29,7 @@
       "npm": 57,
       "rubygems": 40,
       "crates": 42,
-      "maven": 41,
+      "maven": 44,
       "packagist": 33,
       "swift": 13,
       "hex": 13,
@@ -45,7 +45,7 @@
       "Ruby": 40,
       "Rust": 42,
       "Swift": 23,
-      "Java": 42,
+      "Java": 45,
       "PHP": 33,
       "Kotlin": 3,
       "Elixir": 14,
@@ -57,9 +57,9 @@
       "OCaml": 2
     },
     "byProvider": {
-      "openai": 203,
+      "openai": 210,
       "openai-compatible": 59,
-      "anthropic": 136,
+      "anthropic": 133,
       "cohere": 32,
       "google-gemini": 72,
       "aws-bedrock": 45,
@@ -67,12 +67,12 @@
       "groq": 24,
       "azure-openai": 41,
       "vertex-ai": 14,
-      "ollama": 34,
+      "ollama": 33,
       "openrouter": 12,
       "together": 3,
       "perplexity": 3,
       "xai": 8,
-      "deepseek": 9,
+      "deepseek": 10,
       "jina": 2,
       "replicate": 3,
       "huggingface": 11,
@@ -82,20 +82,20 @@
       "moonshot": 4,
       "lmstudio": 3,
       "ai21": 1,
-      "qwen": 1,
+      "qwen": 2,
       "fireworks": 1,
       "deepinfra": 1
     },
     "byRole": {
-      "sdk": 264,
-      "framework": 72,
+      "sdk": 268,
+      "framework": 71,
       "support": 52,
       "runtime": 29,
       "gateway": 15
     },
     "byKind": {
-      "client": 230,
-      "framework": 53,
+      "client": 234,
+      "framework": 52,
       "official-sdk": 75,
       "retrieval": 7,
       "local-runtime": 26,
@@ -107,8 +107,8 @@
     },
     "byStatus": {
       "active": 301,
-      "unknown": 60,
-      "deprecated": 59,
+      "unknown": 58,
+      "deprecated": 64,
       "archived": 12
     }
   }
