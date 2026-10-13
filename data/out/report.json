@@ -1,13 +1,13 @@
 {
-  "enrichedAt": "2026-10-12T12:20:25.762Z",
+  "enrichedAt": "2026-10-13T11:59:59.550Z",
   "github": {
-    "queued": 400,
-    "fetched": 390,
+    "queued": 401,
+    "fetched": 391,
     "notFound": 10,
     "releases": {
       "mode": "all",
-      "requested": 390,
-      "withDate": 318
+      "requested": 391,
+      "withDate": 319
     },
     "skipped": 0,
     "quotaExhausted": false,
@@ -15,18 +15,18 @@
       "limit": 5000,
       "used": 0,
       "remaining": 5000,
-      "reset": 1791810689
+      "reset": 1791895862
     },
     "token": true
   },
   "counts": {
-    "total": 435,
+    "total": 436,
     "byEcosystem": {
       "nuget": 41,
       "pypi": 87,
       "golang": 26,
       "github": 26,
-      "npm": 57,
+      "npm": 58,
       "rubygems": 40,
       "crates": 42,
       "maven": 44,
@@ -41,7 +41,7 @@
       "Python": 88,
       "Go": 26,
       "C++": 1,
-      "TypeScript": 57,
+      "TypeScript": 58,
       "Ruby": 40,
       "Rust": 42,
       "Swift": 23,
@@ -57,20 +57,20 @@
       "OCaml": 2
     },
     "byProvider": {
-      "openai": 210,
+      "openai": 211,
       "openai-compatible": 59,
-      "anthropic": 133,
+      "anthropic": 134,
       "cohere": 32,
       "google-gemini": 72,
       "aws-bedrock": 45,
-      "mistral": 29,
+      "mistral": 30,
       "groq": 24,
       "azure-openai": 41,
       "vertex-ai": 14,
       "ollama": 33,
       "openrouter": 12,
       "together": 3,
-      "perplexity": 3,
+      "perplexity": 4,
       "xai": 8,
       "deepseek": 10,
       "jina": 2,
@@ -87,14 +87,14 @@
       "deepinfra": 1
     },
     "byRole": {
-      "sdk": 268,
+      "sdk": 269,
       "framework": 71,
       "support": 52,
       "runtime": 29,
       "gateway": 15
     },
     "byKind": {
-      "client": 234,
+      "client": 235,
       "framework": 52,
       "official-sdk": 75,
       "retrieval": 7,
@@ -106,7 +106,7 @@
       "orchestration": 1
     },
     "byStatus": {
-      "active": 301,
+      "active": 302,
       "unknown": 58,
       "deprecated": 64,
       "archived": 12
