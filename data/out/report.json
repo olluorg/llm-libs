@@ -1,5 +1,5 @@
 {
-  "enrichedAt": "2026-10-13T11:59:59.550Z",
+  "enrichedAt": "2026-10-14T10:56:35.774Z",
   "github": {
     "queued": 401,
     "fetched": 391,
@@ -15,7 +15,7 @@
       "limit": 5000,
       "used": 0,
       "remaining": 5000,
-      "reset": 1791895862
+      "reset": 1791978460
     },
     "token": true
   },
@@ -59,31 +59,31 @@
     "byProvider": {
       "openai": 211,
       "openai-compatible": 59,
-      "anthropic": 134,
-      "cohere": 32,
-      "google-gemini": 72,
+      "anthropic": 135,
+      "cohere": 33,
+      "google-gemini": 73,
       "aws-bedrock": 45,
-      "mistral": 30,
-      "groq": 24,
+      "mistral": 31,
+      "groq": 25,
       "azure-openai": 41,
       "vertex-ai": 14,
       "ollama": 33,
       "openrouter": 12,
       "together": 3,
-      "perplexity": 4,
+      "perplexity": 5,
       "xai": 8,
       "deepseek": 10,
       "jina": 2,
       "replicate": 3,
-      "huggingface": 11,
+      "huggingface": 12,
       "nvidia": 6,
       "llamacpp": 7,
       "vllm": 5,
       "moonshot": 4,
       "lmstudio": 3,
-      "ai21": 1,
+      "fireworks": 2,
+      "ai21": 2,
       "qwen": 2,
-      "fireworks": 1,
       "deepinfra": 1
     },
     "byRole": {
@@ -108,8 +108,8 @@
     "byStatus": {
       "active": 302,
       "unknown": 58,
-      "deprecated": 64,
-      "archived": 12
+      "deprecated": 65,
+      "archived": 11
     }
   }
 }

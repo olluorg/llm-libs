@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T12:00:09.552Z",
+  "generatedAt": "2026-10-14T10:56:44.975Z",
   "checked": 436,
   "uniqueSlugs": 342,
   "tally": {
@@ -78,16 +78,16 @@
       "reason": "имя пакета «openai/evals» не похоже на имя репозитория «evals» — возможно, это другой проект"
     },
     {
+      "id": "npm:@langchain/anthropic",
+      "name": "@langchain/anthropic",
+      "repo": "langchain-ai/langchainjs",
+      "reason": "имя пакета «@langchain/anthropic» не похоже на имя репозитория «langchainjs» — возможно, это другой проект"
+    },
+    {
       "id": "npm:@langchain/core",
       "name": "@langchain/core",
       "repo": "langchain-ai/langchainjs",
       "reason": "имя пакета «@langchain/core» не похоже на имя репозитория «langchainjs» — возможно, это другой проект"
-    },
-    {
-      "id": "npm:langchain",
-      "name": "langchain",
-      "repo": "langchain-ai/langchainjs",
-      "reason": "имя пакета «langchain» не похоже на имя репозитория «langchainjs» — возможно, это другой проект"
     },
     {
       "id": "npm:@langchain/openai",
@@ -96,10 +96,10 @@
       "reason": "имя пакета «@langchain/openai» не похоже на имя репозитория «langchainjs» — возможно, это другой проект"
     },
     {
-      "id": "npm:@langchain/anthropic",
-      "name": "@langchain/anthropic",
+      "id": "npm:langchain",
+      "name": "langchain",
       "repo": "langchain-ai/langchainjs",
-      "reason": "имя пакета «@langchain/anthropic» не похоже на имя репозитория «langchainjs» — возможно, это другой проект"
+      "reason": "имя пакета «langchain» не похоже на имя репозитория «langchainjs» — возможно, это другой проект"
     },
     {
       "id": "github:tisfeng/easydict",
@@ -108,16 +108,16 @@
       "reason": "имя пакета «tisfeng/Easydict» не похоже на имя репозитория «easydict» — возможно, это другой проект"
     },
     {
+      "id": "maven:dev.langchain4j:langchain4j",
+      "name": "dev.langchain4j:langchain4j",
+      "repo": "langchain4j/langchain4j",
+      "reason": "имя пакета «dev.langchain4j:langchain4j» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
+    },
+    {
       "id": "maven:dev.langchain4j:langchain4j-open-ai",
       "name": "dev.langchain4j:langchain4j-open-ai",
       "repo": "langchain4j/langchain4j",
       "reason": "имя пакета «dev.langchain4j:langchain4j-open-ai» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
-    },
-    {
-      "id": "npm:portkey",
-      "name": "portkey",
-      "repo": "portkey-ai/gateway",
-      "reason": "имя пакета «portkey» не похоже на имя репозитория «gateway» — возможно, это другой проект"
     },
     {
       "id": "maven:dev.langchain4j:langchain4j-anthropic",
@@ -126,10 +126,10 @@
       "reason": "имя пакета «dev.langchain4j:langchain4j-anthropic» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
     },
     {
-      "id": "maven:dev.langchain4j:langchain4j",
-      "name": "dev.langchain4j:langchain4j",
-      "repo": "langchain4j/langchain4j",
-      "reason": "имя пакета «dev.langchain4j:langchain4j» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
+      "id": "npm:portkey",
+      "name": "portkey",
+      "repo": "portkey-ai/gateway",
+      "reason": "имя пакета «portkey» не похоже на имя репозитория «gateway» — возможно, это другой проект"
     },
     {
       "id": "golang:github.com/bentoml/openllm",
@@ -402,12 +402,6 @@
       "reason": "имя пакета «@sap-ai-sdk/openai» не похоже на имя репозитория «ai-sdk-js» — возможно, это другой проект"
     },
     {
-      "id": "pypi:jina",
-      "name": "jina",
-      "repo": "jina-ai/serve",
-      "reason": "имя пакета «jina» не похоже на имя репозитория «serve» — возможно, это другой проект"
-    },
-    {
       "id": "nuget:agentframeworktoolkit.cohere",
       "name": "AgentFrameworkToolkit.Cohere",
       "repo": "rwjdk/agent-framework-toolkit",
@@ -438,10 +432,10 @@
       "reason": "имя пакета «github.com/franciscoescher/goopenai» не похоже на имя репозитория «goopenai» — возможно, это другой проект"
     },
     {
-      "id": "npm:chatgpt",
-      "name": "chatgpt",
-      "repo": "transitive-bullshit/agentic",
-      "reason": "имя пакета «chatgpt» не похоже на имя репозитория «agentic» — возможно, это другой проект"
+      "id": "pypi:jina",
+      "name": "jina",
+      "repo": "jina-ai/serve",
+      "reason": "имя пакета «jina» не похоже на имя репозитория «serve» — возможно, это другой проект"
     },
     {
       "id": "golang:github.com/xyproto/ollamaclient/v2",
@@ -466,6 +460,12 @@
       "name": "dynamo-tokenizers",
       "repo": "ai-dynamo/frontend-crates",
       "reason": "имя пакета «dynamo-tokenizers» не похоже на имя репозитория «frontend-crates» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:chatgpt",
+      "name": "chatgpt",
+      "repo": "transitive-bullshit/agentic",
+      "reason": "имя пакета «chatgpt» не похоже на имя репозитория «agentic» — возможно, это другой проект"
     },
     {
       "id": "maven:io.cequence:cohere-client_2.12",
@@ -600,12 +600,6 @@
       "reason": "имя пакета «hugodro/openai-client» не похоже на имя репозитория «openai-client» — возможно, это другой проект"
     },
     {
-      "id": "maven:cc.unitmesh:openai",
-      "name": "cc.unitmesh:openai",
-      "repo": "unit-mesh/choco-builder",
-      "reason": "имя пакета «cc.unitmesh:openai» не похоже на имя репозитория «choco-builder» — возможно, это другой проект"
-    },
-    {
       "id": "packagist:sdkfabric/openai",
       "name": "sdkfabric/openai",
       "repo": "sdk-fabric/openai-php",
@@ -622,6 +616,12 @@
       "name": "kuarezma/MacLLM",
       "repo": "kuarezma/macllm",
       "reason": "имя пакета «kuarezma/MacLLM» не похоже на имя репозитория «macllm» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:cc.unitmesh:openai",
+      "name": "cc.unitmesh:openai",
+      "repo": "unit-mesh/choco-builder",
+      "reason": "имя пакета «cc.unitmesh:openai» не похоже на имя репозитория «choco-builder» — возможно, это другой проект"
     }
   ],
   "results": [
@@ -762,16 +762,16 @@
       "note": "ссылки на репозиторий нет"
     },
     {
-      "id": "npm:@langchain/core",
-      "ecosystem": "npm",
-      "name": "@langchain/core",
-      "source": "registry:npm,curated:02-frameworks.json",
+      "id": "maven:dev.langchain4j:langchain4j",
+      "ecosystem": "maven",
+      "name": "dev.langchain4j:langchain4j",
+      "source": "registry:maven,curated:02-frameworks.json",
       "verdict": "ok",
-      "requested": "langchain-ai/langchainjs",
-      "canonical": "https://github.com/langchain-ai/langchainjs",
+      "requested": "langchain4j/langchain4j",
+      "canonical": "https://github.com/langchain4j/langchain4j",
       "stars": {
-        "recorded": 18261,
-        "actual": 18250
+        "recorded": 13241,
+        "actual": 13202
       },
       "starsChanged": true,
       "note": "ссылка жива и указывает на корень репозитория"
@@ -785,22 +785,7 @@
       "requested": "langchain4j/langchain4j",
       "canonical": "https://github.com/langchain4j/langchain4j",
       "stars": {
-        "recorded": 13233,
-        "actual": 13202
-      },
-      "starsChanged": true,
-      "note": "ссылка жива и указывает на корень репозитория"
-    },
-    {
-      "id": "maven:dev.langchain4j:langchain4j",
-      "ecosystem": "maven",
-      "name": "dev.langchain4j:langchain4j",
-      "source": "registry:maven,curated:02-frameworks.json",
-      "verdict": "ok",
-      "requested": "langchain4j/langchain4j",
-      "canonical": "https://github.com/langchain4j/langchain4j",
-      "stars": {
-        "recorded": 13233,
+        "recorded": 13241,
         "actual": 13202
       },
       "starsChanged": true,
@@ -831,7 +816,7 @@
       "requested": "spring-projects/spring-ai",
       "canonical": "https://github.com/spring-projects/spring-ai",
       "stars": {
-        "recorded": 9535,
+        "recorded": 9539,
         "actual": 9507
       },
       "starsChanged": true,
