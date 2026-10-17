@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-16T09:26:00.836Z",
-  "checked": 433,
-  "uniqueSlugs": 342,
+  "generatedAt": "2026-10-17T08:53:13.318Z",
+  "checked": 435,
+  "uniqueSlugs": 343,
   "tally": {
     "none": 43,
-    "ok": 389,
+    "ok": 391,
     "nonGithub": 1
   },
   "descriptions": {
@@ -30,16 +30,16 @@
       "reason": "имя пакета «torch» не похоже на имя репозитория «pytorch» — возможно, это другой проект"
     },
     {
-      "id": "npm:@lobehub/chat",
-      "name": "@lobehub/chat",
-      "repo": "lobehub/lobehub",
-      "reason": "имя пакета «@lobehub/chat» не похоже на имя репозитория «lobehub» — возможно, это другой проект"
-    },
-    {
       "id": "npm:mcp",
       "name": "mcp",
       "repo": "modelcontextprotocol/servers",
       "reason": "имя пакета «mcp» не похоже на имя репозитория «servers» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:@lobehub/chat",
+      "name": "@lobehub/chat",
+      "repo": "lobehub/lobehub",
+      "reason": "имя пакета «@lobehub/chat» не похоже на имя репозитория «lobehub» — возможно, это другой проект"
     },
     {
       "id": "npm:llamaindex",
@@ -114,6 +114,12 @@
       "reason": "имя пакета «dev.langchain4j:langchain4j» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
     },
     {
+      "id": "npm:portkey",
+      "name": "portkey",
+      "repo": "portkey-ai/gateway",
+      "reason": "имя пакета «portkey» не похоже на имя репозитория «gateway» — возможно, это другой проект"
+    },
+    {
       "id": "maven:dev.langchain4j:langchain4j-anthropic",
       "name": "dev.langchain4j:langchain4j-anthropic",
       "repo": "langchain4j/langchain4j",
@@ -130,12 +136,6 @@
       "name": "github.com/bentoml/OpenLLM",
       "repo": "bentoml/openllm",
       "reason": "имя пакета «github.com/bentoml/OpenLLM» не похоже на имя репозитория «openllm» — возможно, это другой проект"
-    },
-    {
-      "id": "npm:portkey",
-      "name": "portkey",
-      "repo": "portkey-ai/gateway",
-      "reason": "имя пакета «portkey» не похоже на имя репозитория «gateway» — возможно, это другой проект"
     },
     {
       "id": "golang:github.com/tmc/langchaingo",
@@ -288,12 +288,6 @@
       "reason": "имя пакета «mistralai» не похоже на имя репозитория «client-python» — возможно, это другой проект"
     },
     {
-      "id": "npm:@deuz-sdk/core",
-      "name": "@deuz-sdk/core",
-      "repo": "deuz-ai/deuz-sdk",
-      "reason": "имя пакета «@deuz-sdk/core» не похоже на имя репозитория «deuz-sdk» — возможно, это другой проект"
-    },
-    {
       "id": "swift:jamesrochabrun/swiftopenai",
       "name": "jamesrochabrun/SwiftOpenAI",
       "repo": "jamesrochabrun/swiftopenai",
@@ -316,6 +310,12 @@
       "name": "oriveo/oriveo",
       "repo": "oriveo/oriveo",
       "reason": "имя пакета «oriveo/oriveo» не похоже на имя репозитория «oriveo» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:@deuz-sdk/core",
+      "name": "@deuz-sdk/core",
+      "repo": "deuz-ai/deuz-sdk",
+      "reason": "имя пакета «@deuz-sdk/core» не похоже на имя репозитория «deuz-sdk» — возможно, это другой проект"
     },
     {
       "id": "swift:carloslfu/slotstream",
@@ -588,6 +588,12 @@
       "reason": "имя пакета «hugodro/openai-client» не похоже на имя репозитория «openai-client» — возможно, это другой проект"
     },
     {
+      "id": "npm:@warlock.js/ai-groq",
+      "name": "@warlock.js/ai-groq",
+      "repo": "warlockjs/framework",
+      "reason": "имя пакета «@warlock.js/ai-groq» не похоже на имя репозитория «framework» — возможно, это другой проект"
+    },
+    {
       "id": "packagist:sdkfabric/openai",
       "name": "sdkfabric/openai",
       "repo": "sdk-fabric/openai-php",
@@ -758,7 +764,7 @@
       "requested": "langchain-ai/langchainjs",
       "canonical": "https://github.com/langchain-ai/langchainjs",
       "stars": {
-        "recorded": 18273,
+        "recorded": 18275,
         "actual": 18267
       },
       "starsChanged": true,
@@ -773,7 +779,7 @@
       "requested": "langchain4j/langchain4j",
       "canonical": "https://github.com/langchain4j/langchain4j",
       "stars": {
-        "recorded": 13253,
+        "recorded": 13258,
         "actual": 13202
       },
       "starsChanged": true,
@@ -804,7 +810,7 @@
       "requested": "spring-projects/spring-ai",
       "canonical": "https://github.com/spring-projects/spring-ai",
       "stars": {
-        "recorded": 9541,
+        "recorded": 9551,
         "actual": 9507
       },
       "starsChanged": true,
@@ -815,14 +821,6 @@
       "ecosystem": "pypi",
       "name": "azureopenai",
       "source": "discovery:pypi",
-      "verdict": "none",
-      "note": "ссылки на репозиторий нет"
-    },
-    {
-      "id": "npm:@warlock.js/ai-groq",
-      "ecosystem": "npm",
-      "name": "@warlock.js/ai-groq",
-      "source": "discovery:npm,curation",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
     },
@@ -1007,6 +1005,14 @@
       "ecosystem": "maven",
       "name": "io.github.fern-api:cohere",
       "source": "discovery:maven",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "maven:io.github.umutayb:ollama-api",
+      "ecosystem": "maven",
+      "name": "io.github.umutayb:ollama-api",
+      "source": "discovery:maven,curation",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
     },
