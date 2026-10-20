@@ -1,9 +1,9 @@
 {
-  "enrichedAt": "2026-10-19T10:11:46.782Z",
+  "enrichedAt": "2026-10-20T09:43:12.006Z",
   "github": {
-    "queued": 400,
+    "queued": 399,
     "fetched": 391,
-    "notFound": 9,
+    "notFound": 8,
     "releases": {
       "mode": "all",
       "requested": 391,
@@ -13,14 +13,14 @@
     "quotaExhausted": false,
     "rateLimit": {
       "limit": 5000,
-      "used": 81,
-      "remaining": 4919,
-      "reset": 1792407189
+      "used": 82,
+      "remaining": 4918,
+      "reset": 1792491845
     },
     "token": true
   },
   "counts": {
-    "total": 435,
+    "total": 434,
     "byEcosystem": {
       "nuget": 41,
       "pypi": 87,
@@ -29,7 +29,7 @@
       "npm": 58,
       "rubygems": 40,
       "crates": 42,
-      "maven": 44,
+      "maven": 43,
       "packagist": 32,
       "swift": 13,
       "hex": 13,
@@ -45,7 +45,7 @@
       "Ruby": 40,
       "Rust": 42,
       "Swift": 22,
-      "Java": 45,
+      "Java": 44,
       "PHP": 32,
       "Kotlin": 3,
       "Elixir": 14,
@@ -59,42 +59,42 @@
     "byProvider": {
       "openai": 209,
       "openai-compatible": 57,
-      "anthropic": 135,
-      "cohere": 33,
-      "google-gemini": 72,
+      "anthropic": 134,
+      "cohere": 32,
+      "google-gemini": 71,
       "aws-bedrock": 46,
-      "mistral": 32,
-      "groq": 25,
+      "mistral": 31,
+      "groq": 24,
       "azure-openai": 41,
       "vertex-ai": 13,
       "openrouter": 12,
       "together": 3,
-      "perplexity": 5,
-      "xai": 8,
+      "perplexity": 4,
+      "xai": 9,
       "deepseek": 10,
       "jina": 2,
       "replicate": 3,
       "ollama": 33,
-      "huggingface": 13,
+      "huggingface": 12,
       "nvidia": 6,
       "llamacpp": 7,
       "vllm": 5,
       "moonshot": 3,
       "lmstudio": 3,
-      "fireworks": 2,
-      "ai21": 2,
+      "ai21": 1,
       "qwen": 2,
+      "fireworks": 1,
       "deepinfra": 1
     },
     "byRole": {
-      "sdk": 268,
+      "sdk": 267,
       "framework": 71,
       "support": 52,
       "runtime": 30,
       "gateway": 14
     },
     "byKind": {
-      "client": 231,
+      "client": 230,
       "framework": 53,
       "official-sdk": 76,
       "retrieval": 7,
@@ -107,9 +107,9 @@
     },
     "byStatus": {
       "active": 299,
-      "unknown": 58,
-      "deprecated": 65,
-      "archived": 13
+      "unknown": 57,
+      "deprecated": 64,
+      "archived": 14
     }
   }
 }

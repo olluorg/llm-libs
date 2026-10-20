@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-19T10:11:55.147Z",
-  "checked": 435,
+  "generatedAt": "2026-10-20T09:43:21.196Z",
+  "checked": 434,
   "uniqueSlugs": 343,
   "tally": {
-    "none": 43,
+    "none": 42,
     "ok": 391,
     "nonGithub": 1
   },
@@ -24,6 +24,12 @@
       "reason": "имя пакета «github.com/ollama/ollama» не похоже на имя репозитория «ollama» — возможно, это другой проект"
     },
     {
+      "id": "npm:mcp",
+      "name": "mcp",
+      "repo": "modelcontextprotocol/servers",
+      "reason": "имя пакета «mcp» не похоже на имя репозитория «servers» — возможно, это другой проект"
+    },
+    {
       "id": "pypi:torch",
       "name": "torch",
       "repo": "pytorch/pytorch",
@@ -34,12 +40,6 @@
       "name": "@lobehub/chat",
       "repo": "lobehub/lobehub",
       "reason": "имя пакета «@lobehub/chat» не похоже на имя репозитория «lobehub» — возможно, это другой проект"
-    },
-    {
-      "id": "npm:mcp",
-      "name": "mcp",
-      "repo": "modelcontextprotocol/servers",
-      "reason": "имя пакета «mcp» не похоже на имя репозитория «servers» — возможно, это другой проект"
     },
     {
       "id": "npm:llamaindex",
@@ -90,16 +90,16 @@
       "reason": "имя пакета «@langchain/core» не похоже на имя репозитория «langchainjs» — возможно, это другой проект"
     },
     {
-      "id": "npm:@langchain/openai",
-      "name": "@langchain/openai",
-      "repo": "langchain-ai/langchainjs",
-      "reason": "имя пакета «@langchain/openai» не похоже на имя репозитория «langchainjs» — возможно, это другой проект"
-    },
-    {
       "id": "npm:langchain",
       "name": "langchain",
       "repo": "langchain-ai/langchainjs",
       "reason": "имя пакета «langchain» не похоже на имя репозитория «langchainjs» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:@langchain/openai",
+      "name": "@langchain/openai",
+      "repo": "langchain-ai/langchainjs",
+      "reason": "имя пакета «@langchain/openai» не похоже на имя репозитория «langchainjs» — возможно, это другой проект"
     },
     {
       "id": "github:tisfeng/easydict",
@@ -114,16 +114,16 @@
       "reason": "имя пакета «dev.langchain4j:langchain4j» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
     },
     {
-      "id": "maven:dev.langchain4j:langchain4j-anthropic",
-      "name": "dev.langchain4j:langchain4j-anthropic",
-      "repo": "langchain4j/langchain4j",
-      "reason": "имя пакета «dev.langchain4j:langchain4j-anthropic» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
-    },
-    {
       "id": "npm:portkey",
       "name": "portkey",
       "repo": "portkey-ai/gateway",
       "reason": "имя пакета «portkey» не похоже на имя репозитория «gateway» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:dev.langchain4j:langchain4j-anthropic",
+      "name": "dev.langchain4j:langchain4j-anthropic",
+      "repo": "langchain4j/langchain4j",
+      "reason": "имя пакета «dev.langchain4j:langchain4j-anthropic» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
     },
     {
       "id": "maven:dev.langchain4j:langchain4j-open-ai",
@@ -138,16 +138,16 @@
       "reason": "имя пакета «github.com/bentoml/OpenLLM» не похоже на имя репозитория «openllm» — возможно, это другой проект"
     },
     {
-      "id": "maven:org.springframework.ai:spring-ai-anthropic",
-      "name": "org.springframework.ai:spring-ai-anthropic",
-      "repo": "spring-projects/spring-ai",
-      "reason": "имя пакета «org.springframework.ai:spring-ai-anthropic» не похоже на имя репозитория «spring-ai» — возможно, это другой проект"
-    },
-    {
       "id": "golang:github.com/tmc/langchaingo",
       "name": "github.com/tmc/langchaingo",
       "repo": "tmc/langchaingo",
       "reason": "имя пакета «github.com/tmc/langchaingo» не похоже на имя репозитория «langchaingo» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:org.springframework.ai:spring-ai-anthropic",
+      "name": "org.springframework.ai:spring-ai-anthropic",
+      "repo": "spring-projects/spring-ai",
+      "reason": "имя пакета «org.springframework.ai:spring-ai-anthropic» не похоже на имя репозитория «spring-ai» — возможно, это другой проект"
     },
     {
       "id": "maven:org.springframework.ai:spring-ai-autoconfigure-model-anthropic",
@@ -210,12 +210,6 @@
       "reason": "имя пакета «@huggingface/inference» не похоже на имя репозитория «huggingface.js» — возможно, это другой проект"
     },
     {
-      "id": "npm:@huggingface/ollama-utils",
-      "name": "@huggingface/ollama-utils",
-      "repo": "huggingface/huggingface.js",
-      "reason": "имя пакета «@huggingface/ollama-utils» не похоже на имя репозитория «huggingface.js» — возможно, это другой проект"
-    },
-    {
       "id": "maven:com.azure:azure-ai-openai",
       "name": "com.azure:azure-ai-openai",
       "repo": "azure/azure-sdk-for-java",
@@ -226,6 +220,12 @@
       "name": "com.azure:azure-ai-openai-assistants",
       "repo": "azure/azure-sdk-for-java",
       "reason": "имя пакета «com.azure:azure-ai-openai-assistants» не похоже на имя репозитория «azure-sdk-for-java» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:@huggingface/ollama-utils",
+      "name": "@huggingface/ollama-utils",
+      "repo": "huggingface/huggingface.js",
+      "reason": "имя пакета «@huggingface/ollama-utils» не похоже на имя репозитория «huggingface.js» — возможно, это другой проект"
     },
     {
       "id": "npm:@azure/openai",
@@ -396,6 +396,12 @@
       "reason": "имя пакета «ollamar» не похоже на имя репозитория «ollama-r» — возможно, это другой проект"
     },
     {
+      "id": "pypi:jina",
+      "name": "jina",
+      "repo": "jina-ai/serve",
+      "reason": "имя пакета «jina» не похоже на имя репозитория «serve» — возможно, это другой проект"
+    },
+    {
       "id": "nuget:agentframeworktoolkit.cohere",
       "name": "AgentFrameworkToolkit.Cohere",
       "repo": "rwjdk/agent-framework-toolkit",
@@ -426,10 +432,10 @@
       "reason": "имя пакета «github.com/franciscoescher/goopenai» не похоже на имя репозитория «goopenai» — возможно, это другой проект"
     },
     {
-      "id": "pypi:jina",
-      "name": "jina",
-      "repo": "jina-ai/serve",
-      "reason": "имя пакета «jina» не похоже на имя репозитория «serve» — возможно, это другой проект"
+      "id": "npm:chatgpt",
+      "name": "chatgpt",
+      "repo": "transitive-bullshit/agentic",
+      "reason": "имя пакета «chatgpt» не похоже на имя репозитория «agentic» — возможно, это другой проект"
     },
     {
       "id": "golang:github.com/xyproto/ollamaclient/v2",
@@ -454,12 +460,6 @@
       "name": "dynamo-tokenizers",
       "repo": "ai-dynamo/frontend-crates",
       "reason": "имя пакета «dynamo-tokenizers» не похоже на имя репозитория «frontend-crates» — возможно, это другой проект"
-    },
-    {
-      "id": "npm:chatgpt",
-      "name": "chatgpt",
-      "repo": "transitive-bullshit/agentic",
-      "reason": "имя пакета «chatgpt» не похоже на имя репозитория «agentic» — возможно, это другой проект"
     },
     {
       "id": "maven:io.cequence:cohere-client_2.12",
@@ -764,7 +764,7 @@
       "requested": "langchain4j/langchain4j",
       "canonical": "https://github.com/langchain4j/langchain4j",
       "stars": {
-        "recorded": 13263,
+        "recorded": 13267,
         "actual": 13202
       },
       "starsChanged": true,
@@ -787,7 +787,7 @@
       "requested": "spring-projects/spring-ai",
       "canonical": "https://github.com/spring-projects/spring-ai",
       "stars": {
-        "recorded": 9554,
+        "recorded": 9556,
         "actual": 9507
       },
       "starsChanged": true,
@@ -842,7 +842,7 @@
       "requested": "openai/openai-java",
       "canonical": "https://github.com/openai/openai-java",
       "stars": {
-        "recorded": 1550,
+        "recorded": 1552,
         "actual": 1541
       },
       "starsChanged": true,
@@ -990,14 +990,6 @@
       "ecosystem": "maven",
       "name": "io.github.fern-api:cohere",
       "source": "discovery:maven",
-      "verdict": "none",
-      "note": "ссылки на репозиторий нет"
-    },
-    {
-      "id": "maven:io.github.umutayb:ollama-api",
-      "ecosystem": "maven",
-      "name": "io.github.umutayb:ollama-api",
-      "source": "discovery:maven,curation",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
     },
