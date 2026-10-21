@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-20T09:43:21.196Z",
-  "checked": 434,
+  "generatedAt": "2026-10-21T09:43:23.838Z",
+  "checked": 436,
   "uniqueSlugs": 343,
   "tally": {
-    "none": 42,
-    "ok": 391,
+    "none": 43,
+    "ok": 392,
     "nonGithub": 1
   },
   "descriptions": {
@@ -24,16 +24,16 @@
       "reason": "имя пакета «github.com/ollama/ollama» не похоже на имя репозитория «ollama» — возможно, это другой проект"
     },
     {
-      "id": "npm:mcp",
-      "name": "mcp",
-      "repo": "modelcontextprotocol/servers",
-      "reason": "имя пакета «mcp» не похоже на имя репозитория «servers» — возможно, это другой проект"
-    },
-    {
       "id": "pypi:torch",
       "name": "torch",
       "repo": "pytorch/pytorch",
       "reason": "имя пакета «torch» не похоже на имя репозитория «pytorch» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:mcp",
+      "name": "mcp",
+      "repo": "modelcontextprotocol/servers",
+      "reason": "имя пакета «mcp» не похоже на имя репозитория «servers» — возможно, это другой проект"
     },
     {
       "id": "npm:@lobehub/chat",
@@ -54,16 +54,16 @@
       "reason": "имя пакета «phidata» не похоже на имя репозитория «agno» — возможно, это другой проект"
     },
     {
-      "id": "pypi:chromadb",
-      "name": "chromadb",
-      "repo": "chroma-core/chroma",
-      "reason": "имя пакета «chromadb» не похоже на имя репозитория «chroma» — возможно, это другой проект"
-    },
-    {
       "id": "nuget:microsoft.semantickernel",
       "name": "Microsoft.SemanticKernel",
       "repo": "microsoft/semantic-kernel",
       "reason": "имя пакета «Microsoft.SemanticKernel» не похоже на имя репозитория «semantic-kernel» — возможно, это другой проект"
+    },
+    {
+      "id": "pypi:chromadb",
+      "name": "chromadb",
+      "repo": "chroma-core/chroma",
+      "reason": "имя пакета «chromadb» не похоже на имя репозитория «chroma» — возможно, это другой проект"
     },
     {
       "id": "github:steipete/codexbar",
@@ -90,16 +90,16 @@
       "reason": "имя пакета «@langchain/core» не похоже на имя репозитория «langchainjs» — возможно, это другой проект"
     },
     {
-      "id": "npm:langchain",
-      "name": "langchain",
-      "repo": "langchain-ai/langchainjs",
-      "reason": "имя пакета «langchain» не похоже на имя репозитория «langchainjs» — возможно, это другой проект"
-    },
-    {
       "id": "npm:@langchain/openai",
       "name": "@langchain/openai",
       "repo": "langchain-ai/langchainjs",
       "reason": "имя пакета «@langchain/openai» не похоже на имя репозитория «langchainjs» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:langchain",
+      "name": "langchain",
+      "repo": "langchain-ai/langchainjs",
+      "reason": "имя пакета «langchain» не похоже на имя репозитория «langchainjs» — возможно, это другой проект"
     },
     {
       "id": "github:tisfeng/easydict",
@@ -210,6 +210,12 @@
       "reason": "имя пакета «@huggingface/inference» не похоже на имя репозитория «huggingface.js» — возможно, это другой проект"
     },
     {
+      "id": "npm:@huggingface/ollama-utils",
+      "name": "@huggingface/ollama-utils",
+      "repo": "huggingface/huggingface.js",
+      "reason": "имя пакета «@huggingface/ollama-utils» не похоже на имя репозитория «huggingface.js» — возможно, это другой проект"
+    },
+    {
       "id": "maven:com.azure:azure-ai-openai",
       "name": "com.azure:azure-ai-openai",
       "repo": "azure/azure-sdk-for-java",
@@ -220,12 +226,6 @@
       "name": "com.azure:azure-ai-openai-assistants",
       "repo": "azure/azure-sdk-for-java",
       "reason": "имя пакета «com.azure:azure-ai-openai-assistants» не похоже на имя репозитория «azure-sdk-for-java» — возможно, это другой проект"
-    },
-    {
-      "id": "npm:@huggingface/ollama-utils",
-      "name": "@huggingface/ollama-utils",
-      "repo": "huggingface/huggingface.js",
-      "reason": "имя пакета «@huggingface/ollama-utils» не похоже на имя репозитория «huggingface.js» — возможно, это другой проект"
     },
     {
       "id": "npm:@azure/openai",
@@ -342,16 +342,16 @@
       "reason": "имя пакета «openai-php/symfony» не похоже на имя репозитория «symfony» — возможно, это другой проект"
     },
     {
-      "id": "swift:mattt/openai",
-      "name": "mattt/OpenAI",
-      "repo": "mattt/openai",
-      "reason": "имя пакета «mattt/OpenAI» не похоже на имя репозитория «openai» — возможно, это другой проект"
-    },
-    {
       "id": "npm:@google-cloud/vertexai",
       "name": "@google-cloud/vertexai",
       "repo": "googleapis/nodejs-agentplatform",
       "reason": "имя пакета «@google-cloud/vertexai» не похоже на имя репозитория «nodejs-agentplatform» — возможно, это другой проект"
+    },
+    {
+      "id": "swift:mattt/openai",
+      "name": "mattt/OpenAI",
+      "repo": "mattt/openai",
+      "reason": "имя пакета «mattt/OpenAI» не похоже на имя репозитория «openai» — возможно, это другой проект"
     },
     {
       "id": "golang:github.com/liushuangls/go-anthropic/v2",
@@ -396,12 +396,6 @@
       "reason": "имя пакета «ollamar» не похоже на имя репозитория «ollama-r» — возможно, это другой проект"
     },
     {
-      "id": "pypi:jina",
-      "name": "jina",
-      "repo": "jina-ai/serve",
-      "reason": "имя пакета «jina» не похоже на имя репозитория «serve» — возможно, это другой проект"
-    },
-    {
       "id": "nuget:agentframeworktoolkit.cohere",
       "name": "AgentFrameworkToolkit.Cohere",
       "repo": "rwjdk/agent-framework-toolkit",
@@ -432,10 +426,10 @@
       "reason": "имя пакета «github.com/franciscoescher/goopenai» не похоже на имя репозитория «goopenai» — возможно, это другой проект"
     },
     {
-      "id": "npm:chatgpt",
-      "name": "chatgpt",
-      "repo": "transitive-bullshit/agentic",
-      "reason": "имя пакета «chatgpt» не похоже на имя репозитория «agentic» — возможно, это другой проект"
+      "id": "pypi:jina",
+      "name": "jina",
+      "repo": "jina-ai/serve",
+      "reason": "имя пакета «jina» не похоже на имя репозитория «serve» — возможно, это другой проект"
     },
     {
       "id": "golang:github.com/xyproto/ollamaclient/v2",
@@ -460,6 +454,12 @@
       "name": "dynamo-tokenizers",
       "repo": "ai-dynamo/frontend-crates",
       "reason": "имя пакета «dynamo-tokenizers» не похоже на имя репозитория «frontend-crates» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:chatgpt",
+      "name": "chatgpt",
+      "repo": "transitive-bullshit/agentic",
+      "reason": "имя пакета «chatgpt» не похоже на имя репозитория «agentic» — возможно, это другой проект"
     },
     {
       "id": "maven:io.cequence:cohere-client_2.12",
@@ -520,6 +520,12 @@
       "name": "easygithdev/php-openai",
       "repo": "easygithdev/phpopenai",
       "reason": "имя пакета «easygithdev/php-openai» не похоже на имя репозитория «phpopenai» — возможно, это другой проект"
+    },
+    {
+      "id": "packagist:easygithdev/phpopenai",
+      "name": "easygithdev/phpopenai",
+      "repo": "easygithdev/phpopenai",
+      "reason": "имя пакета «easygithdev/phpopenai» не похоже на имя репозитория «phpopenai» — возможно, это другой проект"
     },
     {
       "id": "github:anonyfox/chatoyant",
@@ -764,7 +770,7 @@
       "requested": "langchain4j/langchain4j",
       "canonical": "https://github.com/langchain4j/langchain4j",
       "stars": {
-        "recorded": 13267,
+        "recorded": 13272,
         "actual": 13202
       },
       "starsChanged": true,
@@ -787,7 +793,7 @@
       "requested": "spring-projects/spring-ai",
       "canonical": "https://github.com/spring-projects/spring-ai",
       "stars": {
-        "recorded": 9556,
+        "recorded": 9559,
         "actual": 9507
       },
       "starsChanged": true,
@@ -808,6 +814,21 @@
       "source": "discovery:pypi",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "maven:com.theokanning.openai-gpt3-java:client",
+      "ecosystem": "maven",
+      "name": "com.theokanning.openai-gpt3-java:client",
+      "source": "discovery:maven",
+      "verdict": "ok",
+      "requested": "TheoKanning/openai-java",
+      "canonical": "https://github.com/TheoKanning/openai-java",
+      "stars": {
+        "recorded": 4718,
+        "actual": 4717
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
     },
     {
       "id": "crates:huggingface",
@@ -842,7 +863,7 @@
       "requested": "openai/openai-java",
       "canonical": "https://github.com/openai/openai-java",
       "stars": {
-        "recorded": 1552,
+        "recorded": 1553,
         "actual": 1541
       },
       "starsChanged": true,
@@ -990,6 +1011,14 @@
       "ecosystem": "maven",
       "name": "io.github.fern-api:cohere",
       "source": "discovery:maven",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "maven:io.github.umutayb:ollama-api",
+      "ecosystem": "maven",
+      "name": "io.github.umutayb:ollama-api",
+      "source": "discovery:maven,curation",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
     },
