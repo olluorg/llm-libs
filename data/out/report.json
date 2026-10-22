@@ -1,5 +1,5 @@
 {
-  "enrichedAt": "2026-10-21T09:43:15.454Z",
+  "enrichedAt": "2026-10-22T09:40:12.118Z",
   "github": {
     "queued": 401,
     "fetched": 392,
@@ -15,7 +15,7 @@
       "limit": 5000,
       "used": 82,
       "remaining": 4918,
-      "reset": 1792578034
+      "reset": 1792664604
     },
     "token": true
   },
