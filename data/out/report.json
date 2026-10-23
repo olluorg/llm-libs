@@ -1,13 +1,13 @@
 {
-  "enrichedAt": "2026-10-22T09:40:12.118Z",
+  "enrichedAt": "2026-10-23T09:38:41.715Z",
   "github": {
-    "queued": 401,
-    "fetched": 392,
+    "queued": 406,
+    "fetched": 397,
     "notFound": 9,
     "releases": {
       "mode": "all",
-      "requested": 392,
-      "withDate": 319
+      "requested": 397,
+      "withDate": 325
     },
     "skipped": 0,
     "quotaExhausted": false,
@@ -15,18 +15,18 @@
       "limit": 5000,
       "used": 82,
       "remaining": 4918,
-      "reset": 1792664604
+      "reset": 1792750776
     },
     "token": true
   },
   "counts": {
-    "total": 436,
+    "total": 438,
     "byEcosystem": {
-      "nuget": 41,
+      "nuget": 42,
       "pypi": 87,
       "golang": 26,
       "github": 25,
-      "npm": 58,
+      "npm": 59,
       "rubygems": 40,
       "crates": 42,
       "maven": 44,
@@ -37,11 +37,11 @@
       "luarocks": 1
     },
     "byLanguage": {
-      "C#": 41,
+      "C#": 42,
       "Python": 88,
       "Go": 26,
       "C++": 1,
-      "TypeScript": 58,
+      "TypeScript": 59,
       "Ruby": 40,
       "Rust": 42,
       "Swift": 22,
@@ -57,15 +57,15 @@
       "OCaml": 2
     },
     "byProvider": {
-      "openai": 210,
+      "openai": 209,
       "openai-compatible": 57,
-      "anthropic": 135,
-      "cohere": 33,
-      "google-gemini": 72,
-      "aws-bedrock": 46,
-      "mistral": 32,
-      "groq": 25,
+      "anthropic": 136,
+      "cohere": 34,
       "azure-openai": 41,
+      "google-gemini": 73,
+      "aws-bedrock": 46,
+      "mistral": 34,
+      "groq": 25,
       "vertex-ai": 13,
       "openrouter": 12,
       "together": 3,
@@ -87,28 +87,28 @@
       "deepinfra": 1
     },
     "byRole": {
-      "sdk": 269,
+      "sdk": 272,
       "framework": 71,
-      "support": 52,
+      "support": 51,
       "runtime": 30,
       "gateway": 14
     },
     "byKind": {
-      "client": 232,
+      "client": 235,
       "framework": 53,
       "official-sdk": 76,
       "retrieval": 7,
       "local-runtime": 26,
       "util": 8,
-      "ui": 9,
+      "ui": 8,
       "gateway": 17,
       "eval": 7,
       "orchestration": 1
     },
     "byStatus": {
-      "active": 299,
-      "unknown": 58,
+      "active": 302,
       "deprecated": 66,
+      "unknown": 57,
       "archived": 13
     }
   }
