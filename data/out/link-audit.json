@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-23T09:38:51.725Z",
+  "generatedAt": "2026-10-24T09:08:46.478Z",
   "checked": 438,
   "uniqueSlugs": 347,
   "tally": {
@@ -120,16 +120,16 @@
       "reason": "имя пакета «portkey» не похоже на имя репозитория «gateway» — возможно, это другой проект"
     },
     {
-      "id": "maven:dev.langchain4j:langchain4j-open-ai",
-      "name": "dev.langchain4j:langchain4j-open-ai",
-      "repo": "langchain4j/langchain4j",
-      "reason": "имя пакета «dev.langchain4j:langchain4j-open-ai» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
-    },
-    {
       "id": "maven:dev.langchain4j:langchain4j-anthropic",
       "name": "dev.langchain4j:langchain4j-anthropic",
       "repo": "langchain4j/langchain4j",
       "reason": "имя пакета «dev.langchain4j:langchain4j-anthropic» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:dev.langchain4j:langchain4j-open-ai",
+      "name": "dev.langchain4j:langchain4j-open-ai",
+      "repo": "langchain4j/langchain4j",
+      "reason": "имя пакета «dev.langchain4j:langchain4j-open-ai» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
     },
     {
       "id": "golang:github.com/bentoml/openllm",
@@ -752,7 +752,7 @@
       "requested": "langchain4j/langchain4j",
       "canonical": "https://github.com/langchain4j/langchain4j",
       "stars": {
-        "recorded": 13286,
+        "recorded": 13288,
         "actual": 13202
       },
       "starsChanged": true,
@@ -775,11 +775,19 @@
       "requested": "spring-projects/spring-ai",
       "canonical": "https://github.com/spring-projects/spring-ai",
       "stars": {
-        "recorded": 9570,
+        "recorded": 9576,
         "actual": 9507
       },
       "starsChanged": true,
       "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "pypi:azureopenai",
+      "ecosystem": "pypi",
+      "name": "azureopenai",
+      "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
     },
     {
       "id": "npm:@claude-flow/embeddings",
@@ -790,12 +798,19 @@
       "note": "ссылки на репозиторий нет"
     },
     {
-      "id": "pypi:azureopenai",
-      "ecosystem": "pypi",
-      "name": "azureopenai",
-      "source": "discovery:pypi",
-      "verdict": "none",
-      "note": "ссылки на репозиторий нет"
+      "id": "maven:com.theokanning.openai-gpt3-java:client",
+      "ecosystem": "maven",
+      "name": "com.theokanning.openai-gpt3-java:client",
+      "source": "discovery:maven",
+      "verdict": "ok",
+      "requested": "TheoKanning/openai-java",
+      "canonical": "https://github.com/TheoKanning/openai-java",
+      "stars": {
+        "recorded": 4716,
+        "actual": 4714
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
     },
     {
       "id": "crates:huggingface",
@@ -830,7 +845,7 @@
       "requested": "openai/openai-java",
       "canonical": "https://github.com/openai/openai-java",
       "stars": {
-        "recorded": 1555,
+        "recorded": 1556,
         "actual": 1541
       },
       "starsChanged": true,
