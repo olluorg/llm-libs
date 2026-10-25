@@ -1,5 +1,5 @@
 {
-  "enrichedAt": "2026-10-24T09:08:36.569Z",
+  "enrichedAt": "2026-10-25T09:25:37.012Z",
   "github": {
     "queued": 406,
     "fetched": 397,
@@ -7,7 +7,7 @@
     "releases": {
       "mode": "all",
       "requested": 397,
-      "withDate": 325
+      "withDate": 326
     },
     "skipped": 0,
     "quotaExhausted": false,
@@ -15,7 +15,7 @@
       "limit": 5000,
       "used": 82,
       "remaining": 4918,
-      "reset": 1792835487
+      "reset": 1792922876
     },
     "token": true
   },
@@ -67,7 +67,7 @@
       "mistral": 34,
       "groq": 25,
       "vertex-ai": 13,
-      "openrouter": 12,
+      "openrouter": 13,
       "together": 3,
       "perplexity": 5,
       "xai": 9,
