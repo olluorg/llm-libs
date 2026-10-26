@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-25T09:25:46.904Z",
-  "checked": 438,
-  "uniqueSlugs": 347,
+  "generatedAt": "2026-10-26T10:22:05.306Z",
+  "checked": 436,
+  "uniqueSlugs": 346,
   "tally": {
     "none": 40,
-    "ok": 397,
+    "ok": 395,
     "nonGithub": 1
   },
   "descriptions": {
@@ -24,12 +24,6 @@
       "reason": "имя пакета «github.com/ollama/ollama» не похоже на имя репозитория «ollama» — возможно, это другой проект"
     },
     {
-      "id": "pypi:torch",
-      "name": "torch",
-      "repo": "pytorch/pytorch",
-      "reason": "имя пакета «torch» не похоже на имя репозитория «pytorch» — возможно, это другой проект"
-    },
-    {
       "id": "npm:mcp",
       "name": "mcp",
       "repo": "modelcontextprotocol/servers",
@@ -40,6 +34,12 @@
       "name": "@lobehub/chat",
       "repo": "lobehub/lobehub",
       "reason": "имя пакета «@lobehub/chat» не похоже на имя репозитория «lobehub» — возможно, это другой проект"
+    },
+    {
+      "id": "pypi:torch",
+      "name": "torch",
+      "repo": "pytorch/pytorch",
+      "reason": "имя пакета «torch» не похоже на имя репозитория «pytorch» — возможно, это другой проект"
     },
     {
       "id": "npm:llamaindex",
@@ -144,16 +144,16 @@
       "reason": "имя пакета «github.com/tmc/langchaingo» не похоже на имя репозитория «langchaingo» — возможно, это другой проект"
     },
     {
-      "id": "maven:org.springframework.ai:spring-ai-autoconfigure-model-anthropic",
-      "name": "org.springframework.ai:spring-ai-autoconfigure-model-anthropic",
-      "repo": "spring-projects/spring-ai",
-      "reason": "имя пакета «org.springframework.ai:spring-ai-autoconfigure-model-anthropic» не похоже на имя репозитория «spring-ai» — возможно, это другой проект"
-    },
-    {
       "id": "maven:org.springframework.ai:spring-ai-anthropic",
       "name": "org.springframework.ai:spring-ai-anthropic",
       "repo": "spring-projects/spring-ai",
       "reason": "имя пакета «org.springframework.ai:spring-ai-anthropic» не похоже на имя репозитория «spring-ai» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:org.springframework.ai:spring-ai-autoconfigure-model-anthropic",
+      "name": "org.springframework.ai:spring-ai-autoconfigure-model-anthropic",
+      "repo": "spring-projects/spring-ai",
+      "reason": "имя пакета «org.springframework.ai:spring-ai-autoconfigure-model-anthropic» не похоже на имя репозитория «spring-ai» — возможно, это другой проект"
     },
     {
       "id": "maven:org.springframework.ai:spring-ai-openai",
@@ -264,16 +264,16 @@
       "reason": "имя пакета «37MobileTeam/iChatGPT» не похоже на имя репозитория «ichatgpt» — возможно, это другой проект"
     },
     {
-      "id": "golang:github.com/go-kratos/blades/contrib/openai",
-      "name": "github.com/go-kratos/blades/contrib/openai",
-      "repo": "go-kratos/blades",
-      "reason": "имя пакета «github.com/go-kratos/blades/contrib/openai» не похоже на имя репозитория «blades» — возможно, это другой проект"
-    },
-    {
       "id": "golang:github.com/cloudwego/eino-ext/components/model/ollama",
       "name": "github.com/cloudwego/eino-ext/components/model/ollama",
       "repo": "cloudwego/eino-ext",
       "reason": "имя пакета «github.com/cloudwego/eino-ext/components/model/ollama» не похоже на имя репозитория «eino-ext» — возможно, это другой проект"
+    },
+    {
+      "id": "golang:github.com/go-kratos/blades/contrib/openai",
+      "name": "github.com/go-kratos/blades/contrib/openai",
+      "repo": "go-kratos/blades",
+      "reason": "имя пакета «github.com/go-kratos/blades/contrib/openai» не похоже на имя репозитория «blades» — возможно, это другой проект"
     },
     {
       "id": "swift:sharpai/swiftlm",
@@ -534,12 +534,6 @@
       "reason": "имя пакета «Anonyfox/chatoyant» не похоже на имя репозитория «chatoyant» — возможно, это другой проект"
     },
     {
-      "id": "github:gazolla/groqclientapikotlin",
-      "name": "gazolla/GroqClientApiKotlin",
-      "repo": "gazolla/groqclientapikotlin",
-      "reason": "имя пакета «gazolla/GroqClientApiKotlin» не похоже на имя репозитория «groqclientapikotlin» — возможно, это другой проект"
-    },
-    {
       "id": "github:zjywill/aikitswift",
       "name": "zjywill/aikitswift",
       "repo": "zjywill/aikitswift",
@@ -752,7 +746,7 @@
       "requested": "langchain4j/langchain4j",
       "canonical": "https://github.com/langchain4j/langchain4j",
       "stars": {
-        "recorded": 13292,
+        "recorded": 13302,
         "actual": 13202
       },
       "starsChanged": true,
@@ -775,7 +769,7 @@
       "requested": "spring-projects/spring-ai",
       "canonical": "https://github.com/spring-projects/spring-ai",
       "stars": {
-        "recorded": 9581,
+        "recorded": 9585,
         "actual": 9507
       },
       "starsChanged": true,
