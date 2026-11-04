@@ -1,5 +1,5 @@
 {
-  "enrichedAt": "2026-11-03T12:09:43.545Z",
+  "enrichedAt": "2026-11-04T12:23:08.515Z",
   "github": {
     "queued": 407,
     "fetched": 397,
@@ -15,12 +15,12 @@
       "limit": 5000,
       "used": 82,
       "remaining": 4918,
-      "reset": 1793710434
+      "reset": 1793797496
     },
     "token": true
   },
   "counts": {
-    "total": 440,
+    "total": 448,
     "byEcosystem": {
       "nuget": 42,
       "pypi": 87,
@@ -30,11 +30,11 @@
       "rubygems": 40,
       "crates": 42,
       "maven": 44,
+      "luarocks": 9,
       "packagist": 33,
       "swift": 13,
       "hex": 13,
-      "cran": 12,
-      "luarocks": 1
+      "cran": 12
     },
     "byLanguage": {
       "C#": 42,
@@ -46,26 +46,26 @@
       "Rust": 42,
       "Swift": 22,
       "Java": 45,
+      "Lua": 9,
       "PHP": 33,
       "Kotlin": 3,
       "Elixir": 14,
       "Haskell": 2,
       "R": 12,
       "Clojure": 2,
-      "Lua": 1,
       "Scala": 3,
       "OCaml": 2
     },
     "byProvider": {
-      "openai": 210,
+      "openai": 213,
       "openai-compatible": 59,
-      "anthropic": 139,
+      "anthropic": 138,
       "cohere": 34,
-      "azure-openai": 42,
+      "azure-openai": 41,
       "google-gemini": 74,
       "aws-bedrock": 46,
-      "mistral": 33,
-      "groq": 26,
+      "mistral": 35,
+      "groq": 27,
       "vertex-ai": 13,
       "openrouter": 13,
       "together": 3,
@@ -87,28 +87,28 @@
       "deepinfra": 1
     },
     "byRole": {
-      "sdk": 272,
-      "framework": 70,
-      "support": 50,
+      "sdk": 275,
+      "framework": 72,
+      "support": 52,
       "runtime": 33,
-      "gateway": 15
+      "gateway": 16
     },
     "byKind": {
-      "client": 232,
-      "framework": 52,
-      "official-sdk": 78,
+      "client": 238,
+      "framework": 53,
+      "official-sdk": 77,
       "retrieval": 7,
       "local-runtime": 29,
-      "util": 8,
+      "util": 9,
       "ui": 8,
-      "gateway": 18,
+      "gateway": 19,
       "eval": 7,
       "orchestration": 1
     },
     "byStatus": {
-      "active": 304,
-      "deprecated": 65,
-      "unknown": 59,
+      "active": 307,
+      "deprecated": 67,
+      "unknown": 62,
       "archived": 12
     }
   }

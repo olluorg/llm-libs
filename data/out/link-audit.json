@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-03T12:09:52.809Z",
-  "checked": 440,
+  "generatedAt": "2026-11-04T12:23:17.657Z",
+  "checked": 448,
   "uniqueSlugs": 346,
   "tally": {
-    "none": 42,
+    "none": 50,
     "ok": 397,
     "nonGithub": 1
   },
@@ -114,28 +114,28 @@
       "reason": "имя пакета «dev.langchain4j:langchain4j» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
     },
     {
-      "id": "npm:portkey",
-      "name": "portkey",
-      "repo": "portkey-ai/gateway",
-      "reason": "имя пакета «portkey» не похоже на имя репозитория «gateway» — возможно, это другой проект"
-    },
-    {
       "id": "maven:dev.langchain4j:langchain4j-open-ai",
       "name": "dev.langchain4j:langchain4j-open-ai",
       "repo": "langchain4j/langchain4j",
       "reason": "имя пакета «dev.langchain4j:langchain4j-open-ai» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
     },
     {
-      "id": "golang:github.com/bentoml/openllm",
-      "name": "github.com/bentoml/OpenLLM",
-      "repo": "bentoml/openllm",
-      "reason": "имя пакета «github.com/bentoml/OpenLLM» не похоже на имя репозитория «openllm» — возможно, это другой проект"
+      "id": "npm:portkey",
+      "name": "portkey",
+      "repo": "portkey-ai/gateway",
+      "reason": "имя пакета «portkey» не похоже на имя репозитория «gateway» — возможно, это другой проект"
     },
     {
       "id": "maven:dev.langchain4j:langchain4j-anthropic",
       "name": "dev.langchain4j:langchain4j-anthropic",
       "repo": "langchain4j/langchain4j",
       "reason": "имя пакета «dev.langchain4j:langchain4j-anthropic» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
+    },
+    {
+      "id": "golang:github.com/bentoml/openllm",
+      "name": "github.com/bentoml/OpenLLM",
+      "repo": "bentoml/openllm",
+      "reason": "имя пакета «github.com/bentoml/OpenLLM» не похоже на имя репозитория «openllm» — возможно, это другой проект"
     },
     {
       "id": "golang:github.com/tmc/langchaingo",
@@ -180,16 +180,16 @@
       "reason": "имя пакета «@aws-sdk/client-bedrock-runtime» не похоже на имя репозитория «aws-sdk-js-v3» — возможно, это другой проект"
     },
     {
-      "id": "npm:@langchain/langgraph",
-      "name": "@langchain/langgraph",
-      "repo": "langchain-ai/langgraphjs",
-      "reason": "имя пакета «@langchain/langgraph» не похоже на имя репозитория «langgraphjs» — возможно, это другой проект"
-    },
-    {
       "id": "golang:github.com/openai/openai-go/v3",
       "name": "github.com/openai/openai-go/v3",
       "repo": "openai/openai-go",
       "reason": "имя пакета «github.com/openai/openai-go/v3» не похоже на имя репозитория «openai-go» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:@langchain/langgraph",
+      "name": "@langchain/langgraph",
+      "repo": "langchain-ai/langgraphjs",
+      "reason": "имя пакета «@langchain/langgraph» не похоже на имя репозитория «langgraphjs» — возможно, это другой проект"
     },
     {
       "id": "swift:macpaw/openai",
@@ -276,6 +276,12 @@
       "reason": "имя пакета «github.com/cloudwego/eino-ext/components/model/ollama» не похоже на имя репозитория «eino-ext» — возможно, это другой проект"
     },
     {
+      "id": "swift:sharpai/swiftlm",
+      "name": "SharpAI/SwiftLM",
+      "repo": "sharpai/swiftlm",
+      "reason": "имя пакета «SharpAI/SwiftLM» не похоже на имя репозитория «swiftlm» — возможно, это другой проект"
+    },
+    {
       "id": "golang:github.com/go-kratos/blades/contrib/openai",
       "name": "github.com/go-kratos/blades/contrib/openai",
       "repo": "go-kratos/blades",
@@ -286,12 +292,6 @@
       "name": "mistralai",
       "repo": "mistralai/client-python",
       "reason": "имя пакета «mistralai» не похоже на имя репозитория «client-python» — возможно, это другой проект"
-    },
-    {
-      "id": "swift:sharpai/swiftlm",
-      "name": "SharpAI/SwiftLM",
-      "repo": "sharpai/swiftlm",
-      "reason": "имя пакета «SharpAI/SwiftLM» не похоже на имя репозитория «swiftlm» — возможно, это другой проект"
     },
     {
       "id": "swift:jamesrochabrun/swiftopenai",
@@ -612,12 +612,6 @@
       "reason": "имя пакета «github.com/xraph/nexus/providers/openai» не похоже на имя репозитория «nexus» — возможно, это другой проект"
     },
     {
-      "id": "npm:@marinoscar/platform-ai-providers",
-      "name": "@marinoscar/platform-ai-providers",
-      "repo": "marinoscar/enterpriseappbase",
-      "reason": "имя пакета «@marinoscar/platform-ai-providers» не похоже на имя репозитория «enterpriseappbase» — возможно, это другой проект"
-    },
-    {
       "id": "npm:@warlock.js/ai-groq",
       "name": "@warlock.js/ai-groq",
       "repo": "warlockjs/framework",
@@ -661,14 +655,6 @@
       "id": "nuget:microsoft.semantickernel.connectors.openai",
       "ecosystem": "nuget",
       "name": "Microsoft.SemanticKernel.Connectors.OpenAI",
-      "source": "discovery:nuget",
-      "verdict": "none",
-      "note": "ссылки на репозиторий нет"
-    },
-    {
-      "id": "nuget:rystem.openai",
-      "ecosystem": "nuget",
-      "name": "Rystem.OpenAi",
       "source": "discovery:nuget",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
@@ -778,7 +764,7 @@
       "requested": "langchain4j/langchain4j",
       "canonical": "https://github.com/langchain4j/langchain4j",
       "stars": {
-        "recorded": 13349,
+        "recorded": 13355,
         "actual": 13308
       },
       "starsChanged": true,
@@ -793,7 +779,7 @@
       "requested": "langchain4j/langchain4j",
       "canonical": "https://github.com/langchain4j/langchain4j",
       "stars": {
-        "recorded": 13349,
+        "recorded": 13355,
         "actual": 13308
       },
       "starsChanged": true,
@@ -808,6 +794,14 @@
       "note": "ссылки на репозиторий нет"
     },
     {
+      "id": "luarocks:tiktoken_core",
+      "ecosystem": "luarocks",
+      "name": "tiktoken_core",
+      "source": "discovery:luarocks",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
       "id": "maven:org.springframework.ai:spring-ai-anthropic",
       "ecosystem": "maven",
       "name": "org.springframework.ai:spring-ai-anthropic",
@@ -816,7 +810,7 @@
       "requested": "spring-projects/spring-ai",
       "canonical": "https://github.com/spring-projects/spring-ai",
       "stars": {
-        "recorded": 9616,
+        "recorded": 9621,
         "actual": 9507
       },
       "starsChanged": true,
@@ -827,6 +821,14 @@
       "ecosystem": "pypi",
       "name": "azureopenai",
       "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "luarocks:neoai.nvim",
+      "ecosystem": "luarocks",
+      "name": "neoai.nvim",
+      "source": "discovery:luarocks",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
     },
@@ -878,6 +880,14 @@
       "note": "ссылки на репозиторий нет"
     },
     {
+      "id": "npm:n8n-nodes-groq-chat",
+      "ecosystem": "npm",
+      "name": "n8n-nodes-groq-chat",
+      "source": "discovery:npm",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
       "id": "hex:req_anthropic",
       "ecosystem": "hex",
       "name": "req_anthropic",
@@ -894,7 +904,7 @@
       "requested": "openai/openai-java",
       "canonical": "https://github.com/openai/openai-java",
       "stars": {
-        "recorded": 1561,
+        "recorded": 1563,
         "actual": 1541
       },
       "starsChanged": true,
@@ -941,10 +951,34 @@
       "note": "ссылки на репозиторий нет"
     },
     {
+      "id": "luarocks:ai.nvim",
+      "ecosystem": "luarocks",
+      "name": "ai.nvim",
+      "source": "discovery:luarocks",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
       "id": "hex:llm",
       "ecosystem": "hex",
       "name": "llm",
       "source": "registry:hex,curated:02-frameworks.json",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "luarocks:minuet-ai.nvim",
+      "ecosystem": "luarocks",
+      "name": "minuet-ai.nvim",
+      "source": "discovery:luarocks,curation",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "luarocks:kai.nvim",
+      "ecosystem": "luarocks",
+      "name": "kai.nvim",
+      "source": "discovery:luarocks",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
     },
@@ -1005,10 +1039,34 @@
       "note": "ссылки на репозиторий нет"
     },
     {
+      "id": "luarocks:ug-lua-llm",
+      "ecosystem": "luarocks",
+      "name": "ug-lua-llm",
+      "source": "discovery:luarocks,curation",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "luarocks:lca",
+      "ecosystem": "luarocks",
+      "name": "lca",
+      "source": "discovery:luarocks",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
       "id": "pypi:enthusiast-model-azureopenai",
       "ecosystem": "pypi",
       "name": "enthusiast-model-azureopenai",
       "source": "discovery:pypi",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "luarocks:kong-plugin-ollama-agent-router",
+      "ecosystem": "luarocks",
+      "name": "kong-plugin-ollama-agent-router",
+      "source": "discovery:luarocks,curation",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
     },
