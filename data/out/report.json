@@ -1,5 +1,5 @@
 {
-  "enrichedAt": "2026-11-04T12:23:08.515Z",
+  "enrichedAt": "2026-11-05T12:34:56.995Z",
   "github": {
     "queued": 407,
     "fetched": 397,
@@ -15,18 +15,18 @@
       "limit": 5000,
       "used": 82,
       "remaining": 4918,
-      "reset": 1793797496
+      "reset": 1793884641
     },
     "token": true
   },
   "counts": {
     "total": 448,
     "byEcosystem": {
-      "nuget": 42,
+      "nuget": 43,
       "pypi": 87,
       "golang": 27,
-      "github": 25,
-      "npm": 61,
+      "github": 26,
+      "npm": 59,
       "rubygems": 40,
       "crates": 42,
       "maven": 44,
@@ -37,14 +37,14 @@
       "cran": 12
     },
     "byLanguage": {
-      "C#": 42,
+      "C#": 43,
       "Python": 88,
       "Go": 27,
       "C++": 1,
-      "TypeScript": 61,
+      "TypeScript": 59,
       "Ruby": 40,
       "Rust": 42,
-      "Swift": 22,
+      "Swift": 23,
       "Java": 45,
       "Lua": 9,
       "PHP": 33,
@@ -57,15 +57,15 @@
       "OCaml": 2
     },
     "byProvider": {
-      "openai": 213,
+      "openai": 214,
       "openai-compatible": 59,
       "anthropic": 138,
       "cohere": 34,
       "azure-openai": 41,
-      "google-gemini": 74,
+      "google-gemini": 73,
       "aws-bedrock": 46,
-      "mistral": 35,
-      "groq": 27,
+      "mistral": 34,
+      "groq": 26,
       "vertex-ai": 13,
       "openrouter": 13,
       "together": 3,
@@ -74,7 +74,7 @@
       "deepseek": 10,
       "jina": 2,
       "replicate": 3,
-      "ollama": 35,
+      "ollama": 36,
       "huggingface": 13,
       "nvidia": 7,
       "llamacpp": 7,
@@ -87,15 +87,15 @@
       "deepinfra": 1
     },
     "byRole": {
-      "sdk": 275,
-      "framework": 72,
-      "support": 52,
-      "runtime": 33,
+      "sdk": 276,
+      "framework": 71,
+      "support": 51,
+      "runtime": 34,
       "gateway": 16
     },
     "byKind": {
-      "client": 238,
-      "framework": 53,
+      "client": 239,
+      "framework": 52,
       "official-sdk": 77,
       "retrieval": 7,
       "local-runtime": 29,

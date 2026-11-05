@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-04T12:23:17.657Z",
+  "generatedAt": "2026-11-05T12:35:06.184Z",
   "checked": 448,
-  "uniqueSlugs": 346,
+  "uniqueSlugs": 348,
   "tally": {
     "none": 50,
     "ok": 397,
@@ -216,12 +216,6 @@
       "reason": "имя пакета «@huggingface/inference» не похоже на имя репозитория «huggingface.js» — возможно, это другой проект"
     },
     {
-      "id": "npm:@huggingface/ollama-utils",
-      "name": "@huggingface/ollama-utils",
-      "repo": "huggingface/huggingface.js",
-      "reason": "имя пакета «@huggingface/ollama-utils» не похоже на имя репозитория «huggingface.js» — возможно, это другой проект"
-    },
-    {
       "id": "maven:com.azure:azure-ai-openai",
       "name": "com.azure:azure-ai-openai",
       "repo": "azure/azure-sdk-for-java",
@@ -270,6 +264,12 @@
       "reason": "имя пакета «37MobileTeam/iChatGPT» не похоже на имя репозитория «ichatgpt» — возможно, это другой проект"
     },
     {
+      "id": "golang:github.com/go-kratos/blades/contrib/openai",
+      "name": "github.com/go-kratos/blades/contrib/openai",
+      "repo": "go-kratos/blades",
+      "reason": "имя пакета «github.com/go-kratos/blades/contrib/openai» не похоже на имя репозитория «blades» — возможно, это другой проект"
+    },
+    {
       "id": "golang:github.com/cloudwego/eino-ext/components/model/ollama",
       "name": "github.com/cloudwego/eino-ext/components/model/ollama",
       "repo": "cloudwego/eino-ext",
@@ -280,12 +280,6 @@
       "name": "SharpAI/SwiftLM",
       "repo": "sharpai/swiftlm",
       "reason": "имя пакета «SharpAI/SwiftLM» не похоже на имя репозитория «swiftlm» — возможно, это другой проект"
-    },
-    {
-      "id": "golang:github.com/go-kratos/blades/contrib/openai",
-      "name": "github.com/go-kratos/blades/contrib/openai",
-      "repo": "go-kratos/blades",
-      "reason": "имя пакета «github.com/go-kratos/blades/contrib/openai» не похоже на имя репозитория «blades» — возможно, это другой проект"
     },
     {
       "id": "pypi:mistralai",
@@ -378,16 +372,16 @@
       "reason": "имя пакета «FuturraGroup/OpenAI» не похоже на имя репозитория «openai» — возможно, это другой проект"
     },
     {
-      "id": "swift:picomlx/picoaiproxy",
-      "name": "PicoMLX/PicoAIProxy",
-      "repo": "picomlx/picoaiproxy",
-      "reason": "имя пакета «PicoMLX/PicoAIProxy» не похоже на имя репозитория «picoaiproxy» — возможно, это другой проект"
-    },
-    {
       "id": "nuget:awssdk.bedrockruntime",
       "name": "AWSSDK.BedrockRuntime",
       "repo": "aws/aws-sdk-net",
       "reason": "имя пакета «AWSSDK.BedrockRuntime» не похоже на имя репозитория «aws-sdk-net» — возможно, это другой проект"
+    },
+    {
+      "id": "swift:picomlx/picoaiproxy",
+      "name": "PicoMLX/PicoAIProxy",
+      "repo": "picomlx/picoaiproxy",
+      "reason": "имя пакета «PicoMLX/PicoAIProxy» не похоже на имя репозитория «picoaiproxy» — возможно, это другой проект"
     },
     {
       "id": "golang:github.com/deepnoodle-ai/dive",
@@ -612,6 +606,12 @@
       "reason": "имя пакета «github.com/xraph/nexus/providers/openai» не похоже на имя репозитория «nexus» — возможно, это другой проект"
     },
     {
+      "id": "npm:@pipedog/ollama",
+      "name": "@pipedog/ollama",
+      "repo": "polvallverdu/pipedog",
+      "reason": "имя пакета «@pipedog/ollama» не похоже на имя репозитория «pipedog» — возможно, это другой проект"
+    },
+    {
       "id": "npm:@warlock.js/ai-groq",
       "name": "@warlock.js/ai-groq",
       "repo": "warlockjs/framework",
@@ -655,6 +655,14 @@
       "id": "nuget:microsoft.semantickernel.connectors.openai",
       "ecosystem": "nuget",
       "name": "Microsoft.SemanticKernel.Connectors.OpenAI",
+      "source": "discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "nuget:rystem.openai",
+      "ecosystem": "nuget",
+      "name": "Rystem.OpenAi",
       "source": "discovery:nuget",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
@@ -732,18 +740,18 @@
       "note": "ссылки на репозиторий нет"
     },
     {
-      "id": "nuget:devexpress.aiintegration.openai",
-      "ecosystem": "nuget",
-      "name": "DevExpress.AIIntegration.OpenAI",
-      "source": "discovery:nuget",
-      "verdict": "none",
-      "note": "ссылки на репозиторий нет"
-    },
-    {
       "id": "rubygems:openai_101",
       "ecosystem": "rubygems",
       "name": "openai_101",
       "source": "discovery:rubygems",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "nuget:devexpress.aiintegration.openai",
+      "ecosystem": "nuget",
+      "name": "DevExpress.AIIntegration.OpenAI",
+      "source": "discovery:nuget",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
     },
@@ -764,7 +772,7 @@
       "requested": "langchain4j/langchain4j",
       "canonical": "https://github.com/langchain4j/langchain4j",
       "stars": {
-        "recorded": 13355,
+        "recorded": 13360,
         "actual": 13308
       },
       "starsChanged": true,
@@ -779,7 +787,7 @@
       "requested": "langchain4j/langchain4j",
       "canonical": "https://github.com/langchain4j/langchain4j",
       "stars": {
-        "recorded": 13355,
+        "recorded": 13360,
         "actual": 13308
       },
       "starsChanged": true,
@@ -810,7 +818,7 @@
       "requested": "spring-projects/spring-ai",
       "canonical": "https://github.com/spring-projects/spring-ai",
       "stars": {
-        "recorded": 9621,
+        "recorded": 9622,
         "actual": 9507
       },
       "starsChanged": true,
@@ -829,6 +837,14 @@
       "ecosystem": "luarocks",
       "name": "neoai.nvim",
       "source": "discovery:luarocks",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "nuget:webority.ai.anthropic",
+      "ecosystem": "nuget",
+      "name": "Webority.Ai.Anthropic",
+      "source": "discovery:nuget",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
     },
@@ -856,14 +872,6 @@
       "note": "ссылки на репозиторий нет"
     },
     {
-      "id": "nuget:webority.ai.anthropic",
-      "ecosystem": "nuget",
-      "name": "Webority.Ai.Anthropic",
-      "source": "discovery:nuget",
-      "verdict": "none",
-      "note": "ссылки на репозиторий нет"
-    },
-    {
       "id": "crates:huggingface",
       "ecosystem": "crates",
       "name": "huggingface",
@@ -876,14 +884,6 @@
       "ecosystem": "crates",
       "name": "mistralai",
       "source": "registry:crates,curated:03-community-clients.json,discovery:crates,curation",
-      "verdict": "none",
-      "note": "ссылки на репозиторий нет"
-    },
-    {
-      "id": "npm:n8n-nodes-groq-chat",
-      "ecosystem": "npm",
-      "name": "n8n-nodes-groq-chat",
-      "source": "discovery:npm",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
     },
