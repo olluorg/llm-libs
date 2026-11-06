@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-05T12:35:06.184Z",
-  "checked": 448,
-  "uniqueSlugs": 348,
+  "generatedAt": "2026-11-06T12:19:56.642Z",
+  "checked": 449,
+  "uniqueSlugs": 346,
   "tally": {
-    "none": 50,
+    "none": 51,
     "ok": 397,
     "nonGithub": 1
   },
@@ -114,12 +114,6 @@
       "reason": "имя пакета «dev.langchain4j:langchain4j» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
     },
     {
-      "id": "maven:dev.langchain4j:langchain4j-open-ai",
-      "name": "dev.langchain4j:langchain4j-open-ai",
-      "repo": "langchain4j/langchain4j",
-      "reason": "имя пакета «dev.langchain4j:langchain4j-open-ai» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
-    },
-    {
       "id": "npm:portkey",
       "name": "portkey",
       "repo": "portkey-ai/gateway",
@@ -132,22 +126,28 @@
       "reason": "имя пакета «dev.langchain4j:langchain4j-anthropic» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
     },
     {
+      "id": "maven:dev.langchain4j:langchain4j-open-ai",
+      "name": "dev.langchain4j:langchain4j-open-ai",
+      "repo": "langchain4j/langchain4j",
+      "reason": "имя пакета «dev.langchain4j:langchain4j-open-ai» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
+    },
+    {
       "id": "golang:github.com/bentoml/openllm",
       "name": "github.com/bentoml/OpenLLM",
       "repo": "bentoml/openllm",
       "reason": "имя пакета «github.com/bentoml/OpenLLM» не похоже на имя репозитория «openllm» — возможно, это другой проект"
     },
     {
-      "id": "golang:github.com/tmc/langchaingo",
-      "name": "github.com/tmc/langchaingo",
-      "repo": "tmc/langchaingo",
-      "reason": "имя пакета «github.com/tmc/langchaingo» не похоже на имя репозитория «langchaingo» — возможно, это другой проект"
-    },
-    {
       "id": "maven:org.springframework.ai:spring-ai-anthropic",
       "name": "org.springframework.ai:spring-ai-anthropic",
       "repo": "spring-projects/spring-ai",
       "reason": "имя пакета «org.springframework.ai:spring-ai-anthropic» не похоже на имя репозитория «spring-ai» — возможно, это другой проект"
+    },
+    {
+      "id": "golang:github.com/tmc/langchaingo",
+      "name": "github.com/tmc/langchaingo",
+      "repo": "tmc/langchaingo",
+      "reason": "имя пакета «github.com/tmc/langchaingo» не похоже на имя репозитория «langchaingo» — возможно, это другой проект"
     },
     {
       "id": "maven:org.springframework.ai:spring-ai-autoconfigure-model-anthropic",
@@ -216,6 +216,12 @@
       "reason": "имя пакета «@huggingface/inference» не похоже на имя репозитория «huggingface.js» — возможно, это другой проект"
     },
     {
+      "id": "npm:@huggingface/ollama-utils",
+      "name": "@huggingface/ollama-utils",
+      "repo": "huggingface/huggingface.js",
+      "reason": "имя пакета «@huggingface/ollama-utils» не похоже на имя репозитория «huggingface.js» — возможно, это другой проект"
+    },
+    {
       "id": "maven:com.azure:azure-ai-openai",
       "name": "com.azure:azure-ai-openai",
       "repo": "azure/azure-sdk-for-java",
@@ -264,12 +270,6 @@
       "reason": "имя пакета «37MobileTeam/iChatGPT» не похоже на имя репозитория «ichatgpt» — возможно, это другой проект"
     },
     {
-      "id": "golang:github.com/go-kratos/blades/contrib/openai",
-      "name": "github.com/go-kratos/blades/contrib/openai",
-      "repo": "go-kratos/blades",
-      "reason": "имя пакета «github.com/go-kratos/blades/contrib/openai» не похоже на имя репозитория «blades» — возможно, это другой проект"
-    },
-    {
       "id": "golang:github.com/cloudwego/eino-ext/components/model/ollama",
       "name": "github.com/cloudwego/eino-ext/components/model/ollama",
       "repo": "cloudwego/eino-ext",
@@ -286,6 +286,12 @@
       "name": "mistralai",
       "repo": "mistralai/client-python",
       "reason": "имя пакета «mistralai» не похоже на имя репозитория «client-python» — возможно, это другой проект"
+    },
+    {
+      "id": "golang:github.com/go-kratos/blades/contrib/openai",
+      "name": "github.com/go-kratos/blades/contrib/openai",
+      "repo": "go-kratos/blades",
+      "reason": "имя пакета «github.com/go-kratos/blades/contrib/openai» не похоже на имя репозитория «blades» — возможно, это другой проект"
     },
     {
       "id": "swift:jamesrochabrun/swiftopenai",
@@ -366,16 +372,16 @@
       "reason": "имя пакета «@mistralai/mistralai» не похоже на имя репозитория «client-ts» — возможно, это другой проект"
     },
     {
-      "id": "swift:futurragroup/openai",
-      "name": "FuturraGroup/OpenAI",
-      "repo": "futurragroup/openai",
-      "reason": "имя пакета «FuturraGroup/OpenAI» не похоже на имя репозитория «openai» — возможно, это другой проект"
-    },
-    {
       "id": "nuget:awssdk.bedrockruntime",
       "name": "AWSSDK.BedrockRuntime",
       "repo": "aws/aws-sdk-net",
       "reason": "имя пакета «AWSSDK.BedrockRuntime» не похоже на имя репозитория «aws-sdk-net» — возможно, это другой проект"
+    },
+    {
+      "id": "swift:futurragroup/openai",
+      "name": "FuturraGroup/OpenAI",
+      "repo": "futurragroup/openai",
+      "reason": "имя пакета «FuturraGroup/OpenAI» не похоже на имя репозитория «openai» — возможно, это другой проект"
     },
     {
       "id": "swift:picomlx/picoaiproxy",
@@ -606,12 +612,6 @@
       "reason": "имя пакета «github.com/xraph/nexus/providers/openai» не похоже на имя репозитория «nexus» — возможно, это другой проект"
     },
     {
-      "id": "npm:@pipedog/ollama",
-      "name": "@pipedog/ollama",
-      "repo": "polvallverdu/pipedog",
-      "reason": "имя пакета «@pipedog/ollama» не похоже на имя репозитория «pipedog» — возможно, это другой проект"
-    },
-    {
       "id": "npm:@warlock.js/ai-groq",
       "name": "@warlock.js/ai-groq",
       "repo": "warlockjs/framework",
@@ -672,6 +672,14 @@
       "ecosystem": "nuget",
       "name": "Anthropic",
       "source": "registry:nuget,curated:01-official-sdks.json,discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "nuget:microsoft.agents.ai.openai",
+      "ecosystem": "nuget",
+      "name": "Microsoft.Agents.AI.OpenAI",
+      "source": "discovery:nuget",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
     },
@@ -772,7 +780,7 @@
       "requested": "langchain4j/langchain4j",
       "canonical": "https://github.com/langchain4j/langchain4j",
       "stars": {
-        "recorded": 13360,
+        "recorded": 13364,
         "actual": 13308
       },
       "starsChanged": true,
@@ -787,7 +795,7 @@
       "requested": "langchain4j/langchain4j",
       "canonical": "https://github.com/langchain4j/langchain4j",
       "stars": {
-        "recorded": 13360,
+        "recorded": 13364,
         "actual": 13308
       },
       "starsChanged": true,
@@ -818,7 +826,7 @@
       "requested": "spring-projects/spring-ai",
       "canonical": "https://github.com/spring-projects/spring-ai",
       "stars": {
-        "recorded": 9622,
+        "recorded": 9624,
         "actual": 9507
       },
       "starsChanged": true,
@@ -858,7 +866,7 @@
       "canonical": "https://github.com/TheoKanning/openai-java",
       "stars": {
         "recorded": 4713,
-        "actual": 4712
+        "actual": 4710
       },
       "starsChanged": true,
       "note": "ссылка жива и указывает на корень репозитория"
@@ -904,7 +912,7 @@
       "requested": "openai/openai-java",
       "canonical": "https://github.com/openai/openai-java",
       "stars": {
-        "recorded": 1563,
+        "recorded": 1562,
         "actual": 1541
       },
       "starsChanged": true,

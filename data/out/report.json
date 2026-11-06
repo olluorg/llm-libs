@@ -1,5 +1,5 @@
 {
-  "enrichedAt": "2026-11-05T12:34:56.995Z",
+  "enrichedAt": "2026-11-06T12:19:47.499Z",
   "github": {
     "queued": 407,
     "fetched": 397,
@@ -15,18 +15,18 @@
       "limit": 5000,
       "used": 82,
       "remaining": 4918,
-      "reset": 1793884641
+      "reset": 1793970250
     },
     "token": true
   },
   "counts": {
-    "total": 448,
+    "total": 449,
     "byEcosystem": {
       "nuget": 43,
       "pypi": 87,
       "golang": 27,
       "github": 26,
-      "npm": 59,
+      "npm": 60,
       "rubygems": 40,
       "crates": 42,
       "maven": 44,
@@ -41,7 +41,7 @@
       "Python": 88,
       "Go": 27,
       "C++": 1,
-      "TypeScript": 59,
+      "TypeScript": 60,
       "Ruby": 40,
       "Rust": 42,
       "Swift": 23,
@@ -57,14 +57,14 @@
       "OCaml": 2
     },
     "byProvider": {
-      "openai": 214,
-      "openai-compatible": 59,
+      "openai": 216,
+      "openai-compatible": 60,
       "anthropic": 138,
       "cohere": 34,
       "azure-openai": 41,
       "google-gemini": 73,
       "aws-bedrock": 46,
-      "mistral": 34,
+      "mistral": 33,
       "groq": 26,
       "vertex-ai": 13,
       "openrouter": 13,
@@ -74,7 +74,7 @@
       "deepseek": 10,
       "jina": 2,
       "replicate": 3,
-      "ollama": 36,
+      "ollama": 35,
       "huggingface": 13,
       "nvidia": 7,
       "llamacpp": 7,
@@ -87,14 +87,14 @@
       "deepinfra": 1
     },
     "byRole": {
-      "sdk": 276,
+      "sdk": 277,
       "framework": 71,
-      "support": 51,
-      "runtime": 34,
+      "support": 52,
+      "runtime": 33,
       "gateway": 16
     },
     "byKind": {
-      "client": 239,
+      "client": 240,
       "framework": 52,
       "official-sdk": 77,
       "retrieval": 7,
@@ -108,7 +108,7 @@
     "byStatus": {
       "active": 307,
       "deprecated": 67,
-      "unknown": 62,
+      "unknown": 63,
       "archived": 12
     }
   }
