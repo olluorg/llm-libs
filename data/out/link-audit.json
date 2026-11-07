@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-06T12:19:56.642Z",
-  "checked": 449,
-  "uniqueSlugs": 346,
+  "generatedAt": "2026-11-07T11:20:35.607Z",
+  "checked": 450,
+  "uniqueSlugs": 348,
   "tally": {
-    "none": 51,
-    "ok": 397,
+    "none": 50,
+    "ok": 399,
     "nonGithub": 1
   },
   "descriptions": {
@@ -54,16 +54,16 @@
       "reason": "имя пакета «phidata» не похоже на имя репозитория «agno» — возможно, это другой проект"
     },
     {
-      "id": "pypi:chromadb",
-      "name": "chromadb",
-      "repo": "chroma-core/chroma",
-      "reason": "имя пакета «chromadb» не похоже на имя репозитория «chroma» — возможно, это другой проект"
-    },
-    {
       "id": "nuget:microsoft.semantickernel",
       "name": "Microsoft.SemanticKernel",
       "repo": "microsoft/semantic-kernel",
       "reason": "имя пакета «Microsoft.SemanticKernel» не похоже на имя репозитория «semantic-kernel» — возможно, это другой проект"
+    },
+    {
+      "id": "pypi:chromadb",
+      "name": "chromadb",
+      "repo": "chroma-core/chroma",
+      "reason": "имя пакета «chromadb» не похоже на имя репозитория «chroma» — возможно, это другой проект"
     },
     {
       "id": "github:steipete/codexbar",
@@ -78,16 +78,16 @@
       "reason": "имя пакета «openai/evals» не похоже на имя репозитория «evals» — возможно, это другой проект"
     },
     {
-      "id": "npm:@langchain/anthropic",
-      "name": "@langchain/anthropic",
-      "repo": "langchain-ai/langchainjs",
-      "reason": "имя пакета «@langchain/anthropic» не похоже на имя репозитория «langchainjs» — возможно, это другой проект"
-    },
-    {
       "id": "npm:@langchain/core",
       "name": "@langchain/core",
       "repo": "langchain-ai/langchainjs",
       "reason": "имя пакета «@langchain/core» не похоже на имя репозитория «langchainjs» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:@langchain/anthropic",
+      "name": "@langchain/anthropic",
+      "repo": "langchain-ai/langchainjs",
+      "reason": "имя пакета «@langchain/anthropic» не похоже на имя репозитория «langchainjs» — возможно, это другой проект"
     },
     {
       "id": "npm:@langchain/openai",
@@ -114,6 +114,12 @@
       "reason": "имя пакета «dev.langchain4j:langchain4j» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
     },
     {
+      "id": "maven:dev.langchain4j:langchain4j-open-ai",
+      "name": "dev.langchain4j:langchain4j-open-ai",
+      "repo": "langchain4j/langchain4j",
+      "reason": "имя пакета «dev.langchain4j:langchain4j-open-ai» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
+    },
+    {
       "id": "npm:portkey",
       "name": "portkey",
       "repo": "portkey-ai/gateway",
@@ -124,12 +130,6 @@
       "name": "dev.langchain4j:langchain4j-anthropic",
       "repo": "langchain4j/langchain4j",
       "reason": "имя пакета «dev.langchain4j:langchain4j-anthropic» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
-    },
-    {
-      "id": "maven:dev.langchain4j:langchain4j-open-ai",
-      "name": "dev.langchain4j:langchain4j-open-ai",
-      "repo": "langchain4j/langchain4j",
-      "reason": "имя пакета «dev.langchain4j:langchain4j-open-ai» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
     },
     {
       "id": "golang:github.com/bentoml/openllm",
@@ -276,6 +276,12 @@
       "reason": "имя пакета «github.com/cloudwego/eino-ext/components/model/ollama» не похоже на имя репозитория «eino-ext» — возможно, это другой проект"
     },
     {
+      "id": "golang:github.com/go-kratos/blades/contrib/openai",
+      "name": "github.com/go-kratos/blades/contrib/openai",
+      "repo": "go-kratos/blades",
+      "reason": "имя пакета «github.com/go-kratos/blades/contrib/openai» не похоже на имя репозитория «blades» — возможно, это другой проект"
+    },
+    {
       "id": "swift:sharpai/swiftlm",
       "name": "SharpAI/SwiftLM",
       "repo": "sharpai/swiftlm",
@@ -286,12 +292,6 @@
       "name": "mistralai",
       "repo": "mistralai/client-python",
       "reason": "имя пакета «mistralai» не похоже на имя репозитория «client-python» — возможно, это другой проект"
-    },
-    {
-      "id": "golang:github.com/go-kratos/blades/contrib/openai",
-      "name": "github.com/go-kratos/blades/contrib/openai",
-      "repo": "go-kratos/blades",
-      "reason": "имя пакета «github.com/go-kratos/blades/contrib/openai» не похоже на имя репозитория «blades» — возможно, это другой проект"
     },
     {
       "id": "swift:jamesrochabrun/swiftopenai",
@@ -372,16 +372,16 @@
       "reason": "имя пакета «@mistralai/mistralai» не похоже на имя репозитория «client-ts» — возможно, это другой проект"
     },
     {
-      "id": "nuget:awssdk.bedrockruntime",
-      "name": "AWSSDK.BedrockRuntime",
-      "repo": "aws/aws-sdk-net",
-      "reason": "имя пакета «AWSSDK.BedrockRuntime» не похоже на имя репозитория «aws-sdk-net» — возможно, это другой проект"
-    },
-    {
       "id": "swift:futurragroup/openai",
       "name": "FuturraGroup/OpenAI",
       "repo": "futurragroup/openai",
       "reason": "имя пакета «FuturraGroup/OpenAI» не похоже на имя репозитория «openai» — возможно, это другой проект"
+    },
+    {
+      "id": "nuget:awssdk.bedrockruntime",
+      "name": "AWSSDK.BedrockRuntime",
+      "repo": "aws/aws-sdk-net",
+      "reason": "имя пакета «AWSSDK.BedrockRuntime» не похоже на имя репозитория «aws-sdk-net» — возможно, это другой проект"
     },
     {
       "id": "swift:picomlx/picoaiproxy",
@@ -676,14 +676,6 @@
       "note": "ссылки на репозиторий нет"
     },
     {
-      "id": "nuget:microsoft.agents.ai.openai",
-      "ecosystem": "nuget",
-      "name": "Microsoft.Agents.AI.OpenAI",
-      "source": "discovery:nuget",
-      "verdict": "none",
-      "note": "ссылки на репозиторий нет"
-    },
-    {
       "id": "pypi:pinecone-client",
       "ecosystem": "pypi",
       "name": "pinecone-client",
@@ -780,7 +772,7 @@
       "requested": "langchain4j/langchain4j",
       "canonical": "https://github.com/langchain4j/langchain4j",
       "stars": {
-        "recorded": 13364,
+        "recorded": 13368,
         "actual": 13308
       },
       "starsChanged": true,
@@ -795,7 +787,7 @@
       "requested": "langchain4j/langchain4j",
       "canonical": "https://github.com/langchain4j/langchain4j",
       "stars": {
-        "recorded": 13364,
+        "recorded": 13368,
         "actual": 13308
       },
       "starsChanged": true,
@@ -857,6 +849,14 @@
       "note": "ссылки на репозиторий нет"
     },
     {
+      "id": "npm:@claude-flow/embeddings",
+      "ecosystem": "npm",
+      "name": "@claude-flow/embeddings",
+      "source": "discovery:npm",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
       "id": "maven:com.theokanning.openai-gpt3-java:client",
       "ecosystem": "maven",
       "name": "com.theokanning.openai-gpt3-java:client",
@@ -866,18 +866,10 @@
       "canonical": "https://github.com/TheoKanning/openai-java",
       "stars": {
         "recorded": 4713,
-        "actual": 4710
+        "actual": 4709
       },
       "starsChanged": true,
       "note": "ссылка жива и указывает на корень репозитория"
-    },
-    {
-      "id": "npm:@claude-flow/embeddings",
-      "ecosystem": "npm",
-      "name": "@claude-flow/embeddings",
-      "source": "discovery:npm",
-      "verdict": "none",
-      "note": "ссылки на репозиторий нет"
     },
     {
       "id": "crates:huggingface",
@@ -912,7 +904,7 @@
       "requested": "openai/openai-java",
       "canonical": "https://github.com/openai/openai-java",
       "stars": {
-        "recorded": 1562,
+        "recorded": 1563,
         "actual": 1541
       },
       "starsChanged": true,
