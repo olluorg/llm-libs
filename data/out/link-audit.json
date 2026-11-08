@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-07T11:20:35.607Z",
+  "generatedAt": "2026-11-08T11:34:47.826Z",
   "checked": 450,
-  "uniqueSlugs": 348,
+  "uniqueSlugs": 349,
   "tally": {
-    "none": 50,
-    "ok": 399,
+    "none": 51,
+    "ok": 398,
     "nonGithub": 1
   },
   "descriptions": {
@@ -54,16 +54,16 @@
       "reason": "имя пакета «phidata» не похоже на имя репозитория «agno» — возможно, это другой проект"
     },
     {
-      "id": "nuget:microsoft.semantickernel",
-      "name": "Microsoft.SemanticKernel",
-      "repo": "microsoft/semantic-kernel",
-      "reason": "имя пакета «Microsoft.SemanticKernel» не похоже на имя репозитория «semantic-kernel» — возможно, это другой проект"
-    },
-    {
       "id": "pypi:chromadb",
       "name": "chromadb",
       "repo": "chroma-core/chroma",
       "reason": "имя пакета «chromadb» не похоже на имя репозитория «chroma» — возможно, это другой проект"
+    },
+    {
+      "id": "nuget:microsoft.semantickernel",
+      "name": "Microsoft.SemanticKernel",
+      "repo": "microsoft/semantic-kernel",
+      "reason": "имя пакета «Microsoft.SemanticKernel» не похоже на имя репозитория «semantic-kernel» — возможно, это другой проект"
     },
     {
       "id": "github:steipete/codexbar",
@@ -78,16 +78,16 @@
       "reason": "имя пакета «openai/evals» не похоже на имя репозитория «evals» — возможно, это другой проект"
     },
     {
-      "id": "npm:@langchain/core",
-      "name": "@langchain/core",
-      "repo": "langchain-ai/langchainjs",
-      "reason": "имя пакета «@langchain/core» не похоже на имя репозитория «langchainjs» — возможно, это другой проект"
-    },
-    {
       "id": "npm:@langchain/anthropic",
       "name": "@langchain/anthropic",
       "repo": "langchain-ai/langchainjs",
       "reason": "имя пакета «@langchain/anthropic» не похоже на имя репозитория «langchainjs» — возможно, это другой проект"
+    },
+    {
+      "id": "npm:@langchain/core",
+      "name": "@langchain/core",
+      "repo": "langchain-ai/langchainjs",
+      "reason": "имя пакета «@langchain/core» не похоже на имя репозитория «langchainjs» — возможно, это другой проект"
     },
     {
       "id": "npm:@langchain/openai",
@@ -108,16 +108,16 @@
       "reason": "имя пакета «tisfeng/Easydict» не похоже на имя репозитория «easydict» — возможно, это другой проект"
     },
     {
-      "id": "maven:dev.langchain4j:langchain4j",
-      "name": "dev.langchain4j:langchain4j",
-      "repo": "langchain4j/langchain4j",
-      "reason": "имя пакета «dev.langchain4j:langchain4j» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
-    },
-    {
       "id": "maven:dev.langchain4j:langchain4j-open-ai",
       "name": "dev.langchain4j:langchain4j-open-ai",
       "repo": "langchain4j/langchain4j",
       "reason": "имя пакета «dev.langchain4j:langchain4j-open-ai» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:dev.langchain4j:langchain4j",
+      "name": "dev.langchain4j:langchain4j",
+      "repo": "langchain4j/langchain4j",
+      "reason": "имя пакета «dev.langchain4j:langchain4j» не похоже на имя репозитория «langchain4j» — возможно, это другой проект"
     },
     {
       "id": "npm:portkey",
@@ -138,28 +138,28 @@
       "reason": "имя пакета «github.com/bentoml/OpenLLM» не похоже на имя репозитория «openllm» — возможно, это другой проект"
     },
     {
-      "id": "maven:org.springframework.ai:spring-ai-anthropic",
-      "name": "org.springframework.ai:spring-ai-anthropic",
-      "repo": "spring-projects/spring-ai",
-      "reason": "имя пакета «org.springframework.ai:spring-ai-anthropic» не похоже на имя репозитория «spring-ai» — возможно, это другой проект"
-    },
-    {
       "id": "golang:github.com/tmc/langchaingo",
       "name": "github.com/tmc/langchaingo",
       "repo": "tmc/langchaingo",
       "reason": "имя пакета «github.com/tmc/langchaingo» не похоже на имя репозитория «langchaingo» — возможно, это другой проект"
     },
     {
-      "id": "maven:org.springframework.ai:spring-ai-autoconfigure-model-anthropic",
-      "name": "org.springframework.ai:spring-ai-autoconfigure-model-anthropic",
+      "id": "maven:org.springframework.ai:spring-ai-anthropic",
+      "name": "org.springframework.ai:spring-ai-anthropic",
       "repo": "spring-projects/spring-ai",
-      "reason": "имя пакета «org.springframework.ai:spring-ai-autoconfigure-model-anthropic» не похоже на имя репозитория «spring-ai» — возможно, это другой проект"
+      "reason": "имя пакета «org.springframework.ai:spring-ai-anthropic» не похоже на имя репозитория «spring-ai» — возможно, это другой проект"
     },
     {
       "id": "maven:org.springframework.ai:spring-ai-openai",
       "name": "org.springframework.ai:spring-ai-openai",
       "repo": "spring-projects/spring-ai",
       "reason": "имя пакета «org.springframework.ai:spring-ai-openai» не похоже на имя репозитория «spring-ai» — возможно, это другой проект"
+    },
+    {
+      "id": "maven:org.springframework.ai:spring-ai-autoconfigure-model-anthropic",
+      "name": "org.springframework.ai:spring-ai-autoconfigure-model-anthropic",
+      "repo": "spring-projects/spring-ai",
+      "reason": "имя пакета «org.springframework.ai:spring-ai-autoconfigure-model-anthropic» не похоже на имя репозитория «spring-ai» — возможно, это другой проект"
     },
     {
       "id": "github:arthur-ficial/apfel",
@@ -204,28 +204,16 @@
       "reason": "имя пакета «software.amazon.awssdk:bedrockruntime» не похоже на имя репозитория «aws-sdk-java-v2» — возможно, это другой проект"
     },
     {
-      "id": "npm:@huggingface/gguf",
-      "name": "@huggingface/gguf",
-      "repo": "huggingface/huggingface.js",
-      "reason": "имя пакета «@huggingface/gguf» не похоже на имя репозитория «huggingface.js» — возможно, это другой проект"
-    },
-    {
-      "id": "npm:@huggingface/inference",
-      "name": "@huggingface/inference",
-      "repo": "huggingface/huggingface.js",
-      "reason": "имя пакета «@huggingface/inference» не похоже на имя репозитория «huggingface.js» — возможно, это другой проект"
+      "id": "maven:com.azure:azure-ai-openai",
+      "name": "com.azure:azure-ai-openai",
+      "repo": "azure/azure-sdk-for-java",
+      "reason": "имя пакета «com.azure:azure-ai-openai» не похоже на имя репозитория «azure-sdk-for-java» — возможно, это другой проект"
     },
     {
       "id": "npm:@huggingface/ollama-utils",
       "name": "@huggingface/ollama-utils",
       "repo": "huggingface/huggingface.js",
       "reason": "имя пакета «@huggingface/ollama-utils» не похоже на имя репозитория «huggingface.js» — возможно, это другой проект"
-    },
-    {
-      "id": "maven:com.azure:azure-ai-openai",
-      "name": "com.azure:azure-ai-openai",
-      "repo": "azure/azure-sdk-for-java",
-      "reason": "имя пакета «com.azure:azure-ai-openai» не похоже на имя репозитория «azure-sdk-for-java» — возможно, это другой проект"
     },
     {
       "id": "maven:com.azure:azure-ai-openai-assistants",
@@ -618,6 +606,12 @@
       "reason": "имя пакета «@warlock.js/ai-groq» не похоже на имя репозитория «framework» — возможно, это другой проект"
     },
     {
+      "id": "maven:cc.unitmesh:openai",
+      "name": "cc.unitmesh:openai",
+      "repo": "unit-mesh/choco-builder",
+      "reason": "имя пакета «cc.unitmesh:openai» не похоже на имя репозитория «choco-builder» — возможно, это другой проект"
+    },
+    {
       "id": "packagist:sdkfabric/openai",
       "name": "sdkfabric/openai",
       "repo": "sdk-fabric/openai-php",
@@ -628,12 +622,6 @@
       "name": "groq-gemini-bridge",
       "repo": "kingprince35/chatbot_library",
       "reason": "имя пакета «groq-gemini-bridge» не похоже на имя репозитория «chatbot_library» — возможно, это другой проект"
-    },
-    {
-      "id": "maven:cc.unitmesh:openai",
-      "name": "cc.unitmesh:openai",
-      "repo": "unit-mesh/choco-builder",
-      "reason": "имя пакета «cc.unitmesh:openai» не похоже на имя репозитория «choco-builder» — возможно, это другой проект"
     },
     {
       "id": "nuget:managedcode.llmtck.cohere",
@@ -764,21 +752,6 @@
       "note": "ссылки на репозиторий нет"
     },
     {
-      "id": "maven:dev.langchain4j:langchain4j",
-      "ecosystem": "maven",
-      "name": "dev.langchain4j:langchain4j",
-      "source": "registry:maven,curated:02-frameworks.json",
-      "verdict": "ok",
-      "requested": "langchain4j/langchain4j",
-      "canonical": "https://github.com/langchain4j/langchain4j",
-      "stars": {
-        "recorded": 13368,
-        "actual": 13308
-      },
-      "starsChanged": true,
-      "note": "ссылка жива и указывает на корень репозитория"
-    },
-    {
       "id": "maven:dev.langchain4j:langchain4j-open-ai",
       "ecosystem": "maven",
       "name": "dev.langchain4j:langchain4j-open-ai",
@@ -787,7 +760,22 @@
       "requested": "langchain4j/langchain4j",
       "canonical": "https://github.com/langchain4j/langchain4j",
       "stars": {
-        "recorded": 13368,
+        "recorded": 13371,
+        "actual": 13308
+      },
+      "starsChanged": true,
+      "note": "ссылка жива и указывает на корень репозитория"
+    },
+    {
+      "id": "maven:dev.langchain4j:langchain4j",
+      "ecosystem": "maven",
+      "name": "dev.langchain4j:langchain4j",
+      "source": "registry:maven,curated:02-frameworks.json",
+      "verdict": "ok",
+      "requested": "langchain4j/langchain4j",
+      "canonical": "https://github.com/langchain4j/langchain4j",
+      "stars": {
+        "recorded": 13371,
         "actual": 13308
       },
       "starsChanged": true,
@@ -818,7 +806,7 @@
       "requested": "spring-projects/spring-ai",
       "canonical": "https://github.com/spring-projects/spring-ai",
       "stars": {
-        "recorded": 9624,
+        "recorded": 9623,
         "actual": 9507
       },
       "starsChanged": true,
@@ -833,18 +821,18 @@
       "note": "ссылки на репозиторий нет"
     },
     {
-      "id": "luarocks:neoai.nvim",
-      "ecosystem": "luarocks",
-      "name": "neoai.nvim",
-      "source": "discovery:luarocks",
-      "verdict": "none",
-      "note": "ссылки на репозиторий нет"
-    },
-    {
       "id": "nuget:webority.ai.anthropic",
       "ecosystem": "nuget",
       "name": "Webority.Ai.Anthropic",
       "source": "discovery:nuget",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "luarocks:neoai.nvim",
+      "ecosystem": "luarocks",
+      "name": "neoai.nvim",
+      "source": "discovery:luarocks",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
     },
@@ -904,7 +892,7 @@
       "requested": "openai/openai-java",
       "canonical": "https://github.com/openai/openai-java",
       "stars": {
-        "recorded": 1563,
+        "recorded": 1565,
         "actual": 1541
       },
       "starsChanged": true,
@@ -963,6 +951,14 @@
       "ecosystem": "hex",
       "name": "llm",
       "source": "registry:hex,curated:02-frameworks.json",
+      "verdict": "none",
+      "note": "ссылки на репозиторий нет"
+    },
+    {
+      "id": "npm:@leanroute/vercel-ai-sdk",
+      "ecosystem": "npm",
+      "name": "@leanroute/vercel-ai-sdk",
+      "source": "discovery:npm,curation",
       "verdict": "none",
       "note": "ссылки на репозиторий нет"
     },
